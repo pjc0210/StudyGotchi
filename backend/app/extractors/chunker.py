@@ -13,7 +13,7 @@ TARGET_TOKENS_MAX = 900
 OVERLAP_RATIO = 0.12
 
 _QUESTION_BOUNDARY_RE = re.compile(
-    r"(?m)^\s*(?:Q(?:uestion)?\.?\s*\d+[a-zA-Z]?|Problem\s*\d+[a-zA-Z]?)\s*[\.\):]"
+    r"(?m)^\s*(?:Q(?:uestion)?\.?\s*\d+[a-zA-Z]?|Problem\s*\d+[a-zA-Z]?|\d{1,2}[a-zA-Z]?)\s*[\.\):]"
 )
 
 

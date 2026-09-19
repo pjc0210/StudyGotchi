@@ -76,7 +76,7 @@ async def seed() -> tuple[UUID, UUID, dict[str, UUID]]:
             "Kernel Functions",
             "Kernel Regression",
         ]
-        for source_name, target_name in zip(backbone, backbone[1:], strict=True):
+        for source_name, target_name in zip(backbone, backbone[1:], strict=False):  # pairwise, intentionally unequal length
             await upsert_concept_edge(
                 session,
                 course_id=course_id,
