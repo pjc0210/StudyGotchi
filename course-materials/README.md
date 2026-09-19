@@ -1,6 +1,6 @@
 # Course materials
 
-These are some of my classe
+These are some of my classes
 
 | Course | Archive | Contents |
 | --- | --- | --- |
