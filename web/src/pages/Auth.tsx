@@ -24,9 +24,9 @@ export function LoginPage() {
   return (
     <div className="auth">
       <form className="auth-card" onSubmit={onSubmit}>
-        <p className="pixel" style={{ color: 'var(--moss-2)' }}>STUDYGOTCHI</p>
-        <h2>Come back to your world</h2>
-        <p className="muted">{DEMO_PASSWORD_HINT} Include “2fa” in the email to demo two-factor.</p>
+        <p className="auth-kicker">StudyGotchi</p>
+        <h2>Log in</h2>
+        <p className="muted">{DEMO_PASSWORD_HINT}</p>
         {error && <p className="error">{error}</p>}
         <label className="field">
           <span>Email</span>
@@ -36,8 +36,8 @@ export function LoginPage() {
           <span>Password</span>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        <button className="btn" type="submit" style={{ width: '100%' }}>
-          Enter habitat
+        <button className="auth-submit" type="submit">
+          Login
         </button>
         <div className="auth-links">
           <Link to="/register">Register</Link>
@@ -67,8 +67,8 @@ export function RegisterPage() {
   return (
     <div className="auth">
       <form className="auth-card" onSubmit={onSubmit}>
-        <h2>Grow a knowledge pet</h2>
-        <p className="muted">Register an account. Auth is mocked locally — no server yet.</p>
+        <h2>Register</h2>
+        <p className="muted">Mock account — stored only in this browser.</p>
         {error && <p className="error">{error}</p>}
         <label className="field">
           <span>Name</span>
@@ -82,7 +82,7 @@ export function RegisterPage() {
           <span>Password</span>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
-        <button className="btn" type="submit" style={{ width: '100%' }}>
+        <button className="auth-submit" type="submit">
           Create account
         </button>
         <div className="auth-links">
@@ -109,15 +109,15 @@ export function ForgotPage() {
         }}
       >
         <h2>Forgot password</h2>
-        <p className="muted">We’ll pretend to email a reset link. Check the toast at the top right.</p>
+        <p className="muted">This mock does not send mail.</p>
         <label className="field">
           <span>Email</span>
           <input value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
-        <button className="btn" type="submit" style={{ width: '100%' }}>
+        <button className="auth-submit" type="submit">
           Send reset
         </button>
-        {sent && <p>Mock email queued.</p>}
+        {sent && <p>Reset queued in the mock.</p>}
         <div className="auth-links">
           <Link to="/login">Back to login</Link>
         </div>
@@ -145,14 +145,14 @@ export function TwoFactorPage() {
           else setError('Use mock code 123456.')
         }}
       >
-        <h2>Email / 2FA</h2>
-        <p className="muted">Prototype second factor. Enter 123456.</p>
+        <h2>Two-factor</h2>
+        <p className="muted">Enter 123456.</p>
         {error && <p className="error">{error}</p>}
         <label className="field">
-          <span>Authenticator code</span>
+          <span>Code</span>
           <input value={code} onChange={(e) => setCode(e.target.value)} inputMode="numeric" />
         </label>
-        <button className="btn" type="submit" style={{ width: '100%' }}>
+        <button className="auth-submit" type="submit">
           Verify
         </button>
       </form>
