@@ -9,34 +9,51 @@ _BACKEND_DIR = Path(__file__).resolve().parents[1]
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=_BACKEND_DIR / ".env", extra="ignore")
 
-    # Committed to the repo (spec: demo-scale deployment, not a shared server).
-    # A handful of demo courses fit comfortably in SQLite, and every match
-    # against embeddings already happens in Python (app.resolution), so
-    # there is no pgvector/Postgres feature this project actually needs.
+    # SQLite for a laptop; production sets DATABASE_URL to a Postgres (asyncpg) URL.
+    # Every match against embeddings happens in Python (app.resolution), so the
+    # storage engine needs no vector extension either way.
     database_url: str = f"sqlite+aiosqlite:///{_BACKEND_DIR / 'studygotchi.db'}"
 
+    # "openai" or "fake". Tests inject the fake provider.
     llm_provider: str = "openai"
     openai_api_key: str | None = None
-    openai_model: str = "gpt-4.1-mini"
+    openai_model: str = "gpt-4.1"
+    openai_fast_model: str = "gpt-4.1-mini"
     openai_vision_model: str = "gpt-4.1-mini"
-    openai_embed_model: str = "text-embedding-3-small"
+    openai_embed_model: str = "text-embedding-3-large"
+    openai_embed_dimensions: int = 1024
     max_upload_bytes: int = 50 * 1024 * 1024
-    anthropic_api_key: str | None = None
-    anthropic_model: str = "claude-sonnet-5"
-    anthropic_vision_model: str = "claude-sonnet-5"
-
-    voyage_api_key: str | None = None
-    voyage_embed_model: str = "voyage-3"
 
     environment: str = "development"
+
+    # Comma-separated in the environment; see the *_list properties.
+    cors_origins: str = "http://localhost:3000,http://127.0.0.1:3000"
+
+    # "clerk" verifies bearer JWTs; "dev" trusts an X-Student-Id header (local only).
+    auth_mode: str = "clerk"
+    clerk_issuer: str | None = None
+    clerk_authorized_parties: str = "http://localhost:3000"
+
+    # Ingest: parallel model calls per file, and the absolute cosine floor for fast-phase
+    # matches (a chunk whose best concept is below this is about nothing we know).
+    ingest_concurrency: int = 4
+    match_threshold: float = 0.35
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return _split_csv(self.cors_origins)
+
+    @property
+    def clerk_authorized_parties_list(self) -> list[str]:
+        return _split_csv(self.clerk_authorized_parties)
+
+    @property
+    def is_production(self) -> bool:
+        return self.environment.strip().lower() == "production"
 
     # Understanding-score priors (spec: "Understanding scoring")
     understanding_alpha_prior: float = 1.5
     understanding_beta_prior: float = 1.5
-
-    # Browser clients allowed to call this API. Explicit origins only - the
-    # frontend sends no credentials today, but "*" would foreclose that.
-    cors_origins: list[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
     # Concept canonicalization thresholds (spec: "Concept canonicalization")
     concept_merge_threshold: float = 0.94
@@ -50,6 +67,10 @@ class Settings(BaseSettings):
     gap_relevance_alpha: float = 0.75
     gap_understood_threshold: float = 0.75
     staleness_days: float = 45.0
+
+
+def _split_csv(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
 
 
 @lru_cache

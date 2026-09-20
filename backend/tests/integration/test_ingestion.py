@@ -11,7 +11,7 @@ import pytest
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 
-from app.api.dependencies import get_db, get_provider
+from app.api.dependencies import current_student, get_db, get_provider
 from app.db.base import Base
 from app.db.models import Resource, StudentEvidenceEvent
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
@@ -140,6 +140,7 @@ async def test_ingestion_is_idempotent_isolated_and_world_is_explainable(tmp_pat
 
             app.dependency_overrides[get_db] = db_override
             app.dependency_overrides[get_provider] = lambda: provider
+            app.dependency_overrides[current_student] = lambda: student
             try:
                 async with httpx.AsyncClient(
                     transport=httpx.ASGITransport(app=app), base_url="http://test"

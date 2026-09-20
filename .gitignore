@@ -1,0 +1,15 @@
+# Secrets: only the *.example files are tracked
+.env
+.env.*
+!.env.example
+
+# Tooling
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.vercel/
+.DS_Store
+
+# Local data
+backend/studygotchi.db

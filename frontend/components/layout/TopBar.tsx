@@ -7,6 +7,7 @@ import { useStore } from "@/lib/store";
 import { USE_MOCK } from "@/lib/api";
 import { ARTIFACT_LABEL, STATE_COLOR } from "@/lib/graphTheme";
 import { FileText } from "lucide-react";
+import { AuthControls } from "@/components/auth/AuthControls";
 
 export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
   const { graph, resources, focusConcept } = useStore();
@@ -152,6 +153,9 @@ export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
         <Upload size={13} strokeWidth={2.25} aria-hidden />
         <span className="sr-only xl:not-sr-only">Upload</span>
       </button>
+      <div className="pointer-events-auto">
+        <AuthControls />
+      </div>
     </header>
   );
 }

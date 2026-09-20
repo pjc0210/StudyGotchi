@@ -2,12 +2,14 @@
 
 import {
   FileText,
+  Globe,
   Network,
   Route,
   Sparkles,
   TriangleAlert,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 
 export type Section = "knowledge" | "files" | "gaps" | "study";
 
@@ -36,6 +38,13 @@ export function Sidebar({
         <Sparkles size={16} strokeWidth={1.7} className="text-white" aria-hidden />
         StudyGotchi
       </div>
+      <Link
+        href="/earth"
+        className="group flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[13px] text-ink-dim transition-colors hover:bg-raised/60 hover:text-ink"
+      >
+        <Globe size={15} strokeWidth={1.75} className="text-ink-faint group-hover:text-ink-dim" aria-hidden />
+        <span className="flex-1 text-left">Earth</span>
+      </Link>
       {ITEMS.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
         return (

@@ -17,9 +17,9 @@ const TITLES: Record<Section, string> = {
   study: "Study Plan",
 };
 
-export function AppShell() {
+export function AppShell({ initial = "knowledge" }: { initial?: Section }) {
   const { target } = useStore();
-  const [section, setSection] = useState<Section>("knowledge");
+  const [section, setSection] = useState<Section>(initial);
   const [uploadOpen, setUploadOpen] = useState(false);
   const [routeIds, setRouteIds] = useState<string[]>([]);
   const [focusIds, setFocusIds] = useState<string[]>([]);

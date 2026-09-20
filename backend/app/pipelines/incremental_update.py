@@ -122,7 +122,10 @@ async def recompute_student_state(
                 **event_args,
                 event="UNDERSTANDING_GAIN" if delta > 0 else "UNDERSTANDING_DROP",
                 delta=delta,
-                explanation=f"Recomputed from {len(practiced_events)} scored evidence events; understanding {old_understanding:.3f} → {result.understanding:.3f}.",
+                explanation=(
+                    f"Recomputed from {len(practiced_events)} scored evidence events; "
+                    f"understanding {old_understanding:.3f} → {result.understanding:.3f}."
+                ),
             )
         if result.understanding >= 0.88 and (
             old is None or old.understanding is None or float(old.understanding) < 0.88

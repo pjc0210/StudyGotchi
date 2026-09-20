@@ -1,0 +1,205 @@
+{
+  "course_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+  "student_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+  "version": "2026-09-19T22:00:00Z",
+  "seed": "8.223-demo",
+  "hidden_concept_count": 3,
+  "places": [
+    {
+      "id": "p8f3a1c0",
+      "label": "Oscillations",
+      "biome": "forest",
+      "concept_ids": [
+        "11111111-1111-4111-8111-111111111111",
+        "11111111-1111-4111-8111-111111111112",
+        "11111111-1111-4111-8111-111111111113"
+      ]
+    },
+    {
+      "id": "p2b7e44d",
+      "label": "Energy and work",
+      "biome": "meadow",
+      "concept_ids": [
+        "22222222-2222-4222-8222-222222222221",
+        "22222222-2222-4222-8222-222222222222"
+      ]
+    },
+    {
+      "id": "p9c01aa2",
+      "label": "Waves",
+      "biome": "ice",
+      "concept_ids": [
+        "33333333-3333-4333-8333-333333333331",
+        "33333333-3333-4333-8333-333333333332",
+        "33333333-3333-4333-8333-333333333333"
+      ]
+    },
+    {
+      "id": "p4d55e18",
+      "label": "Rotation",
+      "biome": "city",
+      "concept_ids": [
+        "44444444-4444-4444-8444-444444444441",
+        "44444444-4444-4444-8444-444444444442"
+      ]
+    },
+    {
+      "id": "p0e6bb7f",
+      "label": "Fluids",
+      "biome": "sand",
+      "concept_ids": [
+        "55555555-5555-4555-8555-555555555551"
+      ]
+    }
+  ],
+  "spots": [
+    {
+      "concept_id": "11111111-1111-4111-8111-111111111111",
+      "place_id": "p8f3a1c0",
+      "name": "Simple harmonic motion",
+      "state": 2,
+      "height": 0.82,
+      "cracked": false,
+      "discovery_state": "active",
+      "citation": "Lecture 3, p. 2"
+    },
+    {
+      "concept_id": "11111111-1111-4111-8111-111111111112",
+      "place_id": "p8f3a1c0",
+      "name": "Damped oscillators",
+      "state": 2,
+      "height": 0.71,
+      "cracked": false,
+      "discovery_state": "active",
+      "citation": "Lecture 4, p. 1"
+    },
+    {
+      "concept_id": "11111111-1111-4111-8111-111111111113",
+      "place_id": "p8f3a1c0",
+      "name": "Driven resonance",
+      "state": 1,
+      "height": 0,
+      "cracked": false,
+      "discovery_state": "encountered",
+      "citation": "Lecture 5, p. 4"
+    },
+    {
+      "concept_id": "22222222-2222-4222-8222-222222222221",
+      "place_id": "p2b7e44d",
+      "name": "Work-energy theorem",
+      "state": 2,
+      "height": 0.64,
+      "cracked": false,
+      "discovery_state": "active",
+      "citation": "Lecture 7, p. 3"
+    },
+    {
+      "concept_id": "22222222-2222-4222-8222-222222222222",
+      "place_id": "p2b7e44d",
+      "name": "Conservative forces",
+      "state": 1,
+      "height": 0,
+      "cracked": false,
+      "discovery_state": "encountered",
+      "citation": "Lecture 8, p. 1"
+    },
+    {
+      "concept_id": "33333333-3333-4333-8333-333333333331",
+      "place_id": "p9c01aa2",
+      "name": "Wave equation",
+      "state": 2,
+      "height": 0.58,
+      "cracked": true,
+      "discovery_state": "active",
+      "citation": "Lecture 12, p. 3"
+    },
+    {
+      "concept_id": "33333333-3333-4333-8333-333333333332",
+      "place_id": "p9c01aa2",
+      "name": "Standing waves",
+      "state": 1,
+      "height": 0,
+      "cracked": true,
+      "discovery_state": "encountered",
+      "citation": "Lecture 13, p. 2"
+    },
+    {
+      "concept_id": "33333333-3333-4333-8333-333333333333",
+      "place_id": "p9c01aa2",
+      "name": "Doppler effect",
+      "state": 0,
+      "height": 0,
+      "cracked": false,
+      "discovery_state": "frontier",
+      "citation": null
+    },
+    {
+      "concept_id": "44444444-4444-4444-8444-444444444441",
+      "place_id": "p4d55e18",
+      "name": "Moment of inertia",
+      "state": 1,
+      "height": 0,
+      "cracked": false,
+      "discovery_state": "encountered",
+      "citation": "Lecture 9, p. 5"
+    },
+    {
+      "concept_id": "44444444-4444-4444-8444-444444444442",
+      "place_id": "p4d55e18",
+      "name": "Torque",
+      "state": 0,
+      "height": 0,
+      "cracked": false,
+      "discovery_state": "frontier",
+      "citation": null
+    },
+    {
+      "concept_id": "55555555-5555-4555-8555-555555555551",
+      "place_id": "p0e6bb7f",
+      "name": "Bernoulli",
+      "state": 0,
+      "height": 0,
+      "cracked": false,
+      "discovery_state": "frontier",
+      "citation": null
+    }
+  ],
+  "characters": [
+    {
+      "id": "hw2:p8f3a1c0",
+      "kind": "resident",
+      "place_id": "p8f3a1c0",
+      "label": "Homework 2",
+      "state": "evolved",
+      "mean_outcome": 0.86,
+      "concept_ids": [
+        "11111111-1111-4111-8111-111111111111",
+        "11111111-1111-4111-8111-111111111112"
+      ],
+      "occurred_at": "2026-09-12T18:00:00Z"
+    },
+    {
+      "id": "midterm:p9c01aa2",
+      "kind": "resident",
+      "place_id": "p9c01aa2",
+      "label": "Midterm",
+      "state": "exploded",
+      "mean_outcome": 0.38,
+      "concept_ids": [
+        "33333333-3333-4333-8333-333333333331",
+        "33333333-3333-4333-8333-333333333332"
+      ],
+      "occurred_at": "2026-09-16T15:00:00Z"
+    },
+    {
+      "id": "notes-waves",
+      "kind": "wisp",
+      "place_id": "p9c01aa2",
+      "label": "Lecture notes",
+      "state": "idle",
+      "mean_outcome": null,
+      "concept_ids": ["33333333-3333-4333-8333-333333333331"],
+      "occurred_at": "2026-09-10T11:00:00Z"
+    }
+  ]
+}

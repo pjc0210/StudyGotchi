@@ -1,31 +1,19 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
-import { api, ApiError, isStudentScoped, USE_MOCK } from "./api";
-import type {
-  ArtifactType,
-  CourseResource,
-  KnowledgeGraphResponse,
-  SourceOrigin,
-  StudyTarget,
-  UploadItem,
-} from "./types";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { api, ApiError, isIdentityReady, isStudentScoped, onIdentityChange, USE_MOCK } from "./api";
+import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
 
-export const ACCEPTED_EXTENSIONS = [".pdf", ".zip"] as const;
+export const ACCEPTED_EXTENSIONS = [".pdf", ".zip", ".png", ".jpg", ".jpeg", ".webp", ".md", ".txt", ".docx"] as const;
 
 export function isAcceptedFile(file: File): boolean {
   const name = file.name.toLowerCase();
   return ACCEPTED_EXTENSIONS.some((ext) => name.endsWith(ext));
 }
+
+// How often the queue asks the engine about a file it is still reading.
+const STATUS_POLL_MS = 1500;
+const STATUS_POLL_LIMIT = 120;
 
 interface Async<T> {
   data: T | null;
@@ -53,12 +41,11 @@ interface StoreValue {
   targets: StudyTarget[];
 
   uploads: UploadItem[];
+  /** Bumped after every ingest that changed the student's state, so views refetch. */
   ingestVersion: number;
-  addUploads: (
-    files: File[],
-    origin: SourceOrigin,
-    artifactType: ArtifactType,
-  ) => void;
+  /** Concepts the latest uploads touched, most recent first. The island highlights them. */
+  recentlyTouched: string[];
+  addUploads: (files: File[], origin: SourceOrigin, artifactType: ArtifactType) => void;
   clearFinishedUploads: () => void;
 }
 
@@ -79,11 +66,17 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [target, setTarget] = useState<StudyTarget | null>(null);
   const [targets, setTargets] = useState<StudyTarget[]>([]);
   const [uploads, setUploads] = useState<UploadItem[]>([]);
-  // Bumped after every successful real ingestion so dependent views refetch.
   const [ingestVersion, setIngestVersion] = useState(0);
+  const [recentlyTouched, setRecentlyTouched] = useState<string[]>([]);
+  const [identityTick, setIdentityTick] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
+  useEffect(() => onIdentityChange(() => setIdentityTick((n) => n + 1)), []);
+
+  const ready = USE_MOCK || isIdentityReady();
+
   const reloadGraph = useCallback(() => {
+    if (!ready) return;
     setGraph((g) => ({ ...g, loading: true, error: null }));
     api
       .getKnowledgeGraph()
@@ -92,19 +85,17 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
         setGraph({
           data: null,
           loading: false,
-          error:
-            err instanceof ApiError
-              ? err.message
-              : "Could not load your knowledge graph.",
+          error: err instanceof ApiError ? err.message : "Could not load your knowledge graph.",
         }),
       );
-  }, []);
+  }, [ready]);
 
   useEffect(() => {
     reloadGraph();
-  }, [reloadGraph]);
+  }, [reloadGraph, identityTick]);
 
   const reloadResources = useCallback(() => {
+    if (!ready) return;
     setResourcesLoading(true);
     api
       .listResources()
@@ -113,13 +104,14 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       // graph simply renders concepts alone.
       .catch(() => setResources([]))
       .finally(() => setResourcesLoading(false));
-  }, []);
+  }, [ready]);
 
   useEffect(() => {
     reloadResources();
-  }, [reloadResources, ingestVersion]);
+  }, [reloadResources, ingestVersion, identityTick]);
 
   useEffect(() => {
+    if (!ready) return;
     let cancelled = false;
     api
       .listStudyTargets()
@@ -136,7 +128,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [ready, identityTick]);
 
   useEffect(
     () => () => {
@@ -153,6 +145,42 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     timers.current.push(setTimeout(fn, ms));
   }, []);
 
+  const noteTouched = useCallback((ids: string[]) => {
+    if (ids.length === 0) return;
+    setRecentlyTouched((prev) => [...ids, ...prev.filter((id) => !ids.includes(id))].slice(0, 40));
+  }, []);
+
+  const stateChanged = useCallback(() => {
+    setIngestVersion((v) => v + 1);
+    reloadGraph();
+  }, [reloadGraph]);
+
+  /** Follow a student file through the engine's background analysis. */
+  const pollUntilDone = useCallback(
+    (uploadId: string, resourceId: string, attempt = 0) => {
+      if (attempt > STATUS_POLL_LIMIT) {
+        patchUpload(uploadId, { status: "failed", error: "The engine is taking too long. Try again later." });
+        return;
+      }
+      later(() => {
+        api
+          .getResourceStatus(resourceId)
+          .then((status) => {
+            if (status.status === "processed" || status.status === "empty" || status.status === "unchanged") {
+              patchUpload(uploadId, { status: "complete" });
+              stateChanged();
+            } else if (status.status === "failed") {
+              patchUpload(uploadId, { status: "failed", error: status.error ?? "The engine could not read this file." });
+            } else {
+              pollUntilDone(uploadId, resourceId, attempt + 1);
+            }
+          })
+          .catch(() => pollUntilDone(uploadId, resourceId, attempt + 1));
+      }, STATUS_POLL_MS);
+    },
+    [later, patchUpload, stateChanged],
+  );
+
   const addUploads = useCallback<StoreValue["addUploads"]>(
     (files, origin, artifactType) => {
       const accepted = files.filter(isAcceptedFile);
@@ -164,9 +192,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           filename: file.name,
           size: file.size,
           origin,
-          artifact_type: file.name.toLowerCase().endsWith(".zip")
-            ? "course_bundle"
-            : artifactType,
+          artifact_type: file.name.toLowerCase().endsWith(".zip") ? "course_bundle" : artifactType,
           status: "queued",
         })),
         ...rejected.map<UploadItem>((file) => ({
@@ -176,7 +202,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           origin,
           artifact_type: artifactType,
           status: "failed",
-          error: "Unsupported file type. Upload a PDF or ZIP.",
+          error: "Unsupported file type. Upload a PDF, image, or ZIP.",
         })),
       ];
 
@@ -189,18 +215,11 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
         later(() => {
           patchUpload(item.id, { status: "uploading" });
 
-          // Real ingestion is synchronous and can take a while, so the row sits
-          // in "processing" for as long as the request is actually in flight.
-          // No fabricated percentage - the label is the real state.
-          if (!USE_MOCK) patchUpload(item.id, { status: "processing" });
-
           api
             .ingest({ file, origin, artifactType: item.artifact_type, studentScoped })
             .then((res) => {
-              patchUpload(item.id, {
-                status: res.status ?? "processing",
-                child_count: res.child_count,
-              });
+              patchUpload(item.id, { status: res.status ?? "processing", child_count: res.child_count });
+              noteTouched(res.concepts_touched ?? []);
 
               if (USE_MOCK) {
                 // Mock mode only: walk the remaining states so the demo reads
@@ -212,12 +231,12 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
                   });
                   reloadGraph();
                 }, 2200 + i * 400);
-              } else {
-                // The engine has already rebuilt this student's state, so pull
-                // the new graph rather than making the user reload the page.
-                setIngestVersion((v) => v + 1);
-                reloadGraph();
+                return;
               }
+
+              // The fast phase already moved this student's state; show it now.
+              stateChanged();
+              if (res.analysis_pending) pollUntilDone(item.id, res.resource_id);
             })
             .catch((err: unknown) =>
               patchUpload(item.id, {
@@ -228,7 +247,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
         }, 250 * i);
       });
     },
-    [later, patchUpload, reloadGraph],
+    [later, patchUpload, reloadGraph, stateChanged, noteTouched, pollUntilDone],
   );
 
   const clearFinishedUploads = useCallback(() => {
@@ -255,6 +274,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       resourcesLoading,
       uploads,
       ingestVersion,
+      recentlyTouched,
       addUploads,
       clearFinishedUploads,
     }),
@@ -270,6 +290,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       resourcesLoading,
       uploads,
       ingestVersion,
+      recentlyTouched,
       addUploads,
       clearFinishedUploads,
     ],

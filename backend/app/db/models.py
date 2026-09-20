@@ -23,7 +23,7 @@ from sqlalchemy.types import DateTime
 
 from app.db.base import Base, EmbeddingVector, TimestampMixin, UUIDPKMixin
 
-# OpenAI requests this dimension explicitly; legacy Voyage also uses 1024.
+# OpenAI requests this dimension explicitly (text-embedding-3-* accept `dimensions`).
 # Different embedding models still require re-embedding before comparison.
 EMBEDDING_DIM = 1024
 
@@ -34,6 +34,22 @@ class Course(Base, UUIDPKMixin, TimestampMixin):
     name: Mapped[str] = mapped_column(Text, nullable=False)
     code: Mapped[str | None] = mapped_column(Text, nullable=True)
     term: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class Student(Base, UUIDPKMixin, TimestampMixin):
+    __tablename__ = "students"
+
+    clerk_user_id: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
+    display_name: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class WorldShare(Base, UUIDPKMixin, TimestampMixin):
+    __tablename__ = "world_shares"
+
+    token: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
+    student_id: Mapped[uuid.UUID] = mapped_column(Uuid, nullable=False)
+    course_id: Mapped[uuid.UUID] = mapped_column(Uuid, ForeignKey("courses.id"), nullable=False)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class Resource(Base, UUIDPKMixin, TimestampMixin):

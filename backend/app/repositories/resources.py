@@ -35,6 +35,12 @@ async def get_resource_by_hash(
     origin: str,
     artifact_type: str,
 ) -> Resource | None:
+    """The same bytes uploaded again by the same owner for the same purpose.
+
+    Rows that failed stay eligible for a retry, so only settled or in-flight
+    statuses count as "seen".
+    """
+
     result = await session.execute(
         select(Resource).where(
             Resource.course_id == course_id,
@@ -42,10 +48,35 @@ async def get_resource_by_hash(
             Resource.owner_user_id == owner_user_id,
             Resource.origin == origin,
             Resource.artifact_type == artifact_type,
-            Resource.status.in_(["processed", "empty"]),
+            Resource.status.in_(["processed", "empty", "matched", "analyzing"]),
         )
     )
     return result.scalars().first()
+
+
+async def list_student_resources(session: AsyncSession, *, course_id: UUID, student_id: UUID) -> list[Resource]:
+    result = await session.execute(
+        select(Resource)
+        .where(Resource.course_id == course_id, Resource.owner_user_id == student_id)
+        .order_by(Resource.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def get_resource_chunks(session: AsyncSession, resource_id: UUID) -> list[ResourceChunk]:
+    result = await session.execute(
+        select(ResourceChunk).where(ResourceChunk.resource_id == resource_id).order_by(ResourceChunk.chunk_index)
+    )
+    return list(result.scalars().all())
+
+
+async def merge_resource_metadata(session: AsyncSession, resource_id: UUID, **fields: object) -> None:
+    """JSONB is only written back when the attribute is reassigned, so merge into a new dict."""
+
+    resource = await session.get(Resource, resource_id)
+    if resource is not None:
+        resource.resource_metadata = {**resource.resource_metadata, **fields}
+        await session.flush()
 
 
 async def create_resource(

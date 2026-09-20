@@ -5,21 +5,29 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "schema": "openapi-typescript ${NEXT_PUBLIC_API_URL:-http://localhost:8000}/openapi.json -o lib/api/schema.ts"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.36.5",
+    "@react-three/drei": "10.7.8",
+    "@react-three/fiber": "9.7.0",
     "@types/d3-force": "^3.0.10",
     "d3-force": "^3.0.0",
     "lucide-react": "^1.47.0",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "three": "0.186.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "0.186.0",
+    "openapi-typescript": "^7",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

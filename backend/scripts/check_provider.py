@@ -25,7 +25,8 @@ async def main():
         )
     except Exception as exc:  # noqa: BLE001 — report type only; never log credentials or request bodies
         print(
-            f"Provider check failed: {type(exc).__name__}; status={getattr(exc, 'status_code', None)}; code={getattr(exc, 'code', None)}"
+            f"Provider check failed: {type(exc).__name__}; "
+            f"status={getattr(exc, 'status_code', None)}; code={getattr(exc, 'code', None)}"
         )
         raise SystemExit(1) from None
 

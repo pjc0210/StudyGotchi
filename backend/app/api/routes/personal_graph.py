@@ -11,7 +11,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.dependencies import get_db
+from app.api.dependencies import get_db, require_student
 from app.domain.personal_graph.concept_state import classify_concept_state
 from app.pipelines.personal_graph_query import build_student_personal_graph
 from app.repositories.courses import get_course
@@ -29,7 +29,10 @@ router = APIRouter(
 
 @router.get("/knowledge-graph", response_model=PersonalGraphResponse)
 async def get_knowledge_graph_endpoint(
-    course_id: UUID, student_id: UUID, session: AsyncSession = Depends(get_db)
+    course_id: UUID,
+    student_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
 ) -> PersonalGraphResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")

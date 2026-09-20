@@ -22,6 +22,7 @@ export interface ConceptNode {
   scope: ConceptScope;
   discovery_state: DiscoveryState;
   cluster?: string;
+  cluster_id?: string;
   importance: number;
   personal_relevance: number;
   /** null = no evidence yet (frontier). 0 = evidence says they don't know it. */
@@ -44,7 +45,7 @@ export interface ConceptEdge {
 export interface KnowledgeGraphResponse {
   student_id: string;
   course_id: string;
-  graph_version: number;
+  graph_version: string;
   nodes: ConceptNode[];
   edges: ConceptEdge[];
   hidden_concept_count: number;
@@ -181,6 +182,10 @@ export interface IngestResponse {
   resource_id: string;
   status: UploadStatus;
   child_count?: number;
+  /** Concepts the fast phase matched, so the island can react before analysis ends. */
+  concepts_touched?: string[];
+  /** True when the engine is still reading the file in the background. */
+  analysis_pending?: boolean;
 }
 
 export interface CourseResource {

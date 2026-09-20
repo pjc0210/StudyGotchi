@@ -1,30 +1,40 @@
-"""`POST .../resources/ingest` for both course-level and student-level
-resources (spec: "Required backend endpoints"), plus a read endpoint listing
-what has been ingested.
+"""`POST .../resources/ingest` for course-level and student-level resources
+(spec: "Required backend endpoints"), plus the file lists and per-file status
+the upload queue polls.
 
 ZIP archives are expanded here rather than in the parser: an archive is a
 transport container, not a document, so each member becomes its own resource
 and flows through the unchanged single-file pipeline.
+
+Student ingest answers after the fast phase (about two seconds) with 202 and
+schedules the deep analysis in the background; `GET .../students/{id}/resources/{id}`
+reports `matched`, `analyzing`, `processed` or `failed`.
 """
 
 import io
 import zipfile
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.dependencies import get_db, get_provider
+from app.api.dependencies import current_student, get_db, get_provider, require_student
 from app.config import get_settings
-from app.db.models import ConceptResourceLink
+from app.db.models import ConceptResourceLink, Resource
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
 from app.pipelines.course_ingestion import ingest_course_resource
-from app.pipelines.student_ingestion import ingest_student_resource
+from app.pipelines.ingest_jobs import run_student_analysis
+from app.pipelines.student_ingestion import match_student_resource
 from app.providers.llm.base import LLMProvider
 from app.repositories.courses import get_course
-from app.repositories.resources import list_resources
-from app.schemas.api import ResourceIngestResponse, ResourceOut, StudentResourceIngestResponse
+from app.repositories.resources import get_resource, list_resources, list_student_resources
+from app.schemas.api import (
+    ResourceIngestResponse,
+    ResourceOut,
+    ResourceStatusOut,
+    StudentResourceIngestResponse,
+)
 
 router = APIRouter(prefix="/api/courses/{course_id}", tags=["resources"])
 
@@ -66,6 +76,34 @@ def _expand_zip(content_bytes: bytes) -> list[tuple[str, bytes]]:
     return members
 
 
+async def _read_upload(file: UploadFile) -> tuple[str, list[tuple[str, bytes]]]:
+    filename = file.filename or "upload"
+    limit = get_settings().max_upload_bytes
+    content_bytes = await file.read(limit + 1)
+    if len(content_bytes) > limit:
+        raise HTTPException(413, "File exceeds upload size limit")
+    if not content_bytes:
+        raise HTTPException(422, "File is empty")
+    documents = _expand_zip(content_bytes) if _is_zip(filename) else [(filename, content_bytes)]
+    return filename, documents
+
+
+def _status_out(resource: Resource) -> ResourceStatusOut:
+    meta = resource.resource_metadata or {}
+    return ResourceStatusOut(
+        resource_id=resource.id,
+        title=resource.title,
+        origin=resource.origin,
+        artifact_type=resource.artifact_type,
+        status=resource.status,
+        error=meta.get("error"),
+        phase_a_ms=meta.get("phase_a_ms"),
+        phase_b_ms=meta.get("phase_b_ms"),
+        created_at=resource.created_at,
+        updated_at=resource.updated_at,
+    )
+
+
 @router.post("/resources/ingest", response_model=ResourceIngestResponse)
 async def ingest_course_resource_endpoint(
     course_id: UUID,
@@ -74,17 +112,12 @@ async def ingest_course_resource_endpoint(
     file: UploadFile = File(...),
     session: AsyncSession = Depends(get_db),
     provider: LLMProvider = Depends(get_provider),
+    _: UUID = Depends(current_student),
 ) -> ResourceIngestResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
-    filename = file.filename or "upload"
-    content_bytes = await file.read(get_settings().max_upload_bytes + 1)
-    if len(content_bytes) > get_settings().max_upload_bytes:
-        raise HTTPException(413, "File exceeds upload size limit")
-    if not content_bytes:
-        raise HTTPException(422, "File is empty")
-    documents = _expand_zip(content_bytes) if _is_zip(filename) else [(filename, content_bytes)]
+    filename, documents = await _read_upload(file)
     is_bundle = len(documents) > 1 or _is_zip(filename)
 
     first_resource_id: UUID | None = None
@@ -132,37 +165,36 @@ async def ingest_course_resource_endpoint(
 @router.post(
     "/students/{student_id}/resources/ingest",
     response_model=StudentResourceIngestResponse,
+    status_code=202,
 )
 async def ingest_student_resource_endpoint(
     course_id: UUID,
     student_id: UUID,
+    background: BackgroundTasks,
     origin: SourceOrigin = Form(...),
     artifact_type: ArtifactType = Form(...),
     file: UploadFile = File(...),
     session: AsyncSession = Depends(get_db),
     provider: LLMProvider = Depends(get_provider),
+    _: UUID = Depends(require_student),
 ) -> StudentResourceIngestResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
-    filename = file.filename or "upload"
-    content_bytes = await file.read(get_settings().max_upload_bytes + 1)
-    if len(content_bytes) > get_settings().max_upload_bytes:
-        raise HTTPException(413, "File exceeds upload size limit")
-    if not content_bytes:
-        raise HTTPException(422, "File is empty")
-    documents = _expand_zip(content_bytes) if _is_zip(filename) else [(filename, content_bytes)]
+    filename, documents = await _read_upload(file)
     is_bundle = len(documents) > 1 or _is_zip(filename)
 
     first_resource_id: UUID | None = None
+    status = "matched"
     events = 0
     personal = 0
     touched: list[UUID] = []
     failures: list[str] = []
+    to_analyze: list[UUID] = []
 
     for member_name, member_bytes in documents:
         try:
-            outcome = await ingest_student_resource(
+            outcome = await match_student_resource(
                 session,
                 provider,
                 course_id=course_id,
@@ -178,20 +210,32 @@ async def ingest_student_resource_endpoint(
             failures.append(f"{member_name}: {exc}")
             continue
 
-        first_resource_id = first_resource_id or outcome.resource_id
+        if first_resource_id is None:
+            first_resource_id = outcome.resource_id
+            status = outcome.status
         events += outcome.evidence_events_created
         personal += outcome.personal_concepts_created
         touched.extend(outcome.concepts_touched)
+        if outcome.needs_analysis:
+            to_analyze.append(outcome.resource_id)
 
     if first_resource_id is None:
         raise HTTPException(status_code=422, detail="; ".join(failures) or "Nothing could be ingested.")
     await session.commit()
+
+    # The offline stub cannot read a file closely, so local runs stop after the fast phase.
+    queue_analysis = bool(to_analyze) and get_settings().llm_provider != "fake"
+    if queue_analysis:
+        for resource_id in to_analyze:
+            background.add_task(run_student_analysis, resource_id)
+
     return StudentResourceIngestResponse(
         resource_id=first_resource_id,
-        status="complete",
+        status=status,
         evidence_events_created=events,
         concepts_touched=list(dict.fromkeys(touched)),
         personal_concepts_created=personal,
+        analysis="queued" if queue_analysis else "none",
         child_count=len(documents) if is_bundle else None,
         child_failures=failures,
     )
@@ -199,7 +243,9 @@ async def ingest_student_resource_endpoint(
 
 @router.get("/resources", response_model=list[ResourceOut])
 async def list_resources_endpoint(
-    course_id: UUID, session: AsyncSession = Depends(get_db)
+    course_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(current_student),
 ) -> list[ResourceOut]:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
@@ -233,3 +279,28 @@ async def list_resources_endpoint(
         )
         for r in resources
     ]
+
+
+@router.get("/students/{student_id}/resources", response_model=list[ResourceStatusOut])
+async def list_student_resources_endpoint(
+    course_id: UUID,
+    student_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
+) -> list[ResourceStatusOut]:
+    rows = await list_student_resources(session, course_id=course_id, student_id=student_id)
+    return [_status_out(r) for r in rows]
+
+
+@router.get("/students/{student_id}/resources/{resource_id}", response_model=ResourceStatusOut)
+async def get_student_resource_endpoint(
+    course_id: UUID,
+    student_id: UUID,
+    resource_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
+) -> ResourceStatusOut:
+    resource = await get_resource(session, resource_id)
+    if resource is None or resource.course_id != course_id or resource.owner_user_id != student_id:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    return _status_out(resource)

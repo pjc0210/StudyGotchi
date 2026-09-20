@@ -283,7 +283,7 @@ export const MOCK_EDGES: KnowledgeGraphResponse["edges"] = [
 export const MOCK_GRAPH: KnowledgeGraphResponse = {
   student_id: MOCK_STUDENT_ID,
   course_id: MOCK_COURSE.id,
-  graph_version: 7,
+  graph_version: "7",
   nodes: MOCK_NODES,
   edges: MOCK_EDGES,
   hidden_concept_count: 41,

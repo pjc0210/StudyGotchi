@@ -61,7 +61,7 @@ async def get_concept_detail_endpoint(
         )
     ).scalars().all()
 
-    wanted = {e.resource_id for e in events if e.resource_id} | {l.resource_id for l in link_rows}
+    wanted = {e.resource_id for e in events if e.resource_id} | {link.resource_id for link in link_rows}
     resources = await get_resources_by_ids(session, wanted)
 
     return ConceptDetailResponse(
