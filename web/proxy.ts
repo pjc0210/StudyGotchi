@@ -20,12 +20,12 @@ export function proxy(request: NextRequest) {
   if (loggedIn && (pathname === '/' || pathname === '/login')) {
     return NextResponse.redirect(new URL('/earth', request.url))
   }
-  if (!loggedIn && pathname === '/earth') {
+  if (!loggedIn && (pathname === '/earth' || pathname === '/graph')) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/', '/login', '/earth'],
+  matcher: ['/', '/login', '/earth', '/graph'],
 }

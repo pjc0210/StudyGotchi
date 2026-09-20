@@ -45,7 +45,7 @@ h1, h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
+  padding: 22px 40px;
   background: transparent;
 }
 
@@ -74,8 +74,7 @@ h1, h2 {
 .site-nav a.site-wordmark:focus,
 .site-nav a.site-wordmark.active {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(3.25rem, 6.4vw, 6.25rem);
-  line-height: 1.05;
+  font-size: 22px;
   letter-spacing: -0.03em;
   color: var(--title);
   text-decoration: none;
@@ -154,10 +153,27 @@ h1, h2 {
   font-size: 16px;
 }
 
+.graph-stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  height: calc(100vh - 72px);
+  min-height: 0;
+}
+
+.graph-stage .course-overlay {
+  flex: 0 0 min(24rem, 32vw);
+  width: min(24rem, 32vw);
+  height: auto;
+  margin: 1rem 0 3rem 2.25rem;
+}
+
 .neural-map {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,15 +226,13 @@ h1, h2 {
 }
 
 .course-overlay {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  left: 2.25rem;
-  top: calc(clamp(3.25rem, 6.4vw, 6.25rem) + 2.6rem);
-  width: min(24rem, calc(100vw - 4.5rem));
-  height: calc(100vh - clamp(3.25rem, 6.4vw, 6.25rem) - 4.6rem);
-  margin: 0;
+  width: min(24rem, calc(100vw - var(--globe-size, calc(100vw * 5 / 7)) * 0.75 - 4.5rem));
+  height: calc(100vh - 72px - 4rem);
+  margin: 1rem 2.25rem 3rem;
   padding: 36px 28px 32px;
-  background: rgba(239, 230, 216, 0.82);
+  background: #efe6d8;
   border-radius: 22px;
   overflow: auto;
 }
