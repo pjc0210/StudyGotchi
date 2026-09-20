@@ -2,12 +2,13 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { api, ApiError, invalidateApiCache, isStudentScoped, seededKnowledgeGraph } from "./api";
+import { planFileInsert } from "./fileInsert";
 import { demoUploadsForCourse } from "./world/demo-ingest";
 import { mergeVisibleFiles } from "./world/sandbox-roster";
 import { withPipelineSources } from "./world/pipeline-understanding";
 import { useIdentity } from "./identity";
 import { ACCEPT_COPY, artifactTypeFor, isAcceptedFile } from "./uploadIntake";
-import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
+import type { ArtifactType, ConceptEdge, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
 
 export { ACCEPTED_EXTENSIONS, isAcceptedFile } from "./uploadIntake";
 
@@ -52,6 +53,30 @@ interface StoreValue {
 const StoreContext = createContext<StoreValue | null>(null);
 
 let uploadSeq = 0;
+let insertSeq = 0;
+
+function mergeGraph(
+  data: KnowledgeGraphResponse | null,
+  extraEdges: ConceptEdge[],
+): KnowledgeGraphResponse | null {
+  if (!data || extraEdges.length === 0) return data;
+  const seen = new Set(data.edges.map((edge) => `${edge.source}\0${edge.target}\0${edge.type}`));
+  const edges = [...data.edges];
+  for (const edge of extraEdges) {
+    const forward = `${edge.source}\0${edge.target}\0${edge.type}`;
+    const reverse = `${edge.target}\0${edge.source}\0${edge.type}`;
+    if (seen.has(forward) || seen.has(reverse)) continue;
+    seen.add(forward);
+    edges.push(edge);
+  }
+  return { ...data, edges };
+}
+
+function mergeResources(server: CourseResource[], local: CourseResource[]): CourseResource[] {
+  if (local.length === 0) return server;
+  const ids = new Set(server.map((resource) => resource.id));
+  return [...server, ...local.filter((resource) => !ids.has(resource.id))];
+}
 
 export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [graph, setGraph] = useState<Async<KnowledgeGraphResponse>>(() => {
@@ -67,9 +92,29 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [uploads, setUploads] = useState<UploadItem[]>([]);
   const [ingestVersion, setIngestVersion] = useState(0);
   const [recentlyTouched, setRecentlyTouched] = useState<string[]>([]);
+  const [localResources, setLocalResources] = useState<CourseResource[]>([]);
+  const [localEdges, setLocalEdges] = useState<ConceptEdge[]>([]);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const insertRef = useRef({
+    graph: null as KnowledgeGraphResponse | null,
+    resources: [] as CourseResource[],
+    localResources: [] as CourseResource[],
+    localEdges: [] as ConceptEdge[],
+  });
 
   const { ready, courseId, studentId } = useIdentity();
+
+  const graphData = useMemo(() => mergeGraph(graph.data, localEdges), [graph.data, localEdges]);
+  const visibleResources = useMemo(
+    () => mergeResources(resources, localResources),
+    [resources, localResources],
+  );
+  insertRef.current = {
+    graph: graphData,
+    resources: visibleResources,
+    localResources,
+    localEdges,
+  };
 
   const reloadGraph = useCallback(() => {
     if (!ready) return;
@@ -97,6 +142,8 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     invalidateApiCache();
     const seed = seededKnowledgeGraph(courseId);
     if (seed) setGraph({ data: seed, loading: false, error: null });
+    setLocalResources([]);
+    setLocalEdges([]);
     reloadGraph();
   }, [reloadGraph, courseId, studentId]);
 
@@ -218,6 +265,31 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
       setUploads((prev) => [...items, ...prev]);
 
+      // Place accepted files in the constellation immediately so the sky
+      // shifts even if the engine has not re-emitted provenance yet.
+      const plannedResources: CourseResource[] = [];
+      const plannedEdges: ConceptEdge[] = [];
+      const plannedTouched: string[] = [];
+      accepted.forEach((file, i) => {
+        const plan = planFileInsert(
+          mergeGraph(insertRef.current.graph, plannedEdges),
+          [...insertRef.current.resources, ...plannedResources],
+          file,
+          origin,
+          items[i].artifact_type,
+          ++insertSeq,
+        );
+        if (!plan) return;
+        plannedResources.push(plan.resource);
+        plannedEdges.push(...plan.edges);
+        plannedTouched.push(...plan.resource.concept_ids);
+      });
+      if (plannedResources.length > 0) {
+        setLocalResources((prev) => [...plannedResources, ...prev]);
+        setLocalEdges((prev) => [...plannedEdges, ...prev]);
+        noteTouched(plannedTouched);
+      }
+
       accepted.forEach((file, i) => {
         const item = items[i];
         const studentScoped = isStudentScoped(origin);
@@ -260,7 +332,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<StoreValue>(
     () => ({
-      graph,
+      graph: { ...graph, data: graphData },
       reloadGraph,
       selectedId,
       select: setSelectedId,
@@ -269,7 +341,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       target,
       setTarget,
       targets,
-      resources,
+      resources: visibleResources,
       resourcesLoading,
       uploads,
       ingestVersion,
@@ -279,13 +351,14 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     }),
     [
       graph,
+      graphData,
       reloadGraph,
       selectedId,
       focusNonce,
       focusConcept,
       target,
       targets,
-      resources,
+      visibleResources,
       resourcesLoading,
       uploads,
       ingestVersion,

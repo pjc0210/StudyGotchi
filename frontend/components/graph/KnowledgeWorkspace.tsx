@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type DragEvent } from "react";
 import { Network, Upload } from "lucide-react";
 import {
   buildGraphModel,
@@ -53,7 +53,9 @@ export function KnowledgeWorkspace({
     focusNonce,
     focusConcept,
     recentlyTouched,
+    addUploads,
   } = useStore();
+  const [dropping, setDropping] = useState(false);
 
   const [ownLens, setOwnLens] = useState<Lens>("all");
   const lens = lensProp ?? ownLens;
@@ -137,6 +139,29 @@ export function KnowledgeWorkspace({
     [select],
   );
 
+  const onDragOver = useCallback((e: DragEvent<HTMLDivElement>) => {
+    if (![...e.dataTransfer.types].includes("Files")) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "copy";
+    setDropping(true);
+  }, []);
+
+  const onDragLeave = useCallback((e: DragEvent<HTMLDivElement>) => {
+    if (e.currentTarget.contains(e.relatedTarget as Node)) return;
+    setDropping(false);
+  }, []);
+
+  const onDrop = useCallback(
+    (e: DragEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      setDropping(false);
+      const files = Array.from(e.dataTransfer.files);
+      if (files.length === 0) return;
+      addUploads(files, "student_self", "student_notes");
+    },
+    [addUploads],
+  );
+
   const selectedNode = selectedId ? model.byId.get(selectedId) : undefined;
 
   if (graph.loading && (!graph.data || graph.data.nodes.length === 0)) return <GraphLoading />;
@@ -169,7 +194,13 @@ export function KnowledgeWorkspace({
   }
 
   return (
-    <div className="sg-constellation-canvas">
+    <div
+      className="sg-constellation-canvas"
+      onDragOver={onDragOver}
+      onDragLeave={onDragLeave}
+      onDrop={onDrop}
+    >
+      {dropping ? <div className="sg-constellation-drop" aria-hidden /> : null}
       <KnowledgeCanvas
         model={model}
         emphasis={emphasis}

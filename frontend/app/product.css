@@ -1575,6 +1575,16 @@ h3 {
   overflow: hidden;
 }
 
+.sg-constellation-drop {
+  position: absolute;
+  inset: 10px;
+  z-index: 15;
+  pointer-events: none;
+  border: 1.5px dashed var(--a-ink-20);
+  border-radius: var(--a-r-12);
+  background: color-mix(in srgb, var(--a-ink) 5%, transparent);
+}
+
 .sg-toolbar {
   position: absolute;
   top: calc(var(--sg-header-h) + 8px);

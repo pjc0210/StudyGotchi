@@ -15,6 +15,7 @@ import {
   forceSimulation,
   forceX,
   forceY,
+  type ForceLink,
   type Simulation,
   type SimulationLinkDatum,
   type SimulationNodeDatum,
@@ -53,27 +54,16 @@ function seeded(id: string, salt: number): number {
   return ((h >>> 0) % 100000) / 100000;
 }
 
-export function createLayout(model: GraphModel): Layout {
-  const nodes: PositionedNode[] = model.nodes.map((node) => {
-    // Start on a deterministic ring; the simulation does the real work but a
-    // stable seed keeps the settled result reproducible across reloads.
-    const angle = seeded(node.id, 1) * Math.PI * 2;
-    const radius = 120 + seeded(node.id, 2) * 220;
-    return {
-      id: node.id,
-      node,
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
-    };
-  });
+function seedPosition(id: string): { x: number; y: number } {
+  // Start on a deterministic ring; the simulation does the real work but a
+  // stable seed keeps the settled result reproducible across reloads.
+  const angle = seeded(id, 1) * Math.PI * 2;
+  const radius = 120 + seeded(id, 2) * 220;
+  return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+}
 
-  const links: PositionedLink[] = model.links.map((link) => ({
-    id: link.id,
-    source: link.source,
-    target: link.target,
-  }));
-
-  const simulation = forceSimulation<PositionedNode, PositionedLink>(nodes)
+function bindForces(simulation: Simulation<PositionedNode, PositionedLink>, links: PositionedLink[]) {
+  simulation
     .force(
       "link",
       forceLink<PositionedNode, PositionedLink>(links)
@@ -95,12 +85,83 @@ export function createLayout(model: GraphModel): Layout {
     // Asymmetric pull compresses the graph vertically so its aspect ratio
     // approaches a widescreen canvas, without shearing the clusters.
     .force("x", forceX(0).strength(0.008))
-    .force("y", forceY(0).strength(0.055))
+    .force("y", forceY(0).strength(0.055));
+}
+
+export function createLayout(model: GraphModel): Layout {
+  const nodes: PositionedNode[] = model.nodes.map((node) => ({
+    id: node.id,
+    node,
+    ...seedPosition(node.id),
+  }));
+
+  const links: PositionedLink[] = model.links.map((link) => ({
+    id: link.id,
+    source: link.source,
+    target: link.target,
+  }));
+
+  const simulation = forceSimulation<PositionedNode, PositionedLink>(nodes)
     .alpha(1)
     .alphaDecay(0.036)
     .velocityDecay(0.5);
+  bindForces(simulation, links);
 
   return { nodes, links, simulation };
+}
+
+/**
+ * Keep settled positions and reheat so a new file can shift the structure
+ * instead of reseeding the whole sky. New nodes spawn beside their neighbours.
+ */
+export function syncLayout(layout: Layout, model: GraphModel): Layout {
+  const previous = new Map(layout.nodes.map((node) => [node.id, node]));
+  const nodes: PositionedNode[] = model.nodes.map((node) => {
+    const prior = previous.get(node.id);
+    if (prior) {
+      prior.node = node;
+      return prior;
+    }
+
+    const neighbourIds = model.adjacency.get(node.id);
+    let x = 0;
+    let y = 0;
+    let count = 0;
+    if (neighbourIds) {
+      for (const id of neighbourIds) {
+        const neighbour = previous.get(id);
+        if (!neighbour) continue;
+        x += neighbour.x;
+        y += neighbour.y;
+        count += 1;
+      }
+    }
+    if (count === 0) {
+      return { id: node.id, node, ...seedPosition(node.id) };
+    }
+    const jitter = 18 + seeded(node.id, 3) * 22;
+    const angle = seeded(node.id, 4) * Math.PI * 2;
+    return {
+      id: node.id,
+      node,
+      x: x / count + Math.cos(angle) * jitter,
+      y: y / count + Math.sin(angle) * jitter,
+    };
+  });
+
+  const links: PositionedLink[] = model.links.map((link) => ({
+    id: link.id,
+    source: link.source,
+    target: link.target,
+  }));
+
+  layout.simulation.nodes(nodes);
+  const linkForce = layout.simulation.force<ForceLink<PositionedNode, PositionedLink>>("link");
+  if (linkForce) linkForce.links(links);
+  else bindForces(layout.simulation, links);
+
+  layout.simulation.alpha(0.48).alphaDecay(0.018).restart();
+  return { nodes, links, simulation: layout.simulation };
 }
 
 /** Run the simulation to convergence synchronously, then stop it. */
