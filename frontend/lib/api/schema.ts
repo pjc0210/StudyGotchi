@@ -114,8 +114,8 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Get Concept Detail Endpoint */
-        get: operations["get_concept_detail_endpoint_api_courses__course_id__students__student_id__concepts__concept_id__get"];
+        /** Student Concept */
+        get: operations["student_concept_api_courses__course_id__students__student_id__concepts__concept_id__get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -436,9 +436,39 @@ export interface components {
             /** File */
             file: string;
         };
+        /** CitationOut */
+        CitationOut: {
+            /** Chunk Id */
+            chunk_id?: string | null;
+            /** Page Number */
+            page_number?: number | null;
+            /** Snippet */
+            snippet?: string | null;
+            /** Link Type */
+            link_type: string;
+        };
+        /** ConceptAssessmentOut */
+        ConceptAssessmentOut: {
+            /**
+             * Assessment Id
+             * Format: uuid
+             */
+            assessment_id: string;
+            /**
+             * Item Id
+             * Format: uuid
+             */
+            item_id: string;
+            /** Title */
+            title: string;
+            /** Label */
+            label: string;
+        };
         /**
          * ConceptDetailResponse
-         * @description Evidence and provenance behind one concept, for the inspector.
+         * @description Everything an inspector shows about one concept: the student's evidence,
+         *     the files that teach it (ranked, deduplicated), relationships, and the
+         *     assessment items that test it.
          */
         ConceptDetailResponse: {
             /**
@@ -448,10 +478,25 @@ export interface components {
             concept_id: string;
             /** Name */
             name: string;
+            /** Definition */
+            definition?: string | null;
+            /** Scope */
+            scope: string;
+            /** Aliases */
+            aliases?: string[];
             /** Evidence */
             evidence: components["schemas"]["EvidenceOut"][];
             /** Resources */
             resources: components["schemas"]["ConceptResourceOut"][];
+            /** Relationships */
+            relationships?: components["schemas"]["ConceptRelationshipOut"][];
+            /** Assessments */
+            assessments?: components["schemas"]["ConceptAssessmentOut"][];
+            /**
+             * Suppressed Resource Count
+             * @default 0
+             */
+            suppressed_resource_count: number;
         };
         /** ConceptEdgeOut */
         ConceptEdgeOut: {
@@ -510,13 +555,47 @@ export interface components {
             importance: number;
             scope: components["schemas"]["ConceptScope"];
         };
-        /** ConceptResourceOut */
+        /** ConceptRelationshipOut */
+        ConceptRelationshipOut: {
+            /**
+             * Source
+             * Format: uuid
+             */
+            source: string;
+            /**
+             * Target
+             * Format: uuid
+             */
+            target: string;
+            /** Edge Type */
+            edge_type: string;
+            /** Status */
+            status: string;
+            /** Confidence */
+            confidence: number;
+            /** Resource Id */
+            resource_id?: string | null;
+            /** Page Number */
+            page_number?: number | null;
+            /** Snippet */
+            snippet?: string | null;
+        };
+        /**
+         * ConceptResourceOut
+         * @description A file that teaches or assesses the concept, with where in it.
+         */
         ConceptResourceOut: {
             resource: components["schemas"]["ResourceOut"];
             /** Link Type */
             link_type: string;
             /** Depth Score */
             depth_score: number;
+            /** Rank Score */
+            rank_score?: number | null;
+            /** Novelty */
+            novelty?: number | null;
+            /** Citations */
+            citations?: components["schemas"]["CitationOut"][];
         };
         /**
          * ConceptScope
@@ -558,7 +637,7 @@ export interface components {
         DiscoveryState: "unseen" | "frontier" | "encountered" | "active";
         /**
          * EvidenceOut
-         * @description One evidence event behind a concept's mastery score.
+         * @description One evidence event behind a concept's understanding.
          */
         EvidenceOut: {
             /**
@@ -580,6 +659,8 @@ export interface components {
              */
             occurred_at: string;
             resource?: components["schemas"]["ResourceOut"] | null;
+            /** Assessment Item Id */
+            assessment_item_id?: string | null;
         };
         /**
          * GapAction
@@ -926,6 +1007,38 @@ export interface components {
             /** Context */
             ctx?: Record<string, never>;
         };
+        /**
+         * WorldEventKind
+         * @enum {string}
+         */
+        WorldEventKind: "RESOURCE_ADDED" | "RESOURCE_ANALYZED" | "CONCEPT_DISCOVERED" | "FRONTIER_EXPANDED" | "UNDERSTANDING_GAIN" | "UNDERSTANDING_DROP" | "CONCEPT_MASTERED";
+        /** WorldEventOut */
+        WorldEventOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            event: components["schemas"]["WorldEventKind"];
+            /** Concept Id */
+            concept_id?: string | null;
+            /** Resource Id */
+            resource_id?: string | null;
+            /** Delta */
+            delta?: number | null;
+            /** Explanation */
+            explanation: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** WorldEventsResponse */
+        WorldEventsResponse: {
+            /** Events */
+            events: components["schemas"]["WorldEventOut"][];
+        };
         /** WorldRegionOut */
         WorldRegionOut: {
             /**
@@ -1108,7 +1221,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["ConceptDetailResponse"];
                 };
             };
             /** @description Validation Error */
@@ -1140,7 +1253,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["ConceptDetailResponse"];
                 };
             };
             /** @description Validation Error */
@@ -1173,7 +1286,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["ConceptDetailResponse"];
                 };
             };
             /** @description Validation Error */
@@ -1187,7 +1300,7 @@ export interface operations {
             };
         };
     };
-    get_concept_detail_endpoint_api_courses__course_id__students__student_id__concepts__concept_id__get: {
+    student_concept_api_courses__course_id__students__student_id__concepts__concept_id__get: {
         parameters: {
             query?: never;
             header?: never;
@@ -1672,7 +1785,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["WorldEventsResponse"];
                 };
             };
             /** @description Validation Error */

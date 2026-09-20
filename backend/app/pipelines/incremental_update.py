@@ -17,6 +17,7 @@ from app.domain.mastery.scorer import score_understanding_by_concept
 from app.domain.ontology.edges import ConceptEdgeType
 from app.domain.personal_graph.discovery import classify_discovery_state
 from app.domain.personal_graph.frontier import compute_frontier_neighbors
+from app.domain.world.events import WorldEventKind
 from app.repositories.concepts import get_personal_concepts
 from app.repositories.edges import get_course_edges
 from app.repositories.student_states import (
@@ -105,7 +106,7 @@ async def recompute_student_state(
             await add_world_event(
                 session,
                 **event_args,
-                event="CONCEPT_DISCOVERED" if events else "FRONTIER_EXPANDED",
+                event=WorldEventKind.CONCEPT_DISCOVERED if events else WorldEventKind.FRONTIER_EXPANDED,
                 explanation="Source evidence introduced this concept."
                 if events
                 else "Adjacent prerequisite structure exposed this frontier.",
@@ -120,7 +121,7 @@ async def recompute_student_state(
             await add_world_event(
                 session,
                 **event_args,
-                event="UNDERSTANDING_GAIN" if delta > 0 else "UNDERSTANDING_DROP",
+                event=WorldEventKind.UNDERSTANDING_GAIN if delta > 0 else WorldEventKind.UNDERSTANDING_DROP,
                 delta=delta,
                 explanation=(
                     f"Recomputed from {len(practiced_events)} scored evidence events; "
@@ -133,7 +134,7 @@ async def recompute_student_state(
             await add_world_event(
                 session,
                 **event_args,
-                event="CONCEPT_MASTERED",
+                event=WorldEventKind.CONCEPT_MASTERED,
                 explanation="Understanding crossed the mastered threshold.",
             )
         await upsert_student_concept_state(

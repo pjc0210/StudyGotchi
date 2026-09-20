@@ -1,8 +1,10 @@
+from datetime import datetime
 from typing import Annotated, Literal
 from uuid import UUID
 
 from pydantic import BaseModel, Field
 
+from app.domain.world.events import WorldEventKind
 from app.schemas.personal_graph import PersonalGraphEdgeOut
 
 UnitFloat = Annotated[float, Field(ge=0, le=1)]
@@ -37,3 +39,17 @@ class WorldResponse(BaseModel):
     regions: list[WorldRegionOut]
     edges: list[PersonalGraphEdgeOut]
     hidden_concept_count: int
+
+
+class WorldEventOut(BaseModel):
+    id: UUID
+    event: WorldEventKind
+    concept_id: UUID | None = None
+    resource_id: UUID | None = None
+    delta: float | None = None
+    explanation: str
+    created_at: datetime
+
+
+class WorldEventsResponse(BaseModel):
+    events: list[WorldEventOut]

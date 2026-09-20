@@ -15,6 +15,7 @@ from datetime import UTC, datetime
 
 from app.domain.mastery.evidence import recency_weight
 from app.domain.personal_graph.builder import PersonalGraphResult
+from app.domain.personal_graph.projection import ConceptMetrics
 
 
 def semantic_state(node, *, stale: bool = False) -> str:
@@ -38,10 +39,20 @@ def project_world(
     last_evidence=None,
     now: datetime | None = None,
     staleness_days: float = 45.0,
+    metrics: dict | None = None,
 ) -> dict:
+    """Regions for the island.
+
+    When `metrics` (from `project_graph`) is given, each region's state is the
+    island adapter of the graph's state, so both surfaces agree. Without it the
+    understanding-only rule applies, which is enough for a graph with no
+    evidence history.
+    """
+
     now = now or datetime.now(UTC)
     last_practiced = last_practiced or {}
     last_evidence = last_evidence or {}
+    metrics = metrics or {}
     regions = []
     for node in sorted(graph.nodes, key=lambda n: str(n.concept_id)):
         if node.discovery_state == "unseen":
@@ -53,7 +64,8 @@ def project_world(
             practiced is not None
             and (now - practiced).total_seconds() > staleness_days * 86400
         )
-        state = semantic_state(node, stale=stale)
+        projected: ConceptMetrics | None = metrics.get(node.concept_id)
+        state = projected.semantic_state if projected is not None else semantic_state(node, stale=stale)
         seen = last_evidence.get(node.concept_id)
         recency = (
             recency_weight(seen, now=now, half_life_days=staleness_days)

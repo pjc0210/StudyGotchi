@@ -22,7 +22,7 @@ async def add_world_event(
             course_id=course_id,
             concept_id=concept_id,
             resource_id=resource_id,
-            event=event,
+            event=str(event),
             delta=delta,
             explanation=explanation,
             created_at=datetime.now(UTC),

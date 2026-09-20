@@ -30,6 +30,7 @@ from app.domain.ontology.concepts import ConceptCandidate, ConceptScope
 from app.domain.ontology.edges import StudentConceptEdgeType
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
 from app.domain.resources.matching import exposure_events_for_matches, match_chunks_to_concepts
+from app.domain.world.events import WorldEventKind
 from app.extractors.assessments import normalize_concept_links
 from app.extractors.chunker import chunk_document
 from app.extractors.concepts import extract_resource_structured, grounded
@@ -48,8 +49,7 @@ from app.repositories.concepts import (
     create_concept,
     create_resource_link,
     get_alias_index,
-    get_course_concepts,
-    get_personal_concepts,
+    get_visible_embeddings,
 )
 from app.repositories.edges import upsert_student_concept_edge
 from app.repositories.resources import (
@@ -108,19 +108,6 @@ class StudentResourceIngestOutcome:
 
 def _ms(start: float) -> int:
     return int((time.perf_counter() - start) * 1000)
-
-
-async def _visible_concept_embeddings(session: AsyncSession, *, course_id: UUID, student_id: UUID) -> dict[UUID, list[float]]:
-    """Course concepts plus this student's own personal ones. Other students' personal concepts stay invisible."""
-
-    visible: dict[UUID, list[float]] = {}
-    for node in (await get_course_concepts(session, course_id)).values():
-        if node.embedding:
-            visible[node.id] = node.embedding
-    for node in (await get_personal_concepts(session, course_id, student_id)).values():
-        if node.embedding:
-            visible[node.id] = node.embedding
-    return visible
 
 
 async def _write_events(
@@ -198,7 +185,7 @@ async def match_student_resource(
     await save_chunks(session, resource_id=resource.id, course_id=course_id, chunks=chunks, embeddings=chunk_embeddings)
 
     settings = get_settings()
-    visible = await _visible_concept_embeddings(session, course_id=course_id, student_id=student_id)
+    visible = await get_visible_embeddings(session, course_id, student_id)
     matches = match_chunks_to_concepts(chunk_embeddings, visible, threshold=settings.match_threshold)
     events = exposure_events_for_matches(
         matches,
@@ -218,7 +205,7 @@ async def match_student_resource(
         student_id=student_id,
         course_id=course_id,
         resource_id=resource.id,
-        event="RESOURCE_ADDED",
+        event=WorldEventKind.RESOURCE_ADDED,
         explanation=f"Added {artifact_type.value} from {origin.value}; it touches {len(touched)} concepts.",
     )
     await merge_resource_metadata(session, resource.id, phase_a_ms=_ms(started), chunks=len(chunks))
@@ -243,7 +230,7 @@ async def _ingest_handwritten(
     started: float,
 ) -> StudentResourceIngestOutcome:
     work = await extract_handwritten_work(provider, content_bytes, media_type=media_type)
-    alias_index = await get_alias_index(session, course_id)
+    alias_index = await get_alias_index(session, course_id, student_id)
     normalized = [normalize_concept_name(name) for name in work.concepts_used]
     resolved = [alias_index[name] for name in normalized if name in alias_index]
     relevance = 1.0 / len(resolved) if len(resolved) > 1 else 1.0
@@ -315,7 +302,7 @@ async def analyze_student_resource(
 
     # Every lookup the per-chunk loop used to repeat is loaded once and kept current in memory.
     alias_index = await get_alias_index(session, course_id, student_id)
-    existing_embeddings = await _visible_concept_embeddings(session, course_id=course_id, student_id=student_id)
+    existing_embeddings = await get_visible_embeddings(session, course_id, student_id)
 
     candidates: list[tuple[int, ConceptCandidateOut]] = [
         (chunk_index, candidate)
@@ -501,7 +488,7 @@ async def analyze_student_resource(
         student_id=student_id,
         course_id=course_id,
         resource_id=resource_id,
-        event="RESOURCE_ANALYZED",
+        event=WorldEventKind.RESOURCE_ANALYZED,
         explanation=(
             f"Read {resource.title}: {len(events)} evidence events, {graded_events} graded, "
             f"{outcome.personal_concepts_created} new personal concepts."

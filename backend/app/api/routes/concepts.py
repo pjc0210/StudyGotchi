@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.dependencies import get_db
+from app.api.dependencies import current_student, get_db, require_student
 from app.db.models import (
     Assessment,
     AssessmentItem,
@@ -26,11 +26,24 @@ from app.domain.resources.ranking import (
     select_representative_resources,
 )
 from app.domain.resources.redundancy import detect_near_duplicate_clusters
+from app.schemas.api import ConceptDetailResponse, ResourceOut
 
 router = APIRouter(prefix="/api/courses/{course_id}", tags=["concepts"])
 
 
-async def concept_details(session, course_id, concept_id, student_id=None):
+def _resource_out(resource: Resource) -> ResourceOut:
+    return ResourceOut(
+        id=resource.id,
+        title=resource.title,
+        origin=resource.origin,
+        artifact_type=resource.artifact_type,
+        status=resource.status,
+        concept_count=0,
+        created_at=resource.created_at,
+    )
+
+
+async def concept_details(session, course_id, concept_id, student_id=None) -> dict:
     concept = await session.get(Concept, concept_id)
     if (
         concept is None
@@ -71,10 +84,9 @@ async def concept_details(session, course_id, concept_id, student_id=None):
         sources.setdefault(
             resource.id,
             {
-                "resource_id": resource.id,
-                "title": resource.title,
-                "origin": resource.origin,
-                "artifact_type": resource.artifact_type,
+                "resource": _resource_out(resource),
+                "link_type": link.link_type,
+                "depth_score": float(link.depth_score),
                 "citations": [],
             },
         )["citations"].append(
@@ -105,6 +117,7 @@ async def concept_details(session, course_id, concept_id, student_id=None):
         {**sources[r.resource_id], "rank_score": r.score, "novelty": r.marginal_novelty}
         for r in ranked
     ]
+    resources_by_id = {row.id: row for _, row, _ in links}
     aliases = (
         (
             await session.execute(
@@ -165,14 +178,19 @@ async def concept_details(session, course_id, concept_id, student_id=None):
                 )
             )
         ).scalars()
+        rows = list(rows)
+        missing = {e.resource_id for e in rows if e.resource_id and e.resource_id not in resources_by_id}
+        if missing:
+            for row in (await session.execute(select(Resource).where(Resource.id.in_(missing)))).scalars():
+                resources_by_id[row.id] = row
         evidence = [
             {
                 "id": e.id,
-                "type": e.evidence_type,
+                "evidence_type": e.evidence_type,
                 "outcome": float(e.outcome) if e.outcome is not None else None,
                 "certainty": float(e.certainty),
                 "strength": float(e.strength),
-                "resource_id": e.resource_id,
+                "resource": _resource_out(resources_by_id[e.resource_id]) if e.resource_id in resources_by_id else None,
                 "assessment_item_id": e.assessment_item_id,
                 "occurred_at": e.occurred_at,
             }
@@ -195,20 +213,24 @@ async def concept_details(session, course_id, concept_id, student_id=None):
     }
 
 
-@router.get("/concepts/{concept_id}")
-@router.get("/concepts/{concept_id}/why")
+@router.get("/concepts/{concept_id}", response_model=ConceptDetailResponse)
+@router.get("/concepts/{concept_id}/why", response_model=ConceptDetailResponse)
 async def course_concept(
-    course_id: UUID, concept_id: UUID, session: AsyncSession = Depends(get_db)
+    course_id: UUID,
+    concept_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(current_student),
 ):
     return await concept_details(session, course_id, concept_id)
 
 
-@router.get("/students/{student_id}/concepts/{concept_id}")
-@router.get("/students/{student_id}/concepts/{concept_id}/why")
+@router.get("/students/{student_id}/concepts/{concept_id}", response_model=ConceptDetailResponse)
+@router.get("/students/{student_id}/concepts/{concept_id}/why", response_model=ConceptDetailResponse)
 async def student_concept(
     course_id: UUID,
     student_id: UUID,
     concept_id: UUID,
     session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
 ):
     return await concept_details(session, course_id, concept_id, student_id)

@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_db, require_student
 from app.domain.personal_graph.discovery import DiscoveryState
-from app.repositories.concepts import get_course_concepts, get_personal_concepts
+from app.repositories.concepts import get_visible_concepts
 from app.repositories.courses import get_course
 from app.repositories.student_states import get_student_concept_states
 from app.schemas.understanding import UnderstandingEntryOut, UnderstandingResponse
@@ -34,15 +34,14 @@ async def get_understanding_endpoint(
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
-    course_concepts = await get_course_concepts(session, course_id)
-    personal_concepts = await get_personal_concepts(session, course_id, student_id)
+    visible = await get_visible_concepts(session, course_id, student_id)
     states = await get_student_concept_states(
         session, student_id=student_id, course_id=course_id
     )
 
     entries: list[UnderstandingEntryOut] = []
     for concept_id, state in states.items():
-        concept = course_concepts.get(concept_id) or personal_concepts.get(concept_id)
+        concept = visible.get(concept_id)
         if concept is None:
             continue
         entries.append(

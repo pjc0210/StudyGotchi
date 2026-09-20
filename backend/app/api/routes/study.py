@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_db, require_student
 from app.pipelines.gap_query import compute_target_gaps
-from app.repositories.concepts import get_course_concepts, get_personal_concepts
+from app.repositories.concepts import get_visible_concepts
 from app.repositories.courses import get_course
 from app.schemas.api import GapOut, GapsResponse, StudyPlanRequest, StudyPlanResponse
 
@@ -21,12 +21,8 @@ router = APIRouter(
 async def _concept_name_lookup(
     session: AsyncSession, course_id: UUID, student_id: UUID
 ) -> dict[UUID, str]:
-    course_concepts = await get_course_concepts(session, course_id)
-    personal_concepts = await get_personal_concepts(session, course_id, student_id)
-    return {
-        cid: c.canonical_name
-        for cid, c in {**course_concepts, **personal_concepts}.items()
-    }
+    visible = await get_visible_concepts(session, course_id, student_id)
+    return {cid: c.canonical_name for cid, c in visible.items()}
 
 
 @router.get("/gaps", response_model=GapsResponse)

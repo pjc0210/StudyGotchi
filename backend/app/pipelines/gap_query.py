@@ -22,7 +22,7 @@ from app.domain.gaps.study_plan import GapEntry, build_study_plan
 from app.domain.graph.algorithms import build_digraph, get_prerequisite_ancestors
 from app.domain.ontology.edges import ConceptEdgeType
 from app.repositories.assessments import get_assessment_items, get_item_concept_links
-from app.repositories.concepts import get_course_concepts, get_personal_concepts
+from app.repositories.concepts import get_course_concepts, get_visible_concepts
 from app.repositories.edges import get_course_edges
 from app.repositories.student_states import get_student_concept_states
 
@@ -62,10 +62,7 @@ async def compute_target_gaps(
     target_ids = await _resolve_target_concept_ids(
         session, target_concept_id=target_concept_id, assessment_id=assessment_id
     )
-    visible_concepts = {
-        **await get_course_concepts(session, course_id),
-        **await get_personal_concepts(session, course_id, student_id),
-    }
+    visible_concepts = await get_visible_concepts(session, course_id, student_id)
     target_ids &= visible_concepts.keys()
     if not target_ids:
         return TargetGapResult(target_concept_ids=set(), gaps=[], study_order=[])

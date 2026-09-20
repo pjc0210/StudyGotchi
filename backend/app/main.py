@@ -5,7 +5,6 @@ from fastapi.responses import JSONResponse
 from openai import APIError
 
 from app.api.routes import (
-    concept_detail,
     concepts,
     courses,
     debug,
@@ -46,7 +45,6 @@ app.include_router(personal_graph.router)
 app.include_router(understanding.router)
 app.include_router(study.router)
 app.include_router(world.router)
-app.include_router(concept_detail.router)
 if not settings.is_production:
     app.include_router(debug.router)
 

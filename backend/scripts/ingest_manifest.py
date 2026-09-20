@@ -1,7 +1,9 @@
 """Import explicitly classified local files or ZIP members, one transaction per file.
 
-Run: python -m scripts.ingest_manifest manifest.json [--dry-run] [--limit N]
+Run: python -m scripts.ingest_manifest manifest.json [--dry-run] [--limit N] [--student-id UUID]
 Paths resolve relative to the manifest; no archive is extracted to disk.
+`--student-id` replaces the placeholder student ids a manifest ships with, so
+someone's own work lands on their real account.
 """
 
 import argparse
@@ -51,6 +53,8 @@ async def run(args):
             ArtifactType(entry["artifact_type"]),
         )
         student_id = UUID(entry["student_id"]) if entry.get("student_id") else None
+        if student_id is not None and args.student_id:
+            student_id = UUID(args.student_id)
         if origin == SourceOrigin.STUDENT_SELF and student_id is None:
             raise ValueError("Personal work requires an explicit student_id")
         filename, content = read_entry(manifest_path.parent, entry)
@@ -150,4 +154,5 @@ if __name__ == "__main__":
     parser.add_argument("manifest")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--student-id", default=None, help="Use this student for every student_self entry")
     asyncio.run(run(parser.parse_args()))
