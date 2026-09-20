@@ -1,0 +1,83 @@
+{
+  "source": "assets/creatures/tripo/pokemon-like-3d-model.glb",
+  "front_axis_raw": "posz",
+  "timings_s": {
+    "import": 6.2,
+    "previews": 3.2,
+    "total": 43.7
+  },
+  "source_tris": 1906760,
+  "source_vertices": 1013158,
+  "framing": {
+    "native_size_m": [
+      0.7135,
+      0.2659,
+      0.9803
+    ],
+    "scale": 0.81609,
+    "rotation_deg_about_up": 0.0
+  },
+  "source_basecolor": {
+    "name": "pokemon-like+3d+model_basecolor.jpg",
+    "size": [
+      4096,
+      4096
+    ]
+  },
+  "decimate_s": 33.6,
+  "tris_before": 1906760,
+  "tris_after": 2900,
+  "vertices_after": 5340,
+  "lowpoly_textured": {
+    "file": "pokemon-like-3d-model-lowpoly-textured.glb",
+    "bytes": 340460,
+    "tris": 2900,
+    "texture": "baseColor 1024x1024 JPEG (metal/rough/normal dropped)"
+  },
+  "toybox": {
+    "file": "pokemon-like-3d-model-toybox.glb",
+    "bytes": 230500,
+    "tris": 2900,
+    "k": 5,
+    "palette": [
+      {
+        "index": 0,
+        "hex": "#717892",
+        "face_share": 0.298
+      },
+      {
+        "index": 1,
+        "hex": "#bfb2b5",
+        "face_share": 0.194
+      },
+      {
+        "index": 2,
+        "hex": "#83603d",
+        "face_share": 0.192
+      },
+      {
+        "index": 3,
+        "hex": "#363c56",
+        "face_share": 0.186
+      },
+      {
+        "index": 4,
+        "hex": "#b7a155",
+        "face_share": 0.13
+      }
+    ],
+    "method": "baseColor sampled at every corner UV (nearest), averaged per face in linear RGB, k-means in sRGB, one flat baseColorFactor material per palette entry, flat shading, UVs removed"
+  },
+  "comparison": {
+    "file": "comparison.png",
+    "cells": [
+      "preview-original.png",
+      "preview-lowpoly.png",
+      "preview-toybox.png",
+      "blob-ice-1",
+      "bird-ice-1",
+      "biped-ice-2"
+    ]
+  },
+  "animations": "none in source; no motion strip rendered"
+}

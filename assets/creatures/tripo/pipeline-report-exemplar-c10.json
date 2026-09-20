@@ -1,0 +1,49 @@
+{
+  "component": "component-10",
+  "source_tris": 32552,
+  "decimate_s": 0.2,
+  "tris_before": 32552,
+  "tris_after": 1400,
+  "vertices_after": 981,
+  "lowpoly_textured": {
+    "file": "exemplar-c10-lowpoly-textured.glb",
+    "bytes": 234008,
+    "tris": 1400,
+    "texture": "baseColor 1024x1024 JPEG (metal/rough/normal dropped)"
+  },
+  "toybox": {
+    "file": "exemplar-c10-toybox.glb",
+    "bytes": 113212,
+    "tris": 1400,
+    "k": 5,
+    "palette": [
+      {
+        "index": 0,
+        "hex": "#7983a2",
+        "face_share": 0.358
+      },
+      {
+        "index": 1,
+        "hex": "#596174",
+        "face_share": 0.274
+      },
+      {
+        "index": 2,
+        "hex": "#3e415c",
+        "face_share": 0.227
+      },
+      {
+        "index": 3,
+        "hex": "#a8b3c1",
+        "face_share": 0.127
+      },
+      {
+        "index": 4,
+        "hex": "#c05979",
+        "face_share": 0.014
+      }
+    ],
+    "method": "baseColor sampled at every corner UV (nearest), averaged per face in linear RGB, k-means in sRGB, one flat baseColorFactor material per palette entry, flat shading, UVs removed"
+  },
+  "comparison": "comparison-exemplar-c10.png"
+}

@@ -1,26 +1,30 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { Blob, type BlobMotion } from "./Blob";
+import { GlbCreature, type ClipName, type CreatureRequests } from "./GlbCreature";
+import type { BlobMotion } from "./Blob";
 import { BIOMES, type Vec2 } from "@/lib/world/layout";
+import { creatureMeta, pickCreature } from "@/lib/world/roster";
 import { hashString, makeRng } from "@/lib/seed";
 import type { CanvasCharacter, CanvasPlace } from "@/lib/world/types";
-import { toonMaterial } from "@/lib/toon";
+import { MOOD_FOR_STATE, voiceFor } from "@/lib/audio/catalog";
+import { emit } from "@/lib/audio/events";
 
 const STATE_SCALE: Record<CanvasCharacter["state"], number> = {
-  idle: 1,
-  evolved: 1.2,
-  exploded: 0.85,
-  recovered: 1.05,
-  faded: 0.7,
+  idle: 1.2,
+  evolved: 1.45,
+  exploded: 1,
+  recovered: 1.28,
+  faded: 0.85,
 };
 
 export function Character({
   character,
   place,
   home,
+  seed,
   heightAt,
   selected,
   onSelect,
@@ -29,6 +33,8 @@ export function Character({
   character: CanvasCharacter;
   place: CanvasPlace;
   home: Vec2;
+  /** the world's seed; with the place id it decides which body this resident wears */
+  seed: string;
   heightAt: (x: number, z: number) => number;
   selected: boolean;
   onSelect: (conceptId: string | null) => void;
@@ -36,8 +42,12 @@ export function Character({
 }) {
   const group = useRef<THREE.Group>(null);
   const motion = useRef<BlobMotion>({ moving: false, t: 0 });
+  const requests = useRef<CreatureRequests>({ happy: false });
   const biome = BIOMES[place.biome];
   const variant = hashString(character.id) % 4;
+  const index = Math.max(0, place.concept_ids.indexOf(character.concept_id));
+  const creatureId = useMemo(() => pickCreature(`${seed}:${place.id}`, place.biome, index), [seed, place.id, place.biome, index]);
+  const meta = creatureMeta(creatureId);
   const wander = useRef(
     (() => {
       const rng = makeRng(hashString(character.id));
@@ -45,7 +55,7 @@ export function Character({
     })(),
   );
 
-  const heapMat = useMemo(() => toonMaterial(biome.creature), [biome.creature]);
+  // Knocked-over and faded residents stand where they are and play the sad clip.
   const still = character.state === "exploded" || character.state === "faded";
 
   useFrame((_, dt) => {
@@ -72,53 +82,42 @@ export function Character({
     g.rotation.y = s.angle;
   });
 
-  const handlers = {
-    onClick: (e: { stopPropagation: () => void }) => {
-      e.stopPropagation();
-      onSelect(character.concept_id);
-    },
-    onPointerOver: (e: { stopPropagation: () => void }) => {
-      e.stopPropagation();
-      document.body.style.cursor = "pointer";
-      onHover?.(character.concept_id);
-    },
-    onPointerOut: () => {
-      document.body.style.cursor = "auto";
-      onHover?.(null);
-    },
-  };
+  const select = useCallback(() => {
+    requests.current.happy = true;
+    onSelect(character.concept_id);
+    emit({
+      type: "creature-select",
+      label: character.label,
+      species: voiceFor(place.biome, biome.creature),
+      mood: MOOD_FOR_STATE[character.state],
+      personality: meta?.personality,
+    });
+  }, [character.concept_id, character.label, character.state, place.biome, biome.creature, meta?.personality, onSelect]);
+
+  const onClip = useCallback((clip: ClipName) => {
+    if (clip === "sleep") emit({ type: "creature-sleep" });
+  }, []);
+
+  const hoverIn = useCallback(() => onHover?.(character.concept_id), [onHover, character.concept_id]);
+  const hoverOut = useCallback(() => onHover?.(null), [onHover]);
 
   return (
     <group ref={group}>
-      {still ? (
-        <group {...handlers}>
-          {[-0.18, 0, 0.2].map((ox, i) => (
-            <mesh key={i} position={[ox, 0.12, i === 1 ? 0.12 : -0.08]} material={heapMat} rotation={[0.3 * i, 0.4, 0.2]}>
-              <dodecahedronGeometry args={[0.16 - i * 0.02, 0]} />
-            </mesh>
-          ))}
-          <mesh position={[-0.06, 0.28, 0.16]}>
-            <sphereGeometry args={[0.035, 8, 6]} />
-            <meshBasicMaterial color="#2b2b33" />
-          </mesh>
-          <mesh position={[0.08, 0.3, 0.14]}>
-            <sphereGeometry args={[0.035, 8, 6]} />
-            <meshBasicMaterial color="#2b2b33" />
-          </mesh>
-        </group>
-      ) : (
-        <group {...handlers}>
-          <Blob
-            color={biome.creature}
-            accent={biome.accent}
-            variant={variant}
-            motion={motion}
-            selected={selected}
-            scale={STATE_SCALE[character.state]}
-            onClick={() => onSelect(character.concept_id)}
-          />
-        </group>
-      )}
+      <GlbCreature
+        id={creatureId}
+        variant={variant}
+        motion={motion}
+        requests={requests}
+        sad={still}
+        selected={selected}
+        scale={STATE_SCALE[character.state]}
+        color={biome.creature}
+        accent={biome.accent}
+        onClick={select}
+        onPointerOver={hoverIn}
+        onPointerOut={hoverOut}
+        onClip={onClip}
+      />
     </group>
   );
 }

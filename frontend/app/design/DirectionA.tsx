@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type 
 import dynamic from 'next/dynamic'
 import { COURSE, EVIDENCE, OTHER_COURSES, type DirectionProps } from './chrome-spec'
 import { GOLDEN_RESIDENTS, progressState, type GoldenView } from '@/components/world/golden/golden-spec'
+import type { CopyTreatment, DesignTheme } from './page'
 
 /* WebGL only exists in the browser; the canvas mounts after hydration, as the rest of the site does. */
 const WorldCanvas = dynamic(() => import('@/components/world/golden/WorldCanvas'), { ssr: false })
@@ -51,6 +52,35 @@ const STATE_NOTE: Record<Stage, string> = {
 
 /* Each resident moved in with one piece of evidence; the bubble reads its page from here. */
 const RESIDENT_EVIDENCE: Record<Resident['id'], number> = { pip: 0, mochi: 1, glyph: 2 }
+
+const HERO_COPY: Record<CopyTreatment, { headline: string; body: string; action: string }> = {
+  direct: {
+    headline: 'Turn in a problem set. Someone moves in.',
+    body: 'Your course work becomes a place you can inspect. Ideas sprout, landmarks rise, and every resident can name the page it came from.',
+    action: 'Start your world',
+  },
+  world: {
+    headline: 'Your course work, grown into a world.',
+    body: 'Lecture notes shape the land. Solved problems light the observatory. The work you already do becomes somewhere you can return to.',
+    action: 'Grow your world',
+  },
+  diagnostic: {
+    headline: 'See what you know. Find what needs work.',
+    body: 'One view connects your files, evidence, knowledge gaps, and study route. The island makes the pattern visible before the numbers explain it.',
+    action: 'See your course',
+  },
+}
+
+const WORLD_TREATMENT: Record<DesignTheme, { sky: string; lightScale: number }> = {
+  graphite: { sky: '#d9dbde', lightScale: 0.9 },
+  biome: { sky: '#dce5ee', lightScale: 1 },
+  night: { sky: '#736c82', lightScale: 0.48 },
+}
+
+type DirectionAProps = DirectionProps & {
+  theme: DesignTheme
+  copy: CopyTreatment
+}
 
 /* True on the first mount per session for this key. Server render and hydration both answer
    false so the markup matches; the layout effect reads sessionStorage before the first paint
@@ -282,18 +312,27 @@ function Window({
   view,
   onResident,
   cut,
+  theme,
   className,
 }: {
   progress: number
   view: GoldenView
   onResident: () => void
   cut: boolean
+  theme: DesignTheme
   className?: string
 }) {
+  const treatment = WORLD_TREATMENT[theme]
   return (
     <div className={`a-window${className ? ` ${className}` : ''}`}>
       <div className="a-window-stage" data-cut={cut}>
-        <WorldCanvas progress={progress} view={view} onResidentFocus={onResident} />
+        <WorldCanvas
+          progress={progress}
+          view={view}
+          onResidentFocus={onResident}
+          skyColor={treatment.sky}
+          lightScale={treatment.lightScale}
+        />
       </div>
     </div>
   )
@@ -459,13 +498,14 @@ function DropZone() {
 
 /* ---------- Screens ---------- */
 
-function Landing({ progress, setProgress, view, setView }: DirectionProps) {
+function Landing({ progress, setProgress, view, setView, theme, copy }: DirectionAProps) {
   const cut = useOnce('dir-a-cut-landing')
   const [speaking, setSpeaking] = useState(true)
   const pip = GOLDEN_RESIDENTS[0]
   const evidence = EVIDENCE[RESIDENT_EVIDENCE[pip.id]]
   const show = speaking || view === 'resident'
   const stage = progressState(progress).stage
+  const words = HERO_COPY[copy]
 
   const close = () => {
     setSpeaking(false)
@@ -492,15 +532,11 @@ function Landing({ progress, setProgress, view, setView }: DirectionProps) {
           <Eyebrow>
             {COURSE.id} · {COURSE.topic}
           </Eyebrow>
-          <h1 className="a-display">Turn in a problem set. Someone moves in.</h1>
-          <p className="a-body a-hero-sub">
-            Your lecture PDFs, problem sets, and exam feedback become a small world. Ideas you
-            touch sprout. Ideas you demonstrate become landmarks. Every resident can tell you which
-            page it came from.
-          </p>
+          <h1 className="a-display">{words.headline}</h1>
+          <p className="a-body a-hero-sub">{words.body}</p>
           <div className="a-hero-actions">
             <button type="button" className="a-btn a-btn-primary">
-              Start your world
+              {words.action}
             </button>
             <button type="button" className="a-btn a-btn-text">
               Visit a world
@@ -513,6 +549,7 @@ function Landing({ progress, setProgress, view, setView }: DirectionProps) {
           progress={progress}
           view={view}
           cut={cut}
+          theme={theme}
           onResident={() => {
             setSpeaking(true)
             setView('resident')
@@ -549,6 +586,7 @@ function Landing({ progress, setProgress, view, setView }: DirectionProps) {
               <button
                 type="button"
                 className="a-card a-state-card"
+                data-stage={s.stage}
                 aria-pressed={s.stage === stage}
                 onClick={() => setProgress(s.progress)}
               >
@@ -625,7 +663,7 @@ function Landing({ progress, setProgress, view, setView }: DirectionProps) {
   )
 }
 
-function World({ progress, setProgress, view, setView }: DirectionProps) {
+function World({ progress, setProgress, view, setView, theme }: DirectionAProps) {
   const cut = useOnce('dir-a-cut-world')
   const [speaker, setSpeaker] = useState(0)
   const resident = GOLDEN_RESIDENTS[speaker]
@@ -673,6 +711,7 @@ function World({ progress, setProgress, view, setView }: DirectionProps) {
             progress={progress}
             view={view}
             cut={cut}
+            theme={theme}
             onResident={() => pick(0)}
           />
           <div className="a-margin">
@@ -699,7 +738,7 @@ function World({ progress, setProgress, view, setView }: DirectionProps) {
   )
 }
 
-function Visit({ progress, view, setView }: DirectionProps) {
+function Visit({ progress, view, setView, theme }: DirectionAProps) {
   const cut = useOnce('dir-a-cut-visit')
   const [speaker, setSpeaker] = useState(0)
   const resident = GOLDEN_RESIDENTS[speaker]
@@ -739,6 +778,7 @@ function Visit({ progress, view, setView }: DirectionProps) {
           progress={progress}
           view={view}
           cut={cut}
+          theme={theme}
           onResident={() => pick(0)}
         />
 
@@ -774,7 +814,7 @@ function Visit({ progress, view, setView }: DirectionProps) {
   )
 }
 
-export function DirectionA(props: DirectionProps) {
+export function DirectionA(props: DirectionAProps) {
   const { screen } = props
   return (
     <main className="dir-a" data-screen={screen}>

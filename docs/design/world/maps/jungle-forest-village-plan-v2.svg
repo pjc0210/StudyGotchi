@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 280" width="2050" height="1400" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="fogN" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9eee2" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#d9eee2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fogS" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#d9eee2" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#d9eee2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fogW" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d9eee2" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#d9eee2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fogE" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#d9eee2" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#d9eee2" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="ruinHatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="0.8" height="3" fill="#8f806c" opacity="0.55"/>
+    </pattern>
+    <pattern id="villageDeck" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)">
+      <rect width="4" height="4" fill="#b88a50" opacity="0.34"/>
+      <rect width="0.7" height="4" fill="#70503a" opacity="0.35"/>
+    </pattern>
+    <clipPath id="mapClip"><rect x="8" y="8" width="288" height="264" rx="1"/></clipPath>
+  </defs>
+
+  <rect width="410" height="280" fill="#f7f3e8"/>
+
+  <!-- Map: 1 SVG unit = 1 metre; world origin at (152,140), +x east/right, +z toward camera/down. -->
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(152,140)">
+      <!-- Continuous world substrate and two silhouette rows. No coastline is visible from any azimuth. -->
+      <rect x="-144" y="-132" width="288" height="264" fill="#234c3b"/>
+      <path d="M-140,-124 C-103,-134 -67,-118 -31,-127 C8,-136 45,-119 82,-128 C111,-132 131,-119 144,-102
+               L144,104 C124,128 89,118 55,128 C22,136 -15,120 -51,129 C-88,137 -122,122 -144,103
+               L-144,-104 C-136,-112 -134,-118 -140,-124 Z"
+            fill="#356f48"/>
+      <path d="M-124,-104 C-96,-117 -72,-99 -41,-110 C-10,-121 20,-102 52,-111 C85,-120 109,-105 124,-88
+               L126,88 C106,106 79,96 49,109 C18,119 -9,101 -39,111 C-69,122 -101,108 -124,91
+               L-126,-87 C-118,-94 -116,-98 -124,-104 Z"
+            fill="#69a85f"/>
+
+      <!-- 20 m grid -->
+      <g stroke="#d7e4ca" stroke-width="0.16" opacity="0.5">
+        <path d="M-140,-132V132 M-120,-132V132 M-100,-132V132 M-80,-132V132 M-60,-132V132 M-40,-132V132 M-20,-132V132 M0,-132V132 M20,-132V132 M40,-132V132 M60,-132V132 M80,-132V132 M100,-132V132 M120,-132V132 M140,-132V132"/>
+        <path d="M-144,-120H144 M-144,-100H144 M-144,-80H144 M-144,-60H144 M-144,-40H144 M-144,-20H144 M-144,0H144 M-144,20H144 M-144,40H144 M-144,60H144 M-144,80H144 M-144,100H144 M-144,120H144"/>
+      </g>
+
+      <!-- Primary canopy/ridge belt glyphs, all eight azimuths -->
+      <g fill="#2b6342" stroke="#1f4936" stroke-width="0.5">
+        <path d="M-116,-103 l8,-14 9,13 8,-11 10,16 9,-12 8,14 z"/>
+        <path d="M-48,-109 l9,-17 10,14 9,-12 8,16 10,-10 9,15 z"/>
+        <path d="M20,-108 l8,-14 9,11 8,-17 10,18 11,-12 8,16 z"/>
+        <path d="M83,-102 l8,-15 10,12 8,-9 10,17 8,-11 9,14 z"/>
+        <path d="M111,-73 l14,-8 12,9 -10,9 14,8 -12,10 10,8 -17,10 z"/>
+        <path d="M112,36 l15,-9 11,10 -10,9 15,9 -13,10 8,8 -18,8 z"/>
+        <path d="M73,102 l9,-14 10,11 9,-17 9,18 12,-12 8,16 z"/>
+        <path d="M4,108 l8,-14 10,12 8,-17 10,18 10,-11 9,15 z"/>
+        <path d="M-66,105 l8,-16 9,13 9,-11 10,17 11,-12 8,15 z"/>
+        <path d="M-119,72 l15,-9 10,9 -10,10 15,8 -13,10 7,8 -18,7 z"/>
+        <path d="M-119,-4 l14,-8 11,8 -10,10 15,8 -13,9 8,9 -18,7 z"/>
+        <path d="M-116,-75 l13,-8 12,9 -9,9 14,8 -13,10 8,8 -18,7 z"/>
+      </g>
+
+      <!-- Fixed hydrology: north waterfall, braided river, lagoon, east outflow -->
+      <path d="M22,-118 C20,-101 28,-91 22,-79 C15,-66 8,-58 10,-45 C12,-31 29,-25 35,-14
+               C42,-2 39,8 48,16 C58,24 68,20 76,28 C86,38 91,42 116,46"
+            fill="none" stroke="#2b797c" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22,-118 C20,-101 28,-91 22,-79 C15,-66 8,-58 10,-45 C12,-31 29,-25 35,-14
+               C42,-2 39,8 48,16 C58,24 68,20 76,28 C86,38 91,42 116,46"
+            fill="none" stroke="#55c4c2" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M52,6 C70,-3 93,4 101,20 C108,34 97,49 80,51 C60,54 43,44 42,28 C41,18 44,11 52,6 Z"
+            fill="#55c4c2" stroke="#2b797c" stroke-width="1.2"/>
+      <path d="M55,15 C70,9 89,13 93,25 C96,34 87,42 74,42 C60,42 50,36 50,27 C50,21 51,18 55,15 Z"
+            fill="#87d9cf" opacity="0.7"/>
+      <rect x="15" y="-119" width="15" height="8" rx="2" fill="#e8f5df" stroke="#2b797c" stroke-width="0.8"/>
+      <text x="34" y="-113" font-size="2.8" fill="#f7fff4" font-weight="bold">fixed 18 m waterfall</text>
+
+      <!-- Fixed clearings / no-build negative space -->
+      <g fill="#b7cf72" stroke="#617d49" stroke-width="0.45" stroke-dasharray="1.2 1">
+        <path d="M-17,-1 C-7,-9 8,-8 16,-1 C22,6 17,16 6,20 C-6,23 -19,17 -22,9 C-24,5 -21,2 -17,-1 Z"/>
+        <path d="M-105,-79 C-95,-88 -80,-86 -73,-76 C-68,-67 -77,-58 -89,-57 C-101,-56 -111,-63 -112,-71 C-113,-74 -110,-77 -105,-79 Z"/>
+        <path d="M17,40 C28,34 41,38 45,47 C49,56 41,64 29,65 C18,66 8,59 8,50 C8,46 11,43 17,40 Z"/>
+      </g>
+      <g font-size="2.5" fill="#3f5732" text-anchor="middle">
+        <text x="-2" y="8">Firefly Clearing 38 x 24 m</text>
+        <text x="-91" y="-70">Orchid Glade 32 x 26 m</text>
+        <text x="27" y="52">Sunbreak 36 x 26 m</text>
+      </g>
+
+      <!-- Local routes: root paths and boardwalks; no continuous spiral -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-82,54 C-71,35 -63,11 -54,-12" stroke="#6c4c37" stroke-width="4.2"/>
+        <path d="M-82,54 C-71,35 -63,11 -54,-12" stroke="#c69758" stroke-width="2.5"/>
+        <path d="M-45,-22 C-23,-34 -4,-40 10,-48" stroke="#6c4c37" stroke-width="4.2"/>
+        <path d="M-45,-22 C-23,-34 -4,-40 10,-48" stroke="#c69758" stroke-width="2.5"/>
+        <path d="M42,-9 C55,-8 65,-5 72,1" stroke="#6c4c37" stroke-width="4.2"/>
+        <path d="M42,-9 C55,-8 65,-5 72,1" stroke="#c69758" stroke-width="2.5"/>
+        <path d="M25,68 C44,62 54,52 62,44" stroke="#6c4c37" stroke-width="4.2"/>
+        <path d="M25,68 C44,62 54,52 62,44" stroke="#c69758" stroke-width="2.5"/>
+        <path d="M84,46 C93,55 100,65 103,76" stroke="#6c4c37" stroke-width="4.2"/>
+        <path d="M84,46 C93,55 100,65 103,76" stroke="#c69758" stroke-width="2.5"/>
+      </g>
+
+      <!-- Rope bridges over water, fixed attachment banks -->
+      <g stroke="#5a3e2b" fill="none">
+        <path d="M5,-54 L31,-49" stroke-width="2.2"/>
+        <path d="M5,-56 L31,-51" stroke-width="0.45" stroke-dasharray="1 1"/>
+        <path d="M34,-8 L51,-1" stroke-width="2.2"/>
+        <path d="M34,-10 L51,-3" stroke-width="0.45" stroke-dasharray="1 1"/>
+      </g>
+      <path d="M16,-52 L5,-56 L-6,-56" fill="none" stroke="#352b25" stroke-width="0.45"/>
+      <text x="-7" y="-55.2" font-size="2.3" fill="#352b25" text-anchor="end">27 m rope crossing</text>
+
+      <!-- District 1: Great Canopy Village -->
+      <rect x="-65" y="-35" width="24" height="16" rx="2" fill="none" stroke="#fff7dc" stroke-width="0.55" stroke-dasharray="2 1.4"/>
+      <path d="M-82,-47 C-67,-57 -43,-55 -27,-44 C-17,-36 -18,-20 -27,-8 C-39,8 -66,7 -82,-4 C-95,-13 -97,-33 -82,-47 Z"
+            fill="url(#villageDeck)" stroke="#49382d" stroke-width="0.9"/>
+      <g fill="#2f6c42" stroke="#1f4936" stroke-width="0.35">
+        <path d="M-66,-37 l7,-12 8,12 7,-9 7,13 -8,7 -12,0 z"/>
+        <path d="M-83,-18 l6,-10 7,10 6,-7 7,11 -7,6 -11,0 z"/>
+        <path d="M-44,-12 l6,-11 7,10 7,-7 6,11 -8,6 -11,0 z"/>
+      </g>
+      <g fill="#d8b15f" stroke="#49382d" stroke-width="0.35">
+        <rect x="-68" y="-31" width="12" height="6" transform="rotate(-12 -62 -28)"/>
+        <rect x="-49" y="-31" width="10" height="7" transform="rotate(8 -44 -27)"/>
+        <rect x="-68" y="-12" width="14" height="5" transform="rotate(16 -61 -10)"/>
+      </g>
+      <!-- v2 audit fix: connected inhabited canopy village, not three isolated deck props -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-81,-39 L-67,-31 L-57,-29 L-44,-28 L-32,-20 M-75,-19 L-62,-10 L-47,-14 L-32,-20"
+              stroke="#49382d" stroke-width="2.4"/>
+        <path d="M-81,-39 L-67,-31 L-57,-29 L-44,-28 L-32,-20 M-75,-19 L-62,-10 L-47,-14 L-32,-20"
+              stroke="#d8b15f" stroke-width="1.2" stroke-dasharray="2.2 1.2"/>
+      </g>
+      <g fill="#8b613f" stroke="#49382d" stroke-width="0.45">
+        <path d="M-86,-44 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+        <path d="M-73,-38 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+        <path d="M-52,-36 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+        <path d="M-37,-27 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+        <path d="M-81,-24 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+        <path d="M-52,-18 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+        <path d="M-35,-14 l5,-3 5,3 0,6 -5,3 -5,-3 z"/>
+      </g>
+      <g fill="#ffe9a8" stroke="#6c4c37" stroke-width="0.25">
+        <circle cx="-81" cy="-41" r="0.9"/><circle cx="-68" cy="-35" r="0.9"/>
+        <circle cx="-47" cy="-33" r="0.9"/><circle cx="-32" cy="-24" r="0.9"/>
+        <circle cx="-76" cy="-21" r="0.9"/><circle cx="-47" cy="-15" r="0.9"/>
+      </g>
+      <circle cx="-57" cy="-29" r="8.2" fill="none" stroke="#f2b84f" stroke-width="1.2"/>
+      <text x="-57" y="-27.8" font-size="3.1" fill="#fff8d7" font-weight="bold" text-anchor="middle">MOTHER TREE</text>
+      <text x="-57" y="-23.7" font-size="2.4" fill="#fff8d7" text-anchor="middle">16 m trunk  |  3 deck tiers</text>
+      <path d="M-75,4 L-78,10" fill="none" stroke="#26392c" stroke-width="0.5"/>
+      <rect x="-116" y="10" width="76" height="15" rx="1.4" fill="#f7f3e8" fill-opacity="0.9" stroke="#26392c" stroke-width="0.4"/>
+      <text x="-78" y="14.6" font-size="3.4" fill="#26392c" text-anchor="middle" font-weight="bold">1 GREAT CANOPY VILLAGE  |  74 x 58 m</text>
+      <text x="-78" y="18.8" font-size="2.1" fill="#26392c" text-anchor="middle">centre (-53,-27)  |  envelope +/-12 x / +/-8 z  |  yaw -18deg +/-12deg</text>
+      <text x="-78" y="22.5" font-size="2.1" fill="#26392c" text-anchor="middle">75% plan: 7 dwelling pods  |  5 canopy spans  |  6 warm windows</text>
+
+      <!-- District 2: Falls and Bridge Terraces -->
+      <rect x="14" y="-86" width="20" height="14" rx="2" fill="none" stroke="#fff7dc" stroke-width="0.55" stroke-dasharray="2 1.4"/>
+      <path d="M-4,-95 C10,-104 36,-101 50,-91 C61,-83 59,-66 49,-55 C39,-44 16,-43 1,-50 C-11,-56 -18,-70 -13,-82 C-11,-88 -8,-92 -4,-95 Z"
+            fill="#5e9855" fill-opacity="0.78" stroke="#33563b" stroke-width="0.9"/>
+      <g fill="#2d6842">
+        <path d="M-1,-79 l7,-12 7,12 7,-8 7,13 -7,7 -13,0 z"/>
+        <path d="M34,-79 l6,-11 7,11 7,-7 6,11 -7,7 -12,0 z"/>
+      </g>
+      <rect x="28" y="-71" width="16" height="5" fill="#b88a50" stroke="#49382d" stroke-width="0.35" transform="rotate(10 36 -68.5)"/>
+      <text x="35" y="-61" font-size="3" fill="#fff" stroke="#33563b" stroke-width="0.75" paint-order="stroke" text-anchor="middle" font-weight="bold">FALLS GATE</text>
+      <path d="M49,-77 L57,-79" fill="none" stroke="#26392c" stroke-width="0.5"/>
+      <rect x="57" y="-87" width="68" height="16" rx="1.4" fill="#f7f3e8" fill-opacity="0.92" stroke="#26392c" stroke-width="0.4"/>
+      <text x="91" y="-82.2" font-size="3.35" fill="#26392c" text-anchor="middle" font-weight="bold">2 FALLS TERRACES  |  66 x 52 m</text>
+      <text x="91" y="-77.9" font-size="2.2" fill="#26392c" text-anchor="middle">centre (+24,-79)  |  envelope +/-10 x / +/-7 z</text>
+      <text x="91" y="-73.8" font-size="2.2" fill="#26392c" text-anchor="middle">yaw +10deg +/-15deg</text>
+
+      <!-- District 3: Lagoon Stilt Quarter -->
+      <rect x="60" y="-9" width="18" height="22" rx="2" fill="none" stroke="#fff7dc" stroke-width="0.55" stroke-dasharray="2 1.4"/>
+      <path d="M49,-20 C62,-29 86,-25 101,-14 C112,-5 114,10 106,23 C97,36 79,42 61,36 C46,31 35,20 36,7 C37,-3 40,-13 49,-20 Z"
+            fill="#86b96d" fill-opacity="0.55" stroke="#33563b" stroke-width="0.9"/>
+      <g fill="#8b613f" stroke="#49382d" stroke-width="0.35">
+        <rect x="56" y="-10" width="15" height="7" transform="rotate(-8 63 -6)"/>
+        <rect x="82" y="-7" width="13" height="8" transform="rotate(12 88 -3)"/>
+        <rect x="90" y="22" width="11" height="6" transform="rotate(-17 95 25)"/>
+      </g>
+      <path d="M54,8 C63,2 81,2 92,9" fill="none" stroke="#d8b15f" stroke-width="3.2" stroke-dasharray="1.8 1"/>
+      <text x="77" y="-1" font-size="2.8" fill="#fff8d7" stroke="#33563b" stroke-width="0.65" paint-order="stroke" text-anchor="middle" font-weight="bold">STILT HALL  |  18 x 9 m</text>
+      <path d="M99,-20 L104,-27" fill="none" stroke="#26392c" stroke-width="0.5"/>
+      <rect x="74" y="-42" width="60" height="15" rx="1.4" fill="#f7f3e8" fill-opacity="0.92" stroke="#26392c" stroke-width="0.4"/>
+      <text x="104" y="-37.4" font-size="3.25" fill="#26392c" text-anchor="middle" font-weight="bold">3 LAGOON QUARTER  |  68 x 58 m</text>
+      <text x="104" y="-33.2" font-size="2.15" fill="#26392c" text-anchor="middle">centre (+69,+2)  |  envelope +/-9 x / +/-11 z</text>
+      <text x="104" y="-29.2" font-size="2.15" fill="#26392c" text-anchor="middle">yaw -8deg +/-18deg</text>
+
+      <!-- District 4: Overgrown Ruin Commons -->
+      <rect x="-88" y="46" width="24" height="18" rx="2" fill="none" stroke="#fff7dc" stroke-width="0.55" stroke-dasharray="2 1.4"/>
+      <path d="M-109,33 C-96,23 -73,24 -58,34 C-46,42 -45,57 -53,69 C-63,83 -86,87 -103,77 C-118,68 -123,48 -109,33 Z"
+            fill="url(#ruinHatch)" stroke="#63594c" stroke-width="0.9"/>
+      <g fill="#b7a58f" stroke="#5f5548" stroke-width="0.4">
+        <rect x="-100" y="46" width="7" height="18"/>
+        <rect x="-75" y="43" width="7" height="21"/>
+        <rect x="-93" y="43" width="18" height="5"/>
+        <rect x="-90" y="64" width="9" height="8"/>
+      </g>
+      <g fill="#3e7948"><circle cx="-103" cy="39" r="3"/><circle cx="-68" cy="68" r="3"/><circle cx="-89" cy="76" r="2.5"/></g>
+      <text x="-84" y="58" font-size="3" fill="#fff" text-anchor="middle" font-weight="bold">BROKEN ROOT GATE  |  14 m</text>
+      <path d="M-84,77 L-84,79" fill="none" stroke="#26392c" stroke-width="0.5"/>
+      <rect x="-121" y="79" width="74" height="12" rx="1.4" fill="#f7f3e8" fill-opacity="0.9" stroke="#26392c" stroke-width="0.4"/>
+      <text x="-84" y="83.6" font-size="3.4" fill="#26392c" text-anchor="middle" font-weight="bold">4 RUIN COMMONS  |  64 x 54 m</text>
+      <text x="-84" y="88" font-size="2.15" fill="#26392c" text-anchor="middle">centre (-76,+55)  |  envelope +/-12 x / +/-9 z  |  yaw +16deg +/-20deg</text>
+
+      <!-- District 5: Riverworks and Canopy Farms -->
+      <rect x="-4" y="58" width="20" height="16" rx="2" fill="none" stroke="#fff7dc" stroke-width="0.55" stroke-dasharray="2 1.4"/>
+      <path d="M-27,45 C-11,35 15,37 31,48 C43,57 43,71 35,82 C25,95 3,99 -15,91 C-31,84 -40,61 -27,45 Z"
+            fill="#93bd62" fill-opacity="0.82" stroke="#46603b" stroke-width="0.9"/>
+      <g fill="#557f42" stroke="#365731" stroke-width="0.3">
+        <rect x="-17" y="54" width="11" height="4" transform="rotate(20 -11 56)"/>
+        <rect x="-12" y="65" width="14" height="4" transform="rotate(20 -5 67)"/>
+        <rect x="-5" y="76" width="15" height="4" transform="rotate(20 2 78)"/>
+      </g>
+      <circle cx="19" cy="60" r="6" fill="none" stroke="#6b4934" stroke-width="2"/>
+      <g stroke="#6b4934" stroke-width="0.8"><path d="M19,54V66 M13,60H25 M15,56L23,64 M23,56L15,64"/></g>
+      <text x="11" y="48" font-size="3" fill="#fff8d7" text-anchor="middle" font-weight="bold">WATERWHEEL  |  12 m</text>
+      <path d="M-7,44 L-10,37" fill="none" stroke="#26392c" stroke-width="0.5"/>
+      <rect x="-42" y="24" width="64" height="13" rx="1.4" fill="#f7f3e8" fill-opacity="0.92" stroke="#26392c" stroke-width="0.4"/>
+      <text x="-10" y="28.8" font-size="3.35" fill="#26392c" text-anchor="middle" font-weight="bold">5 RIVERWORKS  |  72 x 52 m</text>
+      <text x="-10" y="33" font-size="2.15" fill="#26392c" text-anchor="middle">centre (+6,+66)  |  envelope +/-10 x / +/-8 z</text>
+      <text x="-10" y="36" font-size="2.15" fill="#26392c" text-anchor="middle">yaw -12deg +/-20deg</text>
+
+      <!-- Fixed landmark on its own lagoon headland -->
+      <path d="M87,59 C101,52 116,58 122,69 C128,81 120,96 106,101 C92,106 79,98 76,85 C73,74 77,64 87,59 Z"
+            fill="#8c9361" stroke="#4b583b" stroke-width="1.1"/>
+      <path d="M82,62 C90,67 99,69 110,66" fill="none" stroke="#55c4c2" stroke-width="3.5"/>
+      <polygon points="102,66 112,86 92,86" fill="#b7a58f" stroke="#5f5548" stroke-width="0.7"/>
+      <polygon points="102,59 107,69 97,69" fill="#f2b84f"/>
+      <text x="102" y="90" font-size="3.1" fill="#fff8d7" text-anchor="middle" font-weight="bold">ROOT-CROWN SHRINE</text>
+      <path d="M111,98 L114,101" fill="none" stroke="#26392c" stroke-width="0.5"/>
+      <rect x="65" y="101" width="71" height="11" rx="1.4" fill="#f7f3e8" fill-opacity="0.92" stroke="#26392c" stroke-width="0.4"/>
+      <text x="100.5" y="105.2" font-size="3.25" fill="#26392c" text-anchor="middle" font-weight="bold">L LANDMARK HEADLAND</text>
+      <text x="100.5" y="109.4" font-size="2.15" fill="#26392c" text-anchor="middle">fixed (+102,+80)  |  34 x 42 m  |  water on 3 sides</text>
+
+      <!-- Overview and max-dolly framing -->
+      <ellipse cx="0" cy="0" rx="95" ry="88" fill="none" stroke="#fff8e8" stroke-width="0.55" stroke-dasharray="3 2"/>
+      <ellipse cx="0" cy="0" rx="122" ry="112" fill="none" stroke="#f2b84f" stroke-width="0.55" stroke-dasharray="1 2"/>
+      <text x="0" y="-91" font-size="2.6" fill="#fff8e8" text-anchor="middle">overview footprint 190 x 176 m</text>
+      <text x="0" y="115" font-size="2.6" fill="#f2b84f" text-anchor="middle">max-dolly footprint 244 x 224 m  |  remains inside primary canopy</text>
+
+      <!-- Fog veil: covers all outer directions, while second row remains visible -->
+      <rect x="-144" y="-132" width="288" height="20" fill="url(#fogN)"/>
+      <rect x="-144" y="112" width="288" height="20" fill="url(#fogS)"/>
+      <rect x="-144" y="-132" width="20" height="264" fill="url(#fogW)"/>
+      <rect x="124" y="-132" width="20" height="264" fill="url(#fogE)"/>
+
+      <!-- Eight-azimuth camera-safe checks -->
+      <g font-size="2.5" font-weight="bold" text-anchor="middle">
+        <g fill="#f7f3e8" stroke="#234c3b" stroke-width="0.4">
+          <circle cx="0" cy="-124" r="5"/><circle cx="94" cy="-93" r="5"/><circle cx="136" cy="0" r="5"/><circle cx="96" cy="93" r="5"/>
+          <circle cx="0" cy="124" r="5"/><circle cx="-96" cy="93" r="5"/><circle cx="-136" cy="0" r="5"/><circle cx="-94" cy="-93" r="5"/>
+        </g>
+        <g fill="#234c3b">
+          <text x="0" y="-123">N</text><text x="94" y="-92">NE</text><text x="136" y="1">E</text><text x="96" y="94">SE</text>
+          <text x="0" y="125">S</text><text x="-96" y="94">SW</text><text x="-136" y="1">W</text><text x="-94" y="-92">NW</text>
+        </g>
+      </g>
+
+      <!-- Scale and axes -->
+      <g transform="translate(-130,116)">
+        <rect x="0" y="0" width="20" height="2" fill="#26392c"/>
+        <rect x="20" y="0" width="20" height="2" fill="#f7f3e8" stroke="#26392c" stroke-width="0.3"/>
+        <text x="0" y="-1" font-size="2.5" fill="#26392c">0</text>
+        <text x="20" y="-1" font-size="2.5" fill="#26392c" text-anchor="middle">20</text>
+        <text x="40" y="-1" font-size="2.5" fill="#26392c" text-anchor="middle">40 m</text>
+      </g>
+      <g stroke="#26392c" stroke-width="0.55" fill="#26392c">
+        <path d="M-131,105 h18"/><polygon points="-113,103.5 -110,105 -113,106.5"/>
+        <path d="M-131,105 v-18"/><polygon points="-132.5,87 -131,84 -129.5,87"/>
+      </g>
+      <text x="-108" y="106" font-size="2.5" fill="#26392c">+x east</text>
+      <text x="-129" y="83" font-size="2.5" fill="#26392c">-z north/back</text>
+    </g>
+  </g>
+  <rect x="8" y="8" width="288" height="264" fill="none" stroke="#234c3b" stroke-width="0.7"/>
+
+  <!-- Legend / production notes -->
+  <g transform="translate(302,10)" fill="#26392c">
+    <text x="0" y="5" font-size="5" font-weight="bold">jungle / forest village  |  plan v2</text>
+    <text x="0" y="10" font-size="2.8">top-down  |  1 unit = 1 m  |  map 288 x 264 m</text>
+    <text x="0" y="14" font-size="2.8">origin centre  |  x east  |  z toward camera/south</text>
+
+    <text x="0" y="22" font-size="3.4" font-weight="bold">Palette</text>
+    <g font-size="2.65">
+      <rect x="0" y="24" width="5" height="3.6" fill="#69a85f"/><text x="7" y="27">ground #69a85f</text>
+      <rect x="0" y="29" width="5" height="3.6" fill="#356f48"/><text x="7" y="32">canopy/ridge #356f48</text>
+      <rect x="0" y="34" width="5" height="3.6" fill="#234c3b"/><text x="7" y="37">second row #234c3b</text>
+      <rect x="0" y="39" width="5" height="3.6" fill="#55c4c2"/><text x="7" y="42">water #55c4c2  |  wet #2b797c</text>
+      <rect x="0" y="44" width="5" height="3.6" fill="#c69758"/><text x="7" y="47">root path #c69758 / #6c4c37</text>
+      <rect x="0" y="49" width="5" height="3.6" fill="#b7a58f"/><text x="7" y="52">ruin stone #b7a58f</text>
+      <rect x="0" y="54" width="5" height="3.6" fill="#f2b84f"/><text x="7" y="57">fruit/fire accent #f2b84f</text>
+      <rect x="0" y="59" width="5" height="3.6" fill="#ffe9a8"/><text x="7" y="62">night window #ffe9a8</text>
+    </g>
+
+    <text x="0" y="70" font-size="3.4" font-weight="bold">Fixed terrain / hydrology</text>
+    <g font-size="2.65">
+      <text x="0" y="74">ground y = 0 +/-0.6 m; never rises with growth</text>
+      <text x="0" y="78">river 9.5 m core / 14 m wet bank; fixed spline</text>
+      <text x="0" y="82">lagoon 62 x 52 m; waterfall lip (+22,-118)</text>
+      <text x="0" y="86">3 no-build clearings: 38x24, 32x26, 36x26 m</text>
+      <text x="0" y="90">landmark headland fixed (+102,+80), 34x42 m</text>
+    </g>
+
+    <text x="0" y="98" font-size="3.4" font-weight="bold">Seeded district rules</text>
+    <g font-size="2.65">
+      <text x="0" y="102">centres sample inside dashed x/z envelopes</text>
+      <text x="0" y="106">yaw uses listed centre +/- envelope; footprint deforms +/-8%</text>
+      <text x="0" y="110">reject if district gap &lt;18 m or clearing overlap &gt;0 m</text>
+      <text x="0" y="114">anchor stays within 3 m of sampled district centre</text>
+      <text x="0" y="118">1 dominant 12-18 m; 2-4 mids 7-11 m;</text>
+      <text x="0" y="122">9-18 small props 1-4 m; spacing is Poisson, uneven</text>
+      <text x="0" y="126">each district mixes &gt;=3 ref motifs; never kit islands</text>
+      <text x="0" y="130">at least 55% of each district is open traversable ground</text>
+    </g>
+
+    <text x="0" y="138" font-size="3.4" font-weight="bold">Route logic</text>
+    <g font-size="2.65">
+      <text x="0" y="142">fixed river orders Falls - Village - Lagoon - east fog</text>
+      <text x="0" y="146">5 local loops, 3 root trails, 2 rope crossings</text>
+      <text x="0" y="150">lagoon boardwalk reaches Riverworks and landmark only</text>
+      <text x="0" y="154">no spiral; no route crosses a guaranteed clearing</text>
+    </g>
+
+    <text x="0" y="162" font-size="3.4" font-weight="bold">Skyline growth  |  ground fixed</text>
+    <g font-size="2.65">
+      <text x="0" y="166">0%: 8 crowns 14-18 m; ridge 10-12 m</text>
+      <text x="0" y="170">25%: +4 crowns 18-21 m; sparse second row</text>
+      <text x="0" y="174">50%: +5 crowns; village decks reach 16 m</text>
+      <text x="0" y="178">75%: ridge 18-22 m; full second row 10-15 m</text>
+      <text x="0" y="182">100%: 2 emergents 26 m; ridge 22-24 m</text>
+    </g>
+
+    <text x="0" y="190" font-size="3.4" font-weight="bold">Camera-safe horizon  |  all 8 azimuths</text>
+    <g font-size="2.65">
+      <text x="0" y="194">primary belt r 104-136 m, h 14-24 m</text>
+      <text x="0" y="198">second row r 132-164 m, h 10-15 m</text>
+      <text x="0" y="202">ground mesh continues to r 190 m under fog</text>
+      <text x="0" y="206">fog starts 18 m behind row 1; opaque +58 m</text>
+      <text x="0" y="210">overview pitch 40deg, FOV 26deg, target (0,0,0)</text>
+      <text x="0" y="214">base distance 138 m; max dolly 205 m (1.49x)</text>
+      <text x="0" y="218">N/NE/E/SE/S/SW/W/NW check markers shown</text>
+    </g>
+
+    <text x="0" y="226" font-size="3.4" font-weight="bold">48 px reads</text>
+    <g font-size="2.65">
+      <text x="0" y="230">overview, buildings hidden: layered canopy + white fall</text>
+      <text x="0" y="234">+ props: tall deck tree + rope span + turquoise lagoon</text>
+      <text x="0" y="238">marker: umbrella canopy + one white water stripe</text>
+      <text x="0" y="242">Forest remains one round tree over open green ground</text>
+    </g>
+
+    <text x="0" y="250" font-size="3.4" font-weight="bold">Symbols</text>
+    <rect x="0" y="252" width="5" height="3.5" fill="none" stroke="#26392c" stroke-width="0.4" stroke-dasharray="1 1"/>
+    <text x="7" y="255" font-size="2.65">seed centre envelope</text>
+    <ellipse cx="2.5" cy="260.5" rx="3" ry="2" fill="none" stroke="#f2b84f" stroke-width="0.5" stroke-dasharray="1 1"/>
+    <text x="7" y="261.5" font-size="2.65">max-dolly footprint</text>
+    <rect x="0" y="265" width="5" height="3.5" fill="#b7cf72" stroke="#617d49" stroke-width="0.3"/>
+    <text x="7" y="268" font-size="2.65">fixed open / no-build</text>
+    <text x="0" y="275" font-size="2.5" fill="#53634c">Drawn 2026-09-20  |  map/synthesis only</text>
+  </g>
+</svg>

@@ -1,0 +1,486 @@
+{
+  "source": "assets/creatures/tripo/pokemon-like-3d-model.glb",
+  "loose_shells": 974,
+  "clusters": 28,
+  "cluster_eps_m": 0.004,
+  "min_tris": 1500,
+  "components": [
+    {
+      "index": 0,
+      "name": "component-00",
+      "tris": 40972,
+      "shells": 11,
+      "vertices": 21504,
+      "panel_centre": [
+        -0.227,
+        0.025,
+        0.745
+      ],
+      "size_m": [
+        0.073,
+        0.107,
+        0.08
+      ]
+    },
+    {
+      "index": 1,
+      "name": "component-01",
+      "tris": 79132,
+      "shells": 38,
+      "vertices": 42128,
+      "panel_centre": [
+        -0.131,
+        0.015,
+        0.706
+      ],
+      "size_m": [
+        0.087,
+        0.127,
+        0.179
+      ]
+    },
+    {
+      "index": 2,
+      "name": "component-02",
+      "tris": 37428,
+      "shells": 25,
+      "vertices": 20109,
+      "panel_centre": [
+        -0.034,
+        0.034,
+        0.748
+      ],
+      "size_m": [
+        0.081,
+        0.07,
+        0.082
+      ]
+    },
+    {
+      "index": 3,
+      "name": "component-03",
+      "tris": 35798,
+      "shells": 16,
+      "vertices": 18923,
+      "panel_centre": [
+        0.057,
+        0.036,
+        0.753
+      ],
+      "size_m": [
+        0.085,
+        0.065,
+        0.083
+      ]
+    },
+    {
+      "index": 4,
+      "name": "component-04",
+      "tris": 27608,
+      "shells": 16,
+      "vertices": 14680,
+      "panel_centre": [
+        0.135,
+        0.037,
+        0.754
+      ],
+      "size_m": [
+        0.056,
+        0.053,
+        0.092
+      ]
+    },
+    {
+      "index": 5,
+      "name": "component-05",
+      "tris": 43846,
+      "shells": 26,
+      "vertices": 23250,
+      "panel_centre": [
+        0.22,
+        0.038,
+        0.754
+      ],
+      "size_m": [
+        0.103,
+        0.084,
+        0.078
+      ]
+    },
+    {
+      "index": 6,
+      "name": "component-06",
+      "tris": 24242,
+      "shells": 9,
+      "vertices": 12749,
+      "panel_centre": [
+        -0.233,
+        0.015,
+        0.65
+      ],
+      "size_m": [
+        0.072,
+        0.036,
+        0.074
+      ]
+    },
+    {
+      "index": 7,
+      "name": "component-07",
+      "tris": 28418,
+      "shells": 16,
+      "vertices": 15375,
+      "panel_centre": [
+        -0.049,
+        0.026,
+        0.654
+      ],
+      "size_m": [
+        0.073,
+        0.053,
+        0.086
+      ]
+    },
+    {
+      "index": 8,
+      "name": "component-08",
+      "tris": 54376,
+      "shells": 16,
+      "vertices": 28370,
+      "panel_centre": [
+        0.043,
+        0.03,
+        0.653
+      ],
+      "size_m": [
+        0.112,
+        0.098,
+        0.068
+      ]
+    },
+    {
+      "index": 9,
+      "name": "component-09",
+      "tris": 31126,
+      "shells": 18,
+      "vertices": 16626,
+      "panel_centre": [
+        0.14,
+        0.03,
+        0.659
+      ],
+      "size_m": [
+        0.073,
+        0.078,
+        0.084
+      ]
+    },
+    {
+      "index": 10,
+      "name": "component-10",
+      "tris": 32552,
+      "shells": 5,
+      "vertices": 16790,
+      "panel_centre": [
+        -0.24,
+        0.028,
+        0.556
+      ],
+      "size_m": [
+        0.08,
+        0.102,
+        0.078
+      ]
+    },
+    {
+      "index": 11,
+      "name": "component-11",
+      "tris": 33064,
+      "shells": 17,
+      "vertices": 17631,
+      "panel_centre": [
+        -0.148,
+        0.012,
+        0.564
+      ],
+      "size_m": [
+        0.092,
+        0.078,
+        0.07
+      ]
+    },
+    {
+      "index": 12,
+      "name": "component-12",
+      "tris": 76258,
+      "shells": 45,
+      "vertices": 40694,
+      "panel_centre": [
+        -0.24,
+        0.031,
+        0.463
+      ],
+      "size_m": [
+        0.103,
+        0.155,
+        0.092
+      ]
+    },
+    {
+      "index": 13,
+      "name": "component-13",
+      "tris": 478460,
+      "shells": 272,
+      "vertices": 254798,
+      "panel_centre": [
+        0.096,
+        0.027,
+        0.48
+      ],
+      "size_m": [
+        0.37,
+        0.106,
+        0.462
+      ]
+    },
+    {
+      "index": 14,
+      "name": "component-14",
+      "tris": 49892,
+      "shells": 13,
+      "vertices": 25970,
+      "panel_centre": [
+        -0.236,
+        0.009,
+        0.371
+      ],
+      "size_m": [
+        0.098,
+        0.088,
+        0.073
+      ]
+    },
+    {
+      "index": 15,
+      "name": "component-15",
+      "tris": 112291,
+      "shells": 57,
+      "vertices": 59747,
+      "panel_centre": [
+        -0.13,
+        0.019,
+        0.372
+      ],
+      "size_m": [
+        0.093,
+        0.108,
+        0.266
+      ]
+    },
+    {
+      "index": 16,
+      "name": "component-16",
+      "tris": 42994,
+      "shells": 20,
+      "vertices": 22719,
+      "panel_centre": [
+        0.077,
+        0.042,
+        0.381
+      ],
+      "size_m": [
+        0.057,
+        0.079,
+        0.094
+      ]
+    },
+    {
+      "index": 17,
+      "name": "component-17",
+      "tris": 43094,
+      "shells": 24,
+      "vertices": 22923,
+      "panel_centre": [
+        -0.24,
+        -0.004,
+        0.283
+      ],
+      "size_m": [
+        0.09,
+        0.093,
+        0.079
+      ]
+    },
+    {
+      "index": 18,
+      "name": "component-18",
+      "tris": 7822,
+      "shells": 2,
+      "vertices": 4133,
+      "panel_centre": [
+        -0.237,
+        0.069,
+        0.344
+      ],
+      "size_m": [
+        0.075,
+        0.005,
+        0.063
+      ]
+    },
+    {
+      "index": 19,
+      "name": "component-19",
+      "tris": 32496,
+      "shells": 16,
+      "vertices": 17239,
+      "panel_centre": [
+        -0.016,
+        -0.004,
+        0.255
+      ],
+      "size_m": [
+        0.076,
+        0.072,
+        0.081
+      ]
+    },
+    {
+      "index": 20,
+      "name": "component-20",
+      "tris": 43758,
+      "shells": 22,
+      "vertices": 23056,
+      "panel_centre": [
+        0.076,
+        0.01,
+        0.276
+      ],
+      "size_m": [
+        0.082,
+        0.084,
+        0.106
+      ]
+    },
+    {
+      "index": 21,
+      "name": "component-21",
+      "tris": 27844,
+      "shells": 12,
+      "vertices": 14761,
+      "panel_centre": [
+        -0.236,
+        -0.014,
+        0.161
+      ],
+      "size_m": [
+        0.073,
+        0.06,
+        0.097
+      ]
+    },
+    {
+      "index": 22,
+      "name": "component-22",
+      "tris": 83306,
+      "shells": 47,
+      "vertices": 44392,
+      "panel_centre": [
+        -0.133,
+        0.005,
+        0.153
+      ],
+      "size_m": [
+        0.123,
+        0.084,
+        0.144
+      ]
+    },
+    {
+      "index": 23,
+      "name": "component-23",
+      "tris": 33370,
+      "shells": 17,
+      "vertices": 17811,
+      "panel_centre": [
+        -0.009,
+        -0.012,
+        0.153
+      ],
+      "size_m": [
+        0.077,
+        0.075,
+        0.092
+      ]
+    },
+    {
+      "index": 24,
+      "name": "component-24",
+      "tris": 179971,
+      "shells": 83,
+      "vertices": 95461,
+      "panel_centre": [
+        0.168,
+        0.004,
+        0.17
+      ],
+      "size_m": [
+        0.246,
+        0.14,
+        0.33
+      ]
+    },
+    {
+      "index": 25,
+      "name": "component-25",
+      "tris": 50468,
+      "shells": 30,
+      "vertices": 27125,
+      "panel_centre": [
+        -0.218,
+        -0.04,
+        0.051
+      ],
+      "size_m": [
+        0.083,
+        0.086,
+        0.094
+      ]
+    },
+    {
+      "index": 26,
+      "name": "component-26",
+      "tris": 108070,
+      "shells": 50,
+      "vertices": 57463,
+      "panel_centre": [
+        -0.034,
+        -0.032,
+        0.057
+      ],
+      "size_m": [
+        0.201,
+        0.152,
+        0.114
+      ]
+    },
+    {
+      "index": 27,
+      "name": "component-27",
+      "tris": 68104,
+      "shells": 51,
+      "vertices": 36731,
+      "panel_centre": [
+        0.232,
+        0.001,
+        0.065
+      ],
+      "size_m": [
+        0.109,
+        0.08,
+        0.119
+      ]
+    }
+  ],
+  "dropped_debris_clusters": 0
+}

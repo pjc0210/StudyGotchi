@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "test": "npm run test:unit && npm run test:audio",
+    "test:unit": "vitest run",
+    "test:audio": "node --test lib/audio/*.test.mts",
+    "test:watch": "vitest",
     "schema": "openapi-typescript ${NEXT_PUBLIC_API_URL:-http://localhost:8000}/openapi.json -o lib/api/schema.ts"
   },
   "dependencies": {
@@ -29,6 +33,7 @@
     "@types/three": "0.186.0",
     "openapi-typescript": "^7",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }

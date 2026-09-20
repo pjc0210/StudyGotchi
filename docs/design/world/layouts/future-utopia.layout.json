@@ -1,0 +1,683 @@
+{
+  "version": 2,
+  "biome": "future-utopia",
+  "name": "Futuristic Utopia",
+  "status": "draft 2026-09-20, awaiting Philote's picks (see biomes/future-utopia.md § Questions)",
+  "notes": [
+    "Coordinates in metres: x east, z south (toward the default camera), y up; settled ground at y = 0. The 200 x 200 m frame is x, z in [-100, 100]; the land continues past x = -100 and z = -72 into fog.",
+    "Field names follow docs/design/world/layouts/layout.schema.json (version 2), which mirrors prototypes/biome-lab/src/layout/biome-layout.ts where the concept matches: band = topic slot; laneYaw radians from +z toward +x; stationAzimuth degrees from +z toward +x; accent = the one warm object per district, shown from the 25 % band.",
+    "population is keyed by band (0 / 25 / 50 / 75 / 100 %) and counts buildings of the district's `building` kind; anchors are present at 0 %; settled-ground elevation never changes; only land.skyline grows.",
+    "The canal and the two water crossings of the transit loop are drawn in layouts/future-utopia.map.svg with the same coordinates.",
+    "Normalised to version 2 on 2026-09-20 without geometric changes."
+  ],
+  "palette": {
+    "ground": "#e3f2ec",
+    "tile": "#e3f2ec",
+    "groundAlt": "#c7dfd6",
+    "lawn": "#a9d9a4",
+    "cliff": "#c7dfd6",
+    "cliffStrip": "#3fd1c9",
+    "wet": "#d8ecea",
+    "water": "#6fcbe0",
+    "waterDeep": "#4fa9c8",
+    "shallows": "#a8e4ec",
+    "canal": "#5fbfd6",
+    "pathCore": "#f4fbf8",
+    "pathEdge": "#3fd1c9",
+    "transitRail": "#ffffff",
+    "transitUnderside": "#3fd1c9",
+    "transitPylon": "#dfe9e6",
+    "glass": "#c7dfd6",
+    "window": "#ffe9a8",
+    "structureWhite": "#ffffff",
+    "structureMint": "#dfe9e6",
+    "structureSlate": "#7d93b8",
+    "canopy": "#8fc48a",
+    "accent": "#3fd1c9",
+    "accentWarm": "#ff9e6e",
+    "blossom": "#f2a0c0",
+    "ink": "#2f3a44",
+    "sky": "#dff0f6",
+    "skyNight": "#0f1c2e",
+    "fog": "#eef7f4"
+  },
+  "scale": {
+    "creatureHeight": 1.8,
+    "houseHeight": [4.5, 6],
+    "hallHeight": [9, 11],
+    "minCreatureViewportFraction": 0.06,
+    "minDistrictGap": 20,
+    "pixelCellPx": 2
+  },
+  "world": {
+    "extent": 170,
+    "frameRadius": 96,
+    "seaLevel": -0.4,
+    "groundHeight": 1.5,
+    "relief": 0.3
+  },
+  "land": {
+    "outline": {
+      "kind": "polygon",
+      "vertices": [[-100, -72], [40, -72], [46, -58], [44, -48], [60, -50], [78, -44], [86, -30], [84, -12], [70, -4], [52, -2], [42, 4], [44, 18], [48, 26], [62, 28], [66, 36], [58, 42], [46, 40], [36, 50], [16, 56], [-8, 58], [-30, 54], [-48, 50], [-72, 46], [-86, 40], [-100, 30]],
+      "openEdges": ["back", "west"],
+      "description": "Clockwise from the back-left. The back edge (z = -72) is the skyline foot, not a coast; the west edge (x = -100) runs off the frame into fog. Everything outside is lagoon."
+    },
+    "skyline": {
+      "kind": "spire-rows",
+      "description": "White needle spires and civic blocks with cyan bands, standing behind the forum and in the back lagoon (ref 04); three rows dissolve into fog. This is the only elevation that grows.",
+      "arc": [[-100, -72], [-80, -76.3], [-60, -79.7], [-40, -82.1], [-20, -83.5], [0, -84], [20, -83.5], [40, -82.1], [60, -79.7], [80, -76.3], [100, -72]],
+      "range": {
+        "arcZ": -84,
+        "arcCurve": 0.0012,
+        "footDepth": 12,
+        "footRise": 0
+      },
+      "footZ": -72,
+      "fogStartZ": -74,
+      "fogOpaqueZ": -100,
+      "rows": [-78, -88, -96],
+      "growth": {
+        "0": {
+          "count": 3,
+          "height": 14,
+          "rows": 1,
+          "towers": 3,
+          "bandsLit": 0
+        },
+        "25": {
+          "count": 5,
+          "height": 24,
+          "rows": 1,
+          "towers": 5,
+          "bandsLit": 1
+        },
+        "50": {
+          "count": 7,
+          "height": 34,
+          "rows": 2,
+          "towers": 7,
+          "bandsLit": 2
+        },
+        "75": {
+          "count": 9,
+          "height": 44,
+          "rows": 2,
+          "towers": 9,
+          "bandsLit": 3
+        },
+        "100": {
+          "count": 11,
+          "height": 56,
+          "rows": 3,
+          "towers": 11,
+          "bandsLit": 3
+        }
+      },
+      "extras": {
+        "spire": {
+          "footprintM": [6, 6],
+          "colours": ["#ffffff", "#dfe9e6"],
+          "bandHex": "#3fd1c9",
+          "bandsAt100": 3
+        },
+        "towersAt100ByRow": [11, 7, 5]
+      }
+    },
+    "coastCliff": {
+      "height": 1.9,
+      "color": "#c7dfd6",
+      "material": "glass",
+      "band": {
+        "at": "lip",
+        "height": 0.3,
+        "color": "#3fd1c9",
+        "emissive": true
+      },
+      "description": "Every land edge over water is a flush glass riser with the cyan strip at the lip; terraces step down 0.6 m per shelf where a district touches water."
+    },
+    "extras": {
+      "lawns": [
+        {
+          "id": "commons",
+          "hex": "#a9d9a4",
+          "vertices": [[-14, -20], [20, -24], [34, -8], [26, 6], [-4, 4], [-16, -8]],
+          "note": "Open lawn between the waterfront and the forum. Not a district: no buildings, no anchor; 6 round trees and the loop's shadow only."
+        }
+      ]
+    }
+  },
+  "water": [
+    {
+      "id": "lagoon",
+      "kind": "lagoon",
+      "geometry": {
+        "kind": "complement"
+      },
+      "color": "#6fcbe0",
+      "deepColor": "#4fa9c8",
+      "shallowsColor": "#a8e4ec",
+      "material": "water",
+      "description": "Everything outside the mainland polygon and the island; deep tint #4fa9c8 beyond 30 m from any shore; shallows #a8e4ec within 4 m of shore."
+    },
+    {
+      "id": "canal",
+      "kind": "canal",
+      "geometry": {
+        "kind": "polyline",
+        "centreline": [[-67, 52], [-64, 28], [-58, 10], [-51, -4], [-48, -14]],
+        "width": 7
+      },
+      "color": "#5fbfd6",
+      "material": "canal",
+      "description": "Opens to the front lagoon; the Canal Quarter strip straddles it."
+    },
+    {
+      "id": "canal-basin",
+      "kind": "basin",
+      "geometry": {
+        "kind": "disc",
+        "center": [-48, -16],
+        "radius": 6
+      },
+      "color": "#5fbfd6",
+      "material": "canal",
+      "description": "Round basin at the head of the canal."
+    },
+    {
+      "id": "ring-pool",
+      "kind": "basin",
+      "geometry": {
+        "kind": "disc",
+        "center": [0, 46],
+        "radius": 6,
+        "innerRadius": 3.5
+      },
+      "color": "#5fbfd6",
+      "material": "canal",
+      "description": "Ring-shaped reflecting pool on the Waterfront Terraces plaza (ref 02 concentric rings); part of the D1 anchor."
+    }
+  ],
+  "soloIsland": {
+    "id": "arboretum-isle",
+    "district": "arboretum",
+    "center": [64, 78],
+    "radius": 20,
+    "polygon": [[52, 62], [66, 58], [78, 63], [84, 74], [82, 88], [72, 97], [58, 96], [47, 88], [45, 74]],
+    "feature": "Arboretum: one glass garden dome (r 9 m, 12 m tall) over a tree canopy, greenhouse pods, orchard rows, boardwalk ring; reached only by the transit loop on a glass arch",
+    "population": {
+      "0": 0,
+      "25": 1,
+      "50": 3,
+      "75": 5,
+      "100": 6
+    },
+    "material": "glass",
+    "offshoreGap": 17.6,
+    "access": "the transit loop on a glass arch; no bridge",
+    "description": "lobed, three shelves stepping 0.6 m down to the lagoon on the south-west"
+  },
+  "transit": [
+    {
+      "id": "civic-loop",
+      "kind": "monorail",
+      "polyline": [[6, 34], [30, 56], [56, 66], [74, 52], [76, 26], [64, -16], [44, -54], [-8, -58], [-26, -44], [-50, -46], [-54, 2], [-34, 30]],
+      "closed": true,
+      "width": null,
+      "elevation": 6,
+      "color": "#ffffff",
+      "edgeColor": "#3fd1c9",
+      "material": "transitRail",
+      "stations": [
+        {
+          "name": "Hub",
+          "at": [6, 34],
+          "district": "waterfront"
+        },
+        {
+          "name": "Arboretum",
+          "at": [56, 66],
+          "district": "arboretum"
+        },
+        {
+          "name": "Skyport",
+          "at": [64, -16],
+          "district": "skyport"
+        },
+        {
+          "name": "Forum terminus",
+          "at": [-8, -58],
+          "district": "forum"
+        },
+        {
+          "name": "Canal bridge",
+          "at": [-54, 2],
+          "district": "canal"
+        }
+      ],
+      "description": "Glass monorail loop 6 m up, white rail with a cyan underside on mint pylons every 14 m; two water crossings on glass arches; 4 white pods with apricot noses run clockwise at 6 m/s with a 4 s dwell.",
+      "extras": {
+        "pylonEveryM": 14,
+        "pylonHex": "#dfe9e6",
+        "waterCrossings": [
+          [[6, 34], [56, 66]],
+          [[56, 66], [76, 26]]
+        ],
+        "pods": {
+          "count": 4,
+          "speedMps": 6,
+          "dwellS": 4,
+          "bodyHex": "#ffffff",
+          "noseHex": "#ff9e6e",
+          "cabinLightHex": "#ffe9a8",
+          "direction": "clockwise"
+        }
+      }
+    }
+  ],
+  "districts": [
+    {
+      "id": "waterfront",
+      "name": "Waterfront Terraces",
+      "band": 1,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[-16, 22], [2, 18], [20, 18], [30, 26], [30, 40], [18, 54], [-4, 59], [-22, 54], [-30, 40]]
+      },
+      "fittedTo": "the front shore, three terrace shelves stepping into the lagoon",
+      "material": "tile",
+      "anchor": {
+        "id": "hub-arch-ring-pool",
+        "description": "transit hub arch over the loop · ring reflecting pool",
+        "position": [6, 34],
+        "footprint": [19, 21]
+      },
+      "features": [
+        "hub station at (6, 34): glass arch 14 m span, 9 m tall, over the loop",
+        "ring pool r 6 m with an inner tile disc at (0, 46)",
+        "open lawn 'the Commons' lies north of the district (no buildings; not a district)",
+        "three terrace shelves stepping 0.6 m down to the lagoon",
+        "promenade path along the front edge",
+        "terrace houses (2 rows facing the water)",
+        "hover lamps (6 at 50 %)",
+        "docked pod at the hub (the warm accent)"
+      ],
+      "building": "terrace-house",
+      "buildingHeight": [4.5, 6],
+      "population": {
+        "0": 0,
+        "25": 4,
+        "50": 8,
+        "75": 13,
+        "100": 16
+      },
+      "extras100": [
+        "second arch platform on the hub",
+        "2 pods docked",
+        "string of 12 hover lamps along the promenade"
+      ],
+      "accent": {
+        "object": "the first transit pod docked at the hub, apricot nose",
+        "hex": "#ff9e6e"
+      },
+      "camera": {
+        "pitchDeg": 32,
+        "azimuthDeg": 0,
+        "fitWidth": 0.82
+      },
+      "laneYaw": 1.5,
+      "stationAzimuth": 0
+    },
+    {
+      "id": "canal",
+      "name": "Canal Quarter",
+      "band": 2,
+      "shape": {
+        "kind": "strip",
+        "centreline": [[-67, 46], [-64, 28], [-58, 10], [-51, -4], [-48, -14]],
+        "width": 30
+      },
+      "fittedTo": "the canal from the front lagoon to its round basin, straddling both banks",
+      "material": "tile",
+      "anchor": {
+        "id": "canal-footbridges",
+        "description": "the canal · three white glass footbridge arcs",
+        "position": [-59, 14],
+        "footprint": [10, 66]
+      },
+      "features": [
+        "canal 7 m wide from the front lagoon to a round basin",
+        "3 glass footbridges (arcs, 9 m span) at z = 34, 14 and -6",
+        "quay paths on both banks",
+        "canal houses in two rows facing the water",
+        "market canopies on the west quay (the warm accent)",
+        "canal-bridge transit station where the loop crosses",
+        "hover lamps along both quays (8 at 50 %)"
+      ],
+      "building": "canal-house",
+      "buildingHeight": [4.5, 6],
+      "population": {
+        "0": 0,
+        "25": 4,
+        "50": 9,
+        "75": 14,
+        "100": 18
+      },
+      "extras100": ["6 market canopies", "2 punt boats in the basin", "string lights between the footbridges"],
+      "accent": {
+        "object": "three sail canopies on the west quay",
+        "hex": "#ff9e6e"
+      },
+      "camera": {
+        "pitchDeg": 34,
+        "azimuthDeg": 90,
+        "fitWidth": 0.82
+      },
+      "laneYaw": 0.3,
+      "stationAzimuth": 90
+    },
+    {
+      "id": "forum",
+      "name": "Forum Heights",
+      "band": 3,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[-60, -72], [18, -72], [22, -60], [16, -48], [-6, -46], [-30, -47], [-50, -52], [-62, -62]]
+      },
+      "fittedTo": "the skyline foot along the back of the land",
+      "material": "tile",
+      "anchor": {
+        "id": "civic-hall-lens",
+        "description": "civic hall lens dome · ring of 8 hover lamps",
+        "position": [-30, -60],
+        "footprint": [36, 24]
+      },
+      "features": [
+        "civic hall: low glass lens dome 28 x 18 m, 9 m tall, white shell, cyan strip at the eave, centred at (-30, -60)",
+        "forum plaza with a ring of 8 hover lamps (r 17 m) around the hall",
+        "forum terminus of the transit loop at (-8, -58)",
+        "civic blocks 10 m tall in two rows on the east half of the plaza",
+        "two tree rows (12 round canopies) along the forum axis",
+        "first row of skyline spires rises directly behind the plaza",
+        "blossom pair at the hall entrance (the warm accent)"
+      ],
+      "building": "civic-block",
+      "buildingHeight": [9, 11],
+      "population": {
+        "0": 0,
+        "25": 3,
+        "50": 7,
+        "75": 11,
+        "100": 14
+      },
+      "extras100": [
+        "council ring (12 seats) on the east lawn",
+        "6 flag-less banner masts with cyan strips",
+        "lens dome interior lit"
+      ],
+      "accent": {
+        "object": "two blossom trees flanking the hall entrance",
+        "hex": "#f2a0c0"
+      },
+      "camera": {
+        "pitchDeg": 30,
+        "azimuthDeg": 90,
+        "fitWidth": 0.82
+      },
+      "laneYaw": 1.57,
+      "stationAzimuth": 90
+    },
+    {
+      "id": "skyport",
+      "name": "Skyport Headland",
+      "band": 4,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[48, -46], [62, -48], [76, -42], [82, -30], [80, -14], [68, -8], [54, -6], [46, -14], [44, -30]]
+      },
+      "fittedTo": "the east headland projecting into the lagoon",
+      "material": "tile",
+      "anchor": {
+        "id": "mooring-mast-pads",
+        "description": "airship mooring mast · three H-pad discs",
+        "position": [66, -30],
+        "footprint": [26, 28]
+      },
+      "features": [
+        "mooring mast 18 m at (66, -30), white, beacon at the top (the warm accent)",
+        "3 H-pad discs r 5 m with four corner lights at (72, -22), (76, -36), (60, -40)",
+        "skyport transit station at (64, -16)",
+        "terrace houses on the inland half",
+        "hover lamps along the pad apron (6 at 50 %)",
+        "glass terraces stepping down to the lagoon on the east tip"
+      ],
+      "building": "terrace-house",
+      "buildingHeight": [4.5, 6],
+      "population": {
+        "0": 0,
+        "25": 2,
+        "50": 5,
+        "75": 8,
+        "100": 10
+      },
+      "extras100": [
+        "one airship (white hull 16 m, slate gondola) moored at the mast and swaying",
+        "2 pods on the pads"
+      ],
+      "accent": {
+        "object": "mast beacon (emissive at night)",
+        "hex": "#ff9e6e"
+      },
+      "camera": {
+        "pitchDeg": 32,
+        "azimuthDeg": 270,
+        "fitWidth": 0.82
+      },
+      "laneYaw": 0.9,
+      "stationAzimuth": 270
+    },
+    {
+      "id": "arboretum",
+      "name": "Arboretum Isle",
+      "band": 5,
+      "solitary": true,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[50, 66], [64, 61], [78, 66], [82, 78], [76, 92], [60, 94], [48, 84]]
+      },
+      "fittedTo": "the lobed solitary island in the front-east lagoon",
+      "material": "tile",
+      "anchor": {
+        "id": "garden-dome",
+        "description": "glass garden dome over a tree canopy",
+        "position": [64, 78],
+        "footprint": [18, 18]
+      },
+      "features": [
+        "garden dome r 9 m, 12 m tall, glass over #8fc48a canopy, centred at (64, 78)",
+        "arboretum transit station on the north-west shore at (56, 66)",
+        "boardwalk ring path around the dome",
+        "greenhouse pods (glass bells) on the east shelf",
+        "orchard rows on the south-west shelves (24 round trees at 100 %)",
+        "blossom ring around the dome (the warm accent)"
+      ],
+      "building": "greenhouse-pod",
+      "buildingHeight": [4.5, 5.5],
+      "population": {
+        "0": 0,
+        "25": 1,
+        "50": 3,
+        "75": 5,
+        "100": 6
+      },
+      "props": {
+        "trees": {
+          "0": 0,
+          "25": 6,
+          "50": 12,
+          "75": 18,
+          "100": 24
+        }
+      },
+      "extras100": ["dome interior lit", "4 benches on the boardwalk", "one punt boat at the shelf"],
+      "accent": {
+        "object": "six blossom trees ringing the dome",
+        "hex": "#f2a0c0"
+      },
+      "camera": {
+        "pitchDeg": 34,
+        "azimuthDeg": 0,
+        "fitWidth": 0.82
+      },
+      "laneYaw": -0.6,
+      "stationAzimuth": 0
+    }
+  ],
+  "landmark": {
+    "id": "spire-of-accord",
+    "name": "Spire of Accord",
+    "position": [58, 32],
+    "plinth": {
+      "kind": "headland",
+      "radius": 7.5,
+      "height": 1.5,
+      "material": "tile",
+      "color": "#c7dfd6",
+      "description": "Its own headland at the lagoon mouth, south of the skyport, east of the waterfront; glass riser with the cyan strip."
+    },
+    "stages": {
+      "s1": {
+        "name": "Unity Pavilion",
+        "height": 6,
+        "description": "open ring pavilion: 6 slim white posts, glass lens roof 8 m wide, cyan strip on the roof edge, one blossom tree inside",
+        "persists": ["pavilion ring", "blossom tree"],
+        "grows": [],
+        "lights": ["roof-edge strip"]
+      },
+      "s2": {
+        "name": "Spire of Accord",
+        "height": 22,
+        "description": "a white needle rises from the pavilion roof centre, 2 cyan bands, glass lift capsule",
+        "persists": ["pavilion ring", "blossom tree"],
+        "grows": ["spire height", "band count"],
+        "lights": ["2 bands", "capsule window #ffe9a8"]
+      },
+      "s3": {
+        "name": "Spire of Accord, observation lens",
+        "height": 36,
+        "description": "36 m spire, 3 cyan bands, a flat glass observation lens deck r 5 m at 28 m, crown that pulses cyan every 4 s at night",
+        "persists": ["pavilion ring", "blossom tree", "spire", "bands"],
+        "grows": ["spire to 36 m", "lens deck"],
+        "lights": ["3 bands", "lens deck windows #ffe9a8", "pulsing crown"]
+      }
+    },
+    "ruin": {
+      "id": "future-utopia-ruin-frosted",
+      "brief": "glass frosted #e7f0f2, bands dark, lens deck dark, pavilion strip out; blossom tree bare",
+      "recovery": "bands relight bottom to top, frost clears over 2 s, blossom returns"
+    }
+  },
+  "marker": {
+    "side": "#c7dfd6",
+    "top": "#e3f2ec",
+    "lip": "#3fd1c9",
+    "rim": "flush glass edge with a 0.3 m cyan light strip, emissive at night",
+    "props": [
+      {
+        "slot": "P1",
+        "id": "civic-spire",
+        "height": 8,
+        "color": "#ffffff",
+        "colours": ["#ffffff", "#dfe9e6"],
+        "accent": "#3fd1c9",
+        "description": "civic spire: 3 cyan bands; the skyline element and the landmark s3 form"
+      },
+      {
+        "slot": "P2",
+        "id": "transit-arch",
+        "height": 6,
+        "color": "#c7dfd6",
+        "colours": ["#c7dfd6", "#ffffff"],
+        "accent": null,
+        "description": "transit arch with a monorail loop segment: one pod on the rail, apricot nose #ff9e6e (the pod is the object carrying the warm note; the saturated accent stays cyan)"
+      },
+      {
+        "slot": "P3",
+        "id": "garden-dome",
+        "height": 4.8,
+        "color": "#c7dfd6",
+        "colours": ["#c7dfd6", "#8fc48a"],
+        "accent": null,
+        "description": "garden dome: glass hemisphere over a round canopy"
+      },
+      {
+        "slot": "P4",
+        "id": "terrace-house-pair",
+        "height": 4,
+        "color": "#ffffff",
+        "colours": ["#ffffff", "#7d93b8"],
+        "accent": null,
+        "description": "terrace-house pair: PROPOSED change from the draft row's hover lamp (which collides with the lab neon ring at 48 px); windows #ffe9a8 at night. Question 4 in the biome sheet."
+      }
+    ],
+    "accent": {
+      "object": "light strip and spire bands",
+      "hex": "#3fd1c9"
+    },
+    "signpost": false,
+    "silhouette48": "a needle spire over a pale mint disc with a cyan rim line"
+  },
+  "ambient": {
+    "creatureEvent": {
+      "id": "lagoon-manta",
+      "arc": {
+        "center": [12, 86],
+        "radius": 10
+      },
+      "hiddenFraction": 0.9,
+      "periodS": [60, 120],
+      "phases": {
+        "rise": 1.2,
+        "glide": 3.5,
+        "wingtip": 1,
+        "dive": 1.5,
+        "leap": 2
+      },
+      "leapEvery": 4,
+      "hex": "#7d93b8",
+      "bellyHex": "#e3f2ec",
+      "spanM": 9,
+      "note": "A faint shadow under the clear water most of the time; never within 15 m of a district; never during a catastrophe."
+    },
+    "clouds": {
+      "count": 4,
+      "heightM": [60, 90],
+      "driftEastMps": 0.4,
+      "extraForCrossfade": [3, 6]
+    },
+    "sunShower": {
+      "everyMin": [8, 12],
+      "durationS": 90,
+      "wetTileHex": "#d8ecea",
+      "rainbow": "one flat arc over the lagoon"
+    },
+    "night": {
+      "skyHex": "#0f1c2e",
+      "tileLightnessOffset": -0.28,
+      "emissiveCyan": 1.6,
+      "emissiveWindow": 1.6,
+      "crownPulseS": 4,
+      "note": "the skyline becomes bands of light in fog; no magenta"
+    }
+  },
+  "catastrophe": {
+    "weather": "grey-out: sky drops to #8fa3ad, every strip flickers 3 times and dies, pods coast to a stop",
+    "fallApart": "residents fall apart",
+    "ruin": "glass frost: glass frosts to #e7f0f2, strips dark, ring pool drained, 4 hover lamps tilt 20 degrees, canopies drop",
+    "recovery": "strips relight forum -> skyport -> canal -> waterfront -> island at 0.3 s each, frost clears in 2 s, pods resume"
+  },
+  "creatureRoster": {
+    "accents": ["#7a4b6e", "#3b5f7a", "#e88a8a"],
+    "avoid": ["#8fc9d8 mint (reads as glass)", "#c9a2e6 lilac (reads as glass)"]
+  }
+}

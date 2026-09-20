@@ -8,8 +8,13 @@ import { toonGradient, toonMaterial } from "@/lib/toon";
 import { hashString, makeRng } from "@/lib/seed";
 import { BIOMES, ISLAND_RADIUS, landmarkHeight } from "@/lib/world/layout";
 import { RESIDENT_LABEL, statePresentation } from "@/lib/state";
-import type { CanvasPlace, CanvasSpot, HoverInfo, WorldCanvasProps } from "@/lib/world/types";
+import type { CanvasPlace, CanvasSpot, HoverInfo, Vec2, WorldCanvasProps } from "@/lib/world/types";
 import { Character } from "./Character";
+import { GlbCreature, preloadRoster, type CreatureRequests } from "./GlbCreature";
+import { pickCreature, ISLAND_ROSTER } from "@/lib/world/roster";
+import type { BlobMotion } from "./Blob";
+import { emit } from "@/lib/audio/events";
+import { voiceFor } from "@/lib/audio/catalog";
 
 const CLIFF = 3;
 const PAPER = "#f6efe4";
@@ -240,6 +245,76 @@ function HoverMarker({ info, position }: { info: HoverInfo; position: [number, n
   );
 }
 
+/** Extra walkers so a sparse island still shows the guest pack (rat, Tripo, CC0 sillies). */
+function ShowcaseWanderer({
+  id,
+  place,
+  home,
+  heightAt,
+}: {
+  id: string;
+  place: CanvasPlace;
+  home: Vec2;
+  heightAt: (x: number, z: number) => number;
+}) {
+  const group = useRef<THREE.Group>(null);
+  const motion = useRef<BlobMotion>({ moving: false, t: 0 });
+  const requests = useRef<CreatureRequests>({ happy: false });
+  const biome = BIOMES[place.biome];
+  const wander = useRef(
+    (() => {
+      const rng = makeRng(hashString(`vis:${place.id}:${id}`));
+      return { x: home.x, z: home.z, angle: rng() * Math.PI * 2, timer: rng() * 2, moving: false, rng };
+    })(),
+  );
+
+  useFrame((_, dt) => {
+    const g = group.current;
+    if (!g) return;
+    const s = wander.current;
+    motion.current.t += dt;
+    s.timer -= dt;
+    if (s.timer <= 0) {
+      s.moving = !s.moving;
+      s.timer = s.moving ? 1.4 + s.rng() * 2.4 : 1.2 + s.rng() * 2;
+      if (s.moving) s.angle += (s.rng() - 0.5) * 2.2;
+    }
+    motion.current.moving = s.moving;
+    if (s.moving) {
+      const dx = s.x - home.x;
+      const dz = s.z - home.z;
+      if (dx * dx + dz * dz > 2.4) s.angle = Math.atan2(home.x - s.x, home.z - s.z);
+      s.x += Math.sin(s.angle) * dt * 0.55;
+      s.z += Math.cos(s.angle) * dt * 0.55;
+    }
+    g.position.set(s.x, heightAt(s.x, s.z), s.z);
+    g.rotation.y = s.angle;
+  });
+
+  return (
+    <group ref={group}>
+      <GlbCreature
+        id={id}
+        variant={hashString(id) % 4}
+        motion={motion}
+        requests={requests}
+        scale={1.25}
+        color={biome.creature}
+        accent={biome.accent}
+        onClick={() => {
+          requests.current.happy = true;
+          emit({
+            type: "creature-select",
+            label: id.replace(/^(tripo-|kenney-|gobkit-|pizza-)/, "").replace(/-/g, " "),
+            species: voiceFor(place.biome, biome.creature),
+            mood: "happy",
+          });
+        }}
+      />
+    </group>
+  );
+}
+
 export function Island({ world, selectedId, onSelect, hoveredId, onHover, changedIds }: WorldCanvasProps) {
   const controls = useRef<CameraControls>(null);
   const hover = hoveredId;
@@ -259,6 +334,11 @@ export function Island({ world, selectedId, onSelect, hoveredId, onHover, change
   useEffect(() => {
     controls.current?.setLookAt(0, 19, 27, 0, -0.5, 0, false);
   }, []);
+
+  // Only the bodies this island can spawn; the other biomes' rosters stay cold.
+  useEffect(() => {
+    preloadRoster(world.places.map((p) => p.biome));
+  }, [world.places]);
 
   // Selecting a spot eases the camera toward it; deselecting returns to the overview.
   useEffect(() => {
@@ -333,12 +413,38 @@ export function Island({ world, selectedId, onSelect, hoveredId, onHover, change
               character={character}
               place={place}
               home={character.home}
+              seed={world.seed}
               heightAt={heightAt}
               selected={selectedId === character.concept_id}
               onSelect={onSelect}
               onHover={setHover}
             />
           );
+        })}
+        {world.places.flatMap((place) => {
+          const used = new Set(
+            world.characters
+              .filter((c) => c.place_id === place.id)
+              .map((c) => pickCreature(`${world.seed}:${place.id}`, place.biome, Math.max(0, place.concept_ids.indexOf(c.concept_id)))),
+          );
+          const extras: string[] = [];
+          for (const id of ISLAND_ROSTER[place.biome]) {
+            if (used.has(id)) continue;
+            extras.push(id);
+            if (extras.length >= 6) break;
+          }
+          return extras.map((id, i) => (
+            <ShowcaseWanderer
+              key={`vis:${place.id}:${id}`}
+              id={id}
+              place={place}
+              home={{
+                x: place.center.x * ISLAND_RADIUS + Math.sin(i * 1.7) * 1.4,
+                z: place.center.z * ISLAND_RADIUS + Math.cos(i * 1.7) * 1.4,
+              }}
+              heightAt={heightAt}
+            />
+          ));
         })}
         {hoverInfo ? <HoverMarker info={hoverInfo.info} position={hoverInfo.position} /> : null}
       </group>

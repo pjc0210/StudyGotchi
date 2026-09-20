@@ -1,0 +1,2204 @@
+{
+  "agent": [
+    "Every free model URL is in glbs[] - a flat array of .glb URLs. Use them verbatim; never construct or guess a URL.",
+    "For metadata (pack, rigged, animation ranges, licence) iterate packs[].models[] instead. models[].url is the same URL that appears in glbs[].",
+    "The keys AFTER 'notice' (pack, version, count, zip, animations, models) describe the FIRST pack only and exist for backward compatibility. Ignore them - reading them will silently miss most of the library.",
+    "packs[].zip is a zip archive, not a model. Do not pass it to GLTFLoader.",
+    "packs[].scene is a pre-assembled showcase scene, not a model, and is not counted in totalFreeModels.",
+    "IMPORTANT - rigged packs bake every action onto ONE animation clip. gltf.animations[0] is the whole timeline. You MUST slice it using packs[].models[].animations[] frame ranges at fps. Playing it unsliced runs without error and looks animated, but plays idle, attack and dead back to back - it is wrong.",
+    "IMPORTANT - these are SKINNED rigs. To spawn multiple copies use your engine's skeleton-aware clone (three.js: SkeletonUtils.clone). A plain object clone or .clone() silently breaks the rig - the copy renders but never animates.",
+    "Models are authored facing +Z. Look-at/aim helpers that point local +Z at a target need NO extra rotation - adding a preemptive 180-degree Y turn double-compensates and makes units walk backwards. Only rotate if you can SEE it facing wrong.",
+    "Unrigged models have animations: []. Check the length before building an animation UI.",
+    "packs[].featured lists 3 representative model ids per pack. Use it for a small demo instead of loading all of them.",
+    "characters[] is glbs[] minus the static props - use it when you want animated creatures only, e.g. picking a few at random.",
+    "Read usage{} for loading, facing, scale and licence details."
+  ],
+  "schemaVersion": 2,
+  "totalFreeModels": 79,
+  "glbs": [
+    "https://gobkit.com/freebies/minion/minion-a01.glb",
+    "https://gobkit.com/freebies/minion/minion-a02.glb",
+    "https://gobkit.com/freebies/minion/minion-b01.glb",
+    "https://gobkit.com/freebies/minion/minion-b02.glb",
+    "https://gobkit.com/freebies/minion/minion-c01.glb",
+    "https://gobkit.com/freebies/minion/minion-c02.glb",
+    "https://gobkit.com/freebies/minion/minion-d01.glb",
+    "https://gobkit.com/freebies/minion/minion-d02.glb",
+    "https://gobkit.com/freebies/animal/Anglerfish.glb",
+    "https://gobkit.com/freebies/animal/Bat.glb",
+    "https://gobkit.com/freebies/animal/Corgi.glb",
+    "https://gobkit.com/freebies/animal/Duck.glb",
+    "https://gobkit.com/freebies/animal/Hippo.glb",
+    "https://gobkit.com/freebies/animal/Jellyfish.glb",
+    "https://gobkit.com/freebies/animal/Platypus.glb",
+    "https://gobkit.com/freebies/animal/Red.glb",
+    "https://gobkit.com/freebies/animal/Rhino.glb",
+    "https://gobkit.com/freebies/animal/Shark.glb",
+    "https://gobkit.com/freebies/animalB/Bee.glb",
+    "https://gobkit.com/freebies/animalB/Blue.glb",
+    "https://gobkit.com/freebies/animalB/Boar.glb",
+    "https://gobkit.com/freebies/animalB/Fugu.glb",
+    "https://gobkit.com/freebies/animalB/Goat.glb",
+    "https://gobkit.com/freebies/animalB/Marmot.glb",
+    "https://gobkit.com/freebies/animalB/Owl.glb",
+    "https://gobkit.com/freebies/animalB/Rat.glb",
+    "https://gobkit.com/freebies/animalB/Seal.glb",
+    "https://gobkit.com/freebies/animalB/Whale.glb",
+    "https://gobkit.com/freebies/dino/Ankylosaurus.glb",
+    "https://gobkit.com/freebies/dino/Carnotaurus.glb",
+    "https://gobkit.com/freebies/dino/Oviraptor.glb",
+    "https://gobkit.com/freebies/dino/Pachycephalosaurus.glb",
+    "https://gobkit.com/freebies/dino/Plesiosaurus.glb",
+    "https://gobkit.com/freebies/dino/Pterodactylus.glb",
+    "https://gobkit.com/freebies/dino/Spinosaurus.glb",
+    "https://gobkit.com/freebies/dino/Stegosaurus.glb",
+    "https://gobkit.com/freebies/dino/Trex.glb",
+    "https://gobkit.com/freebies/dino/Triceratops.glb",
+    "https://gobkit.com/freebies/environment/Bush001.glb",
+    "https://gobkit.com/freebies/environment/Bush002.glb",
+    "https://gobkit.com/freebies/environment/Cliff001.glb",
+    "https://gobkit.com/freebies/environment/Cliff002.glb",
+    "https://gobkit.com/freebies/environment/Cliff003.glb",
+    "https://gobkit.com/freebies/environment/Cloud001.glb",
+    "https://gobkit.com/freebies/environment/Cloud002.glb",
+    "https://gobkit.com/freebies/environment/Cloud003.glb",
+    "https://gobkit.com/freebies/environment/Grass001.glb",
+    "https://gobkit.com/freebies/environment/Grass002.glb",
+    "https://gobkit.com/freebies/environment/Grass003.glb",
+    "https://gobkit.com/freebies/environment/Hill001.glb",
+    "https://gobkit.com/freebies/environment/Hill002.glb",
+    "https://gobkit.com/freebies/environment/Hill003.glb",
+    "https://gobkit.com/freebies/environment/HillSand001.glb",
+    "https://gobkit.com/freebies/environment/HillSand002.glb",
+    "https://gobkit.com/freebies/environment/HillSand003.glb",
+    "https://gobkit.com/freebies/environment/Mountain001.glb",
+    "https://gobkit.com/freebies/environment/Mountain002.glb",
+    "https://gobkit.com/freebies/environment/Mountain003.glb",
+    "https://gobkit.com/freebies/environment/MountainFar001.glb",
+    "https://gobkit.com/freebies/environment/MountainFar002.glb",
+    "https://gobkit.com/freebies/environment/MountainFar003.glb",
+    "https://gobkit.com/freebies/environment/Reed001.glb",
+    "https://gobkit.com/freebies/environment/Reed002.glb",
+    "https://gobkit.com/freebies/environment/Rock001.glb",
+    "https://gobkit.com/freebies/environment/Rock002.glb",
+    "https://gobkit.com/freebies/environment/Rock003.glb",
+    "https://gobkit.com/freebies/environment/Stalactite001.glb",
+    "https://gobkit.com/freebies/environment/Stalactite002.glb",
+    "https://gobkit.com/freebies/environment/Stalactite003.glb",
+    "https://gobkit.com/freebies/environment/TreeHigh001.glb",
+    "https://gobkit.com/freebies/environment/TreeHigh002.glb",
+    "https://gobkit.com/freebies/environment/TreeHigh003.glb",
+    "https://gobkit.com/freebies/environment/TreeLow001.glb",
+    "https://gobkit.com/freebies/environment/TreeLow002.glb",
+    "https://gobkit.com/freebies/environment/TreeLow003.glb",
+    "https://gobkit.com/freebies/environment/TreeLow004.glb",
+    "https://gobkit.com/freebies/environment/TreeMed001.glb",
+    "https://gobkit.com/freebies/environment/TreeMed002.glb",
+    "https://gobkit.com/freebies/environment/TreeMed003.glb"
+  ],
+  "characters": [
+    "https://gobkit.com/freebies/minion/minion-a01.glb",
+    "https://gobkit.com/freebies/minion/minion-a02.glb",
+    "https://gobkit.com/freebies/minion/minion-b01.glb",
+    "https://gobkit.com/freebies/minion/minion-b02.glb",
+    "https://gobkit.com/freebies/minion/minion-c01.glb",
+    "https://gobkit.com/freebies/minion/minion-c02.glb",
+    "https://gobkit.com/freebies/minion/minion-d01.glb",
+    "https://gobkit.com/freebies/minion/minion-d02.glb",
+    "https://gobkit.com/freebies/animal/Anglerfish.glb",
+    "https://gobkit.com/freebies/animal/Bat.glb",
+    "https://gobkit.com/freebies/animal/Corgi.glb",
+    "https://gobkit.com/freebies/animal/Duck.glb",
+    "https://gobkit.com/freebies/animal/Hippo.glb",
+    "https://gobkit.com/freebies/animal/Jellyfish.glb",
+    "https://gobkit.com/freebies/animal/Platypus.glb",
+    "https://gobkit.com/freebies/animal/Red.glb",
+    "https://gobkit.com/freebies/animal/Rhino.glb",
+    "https://gobkit.com/freebies/animal/Shark.glb",
+    "https://gobkit.com/freebies/animalB/Bee.glb",
+    "https://gobkit.com/freebies/animalB/Blue.glb",
+    "https://gobkit.com/freebies/animalB/Boar.glb",
+    "https://gobkit.com/freebies/animalB/Fugu.glb",
+    "https://gobkit.com/freebies/animalB/Goat.glb",
+    "https://gobkit.com/freebies/animalB/Marmot.glb",
+    "https://gobkit.com/freebies/animalB/Owl.glb",
+    "https://gobkit.com/freebies/animalB/Rat.glb",
+    "https://gobkit.com/freebies/animalB/Seal.glb",
+    "https://gobkit.com/freebies/animalB/Whale.glb",
+    "https://gobkit.com/freebies/dino/Ankylosaurus.glb",
+    "https://gobkit.com/freebies/dino/Carnotaurus.glb",
+    "https://gobkit.com/freebies/dino/Oviraptor.glb",
+    "https://gobkit.com/freebies/dino/Pachycephalosaurus.glb",
+    "https://gobkit.com/freebies/dino/Plesiosaurus.glb",
+    "https://gobkit.com/freebies/dino/Pterodactylus.glb",
+    "https://gobkit.com/freebies/dino/Spinosaurus.glb",
+    "https://gobkit.com/freebies/dino/Stegosaurus.glb",
+    "https://gobkit.com/freebies/dino/Trex.glb",
+    "https://gobkit.com/freebies/dino/Triceratops.glb"
+  ],
+  "packs": [
+    {
+      "id": "gobkit-free-pack",
+      "name": "Minion Pack",
+      "kind": "characters",
+      "format": "glb",
+      "rigged": true,
+      "fps": 24,
+      "count": 8,
+      "featured": [
+        "minion-a01",
+        "minion-a02",
+        "minion-b01"
+      ],
+      "zip": "https://gobkit.com/freebies/gobkit-free-pack.zip",
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required.",
+      "animations": [
+        "idle",
+        "attack",
+        "dead"
+      ],
+      "models": [
+        {
+          "id": "minion-a01",
+          "name": "Minion A-1",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-a01.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-a02",
+          "name": "Minion A-2",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-a02.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-b01",
+          "name": "Minion B-1",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-b01.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-b02",
+          "name": "Minion B-2",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-b02.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-c01",
+          "name": "Minion C-1",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-c01.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-c02",
+          "name": "Minion C-2",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-c02.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-d01",
+          "name": "Minion D-1",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-d01.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "minion-d02",
+          "name": "Minion D-2",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/minion/minion-d02.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        }
+      ]
+    },
+    {
+      "id": "gobkit-animal-pack",
+      "name": "Gobkit Free Animal Pack",
+      "kind": "characters",
+      "format": "glb",
+      "rigged": true,
+      "fps": 24,
+      "count": 10,
+      "featured": [
+        "anglerfish",
+        "bat",
+        "corgi"
+      ],
+      "zip": "https://gobkit.com/freebies/animal/gobkit-animal-pack.zip",
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required.",
+      "animations": [
+        "idle",
+        "attack",
+        "dead",
+        "walk"
+      ],
+      "models": [
+        {
+          "id": "anglerfish",
+          "name": "Anglerfish",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Anglerfish.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "bat",
+          "name": "Bat",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Bat.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "corgi",
+          "name": "Corgi",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Corgi.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "duck",
+          "name": "Duck",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Duck.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "hippo",
+          "name": "Hippo",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Hippo.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "jellyfish",
+          "name": "Jellyfish",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Jellyfish.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "platypus",
+          "name": "Platypus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Platypus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "red",
+          "name": "Red",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Red.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "rhino",
+          "name": "Rhino",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Rhino.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "shark",
+          "name": "Shark",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animal/Shark.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        }
+      ]
+    },
+    {
+      "id": "gobkit-animalB-pack",
+      "name": "Gobkit Free Animal Pack Vol. 2",
+      "kind": "characters",
+      "format": "glb",
+      "rigged": true,
+      "fps": 24,
+      "count": 10,
+      "featured": [
+        "bee",
+        "blue",
+        "boar"
+      ],
+      "zip": "https://gobkit.com/freebies/animalB/gobkit-animalB-pack.zip",
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required.",
+      "animations": [
+        "idle",
+        "attack",
+        "dead",
+        "walk"
+      ],
+      "models": [
+        {
+          "id": "bee",
+          "name": "Bee",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Bee.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "blue",
+          "name": "Blue",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Blue.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "boar",
+          "name": "Boar",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Boar.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "fugu",
+          "name": "Fugu",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Fugu.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "goat",
+          "name": "Goat",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Goat.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "marmot",
+          "name": "Marmot",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Marmot.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "owl",
+          "name": "Owl",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Owl.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "rat",
+          "name": "Rat",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Rat.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "seal",
+          "name": "Seal",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Seal.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "whale",
+          "name": "Whale",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/animalB/Whale.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        }
+      ]
+    },
+    {
+      "id": "gobkit-dino-pack",
+      "name": "Gobkit Free Dinosaur Pack",
+      "kind": "characters",
+      "format": "glb",
+      "rigged": true,
+      "fps": 24,
+      "count": 10,
+      "featured": [
+        "ankylosaurus",
+        "carnotaurus",
+        "oviraptor"
+      ],
+      "zip": "https://gobkit.com/freebies/dino/gobkit-dino-pack.zip",
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required.",
+      "animations": [
+        "idle",
+        "attack",
+        "dead",
+        "walk"
+      ],
+      "models": [
+        {
+          "id": "ankylosaurus",
+          "name": "Ankylosaurus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Ankylosaurus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "carnotaurus",
+          "name": "Carnotaurus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Carnotaurus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "oviraptor",
+          "name": "Oviraptor",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Oviraptor.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "pachycephalosaurus",
+          "name": "Pachycephalosaurus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Pachycephalosaurus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "plesiosaurus",
+          "name": "Plesiosaurus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Plesiosaurus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "pterodactylus",
+          "name": "Pterodactylus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Pterodactylus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "spinosaurus",
+          "name": "Spinosaurus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Spinosaurus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "stegosaurus",
+          "name": "Stegosaurus",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Stegosaurus.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "trex",
+          "name": "Trex",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Trex.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "triceratops",
+          "name": "Triceratops",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/dino/Triceratops.glb",
+          "rigged": true,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [
+            {
+              "name": "idle",
+              "from": 0,
+              "to": 29,
+              "loop": true
+            },
+            {
+              "name": "attack",
+              "from": 30,
+              "to": 59,
+              "loop": true
+            },
+            {
+              "name": "dead",
+              "from": 60,
+              "to": 89,
+              "loop": false
+            },
+            {
+              "name": "walk",
+              "from": 90,
+              "to": 119,
+              "loop": true
+            }
+          ],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        }
+      ]
+    },
+    {
+      "id": "gobkit-nature-kit",
+      "name": "Nature Kit",
+      "kind": "environment",
+      "format": "glb",
+      "rigged": false,
+      "fps": 24,
+      "count": 41,
+      "featured": [
+        "Bush001",
+        "Bush002",
+        "Cliff001"
+      ],
+      "zip": "https://gobkit.com/freebies/environment/gobkit-nature-kit.zip",
+      "scene": "https://gobkit.com/freebies/environment/nature-kit-scene.glb",
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required.",
+      "models": [
+        {
+          "id": "Bush001",
+          "name": "Bush 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Bush001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Bush002",
+          "name": "Bush 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Bush002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Cliff001",
+          "name": "Cliff 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Cliff001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Cliff002",
+          "name": "Cliff 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Cliff002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Cliff003",
+          "name": "Cliff 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Cliff003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Cloud001",
+          "name": "Cloud 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Cloud001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Cloud002",
+          "name": "Cloud 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Cloud002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Cloud003",
+          "name": "Cloud 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Cloud003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Grass001",
+          "name": "Grass 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Grass001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Grass002",
+          "name": "Grass 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Grass002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Grass003",
+          "name": "Grass 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Grass003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Hill001",
+          "name": "Hill 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Hill001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Hill002",
+          "name": "Hill 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Hill002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Hill003",
+          "name": "Hill 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Hill003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "HillSand001",
+          "name": "HillSand 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/HillSand001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "HillSand002",
+          "name": "HillSand 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/HillSand002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "HillSand003",
+          "name": "HillSand 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/HillSand003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Mountain001",
+          "name": "Mountain 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Mountain001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Mountain002",
+          "name": "Mountain 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Mountain002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Mountain003",
+          "name": "Mountain 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Mountain003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "MountainFar001",
+          "name": "MountainFar 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/MountainFar001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "MountainFar002",
+          "name": "MountainFar 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/MountainFar002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "MountainFar003",
+          "name": "MountainFar 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/MountainFar003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Reed001",
+          "name": "Reed 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Reed001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Reed002",
+          "name": "Reed 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Reed002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Rock001",
+          "name": "Rock 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Rock001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Rock002",
+          "name": "Rock 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Rock002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Rock003",
+          "name": "Rock 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Rock003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Stalactite001",
+          "name": "Stalactite 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Stalactite001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Stalactite002",
+          "name": "Stalactite 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Stalactite002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "Stalactite003",
+          "name": "Stalactite 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/Stalactite003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeHigh001",
+          "name": "TreeHigh 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeHigh001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeHigh002",
+          "name": "TreeHigh 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeHigh002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeHigh003",
+          "name": "TreeHigh 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeHigh003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeLow001",
+          "name": "TreeLow 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeLow001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeLow002",
+          "name": "TreeLow 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeLow002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeLow003",
+          "name": "TreeLow 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeLow003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeLow004",
+          "name": "TreeLow 004",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeLow004.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeMed001",
+          "name": "TreeMed 001",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeMed001.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeMed002",
+          "name": "TreeMed 002",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeMed002.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        },
+        {
+          "id": "TreeMed003",
+          "name": "TreeMed 003",
+          "format": "glb",
+          "url": "https://gobkit.com/freebies/environment/TreeMed003.glb",
+          "rigged": false,
+          "lowPoly": true,
+          "fps": 24,
+          "animations": [],
+          "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "loading": "Every model is a self-contained binary glTF 2.0 (.glb) - the industry-standard format, importable in Unity, Godot, Unreal, Blender and all web 3D engines alike. For PRODUCTION use, download the pack zip (or individual .glb files) and bundle them INTO your project - CC0 license allows free redistribution, and your game then has zero runtime dependency on gobkit.com. Hotlinking these URLs at runtime is fine for quick prototypes/demos only. GLBs are plain binary glTF - no Draco/Meshopt compression, so no extra decoder plugins are needed.",
+    "animation": "Rigged packs (rigged=true) ship ONE master timeline per GLB (a single animation clip containing all actions back-to-back). Consequence: simple viewers like <model-viewer> can only play the WHOLE timeline (add autoplay) - per-action playback (idle/attack/dead separately) requires an engine that can subclip by frame range (three.js, Unity, Godot etc.). Slice sub-clips using the pack's clip frame ranges at fps=24, e.g. THREE.AnimationUtils.subclip(gltf.animations[0], name, from, to+1, fps) - the +1 keeps the last frame. Static packs (rigged=false) have no animations. Models are SKINNED rigs: to spawn multiple copies, use your engine's skeleton-aware clone utility - a plain object clone will silently break the rig/animations.",
+    "facing": "Authored facing +Z, up +Y (visually verified). Aim-at/look-at helpers that point local +Z toward a target need NO extra rotation - do NOT add a preemptive 180-degree turn on top, that double-compensates and makes units walk backwards. Only rotate 180 around Y if you can SEE the model facing the wrong way.",
+    "scale": "Units are meters (glTF standard), game-ready proportions; apply a uniform scale to fit your world.",
+    "license": "CC0 1.0 (public domain) - free for any use, commercial or personal, no attribution required.",
+    "more": "Iterate packs[] for ALL free packs (top-level count/models = Minion pack only, kept for back-compat). Building a single-file HTML demo the user will DOUBLE-CLICK (file://)? Use classic <script> tags (non-module builds) - ES modules/import maps fail on file://. Our asset URLs are CORS-open and load fine from file:// with classic scripts. ES modules are fine only when served over http://. Docs: /docs. AI notes: /llms.txt. Paid generator: /pricing."
+  },
+  "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required.",
+  "docs": "https://gobkit.com/docs",
+  "upgrade": "https://gobkit.com/pricing",
+  "notice": "Free-page models only. Read-only, no auth. glbs[] is every free model URL; packs[] is the same set with metadata. Everything below this line is the FIRST pack only, kept for backward compatibility - ignore it.",
+  "pack": "gobkit-free-pack",
+  "version": "2026-07-23",
+  "generator": "Gobkit — AI game-ready 3D monster generator",
+  "format": "glb",
+  "fps": 24,
+  "count": 8,
+  "zip": "https://gobkit.com/freebies/gobkit-free-pack.zip",
+  "animations": [
+    "idle",
+    "attack",
+    "dead"
+  ],
+  "models": [
+    {
+      "id": "minion-a01",
+      "name": "Minion A-1",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-a01.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-a02",
+      "name": "Minion A-2",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-a02.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-b01",
+      "name": "Minion B-1",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-b01.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-b02",
+      "name": "Minion B-2",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-b02.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-c01",
+      "name": "Minion C-1",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-c01.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-c02",
+      "name": "Minion C-2",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-c02.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-d01",
+      "name": "Minion D-1",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-d01.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    },
+    {
+      "id": "minion-d02",
+      "name": "Minion D-2",
+      "format": "glb",
+      "url": "https://gobkit.com/freebies/minion/minion-d02.glb",
+      "rigged": true,
+      "lowPoly": true,
+      "fps": 24,
+      "animations": [
+        {
+          "name": "idle",
+          "from": 0,
+          "to": 29
+        },
+        {
+          "name": "attack",
+          "from": 30,
+          "to": 59
+        },
+        {
+          "name": "dead",
+          "from": 60,
+          "to": 89
+        }
+      ],
+      "license": "CC0 1.0 (public domain) — free for any use, commercial or personal, no attribution required."
+    }
+  ]
+}

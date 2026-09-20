@@ -1,0 +1,578 @@
+[
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-01.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-02.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-03.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-04.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-05.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-06.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-07.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-08.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-09.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-10.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-11.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-12.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-13.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-14.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-15.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-16.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-17.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-18.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-19.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-20.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-21.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-22.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-23.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-24.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-25.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-26.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-27.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-28.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-29.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-30.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-31.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-32.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-33.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-34.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-35.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-36.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-37.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-38.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-39.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-40.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-41.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-42.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-43.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-44.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-45.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-46.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-creature-47.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/textured/tripo-mouse.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-01.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-02.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-03.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-04.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-05.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-06.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-07.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-08.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-09.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-10.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-11.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-12.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-13.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-14.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-15.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-16.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-17.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-18.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-19.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-20.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-21.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-22.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-23.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-24.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-25.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-26.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-27.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-28.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-29.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-30.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-31.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-32.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-33.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-34.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-35.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-36.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-37.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-38.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-39.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-40.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-41.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-42.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-43.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-44.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-45.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-46.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-47.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  },
+  {
+    "file": "assets/creatures/tripo-cleaned/toon/tripo-mouse.glb",
+    "finite_samples": true,
+    "static_root": true,
+    "loop_endpoints_match": true
+  }
+]

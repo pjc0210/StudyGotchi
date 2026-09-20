@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+
+/* Departure Mono, SIL OFL, Helena Zhang. Pixel-perfect at multiples of 11px. */
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('/fonts/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

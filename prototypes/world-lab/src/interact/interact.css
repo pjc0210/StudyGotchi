@@ -1,0 +1,816 @@
+/* Interaction lab. Paper & Pixel chrome around the pixel world.
+   Every colour is one of the six world colours or ink at an alpha; nothing else is declared. */
+
+.ix-root {
+  --ix-sky: #e8e2f2;
+  --ix-cream: #fff6df;
+  --ix-ink: #342d45;
+  --ix-coral: #e88a8a;
+  --ix-mint: #8fc9d8;
+  --ix-light: #ffe7a3;
+  --ix-ink-3: color-mix(in srgb, var(--ix-ink) 3.5%, transparent);
+  --ix-ink-5: color-mix(in srgb, var(--ix-ink) 5.5%, transparent);
+  --ix-ink-7: color-mix(in srgb, var(--ix-ink) 7%, transparent);
+  --ix-ink-10: color-mix(in srgb, var(--ix-ink) 10.5%, transparent);
+  --ix-ink-14: color-mix(in srgb, var(--ix-ink) 14%, transparent);
+  --ix-ink-20: color-mix(in srgb, var(--ix-ink) 20%, transparent);
+  --ix-ink-75: color-mix(in srgb, var(--ix-ink) 75%, transparent);
+
+  --ix-mono: 'Departure Mono', ui-monospace, monospace;
+  --ix-display: 'Zen Maru Gothic', ui-rounded, system-ui, sans-serif;
+  --ix-ui: 'Instrument Sans', system-ui, sans-serif;
+
+  --ix-hairline: 0 0 0 1px var(--ix-ink-10);
+  --ix-sheet: 0 1px 0 var(--ix-ink-7), 0 4px 12px var(--ix-ink-5);
+
+  --ix-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ix-ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ix-ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ix-ease-spring: linear(0, 0.62 20%, 1.043 40%, 0.995 60%, 1 70%, 1);
+  --ix-t-instant: 75ms;
+  --ix-t-quick: 100ms;
+  --ix-t-reveal: 160ms;
+  --ix-t-steps: 180ms;
+  --ix-t-tactile: 220ms;
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--ix-cream);
+  color: var(--ix-ink);
+  font-family: var(--ix-ui);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ix-root button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.ix-root :focus-visible {
+  outline: 2px solid var(--ix-ink);
+  outline-offset: 2px;
+}
+
+/* ---------- eyebrow: the one pixelated thing outside the window ---------- */
+
+.ix-eyebrow {
+  font-family: var(--ix-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ix-ink-75);
+}
+
+/* ---------- control strip ---------- */
+
+.ix-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px 20px;
+  padding: 10px 16px 12px;
+  border-bottom: 1px solid var(--ix-ink-10);
+  background: var(--ix-cream);
+}
+
+.ix-root .ix-back {
+  align-self: flex-end;
+  height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ix-ink);
+  color: var(--ix-cream);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.ix-title {
+  display: grid;
+  gap: 2px;
+  margin-right: 8px;
+}
+
+.ix-title strong {
+  font-family: var(--ix-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.ix-group {
+  display: grid;
+  gap: 4px;
+}
+
+.ix-seg {
+  display: inline-flex;
+  height: 28px;
+  padding: 2px;
+  border-radius: 8px;
+  background: var(--ix-ink-3);
+  box-shadow: var(--ix-hairline);
+}
+
+.ix-seg button {
+  height: 22px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ix-ink-75);
+  font-family: var(--ix-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition:
+    background var(--ix-t-quick) var(--ix-ease-out-quad),
+    color var(--ix-t-quick) var(--ix-ease-out-quad),
+    transform var(--ix-t-tactile) var(--ix-ease-spring);
+}
+
+.ix-seg button:hover {
+  background: var(--ix-ink-5);
+}
+
+.ix-seg button:active {
+  transform: scale(0.97);
+  transition-duration: var(--ix-t-instant);
+  transition-timing-function: var(--ix-ease-standard);
+}
+
+/* Selected lightens: the chosen segment is cream paper lifted off the ink-3 field. */
+.ix-seg button[aria-pressed='true'] {
+  background: var(--ix-cream);
+  color: var(--ix-ink);
+  box-shadow: var(--ix-hairline);
+}
+
+/* ---------- stage: world plus whatever panel is chosen ---------- */
+
+.ix-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+  overflow: hidden;
+  background: var(--ix-sky);
+}
+
+.ix-stage[data-panel='side'][data-open='true'] {
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+
+.ix-stage[data-panel='split'] {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.ix-world {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ix-world canvas {
+  display: block;
+  image-rendering: pixelated;
+}
+
+.ix-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ix-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.ix-anchor-panel {
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.ix-postmark {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  margin: 0;
+  font-family: var(--ix-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ix-ink-75);
+  pointer-events: none;
+}
+
+/* ---------- label: tag ---------- */
+
+.ix-tag {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  display: block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--ix-cream);
+  box-shadow: var(--ix-hairline);
+  font-family: var(--ix-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+/* ---------- label: speech bubble ---------- */
+
+.ix-bubble {
+  position: absolute;
+  bottom: 12px;
+  left: -24px;
+  width: max-content;
+  min-width: 160px;
+  max-width: 260px;
+  padding: 18px 16px 14px;
+  border-radius: 12px;
+  background: var(--ix-cream);
+  box-shadow: var(--ix-hairline), var(--ix-sheet);
+  transform-origin: 24px 100%;
+}
+
+.ix-bubble.is-panel {
+  max-width: 320px;
+  padding: 22px 20px 18px;
+}
+
+.ix-tab {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--ix-accent, var(--ix-ink-7));
+  box-shadow: var(--ix-hairline);
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ix-bubble-line {
+  margin: 0;
+  font-family: var(--ix-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.ix-tail {
+  position: absolute;
+  bottom: -11px;
+  left: 12px;
+  width: 24px;
+  height: 12px;
+  overflow: visible;
+}
+
+.ix-tail-fill {
+  fill: var(--ix-cream);
+}
+
+.ix-tail-edge {
+  fill: none;
+  stroke: var(--ix-ink-10);
+  stroke-width: 1;
+}
+
+/* ---------- label: callout with a leader line ---------- */
+
+.ix-callout {
+  position: absolute;
+  inset: 0;
+}
+
+.ix-leader {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ix-leader line {
+  stroke: var(--ix-ink);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.ix-leader rect {
+  fill: var(--ix-ink);
+}
+
+/* The card sits on the leader's level run: the run is its baseline (above) or its top rule
+   (below), so the annotation reads as one drawn object rather than a box and a line. */
+.ix-callout-label {
+  position: absolute;
+  display: grid;
+  gap: 2px;
+  width: max-content;
+  max-width: 260px;
+  padding: 8px 12px 10px;
+  border-radius: 4px 4px 0 0;
+  background: var(--ix-cream);
+  box-shadow: var(--ix-hairline);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.ix-callout-label[data-above='false'] {
+  border-radius: 0 0 4px 4px;
+}
+
+.ix-callout-label .ix-eyebrow {
+  color: var(--ix-ink-75);
+}
+
+.ix-callout-label strong {
+  font-family: var(--ix-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.ix-callout-label strong::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--ix-accent, var(--ix-ink-20));
+  vertical-align: 1px;
+}
+
+.ix-callout-label > span:last-child {
+  color: var(--ix-ink-75);
+}
+
+/* ---------- detail (shared by every panel) ---------- */
+
+.ix-detail {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.ix-detail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ix-detail-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ix-close {
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ix-ink-75);
+  font-size: 13px;
+  transition: background var(--ix-t-quick) var(--ix-ease-out-quad);
+}
+
+.ix-close:hover {
+  background: var(--ix-ink-5);
+}
+
+.ix-detail-name {
+  margin: 0;
+  font-family: var(--ix-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.ix-detail-line {
+  margin: 0;
+  font-family: var(--ix-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.ix-evidence {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--ix-ink-10);
+  border-bottom: 1px solid var(--ix-ink-10);
+}
+
+.ix-evidence dd {
+  margin: 0;
+}
+
+.ix-source {
+  font-family: var(--ix-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ix-ink-75);
+}
+
+.ix-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ix-root .ix-primary {
+  height: 32px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ix-ink);
+  color: var(--ix-cream);
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform var(--ix-t-tactile) var(--ix-ease-spring);
+}
+
+.ix-primary:active {
+  transform: scale(0.97);
+  transition-duration: var(--ix-t-instant);
+  transition-timing-function: var(--ix-ease-standard);
+}
+
+/* compact detail for the sheet */
+.ix-detail.is-compact {
+  gap: 6px;
+}
+
+.ix-detail.is-compact .ix-detail-head {
+  min-height: 24px;
+}
+
+.ix-detail.is-compact .ix-detail-name {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.ix-detail.is-compact .ix-detail-line {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.ix-detail.is-compact .ix-evidence {
+  gap: 2px;
+  padding: 6px 0;
+}
+
+/* inside the anchored bubble the tab already names the speaker */
+.ix-bubble.is-panel .ix-detail-name {
+  display: none;
+}
+
+.ix-bubble.is-panel .ix-detail {
+  gap: 10px;
+}
+
+/* ---------- state chips: they lighten, never darken ---------- */
+
+.ix-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+/* Touched is an unlit window: shaded. Demonstrated is paper with a ring. Mastered is the lamp. */
+.ix-chip[data-state='touched'] {
+  background: var(--ix-ink-7);
+  color: var(--ix-ink-75);
+}
+
+.ix-chip[data-state='demonstrated'] {
+  background: var(--ix-cream);
+  box-shadow: 0 0 0 1px var(--ix-ink-20);
+}
+
+.ix-chip[data-state='mastered'] {
+  background: var(--ix-light);
+  box-shadow: var(--ix-hairline);
+}
+
+/* ---------- panel: side ---------- */
+
+.ix-side {
+  --ix-from: translateX(100%);
+  grid-column: 2;
+  min-width: 0;
+  padding: 24px;
+  overflow: auto;
+  background: var(--ix-cream);
+  border-left: 1px solid var(--ix-ink-10);
+  transform-origin: 100% 50%;
+}
+
+/* ---------- panel: bottom sheet ---------- */
+
+.ix-sheet {
+  --ix-from: translateY(100%);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(280px, 400px) minmax(0, 1fr);
+  gap: 24px;
+  height: 220px;
+  padding: 14px 24px;
+  background: var(--ix-cream);
+  border-top: 1px solid var(--ix-ink-10);
+  box-shadow: var(--ix-sheet);
+  transform-origin: 50% 100%;
+}
+
+.ix-cards {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  overflow-x: auto;
+  padding: 2px;
+}
+
+.ix-card {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  flex: 0 0 132px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ix-cream);
+  box-shadow: var(--ix-hairline);
+  text-align: left;
+  transition:
+    background var(--ix-t-quick) var(--ix-ease-out-quad),
+    box-shadow var(--ix-t-quick) var(--ix-ease-out-quad);
+}
+
+.ix-card:hover,
+.ix-card[data-hovered='true'] {
+  background: var(--ix-ink-5);
+}
+
+.ix-card[aria-pressed='true'] {
+  box-shadow: 0 0 0 1px var(--ix-ink-20);
+}
+
+.ix-card strong {
+  font-weight: 500;
+}
+
+.ix-card-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--ix-accent, var(--ix-ink-14));
+  box-shadow: var(--ix-hairline);
+}
+
+/* ---------- panel: split, the paper sheet beside the world ---------- */
+
+.ix-split {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 24px;
+  overflow: auto;
+  background: var(--ix-cream);
+  border-left: 1px solid var(--ix-ink-10);
+}
+
+.ix-split-head {
+  display: grid;
+  gap: 4px;
+}
+
+.ix-split-head h2 {
+  margin: 0;
+  font-family: var(--ix-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.ix-rows {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ix-ink-10);
+}
+
+.ix-row-item {
+  border-bottom: 1px solid var(--ix-ink-10);
+}
+
+.ix-row {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  transition: background var(--ix-t-quick) var(--ix-ease-out-quad);
+}
+
+.ix-row strong {
+  font-weight: 500;
+}
+
+.ix-row:hover,
+.ix-row[data-hovered='true'] {
+  background: var(--ix-ink-5);
+}
+
+.ix-row[aria-expanded='true'] {
+  background: var(--ix-ink-7);
+}
+
+.ix-row-detail {
+  --ix-from: translateY(8px);
+  padding: 12px 8px 20px 32px;
+  transform-origin: 0 0;
+}
+
+.ix-split-note {
+  margin: auto 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ix-ink-75);
+}
+
+/* ---------- motion ---------- */
+
+@keyframes ix-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ix-slide {
+  from {
+    transform: var(--ix-from, translateY(8px));
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes ix-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ix-dismiss {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.ix-bubble.is-panel {
+  --ix-from: translateY(12px) scale(0.92);
+}
+
+.ix-root[data-motion='reveal'] .ix-enter {
+  animation: ix-reveal var(--ix-t-reveal) var(--ix-ease-out-quint) both;
+}
+
+.ix-root[data-motion='spring'] .ix-enter {
+  animation: ix-slide var(--ix-t-tactile) var(--ix-ease-spring) both;
+}
+
+.ix-root[data-motion='steps'] .ix-enter {
+  animation: ix-slide var(--ix-t-steps) steps(6) both;
+}
+
+.ix-fade {
+  animation: ix-fade-in var(--ix-t-quick) var(--ix-ease-out-quad) both;
+}
+
+/* Reduced motion: transforms collapse; a 100 ms fade may remain. */
+.ix-root[data-reduced-motion='true'] .ix-enter,
+.ix-root[data-reduced-motion='true'] .ix-fade {
+  animation: ix-fade-in var(--ix-t-quick) var(--ix-ease-out-quad) both;
+}
+
+.ix-root[data-reduced-motion='true'] .ix-seg button,
+.ix-root[data-reduced-motion='true'] .ix-primary {
+  transition-property: background, color;
+}
+
+.ix-root[data-reduced-motion='true'] .ix-seg button:active,
+.ix-root[data-reduced-motion='true'] .ix-primary:active {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ix-root .ix-enter,
+  .ix-root .ix-fade {
+    animation: ix-fade-in var(--ix-t-quick) var(--ix-ease-out-quad) both;
+  }
+
+  .ix-root .ix-seg button:active,
+  .ix-root .ix-primary:active {
+    transform: none;
+  }
+}
+
+/* ---------- narrow ---------- */
+
+@media (max-width: 900px) {
+  .ix-title {
+    display: none;
+  }
+
+  .ix-stage[data-panel='side'][data-open='true'] {
+    grid-template-columns: minmax(0, 1fr) min(360px, 60vw);
+  }
+
+  .ix-stage[data-panel='split'] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .ix-split {
+    grid-column: 1;
+    border-left: 0;
+    border-top: 1px solid var(--ix-ink-10);
+  }
+
+  .ix-sheet {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+    max-height: 60%;
+    overflow: auto;
+  }
+}
+
+/* ---------- dismiss: last, so it wins over every enter rule above ---------- */
+
+.ix-root .is-closing.ix-enter,
+.ix-root .is-closing .ix-enter {
+  animation: ix-dismiss var(--ix-t-quick) var(--ix-ease-out-quad) both;
+  pointer-events: none;
+}

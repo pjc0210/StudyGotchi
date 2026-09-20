@@ -1,0 +1,160 @@
+/* Site page: structure after frontend/components/layout (52 px top bar, 196 px nav), toy palette from the style bible */
+.site {
+  --cream: #fffaf3;
+  --sky: #f3e4ee;
+  --ink: #3a2f45;
+  --ink-muted: #6b5f78;
+  --line: #e9dce6;
+  --brand: #f0b429;
+  --share: 55%;
+  --topbar: 52px;
+  font-family: 'Nunito', 'SF Pro Rounded', ui-rounded, system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--sky);
+  min-height: 100vh;
+}
+
+/* the app root is overflow hidden for the lab; the site page needs the document to scroll */
+/* visible, not auto: any `overflow: auto` ancestor (body included) would become the sticky containing block and never stick */
+html:has(.site),
+body:has(.site),
+#root:has(.site),
+.app:has(.site) {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.site .sticker {
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: var(--cream);
+  box-shadow: 0 6px 16px rgba(90, 63, 107, 0.12);
+}
+
+.site button {
+  border: 3px solid var(--ink);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font: inherit;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--ink);
+}
+.site button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+.site button.primary { background: var(--ink); color: var(--cream); }
+.site button.big { padding: 12px 22px; font-size: 17px; }
+.site button.ghost { border: 0; box-shadow: none; background: transparent; padding: 0 6px; font-size: 18px; }
+.site button.on { background: var(--ink); color: var(--cream); }
+
+/* --- top bar (TopBar.tsx: h-[52px], brand mark 22 px rounded 7, divider, course name, search 260 px, ink button) */
+.site .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--topbar);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+}
+.site .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 13px; letter-spacing: -0.01em; }
+.site .mark { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; background: var(--brand); color: var(--ink); font-size: 12px; font-weight: 800; }
+.site .divider { width: 1px; height: 16px; background: var(--line); }
+.site .course-name { font-size: 13px; color: var(--ink-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 32vw; }
+.site .nav { display: none; gap: 4px; margin-left: 8px; }
+.site .nav a { font-size: 13px; padding: 4px 10px; border-radius: 8px; color: var(--ink-muted); text-decoration: none; }
+.site .nav a.on { background: var(--sky); color: var(--ink); }
+.site .search { margin-left: auto; position: relative; width: 260px; }
+.site .search input { width: 100%; height: 30px; border: 1px solid var(--line); border-radius: 8px; padding: 0 44px 0 10px; font: inherit; font-size: 13px; background: #fff; color: var(--ink); }
+.site .search kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font: 10px ui-monospace, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; color: var(--ink-muted); }
+.site .topbar .primary { height: 30px; padding: 0 12px; font-size: 13px; box-shadow: none; border-width: 2px; }
+
+/* --- body: sidebar (196 px), scrolling column, sticky canvas on the right */
+.site .body { display: flex; align-items: flex-start; }
+.site .sidebar {
+  position: sticky;
+  top: var(--topbar);
+  width: 196px;
+  flex: 0 0 196px;
+  height: calc(100vh - var(--topbar));
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 10px;
+  border-right: 1px solid var(--line);
+  background: var(--cream);
+}
+.site .sidebar a { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; font-size: 13px; color: var(--ink-muted); text-decoration: none; }
+.site .sidebar a.on { background: var(--sky); color: var(--ink); }
+.site .sidebar .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: 0.5; }
+.site .sidebar a.on .dot { background: var(--brand); opacity: 1; }
+.site .sidebar p { margin-top: auto; padding: 0 10px 4px; }
+.site .muted { color: var(--ink-muted); }
+.site .small { font-size: 11px; line-height: 1.45; }
+
+.site .column { flex: 1 1 auto; min-width: 0; }
+.site .canvas-box {
+  position: sticky;
+  top: var(--topbar);
+  flex: 0 0 var(--share);
+  width: var(--share);
+  height: calc(100vh - var(--topbar));
+  background: var(--sky);
+}
+.site .canvas-box canvas { display: block; }
+
+/* level 2 takes the canvas full-bleed under the top bar */
+.site.in-world .canvas-box { position: fixed; inset: var(--topbar) 0 0 0; width: auto; height: auto; z-index: 10; }
+.site.in-world .column, .site.in-world .sidebar { visibility: hidden; }
+.site .topics { position: absolute; left: 24px; bottom: 24px; display: flex; flex-wrap: wrap; gap: 6px; padding: 10px; max-width: 60%; background: rgba(255, 250, 243, 0.78); backdrop-filter: blur(12px); }
+.site .topics button { font-size: 12px; padding: 4px 10px; box-shadow: none; border-width: 2px; }
+
+/* --- column content: hero, one 100 vh section per course, footer */
+.site .hero { min-height: calc(100vh - var(--topbar)); display: flex; flex-direction: column; justify-content: center; padding: 48px 64px; gap: 16px; }
+.site .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin: 0; }
+.site h1 { font-size: clamp(36px, 4.2vw, 56px); line-height: 1.05; font-weight: 800; letter-spacing: -0.01em; margin: 0; }
+.site h2 { font-size: 28px; line-height: 1.2; font-weight: 800; margin: 0; }
+.site .sub { font-size: 17px; line-height: 1.5; font-weight: 500; color: var(--ink-muted); margin: 0; max-width: 34ch; }
+.site .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+.site .course { min-height: 100vh; display: flex; align-items: center; padding: 32px 64px; }
+.site .card { width: 100%; max-width: 520px; padding: 24px; border-radius: 24px; display: flex; flex-direction: column; gap: 14px; opacity: 0.55; transform: translateY(6px); transition: opacity 240ms ease, transform 240ms ease; }
+.site .course.active .card { opacity: 1; transform: none; }
+.site .card header { display: flex; align-items: center; gap: 14px; }
+.site .card header > div { flex: 1; min-width: 0; }
+.site .swatch { width: 44px; height: 44px; border-radius: 12px; border: 3px solid; flex: 0 0 auto; }
+.site .ring { width: 64px; height: 64px; flex: 0 0 auto; }
+.site .body-text { margin: 0; font-size: 17px; line-height: 1.5; }
+.site .evidence { margin: 0; font-size: 14px; }
+.site .footer { display: flex; justify-content: space-between; gap: 12px; padding: 24px 64px 48px; font-size: 13px; border-top: 1px solid var(--line); }
+
+/* --- viewing panel (toggle with v) */
+.site .viewing { position: fixed; right: 24px; bottom: 24px; z-index: 30; width: 300px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.site .viewing-head { display: flex; align-items: center; gap: 8px; }
+.site .viewing-head .muted { margin-left: auto; font-size: 11px; }
+.site .viewing label { display: flex; flex-direction: column; gap: 2px; }
+.site .viewing label span { display: flex; justify-content: space-between; }
+.site .viewing em { font-style: normal; font-weight: 800; }
+.site .viewing input[type='range'] { width: 100%; accent-color: var(--ink); }
+.site .viewing .query { font: 10px ui-monospace, monospace; word-break: break-all; color: var(--ink-muted); }
+.site .viewing button { padding: 4px 10px; font-size: 12px; box-shadow: none; border-width: 2px; }
+
+/* --- responsive: the canvas becomes a 45 vh top band and the column flows below it */
+@media (min-width: 1200px) { .site .nav { display: flex; } }
+@media (max-width: 1199px) { .site .sidebar { display: none; } }
+@media (max-width: 899px) {
+  .site .body { flex-direction: column-reverse; }
+  .site .canvas-box { position: sticky; top: var(--topbar); width: 100%; flex: 0 0 auto; height: 45vh; z-index: 5; }
+  .site .column { width: 100%; }
+  .site .hero { min-height: auto; padding: 32px 20px; }
+  .site .course { min-height: 100vh; padding: 20px; }
+  .site .footer { padding: 20px; }
+  .site .search, .site .course-name { display: none; }
+  .site .viewing { right: 12px; bottom: 12px; width: calc(100% - 24px); }
+  .site .topics { max-width: calc(100% - 48px); }
+}

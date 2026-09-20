@@ -1,0 +1,1984 @@
+{
+ "tool": "silhouette_test.py",
+ "version": 1,
+ "set": "growth",
+ "generated_at": "2026-09-19T22:25:55-0400",
+ "blender": "5.2.0 LTS",
+ "thresholds": {
+  "fill": [
+   0.25,
+   0.75
+  ],
+  "components": 1,
+  "min_distinct": 0.05
+ },
+ "view": {
+  "projection": "orthographic",
+  "azimuth_deg": 34.0,
+  "elevation_deg": 22.0,
+  "sizes": [
+   96,
+   48
+  ]
+ },
+ "family_mode": "folder",
+ "grid": {
+  "png": "tools/qa/out/silhouettes-growth.png",
+  "rows_cols": [
+   12,
+   6
+  ],
+  "cell": "96 px silhouette | 48 px silhouette x2 | label | f=fill c=components96/48 d=distinctness"
+ },
+ "files": [
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/boom-1.glb",
+   "rel": "assets/growth/catastrophe/boom-1.glb",
+   "label": "boom-1",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6882,
+   "frame_fill96": 0.2573,
+   "components96": 1,
+   "component_areas96": [
+    2371
+   ],
+   "fill48": 0.7115,
+   "frame_fill48": 0.2569,
+   "components48": 1,
+   "component_areas48": [
+    592
+   ],
+   "distinctness": 0.1308,
+   "nearest": "boom-2",
+   "nearest_score": 0.0582
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/boom-2.glb",
+   "rel": "assets/growth/catastrophe/boom-2.glb",
+   "label": "boom-2",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.733,
+   "frame_fill96": 0.2806,
+   "components96": 1,
+   "component_areas96": [
+    2586
+   ],
+   "fill48": 0.767,
+   "frame_fill48": 0.2786,
+   "components48": 1,
+   "component_areas48": [
+    642
+   ],
+   "distinctness": 0.1311,
+   "nearest": "boom-1",
+   "nearest_score": 0.0582
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/boom-3.glb",
+   "rel": "assets/growth/catastrophe/boom-3.glb",
+   "label": "boom-3",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6161,
+   "frame_fill96": 0.2262,
+   "components96": 1,
+   "component_areas96": [
+    2085
+   ],
+   "fill48": 0.6472,
+   "frame_fill48": 0.2261,
+   "components48": 1,
+   "component_areas48": [
+    521
+   ],
+   "distinctness": 0.1474,
+   "nearest": "boom-1",
+   "nearest_score": 0.0734
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/crater-l.glb",
+   "rel": "assets/growth/catastrophe/crater-l.glb",
+   "label": "crater-l",
+   "family": "catastrophe",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6418,
+   "frame_fill96": 0.1316,
+   "components96": 1,
+   "component_areas96": [
+    1213
+   ],
+   "fill48": 0.6224,
+   "frame_fill48": 0.1324,
+   "components48": 1,
+   "component_areas48": [
+    305
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/crater-m.glb",
+   "rel": "assets/growth/catastrophe/crater-m.glb",
+   "label": "crater-m",
+   "family": "catastrophe",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/crater-s.glb",
+   "rel": "assets/growth/catastrophe/crater-s.glb",
+   "label": "crater-s",
+   "family": "catastrophe",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6801,
+   "frame_fill96": 0.1373,
+   "components96": 1,
+   "component_areas96": [
+    1265
+   ],
+   "fill48": 0.6933,
+   "frame_fill48": 0.1354,
+   "components48": 1,
+   "component_areas48": [
+    312
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/debris-1.glb",
+   "rel": "assets/growth/catastrophe/debris-1.glb",
+   "label": "debris-1",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.694,
+   "frame_fill96": 0.3154,
+   "components96": 1,
+   "component_areas96": [
+    2907
+   ],
+   "fill48": 0.6933,
+   "frame_fill48": 0.316,
+   "components48": 1,
+   "component_areas48": [
+    728
+   ],
+   "distinctness": 0.1631,
+   "nearest": "boom-2",
+   "nearest_score": 0.099
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/debris-2.glb",
+   "rel": "assets/growth/catastrophe/debris-2.glb",
+   "label": "debris-2",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6875,
+   "frame_fill96": 0.401,
+   "components96": 1,
+   "component_areas96": [
+    3696
+   ],
+   "fill48": 0.692,
+   "frame_fill48": 0.4036,
+   "components48": 1,
+   "component_areas48": [
+    930
+   ],
+   "distinctness": 0.2032,
+   "nearest": "debris-3",
+   "nearest_score": 0.1367
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/debris-3.glb",
+   "rel": "assets/growth/catastrophe/debris-3.glb",
+   "label": "debris-3",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6622,
+   "frame_fill96": 0.3061,
+   "components96": 1,
+   "component_areas96": [
+    2821
+   ],
+   "fill48": 0.6753,
+   "frame_fill48": 0.306,
+   "components48": 1,
+   "component_areas48": [
+    705
+   ],
+   "distinctness": 0.1447,
+   "nearest": "storm-cloud",
+   "nearest_score": 0.0964
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/lightning-bolt.glb",
+   "rel": "assets/growth/catastrophe/lightning-bolt.glb",
+   "label": "lightning-bolt",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4806,
+   "frame_fill96": 0.1452,
+   "components96": 1,
+   "component_areas96": [
+    1338
+   ],
+   "fill48": 0.4855,
+   "frame_fill48": 0.145,
+   "components48": 1,
+   "component_areas48": [
+    334
+   ],
+   "distinctness": 0.2517,
+   "nearest": "recovery-sprout",
+   "nearest_score": 0.1727
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/recovery-sprout.glb",
+   "rel": "assets/growth/catastrophe/recovery-sprout.glb",
+   "label": "recovery-sprout",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4833,
+   "frame_fill96": 0.2266,
+   "components96": 1,
+   "component_areas96": [
+    2088
+   ],
+   "fill48": 0.487,
+   "frame_fill48": 0.2283,
+   "components48": 1,
+   "component_areas48": [
+    526
+   ],
+   "distinctness": 0.2111,
+   "nearest": "boom-3",
+   "nearest_score": 0.1654
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/rubble-pile.glb",
+   "rel": "assets/growth/catastrophe/rubble-pile.glb",
+   "label": "rubble-pile",
+   "family": "catastrophe",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6976,
+   "frame_fill96": 0.2574,
+   "components96": 1,
+   "component_areas96": [
+    2372
+   ],
+   "fill48": 0.7024,
+   "frame_fill48": 0.2591,
+   "components48": 1,
+   "component_areas48": [
+    597
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/scorch.glb",
+   "rel": "assets/growth/catastrophe/scorch.glb",
+   "label": "scorch",
+   "family": "catastrophe",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/storm-cloud.glb",
+   "rel": "assets/growth/catastrophe/storm-cloud.glb",
+   "label": "storm-cloud",
+   "family": "catastrophe",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6683,
+   "frame_fill96": 0.2538,
+   "components96": 1,
+   "component_areas96": [
+    2339
+   ],
+   "fill48": 0.6686,
+   "frame_fill48": 0.2539,
+   "components48": 1,
+   "component_areas48": [
+    585
+   ],
+   "distinctness": 0.1603,
+   "nearest": "debris-3",
+   "nearest_score": 0.0964
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-city.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-city.glb",
+   "label": "crater-m-city",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-forest.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-forest.glb",
+   "label": "crater-m-forest",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-ice.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-ice.glb",
+   "label": "crater-m-ice",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-meadow.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-meadow.glb",
+   "label": "crater-m-meadow",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-medieval.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-medieval.glb",
+   "label": "crater-m-medieval",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-moon.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-moon.glb",
+   "label": "crater-m-moon",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-ocean.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-ocean.glb",
+   "label": "crater-m-ocean",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-sand.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-sand.glb",
+   "label": "crater-m-sand",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/crater-m-volcanic.glb",
+   "rel": "assets/growth/catastrophe/tinted/crater-m-volcanic.glb",
+   "label": "crater-m-volcanic",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6672,
+   "frame_fill96": 0.1277,
+   "components96": 1,
+   "component_areas96": [
+    1177
+   ],
+   "fill48": 0.7091,
+   "frame_fill48": 0.128,
+   "components48": 1,
+   "component_areas48": [
+    295
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-city.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-city.glb",
+   "label": "scorch-city",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-forest.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-forest.glb",
+   "label": "scorch-forest",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-ice.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-ice.glb",
+   "label": "scorch-ice",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-meadow.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-meadow.glb",
+   "label": "scorch-meadow",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-medieval.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-medieval.glb",
+   "label": "scorch-medieval",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-moon.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-moon.glb",
+   "label": "scorch-moon",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-ocean.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-ocean.glb",
+   "label": "scorch-ocean",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-sand.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-sand.glb",
+   "label": "scorch-sand",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/catastrophe/tinted/scorch-volcanic.glb",
+   "rel": "assets/growth/catastrophe/tinted/scorch-volcanic.glb",
+   "label": "scorch-volcanic",
+   "family": "tinted",
+   "tags": [
+    "decor",
+    "tinted"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5313,
+   "frame_fill96": 0.0966,
+   "components96": 1,
+   "component_areas96": [
+    890
+   ],
+   "fill48": 0.553,
+   "frame_fill48": 0.0951,
+   "components48": 1,
+   "component_areas48": [
+    219
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/city/city-build-1.glb",
+   "rel": "assets/growth/city/city-build-1.glb",
+   "label": "city-build-1",
+   "family": "city",
+   "tags": [
+    "construction"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5061,
+   "frame_fill96": 0.3129,
+   "components96": 1,
+   "component_areas96": [
+    2884
+   ],
+   "fill48": 0.5424,
+   "frame_fill48": 0.322,
+   "components48": 1,
+   "component_areas48": [
+    742
+   ],
+   "distinctness": 0.206,
+   "nearest": "city-build-2",
+   "nearest_score": 0.1593
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/city/city-build-2.glb",
+   "rel": "assets/growth/city/city-build-2.glb",
+   "label": "city-build-2",
+   "family": "city",
+   "tags": [
+    "construction"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5409,
+   "frame_fill96": 0.2855,
+   "components96": 1,
+   "component_areas96": [
+    2631
+   ],
+   "fill48": 0.5393,
+   "frame_fill48": 0.2921,
+   "components48": 1,
+   "component_areas48": [
+    673
+   ],
+   "distinctness": 0.1662,
+   "nearest": "city-g2",
+   "nearest_score": 0.1007
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/city/city-g0.glb",
+   "rel": "assets/growth/city/city-g0.glb",
+   "label": "city-g0",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6258,
+   "frame_fill96": 0.3061,
+   "components96": 1,
+   "component_areas96": [
+    2821
+   ],
+   "fill48": 0.6386,
+   "frame_fill48": 0.306,
+   "components48": 1,
+   "component_areas48": [
+    705
+   ],
+   "distinctness": 0.2853,
+   "nearest": "city-g1",
+   "nearest_score": 0.2188
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/city/city-g1.glb",
+   "rel": "assets/growth/city/city-g1.glb",
+   "label": "city-g1",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.614,
+   "frame_fill96": 0.3211,
+   "components96": 1,
+   "component_areas96": [
+    2959
+   ],
+   "fill48": 0.6192,
+   "frame_fill48": 0.3225,
+   "components48": 1,
+   "component_areas48": [
+    743
+   ],
+   "distinctness": 0.1909,
+   "nearest": "city-build-2",
+   "nearest_score": 0.1424
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/city/city-g2.glb",
+   "rel": "assets/growth/city/city-g2.glb",
+   "label": "city-g2",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "2 speck(s) at 48 px"
+   ],
+   "fill96": 0.6331,
+   "frame_fill96": 0.3174,
+   "components96": 1,
+   "component_areas96": [
+    2925
+   ],
+   "fill48": 0.6393,
+   "frame_fill48": 0.3147,
+   "components48": 3,
+   "component_areas48": [
+    723,
+    1,
+    1
+   ],
+   "distinctness": 0.1739,
+   "nearest": "city-g3",
+   "nearest_score": 0.0885
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/city/city-g3.glb",
+   "rel": "assets/growth/city/city-g3.glb",
+   "label": "city-g3",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6606,
+   "frame_fill96": 0.2437,
+   "components96": 1,
+   "component_areas96": [
+    2246
+   ],
+   "fill48": 0.6536,
+   "frame_fill48": 0.2383,
+   "components48": 1,
+   "component_areas48": [
+    549
+   ],
+   "distinctness": 0.1928,
+   "nearest": "city-g2",
+   "nearest_score": 0.0885
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/forest/forest-g0.glb",
+   "rel": "assets/growth/forest/forest-g0.glb",
+   "label": "forest-g0",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5513,
+   "frame_fill96": 0.268,
+   "components96": 1,
+   "component_areas96": [
+    2470
+   ],
+   "fill48": 0.5545,
+   "frame_fill48": 0.2695,
+   "components48": 1,
+   "component_areas48": [
+    621
+   ],
+   "distinctness": 0.2182,
+   "nearest": "forest-g3",
+   "nearest_score": 0.201
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/forest/forest-g1.glb",
+   "rel": "assets/growth/forest/forest-g1.glb",
+   "label": "forest-g1",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5614,
+   "frame_fill96": 0.2418,
+   "components96": 1,
+   "component_areas96": [
+    2228
+   ],
+   "fill48": 0.561,
+   "frame_fill48": 0.2435,
+   "components48": 1,
+   "component_areas48": [
+    561
+   ],
+   "distinctness": 0.1241,
+   "nearest": "forest-g2",
+   "nearest_score": 0.0664
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/forest/forest-g2.glb",
+   "rel": "assets/growth/forest/forest-g2.glb",
+   "label": "forest-g2",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4932,
+   "frame_fill96": 0.237,
+   "components96": 1,
+   "component_areas96": [
+    2184
+   ],
+   "fill48": 0.495,
+   "frame_fill48": 0.2378,
+   "components48": 1,
+   "component_areas48": [
+    548
+   ],
+   "distinctness": 0.1172,
+   "nearest": "forest-g3",
+   "nearest_score": 0.0582
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/forest/forest-g3.glb",
+   "rel": "assets/growth/forest/forest-g3.glb",
+   "label": "forest-g3",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) of [4] px at 96 px (thin feature breaks up)"
+   ],
+   "fill96": 0.5457,
+   "frame_fill96": 0.2479,
+   "components96": 2,
+   "component_areas96": [
+    2281,
+    4
+   ],
+   "fill48": 0.5536,
+   "frame_fill48": 0.2465,
+   "components48": 1,
+   "component_areas48": [
+    568
+   ],
+   "distinctness": 0.1128,
+   "nearest": "forest-g2",
+   "nearest_score": 0.0582
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ice/ice-g0.glb",
+   "rel": "assets/growth/ice/ice-g0.glb",
+   "label": "ice-g0",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7281,
+   "frame_fill96": 0.2432,
+   "components96": 1,
+   "component_areas96": [
+    2241
+   ],
+   "fill48": 0.7394,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.1451,
+   "nearest": "ice-g1",
+   "nearest_score": 0.1094
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ice/ice-g1.glb",
+   "rel": "assets/growth/ice/ice-g1.glb",
+   "label": "ice-g1",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6275,
+   "frame_fill96": 0.2678,
+   "components96": 1,
+   "component_areas96": [
+    2468
+   ],
+   "fill48": 0.6481,
+   "frame_fill48": 0.2678,
+   "components48": 1,
+   "component_areas48": [
+    617
+   ],
+   "distinctness": 0.1005,
+   "nearest": "ice-g3",
+   "nearest_score": 0.0725
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ice/ice-g2.glb",
+   "rel": "assets/growth/ice/ice-g2.glb",
+   "label": "ice-g2",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5817,
+   "frame_fill96": 0.3314,
+   "components96": 1,
+   "component_areas96": [
+    3054
+   ],
+   "fill48": 0.5906,
+   "frame_fill48": 0.3312,
+   "components48": 1,
+   "component_areas48": [
+    763
+   ],
+   "distinctness": 0.1364,
+   "nearest": "ice-g3",
+   "nearest_score": 0.0994
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ice/ice-g3.glb",
+   "rel": "assets/growth/ice/ice-g3.glb",
+   "label": "ice-g3",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6832,
+   "frame_fill96": 0.279,
+   "components96": 1,
+   "component_areas96": [
+    2571
+   ],
+   "fill48": 0.6646,
+   "frame_fill48": 0.2804,
+   "components48": 1,
+   "component_areas48": [
+    646
+   ],
+   "distinctness": 0.1026,
+   "nearest": "ice-g1",
+   "nearest_score": 0.0725
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/meadow/meadow-g0.glb",
+   "rel": "assets/growth/meadow/meadow-g0.glb",
+   "label": "meadow-g0",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5869,
+   "frame_fill96": 0.2719,
+   "components96": 1,
+   "component_areas96": [
+    2506
+   ],
+   "fill48": 0.601,
+   "frame_fill48": 0.2739,
+   "components48": 1,
+   "component_areas48": [
+    631
+   ],
+   "distinctness": 0.1466,
+   "nearest": "meadow-g2",
+   "nearest_score": 0.1311
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/meadow/meadow-g1.glb",
+   "rel": "assets/growth/meadow/meadow-g1.glb",
+   "label": "meadow-g1",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4436,
+   "frame_fill96": 0.1802,
+   "components96": 1,
+   "component_areas96": [
+    1661
+   ],
+   "fill48": 0.4627,
+   "frame_fill48": 0.1801,
+   "components48": 1,
+   "component_areas48": [
+    415
+   ],
+   "distinctness": 0.1468,
+   "nearest": "meadow-g2",
+   "nearest_score": 0.1398
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/meadow/meadow-g2.glb",
+   "rel": "assets/growth/meadow/meadow-g2.glb",
+   "label": "meadow-g2",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3999,
+   "frame_fill96": 0.1937,
+   "components96": 1,
+   "component_areas96": [
+    1785
+   ],
+   "fill48": 0.4019,
+   "frame_fill48": 0.201,
+   "components48": 1,
+   "component_areas48": [
+    463
+   ],
+   "distinctness": 0.122,
+   "nearest": "meadow-g3",
+   "nearest_score": 0.0951
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/meadow/meadow-g3.glb",
+   "rel": "assets/growth/meadow/meadow-g3.glb",
+   "label": "meadow-g3",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "3 speck(s) at 48 px"
+   ],
+   "fill96": 0.3686,
+   "frame_fill96": 0.1555,
+   "components96": 1,
+   "component_areas96": [
+    1433
+   ],
+   "fill48": 0.3718,
+   "frame_fill48": 0.151,
+   "components48": 4,
+   "component_areas48": [
+    345,
+    1,
+    1,
+    1
+   ],
+   "distinctness": 0.1318,
+   "nearest": "meadow-g2",
+   "nearest_score": 0.0951
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/medieval/medieval-build-1.glb",
+   "rel": "assets/growth/medieval/medieval-build-1.glb",
+   "label": "medieval-build-1",
+   "family": "medieval",
+   "tags": [
+    "construction"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4555,
+   "frame_fill96": 0.2076,
+   "components96": 1,
+   "component_areas96": [
+    1913
+   ],
+   "fill48": 0.4768,
+   "frame_fill48": 0.2144,
+   "components48": 1,
+   "component_areas48": [
+    494
+   ],
+   "distinctness": 0.2112,
+   "nearest": "medieval-build-2",
+   "nearest_score": 0.1558
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/medieval/medieval-build-2.glb",
+   "rel": "assets/growth/medieval/medieval-build-2.glb",
+   "label": "medieval-build-2",
+   "family": "medieval",
+   "tags": [
+    "construction"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4566,
+   "frame_fill96": 0.2523,
+   "components96": 1,
+   "component_areas96": [
+    2325
+   ],
+   "fill48": 0.4627,
+   "frame_fill48": 0.2452,
+   "components48": 1,
+   "component_areas48": [
+    565
+   ],
+   "distinctness": 0.1805,
+   "nearest": "medieval-g0",
+   "nearest_score": 0.1493
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/medieval/medieval-g0.glb",
+   "rel": "assets/growth/medieval/medieval-g0.glb",
+   "label": "medieval-g0",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5084,
+   "frame_fill96": 0.2893,
+   "components96": 1,
+   "component_areas96": [
+    2666
+   ],
+   "fill48": 0.5179,
+   "frame_fill48": 0.2895,
+   "components48": 1,
+   "component_areas48": [
+    667
+   ],
+   "distinctness": 0.1784,
+   "nearest": "medieval-g1",
+   "nearest_score": 0.1263
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/medieval/medieval-g1.glb",
+   "rel": "assets/growth/medieval/medieval-g1.glb",
+   "label": "medieval-g1",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6722,
+   "frame_fill96": 0.2744,
+   "components96": 1,
+   "component_areas96": [
+    2529
+   ],
+   "fill48": 0.6991,
+   "frame_fill48": 0.2804,
+   "components48": 1,
+   "component_areas48": [
+    646
+   ],
+   "distinctness": 0.1904,
+   "nearest": "medieval-g0",
+   "nearest_score": 0.1263
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/medieval/medieval-g2.glb",
+   "rel": "assets/growth/medieval/medieval-g2.glb",
+   "label": "medieval-g2",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6515,
+   "frame_fill96": 0.3676,
+   "components96": 1,
+   "component_areas96": [
+    3388
+   ],
+   "fill48": 0.6417,
+   "frame_fill48": 0.3676,
+   "components48": 1,
+   "component_areas48": [
+    847
+   ],
+   "distinctness": 0.2225,
+   "nearest": "medieval-build-2",
+   "nearest_score": 0.1693
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/medieval/medieval-g3.glb",
+   "rel": "assets/growth/medieval/medieval-g3.glb",
+   "label": "medieval-g3",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5799,
+   "frame_fill96": 0.4237,
+   "components96": 1,
+   "component_areas96": [
+    3905
+   ],
+   "fill48": 0.5802,
+   "frame_fill48": 0.4193,
+   "components48": 1,
+   "component_areas48": [
+    966
+   ],
+   "distinctness": 0.2478,
+   "nearest": "medieval-g0",
+   "nearest_score": 0.1992
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/moon/moon-g0.glb",
+   "rel": "assets/growth/moon/moon-g0.glb",
+   "label": "moon-g0",
+   "family": "moon",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6068,
+   "frame_fill96": 0.3838,
+   "components96": 1,
+   "component_areas96": [
+    3537
+   ],
+   "fill48": 0.6251,
+   "frame_fill48": 0.385,
+   "components48": 1,
+   "component_areas48": [
+    887
+   ],
+   "distinctness": 0.1839,
+   "nearest": "moon-g1",
+   "nearest_score": 0.1584
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/moon/moon-g1.glb",
+   "rel": "assets/growth/moon/moon-g1.glb",
+   "label": "moon-g1",
+   "family": "moon",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) of [5] px at 96 px (thin feature breaks up)"
+   ],
+   "fill96": 0.7273,
+   "frame_fill96": 0.2975,
+   "components96": 2,
+   "component_areas96": [
+    2737,
+    5
+   ],
+   "fill48": 0.7231,
+   "frame_fill48": 0.3003,
+   "components48": 1,
+   "component_areas48": [
+    692
+   ],
+   "distinctness": 0.1364,
+   "nearest": "moon-g3",
+   "nearest_score": 0.1072
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/moon/moon-g2.glb",
+   "rel": "assets/growth/moon/moon-g2.glb",
+   "label": "moon-g2",
+   "family": "moon",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5328,
+   "frame_fill96": 0.2664,
+   "components96": 1,
+   "component_areas96": [
+    2455
+   ],
+   "fill48": 0.5194,
+   "frame_fill48": 0.2678,
+   "components48": 1,
+   "component_areas48": [
+    617
+   ],
+   "distinctness": 0.148,
+   "nearest": "moon-g3",
+   "nearest_score": 0.1302
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/moon/moon-g3.glb",
+   "rel": "assets/growth/moon/moon-g3.glb",
+   "label": "moon-g3",
+   "family": "moon",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5894,
+   "frame_fill96": 0.2625,
+   "components96": 1,
+   "component_areas96": [
+    2419
+   ],
+   "fill48": 0.5936,
+   "frame_fill48": 0.2643,
+   "components48": 1,
+   "component_areas48": [
+    609
+   ],
+   "distinctness": 0.1535,
+   "nearest": "moon-g1",
+   "nearest_score": 0.1072
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ocean/ocean-g0.glb",
+   "rel": "assets/growth/ocean/ocean-g0.glb",
+   "label": "ocean-g0",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6793,
+   "frame_fill96": 0.2331,
+   "components96": 1,
+   "component_areas96": [
+    2148
+   ],
+   "fill48": 0.689,
+   "frame_fill48": 0.2318,
+   "components48": 1,
+   "component_areas48": [
+    534
+   ],
+   "distinctness": 0.1762,
+   "nearest": "ocean-g1",
+   "nearest_score": 0.145
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ocean/ocean-g1.glb",
+   "rel": "assets/growth/ocean/ocean-g1.glb",
+   "label": "ocean-g1",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6446,
+   "frame_fill96": 0.284,
+   "components96": 1,
+   "component_areas96": [
+    2617
+   ],
+   "fill48": 0.6572,
+   "frame_fill48": 0.2812,
+   "components48": 1,
+   "component_areas48": [
+    648
+   ],
+   "distinctness": 0.134,
+   "nearest": "ocean-g2",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ocean/ocean-g2.glb",
+   "rel": "assets/growth/ocean/ocean-g2.glb",
+   "label": "ocean-g2",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.487,
+   "frame_fill96": 0.2129,
+   "components96": 1,
+   "component_areas96": [
+    1962
+   ],
+   "fill48": 0.5005,
+   "frame_fill48": 0.2118,
+   "components48": 1,
+   "component_areas48": [
+    488
+   ],
+   "distinctness": 0.1236,
+   "nearest": "ocean-g3",
+   "nearest_score": 0.0477
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/ocean/ocean-g3.glb",
+   "rel": "assets/growth/ocean/ocean-g3.glb",
+   "label": "ocean-g3",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5358,
+   "frame_fill96": 0.2,
+   "components96": 1,
+   "component_areas96": [
+    1843
+   ],
+   "fill48": 0.5227,
+   "frame_fill48": 0.1997,
+   "components48": 1,
+   "component_areas48": [
+    460
+   ],
+   "distinctness": 0.1218,
+   "nearest": "ocean-g2",
+   "nearest_score": 0.0477
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/sand/sand-g0.glb",
+   "rel": "assets/growth/sand/sand-g0.glb",
+   "label": "sand-g0",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6829,
+   "frame_fill96": 0.1965,
+   "components96": 1,
+   "component_areas96": [
+    1811
+   ],
+   "fill48": 0.7028,
+   "frame_fill48": 0.197,
+   "components48": 1,
+   "component_areas48": [
+    454
+   ],
+   "distinctness": 0.1769,
+   "nearest": "sand-g1",
+   "nearest_score": 0.1497
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/sand/sand-g1.glb",
+   "rel": "assets/growth/sand/sand-g1.glb",
+   "label": "sand-g1",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6133,
+   "frame_fill96": 0.2942,
+   "components96": 1,
+   "component_areas96": [
+    2711
+   ],
+   "fill48": 0.6259,
+   "frame_fill48": 0.2956,
+   "components48": 1,
+   "component_areas48": [
+    681
+   ],
+   "distinctness": 0.1538,
+   "nearest": "sand-g2",
+   "nearest_score": 0.1215
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/sand/sand-g2.glb",
+   "rel": "assets/growth/sand/sand-g2.glb",
+   "label": "sand-g2",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5149,
+   "frame_fill96": 0.2968,
+   "components96": 1,
+   "component_areas96": [
+    2735
+   ],
+   "fill48": 0.523,
+   "frame_fill48": 0.2956,
+   "components48": 1,
+   "component_areas48": [
+    681
+   ],
+   "distinctness": 0.126,
+   "nearest": "sand-g3",
+   "nearest_score": 0.0964
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/sand/sand-g3.glb",
+   "rel": "assets/growth/sand/sand-g3.glb",
+   "label": "sand-g3",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5024,
+   "frame_fill96": 0.3572,
+   "components96": 1,
+   "component_areas96": [
+    3292
+   ],
+   "fill48": 0.5093,
+   "frame_fill48": 0.3581,
+   "components48": 1,
+   "component_areas48": [
+    825
+   ],
+   "distinctness": 0.1691,
+   "nearest": "sand-g2",
+   "nearest_score": 0.0964
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/volcanic/volcanic-g0.glb",
+   "rel": "assets/growth/volcanic/volcanic-g0.glb",
+   "label": "volcanic-g0",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6844,
+   "frame_fill96": 0.201,
+   "components96": 1,
+   "component_areas96": [
+    1852
+   ],
+   "fill48": 0.7015,
+   "frame_fill48": 0.201,
+   "components48": 1,
+   "component_areas48": [
+    463
+   ],
+   "distinctness": 0.0952,
+   "nearest": "volcanic-g1",
+   "nearest_score": 0.0686
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/volcanic/volcanic-g1.glb",
+   "rel": "assets/growth/volcanic/volcanic-g1.glb",
+   "label": "volcanic-g1",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6673,
+   "frame_fill96": 0.2303,
+   "components96": 1,
+   "component_areas96": [
+    2122
+   ],
+   "fill48": 0.6808,
+   "frame_fill48": 0.2305,
+   "components48": 1,
+   "component_areas48": [
+    531
+   ],
+   "distinctness": 0.0674,
+   "nearest": "volcanic-g2",
+   "nearest_score": 0.0556
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/volcanic/volcanic-g2.glb",
+   "rel": "assets/growth/volcanic/volcanic-g2.glb",
+   "label": "volcanic-g2",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6721,
+   "frame_fill96": 0.2573,
+   "components96": 1,
+   "component_areas96": [
+    2371
+   ],
+   "fill48": 0.6786,
+   "frame_fill48": 0.2556,
+   "components48": 1,
+   "component_areas48": [
+    589
+   ],
+   "distinctness": 0.0677,
+   "nearest": "volcanic-g3",
+   "nearest_score": 0.0417
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/growth/volcanic/volcanic-g3.glb",
+   "rel": "assets/growth/volcanic/volcanic-g3.glb",
+   "label": "volcanic-g3",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6258,
+   "frame_fill96": 0.2694,
+   "components96": 1,
+   "component_areas96": [
+    2483
+   ],
+   "fill48": 0.5986,
+   "frame_fill48": 0.2661,
+   "components48": 1,
+   "component_areas48": [
+    613
+   ],
+   "distinctness": 0.077,
+   "nearest": "volcanic-g2",
+   "nearest_score": 0.0417
+  }
+ ],
+ "manifest": "assets/growth/manifest.json",
+ "summary": {
+  "count": 72,
+  "pass": 72,
+  "fail": 0,
+  "samey": 0,
+  "decor": 23,
+  "fill_range": [
+   0.3686,
+   0.733
+  ],
+  "seconds": 6.4
+ }
+}

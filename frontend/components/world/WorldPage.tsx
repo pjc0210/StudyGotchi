@@ -4,9 +4,57 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "@/lib/store";
 import { api, ApiError } from "@/lib/api";
+import { emit, type AudioEvent } from "@/lib/audio/events";
+import { dominantBiome } from "@/lib/audio/director";
 import { useIdentity } from "@/lib/identity";
-import { asWorldResponse, changedRegions, toCanvasWorld } from "@/lib/world/adapter";
+import { WORLD_CHANGE_PRIORITY, asWorldResponse, changedRegions, describeChanges, toCanvasWorld, type WorldChange } from "@/lib/world/adapter";
 import type { WorldResponse } from "@/lib/world/types";
+
+/** at most this many one-shots per payload, 120 ms apart, loudest news first, three of a kind */
+const SOUND_BUDGET = 6;
+const SOUND_GAP_MS = 120;
+
+function soundFor(change: WorldChange): AudioEvent {
+  switch (change.kind) {
+    case "hatch":
+      return { type: "creature-arrive" };
+    case "sprout":
+      return { type: "spot-sprout" };
+    case "landmark":
+      return { type: "spot-landmark", stage: change.stage ?? 1 };
+    case "upgrade":
+      return { type: "landmark-upgrade" };
+    case "grow":
+      return { type: "progress", kind: "tick" };
+    case "master":
+      return { type: "progress", kind: "level-up" };
+    case "explode":
+      return { type: "explode" };
+    case "recover":
+      return { type: "recover" };
+    case "fade":
+      return { type: "creature-sleep" };
+  }
+}
+
+function playChanges(changes: WorldChange[]) {
+  const perKind = new Map<string, number>();
+  const picked: WorldChange[] = [];
+  for (const kind of WORLD_CHANGE_PRIORITY) {
+    for (const c of changes) {
+      if (c.kind !== kind || picked.length >= SOUND_BUDGET) continue;
+      const n = perKind.get(kind) ?? 0;
+      if (n >= 3) continue;
+      perKind.set(kind, n + 1);
+      picked.push(c);
+    }
+  }
+  picked.forEach((c, i) => setTimeout(() => emit(soundFor(c)), i * SOUND_GAP_MS));
+  const grows = changes.filter((c) => c.kind === "grow").length;
+  if (grows >= 3) {
+    setTimeout(() => emit({ type: "progress", kind: "streak" }), picked.length * SOUND_GAP_MS);
+  }
+}
 
 const WorldCanvas = dynamic(() => import("./WorldCanvas"), { ssr: false });
 
@@ -61,14 +109,16 @@ export function WorldPage({
         const parsed = asWorldResponse(raw);
         if (!parsed) throw new Error("World payload was not readable.");
         const delta = changedRegions(previous.current, parsed);
-        // The first paint is not a change; only later deltas should pulse.
+        // The first paint is not a change; only later deltas should pulse (and sound).
         setChanged(previous.current ? delta : new Set());
+        playChanges(describeChanges(previous.current, parsed));
         previous.current = parsed;
         setWorld(parsed);
         setError(null);
       })
       .catch((err: unknown) => {
         if (cancelled) return;
+        emit({ type: "error" });
         setError(err instanceof Error ? err.message : "Could not load this world.");
         if (err instanceof ApiError && err.status === 404 && source.kind === "own") setWorld(null);
       });
@@ -87,11 +137,23 @@ export function WorldPage({
 
   const canvasWorld = useMemo(() => (world ? toCanvasWorld(world) : null), [world]);
 
+  // The island's bed follows the biome most of its concepts live in.
+  useEffect(() => {
+    if (canvasWorld) emit({ type: "island-biome", biome: dominantBiome(canvasWorld.places) });
+  }, [canvasWorld]);
+
   if (error && !world) {
     return (
       <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
         <p className="text-[15px] text-paper-ink">{error}</p>
-        <button type="button" onClick={() => setRetry((n) => n + 1)} className="start-btn">
+        <button
+          type="button"
+          onClick={() => {
+            emit({ type: "ui", kind: "confirm" });
+            setRetry((n) => n + 1);
+          }}
+          className="start-btn"
+        >
           Try again
         </button>
       </div>

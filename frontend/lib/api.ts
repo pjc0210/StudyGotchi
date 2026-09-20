@@ -62,10 +62,12 @@ export interface KnowledgeApi {
   getGaps(target: StudyTarget): Promise<GapsResponse>;
   createStudyPlan(target: StudyTarget): Promise<StudyPlan>;
   listResources(): Promise<CourseResource[]>;
+  listResourcesForCourse(courseId: string): Promise<CourseResource[]>;
   ingest(input: IngestInput): Promise<IngestResponse>;
   getResourceStatus(resourceId: string): Promise<ResourceStatus>;
   getMe(): Promise<MeResponse>;
   getWorld(): Promise<WorldResponse>;
+  getWorldForCourse(courseId: string): Promise<WorldResponse>;
   getSharedWorld(token: string): Promise<WorldResponse>;
   getWorldEvents(since?: string, limit?: number): Promise<WorldEvent[]>;
 }
@@ -212,6 +214,18 @@ function requireIdentity() {
 
 const base = () => `/api/courses/${getIdentity().courseId}`;
 const studentBase = () => `${base()}/students/${getIdentity().studentId}`;
+const courseBase = (courseId: string) => `/api/courses/${encodeURIComponent(courseId)}`;
+
+export function courseResourcesPath(courseId: string): string {
+  return `${courseBase(courseId)}/resources`;
+}
+
+export function studentCourseWorldPath(
+  studentId: string,
+  courseId: string,
+): string {
+  return `${courseBase(courseId)}/students/${encodeURIComponent(studentId)}/world`;
+}
 
 /** Forget cached GET bodies, e.g. when the course changes or a file lands. */
 export function invalidateApiCache() {
@@ -220,7 +234,7 @@ export function invalidateApiCache() {
 
 // --- adapters -------------------------------------------------------------
 
-interface BackendResource {
+export interface BackendResource {
   id: string;
   title: string;
   origin: string;
@@ -306,6 +320,19 @@ function toUploadStatus(status: string): IngestResponse["status"] {
     default:
       return "processing";
   }
+}
+
+export function normalizeCourseResources(raw: BackendResource[]): CourseResource[] {
+  return raw.map((resource) => ({
+    id: resource.id,
+    title: resource.title,
+    origin: resource.origin as SourceOrigin,
+    artifact_type: resource.artifact_type as ArtifactType,
+    concept_count: resource.concept_count,
+    concept_ids: resource.concept_ids ?? [],
+    status: toUploadStatus(resource.status),
+    uploaded_at: resource.created_at ?? "",
+  }));
 }
 
 const httpApi: KnowledgeApi = {
@@ -412,16 +439,13 @@ const httpApi: KnowledgeApi = {
   async listResources() {
     requireIdentity();
     const raw = await request<BackendResource[]>(`${base()}/resources`);
-    return raw.map((r) => ({
-      id: r.id,
-      title: r.title,
-      origin: r.origin as SourceOrigin,
-      artifact_type: r.artifact_type as ArtifactType,
-      concept_count: r.concept_count,
-      concept_ids: r.concept_ids ?? [],
-      status: toUploadStatus(r.status),
-      uploaded_at: r.created_at ?? "",
-    }));
+    return normalizeCourseResources(raw);
+  },
+
+  async listResourcesForCourse(courseId) {
+    requireIdentity();
+    const raw = await request<BackendResource[]>(courseResourcesPath(courseId));
+    return normalizeCourseResources(raw);
   },
 
   async ingest({ file, origin, artifactType, studentScoped }) {
@@ -470,6 +494,13 @@ const httpApi: KnowledgeApi = {
     return request<WorldResponse>(`${studentBase()}/world`);
   },
 
+  async getWorldForCourse(courseId) {
+    requireIdentity();
+    return request<WorldResponse>(
+      studentCourseWorldPath(getIdentity().studentId, courseId),
+    );
+  },
+
   async getSharedWorld(token) {
     return request<WorldResponse>(`/api/w/${encodeURIComponent(token)}`);
   },
@@ -488,6 +519,23 @@ const httpApi: KnowledgeApi = {
 // ---------------------------------------------------------------------------
 
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+export function mockWorldForCourse(courseId: string): WorldResponse {
+  const world = fixture as WorldResponse;
+  return {
+    ...world,
+    course_id: courseId,
+    regions: world.regions.map((region) => ({ ...region })),
+    edges: world.edges.map((edge) => ({ ...edge })),
+  };
+}
+
+export function cloneMockResources(): CourseResource[] {
+  return MOCK_RESOURCES.map((resource) => ({
+    ...resource,
+    concept_ids: [...resource.concept_ids],
+  }));
+}
 
 const mockApi: KnowledgeApi = {
   async getKnowledgeGraph() {
@@ -517,6 +565,10 @@ const mockApi: KnowledgeApi = {
   async listResources() {
     await delay(220);
     return MOCK_RESOURCES;
+  },
+  async listResourcesForCourse() {
+    await delay(220);
+    return cloneMockResources();
   },
   async ingest({ file }) {
     await delay(400);
@@ -553,6 +605,10 @@ const mockApi: KnowledgeApi = {
   async getWorld() {
     await delay(200);
     return fixture as WorldResponse;
+  },
+  async getWorldForCourse(courseId) {
+    await delay(200);
+    return mockWorldForCourse(courseId);
   },
   async getSharedWorld() {
     await delay(200);

@@ -1,0 +1,5818 @@
+{
+ "tool": "check_glb.py",
+ "version": 1,
+ "generated_at": "2026-09-19T21:49:30-0400",
+ "set": "",
+ "kind": "creature",
+ "expect_clips": [
+  "idle",
+  "walk",
+  "happy",
+  "sad",
+  "sleep"
+ ],
+ "rules": {
+  "expect_nodes": [
+   "Root",
+   "Body"
+  ],
+  "static_nodes": [
+   "Root"
+  ],
+  "clip_tol": 0.05,
+  "min_contrast": 1.4,
+  "clip_durations": {
+   "idle": 2.0,
+   "walk": 0.8,
+   "happy": 1.2,
+   "sad": 1.5,
+   "sleep": 3.0
+  }
+ },
+ "inputs": [
+  "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured"
+ ],
+ "summary": {
+  "count": 48,
+  "first_party": 48,
+  "pass": 48,
+  "fail": 0,
+  "third_party": 0,
+  "third_party_pass": 0,
+  "third_party_fail": 0,
+  "triangles": [
+   1398,
+   1400
+  ],
+  "height": [
+   0.8,
+   0.8
+  ],
+  "missing_listed": [],
+  "manifest": null,
+  "manifest_generated_at": null,
+  "manifest_mtime": null
+ },
+ "files": [
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-01.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-01.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 295212,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-01-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-01-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1129,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3631,
+    0.0,
+    -0.536
+   ],
+   "bbox_max": [
+    0.3631,
+    0.8,
+    0.536
+   ],
+   "size": [
+    0.7262,
+    0.8,
+    1.072
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-02.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-02.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 331528,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-02-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-02-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1400,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3242,
+    0.0,
+    -0.3382
+   ],
+   "bbox_max": [
+    0.3242,
+    0.8,
+    0.3382
+   ],
+   "size": [
+    0.6484,
+    0.8,
+    0.6765
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-03.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-03.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 367140,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-03-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-03-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1395,
+   "skinned": false,
+   "triangles": 1398,
+   "bbox_min": [
+    -0.3911,
+    0.0,
+    -0.3415
+   ],
+   "bbox_max": [
+    0.3911,
+    0.8,
+    0.3415
+   ],
+   "size": [
+    0.7821,
+    0.8,
+    0.6831
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-04.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-04.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 330552,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-04-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-04-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1395,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4113,
+    0.0,
+    -0.3155
+   ],
+   "bbox_max": [
+    0.4113,
+    0.8,
+    0.3155
+   ],
+   "size": [
+    0.8226,
+    0.8,
+    0.631
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-05.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-05.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 312840,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-05-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-05-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1281,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.2458,
+    0.0,
+    -0.2291
+   ],
+   "bbox_max": [
+    0.2458,
+    0.8,
+    0.2291
+   ],
+   "size": [
+    0.4916,
+    0.8,
+    0.4582
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-06.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-06.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 300348,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-06-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-06-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1354,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.529,
+    0.0,
+    -0.4342
+   ],
+   "bbox_max": [
+    0.529,
+    0.8,
+    0.4342
+   ],
+   "size": [
+    1.0579,
+    0.8,
+    0.8684
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-07.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-07.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 260580,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-07-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-07-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1236,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3901,
+    0.0,
+    -0.1938
+   ],
+   "bbox_max": [
+    0.3901,
+    0.8,
+    0.1938
+   ],
+   "size": [
+    0.7803,
+    0.8,
+    0.3877
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-08.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-08.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 289612,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-08-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-08-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1156,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3427,
+    0.0,
+    -0.6484
+   ],
+   "bbox_max": [
+    0.3427,
+    0.8,
+    0.6484
+   ],
+   "size": [
+    0.6854,
+    0.8,
+    1.2969
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-09.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-09.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 338900,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-09-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-09-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1343,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3362,
+    0.0,
+    -0.2459
+   ],
+   "bbox_max": [
+    0.3362,
+    0.8,
+    0.2459
+   ],
+   "size": [
+    0.6725,
+    0.8,
+    0.4919
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.004
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-10.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-10.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 346052,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-10-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-10-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1595,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.653,
+    0.0,
+    -0.575
+   ],
+   "bbox_max": [
+    0.653,
+    0.8,
+    0.575
+   ],
+   "size": [
+    1.306,
+    0.8,
+    1.1499
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-11.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-11.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 322360,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-11-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-11-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1439,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3459,
+    0.0,
+    -0.3718
+   ],
+   "bbox_max": [
+    0.3459,
+    0.8,
+    0.3718
+   ],
+   "size": [
+    0.6918,
+    0.8,
+    0.7435
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-12.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-12.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 367344,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-12-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-12-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1456,
+   "skinned": false,
+   "triangles": 1398,
+   "bbox_min": [
+    -0.304,
+    0.0,
+    -0.3542
+   ],
+   "bbox_max": [
+    0.304,
+    0.8,
+    0.3542
+   ],
+   "size": [
+    0.608,
+    0.8,
+    0.7085
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-13.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-13.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 344100,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-13-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-13-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1365,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.6412,
+    0.0,
+    -0.6036
+   ],
+   "bbox_max": [
+    0.6412,
+    0.8,
+    0.6036
+   ],
+   "size": [
+    1.2825,
+    0.8,
+    1.2072
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-14.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-14.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 260868,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-14-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-14-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1053,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4076,
+    0.0,
+    -0.5197
+   ],
+   "bbox_max": [
+    0.4076,
+    0.8,
+    0.5197
+   ],
+   "size": [
+    0.8152,
+    0.8,
+    1.0393
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-15.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-15.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 288452,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-15-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-15-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1359,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.5272,
+    0.0,
+    -0.4454
+   ],
+   "bbox_max": [
+    0.5272,
+    0.8,
+    0.4454
+   ],
+   "size": [
+    1.0543,
+    0.8,
+    0.8908
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-16.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-16.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 398612,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-16-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-16-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1466,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3692,
+    0.0,
+    -0.3803
+   ],
+   "bbox_max": [
+    0.3692,
+    0.8,
+    0.3803
+   ],
+   "size": [
+    0.7384,
+    0.8,
+    0.7606
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-17.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-17.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 288272,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-17-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-17-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1294,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.5047,
+    0.0,
+    -0.3035
+   ],
+   "bbox_max": [
+    0.5047,
+    0.8,
+    0.3035
+   ],
+   "size": [
+    1.0094,
+    0.8,
+    0.607
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-18.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-18.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 262996,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-18-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-18-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1071,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4928,
+    0.0,
+    -0.5369
+   ],
+   "bbox_max": [
+    0.4928,
+    0.8,
+    0.5369
+   ],
+   "size": [
+    0.9856,
+    0.8,
+    1.0738
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-19.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-19.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 307056,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-19-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-19-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1121,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.5194,
+    0.0,
+    -0.2966
+   ],
+   "bbox_max": [
+    0.5194,
+    0.8,
+    0.2966
+   ],
+   "size": [
+    1.0389,
+    0.8,
+    0.5933
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-20.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-20.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 362132,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-20-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-20-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1432,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.2827,
+    0.0,
+    -0.2229
+   ],
+   "bbox_max": [
+    0.2827,
+    0.8,
+    0.2229
+   ],
+   "size": [
+    0.5654,
+    0.8,
+    0.4458
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-21.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-21.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 266748,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-21-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-21-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1202,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.2528,
+    0.0,
+    -0.2805
+   ],
+   "bbox_max": [
+    0.2528,
+    0.8,
+    0.2805
+   ],
+   "size": [
+    0.5055,
+    0.8,
+    0.561
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-22.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-22.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 395700,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-22-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-22-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1645,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4478,
+    0.0,
+    -0.6756
+   ],
+   "bbox_max": [
+    0.4478,
+    0.8,
+    0.6756
+   ],
+   "size": [
+    0.8955,
+    0.8,
+    1.3512
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-23.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-23.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 277408,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-23-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-23-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1252,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4613,
+    0.0,
+    -0.3064
+   ],
+   "bbox_max": [
+    0.4613,
+    0.8,
+    0.3064
+   ],
+   "size": [
+    0.9226,
+    0.8,
+    0.6129
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-24.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-24.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 282328,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-24-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-24-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1171,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4409,
+    0.0,
+    -0.2973
+   ],
+   "bbox_max": [
+    0.4409,
+    0.8,
+    0.2973
+   ],
+   "size": [
+    0.8818,
+    0.8,
+    0.5946
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-25.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-25.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 281888,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-25-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-25-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1145,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.2887,
+    0.0,
+    -0.2252
+   ],
+   "bbox_max": [
+    0.2887,
+    0.8,
+    0.2252
+   ],
+   "size": [
+    0.5774,
+    0.8,
+    0.4504
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-26.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-26.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 368472,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-26-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-26-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1568,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3417,
+    0.0,
+    -0.1922
+   ],
+   "bbox_max": [
+    0.3417,
+    0.8,
+    0.1922
+   ],
+   "size": [
+    0.6835,
+    0.8,
+    0.3843
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-27.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-27.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 329968,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-27-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-27-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1284,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.5352,
+    0.0,
+    -0.4789
+   ],
+   "bbox_max": [
+    0.5352,
+    0.8,
+    0.4789
+   ],
+   "size": [
+    1.0704,
+    0.8,
+    0.9578
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-28.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-28.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 337468,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-28-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-28-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1340,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.316,
+    0.0,
+    -0.2975
+   ],
+   "bbox_max": [
+    0.316,
+    0.8,
+    0.2975
+   ],
+   "size": [
+    0.632,
+    0.8,
+    0.5951
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-29.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-29.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 362588,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-29-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-29-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1437,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3051,
+    0.0,
+    -0.3126
+   ],
+   "bbox_max": [
+    0.3051,
+    0.8,
+    0.3126
+   ],
+   "size": [
+    0.6102,
+    0.8,
+    0.6253
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-30.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-30.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 310652,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-30-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-30-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1310,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.2423,
+    0.0,
+    -0.3361
+   ],
+   "bbox_max": [
+    0.2423,
+    0.8,
+    0.3361
+   ],
+   "size": [
+    0.4847,
+    0.8,
+    0.6722
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-31.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-31.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 386752,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-31-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-31-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1412,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.456,
+    0.0,
+    -0.4741
+   ],
+   "bbox_max": [
+    0.456,
+    0.8,
+    0.4741
+   ],
+   "size": [
+    0.9121,
+    0.8,
+    0.9483
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-32.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-32.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 311848,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-32-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-32-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1282,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4013,
+    0.0,
+    -0.2979
+   ],
+   "bbox_max": [
+    0.4013,
+    0.8,
+    0.2979
+   ],
+   "size": [
+    0.8025,
+    0.8,
+    0.5959
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-33.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-33.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 266756,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-33-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-33-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1201,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3765,
+    0.0,
+    -0.3526
+   ],
+   "bbox_max": [
+    0.3765,
+    0.8,
+    0.3526
+   ],
+   "size": [
+    0.7531,
+    0.8,
+    0.7052
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-34.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-34.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 332116,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-34-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-34-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1352,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3097,
+    0.0,
+    -0.3186
+   ],
+   "bbox_max": [
+    0.3097,
+    0.8,
+    0.3186
+   ],
+   "size": [
+    0.6195,
+    0.8,
+    0.6372
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-35.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-35.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 375448,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-35-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-35-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1416,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3009,
+    0.0,
+    -0.3876
+   ],
+   "bbox_max": [
+    0.3009,
+    0.8,
+    0.3876
+   ],
+   "size": [
+    0.6018,
+    0.8,
+    0.7752
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-36.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-36.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 304540,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-36-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-36-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1231,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3009,
+    0.0,
+    -0.3061
+   ],
+   "bbox_max": [
+    0.3009,
+    0.8,
+    0.3061
+   ],
+   "size": [
+    0.6019,
+    0.8,
+    0.6122
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-37.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-37.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 309836,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-37-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-37-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1237,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3022,
+    0.0,
+    -0.2497
+   ],
+   "bbox_max": [
+    0.3022,
+    0.8,
+    0.2497
+   ],
+   "size": [
+    0.6045,
+    0.8,
+    0.4993
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-38.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-38.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 374156,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-38-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-38-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1468,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3374,
+    0.0,
+    -0.1937
+   ],
+   "bbox_max": [
+    0.3374,
+    0.8,
+    0.1937
+   ],
+   "size": [
+    0.6749,
+    0.8,
+    0.3873
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-39.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-39.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 309784,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-39-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-39-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1314,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3358,
+    0.0,
+    -0.328
+   ],
+   "bbox_max": [
+    0.3358,
+    0.8,
+    0.328
+   ],
+   "size": [
+    0.6715,
+    0.8,
+    0.656
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-40.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-40.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 316520,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-40-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-40-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1293,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.2768,
+    0.0,
+    -0.3225
+   ],
+   "bbox_max": [
+    0.2768,
+    0.8,
+    0.3225
+   ],
+   "size": [
+    0.5536,
+    0.8,
+    0.6451
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-41.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-41.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 295016,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-41-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-41-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1224,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.4312,
+    0.0,
+    -0.2535
+   ],
+   "bbox_max": [
+    0.4312,
+    0.8,
+    0.2535
+   ],
+   "size": [
+    0.8623,
+    0.8,
+    0.507
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-42.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-42.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 354808,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-42-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-42-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1371,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3331,
+    0.0,
+    -0.2556
+   ],
+   "bbox_max": [
+    0.3331,
+    0.8,
+    0.2556
+   ],
+   "size": [
+    0.6661,
+    0.8,
+    0.5112
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-43.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-43.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 381648,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-43-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-43-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1407,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3556,
+    0.0,
+    -0.3681
+   ],
+   "bbox_max": [
+    0.3556,
+    0.8,
+    0.3681
+   ],
+   "size": [
+    0.7112,
+    0.8,
+    0.7362
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-44.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-44.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 382724,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-44-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-44-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1446,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3249,
+    0.0,
+    -0.273
+   ],
+   "bbox_max": [
+    0.3249,
+    0.8,
+    0.273
+   ],
+   "size": [
+    0.6497,
+    0.8,
+    0.5459
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.003
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-45.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-45.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 306264,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-45-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-45-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1226,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3016,
+    0.0,
+    -0.2495
+   ],
+   "bbox_max": [
+    0.3016,
+    0.8,
+    0.2495
+   ],
+   "size": [
+    0.6033,
+    0.8,
+    0.499
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-46.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-46.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 410004,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-46-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-46-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1675,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3653,
+    0.0,
+    -0.2691
+   ],
+   "bbox_max": [
+    0.3653,
+    0.8,
+    0.2691
+   ],
+   "size": [
+    0.7306,
+    0.8,
+    0.5382
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    -0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.002
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-47.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-creature-47.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 316884,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-creature-47-textured"
+   ],
+   "textured_materials": [
+    "tripo-creature-47-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 1280,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.6279,
+    0.0,
+    -0.6044
+   ],
+   "bbox_max": [
+    0.6279,
+    0.8,
+    0.6044
+   ],
+   "size": [
+    1.2558,
+    0.8,
+    1.2087
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    0.0,
+    0.0
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.001
+  },
+  {
+   "file": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-mouse.glb",
+   "rel": "outputs/studygotchi-handoff/assets/creatures/tripo-cleaned/textured/tripo-mouse.glb",
+   "third_party": false,
+   "kind": "creature",
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "front heuristic n/a: no clearly darkest flat material (eyes)"
+   ],
+   "bytes": 318508,
+   "manifest": false,
+   "tags": [],
+   "container": "glb",
+   "generator": "Khronos glTF Blender I/O v5.2.39",
+   "copyright": "",
+   "extensions_used": [],
+   "extensions_required": [],
+   "materials": 1,
+   "material_names": [
+    "tripo-mouse-textured"
+   ],
+   "textured_materials": [
+    "tripo-mouse-textured"
+   ],
+   "textures": 1,
+   "images": 1,
+   "uses_textures": true,
+   "missing_images": [],
+   "roughness": [
+    0.6
+   ],
+   "colors": [
+    null
+   ],
+   "meshes": 1,
+   "nodes": 2,
+   "node_names": [
+    "Body",
+    "Root"
+   ],
+   "darkest_material": null,
+   "mesh_instances": 1,
+   "primitives": 1,
+   "vertices": 2378,
+   "skinned": false,
+   "triangles": 1400,
+   "bbox_min": [
+    -0.3033,
+    0.0,
+    -0.4019
+   ],
+   "bbox_max": [
+    0.3004,
+    0.8,
+    0.3941
+   ],
+   "size": [
+    0.6037,
+    0.8,
+    0.796
+   ],
+   "height": 0.8,
+   "min_y": 0.0,
+   "centre_xz": [
+    -0.0014,
+    -0.0039
+   ],
+   "origin_ok": true,
+   "front": {
+    "material": null,
+    "centroid_z": null,
+    "centroid_z_eyes": null,
+    "eye_vertices": 0,
+    "ok": null
+   },
+   "animations": [
+    {
+     "name": "happy",
+     "duration": 1.2,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "idle",
+     "duration": 2.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sad",
+     "duration": 1.5,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "sleep",
+     "duration": 3.0,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    },
+    {
+     "name": "walk",
+     "duration": 0.8,
+     "channels": 3,
+     "nodes": [
+      "Body"
+     ]
+    }
+   ],
+   "seconds": 0.004
+  }
+ ]
+}

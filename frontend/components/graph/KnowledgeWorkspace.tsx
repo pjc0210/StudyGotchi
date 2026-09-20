@@ -17,14 +17,12 @@ import { GraphControls } from "./GraphControls";
 import { GraphLenses } from "./GraphLenses";
 import { GraphTooltip } from "./GraphTooltip";
 
-/** A settling canvas reads better than a spinner over an empty space. */
+/** A settling sky reads better than a spinner over an empty space. */
 function GraphLoading() {
   return (
-    <div className="absolute inset-0 grid place-items-center">
-      <div className="flex items-center gap-2.5 text-[13px] text-ink-dim" role="status">
-        <span className="h-3 w-3 animate-spin rounded-full border-[1.5px] border-line-strong border-t-ink-dim" />
-        Assembling your knowledge graph…
-      </div>
+    <div className="sg-status" role="status">
+      <span className="sg-lamp-blink" aria-hidden />
+      <p>Charting your sky…</p>
     </div>
   );
 }
@@ -33,12 +31,17 @@ export function KnowledgeWorkspace({
   routeIds = [],
   focusIds = [],
   onUploadClick,
+  lens: lensProp,
+  onLensChange,
 }: {
   /** Ordered study path from the backend, drawn as a route. */
   routeIds?: string[];
   /** Unordered set to emphasise, e.g. the concepts behind current gaps. */
   focusIds?: string[];
   onUploadClick?: () => void;
+  /** When the page owns the lens (toolbar), pass it in; otherwise the workspace shows its own chips. */
+  lens?: Lens;
+  onLensChange?: (l: Lens) => void;
 }) {
   const {
     graph,
@@ -50,7 +53,9 @@ export function KnowledgeWorkspace({
     focusConcept,
   } = useStore();
 
-  const [lens, setLens] = useState<Lens>("all");
+  const [ownLens, setOwnLens] = useState<Lens>("all");
+  const lens = lensProp ?? ownLens;
+  const setLens = onLensChange ?? setOwnLens;
   const [hover, setHover] = useState<HoverInfo | null>(null);
   const canvasRef = useRef<CanvasHandle | null>(null);
 
@@ -133,7 +138,7 @@ export function KnowledgeWorkspace({
   if (graph.loading) return <GraphLoading />;
   if (graph.error) {
     return (
-      <div className="absolute inset-0">
+      <div className="sg-status">
         <ErrorState message={graph.error} onRetry={reloadGraph} />
       </div>
     );
@@ -141,20 +146,16 @@ export function KnowledgeWorkspace({
 
   if (model.nodes.length === 0) {
     return (
-      <div className="absolute inset-0">
+      <div className="sg-status">
         <EmptyState
           icon={<Network size={26} strokeWidth={1.4} />}
-          title="Your knowledge graph will grow here"
-          body="Upload course material or your own notes to begin."
+          title="Nothing in the sky yet"
+          body="Drop in a lecture, a problem set, or your own notes and the first stars appear."
           action={
             onUploadClick ? (
-              <button
-                type="button"
-                onClick={onUploadClick}
-                className="mt-1 flex items-center gap-1.5 rounded-md bg-ink px-3 py-1.5 text-[13px] font-medium text-canvas transition-opacity hover:opacity-90"
-              >
+              <button type="button" onClick={onUploadClick} className="sg-btn sg-btn-primary">
                 <Upload size={13} strokeWidth={2.25} aria-hidden />
-                Upload material
+                Add a file
               </button>
             ) : undefined
           }
@@ -164,7 +165,7 @@ export function KnowledgeWorkspace({
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#04030F]">
+    <div className="sg-constellation-canvas">
       <KnowledgeCanvas
         model={model}
         emphasis={emphasis}
@@ -175,14 +176,14 @@ export function KnowledgeWorkspace({
         handleRef={canvasRef}
       />
 
-      {/* Chrome floats over the canvas so the graph keeps the whole surface. */}
-      <div className="pointer-events-none absolute left-5 top-[82px]">
-        <div className="pointer-events-auto">
+      {/* Standalone use keeps its own lens chips; inside the constellation the toolbar owns them. */}
+      {lensProp === undefined ? (
+        <div className="sg-toolbar">
           <GraphLenses lens={lens} onChange={setLens} />
         </div>
-      </div>
+      ) : null}
 
-      <div className="pointer-events-auto absolute bottom-7 left-1/2 -translate-x-1/2">
+      <div className="sg-dock-controls">
         <GraphControls
           onFit={() => canvasRef.current?.fit()}
           onZoomIn={() => canvasRef.current?.zoomBy(1.35)}

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="2500" height="1500" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="fogN" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d4d8d5" stop-opacity="0"/><stop offset="1" stop-color="#d4d8d5" stop-opacity="0.96"/></linearGradient>
+    <linearGradient id="fogS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4d8d5" stop-opacity="0"/><stop offset="1" stop-color="#d4d8d5" stop-opacity="0.96"/></linearGradient>
+    <linearGradient id="fogW" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#d4d8d5" stop-opacity="0"/><stop offset="1" stop-color="#d4d8d5" stop-opacity="0.95"/></linearGradient>
+    <linearGradient id="fogE" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d4d8d5" stop-opacity="0"/><stop offset="1" stop-color="#d4d8d5" stop-opacity="0.95"/></linearGradient>
+    <pattern id="pasture" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(24)"><rect width="4" height="4" fill="#758366"/><rect width="0.8" height="4" fill="#8c9977"/></pattern>
+    <pattern id="lava" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#34343a"/><path d="M0,1 L2,2.5 L1,5 M5,0 L3.4,2.4 L5,4" fill="none" stroke="#e05a32" stroke-width="0.55"/></pattern>
+    <pattern id="auditHatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0,0 V3" stroke="#c7d4d6" stroke-width="0.7"/></pattern>
+    <clipPath id="mapClip"><rect x="8" y="8" width="328" height="284"/></clipPath>
+  </defs>
+  <rect width="500" height="300" fill="#f7f3ea"/>
+
+  <!-- Map: 1 SVG unit = 1 metre; origin (172,150); +x east, +z toward default camera. -->
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(172,150)">
+      <rect x="-164" y="-142" width="328" height="284" fill="#68765b"/>
+      <g stroke="#89927d" stroke-width="0.14" opacity="0.48">
+        <path d="M-160,-142V142 M-140,-142V142 M-120,-142V142 M-100,-142V142 M-80,-142V142 M-60,-142V142 M-40,-142V142 M-20,-142V142 M0,-142V142 M20,-142V142 M40,-142V142 M60,-142V142 M80,-142V142 M100,-142V142 M120,-142V142 M140,-142V142 M160,-142V142"/>
+        <path d="M-164,-120H164 M-164,-100H164 M-164,-80H164 M-164,-60H164 M-164,-40H164 M-164,-20H164 M-164,0H164 M-164,20H164 M-164,40H164 M-164,60H164 M-164,80H164 M-164,100H164 M-164,120H164"/>
+      </g>
+
+      <!-- Continuous horizon shell: cooler second row behind charcoal first row. -->
+      <path d="M-170,-148 H170 V148 H-170 Z M-143,-119 C-112,-128 -82,-119 -55,-126 C-19,-134 15,-121 45,-129 C78,-136 111,-122 143,-116 L148,116 C115,126 83,115 51,125 C17,134 -15,119 -48,128 C-83,135 -112,122 -145,115 Z" fill="#55616a" fill-rule="evenodd"/>
+      <path d="M-158,-138 H158 V138 H-158 Z M-128,-103 C-100,-112 -74,-104 -47,-111 C-16,-119 14,-107 40,-115 C70,-122 99,-110 128,-102 L131,102 C102,111 75,103 46,113 C15,121 -13,108 -40,116 C-71,123 -99,111 -130,103 Z" fill="#2e3440" fill-rule="evenodd"/>
+
+      <!-- Fjord is the primary negative space. -->
+      <path d="M-12,148 C-17,111 -35,88 -35,59 C-35,32 -16,21 3,4 C25,-16 26,-46 18,-74 C13,-94 17,-116 25,-145" fill="none" stroke="#203f52" stroke-width="49" stroke-linecap="round"/>
+      <path d="M-12,148 C-17,111 -35,88 -35,59 C-35,32 -16,21 3,4 C25,-16 26,-46 18,-74 C13,-94 17,-116 25,-145" fill="none" stroke="#315b70" stroke-width="41" stroke-linecap="round"/>
+
+      <!-- Lava archipelago now sits in an actual water basin joined to the fjord. -->
+      <path d="M-4,44 C18,34 37,31 57,34 C82,30 108,40 115,58 C123,86 109,116 80,122 C54,128 29,119 18,103 C8,88 7,62 -4,44 Z" fill="#203f52"/>
+      <path d="M2,48 C24,39 42,38 60,40 C82,37 103,45 108,60 C114,84 102,108 77,114 C55,120 33,112 24,98 C15,84 13,63 2,48 Z" fill="#315b70"/>
+      <path d="M-28,54 C-15,48 -8,45 5,48" fill="none" stroke="#315b70" stroke-width="20"/>
+      <text x="63" y="110" font-size="2.7" text-anchor="middle" fill="#d7e6e4">WATER BASIN / no road bridge</text>
+
+      <!-- Fjord mouth baffles: staggered near shoulders and a separate rear pair prevent a straight empty-edge view. -->
+      <path d="M-16,-142 L8,-142 L11,-119 L0,-103 L-20,-108 Z M43,-142 L68,-142 L55,-110 L35,-101 L28,-119 Z" fill="#2e3440"/>
+      <path d="M-29,-142 L-8,-142 L-3,-126 L-18,-114 L-36,-122 Z M65,-142 L87,-142 L75,-118 L57,-112 L52,-129 Z" fill="#55616a"/>
+      <path d="M-51,142 L-49,123 L-40,108 L-27,112 L-20,128 L-18,142 Z M9,142 L12,124 L20,110 L32,114 L39,129 L42,142 Z" fill="#2e3440"/>
+      <path d="M-73,142 L-70,128 L-59,115 L-46,120 L-42,142 Z M35,142 L39,127 L49,116 L61,123 L65,142 Z" fill="#55616a"/>
+
+      <!-- Explicit environmental skyline footprint, never the course landmark. -->
+      <path d="M-76,-110 C-68,-120 -58,-123 -48,-117 C-38,-109 -29,-109 -21,-118 C-12,-128 1,-129 11,-119 C20,-110 30,-110 39,-120 C48,-130 61,-130 71,-120 C79,-111 87,-110 97,-114" fill="none" stroke="#9aa4a6" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M-56,-111 C-49,-118 -41,-118 -34,-111 M46,-112 C53,-120 62,-120 69,-113" fill="none" stroke="url(#auditHatch)" stroke-width="5" stroke-linecap="round"/>
+      <text x="8" y="-133" font-size="3.2" text-anchor="middle" fill="#edf1ef" font-weight="bold">VOLCANO SKYLINE FEET / broad shoulders, no hero cone</text>
+
+      <!-- Max-dolly frame and three protected preserves. -->
+      <ellipse cx="0" cy="0" rx="106" ry="97" fill="none" stroke="#e8ece8" stroke-width="0.45" stroke-dasharray="3 2"/>
+      <g fill="#7e8b70" fill-opacity="0.4" stroke="#e8ece8" stroke-width="0.4" stroke-dasharray="1 1.2">
+        <path d="M-17,-105 L12,-106 L19,-96 L11,-88 L-16,-89 L-24,-97 Z"/>
+        <path d="M-27,43 L-7,37 L5,46 L2,63 L-17,69 L-31,57 Z"/>
+        <path d="M110,-5 L139,-8 L147,3 L142,20 L117,24 L106,13 Z"/>
+      </g>
+      <g fill="#edf1ec" font-size="2.5" text-anchor="middle"><text x="-2" y="-96">P1 OPEN 30x18</text><text x="-13" y="55">P2 OPEN 28x26</text><text x="127" y="9">P3 OPEN 34x32</text></g>
+
+      <!-- District 1: fjord village + quay. -->
+      <path d="M-113,7 L-77,1 L-51,14 L-53,45 L-77,60 L-108,48 L-121,26 Z" fill="none" stroke="#f0ece2" stroke-width="0.45" stroke-dasharray="1.8 1.2"/>
+      <path d="M-105,14 L-78,8 L-59,17 L-61,42 L-78,53 L-102,44 L-113,27 Z" fill="#83906e" stroke="#28303a" stroke-width="0.6"/>
+      <path d="M-70,31 h19 v4 h-19 z M-60,22 v21 h4 v-21" fill="#8b6a4a"/>
+      <g fill="#a64b3c" stroke="#2e3440" stroke-width="0.25"><rect x="-98" y="21" width="10" height="7" transform="rotate(-13 -93 24)"/><rect x="-86" y="13" width="9" height="6" transform="rotate(9 -81 16)"/><rect x="-91" y="35" width="11" height="7" transform="rotate(-5 -85 38)"/></g>
+      <rect x="-78" y="24" width="8" height="6" fill="#d08a3c"/>
+      <text x="-82" y="4" font-size="3.8" text-anchor="middle" fill="#f7f3ea" font-weight="bold">1 FJORD VILLAGE + QUAY</text>
+      <text x="-84" y="56" font-size="2.5" text-anchor="middle" fill="#edf1ec">C(-84,31) / jitter 7 / yaw -18 +/-22 / A:T-quay</text>
+
+      <!-- District 2: canyon + mine/forge, shifted west to clear hamlet jitter. -->
+      <g transform="translate(-8,0)">
+      <path d="M-151,-83 L-117,-92 L-80,-78 L-78,-55 L-96,-39 L-134,-43 L-156,-61 Z" fill="none" stroke="#f0ece2" stroke-width="0.45" stroke-dasharray="1.8 1.2"/>
+      <path d="M-143,-77 L-116,-85 L-88,-74 L-87,-58 L-101,-46 L-131,-48 L-148,-61 Z" fill="#4b4a52" stroke="#20252c" stroke-width="0.6"/>
+      <path d="M-137,-68 C-125,-62 -112,-66 -100,-57 C-96,-54 -92,-51 -88,-48" fill="none" stroke="#202126" stroke-width="6"/>
+      <path d="M-137,-68 C-125,-62 -112,-66 -100,-57 C-96,-54 -92,-51 -88,-48" fill="none" stroke="#e05a32" stroke-width="0.8"/>
+      <path d="M-121,-73 v17 M-128,-73 h14 M-126,-68 h10" fill="none" stroke="#c2c7c3" stroke-width="1.2"/>
+      <rect x="-107" y="-61" width="9" height="8" fill="#34343a" stroke="#ffb347" stroke-width="0.7"/>
+      <text x="-116" y="-89" font-size="3.8" text-anchor="middle" fill="#f7f3ea" font-weight="bold">2 BASALT CANYON + MINE/FORGE</text>
+      <text x="-116" y="-39" font-size="2.5" text-anchor="middle" fill="#edf1ec">C(-124,-64) / jitter 8 / yaw +12 +/-18 / A:16 m gantry</text>
+      </g>
+
+      <!-- District 3: hamlet + pasture. -->
+      <path d="M-60,-77 L-25,-84 L8,-70 L13,-43 L1,-21 L-31,-17 L-58,-32 L-68,-53 Z" fill="none" stroke="#f0ece2" stroke-width="0.45" stroke-dasharray="1.8 1.2"/>
+      <path d="M-51,-69 L-24,-76 L1,-65 L5,-45 L-5,-28 L-29,-25 L-50,-37 L-58,-53 Z" fill="url(#pasture)" stroke="#2f3839" stroke-width="0.6"/>
+      <g fill="#556b46" stroke="#2e3440" stroke-width="0.3"><rect x="-39" y="-58" width="15" height="8" transform="rotate(-18 -31 -54)"/><rect x="-18" y="-53" width="13" height="7" transform="rotate(9 -11 -49)"/></g>
+      <rect x="-36" y="-56" width="9" height="4" fill="#a64b3c" transform="rotate(-18 -31 -54)"/>
+      <g stroke="#e8dfc9" stroke-width="0.45"><path d="M-46,-36 h18 M-46,-33 h18 M-44,-38 v8 M-37,-38 v8 M-30,-38 v8"/></g>
+      <text x="-27" y="-72" font-size="3.7" text-anchor="middle" fill="#f7f3ea" font-weight="bold">3 HIGHLAND HAMLET + PASTURE</text>
+      <text x="-27" y="-20" font-size="2.5" text-anchor="middle" fill="#edf1ec">C(-27,-49) / jitter 9 / yaw -6 +/-28 / A:turf halls</text>
+
+      <!-- District 4: geothermal farms + outpost. -->
+      <g transform="translate(16,0)">
+      <path d="M20,-50 L62,-57 L98,-40 L103,-5 L84,24 L46,31 L17,12 L9,-22 Z" fill="none" stroke="#f0ece2" stroke-width="0.45" stroke-dasharray="1.8 1.2"/>
+      <path d="M31,-42 L61,-48 L88,-35 L93,-9 L78,16 L49,22 L27,8 L20,-19 Z" fill="#5e6858" stroke="#293238" stroke-width="0.6"/>
+      <g fill="#7cc8be" stroke="#d5eee8" stroke-width="0.4"><ellipse cx="45" cy="-16" rx="8" ry="4.5"/><ellipse cx="62" cy="-7" rx="7" ry="4"/><ellipse cx="74" cy="-23" rx="6" ry="3.5"/></g>
+      <path d="M59,-29 L66,-13 L52,-13 Z M59,-29 v-8" fill="none" stroke="#e8dfc9" stroke-width="1.1"/>
+      <g fill="#a64b3c"><rect x="34" y="1" width="10" height="7"/><rect x="76" y="1" width="9" height="7"/></g>
+      <text x="60" y="-45" font-size="3.7" text-anchor="middle" fill="#f7f3ea" font-weight="bold">4 GEOTHERMAL FARMS + OUTPOST</text>
+      <text x="60" y="26" font-size="2.5" text-anchor="middle" fill="#edf1ec">C(76,-14) / jitter 10 / yaw +17 +/-20 / A:steam tripod</text>
+      </g>
+
+      <!-- District 5: three unequal islets in water. -->
+      <g transform="translate(0,22)">
+      <path d="M33,41 L64,36 L98,48 L109,72 L95,96 L60,103 L27,88 L18,61 Z" fill="none" stroke="#f0ece2" stroke-width="0.45" stroke-dasharray="1.8 1.2"/>
+      <g fill="url(#lava)" stroke="#191b20" stroke-width="0.65"><path d="M38,53 L53,44 L66,52 L62,67 L45,69 L34,61 Z"/><path d="M71,61 L90,53 L101,66 L93,80 L75,81 L65,72 Z"/><path d="M50,80 L64,75 L76,85 L68,96 L51,93 L43,87 Z"/></g>
+      <path d="M77,73 C78,59 88,59 92,68 C88,64 83,65 82,74 Z" fill="#34343a" stroke="#e05a32" stroke-width="0.9"/>
+      <text x="67" y="23" font-size="3.8" text-anchor="middle" fill="#f7f3ea" font-weight="bold">5 LAVA ARCHIPELAGO</text>
+      <text x="67" y="79" font-size="2.5" text-anchor="middle" fill="#edf1ec">C(67,92) / jitter 6 / yaw +31 +/-14 / A:13 m arch</text>
+      </g>
+
+      <!-- Fixed course landmark on a separate far-east headland. -->
+      <g transform="translate(0,-20)">
+      <path d="M113,-88 L136,-95 L154,-79 L151,-57 L135,-45 L117,-50 L107,-68 Z" fill="#4b4a52" stroke="#20252c" stroke-width="0.7"/>
+      <path d="M121,-72 h24 l-4,15 h-16 z" fill="#70766f" stroke="#d1d5ce" stroke-width="0.4"/>
+      <path d="M133,-78 v18 M127,-70 h12 M129,-64 h8" fill="none" stroke="#ffb347" stroke-width="1.1"/>
+      <circle cx="133" cy="-78" r="1.4" fill="#ffe9a8"/>
+      <text x="132" y="-98" font-size="3.8" text-anchor="middle" fill="#f7f3ea" font-weight="bold">L BEACON HEADLAND</text>
+      <text x="132" y="-42" font-size="2.5" text-anchor="middle" fill="#edf1ec">C(133,-90) / fixed / yaw -35 / not the volcano</text>
+      </g>
+
+      <!-- Routes and crossings, drawn after districts for audit visibility. -->
+      <g fill="none" stroke-linecap="round"><path d="M-124,-61 C-86,-62 -58,-55 -30,-48 C-4,-42 32,-28 76,-18 C102,-18 116,-44 126,-72" stroke="#544f49" stroke-width="5.2"/><path d="M-124,-61 C-86,-62 -58,-55 -30,-48 C-4,-42 32,-28 76,-18 C102,-18 116,-44 126,-72" stroke="#8a7f6d" stroke-width="3.8"/></g>
+      <g fill="#8b6a4a" stroke="#332f2b" stroke-width="0.35"><rect x="-79" y="-61" width="18" height="4" transform="rotate(10 -70 -59)"/><rect x="-38" y="4" width="16" height="4" transform="rotate(-38 -30 6)"/><rect x="111" y="-74" width="15" height="4" transform="rotate(-50 118 -72)"/></g>
+      <g fill="none" stroke="#a9d2d2" stroke-width="0.8" stroke-dasharray="3 2"><path d="M-13,133 C-18,101 -29,74 -34,56 C-40,39 -57,33 -72,31"/><path d="M-72,31 C-35,46 4,63 34,77 C47,83 57,89 67,92"/><path d="M67,92 C57,55 40,18 25,-5"/></g>
+
+      <!-- Fog hides all geometric boundaries; labels confirm azimuth audit. -->
+      <rect x="-164" y="-142" width="328" height="38" fill="url(#fogN)"/><rect x="-164" y="104" width="328" height="38" fill="url(#fogS)"/><rect x="-164" y="-142" width="38" height="284" fill="url(#fogW)"/><rect x="126" y="-142" width="38" height="284" fill="url(#fogE)"/>
+      <g font-size="2.6" fill="#eef2ef" font-weight="bold" text-anchor="middle"><text x="0" y="-126">N / baffled fjord + near row + second row</text><text x="0" y="126">S / baffled fjord + near row + second row</text><text x="-146" y="0" transform="rotate(-90 -146 0)">W / two continuous rows</text><text x="147" y="0" transform="rotate(90 147 0)">E / two continuous rows</text></g>
+      <g stroke="#f1eee6" stroke-width="0.55" fill="#f1eee6"><path d="M-150,130 h20"/><polygon points="-130,128.5 -127,130 -130,131.5"/><path d="M-150,130 v-20"/><polygon points="-151.5,110 -150,107 -148.5,110"/></g>
+      <text x="-125" y="132" font-size="2.7" fill="#f1eee6">+x east</text><text x="-147" y="106" font-size="2.7" fill="#f1eee6">-z back</text>
+      <g transform="translate(88,129)"><rect width="20" height="1.8" fill="#f1eee6"/><rect x="20" width="20" height="1.8" fill="#2e3440" stroke="#f1eee6" stroke-width="0.2"/><text x="0" y="-1" font-size="2.5" fill="#f1eee6">0</text><text x="20" y="-1" font-size="2.5" fill="#f1eee6">20</text><text x="40" y="-1" font-size="2.5" fill="#f1eee6">40 m</text></g>
+    </g>
+  </g>
+  <rect x="8" y="8" width="328" height="284" fill="none" stroke="#26303a" stroke-width="0.7"/>
+
+  <!-- Audit and specification legend. -->
+  <g transform="translate(346,10)" font-size="3.02" fill="#2f3440">
+    <text x="0" y="5" font-size="5.2" font-weight="bold">nordic-volcanic-highlands / plan v3</text>
+    <text x="0" y="10">hard-audited synthesis / 1 unit = 1 m / 2026-09-20</text>
+    <text x="0" y="14">world 328x284 m / max-dolly footprint 212x194 m</text>
+
+    <text x="0" y="22" font-size="3.5" font-weight="bold">Concrete v1 corrections</text>
+    <text x="0" y="26">1 lava islets moved into connected fjord-water basin</text>
+    <text x="0" y="30">2 canyon shifted 42 m west; headland 31 m east / 23 m north</text>
+    <text x="0" y="34">3 runtime clearance raised to >=20 m without resizing</text>
+    <text x="0" y="38">4 N/S water cuts baffled by staggered double cliff rows</text>
+    <text x="0" y="42">5 volcano shoulder footprint shown separately from landmark</text>
+
+    <text x="0" y="51" font-size="3.5" font-weight="bold">Palette roles</text>
+    <rect x="0" y="53" width="5" height="3.5" fill="#68765b"/><text x="7" y="56">ground #68765b</text>
+    <rect x="0" y="58" width="5" height="3.5" fill="#2e3440"/><text x="7" y="61">cliff #2e3440 / basalt #4b4a52</text>
+    <rect x="0" y="63" width="5" height="3.5" fill="#315b70"/><text x="7" y="66">fjord #315b70 / deep #203f52</text>
+    <rect x="0" y="68" width="5" height="3.5" fill="#7cc8be"/><text x="7" y="71">geothermal #7cc8be</text>
+    <rect x="0" y="73" width="5" height="3.5" fill="#e05a32"/><text x="7" y="76">lava #e05a32 / hot #ffb347</text>
+    <rect x="0" y="78" width="5" height="3.5" fill="#a64b3c"/><text x="7" y="81">timber #a64b3c / turf roof #556b46</text>
+    <rect x="0" y="83" width="5" height="3.5" fill="#8a7f6d"/><text x="7" y="86">road #8a7f6d / edge #544f49 / wet #526a68</text>
+
+    <text x="0" y="95" font-size="3.5" font-weight="bold">Centres / jitter / anchor</text>
+    <text x="0" y="99">1 (-84,31) / 7 m / T-quay + ochre boathouse</text>
+    <text x="0" y="103">2 (-124,-64) / 8 m / 16 m canyon gantry</text>
+    <text x="0" y="107">3 (-27,-49) / 9 m / crossed turf halls</text>
+    <text x="0" y="111">4 (76,-14) / 10 m / 15 m steam tripod + 3 pools</text>
+    <text x="0" y="115">5 (67,92) / 6 m / 13 m arch on 3 unequal islets</text>
+    <text x="0" y="119">L (133,-90) fixed / cairn-ring-beacon headland</text>
+
+    <text x="0" y="128" font-size="3.5" font-weight="bold">Measured spacing after maximum jitter</text>
+    <text x="0" y="132">2 canyon-3 hamlet 20.3 m / 3 hamlet-4 geo 20.2 m</text>
+    <text x="0" y="136">4 geo-5 lava 20.014 m / 4 geo-L headland 27.2 m</text>
+    <text x="0" y="140">all other district edge gaps 35.4-195.5 m</text>
+    <text x="0" y="144">P1 30x18 / P2 28x26 / P3 34x32 / all clear</text>
+
+    <text x="0" y="153" font-size="3.5" font-weight="bold">Routes / water</text>
+    <text x="0" y="157">ridge 3.8 m core / 5.2 m edge; local lanes 3.2 m</text>
+    <text x="0" y="161">B1 18 m canyon / B2 16 m quay / B3 15 m headland</text>
+    <text x="0" y="165">L1 arrival / L2 quay-lava / L3 lava-north / 8 m clear</text>
+    <text x="0" y="169">fjord 41-49 m; water basin 127x98 m; lava boat-only</text>
+
+    <text x="0" y="178" font-size="3.5" font-weight="bold">Skyline grows; ground does not</text>
+    <text x="0" y="182">0% 3 broad shoulders 8 m / 25% 5 at 11 m</text>
+    <text x="0" y="186">50% 7 at 15 m + shallow asymmetric caldera</text>
+    <text x="0" y="190">75% 9 at 18 m + 12 m second row</text>
+    <text x="0" y="194">100% 11 at 22 m + second row; glow at max 8% arc</text>
+    <text x="0" y="198">landmark grows only on east headland, never in skyline</text>
+
+    <text x="0" y="207" font-size="3.5" font-weight="bold">360 deg max-dolly audit: near / rear overlap</text>
+    <text x="0" y="211">N 29/18 m / NE 27/17 / E 26/18 / SE 25/16</text>
+    <text x="0" y="215">S 28/17 m / SW 26/16 / W 27/17 / NW 25/16</text>
+    <text x="0" y="219">fog starts r108 m, opaque r150 m; rim starts r118 m</text>
+    <text x="0" y="223">N/S retain two staggered shoulders across fjord mouths</text>
+
+    <text x="0" y="232" font-size="3.5" font-weight="bold">48 px and distinction gates</text>
+    <text x="0" y="236">hidden: blue S-fjord in charcoal/moss rim, not round island</text>
+    <text x="0" y="240">shown: red quay / aqua pools / orange arch stay separate</text>
+    <text x="0" y="244">vs volcanic: water largest field; no cone; lava quarantined</text>
+    <text x="0" y="248">vs alpine: no cable/twin spike; broad caldera shoulders</text>
+    <text x="0" y="252">vs harbor: no ship/crane/warehouse/lighthouse marker</text>
+    <text x="0" y="256">protected: never cone + orange rim + forge-house set</text>
+
+    <text x="0" y="265" font-size="3.5" font-weight="bold">Seed and symbols</text>
+    <text x="0" y="269">seed centres/yaws/slots; fixed ground, water, bridges, feet</text>
+    <path d="M0,274 h6" stroke="#f0ece2" stroke-width="0.5" stroke-dasharray="1.5 1"/><text x="8" y="275">jitter envelope</text>
+    <path d="M0,279 h6" stroke="#dce1dc" stroke-width="0.5" stroke-dasharray="1 1"/><text x="8" y="280">protected preserve</text>
+    <path d="M0,284 h6" stroke="#a9d2d2" stroke-width="0.8" stroke-dasharray="2 1"/><text x="8" y="285">boat lane</text>
+    <text x="0" y="294" fill="#5f625d">Map/synthesis only / no layout JSON, code, or GLB.</text>
+  </g>
+</svg>

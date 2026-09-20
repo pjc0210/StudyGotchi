@@ -11,6 +11,8 @@ export interface WorldCanvasProps {
   onResidentFocus: () => void
   /** clear colour behind the island; defaults to the world sky */
   clear?: string
+  skyColor?: string
+  lightScale?: number
   className?: string
 }
 
@@ -23,6 +25,8 @@ export function WorldCanvas({
   view,
   onResidentFocus,
   clear = GOLDEN_PALETTE.sky,
+  skyColor = clear,
+  lightScale = 1,
   className,
 }: WorldCanvasProps) {
   const profile = rendererProfile('pixel')
@@ -39,7 +43,7 @@ export function WorldCanvas({
         }}
         gl={{ antialias: profile.antialias, powerPreference: 'high-performance', alpha: false }}
         onCreated={({ gl, camera }) => {
-          gl.setClearColor(clear)
+          gl.setClearColor(skyColor)
           camera.lookAt(...CAMERA_POSES.overview.target)
           camera.updateMatrixWorld()
         }}
@@ -50,6 +54,8 @@ export function WorldCanvas({
           view={view}
           progress={progress}
           onResidentFocus={onResidentFocus}
+          skyColor={skyColor}
+          lightScale={lightScale}
         />
       </Canvas>
     </div>

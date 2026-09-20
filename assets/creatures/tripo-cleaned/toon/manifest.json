@@ -1,0 +1,2004 @@
+{
+  "version": 1,
+  "count": 48,
+  "generated_at": "2026-09-19T21:49:30.472245-04:00",
+  "conventions": {
+    "up": "+Y",
+    "front": "+Z",
+    "height_m": 0.8,
+    "ground": "feet at y=0; Root at base center, never animated",
+    "clips": {
+      "idle": {
+        "seconds": 2,
+        "loop": true
+      },
+      "walk": {
+        "seconds": 0.8,
+        "loop": true
+      },
+      "happy": {
+        "seconds": 1.2,
+        "loop": false
+      },
+      "sad": {
+        "seconds": 1.5,
+        "loop": true
+      },
+      "sleep": {
+        "seconds": 3,
+        "loop": true
+      }
+    },
+    "texture": "none; five baseColorFactor materials"
+  },
+  "creatures": [
+    {
+      "id": "tripo-creature-01",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-01.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125700,
+      "sha256": "2093fc17edcca79dc9129b2f818a8c68e9f2c961269218d4c07c7e2e748eb9ac",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-01.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-02",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-02.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125748,
+      "sha256": "f39811cd65d2104a49430d7660a5fa6631d338a5068f4b6b9661e1b0c0329f3f",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-02.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-03",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-03.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1398,
+      "bytes": 125548,
+      "sha256": "363e575bf23841787fc34e5fc9d683f1d9c0fce8f923ef527f54d9252af051c5",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-03.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-04",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-04.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125700,
+      "sha256": "defcec8c75c48bfe8c22ca5506e87a03246be7efe6aa1efddd04ddbb2b5afb5d",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-04.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-05",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-05.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125752,
+      "sha256": "f175ff1a6b4901e239e8acbe8565c8b4f6bcbdb221912d77c72cce4ec77aceda",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-05.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-06",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-06.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125744,
+      "sha256": "17ffe245ea6ed8a7ff3334e60f5a9c9fa9736a4413c1b1341e9329f3a2525a22",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-06.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-07",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-07.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125660,
+      "sha256": "52c34d6d24c95842bafbfa987ec6a156b5c0c164771881aa6683336fb598f266",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-07.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-08",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-08.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125700,
+      "sha256": "924a8d6ecae97971e1a29524d788447ba9d400f56d23c949f23890278c30e8d8",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-08.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-09",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-09.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125752,
+      "sha256": "bd5efb869f89729de1704d3d066431f356c62e38f15026be38fc32cbae06a015",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-09.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-10",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-10.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125716,
+      "sha256": "72909cc7aae72d2670b55ca017936afa7e16ed26c071c23f1c63167956c1a834",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-10.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-11",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-11.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125740,
+      "sha256": "0944011d8312ef7b4c8f28cdaa9ff68efd5a4b2652b55f25f9ce0ca92ce6d213",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-11.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-12",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-12.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1398,
+      "bytes": 125564,
+      "sha256": "2218347ddfca1318b7bda43c2375167034ed0214a913c4df970e848ab04f86b8",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-12.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-13",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-13.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125696,
+      "sha256": "7101146ed4e43ac223f2b71a3db0215a4bfa1291683709c0ffd9dc1073b1e553",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-13.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-14",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-14.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125600,
+      "sha256": "6be4e253ffc0ff26200760630055cb147c4bfc9acb31187512957d683cfdd4d4",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-14.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-15",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-15.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125744,
+      "sha256": "afb0a4cf4bba1efe6f329c594681afb97c18479f30ff187aafe462f0c1179ed2",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-15.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-16",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-16.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125724,
+      "sha256": "7809ba5c668fe0810d925a744035a2f53a250b1645dd77167e9fea6ab45e219d",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-16.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-17",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-17.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125640,
+      "sha256": "f59320a163474ef1f489e97ddcc160f626278cb8ba05e8c61114659e8ef55358",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-17.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-18",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-18.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125736,
+      "sha256": "48ebf290cbecbbc97b4a5455bf685b69500f23a5bc512824a9b9e023413c947e",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-18.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-19",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-19.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125740,
+      "sha256": "42f0d7a9faaea6d93425e00882e384669c382840469e43e52944b2f05a986baa",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-19.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-20",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-20.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125652,
+      "sha256": "05deaf054eaada2a62305adb6b7f8f5596e47995d9b8ad8ea9f0485d59a5959e",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-20.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-21",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-21.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125720,
+      "sha256": "f95e35dcd81e326f62643566e492328b55b915208534bf6be00d155be123521d",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-21.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-22",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-22.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125740,
+      "sha256": "8b1025a5e2bf466bc5cf981dd01ab2e09b1f3c6dccbf6a1e3d28a2f105b3132b",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-22.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-23",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-23.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125752,
+      "sha256": "10f6fe43a0356e4c9b988aa8f3eee088da392e6c64b2fc35f49d3d063874bc4a",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-23.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-24",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-24.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125760,
+      "sha256": "9b04a723d04fb48ba7177a3ba4316cf293e7dd9c8bca376f025f5601d39e1165",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-24.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-25",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-25.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125756,
+      "sha256": "69c80e2f32f8b20118fd9be93871732bed5c45d1b8f1746a4652c6025ee1560f",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-25.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-26",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-26.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125744,
+      "sha256": "92aa33314cc349dff5825cd009912c056f17ba0d87801134d2cdfdbe457a6d07",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-26.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-27",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-27.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125608,
+      "sha256": "ae824c337f4d303458b1d2a104c3f4587835e206cb9f848c4a243a58bb263d11",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-27.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-28",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-28.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125680,
+      "sha256": "db1c988d864985c19d552f774e2bb60eaeb0883ff0ba02f457a9db9c7ca438a0",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-28.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-29",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-29.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125644,
+      "sha256": "e66b7f81771d1ad49cc83b3a32967494cbff39387ff30fe040c22a3230adfdae",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-29.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-30",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-30.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125752,
+      "sha256": "6f756e8362533c8b1a9a3f9d16c8a6cb9d644cedd1b07ecdbad7e6918cddae5a",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-30.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-31",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-31.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125724,
+      "sha256": "f134376bf92d005ea093cb86511f98fca9a609a7e7514986a8f2f191295275e0",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-31.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-32",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-32.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125668,
+      "sha256": "f206fc9a5504f541f71b3111944a7af0e94bf294cffda86255d9a8a7e1a1a3e3",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-32.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-33",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-33.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125704,
+      "sha256": "cabb78c482487ad14999847572e2fbfaca9867d6b1a63f0027f805db667ada48",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-33.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-34",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-34.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125752,
+      "sha256": "4b001baa605277b916d94a8bfc571a823af379e5d5a785b0b0eafc1c9e07e7d4",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-34.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-35",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-35.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125728,
+      "sha256": "b39948ce81c669896e65858908f4882b43e21f73e57b56eb4b7945619be7eb4b",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-35.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-36",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-36.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125736,
+      "sha256": "cb05dfa2321193618388b01fb34ead62a060a1fc417a4ca3c33ea6fecfaa42bd",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-36.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-37",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-37.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125708,
+      "sha256": "bd713dae3233f411d9a052b12cf4012a1d5edf639954114083c76442dfb3508a",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-37.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-38",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-38.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125728,
+      "sha256": "0ef413122dd65fdd0f60358c6cba28e459cf6c492fbb3d8758df413235081777",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-38.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-39",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-39.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125640,
+      "sha256": "e822f2482bdca19ab88825f985105bf1b86290f5783a19580e1afc7982924395",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-39.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-40",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-40.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125640,
+      "sha256": "be09e5bd6ae744edc99e9f0389c17bc3f014eccf3de579bb396e554b14733d50",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-40.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-41",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-41.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125740,
+      "sha256": "7c20d3fca222900d01e29dc262ede41118f6a553d78cc681371fbc3d89aa6e5f",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-41.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-42",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-42.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125692,
+      "sha256": "4fae3e672a8a36ba522aff92b879a3cd2a2145b908b6bee96d5adbfb0fdb1ac7",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-42.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-43",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-43.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125732,
+      "sha256": "020a1a48ac4e26c0763512b4a56fd4a1bddc7b9ae1df53684844e8ef00fd0188",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-43.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-44",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-44.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125720,
+      "sha256": "4a58ca4237b1f4d6a3297faa89695c23f5a8dec518b88a7b61f2c9139bf8c840",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-44.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-45",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-45.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125648,
+      "sha256": "5cb65880792ec6f8b31669e6fc3432008cc30fd0eb646eca1948817935cf2ddf",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-45.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-46",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-46.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125744,
+      "sha256": "a22ced3434c49f7018348b13d6b44d119a18a842ab346dd60e510c3a4cf8a2ea",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-46.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-creature-47",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-creature-47.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125636,
+      "sha256": "765e47465fd374394bd3da6a7dd8e8b8f26821994f29cf640a5f12cf910cd734",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-47.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    },
+    {
+      "id": "tripo-mouse",
+      "file": "assets/creatures/tripo-cleaned/toon/tripo-mouse.glb",
+      "archetype": "bean",
+      "biome": "meadow",
+      "personality": "curious",
+      "height": 0.8,
+      "triangles": 1400,
+      "bytes": 125696,
+      "sha256": "f1a1742e98f5aa4fbaeeeda67ca2ed5bcbf5c38b30d8d5d2eae1531a465be9fd",
+      "nodes": [
+        "Root",
+        "Body"
+      ],
+      "clips": {
+        "idle": {
+          "seconds": 2,
+          "loop": true
+        },
+        "walk": {
+          "seconds": 0.8,
+          "loop": true
+        },
+        "happy": {
+          "seconds": 1.2,
+          "loop": false
+        },
+        "sad": {
+          "seconds": 1.5,
+          "loop": true
+        },
+        "sleep": {
+          "seconds": 3,
+          "loop": true
+        }
+      },
+      "eyes_separated": false,
+      "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/mouse-face-refined.blend",
+      "metadata_status": "provisional gameplay tags",
+      "material_mode": "toon"
+    }
+  ]
+}

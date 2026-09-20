@@ -1,0 +1,769 @@
+{
+  "version": 2,
+  "biome": "heavy-industry",
+  "name": "Industrialized / Heavy Machinery",
+  "notes": [
+    "Coordinates in metres. x east, z south (toward the default camera), y up, settled ground at y = 0. World 200 x 200 m: x and z in [-100, 100].",
+    "Field names follow docs/design/world/layouts/layout.schema.json (version 2), which mirrors prototypes/biome-lab/src/layout/biome-layout.ts where the concept matches. Companion sheet: docs/design/world/biomes/heavy-industry.md; map: heavy-industry.map.svg.",
+    "Normalised to version 2 on 2026-09-20 without geometric changes."
+  ],
+  "palette": {
+    "ground": "#b9b4b0",
+    "groundAlt": "#a9a4a0",
+    "quayPaving": "#d9d4cf",
+    "cliff": "#9f9a96",
+    "piling": "#6b5f7a",
+    "slag": "#5a5560",
+    "water": "#6f9fb8",
+    "canal": "#5f8ea6",
+    "rail": "#6b5f7a",
+    "roadCore": "#d9d4cf",
+    "roadEdge": "#6b5f7a",
+    "steel": "#6b5f7a",
+    "rust": "#a8563a",
+    "structureCream": "#e6dfd3",
+    "structureNavy": "#3b5f7a",
+    "structureBrick": "#9b6357",
+    "pipeBlue": "#4f8fb0",
+    "warning": "#e8a13a",
+    "molten": "#ff7a3a",
+    "smoke": "#fffaf3",
+    "steam": "#ffffff",
+    "window": "#ffe9a8",
+    "lamp": "#ffb347",
+    "sky": "#dfe3ea",
+    "skyNight": "#14121a",
+    "fog": "#c9c6c8"
+  },
+  "scale": {
+    "creatureHeight": 1.8,
+    "creatureScale": 1.3,
+    "houseHeight": [4.5, 6],
+    "hallHeight": [9, 12],
+    "minCreatureViewportFraction": 0.06,
+    "minDistrictGap": 20,
+    "pixelCellPx": 2
+  },
+  "world": {
+    "extent": 100,
+    "frameRadius": 96,
+    "seaLevel": -1.5,
+    "groundHeight": 0,
+    "relief": 0.4
+  },
+  "land": {
+    "outline": {
+      "kind": "polygon",
+      "vertices": [[-100, -100], [100, -100], [100, -6], [95, 10], [92, 30], [96, 52], [60, 54], [50, 53], [40, 53], [28, 51], [0, 53], [-30, 51], [-64, 53], [-92, 52], [-88, 30], [-90, 0], [-88, -40], [-88, -66], [-100, -82]],
+      "openEdges": ["back"],
+      "description": "One landmass filling the north two thirds and running into the gantry wall at z <= -68; the south third is the harbour basin; the west coast is the slag shore."
+    },
+    "skyline": {
+      "kind": "gantry-wall",
+      "description": "Row of gantry cranes with chimney stacks between and a back row of cooling towers; the only thing that grows in height. Sits on a 2 m plinth; the ground in front stays flat.",
+      "arc": [[-100, -74], [-80, -78.3], [-60, -81.7], [-40, -84.1], [-20, -85.5], [0, -86], [20, -85.5], [40, -84.1], [60, -81.7], [80, -78.3], [100, -74]],
+      "range": {
+        "arcZ": -86,
+        "arcCurve": 0.0012,
+        "footDepth": 18,
+        "footRise": 0,
+        "footWander": 6
+      },
+      "footZ": -68,
+      "fogStartZ": -72,
+      "fogOpaqueZ": -98,
+      "rows": [-76, -86, -94],
+      "growth": {
+        "0": {
+          "count": 3,
+          "height": 14,
+          "rows": 2,
+          "gantries": 3,
+          "gantryHeight": 14,
+          "chimneys": 2,
+          "chimneyHeight": 12,
+          "coolingTowers": 0,
+          "coolingTowerHeight": 0,
+          "moving": ["1 trolley, period 14 s"]
+        },
+        "25": {
+          "count": 5,
+          "height": 18,
+          "rows": 2,
+          "gantries": 5,
+          "gantryHeight": 18,
+          "chimneys": 4,
+          "chimneyHeight": 16,
+          "coolingTowers": 0,
+          "coolingTowerHeight": 0,
+          "moving": ["trolleys on 3 gantries", "2 chimneys puff every 2.4 s"]
+        },
+        "50": {
+          "count": 7,
+          "height": 24,
+          "rows": 3,
+          "gantries": 7,
+          "gantryHeight": 22,
+          "chimneys": 6,
+          "chimneyHeight": 20,
+          "coolingTowers": 2,
+          "coolingTowerHeight": 24,
+          "moving": ["hooks rise and fall 6 m", "pistons on 2 gantry legs at 0.5 Hz"]
+        },
+        "75": {
+          "count": 9,
+          "height": 30,
+          "rows": 3,
+          "gantries": 9,
+          "gantryHeight": 26,
+          "chimneys": 8,
+          "chimneyHeight": 26,
+          "coolingTowers": 3,
+          "coolingTowerHeight": 30,
+          "moving": [
+            "elevated conveyor bridge to the foundry, belt 0.8 m/s"
+          ]
+        },
+        "100": {
+          "count": 11,
+          "height": 36,
+          "rows": 3,
+          "gantries": 11,
+          "gantryHeight": 30,
+          "chimneys": 10,
+          "chimneyHeight": 32,
+          "coolingTowers": 4,
+          "coolingTowerHeight": 36,
+          "moving": ["all trolleys, hooks, pistons", "steam plumes on the cooling towers", "warning lights on every beam end"]
+        }
+      },
+      "extras": {
+        "gantryPitchX": 18,
+        "gantryFirstX": -90,
+        "plinthHeight": 2,
+        "rowNames": ["chimneys", "gantries", "cooling towers"]
+      }
+    },
+    "coastCliff": {
+      "height": 1.5,
+      "color": "#9f9a96",
+      "material": "cliff",
+      "band": {
+        "at": "waterline",
+        "height": 0.9,
+        "color": "#6b5f7a"
+      },
+      "description": "Quay wall along every coast: cliff face with a 0.9 m steel piling band at the waterline. The west coast is the slag shore (land.extras.slagShore) instead."
+    },
+    "extras": {
+      "slagShore": {
+        "polygon": [[-88, -66], [-78, -62], [-78, -6], [-88, -2]],
+        "terraces": 4,
+        "riserHeight": 1.2,
+        "colour": "#5a5560",
+        "fedBy": "foundry slag chute from (-76, -40) to (-84, -38)"
+      }
+    }
+  },
+  "water": [
+    {
+      "id": "harbour",
+      "kind": "sea",
+      "geometry": {
+        "kind": "complement"
+      },
+      "color": "#6f9fb8",
+      "material": "water",
+      "description": "everything outside land.outline; the basin is the south third (z > 52) and the strips west of x -88 and east of x 92-96"
+    },
+    {
+      "id": "canal",
+      "kind": "canal",
+      "geometry": {
+        "kind": "polygon",
+        "vertices": [[40, 53], [50, 53], [50, -16], [52, -22], [50, -32], [40, -34], [34, -28], [36, -18], [40, -14]]
+      },
+      "color": "#5f8ea6",
+      "material": "canal",
+      "description": "Canal 10 m wide cutting north from the harbour at x 40-50 to a turning basin at (44, -24); a lift bridge carries the quay road over its mouth.",
+      "extras": {
+        "width": 10,
+        "turningBasin": {
+          "center": [44, -24],
+          "radius": 8
+        },
+        "liftBridge": {
+          "center": [45, 40],
+          "span": 12,
+          "liftsForBarge": true
+        }
+      }
+    },
+    {
+      "id": "cooling-basin",
+      "kind": "basin",
+      "geometry": {
+        "kind": "disc",
+        "center": [83, -20],
+        "radius": 5
+      },
+      "color": "#5f8ea6",
+      "material": "canal",
+      "description": "Cooling basin inside the Pipeworks."
+    }
+  ],
+  "soloIsland": {
+    "id": "pump-island",
+    "district": "pump-island",
+    "center": [72, 82],
+    "radius": 13,
+    "polygon": [[60, 76], [68, 69], [78, 70], [85, 78], [84, 88], [76, 95], [65, 93], [59, 85]],
+    "feature": "walking-beam pump station: nodding beam 9 m, fuel tank, jetty with hut, warning-light mast",
+    "population": {
+      "0": 0,
+      "25": 1,
+      "50": 2,
+      "75": 3,
+      "100": 4
+    },
+    "material": "cliff",
+    "offshoreGap": 30,
+    "access": "jetty with a moored skiff; no bridge"
+  },
+  "transit": [
+    {
+      "id": "rail-spine",
+      "kind": "rail",
+      "polyline": [[4, -100], [2, -70], [-2, -50], [2, -22], [7, 2], [6, 28], [6, 50]],
+      "width": 1.4,
+      "elevation": 0,
+      "color": "#6b5f7a",
+      "material": "rail",
+      "description": "freight train route from the fog to the quay; the works-town strip is built along it"
+    },
+    {
+      "id": "rail-foundry-siding",
+      "kind": "rail",
+      "polyline": [[0, -36], [-24, -44], [-50, -50]],
+      "width": 1.4,
+      "elevation": 0,
+      "color": "#6b5f7a",
+      "material": "rail"
+    },
+    {
+      "id": "rail-quay-siding",
+      "kind": "rail",
+      "polyline": [[6, 44], [30, 44]],
+      "width": 1.4,
+      "elevation": 0,
+      "color": "#6b5f7a",
+      "material": "rail"
+    },
+    {
+      "id": "pipe-rack-canal",
+      "kind": "pipe",
+      "polyline": [[72, -54], [72, -8], [58, 6], [54, 12], [54, 46], [58, 52]],
+      "width": 1.2,
+      "elevation": 4,
+      "color": "#4f8fb0",
+      "material": "pipeBlue",
+      "description": "the straight rack through the tank trio (the anchor), then down the canal's east bank to the pipe jetty"
+    },
+    {
+      "id": "pipe-rack-wall",
+      "kind": "pipe",
+      "polyline": [[66, -58], [66, -72]],
+      "width": 1.2,
+      "elevation": 4,
+      "color": "#4f8fb0",
+      "material": "pipeBlue",
+      "description": "into the gantry wall"
+    },
+    {
+      "id": "conveyor-wall-bridge",
+      "kind": "conveyor",
+      "polyline": [[-28, -70], [-46, -58]],
+      "width": 2.4,
+      "elevation": 8,
+      "color": "#a8563a",
+      "appearsAtBand": 75,
+      "description": "Elevated conveyor bridge from the gantry wall down to the Foundry.",
+      "extras": {
+        "beltSpeed": 0.8
+      }
+    },
+    {
+      "id": "quay-road",
+      "kind": "road",
+      "polyline": [[-34, 40], [38, 40], [52, 40], [70, 40]],
+      "width": 4,
+      "edgeWidth": 5.2,
+      "elevation": 0,
+      "color": "#d9d4cf",
+      "edgeColor": "#6b5f7a",
+      "material": "roadCore",
+      "description": "Quay road; canal lift bridge at x 40-50."
+    }
+  ],
+  "districts": [
+    {
+      "id": "dockyard",
+      "name": "Dockyard",
+      "band": 1,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[-36, 32], [-10, 28], [30, 30], [38, 36], [38, 58], [20, 62], [-12, 60], [-34, 56], [-42, 46]]
+      },
+      "fittedTo": "harbour quay; the south edge is 6-10 m into the water so berths and the crane rails sit over it",
+      "material": "quayPaving",
+      "anchor": {
+        "id": "quay-crane",
+        "description": "quay crane: 16 m T on rails over the water, plus a 3-colour container stack",
+        "position": [10, 52],
+        "footprint": [16, 10]
+      },
+      "features": ["container quay", "rail-mounted quay crane", "warehouse row", "2 barge berths", "lift bridge over the canal mouth", "quay rail siding", "forklift traffic"],
+      "building": "warehouse",
+      "buildingHeight": [6, 9],
+      "population": {
+        "0": 0,
+        "25": 3,
+        "50": 6,
+        "75": 10,
+        "100": 12
+      },
+      "populationNotes": {
+        "0": "quay crane and one container stack only",
+        "25": "3 warehouses, 8 containers, 1 barge, crane cab lit",
+        "50": "6 warehouses, 20 containers, bollards and lamps, quay siding",
+        "75": "10 warehouses, 40 containers, 2 barges, forklift, string of warning lights, lift bridge",
+        "100": "12 warehouses, 60 containers, 3 barges, second quay crane, 4 vehicles, 20 residents"
+      },
+      "props": {
+        "containers": {
+          "0": 0,
+          "25": 8,
+          "50": 20,
+          "75": 40,
+          "100": 60
+        },
+        "barges": {
+          "0": 0,
+          "25": 1,
+          "50": 1,
+          "75": 2,
+          "100": 3
+        }
+      },
+      "extras100": ["second quay crane", "4 vehicles", "20 residents"],
+      "accent": {
+        "object": "crane cab",
+        "hex": "#e8a13a"
+      },
+      "camera": {
+        "pitchDeg": 32,
+        "azimuthDeg": 96,
+        "fitWidth": 0.82
+      },
+      "laneYaw": 1.5,
+      "stationAzimuth": 96
+    },
+    {
+      "id": "foundry",
+      "name": "Foundry",
+      "band": 2,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[-76, -58], [-48, -60], [-42, -46], [-46, -26], [-60, -16], [-74, -24], [-78, -42]]
+      },
+      "fittedTo": "the wedge between the gantry-wall foot (z -68) and the slag shore (x -78)",
+      "material": "groundAlt",
+      "anchor": {
+        "id": "blast-furnace",
+        "description": "blast furnace: 10 m drum with a cone top and a tilted chute pouring onto the slag terraces",
+        "position": [-64, -40],
+        "footprint": [10, 10]
+      },
+      "features": ["blast furnace", "casting shed", "ladle crane", "press row", "chimney trio", "slag chute to the shore", "rail siding", "coke heaps"],
+      "building": "furnace-hall",
+      "buildingHeight": [8, 12],
+      "population": {
+        "0": 0,
+        "25": 2,
+        "50": 5,
+        "75": 8,
+        "100": 10
+      },
+      "populationNotes": {
+        "0": "furnace and chute only",
+        "25": "casting shed, coke store, 2 chimneys, 1 press, molten slit lit",
+        "50": "5 buildings, 4 chimneys, 2 presses, ladle crane, siding",
+        "75": "8 buildings, 6 chimneys, 4 presses, conveyor bridge from the wall, lamps",
+        "100": "10 buildings, 8 chimneys, 6 presses, second furnace, slag wagons on the siding"
+      },
+      "props": {
+        "chimneys": {
+          "0": 0,
+          "25": 2,
+          "50": 4,
+          "75": 6,
+          "100": 8
+        },
+        "presses": {
+          "0": 0,
+          "25": 1,
+          "50": 2,
+          "75": 4,
+          "100": 6
+        }
+      },
+      "extras100": ["second furnace", "slag wagons on the siding"],
+      "accent": {
+        "object": "molten slit in the furnace door",
+        "hex": "#ff7a3a"
+      },
+      "camera": {
+        "pitchDeg": 34,
+        "azimuthDeg": 20,
+        "fitWidth": 0.9
+      },
+      "laneYaw": 0.4,
+      "stationAzimuth": 20
+    },
+    {
+      "id": "works-town",
+      "name": "Works town",
+      "band": 3,
+      "shape": {
+        "kind": "strip",
+        "centreline": [[-2, -50], [2, -22], [7, 2]],
+        "width": 34
+      },
+      "fittedTo": "the rail spine; halls on the east side of the rails, terraces on the west",
+      "material": "groundAlt",
+      "anchor": {
+        "id": "water-tower-sawtooth",
+        "description": "water tower on 4 legs (12 m) beside a 3-tooth sawtooth roof",
+        "position": [-6, -12],
+        "footprint": [27, 10]
+      },
+      "features": ["assembly hall with sawtooth roof", "conveyor between halls", "brick terraces (residents' homes)", "canteen", "water tower", "halt platform on the spine"],
+      "building": "terrace-house",
+      "buildingHeight": [4.5, 6],
+      "population": {
+        "0": 0,
+        "25": 5,
+        "50": 10,
+        "75": 17,
+        "100": 21
+      },
+      "populationNotes": {
+        "0": "water tower and sawtooth roof only",
+        "25": "1 hall, 4 terraces, halt with lit windows, 4 conveyor segments",
+        "50": "2 halls, 8 terraces, 8 conveyor segments, fences, lamps",
+        "75": "3 halls, 14 terraces, 14 conveyor segments, canteen, string lights",
+        "100": "3 halls, 18 terraces, 20 conveyor segments, second water tower, train halts here"
+      },
+      "props": {
+        "halls": {
+          "0": 0,
+          "25": 1,
+          "50": 2,
+          "75": 3,
+          "100": 3
+        },
+        "houses": {
+          "0": 0,
+          "25": 4,
+          "50": 8,
+          "75": 14,
+          "100": 18
+        },
+        "conveyorSegments": {
+          "0": 0,
+          "25": 4,
+          "50": 8,
+          "75": 14,
+          "100": 20
+        }
+      },
+      "extras100": ["second water tower", "the freight train halts here"],
+      "accent": {
+        "object": "first lit windows on the halt",
+        "hex": "#ffe9a8"
+      },
+      "camera": {
+        "pitchDeg": 34,
+        "azimuthDeg": 6,
+        "fitWidth": 0.8
+      },
+      "laneYaw": 0.1,
+      "stationAzimuth": 6,
+      "extras": {
+        "hallHeight": [9, 12]
+      }
+    },
+    {
+      "id": "pipeworks",
+      "name": "Pipeworks",
+      "band": 4,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[56, -56], [84, -58], [90, -38], [88, -12], [74, 2], [58, -4], [54, -30]]
+      },
+      "fittedTo": "the canal's east bank from the turning basin up to the wall foot",
+      "material": "groundAlt",
+      "anchor": {
+        "id": "tank-trio",
+        "description": "three tanks of three heights (18 / 10 / 8 m) tied by one straight pipe rack",
+        "position": [72, -32],
+        "footprint": [18, 26]
+      },
+      "features": ["tank farm: column, drum, sphere", "elevated pipe rack", "pump house", "cooling basin", "valve field", "steam vents", "pipe jetty on the canal"],
+      "building": "tank",
+      "buildingHeight": [8, 18],
+      "population": {
+        "0": 0,
+        "25": 2,
+        "50": 4,
+        "75": 7,
+        "100": 9
+      },
+      "populationNotes": {
+        "0": "the three anchor tanks and their rack only",
+        "25": "pump house, 1 more tank, 3 valves, 10 pipe segments, orange valve wheel",
+        "50": "4 tanks and houses, 6 valves, 20 pipe segments, cooling basin, lamps",
+        "75": "7, 10 valves, 32 pipe segments, steam vents, pipe jetty",
+        "100": "9, 14 valves, 44 pipe segments, sphere tank pair, rack into the wall"
+      },
+      "props": {
+        "valves": {
+          "0": 0,
+          "25": 3,
+          "50": 6,
+          "75": 10,
+          "100": 14
+        },
+        "pipeSegments": {
+          "0": 0,
+          "25": 10,
+          "50": 20,
+          "75": 32,
+          "100": 44
+        }
+      },
+      "extras100": ["sphere tank pair", "pipe rack into the gantry wall"],
+      "accent": {
+        "object": "one orange valve wheel",
+        "hex": "#e8a13a"
+      },
+      "camera": {
+        "pitchDeg": 34,
+        "azimuthDeg": -8,
+        "fitWidth": 0.8
+      },
+      "laneYaw": 0,
+      "stationAzimuth": -8
+    },
+    {
+      "id": "pump-island",
+      "name": "Pump island",
+      "band": 5,
+      "solitary": true,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[60, 76], [68, 69], [78, 70], [85, 78], [84, 88], [76, 95], [65, 93], [59, 85]]
+      },
+      "fittedTo": "the whole solitary island, 30 m off the quay",
+      "material": "cliff",
+      "anchor": {
+        "id": "walking-beam",
+        "description": "walking beam: a 9 m seesaw silhouette nodding at 0.25 Hz, plus the light mast",
+        "position": [72, 82],
+        "footprint": [17, 9]
+      },
+      "features": ["walking-beam pump", "fuel tank", "jetty with hut", "warning-light mast", "second pump at 100 %"],
+      "building": "pump-shed",
+      "buildingHeight": [4.5, 7],
+      "population": {
+        "0": 0,
+        "25": 1,
+        "50": 2,
+        "75": 3,
+        "100": 4
+      },
+      "populationNotes": {
+        "0": "walking beam and light mast only",
+        "25": "fuel tank, mast light lit",
+        "50": "jetty with hut, drums",
+        "75": "pump shed, lamps, moored skiff",
+        "100": "second walking beam, second tank"
+      },
+      "extras100": ["second walking beam", "second fuel tank"],
+      "accent": {
+        "object": "mast light",
+        "hex": "#e8a13a"
+      },
+      "camera": {
+        "pitchDeg": 36,
+        "azimuthDeg": 24,
+        "fitWidth": 0.7
+      },
+      "laneYaw": -0.6,
+      "stationAzimuth": 24
+    }
+  ],
+  "landmark": {
+    "id": "great-works",
+    "name": "Great Works",
+    "position": [-77, 68],
+    "plinth": {
+      "kind": "slab with a 4 m causeway to the west quay",
+      "polygon": [[-90, 58], [-66, 58], [-64, 78], [-90, 80]],
+      "height": 0,
+      "material": "cliff",
+      "color": "#9f9a96",
+      "causeway": [[-79, 52], [-75, 52], [-75, 58], [-79, 58]]
+    },
+    "stages": {
+      "s1": {
+        "name": "gear press",
+        "height": 6,
+        "persists": ["slab", "gear"],
+        "grows": [
+          "press block #9f9a96 with a 3 m gear on its face"
+        ],
+        "lights": [],
+        "motion": ["ram strokes 0.8 m at 0.5 Hz"]
+      },
+      "s2": {
+        "name": "press house",
+        "height": 12,
+        "persists": ["slab", "gear", "press"],
+        "grows": ["brick house #9b6357 around the press", "one chimney", "flywheel", "conveyor in"],
+        "lights": ["6 windows #ffe9a8"],
+        "motion": ["flywheel 1 turn per 4 s", "chimney puff every 2.4 s"]
+      },
+      "s3": {
+        "name": "great works",
+        "height": 20,
+        "persists": ["everything from s2"],
+        "grows": ["3 chimneys", "gantry over the hall", "roof water tank", "gable gear 6 m"],
+        "lights": ["windows", "4 warning lights #e8a13a", "chimney glow #e8a13a"],
+        "motion": ["gantry trolley", "conveyor into the door", "stacked puffs"]
+      }
+    },
+    "motif": "gear (catalog factory line)",
+    "ruin": {
+      "id": "factory-ruin-lid-off",
+      "brief": "s2 walls with the roof leaning against them, a bent pipe puffing, crates scattered, gantry frozen mid-travel"
+    }
+  },
+  "marker": {
+    "side": "#9f9a96",
+    "top": "#b9b4b0",
+    "lip": "#6b5f7a",
+    "rim": "riveted steel edge band, orange chevron #e8a13a every 30 degrees",
+    "props": [
+      {
+        "slot": "P1",
+        "id": "gantry-crane",
+        "height": 8,
+        "color": "#6b5f7a",
+        "colours": ["#6b5f7a", "#e8a13a"],
+        "accent": "#e8a13a",
+        "direction": [-0.7, -0.7],
+        "description": "gantry crane"
+      },
+      {
+        "slot": "P2",
+        "id": "chimney-pair",
+        "height": 6,
+        "color": "#e6dfd3",
+        "colours": ["#e6dfd3", "#a8563a", "#fffaf3"],
+        "accent": null,
+        "direction": [1, -0.2],
+        "description": "chimney-stack pair with one smoke puff"
+      },
+      {
+        "slot": "P3",
+        "id": "piston-press",
+        "height": 4.8,
+        "color": "#9f9a96",
+        "colours": ["#9f9a96", "#6b5f7a"],
+        "accent": null,
+        "direction": [-0.7, 0.7],
+        "description": "piston press block, moving ram"
+      },
+      {
+        "slot": "P4",
+        "id": "pipe-elbows",
+        "height": 4,
+        "color": "#4f8fb0",
+        "colours": ["#4f8fb0"],
+        "accent": null,
+        "direction": [0.6, -0.8],
+        "description": "pipe elbow run, 3 elbows"
+      }
+    ],
+    "accent": {
+      "object": "crane cab",
+      "hex": "#e8a13a"
+    },
+    "signpost": false,
+    "silhouette48": "a T-shaped gantry over a grey disc",
+    "night": {
+      "emissive": ["crane cab window", "chimney tops #e8a13a"],
+      "pedestalEmits": false
+    }
+  },
+  "ambient": {
+    "smoke": {
+      "puffPeriodS": 2.4,
+      "colour": "#fffaf3"
+    },
+    "steam": {
+      "ventPeriodS": [6, 9],
+      "colour": "#ffffff"
+    },
+    "motion": {
+      "skylineTrolleyPeriodS": 14,
+      "quayCraneTrolleyPeriodS": 10,
+      "conveyorSpeedMS": 0.8,
+      "pressHz": 0.5,
+      "walkingBeamHz": 0.25
+    },
+    "warningLightBlinkHz": 0.5,
+    "events": [
+      {
+        "id": "freight-train",
+        "route": "transit.rail-spine",
+        "everyS": [60, 120],
+        "visibleS": 30,
+        "consist": "engine + 5 wagons"
+      },
+      {
+        "id": "barge",
+        "route": "water.canal",
+        "everyS": [90, 150],
+        "visibleS": 40,
+        "liftsBridge": true
+      }
+    ],
+    "night": {
+      "groundLightnessOffset": -0.22,
+      "window": "#ffe9a8",
+      "chimneyGlow": "#e8a13a",
+      "molten": "#ff7a3a",
+      "lamp": "#ffb347"
+    }
+  },
+  "catastrophe": {
+    "weather": "soot squall rolling out of the gantry wall",
+    "ruin": "machine stall: trolleys, presses and conveyors freeze mid-stroke; train stops on the bridge; one boiler lid pops (factory-ruin-lid-off); sparks #e8a13a at 2 Hz from a snapped cable; steam bursts",
+    "recovery": "forklift arrives, lid lifts back on, whistle, trolleys resume one by one"
+  },
+  "creatureRoster": {
+    "accents": ["#3b5f7a", "#7a4b6e", "#8fc9d8"]
+  }
+}

@@ -12,10 +12,10 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 px-8 py-16 text-center">
-      {icon ? <div className="text-ink-faint">{icon}</div> : null}
-      <h3 className="text-sm font-medium text-ink">{title}</h3>
-      {body ? <p className="max-w-sm text-[13px] leading-relaxed text-ink-dim">{body}</p> : null}
+    <div className="sg-status is-inline">
+      {icon ? <div className="sg-status-icon">{icon}</div> : null}
+      <h3>{title}</h3>
+      {body ? <p>{body}</p> : null}
       {action}
     </div>
   );

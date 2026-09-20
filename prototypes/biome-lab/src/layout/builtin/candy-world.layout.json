@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "biome": "candy-world",
+  "name": "Candy World",
+  "status": "LAB-LOCAL DRAFT 2026-09-20: no docs/design/world/layouts/candy-world.layout.json exists yet; this file lives in the lab so the candy renderers have data. Replace with the factory's layout when it lands (same field names as future-utopia.layout.json).",
+  "notes": [
+    "Coordinates in metres: x east, z south (toward the default camera), y up; settled ground at y = 0. Frame x, z in [-100, 100]; the land continues past z = -70 into the whipped-cream skyline and fog.",
+    "References: refs/biome-library/candy-world/ 03-neopop-plush-village (pink and blue plush hills, a pale path winding between frosted houses), 05-pastel-fantasy-landscape (lollipop spires, whipped peaks, a frosted castle), 01-plush-cloud-castle (castle on cotton-candy mounds), 04-pastel-village (island of mushroom houses on a milk lagoon).",
+    "Original toybox forms only: gumdrop houses, wafer houses, cupcake towers, lollipop trees, macaron stalls. No brand candy."
+  ],
+  "palette": {
+    "ground": "#f6dbe9",
+    "groundAlt": "#f0c6dc",
+    "sugar": "#fbeaf2",
+    "frosting": "#f0c6dc",
+    "mint": "#cdeee0",
+    "lawn": "#cdeee0",
+    "paving": "#fff3e6",
+    "cliff": "#e6a9c6",
+    "water": "#c4e4f6",
+    "waterNight": "#3a4a7a",
+    "canal": "#a9d4ef",
+    "sky": "#e9dcf7",
+    "skyNight": "#2b2450",
+    "fog": "#f3e6f4",
+    "marshmallow": "#fff6f1",
+    "strawberry": "#f6b3c8",
+    "blueberry": "#b7d3f2",
+    "lemon": "#f8e6a8",
+    "pistachio": "#b9e3c6",
+    "lavender": "#d8c6f1",
+    "chocolate": "#8d5e48",
+    "peakPink": "#f4b8cb",
+    "peakBlue": "#7f8fe0",
+    "window": "#ffe9a8",
+    "accent": "#ff6f91",
+    "accentWarm": "#ff6f91",
+    "blossom": "#f6a5c8",
+    "ink": "#4a3a55"
+  },
+  "land": {
+    "worldExtent": 110,
+    "frameRadius": 92,
+    "seaLevel": -0.4,
+    "groundHeight": 1.4,
+    "relief": 0.5,
+    "mainland": {
+      "kind": "polygon",
+      "vertices": [
+        [-100, -70], [100, -70], [100, -12], [94, 18], [88, 42], [62, 50], [34, 56], [4, 52],
+        [-26, 58], [-58, 52], [-84, 48], [-100, 38]
+      ]
+    },
+    "skyline": {
+      "kind": "candy-peaks",
+      "description": "whipped-cream peaks in pink and blue with lollipop spires between them and cotton-candy clouds behind; the only thing that grows",
+      "arc": { "arcZ": -88, "arcCurve": 0.0012, "footDepth": 18 },
+      "footZ": -70,
+      "fogStartZ": -80,
+      "fogOpaqueZ": -108,
+      "pitch": 20,
+      "growth": {
+        "0": { "peaks": 3, "peakHeight": 14, "lollipops": 0, "lollipopHeight": 0, "clouds": 0, "cloudHeight": 0, "rows": 1 },
+        "25": { "peaks": 5, "peakHeight": 19, "lollipops": 2, "lollipopHeight": 14, "clouds": 0, "cloudHeight": 0, "rows": 1 },
+        "50": { "peaks": 6, "peakHeight": 24, "lollipops": 3, "lollipopHeight": 18, "clouds": 2, "cloudHeight": 30, "rows": 2 },
+        "75": { "peaks": 8, "peakHeight": 29, "lollipops": 5, "lollipopHeight": 22, "clouds": 3, "cloudHeight": 34, "rows": 2 },
+        "100": { "peaks": 9, "peakHeight": 34, "lollipops": 6, "lollipopHeight": 26, "clouds": 4, "cloudHeight": 38, "rows": 3, "lit": 1 }
+      }
+    },
+    "soloIsland": {
+      "id": "sundae-isle",
+      "center": [66, 80],
+      "radius": 15,
+      "outline": [[54, 70], [64, 66], [76, 70], [82, 80], [76, 92], [62, 94], [52, 84]],
+      "feature": "sundae fountain: a three-scoop tower with a cherry, syrup pouring into a ring basin; parfait huts around it"
+    },
+    "water": [
+      { "id": "milk-lagoon", "kind": "sea", "hex": "#c4e4f6", "note": "everything outside the mainland and the island" },
+      { "id": "syrup-river", "kind": "river", "hex": "#a9d4ef", "width": 5, "centreline": [[-64, -70], [-60, -50], [-48, -36], [-36, -24], [-28, -6], [-22, 14], [-14, 32], [-8, 52]] },
+      { "id": "milkshake-pool", "kind": "pool", "hex": "#a9d4ef", "center": [22, 30], "radius": 5, "innerRadius": 2.5 }
+    ],
+    "paths": [
+      { "id": "licorice-path", "kind": "path", "width": 3.2, "points": [[-70, 44], [-52, 30], [-40, 10], [-30, -2], [-8, 4], [8, 16], [30, 14], [50, 6], [70, 0], [86, -8]] }
+    ],
+    "creatureEvent": {
+      "id": "lagoon-whale",
+      "arc": { "center": [10, 82], "radius": 10 },
+      "hex": "#b7d3f2",
+      "bellyHex": "#fff6f1"
+    }
+  },
+  "districts": [
+    {
+      "id": "gumdrop-village",
+      "name": "Gumdrop Village",
+      "band": 1,
+      "anchor": "gumdrop well: a striped candy-cane windlass over a frosting well, on the syrup river",
+      "shape": { "kind": "strip", "centreline": [[-78, -44], [-56, -38], [-36, -22], [-24, -4]], "width": 28 },
+      "laneYaw": 0.9,
+      "stationAzimuth": 60,
+      "features": ["gumdrop houses with frosting roofs in two rows", "syrup river through the strip with wafer footbridges", "candy-cane lamps", "gumdrop bushes"],
+      "building": "gumdrop-house",
+      "buildingHeight": 5.5,
+      "material": "sugar",
+      "population": { "0": 0, "25": 3, "50": 7, "75": 11, "100": 14 },
+      "extrasAt100": "string lights between the houses, a second footbridge, cherry pennants",
+      "accent": "#ff6f91",
+      "accentObject": "cherry on the well roof",
+      "camera": { "pitchDeg": 32, "azimuthDeg": 60, "fitWidth": 0.82 }
+    },
+    {
+      "id": "macaron-market",
+      "name": "Macaron Market",
+      "band": 2,
+      "anchor": "candy gate: two wafer pillars with a macaron arch, over the market lane",
+      "shape": { "kind": "polygon", "vertices": [[4, 16], [30, 12], [44, 22], [44, 42], [28, 52], [6, 50], [-2, 32]] },
+      "laneYaw": 0.2,
+      "stationAzimuth": 10,
+      "features": ["wafer houses with striped awnings", "macaron stalls", "the milkshake ring pool", "sugar paving"],
+      "building": "wafer-house",
+      "buildingHeight": 6,
+      "material": "paving",
+      "population": { "0": 0, "25": 2, "50": 5, "75": 8, "100": 10 },
+      "extrasAt100": "eight macaron stalls, bunting across the lane, a candy cart",
+      "accent": "#ff6f91",
+      "accentObject": "first stall canopy",
+      "camera": { "pitchDeg": 32, "azimuthDeg": 10, "fitWidth": 0.82 }
+    },
+    {
+      "id": "cupcake-court",
+      "name": "Cupcake Court",
+      "band": 3,
+      "anchor": "cupcake stand: a tiered cake-stand plinth with one giant cupcake, cherry on top",
+      "shape": { "kind": "polygon", "vertices": [[20, -60], [60, -62], [68, -46], [56, -30], [26, -30], [14, -46]] },
+      "laneYaw": 1.5,
+      "stationAzimuth": 80,
+      "features": ["cupcake towers (frosting swirl roofs)", "sprinkle paving", "gumdrop hedges", "the whipped peaks rise directly behind"],
+      "building": "cupcake-tower",
+      "buildingHeight": 9,
+      "material": "frosting",
+      "population": { "0": 0, "25": 2, "50": 4, "75": 6, "100": 8 },
+      "extrasAt100": "cherry pennants on every swirl, a sprinkle fountain",
+      "accent": "#ff6f91",
+      "accentObject": "the cherry on the stand",
+      "camera": { "pitchDeg": 30, "azimuthDeg": 80, "fitWidth": 0.82 }
+    },
+    {
+      "id": "lollipop-grove",
+      "name": "Lollipop Grove",
+      "band": 4,
+      "anchor": "lollipop ring: seven giant lollipops in a ring around a mint clearing",
+      "shape": { "kind": "polygon", "vertices": [[68, -10], [92, -6], [94, 18], [82, 32], [66, 26], [62, 6]] },
+      "laneYaw": 0.4,
+      "stationAzimuth": -40,
+      "features": ["lollipop cottages", "lollipop trees", "mint lawn", "candy-cane fence"],
+      "building": "lollipop-cottage",
+      "buildingHeight": 5,
+      "material": "mint",
+      "population": { "0": 0, "25": 2, "50": 4, "75": 6, "100": 7 },
+      "extrasAt100": "lollipops doubled, a swing between two lollipops",
+      "accent": "#ff6f91",
+      "accentObject": "the first cherry lollipop",
+      "camera": { "pitchDeg": 32, "azimuthDeg": -40, "fitWidth": 0.82 }
+    },
+    {
+      "id": "sundae-isle",
+      "name": "Sundae Isle",
+      "band": 5,
+      "solitary": true,
+      "anchor": "sundae fountain: three scoops, syrup, cherry",
+      "shape": { "kind": "polygon", "vertices": [[54, 70], [64, 66], [76, 70], [82, 80], [76, 92], [62, 94], [52, 84]] },
+      "laneYaw": -0.6,
+      "stationAzimuth": 0,
+      "features": ["sundae fountain", "parfait huts", "a wafer dock", "a punt boat"],
+      "building": "parfait-hut",
+      "buildingHeight": 4.5,
+      "material": "sugar",
+      "population": { "0": 0, "25": 1, "50": 2, "75": 3, "100": 4 },
+      "extrasAt100": "sprinkles lit at night, a second cherry",
+      "accent": "#ff6f91",
+      "accentObject": "the cherry",
+      "camera": { "pitchDeg": 34, "azimuthDeg": 0, "fitWidth": 0.7 }
+    }
+  ],
+  "landmark": {
+    "id": "frosting-castle",
+    "position": [-70, 38],
+    "motif": "castle",
+    "plinth": { "kind": "cake-stand headland", "radius": 9, "heightM": 0.8 },
+    "stages": [
+      { "id": "s1", "name": "Cake Stand", "heightM": 5, "footprint": [6, 6], "brief": "a tiered cake stand with one candle" },
+      { "id": "s2", "name": "Gingerbread Keep", "heightM": 12, "footprint": [12, 10], "brief": "a square keep with frosting battlements and a cone roof" },
+      { "id": "s3", "name": "Frosting Castle", "heightM": 20, "footprint": [18, 14], "brief": "four corner towers with striped cone roofs around the keep, cherry finials, lit windows" }
+    ]
+  },
+  "scale": { "creatureHeight": 1.8, "creatureScale": 1.6, "houseHeight": [4.5, 6], "minCreatureViewportFraction": 0.06, "minDistrictGapM": 20, "pixelCellPx": 2 }
+}

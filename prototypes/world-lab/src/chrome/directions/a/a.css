@@ -1,0 +1,1301 @@
+/* Direction A: Paper & Pixel. Plan: docs/design/site/directions/a-paper-and-pixel.md.
+   Every colour is declared once here: five world colours unchanged, and ink at an alpha.
+   Every selector is scoped under .dir-a. Only transform, opacity, colour, background,
+   border, box-shadow, and stroke ever animate. */
+
+.dir-a {
+  /* World colours, unchanged */
+  --a-paper: #fff6df;
+  --a-window: #e8e2f2;
+  --a-ink: #342d45;
+  --a-lamp: #ffe7a3;
+  --a-live: #e88a8a;
+
+  /* Ink ramp over paper */
+  --a-ink-3: color-mix(in srgb, var(--a-ink) 3.5%, transparent);
+  --a-ink-5: color-mix(in srgb, var(--a-ink) 5.5%, transparent);
+  --a-ink-7: color-mix(in srgb, var(--a-ink) 7%, transparent);
+  --a-ink-10: color-mix(in srgb, var(--a-ink) 10.5%, transparent);
+  --a-ink-14: color-mix(in srgb, var(--a-ink) 14%, transparent);
+  --a-ink-20: color-mix(in srgb, var(--a-ink) 20%, transparent);
+  --a-ink-75: color-mix(in srgb, var(--a-ink) 75%, transparent);
+  --a-ink-hover: color-mix(in srgb, var(--a-ink) 88%, var(--a-paper));
+
+  /* Type */
+  --a-display: 'Zen Maru Gothic', 'M PLUS Rounded 1c', sans-serif;
+  --a-ui: 'Instrument Sans', system-ui, sans-serif;
+  --a-mono: 'Departure Mono', ui-monospace, monospace;
+
+  /* Radius */
+  --a-r-4: 4px;
+  --a-r-8: 8px;
+  --a-r-12: 12px;
+  --a-r-16: 16px;
+
+  /* Shadow: hairline ring, the raised sheet, and the recessed window (crisp, no blur) */
+  --a-shadow-hairline: 0 0 0 1px var(--a-ink-10);
+  --a-shadow-sheet: 0 0 0 1px var(--a-ink-10), 0 1px 0 var(--a-ink-7), 0 4px 12px var(--a-ink-5);
+  --a-shadow-window: inset 0 0 0 1px var(--a-ink-10), inset 0 2px 0 var(--a-ink-14);
+
+  /* Motion, Megaminx values */
+  --a-t-instant: 75ms;
+  --a-t-quick: 100ms;
+  --a-t: 140ms;
+  --a-t-reveal: 160ms;
+  --a-t-tactile: 220ms;
+  --a-t-view: 250ms;
+  --a-t-aperture: 720ms;
+  --a-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --a-ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --a-ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --a-ease-spring: linear(0, 0.62 20%, 1.043 40%, 0.995 60%, 1 70%, 1);
+  --a-ease-aperture: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* Layout */
+  --a-gutter: 24px;
+  --a-content: 1344px;
+
+  /* The lab shell hides overflow on html, body and #root, so the paper scrolls itself. */
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 72px;
+  background: var(--a-paper);
+  color: var(--a-ink);
+  font-family: var(--a-ui);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 900px) {
+  .dir-a {
+    --a-gutter: 48px;
+  }
+}
+
+.dir-a *,
+.dir-a *::before,
+.dir-a *::after {
+  box-sizing: border-box;
+}
+
+.dir-a h1,
+.dir-a h2,
+.dir-a h3,
+.dir-a p,
+.dir-a ul,
+.dir-a ol,
+.dir-a dl,
+.dir-a dd {
+  margin: 0;
+  padding: 0;
+}
+
+.dir-a ul,
+.dir-a ol {
+  list-style: none;
+}
+
+.dir-a button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dir-a :focus-visible {
+  outline: 2px solid var(--a-ink);
+  outline-offset: 2px;
+}
+
+/* ---------- Type roles: three display sizes, two UI weights, mono at 11 and 22 ---------- */
+
+.dir-a .a-display {
+  font-family: var(--a-display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 0;
+}
+
+@media (min-width: 900px) {
+  .dir-a .a-display {
+    font-size: 56px;
+    line-height: 60px;
+  }
+}
+
+.dir-a .a-title {
+  font-family: var(--a-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.dir-a .a-body {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.dir-a .a-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.dir-a .a-muted {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-eyebrow {
+  display: inline-block;
+  font-family: var(--a-mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-wordmark {
+  font-family: var(--a-mono);
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* ---------- Controls ---------- */
+
+.dir-a .a-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--a-ink);
+  background: transparent;
+  box-shadow: var(--a-shadow-hairline);
+  white-space: nowrap;
+  transition:
+    background-color var(--a-t-quick) var(--a-ease-out-quad),
+    color var(--a-t-quick) var(--a-ease-out-quad),
+    box-shadow var(--a-t-quick) var(--a-ease-out-quad),
+    transform var(--a-t-tactile) var(--a-ease-spring);
+}
+
+.dir-a .a-btn:hover {
+  background: var(--a-ink-5);
+}
+
+.dir-a .a-btn:active {
+  transform: scale(0.97);
+  transition-duration: var(--a-t-instant);
+  transition-timing-function: var(--a-ease-standard);
+}
+
+.dir-a .a-btn-primary {
+  height: 36px;
+  padding: 0 18px;
+  background: var(--a-ink);
+  color: var(--a-paper);
+  box-shadow: none;
+}
+
+.dir-a .a-btn-primary:hover {
+  background: var(--a-ink-hover);
+}
+
+.dir-a .a-btn-sm {
+  height: 32px;
+  padding: 0 14px;
+}
+
+.dir-a .a-btn-text {
+  box-shadow: none;
+  padding: 0 10px;
+}
+
+.dir-a .a-btn-xs {
+  height: 20px;
+  padding: 0 6px;
+  font-size: 13px;
+}
+
+.dir-a .a-back::before {
+  content: '<';
+  margin-right: 6px;
+  color: var(--a-ink-75);
+}
+
+/* Evidence chips. The ladder lights up the way the observatory's windows do:
+   hollow, then a faint fill, then the lamp. */
+.dir-a .a-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--a-ink);
+  box-shadow: inset 0 0 0 1px var(--a-ink-20);
+  white-space: nowrap;
+  transition:
+    background-color var(--a-t) var(--a-ease-out-quad),
+    box-shadow var(--a-t) var(--a-ease-out-quad);
+}
+
+.dir-a .a-chip-lg {
+  height: 28px;
+  padding: 0 12px;
+}
+
+.dir-a .a-chip[data-state='demonstrated'] {
+  background: var(--a-ink-10);
+}
+
+.dir-a .a-chip[data-state='mastered'] {
+  background: var(--a-lamp);
+}
+
+/* Name tab: the speaker's own accent, ink text. Colour here means who is talking. */
+.dir-a .a-tab {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--a-ink);
+  background: var(--tab-accent, var(--a-ink-10));
+  transition: transform var(--a-t-tactile) var(--a-ease-spring), box-shadow var(--a-t-quick) var(--a-ease-out-quad);
+}
+
+.dir-a button.a-tab:hover {
+  box-shadow: 0 0 0 1px var(--a-ink-20);
+}
+
+.dir-a button.a-tab[aria-pressed='true'] {
+  box-shadow: 0 0 0 2px var(--a-paper), 0 0 0 3px var(--a-ink);
+}
+
+.dir-a button.a-tab:active {
+  transform: scale(0.97);
+  transition-duration: var(--a-t-instant);
+  transition-timing-function: var(--a-ease-standard);
+}
+
+/* Segmented stage control. The thumb Settles on transform only. */
+.dir-a .a-seg {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 32px;
+  padding: 2px;
+  border-radius: var(--a-r-8);
+  background: var(--a-ink-3);
+  box-shadow: var(--a-shadow-hairline);
+}
+
+.dir-a .a-seg-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  width: calc((100% - 4px) / 3);
+  border-radius: 6px;
+  background: var(--a-paper);
+  box-shadow: 0 0 0 1px var(--a-ink-14);
+  transform: translateX(calc(var(--i, 0) * 100%));
+  transition: transform var(--a-t-tactile) var(--a-ease-spring);
+}
+
+.dir-a .a-seg-item {
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--a-ink-75);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: color var(--a-t-quick) var(--a-ease-out-quad);
+}
+
+.dir-a .a-seg-item[aria-checked='true'] {
+  color: var(--a-ink);
+}
+
+.dir-a .a-seg-item:active {
+  transform: scale(0.97);
+}
+
+/* Counters, Departure Mono. 22 on the bar and margin, 11 never here. */
+.dir-a .a-counters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  font-family: var(--a-mono);
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.dir-a .a-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dir-a .a-counters-22 {
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.dir-a .a-counters-22 dt {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-counters dd {
+  display: inline-block;
+}
+
+/* ---------- Bars: one at any moment ---------- */
+
+.dir-a .a-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 56px;
+  padding: 0 var(--a-gutter);
+  background: var(--a-paper);
+}
+
+.dir-a .a-bar-pinned {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 48px;
+  box-shadow: 0 1px 0 var(--a-ink-10);
+}
+
+.dir-a .a-bar-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dir-a .a-bar-lead,
+.dir-a .a-bar-trail {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.dir-a .a-bar-eyebrow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dir-a .a-bar-counters {
+  display: none;
+}
+
+@media (min-width: 1344px) {
+  .dir-a .a-bar-counters {
+    display: flex;
+  }
+}
+
+.dir-a .a-readonly {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--a-ink-20);
+}
+
+/* ---------- The window ---------- */
+
+.dir-a .a-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--a-r-16);
+  background: var(--a-paper);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The recess is drawn over the canvas so the inner edge stays crisp above the pixels. */
+.dir-a .a-window::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: var(--a-shadow-window);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (min-width: 600px) {
+  .dir-a .a-window {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Aperture: the world is revealed through a slit that opens from the window's horizontal centre
+   line to its edges over 720 ms. The window itself is paper until the canvas shows through, so
+   the two halves that part are paper, and only clip-path moves. */
+.dir-a .a-window-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.dir-a .a-window-stage[data-cut='true'] {
+  animation: a-cut var(--a-t-aperture) var(--a-ease-aperture) both;
+}
+
+@keyframes a-cut {
+  from {
+    clip-path: inset(50% 0 50% 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- The bubble ---------- */
+
+.dir-a .a-bubble {
+  position: relative;
+  z-index: 3;
+  /* Own compositor layer, so the tail always paints above the WebGL canvas it crosses into. */
+  will-change: transform;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px 16px 16px;
+  border-radius: var(--a-r-16);
+  background: var(--a-paper);
+  box-shadow: var(--a-shadow-sheet);
+  outline-offset: 4px;
+}
+
+.dir-a .a-bubble > .a-tab {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+}
+
+.dir-a .a-bubble-line {
+  font-family: var(--a-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.dir-a .a-bubble-ref {
+  margin-top: 12px;
+  font-family: var(--a-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-bubble-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dir-a .a-bubble-note {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--a-ink-75);
+}
+
+/* The tail: paper, hairline on its two outer edges, 12 px, pointing at the speaker.
+   Default points up out of the top edge (docked under the window). */
+.dir-a .a-tail {
+  position: absolute;
+  top: -11px;
+  left: var(--a-tail-x, 72px);
+  width: 24px;
+  height: 12px;
+  transform: rotate(180deg);
+  overflow: visible;
+}
+
+.dir-a .a-tail-fill {
+  fill: var(--a-paper);
+}
+
+.dir-a .a-tail-edge {
+  fill: none;
+  stroke: var(--a-ink-10);
+  stroke-width: 1;
+}
+
+/* ---------- Motion classes ---------- */
+
+@keyframes a-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes a-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes a-rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes a-crawl {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.dir-a .a-reveal {
+  animation: a-reveal var(--a-t-reveal) var(--a-ease-out-quint) both;
+  transform-origin: var(--a-tail-x, 72px) 0;
+}
+
+.dir-a .a-fade {
+  animation: a-fade-in var(--a-t-quick) var(--a-ease-out-quad) both;
+}
+
+.dir-a .a-rise {
+  animation: a-rise var(--a-t-reveal) var(--a-ease-out-quint) both;
+}
+
+/* ---------- Landing ---------- */
+
+.dir-a .a-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'copy'
+    'window'
+    'bubble';
+  row-gap: 0;
+  max-width: var(--a-content);
+  margin: 0 auto;
+  padding: 24px var(--a-gutter) 48px;
+}
+
+.dir-a .a-hero-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+
+.dir-a .a-hero-sub {
+  margin-top: 8px;
+  max-width: 520px;
+}
+
+.dir-a .a-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.dir-a .a-hero-window {
+  grid-area: window;
+}
+
+/* The bubble docks under the window at Pip's x; only its tail crosses the window's edge. */
+.dir-a .a-hero-bubble {
+  grid-area: bubble;
+  position: relative;
+  min-height: 24px;
+  padding-top: 4px;
+  padding-left: max(0px, calc(27% - 72px));
+}
+
+.dir-a .a-hero-hint {
+  padding-top: 8px;
+}
+
+@media (min-width: 1400px) {
+  .dir-a .a-hero {
+    grid-template-columns: minmax(360px, 400px) minmax(880px, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      'copy window'
+      '. bubble';
+    column-gap: 48px;
+    align-items: stretch;
+    padding-top: 32px;
+  }
+
+  .dir-a .a-hero-copy {
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .dir-a .a-hero-actions {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+}
+
+.dir-a .a-section {
+  max-width: var(--a-content);
+  margin: 0 auto;
+  padding: 48px var(--a-gutter);
+  box-shadow: inset 0 1px 0 var(--a-ink-10);
+}
+
+.dir-a .a-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.dir-a .a-card {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--a-r-12);
+  background: var(--a-paper);
+  box-shadow: var(--a-shadow-hairline);
+  text-align: left;
+  color: inherit;
+}
+
+.dir-a .a-state-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .dir-a .a-state-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dir-a .a-state-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'num chip'
+    'event event'
+    'effect effect'
+    'fact fact';
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 4px;
+  min-height: 176px;
+  transition:
+    background-color var(--a-t-quick) var(--a-ease-out-quad),
+    box-shadow var(--a-t-quick) var(--a-ease-out-quad);
+}
+
+.dir-a .a-state-card:hover {
+  background: color-mix(in srgb, var(--a-ink) 3.5%, var(--a-paper));
+}
+
+.dir-a .a-state-card[aria-pressed='true'] {
+  box-shadow: 0 0 0 1px var(--a-ink-20);
+}
+
+.dir-a .a-state-num {
+  grid-area: num;
+  font-family: var(--a-mono);
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.dir-a .a-state-card .a-chip {
+  grid-area: chip;
+  justify-self: start;
+}
+
+.dir-a .a-state-event {
+  grid-area: event;
+  margin-top: 16px;
+}
+
+.dir-a .a-state-effect {
+  grid-area: effect;
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-state-fact {
+  grid-area: fact;
+  margin-top: 12px;
+}
+
+/* Postcard: two halves, a message and an address block with a postmark. */
+.dir-a .a-postcard {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 880px;
+  border-radius: var(--a-r-12);
+  box-shadow: var(--a-shadow-hairline);
+  overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .dir-a .a-postcard {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dir-a .a-postcard-address {
+    box-shadow: -1px 0 0 var(--a-ink-10);
+  }
+}
+
+.dir-a .a-postcard-message,
+.dir-a .a-postcard-address {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+}
+
+.dir-a .a-postcard-address {
+  align-items: flex-start;
+}
+
+.dir-a .a-address-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 12px;
+  background: var(--a-ink-10);
+}
+
+.dir-a .a-address-short {
+  width: 60%;
+}
+
+.dir-a .a-postcard-address .a-btn {
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.dir-a .a-live-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dir-a .a-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--a-live);
+}
+
+.dir-a .a-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.dir-a .a-cta .a-body {
+  max-width: 520px;
+}
+
+.dir-a .a-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--a-content);
+  margin: 0 auto;
+  padding: 24px var(--a-gutter) 0;
+  box-shadow: inset 0 1px 0 var(--a-ink-10);
+}
+
+.dir-a .a-footer-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+/* ---------- World and visit pages ---------- */
+
+.dir-a .a-page {
+  max-width: var(--a-content);
+  margin: 0 auto;
+  padding: 24px var(--a-gutter) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dir-a .a-page-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dir-a .a-world-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.dir-a .a-margin {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dir-a .a-margin-bubble {
+  margin-top: 0;
+}
+
+/* Below 600 the stage control leaves the bar for the margin so the bar stays one row. */
+.dir-a .a-bar-seg {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .dir-a .a-bar-seg {
+    display: grid;
+  }
+
+  .dir-a .a-margin-seg {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .dir-a .a-bar-eyebrow {
+    display: none;
+  }
+}
+
+.dir-a .a-margin-counters {
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1344px) {
+  .dir-a .a-world-grid {
+    grid-template-columns: minmax(880px, 1fr) 320px;
+    column-gap: 48px;
+    align-items: start;
+  }
+
+  .dir-a .a-margin-bubble {
+    margin-left: -44px;
+    max-width: none;
+    transform-origin: 0 26px;
+  }
+
+  .dir-a .a-margin-bubble .a-tail {
+    top: 26px;
+    left: -17px;
+    transform: rotate(90deg);
+  }
+
+  .dir-a .a-margin-counters {
+    display: none;
+  }
+}
+
+.dir-a .a-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dir-a .a-strip-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Drop zone: a dashed ink-20 edge that crawls only while a file is held over it. */
+.dir-a .a-drop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px;
+  border-radius: var(--a-r-12);
+  background: var(--a-ink-3);
+  transition: background-color var(--a-t-quick) var(--a-ease-out-quad);
+}
+
+.dir-a .a-drop[data-over='true'] {
+  background: var(--a-ink-5);
+}
+
+.dir-a .a-drop-edge {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.dir-a .a-drop-edge rect {
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+  fill: none;
+  stroke: var(--a-ink-20);
+  stroke-width: 1;
+  stroke-dasharray: 6 4;
+}
+
+.dir-a .a-drop[data-over='true'] .a-drop-edge rect {
+  animation: a-crawl 1.6s linear infinite;
+}
+
+/* The evidence sheet: a paper sheet laid flush on the page, hairline ring, radius 16. */
+.dir-a .a-sheet {
+  border-radius: var(--a-r-16);
+  box-shadow: var(--a-shadow-hairline);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dir-a .a-sheet-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.dir-a .a-sheet-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 1100px) {
+  .dir-a .a-sheet-body {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    column-gap: 32px;
+  }
+}
+
+.dir-a .a-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.dir-a .a-row {
+  display: grid;
+  grid-template-columns: 208px 120px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 16px;
+  height: 28px;
+  padding: 0 8px;
+  margin: 0 -8px;
+  border-radius: var(--a-r-4);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color var(--a-t) var(--a-ease-out-quad);
+}
+
+.dir-a .a-row > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dir-a .a-row-head {
+  height: 24px;
+  font-family: var(--a-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--a-ink-75);
+  box-shadow: inset 0 -1px 0 var(--a-ink-10);
+  margin-bottom: 4px;
+}
+
+.dir-a .a-row[role='option'] {
+  cursor: pointer;
+}
+
+.dir-a .a-row[role='option']:hover {
+  background: var(--a-ink-5);
+}
+
+.dir-a .a-row[aria-selected='true'] {
+  background: var(--a-ink-7);
+}
+
+.dir-a .a-row-source {
+  color: var(--a-ink-75);
+  font-weight: 400;
+}
+
+.dir-a .a-row-page {
+  text-align: right;
+}
+
+.dir-a .a-row .a-btn-xs {
+  opacity: 0;
+  transition: opacity var(--a-t-quick) var(--a-ease-out-quad), background-color var(--a-t-quick) var(--a-ease-out-quad);
+}
+
+.dir-a .a-row:hover .a-btn-xs,
+.dir-a .a-row[aria-selected='true'] .a-btn-xs,
+.dir-a .a-row .a-btn-xs:focus-visible {
+  opacity: 1;
+}
+
+@media (max-width: 899px) {
+  .dir-a .a-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'concept state'
+      'source page';
+    height: auto;
+    padding: 6px 8px;
+    row-gap: 0;
+  }
+
+  .dir-a .a-row-head {
+    display: none;
+  }
+
+  .dir-a .a-row-concept {
+    grid-area: concept;
+  }
+
+  .dir-a .a-row > span:nth-child(2) {
+    grid-area: state;
+  }
+
+  .dir-a .a-row-source {
+    grid-area: source;
+  }
+
+  .dir-a .a-row-page {
+    grid-area: page;
+  }
+
+  .dir-a .a-row .a-btn-xs {
+    opacity: 1;
+  }
+}
+
+.dir-a .a-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--a-r-12);
+  background: var(--a-ink-3);
+}
+
+.dir-a .a-pane .a-title {
+  margin-top: -4px;
+}
+
+.dir-a .a-facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 16px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.dir-a .a-facts div {
+  display: contents;
+}
+
+.dir-a .a-facts dt {
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-facts dd {
+  font-weight: 500;
+}
+
+.dir-a .a-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.dir-a .a-list li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background: var(--a-ink);
+  vertical-align: 2px;
+}
+
+.dir-a .a-list-off {
+  color: var(--a-ink-75);
+}
+
+.dir-a .a-list-off li::before {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--a-ink-20);
+}
+
+/* Visit: a postcard. Narrower window, wider paper, the caption set like a postmark. */
+.dir-a .a-page-visit {
+  align-items: stretch;
+}
+
+.dir-a .a-visit-window {
+  max-width: 928px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dir-a .a-visit-bubble {
+  --a-tail-x: 50%;
+  margin: -20px auto 0;
+  transform-origin: 50% 0;
+}
+
+.dir-a .a-visit-bubble .a-tail {
+  margin-left: -12px;
+}
+
+.dir-a .a-postmark-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px 48px;
+  max-width: 928px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dir-a .a-postmark-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dir-a .a-page-visit .a-sheet {
+  max-width: 928px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-a .a-btn,
+  .dir-a .a-tab,
+  .dir-a .a-seg-item,
+  .dir-a .a-seg-thumb,
+  .dir-a .a-chip,
+  .dir-a .a-row,
+  .dir-a .a-state-card {
+    transition-duration: var(--a-t-quick);
+    transition-property: background-color, color, box-shadow;
+  }
+
+  .dir-a .a-btn:active,
+  .dir-a button.a-tab:active,
+  .dir-a .a-seg-item:active {
+    transform: none;
+  }
+
+  .dir-a .a-seg-thumb {
+    transition: none;
+  }
+
+  .dir-a .a-reveal,
+  .dir-a .a-rise {
+    animation-name: a-fade-in;
+    animation-duration: var(--a-t-quick);
+    animation-delay: 0ms;
+  }
+
+  .dir-a .a-window-stage[data-cut='true'] {
+    animation-name: a-fade-in;
+    animation-duration: var(--a-t-quick);
+  }
+
+  .dir-a .a-drop[data-over='true'] .a-drop-edge rect {
+    animation: none;
+  }
+}

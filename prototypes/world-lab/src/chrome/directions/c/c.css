@@ -1,0 +1,1002 @@
+/* Direction C: Sticker Toybox. A cream sheet with stamps on it.
+   Plan: docs/design/site/directions/c-sticker-toybox.md. Every selector is scoped under .dir-c.
+   Every colour is declared once below and derived from the world palette or from ink at an alpha. */
+
+.dir-c {
+  /* world colours, unchanged */
+  --paper: #fff6df;
+  --ink: #342d45;
+  --sky: #e8e2f2;
+  --coral: #e88a8a;
+
+  /* biome grounds from .fleet/org.md; chips only */
+  --sticker-ice: #e6f2fb;
+  --sticker-forest: #8fc48a;
+  --sticker-city: #d9c3d6;
+  --sticker-sand: #efd9a2;
+  --sticker-meadow: #bfe0a0;
+  --sticker-ocean: #9fd3e0;
+  --sticker-volcanic: #c9a08f;
+
+  /* ink alpha ramp, in percent */
+  --ink-3: color-mix(in srgb, var(--ink) 3.5%, transparent);
+  --ink-5: color-mix(in srgb, var(--ink) 5.5%, transparent);
+  --ink-7: color-mix(in srgb, var(--ink) 7%, transparent);
+  --ink-10: color-mix(in srgb, var(--ink) 10.5%, transparent);
+  --ink-14: color-mix(in srgb, var(--ink) 14%, transparent);
+  --ink-20: color-mix(in srgb, var(--ink) 20%, transparent);
+  --ink-70: color-mix(in srgb, var(--ink) 70%, transparent);
+
+  /* the primary's clay face: a hair lighter than ink so pure ink reads as its lower inset */
+  --clay-face: color-mix(in srgb, var(--ink) 90%, var(--paper));
+  --clay-light: color-mix(in srgb, var(--paper) 28%, transparent);
+
+  /* type */
+  --display: 'Fredoka', 'Nunito', sans-serif;
+  --ui: 'Instrument Sans', system-ui, sans-serif;
+  --mono: 'Departure Mono', ui-monospace, monospace;
+
+  /* motion, Megaminx values */
+  --duration-instant: 75ms;
+  --duration-quick: 100ms;
+  --duration: 140ms;
+  --duration-reveal: 160ms;
+  --duration-tactile: 220ms;
+  --duration-view: 250ms;
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-tactile: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-spring: linear(0, 0.62 20%, 1.043 40%, 0.995 60%, 1 70%, 1);
+
+  /* layout */
+  --gutter: 32px;
+  --page-max: 1376px;
+
+  /* The lab shell hides overflow on html, body and #root, so the sheet scrolls itself. */
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 var(--gutter) 72px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--ui);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dir-c *,
+.dir-c *::before,
+.dir-c *::after {
+  box-sizing: border-box;
+}
+
+.dir-c a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dir-c :focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
+}
+
+.dir-c h1,
+.dir-c h2,
+.dir-c p,
+.dir-c ul,
+.dir-c dl,
+.dir-c dd {
+  margin: 0;
+  padding: 0;
+}
+
+.dir-c ul {
+  list-style: none;
+}
+
+.dir-c .c-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- type roles ---------- */
+
+.dir-c .c-display-56,
+.dir-c .c-display-40,
+.dir-c .c-display-28 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.dir-c .c-display-56 {
+  font-size: 56px;
+  line-height: 60px;
+}
+
+.dir-c .c-display-40 {
+  font-size: 40px;
+  line-height: 44px;
+}
+
+.dir-c .c-display-28 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.dir-c .c-body {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.dir-c .c-ui {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.dir-c .c-caption {
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.dir-c .c-muted {
+  color: var(--ink-70);
+}
+
+.dir-c .c-mono-22 {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* The stamp: label, breadcrumb and citation. 8 px above whatever it titles. */
+.dir-c .c-stamp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 4px;
+  margin: 0 0 8px;
+  color: var(--ink-70);
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dir-c .c-stamp-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dir-c .c-stamp-dot {
+  color: var(--ink-20);
+}
+
+.dir-c .c-stamp-link,
+.dir-c .c-stamp-back {
+  display: inline-block;
+  padding: 0 2px;
+  margin: 0 -2px;
+  border-radius: 4px;
+  transition: background-color var(--duration-quick) var(--ease-out-quad);
+}
+
+.dir-c .c-stamp-back {
+  margin-right: 4px;
+  color: var(--ink);
+}
+
+.dir-c .c-stamp-link:hover,
+.dir-c .c-stamp-back:hover {
+  background: var(--ink-5);
+}
+
+.dir-c .c-link {
+  font-size: 15px;
+  line-height: 20px;
+  padding: 6px 8px;
+  margin: -6px -8px;
+  border-radius: 8px;
+  transition: background-color var(--duration-quick) var(--ease-out-quad);
+}
+
+.dir-c .c-link:hover {
+  background: var(--ink-5);
+}
+
+/* ---------- surfaces ---------- */
+
+/* Card on paper: hairline, no shadow, zero accent of its own. */
+.dir-c .c-card {
+  padding: 24px;
+  border: 1px solid var(--ink-14);
+  border-radius: 16px;
+  background: var(--paper);
+}
+
+/* Sheet over the world: the only surface with a shadow. */
+.dir-c .c-sheet {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 0 1px 0 var(--ink-7), 0 8px 24px var(--ink-10);
+}
+
+.dir-c .c-band {
+  display: flex;
+  flex-direction: column;
+}
+
+.dir-c .c-band .c-stamp {
+  margin-bottom: 12px;
+}
+
+/* ---------- controls ---------- */
+
+/* Primary: ink clay on an ink-20 ledge. The face travels 4 px on press; the ledge never moves. */
+.dir-c .c-primary {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 0 4px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--paper);
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.dir-c .c-primary::before {
+  content: '';
+  position: absolute;
+  inset: 4px 0 0;
+  border-radius: 12px;
+  background: var(--ink-20);
+}
+
+.dir-c .c-primary-face {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--clay-face);
+  box-shadow: inset 0 1px 0 var(--clay-light), inset 0 -2px 0 var(--ink);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-c .c-primary:active .c-primary-face {
+  transform: translateY(4px);
+  transition-duration: var(--duration-instant);
+  transition-timing-function: var(--ease-standard);
+}
+
+.dir-c .c-primary.is-wide {
+  width: 100%;
+}
+
+.dir-c .c-primary.is-wide .c-primary-face {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Secondary: paper, hairline, standard Press. */
+.dir-c .c-secondary {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--ink-14);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-quick) var(--ease-out-quad),
+    transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-c .c-secondary:hover {
+  background: var(--ink-5);
+}
+
+.dir-c .c-secondary:active {
+  transform: scale(0.97);
+  transition-duration: var(--duration-quick), var(--duration-instant);
+  transition-timing-function: var(--ease-out-quad), var(--ease-standard);
+}
+
+.dir-c .c-secondary.is-small {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.dir-c .c-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Segmented camera control; the thumb Settles on the spring. */
+.dir-c .c-seg {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  height: 32px;
+  padding: 2px;
+  border: 1px solid var(--ink-14);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.dir-c .c-seg button {
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+  border: 0;
+  background: none;
+  color: var(--ink-70);
+  font: inherit;
+  font-size: 13px;
+  line-height: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color var(--duration) var(--ease-out-quad);
+}
+
+.dir-c .c-seg button[aria-pressed='true'] {
+  color: var(--ink);
+}
+
+.dir-c .c-seg-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  width: calc(50% - 2px);
+  border-radius: 6px;
+  background: var(--ink-10);
+  transition: transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-c .c-seg[data-view='resident'] .c-seg-thumb {
+  transform: translateX(100%);
+}
+
+/* Share code field: pixel type at 22 is the one place stamps get big. */
+.dir-c .c-code-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.dir-c .c-code-input {
+  width: 200px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--ink-14);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ---------- stickers and chips ---------- */
+
+/* One sticker, three inkings. The 2 px outline is the ring; it never widens, only the fill Snaps. */
+.dir-c .c-sticker {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 28px;
+  padding: 0 10px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  line-height: 16px;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration) var(--ease-out-quad),
+    color var(--duration) var(--ease-out-quad),
+    opacity var(--duration) var(--ease-out-quad),
+    transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-c .c-sticker[data-stage='demonstrated'] {
+  background: var(--coral);
+}
+
+.dir-c .c-sticker[data-stage='mastered'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.dir-c .c-sticker.is-dim {
+  opacity: 0.4;
+}
+
+.dir-c button.c-sticker {
+  cursor: pointer;
+}
+
+.dir-c button.c-sticker:hover {
+  opacity: 1;
+}
+
+.dir-c button.c-sticker:active {
+  transform: scale(0.97);
+  transition-duration: var(--duration), var(--duration), var(--duration), var(--duration-instant);
+}
+
+.dir-c .c-sticker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Biome chip: a lozenge in its ground colour, no outline, ink text. */
+.dir-c .c-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 16px;
+  text-transform: lowercase;
+}
+
+.dir-c .c-chip[data-biome='ice'] {
+  background: var(--sticker-ice);
+}
+
+.dir-c .c-chip[data-biome='forest'] {
+  background: var(--sticker-forest);
+}
+
+.dir-c .c-chip[data-biome='city'] {
+  background: var(--sticker-city);
+}
+
+.dir-c .c-chip[data-biome='sand'] {
+  background: var(--sticker-sand);
+}
+
+.dir-c .c-chip[data-biome='meadow'] {
+  background: var(--sticker-meadow);
+}
+
+.dir-c .c-chip[data-biome='ocean'] {
+  background: var(--sticker-ocean);
+}
+
+.dir-c .c-chip[data-biome='volcanic'] {
+  background: var(--sticker-volcanic);
+}
+
+.dir-c .c-glyph {
+  flex-shrink: 0;
+  fill: var(--ink);
+}
+
+.dir-c .c-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: var(--coral);
+  vertical-align: 2px;
+}
+
+/* ---------- top bar ---------- */
+
+.dir-c .c-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.dir-c .c-bar .c-stamp {
+  margin: 0;
+}
+
+.dir-c .c-bar-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---------- world window ---------- */
+
+.dir-c .c-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--sky);
+  animation: c-fade var(--duration-view) var(--ease-out-quint) both;
+}
+
+/* ---------- landing ---------- */
+
+.dir-c .c-hero {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.dir-c .c-hero-window {
+  max-height: 720px;
+}
+
+/* The hero card is stuck across the window's bottom left edge, like a sticker over a print. */
+.dir-c .c-hero-card {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  margin: -128px 0 0 32px;
+}
+
+.dir-c .c-hero-card .c-display-56 {
+  margin-bottom: 16px;
+}
+
+.dir-c .c-hero-card .c-body {
+  margin-bottom: 24px;
+}
+
+.dir-c .c-section {
+  max-width: var(--page-max);
+  margin: 96px auto 0;
+}
+
+.dir-c .c-section .c-display-40 {
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.dir-c .c-states {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.dir-c .c-card-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 16px;
+}
+
+.dir-c .c-visit-teaser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--ink-7);
+}
+
+.dir-c .c-visit-teaser .c-display-28 {
+  max-width: 560px;
+}
+
+.dir-c .c-footer {
+  max-width: var(--page-max);
+  margin: 96px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--ink-7);
+}
+
+.dir-c .c-footer .c-stamp {
+  margin: 0;
+}
+
+/* ---------- world and visit ---------- */
+
+.dir-c .c-world-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 32px;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.dir-c .c-world-main {
+  min-width: 0;
+}
+
+/* Topic and resident cards sit across the window's bottom left edge, the golden HUD's position. */
+.dir-c .c-topic-card {
+  position: relative;
+  z-index: 1;
+  width: min(440px, calc(100% - 64px));
+  margin: -96px 0 0 32px;
+}
+
+.dir-c .c-topic-card .c-display-28 {
+  margin-bottom: 12px;
+}
+
+.dir-c .c-topic-card .c-ui + .c-ui {
+  margin-top: 8px;
+}
+
+.dir-c .c-topic-card .c-actions {
+  margin-top: 16px;
+}
+
+.dir-c .c-resident-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dir-c .c-margin {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 8px;
+}
+
+.dir-c .c-counters {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 24px;
+}
+
+.dir-c .c-counters .c-stamp {
+  margin-bottom: 4px;
+}
+
+.dir-c .c-residents {
+  padding: 16px 8px 8px;
+}
+
+.dir-c .c-residents .c-stamp {
+  padding: 0 8px;
+}
+
+.dir-c .c-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration-quick) var(--ease-out-quad);
+}
+
+.dir-c .c-row:hover {
+  background: var(--ink-5);
+}
+
+.dir-c .c-resident-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.dir-c .c-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.dir-c .c-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-height: 96px;
+  padding: 12px;
+  border: 1px solid var(--ink-14);
+  border-radius: 12px;
+  transition: background-color var(--duration) var(--ease-out-quad);
+}
+
+.dir-c .c-tile .c-stamp {
+  margin: 0;
+}
+
+.dir-c .c-tile-name {
+  flex: 1;
+}
+
+.dir-c .c-tile:hover {
+  background: var(--ink-5);
+}
+
+.dir-c .c-tile[aria-current='page'] {
+  background: var(--ink-3);
+  border-color: var(--ink-20);
+}
+
+.dir-c .c-evidence {
+  max-width: var(--page-max);
+  margin: 48px auto 0;
+}
+
+.dir-c .c-evidence-list {
+  border-top: 1px solid var(--ink-7);
+}
+
+.dir-c .c-evidence-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 320px) auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  min-height: 48px;
+  padding: 6px 8px;
+  margin: 0 -8px;
+  border-bottom: 1px solid var(--ink-7);
+  border-radius: 8px;
+  transition: background-color var(--duration-quick) var(--ease-out-quad);
+}
+
+.dir-c .c-evidence-row:hover {
+  background: var(--ink-5);
+}
+
+.dir-c .c-evidence-page {
+  justify-self: end;
+}
+
+/* Visit banner: a stamped strip above the world, carrying the screen's one primary. */
+.dir-c .c-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 48px;
+  max-width: var(--page-max);
+  margin: 24px auto 32px;
+  padding: 24px;
+  border: 1px solid var(--ink-14);
+  border-radius: 16px;
+}
+
+.dir-c .c-banner .c-display-28 {
+  max-width: 560px;
+}
+
+/* ---------- motion ---------- */
+
+/* Reveal, sticker variant: one overshoot on the spring, opacity on the quint. */
+@keyframes c-pop-scale {
+  from {
+    transform: scale(0.92);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes c-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.dir-c .c-pop {
+  animation:
+    c-pop-scale var(--duration-tactile) var(--ease-spring) both,
+    c-fade var(--duration-tactile) var(--ease-out-quint) both;
+}
+
+/* Idle bob: 2 px on Pulse's period, staggered, paused while the pointer is in the sheet. */
+@keyframes c-bob {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.dir-c .c-bob {
+  animation: c-bob 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * -0.53s);
+}
+
+.dir-c .c-residents:hover .c-bob {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-c .c-pop {
+    animation: c-fade var(--duration-quick) var(--ease-out-quad) both;
+  }
+
+  .dir-c .c-bob,
+  .dir-c .c-window {
+    animation: none;
+  }
+
+  .dir-c .c-primary-face,
+  .dir-c .c-secondary,
+  .dir-c .c-sticker,
+  .dir-c .c-seg-thumb {
+    transition-duration: 0ms;
+  }
+
+  .dir-c .c-primary:active .c-primary-face,
+  .dir-c .c-secondary:active,
+  .dir-c button.c-sticker:active {
+    transform: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1279px) {
+  .dir-c .c-world-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dir-c .c-margin {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-7);
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dir-c {
+    --gutter: 16px;
+  }
+
+  .dir-c .c-display-56 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  .dir-c .c-display-40 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .dir-c .c-bar {
+    padding: 16px 0;
+  }
+
+  .dir-c .c-hero-card,
+  .dir-c .c-topic-card {
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 16px;
+    box-shadow: none;
+    border: 1px solid var(--ink-14);
+  }
+
+  .dir-c .c-hero-card .c-actions .c-primary {
+    width: 100%;
+  }
+
+  .dir-c .c-hero-card .c-actions .c-primary-face {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dir-c .c-card,
+  .dir-c .c-banner {
+    padding: 16px;
+  }
+
+  .dir-c .c-section {
+    margin-top: 64px;
+  }
+
+  .dir-c .c-states {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .dir-c .c-margin {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .dir-c .c-evidence-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'concept sticker'
+      'source page';
+    row-gap: 4px;
+    padding: 12px 8px;
+  }
+
+  .dir-c .c-evidence-concept {
+    grid-area: concept;
+  }
+
+  .dir-c .c-evidence-row .c-sticker {
+    grid-area: sticker;
+  }
+
+  .dir-c .c-evidence-source {
+    grid-area: source;
+  }
+
+  .dir-c .c-evidence-row .c-secondary,
+  .dir-c .c-evidence-page {
+    grid-area: page;
+    justify-self: end;
+  }
+
+  .dir-c .c-code-input {
+    width: 100%;
+  }
+
+  .dir-c .c-code-row {
+    width: 100%;
+  }
+}

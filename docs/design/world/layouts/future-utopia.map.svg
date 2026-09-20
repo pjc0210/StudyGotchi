@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" font-family="Helvetica, Arial, sans-serif">
+  <title>Futuristic Utopia (future-utopia): top-down layout, 200 x 200 m</title>
+  <desc>Hand-authored plan for docs/design/world/layouts/future-utopia.layout.json. 1000 px = 200 m (5 px per metre). x east, z south maps to SVG y; the skyline is at the top (z negative), the default camera looks in from the bottom (+z). Flat palette colours only.</desc>
+  <defs>
+    <pattern id="grid20" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#2f3a44" stroke-width="0.16" opacity="0.14"/>
+    </pattern>
+  </defs>
+
+  <!-- Lagoon: everything not land. -->
+  <rect width="1000" height="1000" fill="#6fcbe0"/>
+
+  <!-- One SVG unit = one metre inside this group. -->
+  <g transform="translate(500 500) scale(5)">
+
+    <!-- MAINLAND: back edge runs under the fog band (skyline foot), west edge runs off the frame. -->
+    <path id="mainland" d="M-100,-100 L40,-100 L40,-72 L46,-58 L44,-48 L60,-50 L78,-44 L86,-30 L84,-12 L70,-4 L52,-2 L42,4 L44,18 L48,26 L62,28 L66,36 L58,42 L46,40 L36,50 L16,56 L-8,58 L-30,54 L-48,50 L-72,46 L-86,40 L-100,30 Z"
+          fill="#e3f2ec" stroke="#c7dfd6" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M40,-72 L46,-58 L44,-48 L60,-50 L78,-44 L86,-30 L84,-12 L70,-4 L52,-2 L42,4 L44,18 L48,26 L62,28 L66,36 L58,42 L46,40 L36,50 L16,56 L-8,58 L-30,54 L-48,50 L-72,46 L-86,40 L-100,30"
+          fill="none" stroke="#3fd1c9" stroke-width="0.5" stroke-linejoin="round"/>
+
+    <!-- SOLITARY ISLAND: Arboretum Isle, lobed, shelves on the south-west. -->
+    <polygon points="52,62 66,58 78,63 84,74 82,88 72,97 58,96 47,88 45,74"
+             fill="#e3f2ec" stroke="#c7dfd6" stroke-width="2.4" stroke-linejoin="round"/>
+    <polygon points="52,62 66,58 78,63 84,74 82,88 72,97 58,96 47,88 45,74"
+             fill="none" stroke="#3fd1c9" stroke-width="0.5" stroke-linejoin="round"/>
+    <path d="M48,80 L52,90 L60,94" fill="none" stroke="#c7dfd6" stroke-width="0.8"/>
+    <path d="M47,74 L50,86 L57,92" fill="none" stroke="#c7dfd6" stroke-width="0.8"/>
+
+    <!-- OPEN LAWN: the Commons (not a district). -->
+    <polygon points="-14,-20 20,-24 34,-8 26,6 -4,4 -16,-8" fill="#a9d9a4"/>
+    <circle cx="-6" cy="-10" r="1.6" fill="#8fc48a"/><circle cx="4" cy="-16" r="1.6" fill="#8fc48a"/>
+    <circle cx="16" cy="-14" r="1.6" fill="#8fc48a"/><circle cx="24" cy="-4" r="1.6" fill="#8fc48a"/>
+    <circle cx="10" cy="0" r="1.6" fill="#8fc48a"/><circle cx="-4" cy="-2" r="1.6" fill="#8fc48a"/>
+
+    <!-- DISTRICTS: filled polygons, dashed ink outline. -->
+    <polygon id="d-waterfront" points="-16,22 2,18 20,18 30,26 30,40 18,54 -4,59 -22,54 -30,40"
+             fill="#cfe7df" stroke="#2f3a44" stroke-width="0.5" stroke-dasharray="2 1.2" stroke-linejoin="round"/>
+    <polygon id="d-canal" points="-52.2,48.5 -49.4,31.6 -44.1,15.6 -37.2,1.8 -33.6,-9.7 -62.4,-18.3 -64.8,-9.8 -71.9,4.4 -78.6,24.4 -81.8,43.5"
+             fill="#cfe7df" stroke="#2f3a44" stroke-width="0.5" stroke-dasharray="2 1.2" stroke-linejoin="round"/>
+    <polygon id="d-forum" points="-60,-72 18,-72 22,-60 16,-48 -6,-46 -30,-47 -50,-52 -62,-62"
+             fill="#cfe7df" stroke="#2f3a44" stroke-width="0.5" stroke-dasharray="2 1.2" stroke-linejoin="round"/>
+    <polygon id="d-skyport" points="48,-46 62,-48 76,-42 82,-30 80,-14 68,-8 54,-6 46,-14 44,-30"
+             fill="#cfe7df" stroke="#2f3a44" stroke-width="0.5" stroke-dasharray="2 1.2" stroke-linejoin="round"/>
+    <polygon id="d-arboretum" points="50,66 64,61 78,66 82,78 76,92 60,94 48,84"
+             fill="#cfe7df" stroke="#2f3a44" stroke-width="0.5" stroke-dasharray="2 1.2" stroke-linejoin="round"/>
+
+    <!-- CANAL (7 m) with round basin, three glass footbridges, quay paths, market canopies. -->
+    <polyline points="-67,52 -64,28 -58,10 -51,-4 -48,-14" fill="none" stroke="#5fbfd6" stroke-width="7" stroke-linecap="butt" stroke-linejoin="round"/>
+    <circle cx="-48" cy="-16" r="6" fill="#5fbfd6"/>
+    <polyline points="-61,46 -58.5,28 -52.5,10 -45.5,-4" fill="none" stroke="#c7dfd6" stroke-width="2.2" stroke-linejoin="round"/>
+    <polyline points="-61,46 -58.5,28 -52.5,10 -45.5,-4" fill="none" stroke="#f4fbf8" stroke-width="1.4" stroke-linejoin="round"/>
+    <polyline points="-73,46 -69.5,28 -63.5,10 -56.5,-4" fill="none" stroke="#c7dfd6" stroke-width="2.2" stroke-linejoin="round"/>
+    <polyline points="-73,46 -69.5,28 -63.5,10 -56.5,-4" fill="none" stroke="#f4fbf8" stroke-width="1.4" stroke-linejoin="round"/>
+    <line x1="-69.9" y1="33.2" x2="-60.1" y2="34.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="-63.95" y1="12.45" x2="-54.65" y2="15.55" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="-55.1" y1="-7.4" x2="-45.7" y2="-4.6" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <polygon points="-73.5,45.5 -70.5,45.5 -72,42.8" fill="#ff9e6e"/>
+    <polygon points="-73,39.5 -70,39.5 -71.5,36.8" fill="#ff9e6e"/>
+    <polygon points="-72,33.5 -69,33.5 -70.5,30.8" fill="#ff9e6e"/>
+
+    <!-- WATERFRONT TERRACES: promenade, ring pool, hub arch. -->
+    <polyline points="-22,52 -4,57 18,52" fill="none" stroke="#c7dfd6" stroke-width="2.2" stroke-linejoin="round"/>
+    <polyline points="-22,52 -4,57 18,52" fill="none" stroke="#f4fbf8" stroke-width="1.4" stroke-linejoin="round"/>
+    <line x1="4" y1="37" x2="1" y2="41" stroke="#c7dfd6" stroke-width="2.2"/>
+    <line x1="4" y1="37" x2="1" y2="41" stroke="#f4fbf8" stroke-width="1.4"/>
+    <circle cx="0" cy="46" r="6" fill="#5fbfd6"/>
+    <circle cx="0" cy="46" r="3.5" fill="#e3f2ec"/>
+    <rect x="-7" y="-2.5" width="14" height="5" rx="1" fill="#c7dfd6" stroke="#ffffff" stroke-width="0.6" transform="translate(6 34) rotate(42.5)"/>
+
+    <!-- FORUM HEIGHTS: civic hall lens, lamp ring, blossom pair, forum axis, tree row. -->
+    <line x1="-15" y1="-58" x2="16" y2="-58" stroke="#c7dfd6" stroke-width="2.2"/>
+    <line x1="-15" y1="-58" x2="16" y2="-58" stroke="#f4fbf8" stroke-width="1.4"/>
+    <ellipse cx="-30" cy="-60" rx="14" ry="9" fill="#c7dfd6" stroke="#ffffff" stroke-width="1.0"/>
+    <ellipse cx="-30" cy="-60" rx="12.6" ry="7.8" fill="none" stroke="#3fd1c9" stroke-width="0.4"/>
+    <g fill="#3fd1c9">
+      <circle cx="-12" cy="-60" r="0.9"/><circle cx="-17.3" cy="-51.5" r="0.9"/><circle cx="-30" cy="-48" r="0.9"/><circle cx="-42.7" cy="-51.5" r="0.9"/>
+      <circle cx="-48" cy="-60" r="0.9"/><circle cx="-42.7" cy="-68.5" r="0.9"/><circle cx="-30" cy="-72" r="0.9"/><circle cx="-17.3" cy="-68.5" r="0.9"/>
+    </g>
+    <circle cx="-36" cy="-48.5" r="1.4" fill="#f2a0c0"/><circle cx="-24" cy="-48.5" r="1.4" fill="#f2a0c0"/>
+    <g fill="#8fc48a">
+      <circle cx="6" cy="-68" r="1.5"/><circle cx="10" cy="-68" r="1.5"/><circle cx="14" cy="-68" r="1.5"/><circle cx="18" cy="-68" r="1.5"/>
+    </g>
+
+    <!-- SKYPORT HEADLAND: mast, three pads, apron paths. -->
+    <polyline points="64,-16 66,-30 72,-22" fill="none" stroke="#c7dfd6" stroke-width="2.2" stroke-linejoin="round"/>
+    <polyline points="64,-16 66,-30 72,-22" fill="none" stroke="#f4fbf8" stroke-width="1.4" stroke-linejoin="round"/>
+    <polyline points="60,-40 66,-30 76,-36" fill="none" stroke="#c7dfd6" stroke-width="2.2" stroke-linejoin="round"/>
+    <polyline points="60,-40 66,-30 76,-36" fill="none" stroke="#f4fbf8" stroke-width="1.4" stroke-linejoin="round"/>
+    <circle cx="72" cy="-22" r="5" fill="#dfe9e6" stroke="#ffffff" stroke-width="0.6"/>
+    <circle cx="76" cy="-36" r="5" fill="#dfe9e6" stroke="#ffffff" stroke-width="0.6"/>
+    <circle cx="60" cy="-40" r="5" fill="#dfe9e6" stroke="#ffffff" stroke-width="0.6"/>
+    <circle cx="66" cy="-30" r="1.8" fill="#ffffff" stroke="#7d93b8" stroke-width="0.5"/>
+    <circle cx="66" cy="-30" r="0.8" fill="#ff9e6e"/>
+
+    <!-- ARBORETUM ISLE: garden dome, boardwalk ring, blossom ring, greenhouse pods, orchard. -->
+    <circle cx="64" cy="78" r="11" fill="none" stroke="#f4fbf8" stroke-width="1.2" stroke-dasharray="1.5 1"/>
+    <circle cx="64" cy="78" r="9" fill="#8fc48a" stroke="#c7dfd6" stroke-width="1.4"/>
+    <circle cx="64" cy="78" r="8.1" fill="none" stroke="#ffffff" stroke-width="0.4"/>
+    <g fill="#f2a0c0">
+      <circle cx="76" cy="78" r="1.4"/><circle cx="70" cy="88.4" r="1.4"/><circle cx="58" cy="88.4" r="1.4"/>
+      <circle cx="52" cy="78" r="1.4"/><circle cx="58" cy="67.6" r="1.4"/><circle cx="70" cy="67.6" r="1.4"/>
+    </g>
+    <g fill="#c7dfd6" stroke="#ffffff" stroke-width="0.4">
+      <circle cx="78" cy="70" r="2"/><circle cx="80" cy="79" r="2"/><circle cx="76" cy="86" r="2"/>
+    </g>
+    <g fill="#8fc48a">
+      <circle cx="51" cy="80" r="1.2"/><circle cx="53" cy="84" r="1.2"/><circle cx="56" cy="87" r="1.2"/><circle cx="59" cy="90" r="1.2"/>
+      <circle cx="63" cy="92" r="1.2"/><circle cx="67" cy="91" r="1.2"/><circle cx="71" cy="90" r="1.2"/>
+    </g>
+
+    <!-- LANDMARK: Spire of Accord on its own headland plinth. -->
+    <circle cx="58" cy="32" r="7.5" fill="#e3f2ec" stroke="#c7dfd6" stroke-width="2.4"/>
+    <circle cx="58" cy="32" r="7.5" fill="none" stroke="#3fd1c9" stroke-width="0.5"/>
+    <circle cx="58" cy="32" r="3.2" fill="#ffffff" stroke="#3fd1c9" stroke-width="0.8"/>
+    <circle cx="58" cy="32" r="1.0" fill="#2f3a44"/>
+    <circle cx="61" cy="36" r="1.4" fill="#f2a0c0"/>
+
+    <!-- TRANSIT LOOP: glass monorail, 6 m up, cyan underside, white rail; two water crossings. -->
+    <polygon points="6,34 30,56 56,66 74,52 76,26 64,-16 44,-54 -8,-58 -26,-44 -50,-46 -54,2 -34,30"
+             fill="none" stroke="#3fd1c9" stroke-width="2.0" stroke-linejoin="round"/>
+    <polygon points="6,34 30,56 56,66 74,52 76,26 64,-16 44,-54 -8,-58 -26,-44 -50,-46 -54,2 -34,30"
+             fill="none" stroke="#ffffff" stroke-width="1.0" stroke-linejoin="round"/>
+    <g fill="#ffffff" stroke="#2f3a44" stroke-width="0.5">
+      <circle cx="6" cy="34" r="2.2"/><circle cx="56" cy="66" r="2.2"/><circle cx="64" cy="-16" r="2.2"/>
+      <circle cx="-8" cy="-58" r="2.2"/><circle cx="-54" cy="2" r="2.2"/>
+    </g>
+    <g fill="#ff9e6e" stroke="#ffffff" stroke-width="0.5">
+      <circle cx="18" cy="45" r="1.6"/><circle cx="75" cy="39" r="1.6"/><circle cx="54" cy="-35" r="1.6"/><circle cx="-52" cy="-22" r="1.6"/>
+    </g>
+
+    <!-- LAGOON MANTA event arc (hidden 90 % of the time). -->
+    <circle cx="12" cy="86" r="10" fill="none" stroke="#7d93b8" stroke-width="0.6" stroke-dasharray="2 1.5"/>
+
+    <!-- SKYLINE: fog band and three rows of civic-spire footprints (the 100 % state: 11 + 7 + 5). -->
+    <rect x="-100" y="-100" width="200" height="26" fill="#eef7f4"/>
+    <line x1="-100" y1="-74" x2="100" y2="-74" stroke="#c7dfd6" stroke-width="0.8"/>
+    <g fill="#f8fcfa" stroke="#c3cfe0" stroke-width="0.3">
+      <rect x="-49.75" y="-97.75" width="3.5" height="3.5"/><rect x="-25.75" y="-97.75" width="3.5" height="3.5"/><rect x="-1.75" y="-97.75" width="3.5" height="3.5"/>
+      <rect x="22.25" y="-97.75" width="3.5" height="3.5"/><rect x="46.25" y="-97.75" width="3.5" height="3.5"/>
+    </g>
+    <g fill="#f4faf8" stroke="#a9bcd4" stroke-width="0.35">
+      <rect x="-65.25" y="-90.25" width="4.5" height="4.5"/><rect x="-44.25" y="-90.25" width="4.5" height="4.5"/><rect x="-23.25" y="-90.25" width="4.5" height="4.5"/>
+      <rect x="-2.25" y="-90.25" width="4.5" height="4.5"/><rect x="18.75" y="-90.25" width="4.5" height="4.5"/><rect x="39.75" y="-90.25" width="4.5" height="4.5"/>
+      <rect x="60.75" y="-90.25" width="4.5" height="4.5"/>
+    </g>
+    <g fill="#ffffff" stroke="#7d93b8" stroke-width="0.45">
+      <rect x="-93" y="-81" width="6" height="6"/><rect x="-75" y="-81" width="6" height="6"/><rect x="-57" y="-81" width="6" height="6"/>
+      <rect x="-39" y="-81" width="6" height="6"/><rect x="-21" y="-81" width="6" height="6"/><rect x="-3" y="-81" width="6" height="6"/>
+      <rect x="15" y="-81" width="6" height="6"/><rect x="33" y="-81" width="6" height="6"/><rect x="51" y="-81" width="6" height="6"/>
+      <rect x="69" y="-81" width="6" height="6"/><rect x="87" y="-81" width="6" height="6"/>
+    </g>
+    <g fill="#3fd1c9">
+      <circle cx="-90" cy="-78" r="0.9"/><circle cx="-72" cy="-78" r="0.9"/><circle cx="-54" cy="-78" r="0.9"/><circle cx="-36" cy="-78" r="0.9"/>
+      <circle cx="-18" cy="-78" r="0.9"/><circle cx="0" cy="-78" r="0.9"/><circle cx="18" cy="-78" r="0.9"/><circle cx="36" cy="-78" r="0.9"/>
+      <circle cx="54" cy="-78" r="0.9"/><circle cx="72" cy="-78" r="0.9"/><circle cx="90" cy="-78" r="0.9"/>
+    </g>
+
+    <!-- 20 m grid over everything. -->
+    <rect x="-100" y="-100" width="200" height="200" fill="url(#grid20)"/>
+  </g>
+
+  <!-- LABELS (root px; 1 px = 0.2 m; X = 500 + 5x, Y = 500 + 5z). -->
+  <g fill="#2f3a44">
+    <text x="625" y="150" font-size="16" font-weight="bold">SKYLINE &#183; civic spires, 3 rows into fog</text>
+    <text x="625" y="170" font-size="15">tallest 14 / 24 / 34 / 44 / 56 m by band</text>
+
+    <text x="440" y="190" font-size="20" font-weight="bold">FORUM HEIGHTS</text>
+    <text x="440" y="252" font-size="15">civic hall lens &#183; 8 lamps &#183; 14 blocks</text>
+
+    <text x="640" y="492" font-size="18" font-weight="bold">SKYPORT HEADLAND</text>
+    <text x="640" y="511" font-size="15">mast &#183; 3 pads &#183; 10 houses</text>
+
+    <text x="378" y="614" font-size="20" font-weight="bold">WATERFRONT TERRACES</text>
+    <text x="378" y="633" font-size="15">hub arch &#183; ring pool &#183; 16 houses at 100 %</text>
+
+    <text x="0" y="0" font-size="20" font-weight="bold" transform="translate(128 646) rotate(-73)">CANAL QUARTER</text>
+    <text x="0" y="0" font-size="15" transform="translate(150 646) rotate(-73)">canal &#183; 3 footbridges &#183; 18 houses</text>
+
+    <text x="718" y="850" font-size="20" font-weight="bold" text-anchor="end">ARBORETUM ISLE</text>
+    <text x="718" y="866" font-size="15" text-anchor="end">solitary &#183; garden dome</text>
+
+    <text x="662" y="715" font-size="16" font-weight="bold">LANDMARK</text>
+    <text x="662" y="733" font-size="15">Spire of Accord</text>
+    <text x="662" y="751" font-size="15">s1 6 &#183; s2 22 &#183; s3 36 m</text>
+
+    <text x="560" y="455" font-size="15" text-anchor="middle">the Commons: open lawn, no district</text>
+    <text x="560" y="932" font-size="15" text-anchor="middle">manta arc</text>
+
+    <text x="884" y="530" font-size="15" font-weight="bold">x east &#8594;</text>
+    <text x="884" y="550" font-size="15" font-weight="bold">z south &#8595;</text>
+    <text x="884" y="570" font-size="15">top: skyline (&#8722;z)</text>
+    <text x="884" y="590" font-size="15">bottom: camera</text>
+  </g>
+
+  <!-- LEGEND -->
+  <rect x="16" y="792" width="488" height="200" fill="#ffffff" stroke="#2f3a44" stroke-width="1"/>
+  <g fill="#2f3a44">
+    <text x="28" y="818" font-size="22" font-weight="bold">FUTURISTIC UTOPIA &#183; future-utopia</text>
+    <text x="28" y="838" font-size="15">top-down plan &#183; 1000 px = 200 m &#183; x east, z south &#183; draft 2026-09-20</text>
+  </g>
+  <g font-size="15" fill="#2f3a44">
+    <rect x="28" y="850" width="26" height="14" fill="#e3f2ec" stroke="#c7dfd6"/><text x="62" y="862">tile ground #e3f2ec</text>
+    <rect x="28" y="870" width="26" height="14" fill="#a9d9a4"/><text x="62" y="882">lawn #a9d9a4, not a district</text>
+    <rect x="28" y="890" width="26" height="14" fill="#c7dfd6"/><line x1="28" y1="897" x2="54" y2="897" stroke="#3fd1c9" stroke-width="2.5"/><text x="62" y="902">glass riser #c7dfd6 + strip</text>
+    <rect x="28" y="910" width="26" height="14" fill="#6fcbe0"/><text x="62" y="922">lagoon #6fcbe0</text>
+    <rect x="28" y="930" width="26" height="14" fill="#5fbfd6"/><text x="62" y="942">canal / pools #5fbfd6</text>
+    <rect x="28" y="950" width="26" height="14" fill="#cfe7df" stroke="#2f3a44" stroke-dasharray="4 2"/><text x="62" y="962">district, &#8805; 20 m apart</text>
+    <line x1="28" y1="977" x2="128" y2="977" stroke="#2f3a44" stroke-width="2"/><line x1="28" y1="972" x2="28" y2="982" stroke="#2f3a44" stroke-width="2"/><line x1="128" y1="972" x2="128" y2="982" stroke="#2f3a44" stroke-width="2"/><text x="138" y="982">20 m</text>
+
+    <line x1="268" y1="857" x2="300" y2="857" stroke="#3fd1c9" stroke-width="8"/><line x1="268" y1="857" x2="300" y2="857" stroke="#ffffff" stroke-width="4"/><text x="308" y="862">transit loop, 6 m up, 4 pods</text>
+    <line x1="268" y1="877" x2="300" y2="877" stroke="#c7dfd6" stroke-width="8"/><line x1="268" y1="877" x2="300" y2="877" stroke="#f4fbf8" stroke-width="5"/><text x="308" y="882">local path, no through road</text>
+    <circle cx="275" cy="897" r="7" fill="#ffffff" stroke="#2f3a44" stroke-width="2"/><circle cx="294" cy="897" r="6" fill="#ff9e6e" stroke="#ffffff" stroke-width="2"/><text x="308" y="902">station &#183; pod #ff9e6e</text>
+    <circle cx="275" cy="917" r="4" fill="#3fd1c9"/><circle cx="294" cy="917" r="6" fill="#f2a0c0"/><text x="308" y="922">hover lamp &#183; blossom #f2a0c0</text>
+    <rect x="268" y="931" width="14" height="14" fill="#ffffff" stroke="#7d93b8" stroke-width="1.5"/><circle cx="294" cy="938" r="6" fill="#8fc48a"/><text x="308" y="942">spire footprint &#183; tree #8fc48a</text>
+    <circle cx="282" cy="958" r="9" fill="#e3f2ec" stroke="#c7dfd6" stroke-width="3"/><circle cx="282" cy="958" r="3" fill="#2f3a44"/><text x="308" y="962">landmark plinth, own headland</text>
+    <circle cx="282" cy="978" r="8" fill="none" stroke="#7d93b8" stroke-width="2" stroke-dasharray="4 3"/><text x="308" y="982">manta arc, 90 % hidden</text>
+  </g>
+</svg>

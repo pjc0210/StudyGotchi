@@ -1,0 +1,2919 @@
+{
+  "version": 1,
+  "generated_at": "2026-09-19T21:51:31-04:00",
+  "generator": "tools/growth-factory/generate_growth.py",
+  "blender": "5.2.0 LTS",
+  "deterministic": true,
+  "conventions": {
+    "up": "+Y (glTF)",
+    "front": "+Z",
+    "ground": "base on y=0, origin at the centre of the contact footprint",
+    "units": "metres",
+    "kinds": {
+      "growth": "4-stage growth hero g0..g3 (stage = 0..3)",
+      "construction": "build-1 scaffold + crane, build-2 half-built frame (city, medieval)",
+      "catastrophe": "family-agnostic kit piece; tagged 'tinted' copies use a family palette"
+    },
+    "stage_bands": {
+      "g0": "0-25 % of the topic demonstrated",
+      "g1": "25-50 %",
+      "g2": "50-75 %",
+      "g3": "75-100 %"
+    },
+    "target_heights_m": {
+      "g0": 0.4,
+      "g1": 1.2,
+      "g2": 2.6,
+      "g3": 4.5
+    },
+    "triangle_budgets": {
+      "g0": 300,
+      "g1": 700,
+      "g2": 1200,
+      "g3": 2500,
+      "construction": 2500,
+      "catastrophe": 300
+    },
+    "motif_of": "id of the previous stage whose shrunken copy is embedded in this asset",
+    "tags": {
+      "decor": "ground disc / pile: silhouette fill + distinctness not gated",
+      "tinted": "family-palette copy of a kit piece",
+      "construction": "kind=construction"
+    },
+    "night": "assets with a 'window' slot list it under night.window_material (swap to emissive #ffe9a8)",
+    "materials": "flat Principled BSDF baseColorFactor, roughness 0.6, no textures, no extensions",
+    "scale_reference": "growth-contact-sheet cells show the family's stage-3 landmark (1.8 m) as a grey ghost"
+  },
+  "palette": {
+    "forest": {
+      "ground": "#8fc48a",
+      "accent": "#4f8a4a"
+    },
+    "city": {
+      "ground": "#d9c3d6",
+      "accent": "#b98bb0"
+    },
+    "ice": {
+      "ground": "#e6f2fb",
+      "accent": "#a9cfe8"
+    },
+    "sand": {
+      "ground": "#efd9a2",
+      "accent": "#d2a95e"
+    },
+    "meadow": {
+      "ground": "#bfe0a0",
+      "accent": "#8fbf6a"
+    },
+    "ocean": {
+      "ground": "#9fd3e0",
+      "accent": "#4f8fb0"
+    },
+    "volcanic": {
+      "ground": "#c9a08f",
+      "accent": "#8a4a3f"
+    },
+    "moon": {
+      "ground": "#cfd3dc",
+      "accent": "#7d86a3"
+    },
+    "medieval": {
+      "ground": "#a7c17e",
+      "accent": "#6b4a3a"
+    }
+  },
+  "kit_palette": {
+    "ground": "#b7a58f",
+    "accent": "#8a7a68"
+  },
+  "neutrals": {
+    "wood": "#9a7a55",
+    "stone": "#b7a58f",
+    "ink": "#3a2f45",
+    "window": "#ffe9a8",
+    "snow": "#ffffff",
+    "water": "#7fb8d8"
+  },
+  "extras": {
+    "peach": "#f2a86f",
+    "coral": "#e88a8a",
+    "mint": "#8fc9d8",
+    "olive": "#b9c96f",
+    "lilac": "#c9a2e6",
+    "pine": "#4f8a4a",
+    "leaf": "#8fbf6a",
+    "pale": "#e6f2fb",
+    "straw": "#efd9a2",
+    "cream": "#fffaf3",
+    "cream2": "#f6ecd2",
+    "slate": "#6b5f7a",
+    "glass_sand": "#f7e9c4",
+    "glass_sand_cap": "#fff6df",
+    "glass_meadow": "#d9f0dc",
+    "glass_meadow_cap": "#f2fbf3",
+    "lava": "#f2a86f",
+    "grey": "#b7a58f",
+    "lavender": "#6b5f7a",
+    "bandage": "#fffaf3",
+    "sprout": "#8fbf6a",
+    "concrete": "#cfc8bd",
+    "steel": "#6b5f7a",
+    "gold": "#ffe9a8"
+  },
+  "count": 72,
+  "assets": [
+    {
+      "id": "forest-g0",
+      "family": "forest",
+      "kind": "growth",
+      "stage": 0,
+      "name": "sapling",
+      "file": "assets/growth/forest/forest-g0.glb",
+      "triangles": 134,
+      "budget": 300,
+      "height": 0.45,
+      "footprint_radius": 0.247,
+      "footprint": [
+        0.456,
+        0.438
+      ],
+      "colours": {
+        "wood": "#9a7a55",
+        "leaf": "#8fbf6a",
+        "ground": "#8fc48a"
+      },
+      "material_slots": [
+        "forest-g0-wood",
+        "forest-g0-leaf",
+        "forest-g0-ground"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 12080,
+      "glb_triangles": 134,
+      "validation": "ok",
+      "render": "renders/forest-g0.png",
+      "render_closeup": "renders/forest-g0-closeup.png"
+    },
+    {
+      "id": "forest-g1",
+      "family": "forest",
+      "kind": "growth",
+      "stage": 1,
+      "name": "young tree",
+      "file": "assets/growth/forest/forest-g1.glb",
+      "triangles": 448,
+      "budget": 700,
+      "height": 1.229,
+      "footprint_radius": 0.569,
+      "footprint": [
+        0.954,
+        0.757
+      ],
+      "colours": {
+        "wood": "#9a7a55",
+        "accent": "#4f8a4a",
+        "ground": "#8fc48a",
+        "leaf": "#8fbf6a"
+      },
+      "material_slots": [
+        "forest-g1-wood",
+        "forest-g1-accent",
+        "forest-g1-ground",
+        "forest-g1-leaf"
+      ],
+      "tags": [],
+      "motif_of": "forest-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 35440,
+      "glb_triangles": 448,
+      "validation": "ok",
+      "render": "renders/forest-g1.png",
+      "render_closeup": "renders/forest-g1-closeup.png"
+    },
+    {
+      "id": "forest-g2",
+      "family": "forest",
+      "kind": "growth",
+      "stage": 2,
+      "name": "tree with roots",
+      "file": "assets/growth/forest/forest-g2.glb",
+      "triangles": 888,
+      "budget": 1200,
+      "height": 2.626,
+      "footprint_radius": 1.306,
+      "footprint": [
+        2.079,
+        1.407
+      ],
+      "colours": {
+        "wood": "#9a7a55",
+        "accent": "#4f8a4a",
+        "ground": "#8fc48a",
+        "ink": "#3a2f45",
+        "leaf": "#8fbf6a"
+      },
+      "material_slots": [
+        "forest-g2-wood",
+        "forest-g2-accent",
+        "forest-g2-ground",
+        "forest-g2-ink",
+        "forest-g2-leaf"
+      ],
+      "tags": [],
+      "motif_of": "forest-g1",
+      "night": null,
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 67468,
+      "glb_triangles": 888,
+      "validation": "ok",
+      "render": "renders/forest-g2.png",
+      "render_closeup": "renders/forest-g2-closeup.png"
+    },
+    {
+      "id": "forest-g3",
+      "family": "forest",
+      "kind": "growth",
+      "stage": 3,
+      "name": "colossal tree",
+      "file": "assets/growth/forest/forest-g3.glb",
+      "triangles": 1552,
+      "budget": 2500,
+      "height": 4.545,
+      "footprint_radius": 2.122,
+      "footprint": [
+        3.602,
+        2.784
+      ],
+      "colours": {
+        "wood": "#9a7a55",
+        "accent": "#4f8a4a",
+        "ground": "#8fc48a",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "leaf": "#8fbf6a"
+      },
+      "material_slots": [
+        "forest-g3-wood",
+        "forest-g3-accent",
+        "forest-g3-ground",
+        "forest-g3-ink",
+        "forest-g3-window",
+        "forest-g3-leaf"
+      ],
+      "tags": [],
+      "motif_of": "forest-g2",
+      "night": {
+        "window_material": "forest-g3-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 113212,
+      "glb_triangles": 1552,
+      "validation": "ok",
+      "render": "renders/forest-g3.png",
+      "render_closeup": "renders/forest-g3-closeup.png"
+    },
+    {
+      "id": "city-g0",
+      "family": "city",
+      "kind": "growth",
+      "stage": 0,
+      "name": "foundation slab",
+      "file": "assets/growth/city/city-g0.glb",
+      "triangles": 132,
+      "budget": 300,
+      "height": 0.44,
+      "footprint_radius": 0.781,
+      "footprint": [
+        1.2,
+        1.0
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "concrete": "#cfc8bd",
+        "accent": "#b98bb0",
+        "wood": "#9a7a55"
+      },
+      "material_slots": [
+        "city-g0-stone",
+        "city-g0-concrete",
+        "city-g0-accent",
+        "city-g0-wood"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 10224,
+      "glb_triangles": 132,
+      "validation": "ok",
+      "render": "renders/city-g0.png",
+      "render_closeup": "renders/city-g0-closeup.png"
+    },
+    {
+      "id": "city-g1",
+      "family": "city",
+      "kind": "growth",
+      "stage": 1,
+      "name": "two floors + crane",
+      "file": "assets/growth/city/city-g1.glb",
+      "triangles": 348,
+      "budget": 700,
+      "height": 1.29,
+      "footprint_radius": 1.329,
+      "footprint": [
+        1.92,
+        1.0
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "concrete": "#cfc8bd",
+        "accent": "#b98bb0",
+        "wood": "#9a7a55",
+        "cream": "#fffaf3",
+        "slate": "#6b5f7a",
+        "window": "#ffe9a8",
+        "steel": "#6b5f7a",
+        "ink": "#3a2f45"
+      },
+      "material_slots": [
+        "city-g1-stone",
+        "city-g1-concrete",
+        "city-g1-accent",
+        "city-g1-wood",
+        "city-g1-cream",
+        "city-g1-slate",
+        "city-g1-window",
+        "city-g1-steel",
+        "city-g1-ink"
+      ],
+      "tags": [],
+      "motif_of": "city-g0",
+      "night": {
+        "window_material": "city-g1-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 25280,
+      "glb_triangles": 348,
+      "validation": "ok",
+      "render": "renders/city-g1.png",
+      "render_closeup": "renders/city-g1-closeup.png"
+    },
+    {
+      "id": "city-g2",
+      "family": "city",
+      "kind": "growth",
+      "stage": 2,
+      "name": "five-floor block",
+      "file": "assets/growth/city/city-g2.glb",
+      "triangles": 840,
+      "budget": 1200,
+      "height": 2.63,
+      "footprint_radius": 1.391,
+      "footprint": [
+        2.285,
+        1.2
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "cream": "#fffaf3",
+        "slate": "#6b5f7a",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "accent": "#b98bb0",
+        "concrete": "#cfc8bd",
+        "wood": "#9a7a55",
+        "steel": "#6b5f7a"
+      },
+      "material_slots": [
+        "city-g2-stone",
+        "city-g2-cream",
+        "city-g2-slate",
+        "city-g2-ink",
+        "city-g2-window",
+        "city-g2-accent",
+        "city-g2-concrete",
+        "city-g2-wood",
+        "city-g2-steel"
+      ],
+      "tags": [],
+      "motif_of": "city-g1",
+      "night": {
+        "window_material": "city-g2-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 51980,
+      "glb_triangles": 840,
+      "validation": "ok",
+      "render": "renders/city-g2.png",
+      "render_closeup": "renders/city-g2-closeup.png"
+    },
+    {
+      "id": "city-g3",
+      "family": "city",
+      "kind": "growth",
+      "stage": 3,
+      "name": "eight-floor tower with spire",
+      "file": "assets/growth/city/city-g3.glb",
+      "triangles": 2138,
+      "budget": 2500,
+      "height": 4.525,
+      "footprint_radius": 1.605,
+      "footprint": [
+        2.719,
+        1.585
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "cream": "#fffaf3",
+        "slate": "#6b5f7a",
+        "cream2": "#f6ecd2",
+        "accent": "#b98bb0",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "concrete": "#cfc8bd",
+        "wood": "#9a7a55",
+        "steel": "#6b5f7a"
+      },
+      "material_slots": [
+        "city-g3-stone",
+        "city-g3-cream",
+        "city-g3-slate",
+        "city-g3-cream2",
+        "city-g3-accent",
+        "city-g3-window",
+        "city-g3-ink",
+        "city-g3-concrete",
+        "city-g3-wood",
+        "city-g3-steel"
+      ],
+      "tags": [],
+      "motif_of": "city-g2",
+      "night": {
+        "window_material": "city-g3-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 123496,
+      "glb_triangles": 2138,
+      "validation": "ok",
+      "render": "renders/city-g3.png",
+      "render_closeup": "renders/city-g3-closeup.png"
+    },
+    {
+      "id": "city-build-1",
+      "family": "city",
+      "kind": "construction",
+      "stage": null,
+      "name": "scaffold cage + crane on the slab",
+      "file": "assets/growth/city/city-build-1.glb",
+      "triangles": 504,
+      "budget": 2500,
+      "height": 1.74,
+      "footprint_radius": 1.329,
+      "footprint": [
+        1.92,
+        1.0
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "concrete": "#cfc8bd",
+        "accent": "#b98bb0",
+        "wood": "#9a7a55",
+        "steel": "#6b5f7a",
+        "ink": "#3a2f45"
+      },
+      "material_slots": [
+        "city-build-1-stone",
+        "city-build-1-concrete",
+        "city-build-1-accent",
+        "city-build-1-wood",
+        "city-build-1-steel",
+        "city-build-1-ink"
+      ],
+      "tags": [
+        "construction"
+      ],
+      "motif_of": "city-g1",
+      "night": null,
+      "notes": [],
+      "bytes": 31752,
+      "glb_triangles": 504,
+      "validation": "ok",
+      "render": "renders/city-build-1.png",
+      "render_closeup": "renders/city-build-1-closeup.png"
+    },
+    {
+      "id": "city-build-2",
+      "family": "city",
+      "kind": "construction",
+      "stage": null,
+      "name": "half-built concrete frame + crane",
+      "file": "assets/growth/city/city-build-2.glb",
+      "triangles": 612,
+      "budget": 2500,
+      "height": 2.71,
+      "footprint_radius": 1.812,
+      "footprint": [
+        2.485,
+        1.125
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "concrete": "#cfc8bd",
+        "cream": "#fffaf3",
+        "window": "#ffe9a8",
+        "cream2": "#f6ecd2",
+        "steel": "#6b5f7a",
+        "accent": "#b98bb0",
+        "ink": "#3a2f45"
+      },
+      "material_slots": [
+        "city-build-2-stone",
+        "city-build-2-concrete",
+        "city-build-2-cream",
+        "city-build-2-window",
+        "city-build-2-cream2",
+        "city-build-2-steel",
+        "city-build-2-accent",
+        "city-build-2-ink"
+      ],
+      "tags": [
+        "construction"
+      ],
+      "motif_of": "city-g2",
+      "night": {
+        "window_material": "city-build-2-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "bytes": 39028,
+      "glb_triangles": 612,
+      "validation": "ok",
+      "render": "renders/city-build-2.png",
+      "render_closeup": "renders/city-build-2-closeup.png"
+    },
+    {
+      "id": "ice-g0",
+      "family": "ice",
+      "kind": "growth",
+      "stage": 0,
+      "name": "icy mound",
+      "file": "assets/growth/ice/ice-g0.glb",
+      "triangles": 180,
+      "budget": 300,
+      "height": 0.437,
+      "footprint_radius": 0.494,
+      "footprint": [
+        0.752,
+        0.509
+      ],
+      "colours": {
+        "accent": "#a9cfe8",
+        "snow": "#ffffff",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "ice-g0-accent",
+        "ice-g0-snow",
+        "ice-g0-water"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 15848,
+      "glb_triangles": 180,
+      "validation": "ok",
+      "render": "renders/ice-g0.png",
+      "render_closeup": "renders/ice-g0-closeup.png"
+    },
+    {
+      "id": "ice-g1",
+      "family": "ice",
+      "kind": "growth",
+      "stage": 1,
+      "name": "peak",
+      "file": "assets/growth/ice/ice-g1.glb",
+      "triangles": 244,
+      "budget": 700,
+      "height": 1.2,
+      "footprint_radius": 0.864,
+      "footprint": [
+        1.473,
+        1.147
+      ],
+      "colours": {
+        "accent": "#a9cfe8",
+        "snow": "#ffffff",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "ice-g1-accent",
+        "ice-g1-snow",
+        "ice-g1-water"
+      ],
+      "tags": [],
+      "motif_of": "ice-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 19248,
+      "glb_triangles": 244,
+      "validation": "ok",
+      "render": "renders/ice-g1.png",
+      "render_closeup": "renders/ice-g1-closeup.png"
+    },
+    {
+      "id": "ice-g2",
+      "family": "ice",
+      "kind": "growth",
+      "stage": 2,
+      "name": "twin peaks",
+      "file": "assets/growth/ice/ice-g2.glb",
+      "triangles": 466,
+      "budget": 1200,
+      "height": 2.6,
+      "footprint_radius": 1.555,
+      "footprint": [
+        2.907,
+        2.079
+      ],
+      "colours": {
+        "accent": "#a9cfe8",
+        "snow": "#ffffff",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "ice-g2-accent",
+        "ice-g2-snow",
+        "ice-g2-water"
+      ],
+      "tags": [],
+      "motif_of": "ice-g1",
+      "night": null,
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 33048,
+      "glb_triangles": 466,
+      "validation": "ok",
+      "render": "renders/ice-g2.png",
+      "render_closeup": "renders/ice-g2-closeup.png"
+    },
+    {
+      "id": "ice-g3",
+      "family": "ice",
+      "kind": "growth",
+      "stage": 3,
+      "name": "massive mountain with ice cliff",
+      "file": "assets/growth/ice/ice-g3.glb",
+      "triangles": 884,
+      "budget": 2500,
+      "height": 4.521,
+      "footprint_radius": 2.66,
+      "footprint": [
+        4.936,
+        3.867
+      ],
+      "colours": {
+        "accent": "#a9cfe8",
+        "snow": "#ffffff",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "ice-g3-accent",
+        "ice-g3-snow",
+        "ice-g3-water"
+      ],
+      "tags": [],
+      "motif_of": "ice-g2",
+      "night": null,
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 61272,
+      "glb_triangles": 884,
+      "validation": "ok",
+      "render": "renders/ice-g3.png",
+      "render_closeup": "renders/ice-g3-closeup.png"
+    },
+    {
+      "id": "sand-g0",
+      "family": "sand",
+      "kind": "growth",
+      "stage": 0,
+      "name": "stone ring",
+      "file": "assets/growth/sand/sand-g0.glb",
+      "triangles": 120,
+      "budget": 300,
+      "height": 0.42,
+      "footprint_radius": 0.547,
+      "footprint": [
+        1.067,
+        1.067
+      ],
+      "colours": {
+        "accent": "#d2a95e",
+        "stone": "#b7a58f",
+        "gold": "#ffe9a8"
+      },
+      "material_slots": [
+        "sand-g0-accent",
+        "sand-g0-stone",
+        "sand-g0-gold"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 8844,
+      "glb_triangles": 120,
+      "validation": "ok",
+      "render": "renders/sand-g0.png",
+      "render_closeup": "renders/sand-g0-closeup.png"
+    },
+    {
+      "id": "sand-g1",
+      "family": "sand",
+      "kind": "growth",
+      "stage": 1,
+      "name": "small step pyramid",
+      "file": "assets/growth/sand/sand-g1.glb",
+      "triangles": 228,
+      "budget": 700,
+      "height": 1.2,
+      "footprint_radius": 1.224,
+      "footprint": [
+        1.92,
+        1.52
+      ],
+      "colours": {
+        "accent": "#d2a95e",
+        "ground": "#efd9a2",
+        "straw": "#efd9a2",
+        "ink": "#3a2f45",
+        "stone": "#b7a58f",
+        "gold": "#ffe9a8"
+      },
+      "material_slots": [
+        "sand-g1-accent",
+        "sand-g1-ground",
+        "sand-g1-straw",
+        "sand-g1-ink",
+        "sand-g1-stone",
+        "sand-g1-gold"
+      ],
+      "tags": [],
+      "motif_of": "sand-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 16972,
+      "glb_triangles": 228,
+      "validation": "ok",
+      "render": "renders/sand-g1.png",
+      "render_closeup": "renders/sand-g1-closeup.png"
+    },
+    {
+      "id": "sand-g2",
+      "family": "sand",
+      "kind": "growth",
+      "stage": 2,
+      "name": "pyramid",
+      "file": "assets/growth/sand/sand-g2.glb",
+      "triangles": 276,
+      "budget": 1200,
+      "height": 2.62,
+      "footprint_radius": 2.479,
+      "footprint": [
+        3.485,
+        3.085
+      ],
+      "colours": {
+        "ground": "#efd9a2",
+        "accent": "#d2a95e",
+        "gold": "#ffe9a8",
+        "ink": "#3a2f45",
+        "straw": "#efd9a2",
+        "stone": "#b7a58f"
+      },
+      "material_slots": [
+        "sand-g2-ground",
+        "sand-g2-accent",
+        "sand-g2-gold",
+        "sand-g2-ink",
+        "sand-g2-straw",
+        "sand-g2-stone"
+      ],
+      "tags": [],
+      "motif_of": "sand-g1",
+      "night": null,
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 19536,
+      "glb_triangles": 276,
+      "validation": "ok",
+      "render": "renders/sand-g2.png",
+      "render_closeup": "renders/sand-g2-closeup.png"
+    },
+    {
+      "id": "sand-g3",
+      "family": "sand",
+      "kind": "growth",
+      "stage": 3,
+      "name": "great pyramid with obelisk",
+      "file": "assets/growth/sand/sand-g3.glb",
+      "triangles": 354,
+      "budget": 2500,
+      "height": 4.5,
+      "footprint_radius": 3.471,
+      "footprint": [
+        5.2,
+        4.8
+      ],
+      "colours": {
+        "ground": "#efd9a2",
+        "accent": "#d2a95e",
+        "gold": "#ffe9a8",
+        "ink": "#3a2f45",
+        "stone": "#b7a58f",
+        "straw": "#efd9a2"
+      },
+      "material_slots": [
+        "sand-g3-ground",
+        "sand-g3-accent",
+        "sand-g3-gold",
+        "sand-g3-ink",
+        "sand-g3-stone",
+        "sand-g3-straw"
+      ],
+      "tags": [],
+      "motif_of": "sand-g2",
+      "night": null,
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 24428,
+      "glb_triangles": 354,
+      "validation": "ok",
+      "render": "renders/sand-g3.png",
+      "render_closeup": "renders/sand-g3-closeup.png"
+    },
+    {
+      "id": "meadow-g0",
+      "family": "meadow",
+      "kind": "growth",
+      "stage": 0,
+      "name": "single flower",
+      "file": "assets/growth/meadow/meadow-g0.glb",
+      "triangles": 128,
+      "budget": 300,
+      "height": 0.4,
+      "footprint_radius": 0.208,
+      "footprint": [
+        0.391,
+        0.354
+      ],
+      "colours": {
+        "leaf": "#8fbf6a",
+        "peach": "#f2a86f",
+        "accent": "#8fbf6a"
+      },
+      "material_slots": [
+        "meadow-g0-leaf",
+        "meadow-g0-peach",
+        "meadow-g0-accent"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 11416,
+      "glb_triangles": 128,
+      "validation": "ok",
+      "render": "renders/meadow-g0.png",
+      "render_closeup": "renders/meadow-g0-closeup.png"
+    },
+    {
+      "id": "meadow-g1",
+      "family": "meadow",
+      "kind": "growth",
+      "stage": 1,
+      "name": "flower cluster",
+      "file": "assets/growth/meadow/meadow-g1.glb",
+      "triangles": 448,
+      "budget": 700,
+      "height": 1.203,
+      "footprint_radius": 0.618,
+      "footprint": [
+        1.136,
+        0.842
+      ],
+      "colours": {
+        "leaf": "#8fbf6a",
+        "coral": "#e88a8a",
+        "gold": "#ffe9a8",
+        "accent": "#8fbf6a",
+        "peach": "#f2a86f",
+        "lilac": "#c9a2e6"
+      },
+      "material_slots": [
+        "meadow-g1-leaf",
+        "meadow-g1-coral",
+        "meadow-g1-gold",
+        "meadow-g1-accent",
+        "meadow-g1-peach",
+        "meadow-g1-lilac"
+      ],
+      "tags": [],
+      "motif_of": "meadow-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 34500,
+      "glb_triangles": 448,
+      "validation": "ok",
+      "render": "renders/meadow-g1.png",
+      "render_closeup": "renders/meadow-g1-closeup.png"
+    },
+    {
+      "id": "meadow-g2",
+      "family": "meadow",
+      "kind": "growth",
+      "stage": 2,
+      "name": "flower carpet",
+      "file": "assets/growth/meadow/meadow-g2.glb",
+      "triangles": 1076,
+      "budget": 1200,
+      "height": 2.586,
+      "footprint_radius": 1.25,
+      "footprint": [
+        2.5,
+        2.5
+      ],
+      "colours": {
+        "leaf": "#8fbf6a",
+        "ground": "#bfe0a0",
+        "peach": "#f2a86f",
+        "accent": "#8fbf6a",
+        "coral": "#e88a8a",
+        "lilac": "#c9a2e6",
+        "gold": "#ffe9a8"
+      },
+      "material_slots": [
+        "meadow-g2-leaf",
+        "meadow-g2-ground",
+        "meadow-g2-peach",
+        "meadow-g2-accent",
+        "meadow-g2-coral",
+        "meadow-g2-lilac",
+        "meadow-g2-gold"
+      ],
+      "tags": [],
+      "motif_of": "meadow-g1",
+      "night": null,
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 72152,
+      "glb_triangles": 1076,
+      "validation": "ok",
+      "render": "renders/meadow-g2.png",
+      "render_closeup": "renders/meadow-g2-closeup.png"
+    },
+    {
+      "id": "meadow-g3",
+      "family": "meadow",
+      "kind": "growth",
+      "stage": 3,
+      "name": "giant sunflower over a carpet",
+      "file": "assets/growth/meadow/meadow-g3.glb",
+      "triangles": 1894,
+      "budget": 2500,
+      "height": 4.5,
+      "footprint_radius": 1.751,
+      "footprint": [
+        3.5,
+        3.5
+      ],
+      "colours": {
+        "leaf": "#8fbf6a",
+        "ground": "#bfe0a0",
+        "accent": "#8fbf6a",
+        "gold": "#ffe9a8",
+        "ink": "#3a2f45",
+        "peach": "#f2a86f",
+        "coral": "#e88a8a",
+        "lilac": "#c9a2e6"
+      },
+      "material_slots": [
+        "meadow-g3-leaf",
+        "meadow-g3-ground",
+        "meadow-g3-accent",
+        "meadow-g3-gold",
+        "meadow-g3-ink",
+        "meadow-g3-peach",
+        "meadow-g3-coral",
+        "meadow-g3-lilac"
+      ],
+      "tags": [],
+      "motif_of": "meadow-g2",
+      "night": null,
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 121712,
+      "glb_triangles": 1894,
+      "validation": "ok",
+      "render": "renders/meadow-g3.png",
+      "render_closeup": "renders/meadow-g3-closeup.png"
+    },
+    {
+      "id": "ocean-g0",
+      "family": "ocean",
+      "kind": "growth",
+      "stage": 0,
+      "name": "tide rock",
+      "file": "assets/growth/ocean/ocean-g0.glb",
+      "triangles": 240,
+      "budget": 300,
+      "height": 0.399,
+      "footprint_radius": 0.441,
+      "footprint": [
+        0.819,
+        0.607
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "leaf": "#8fbf6a"
+      },
+      "material_slots": [
+        "ocean-g0-stone",
+        "ocean-g0-leaf"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 19892,
+      "glb_triangles": 240,
+      "validation": "ok",
+      "render": "renders/ocean-g0.png",
+      "render_closeup": "renders/ocean-g0-closeup.png"
+    },
+    {
+      "id": "ocean-g1",
+      "family": "ocean",
+      "kind": "growth",
+      "stage": 1,
+      "name": "sea stack",
+      "file": "assets/growth/ocean/ocean-g1.glb",
+      "triangles": 452,
+      "budget": 700,
+      "height": 1.24,
+      "footprint_radius": 0.995,
+      "footprint": [
+        1.655,
+        1.255
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "leaf": "#8fbf6a",
+        "snow": "#ffffff"
+      },
+      "material_slots": [
+        "ocean-g1-stone",
+        "ocean-g1-leaf",
+        "ocean-g1-snow"
+      ],
+      "tags": [],
+      "motif_of": "ocean-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 32848,
+      "glb_triangles": 452,
+      "validation": "ok",
+      "render": "renders/ocean-g1.png",
+      "render_closeup": "renders/ocean-g1-closeup.png"
+    },
+    {
+      "id": "ocean-g2",
+      "family": "ocean",
+      "kind": "growth",
+      "stage": 2,
+      "name": "sea stack with lighthouse",
+      "file": "assets/growth/ocean/ocean-g2.glb",
+      "triangles": 886,
+      "budget": 1200,
+      "height": 2.705,
+      "footprint_radius": 1.557,
+      "footprint": [
+        2.447,
+        2.014
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "snow": "#ffffff",
+        "leaf": "#8fbf6a",
+        "coral": "#e88a8a",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "accent": "#4f8fb0"
+      },
+      "material_slots": [
+        "ocean-g2-stone",
+        "ocean-g2-snow",
+        "ocean-g2-leaf",
+        "ocean-g2-coral",
+        "ocean-g2-ink",
+        "ocean-g2-window",
+        "ocean-g2-accent"
+      ],
+      "tags": [],
+      "motif_of": "ocean-g1",
+      "night": {
+        "window_material": "ocean-g2-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 59368,
+      "glb_triangles": 886,
+      "validation": "ok",
+      "render": "renders/ocean-g2.png",
+      "render_closeup": "renders/ocean-g2-closeup.png"
+    },
+    {
+      "id": "ocean-g3",
+      "family": "ocean",
+      "kind": "growth",
+      "stage": 3,
+      "name": "tall sea stack, lighthouse, birds",
+      "file": "assets/growth/ocean/ocean-g3.glb",
+      "triangles": 1500,
+      "budget": 2500,
+      "height": 4.455,
+      "footprint_radius": 2.202,
+      "footprint": [
+        3.408,
+        2.826
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "snow": "#ffffff",
+        "leaf": "#8fbf6a",
+        "coral": "#e88a8a",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "accent": "#4f8fb0"
+      },
+      "material_slots": [
+        "ocean-g3-stone",
+        "ocean-g3-snow",
+        "ocean-g3-leaf",
+        "ocean-g3-coral",
+        "ocean-g3-ink",
+        "ocean-g3-window",
+        "ocean-g3-accent"
+      ],
+      "tags": [],
+      "motif_of": "ocean-g2",
+      "night": {
+        "window_material": "ocean-g3-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 96848,
+      "glb_triangles": 1500,
+      "validation": "ok",
+      "render": "renders/ocean-g3.png",
+      "render_closeup": "renders/ocean-g3-closeup.png"
+    },
+    {
+      "id": "volcanic-g0",
+      "family": "volcanic",
+      "kind": "growth",
+      "stage": 0,
+      "name": "steam vent",
+      "file": "assets/growth/volcanic/volcanic-g0.glb",
+      "triangles": 188,
+      "budget": 300,
+      "height": 0.423,
+      "footprint_radius": 0.467,
+      "footprint": [
+        0.875,
+        0.868
+      ],
+      "colours": {
+        "accent": "#8a4a3f",
+        "lava": "#f2a86f",
+        "pale": "#e6f2fb"
+      },
+      "material_slots": [
+        "volcanic-g0-accent",
+        "volcanic-g0-lava",
+        "volcanic-g0-pale"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 13952,
+      "glb_triangles": 188,
+      "validation": "ok",
+      "render": "renders/volcanic-g0.png",
+      "render_closeup": "renders/volcanic-g0-closeup.png"
+    },
+    {
+      "id": "volcanic-g1",
+      "family": "volcanic",
+      "kind": "growth",
+      "stage": 1,
+      "name": "cinder cone",
+      "file": "assets/growth/volcanic/volcanic-g1.glb",
+      "triangles": 376,
+      "budget": 700,
+      "height": 1.216,
+      "footprint_radius": 1.223,
+      "footprint": [
+        2.129,
+        1.815
+      ],
+      "colours": {
+        "accent": "#8a4a3f",
+        "lava": "#f2a86f",
+        "pale": "#e6f2fb"
+      },
+      "material_slots": [
+        "volcanic-g1-accent",
+        "volcanic-g1-lava",
+        "volcanic-g1-pale"
+      ],
+      "tags": [],
+      "motif_of": "volcanic-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 25280,
+      "glb_triangles": 376,
+      "validation": "ok",
+      "render": "renders/volcanic-g1.png",
+      "render_closeup": "renders/volcanic-g1-closeup.png"
+    },
+    {
+      "id": "volcanic-g2",
+      "family": "volcanic",
+      "kind": "growth",
+      "stage": 2,
+      "name": "cone with lava rim",
+      "file": "assets/growth/volcanic/volcanic-g2.glb",
+      "triangles": 854,
+      "budget": 1200,
+      "height": 2.609,
+      "footprint_radius": 2.036,
+      "footprint": [
+        3.473,
+        3.259
+      ],
+      "colours": {
+        "accent": "#8a4a3f",
+        "coral": "#e88a8a",
+        "lava": "#f2a86f",
+        "pale": "#e6f2fb"
+      },
+      "material_slots": [
+        "volcanic-g2-accent",
+        "volcanic-g2-coral",
+        "volcanic-g2-lava",
+        "volcanic-g2-pale"
+      ],
+      "tags": [],
+      "motif_of": "volcanic-g1",
+      "night": null,
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 55804,
+      "glb_triangles": 854,
+      "validation": "ok",
+      "render": "renders/volcanic-g2.png",
+      "render_closeup": "renders/volcanic-g2-closeup.png"
+    },
+    {
+      "id": "volcanic-g3",
+      "family": "volcanic",
+      "kind": "growth",
+      "stage": 3,
+      "name": "big volcano with lava rivers",
+      "file": "assets/growth/volcanic/volcanic-g3.glb",
+      "triangles": 1484,
+      "budget": 2500,
+      "height": 4.462,
+      "footprint_radius": 3.23,
+      "footprint": [
+        5.611,
+        5.627
+      ],
+      "colours": {
+        "accent": "#8a4a3f",
+        "coral": "#e88a8a",
+        "lava": "#f2a86f",
+        "ink": "#3a2f45",
+        "pale": "#e6f2fb"
+      },
+      "material_slots": [
+        "volcanic-g3-accent",
+        "volcanic-g3-coral",
+        "volcanic-g3-lava",
+        "volcanic-g3-ink",
+        "volcanic-g3-pale"
+      ],
+      "tags": [],
+      "motif_of": "volcanic-g2",
+      "night": null,
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 96216,
+      "glb_triangles": 1484,
+      "validation": "ok",
+      "render": "renders/volcanic-g3.png",
+      "render_closeup": "renders/volcanic-g3-closeup.png"
+    },
+    {
+      "id": "moon-g0",
+      "family": "moon",
+      "kind": "growth",
+      "stage": 0,
+      "name": "rover",
+      "file": "assets/growth/moon/moon-g0.glb",
+      "triangles": 180,
+      "budget": 300,
+      "height": 0.44,
+      "footprint_radius": 0.368,
+      "footprint": [
+        0.55,
+        0.49
+      ],
+      "colours": {
+        "accent": "#7d86a3",
+        "ink": "#3a2f45",
+        "water": "#7fb8d8",
+        "snow": "#ffffff"
+      },
+      "material_slots": [
+        "moon-g0-accent",
+        "moon-g0-ink",
+        "moon-g0-water",
+        "moon-g0-snow"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 12148,
+      "glb_triangles": 180,
+      "validation": "ok",
+      "render": "renders/moon-g0.png",
+      "render_closeup": "renders/moon-g0-closeup.png"
+    },
+    {
+      "id": "moon-g1",
+      "family": "moon",
+      "kind": "growth",
+      "stage": 1,
+      "name": "habitat pod",
+      "file": "assets/growth/moon/moon-g1.glb",
+      "triangles": 344,
+      "budget": 700,
+      "height": 1.2,
+      "footprint_radius": 0.976,
+      "footprint": [
+        1.615,
+        1.37
+      ],
+      "colours": {
+        "ground": "#cfd3dc",
+        "snow": "#ffffff",
+        "accent": "#7d86a3",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "coral": "#e88a8a",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "moon-g1-ground",
+        "moon-g1-snow",
+        "moon-g1-accent",
+        "moon-g1-ink",
+        "moon-g1-window",
+        "moon-g1-coral",
+        "moon-g1-water"
+      ],
+      "tags": [],
+      "motif_of": "moon-g0",
+      "night": {
+        "window_material": "moon-g1-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 24276,
+      "glb_triangles": 344,
+      "validation": "ok",
+      "render": "renders/moon-g1.png",
+      "render_closeup": "renders/moon-g1-closeup.png"
+    },
+    {
+      "id": "moon-g2",
+      "family": "moon",
+      "kind": "growth",
+      "stage": 2,
+      "name": "dome cluster",
+      "file": "assets/growth/moon/moon-g2.glb",
+      "triangles": 704,
+      "budget": 1200,
+      "height": 2.6,
+      "footprint_radius": 2.001,
+      "footprint": [
+        3.65,
+        2.725
+      ],
+      "colours": {
+        "ground": "#cfd3dc",
+        "snow": "#ffffff",
+        "ink": "#3a2f45",
+        "accent": "#7d86a3",
+        "window": "#ffe9a8",
+        "coral": "#e88a8a",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "moon-g2-ground",
+        "moon-g2-snow",
+        "moon-g2-ink",
+        "moon-g2-accent",
+        "moon-g2-window",
+        "moon-g2-coral",
+        "moon-g2-water"
+      ],
+      "tags": [],
+      "motif_of": "moon-g1",
+      "night": {
+        "window_material": "moon-g2-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 45188,
+      "glb_triangles": 704,
+      "validation": "ok",
+      "render": "renders/moon-g2.png",
+      "render_closeup": "renders/moon-g2-closeup.png"
+    },
+    {
+      "id": "moon-g3",
+      "family": "moon",
+      "kind": "growth",
+      "stage": 3,
+      "name": "great observatory dome with antenna",
+      "file": "assets/growth/moon/moon-g3.glb",
+      "triangles": 1036,
+      "budget": 2500,
+      "height": 4.5,
+      "footprint_radius": 2.784,
+      "footprint": [
+        4.953,
+        3.99
+      ],
+      "colours": {
+        "ground": "#cfd3dc",
+        "accent": "#7d86a3",
+        "snow": "#ffffff",
+        "ink": "#3a2f45",
+        "coral": "#e88a8a",
+        "window": "#ffe9a8",
+        "water": "#7fb8d8"
+      },
+      "material_slots": [
+        "moon-g3-ground",
+        "moon-g3-accent",
+        "moon-g3-snow",
+        "moon-g3-ink",
+        "moon-g3-coral",
+        "moon-g3-window",
+        "moon-g3-water"
+      ],
+      "tags": [],
+      "motif_of": "moon-g2",
+      "night": {
+        "window_material": "moon-g3-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 63380,
+      "glb_triangles": 1036,
+      "validation": "ok",
+      "render": "renders/moon-g3.png",
+      "render_closeup": "renders/moon-g3-closeup.png"
+    },
+    {
+      "id": "medieval-g0",
+      "family": "medieval",
+      "kind": "growth",
+      "stage": 0,
+      "name": "camp tent",
+      "file": "assets/growth/medieval/medieval-g0.glb",
+      "triangles": 56,
+      "budget": 300,
+      "height": 0.42,
+      "footprint_radius": 0.552,
+      "footprint": [
+        0.8,
+        0.76
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "accent": "#6b4a3a",
+        "ink": "#3a2f45",
+        "wood": "#9a7a55",
+        "coral": "#e88a8a"
+      },
+      "material_slots": [
+        "medieval-g0-stone",
+        "medieval-g0-accent",
+        "medieval-g0-ink",
+        "medieval-g0-wood",
+        "medieval-g0-coral"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "target_height": 0.4,
+      "bytes": 7020,
+      "glb_triangles": 56,
+      "validation": "ok",
+      "render": "renders/medieval-g0.png",
+      "render_closeup": "renders/medieval-g0-closeup.png"
+    },
+    {
+      "id": "medieval-g1",
+      "family": "medieval",
+      "kind": "growth",
+      "stage": 1,
+      "name": "wooden palisade",
+      "file": "assets/growth/medieval/medieval-g1.glb",
+      "triangles": 412,
+      "budget": 700,
+      "height": 1.18,
+      "footprint_radius": 1.013,
+      "footprint": [
+        2.0,
+        2.0
+      ],
+      "colours": {
+        "ground": "#a7c17e",
+        "wood": "#9a7a55",
+        "accent": "#6b4a3a",
+        "stone": "#b7a58f",
+        "ink": "#3a2f45",
+        "coral": "#e88a8a"
+      },
+      "material_slots": [
+        "medieval-g1-ground",
+        "medieval-g1-wood",
+        "medieval-g1-accent",
+        "medieval-g1-stone",
+        "medieval-g1-ink",
+        "medieval-g1-coral"
+      ],
+      "tags": [],
+      "motif_of": "medieval-g0",
+      "night": null,
+      "notes": [],
+      "target_height": 1.2,
+      "bytes": 27360,
+      "glb_triangles": 412,
+      "validation": "ok",
+      "render": "renders/medieval-g1.png",
+      "render_closeup": "renders/medieval-g1-closeup.png"
+    },
+    {
+      "id": "medieval-g2",
+      "family": "medieval",
+      "kind": "growth",
+      "stage": 2,
+      "name": "stone keep",
+      "file": "assets/growth/medieval/medieval-g2.glb",
+      "triangles": 700,
+      "budget": 1200,
+      "height": 2.6,
+      "footprint_radius": 1.64,
+      "footprint": [
+        2.6,
+        2.0
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "grey": "#b7a58f",
+        "wood": "#9a7a55",
+        "coral": "#e88a8a",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "ground": "#a7c17e",
+        "accent": "#6b4a3a"
+      },
+      "material_slots": [
+        "medieval-g2-stone",
+        "medieval-g2-grey",
+        "medieval-g2-wood",
+        "medieval-g2-coral",
+        "medieval-g2-ink",
+        "medieval-g2-window",
+        "medieval-g2-ground",
+        "medieval-g2-accent"
+      ],
+      "tags": [],
+      "motif_of": "medieval-g1",
+      "night": {
+        "window_material": "medieval-g2-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 2.6,
+      "bytes": 44476,
+      "glb_triangles": 700,
+      "validation": "ok",
+      "render": "renders/medieval-g2.png",
+      "render_closeup": "renders/medieval-g2-closeup.png"
+    },
+    {
+      "id": "medieval-g3",
+      "family": "medieval",
+      "kind": "growth",
+      "stage": 3,
+      "name": "castle with four towers",
+      "file": "assets/growth/medieval/medieval-g3.glb",
+      "triangles": 1586,
+      "budget": 2500,
+      "height": 4.56,
+      "footprint_radius": 3.318,
+      "footprint": [
+        5.13,
+        4.21
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "grey": "#b7a58f",
+        "accent": "#6b4a3a",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "wood": "#9a7a55",
+        "coral": "#e88a8a",
+        "ground": "#a7c17e"
+      },
+      "material_slots": [
+        "medieval-g3-stone",
+        "medieval-g3-grey",
+        "medieval-g3-accent",
+        "medieval-g3-window",
+        "medieval-g3-ink",
+        "medieval-g3-wood",
+        "medieval-g3-coral",
+        "medieval-g3-ground"
+      ],
+      "tags": [],
+      "motif_of": "medieval-g2",
+      "night": {
+        "window_material": "medieval-g3-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "target_height": 4.5,
+      "bytes": 91308,
+      "glb_triangles": 1586,
+      "validation": "ok",
+      "render": "renders/medieval-g3.png",
+      "render_closeup": "renders/medieval-g3-closeup.png"
+    },
+    {
+      "id": "medieval-build-1",
+      "family": "medieval",
+      "kind": "construction",
+      "stage": null,
+      "name": "wooden scaffold + treadwheel crane",
+      "file": "assets/growth/medieval/medieval-build-1.glb",
+      "triangles": 388,
+      "budget": 2500,
+      "height": 1.7,
+      "footprint_radius": 2.464,
+      "footprint": [
+        3.52,
+        1.874
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "grey": "#b7a58f",
+        "wood": "#9a7a55",
+        "straw": "#efd9a2",
+        "ink": "#3a2f45",
+        "accent": "#6b4a3a",
+        "coral": "#e88a8a"
+      },
+      "material_slots": [
+        "medieval-build-1-stone",
+        "medieval-build-1-grey",
+        "medieval-build-1-wood",
+        "medieval-build-1-straw",
+        "medieval-build-1-ink",
+        "medieval-build-1-accent",
+        "medieval-build-1-coral"
+      ],
+      "tags": [
+        "construction"
+      ],
+      "motif_of": "medieval-g1",
+      "night": null,
+      "notes": [],
+      "bytes": 26504,
+      "glb_triangles": 388,
+      "validation": "ok",
+      "render": "renders/medieval-build-1.png",
+      "render_closeup": "renders/medieval-build-1-closeup.png"
+    },
+    {
+      "id": "medieval-build-2",
+      "family": "medieval",
+      "kind": "construction",
+      "stage": null,
+      "name": "half-built stone keep + scaffold",
+      "file": "assets/growth/medieval/medieval-build-2.glb",
+      "triangles": 376,
+      "budget": 2500,
+      "height": 2.4,
+      "footprint_radius": 2.583,
+      "footprint": [
+        3.73,
+        1.966
+      ],
+      "colours": {
+        "stone": "#b7a58f",
+        "grey": "#b7a58f",
+        "ink": "#3a2f45",
+        "window": "#ffe9a8",
+        "wood": "#9a7a55",
+        "straw": "#efd9a2",
+        "accent": "#6b4a3a",
+        "coral": "#e88a8a"
+      },
+      "material_slots": [
+        "medieval-build-2-stone",
+        "medieval-build-2-grey",
+        "medieval-build-2-ink",
+        "medieval-build-2-window",
+        "medieval-build-2-wood",
+        "medieval-build-2-straw",
+        "medieval-build-2-accent",
+        "medieval-build-2-coral"
+      ],
+      "tags": [
+        "construction"
+      ],
+      "motif_of": "medieval-g2",
+      "night": {
+        "window_material": "medieval-build-2-window",
+        "window_color": "#ffe9a8"
+      },
+      "notes": [],
+      "bytes": 26624,
+      "glb_triangles": 376,
+      "validation": "ok",
+      "render": "renders/medieval-build-2.png",
+      "render_closeup": "renders/medieval-build-2-closeup.png"
+    },
+    {
+      "id": "crater-s",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "small impact crater",
+      "file": "assets/growth/catastrophe/crater-s.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.083,
+      "footprint_radius": 0.497,
+      "footprint": [
+        0.889,
+        0.914
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#b7a58f",
+        "accent": "#8a7a68"
+      },
+      "material_slots": [
+        "crater-s-ink",
+        "crater-s-ground",
+        "crater-s-accent"
+      ],
+      "tags": [
+        "decor"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15208,
+      "glb_triangles": 244,
+      "validation": "ok",
+      "render": "renders/crater-s.png"
+    },
+    {
+      "id": "crater-m",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater",
+      "file": "assets/growth/catastrophe/crater-m.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#b7a58f",
+        "accent": "#8a7a68"
+      },
+      "material_slots": [
+        "crater-m-ink",
+        "crater-m-ground",
+        "crater-m-accent"
+      ],
+      "tags": [
+        "decor"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15208,
+      "glb_triangles": 244,
+      "validation": "ok",
+      "render": "renders/crater-m.png"
+    },
+    {
+      "id": "crater-l",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "large impact crater",
+      "file": "assets/growth/catastrophe/crater-l.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.165,
+      "footprint_radius": 1.427,
+      "footprint": [
+        2.227,
+        2.257
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#b7a58f",
+        "accent": "#8a7a68"
+      },
+      "material_slots": [
+        "crater-l-ink",
+        "crater-l-ground",
+        "crater-l-accent"
+      ],
+      "tags": [
+        "decor"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15204,
+      "glb_triangles": 244,
+      "validation": "ok",
+      "render": "renders/crater-l.png"
+    },
+    {
+      "id": "scorch",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc",
+      "file": "assets/growth/catastrophe/scorch.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-ink",
+        "scorch-lavender"
+      ],
+      "tags": [
+        "decor"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8752,
+      "glb_triangles": 148,
+      "validation": "ok",
+      "render": "renders/scorch.png"
+    },
+    {
+      "id": "boom-1",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "comic explosion, frame 1 (small)",
+      "file": "assets/growth/catastrophe/boom-1.glb",
+      "triangles": 106,
+      "budget": 300,
+      "height": 0.77,
+      "footprint_radius": 0.429,
+      "footprint": [
+        0.776,
+        0.612
+      ],
+      "colours": {
+        "cream": "#fffaf3",
+        "coral": "#e88a8a",
+        "grey": "#b7a58f",
+        "gold": "#ffe9a8"
+      },
+      "material_slots": [
+        "boom-1-cream",
+        "boom-1-coral",
+        "boom-1-grey",
+        "boom-1-gold"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 11552,
+      "glb_triangles": 106,
+      "validation": "ok",
+      "render": "renders/boom-1.png"
+    },
+    {
+      "id": "boom-2",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "comic explosion, frame 2 (big)",
+      "file": "assets/growth/catastrophe/boom-2.glb",
+      "triangles": 164,
+      "budget": 300,
+      "height": 1.412,
+      "footprint_radius": 0.913,
+      "footprint": [
+        1.507,
+        1.258
+      ],
+      "colours": {
+        "coral": "#e88a8a",
+        "cream": "#fffaf3",
+        "grey": "#b7a58f",
+        "gold": "#ffe9a8"
+      },
+      "material_slots": [
+        "boom-2-coral",
+        "boom-2-cream",
+        "boom-2-grey",
+        "boom-2-gold"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15932,
+      "glb_triangles": 164,
+      "validation": "ok",
+      "render": "renders/boom-2.png"
+    },
+    {
+      "id": "boom-3",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "comic explosion, frame 3 (dissipating)",
+      "file": "assets/growth/catastrophe/boom-3.glb",
+      "triangles": 140,
+      "budget": 300,
+      "height": 1.402,
+      "footprint_radius": 0.62,
+      "footprint": [
+        1.18,
+        0.855
+      ],
+      "colours": {
+        "grey": "#b7a58f",
+        "pale": "#e6f2fb"
+      },
+      "material_slots": [
+        "boom-3-grey",
+        "boom-3-pale"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 12752,
+      "glb_triangles": 140,
+      "validation": "ok",
+      "render": "renders/boom-3.png"
+    },
+    {
+      "id": "debris-1",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "chunky shard 1",
+      "file": "assets/growth/catastrophe/debris-1.glb",
+      "triangles": 32,
+      "budget": 300,
+      "height": 0.38,
+      "footprint_radius": 0.228,
+      "footprint": [
+        0.431,
+        0.329
+      ],
+      "colours": {
+        "ground": "#b7a58f",
+        "accent": "#8a7a68"
+      },
+      "material_slots": [
+        "debris-1-ground",
+        "debris-1-accent"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 4040,
+      "glb_triangles": 32,
+      "validation": "ok",
+      "render": "renders/debris-1.png"
+    },
+    {
+      "id": "debris-2",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "chunky shard 2",
+      "file": "assets/growth/catastrophe/debris-2.glb",
+      "triangles": 24,
+      "budget": 300,
+      "height": 0.3,
+      "footprint_radius": 0.294,
+      "footprint": [
+        0.48,
+        0.34
+      ],
+      "colours": {
+        "accent": "#8a7a68",
+        "ground": "#b7a58f"
+      },
+      "material_slots": [
+        "debris-2-accent",
+        "debris-2-ground"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 2924,
+      "glb_triangles": 24,
+      "validation": "ok",
+      "render": "renders/debris-2.png"
+    },
+    {
+      "id": "debris-3",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "chunky shard 3",
+      "file": "assets/growth/catastrophe/debris-3.glb",
+      "triangles": 40,
+      "budget": 300,
+      "height": 0.406,
+      "footprint_radius": 0.278,
+      "footprint": [
+        0.386,
+        0.394
+      ],
+      "colours": {
+        "ground": "#b7a58f",
+        "accent": "#8a7a68"
+      },
+      "material_slots": [
+        "debris-3-ground",
+        "debris-3-accent"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 4716,
+      "glb_triangles": 40,
+      "validation": "ok",
+      "render": "renders/debris-3.png"
+    },
+    {
+      "id": "storm-cloud",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "flat-bottomed storm cloud",
+      "file": "assets/growth/catastrophe/storm-cloud.glb",
+      "triangles": 112,
+      "budget": 300,
+      "height": 0.658,
+      "footprint_radius": 0.663,
+      "footprint": [
+        1.315,
+        0.695
+      ],
+      "colours": {
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "storm-cloud-lavender"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 9524,
+      "glb_triangles": 112,
+      "validation": "ok",
+      "render": "renders/storm-cloud.png"
+    },
+    {
+      "id": "lightning-bolt",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "zig-zag lightning bolt (separate piece)",
+      "file": "assets/growth/catastrophe/lightning-bolt.glb",
+      "triangles": 60,
+      "budget": 300,
+      "height": 1.1,
+      "footprint_radius": 0.218,
+      "footprint": [
+        0.42,
+        0.2
+      ],
+      "colours": {
+        "gold": "#ffe9a8"
+      },
+      "material_slots": [
+        "lightning-bolt-gold"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 3876,
+      "glb_triangles": 60,
+      "validation": "ok",
+      "render": "renders/lightning-bolt.png"
+    },
+    {
+      "id": "rubble-pile",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "rubble pile",
+      "file": "assets/growth/catastrophe/rubble-pile.glb",
+      "triangles": 176,
+      "budget": 300,
+      "height": 0.52,
+      "footprint_radius": 0.44,
+      "footprint": [
+        0.831,
+        0.802
+      ],
+      "colours": {
+        "ground": "#b7a58f",
+        "ink": "#3a2f45",
+        "accent": "#8a7a68"
+      },
+      "material_slots": [
+        "rubble-pile-ground",
+        "rubble-pile-ink",
+        "rubble-pile-accent"
+      ],
+      "tags": [
+        "decor"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 13592,
+      "glb_triangles": 176,
+      "validation": "ok",
+      "render": "renders/rubble-pile.png"
+    },
+    {
+      "id": "recovery-sprout",
+      "family": "any",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "recovery sprout with bandage",
+      "file": "assets/growth/catastrophe/recovery-sprout.glb",
+      "triangles": 164,
+      "budget": 300,
+      "height": 0.57,
+      "footprint_radius": 0.276,
+      "footprint": [
+        0.479,
+        0.429
+      ],
+      "colours": {
+        "wood": "#9a7a55",
+        "sprout": "#8fbf6a",
+        "bandage": "#fffaf3",
+        "coral": "#e88a8a",
+        "leaf": "#8fbf6a"
+      },
+      "material_slots": [
+        "recovery-sprout-wood",
+        "recovery-sprout-sprout",
+        "recovery-sprout-bandage",
+        "recovery-sprout-coral",
+        "recovery-sprout-leaf"
+      ],
+      "tags": [],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 14988,
+      "glb_triangles": 164,
+      "validation": "ok",
+      "render": "renders/recovery-sprout.png"
+    },
+    {
+      "id": "crater-m-forest",
+      "family": "forest",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (forest tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-forest.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#8fc48a",
+        "accent": "#4f8a4a"
+      },
+      "material_slots": [
+        "crater-m-forest-ink",
+        "crater-m-forest-ground",
+        "crater-m-forest-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15244,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-forest",
+      "family": "forest",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (forest tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-forest.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-forest-ink",
+        "scorch-forest-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8780,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-city",
+      "family": "city",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (city tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-city.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#d9c3d6",
+        "accent": "#b98bb0"
+      },
+      "material_slots": [
+        "crater-m-city-ink",
+        "crater-m-city-ground",
+        "crater-m-city-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15232,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-city",
+      "family": "city",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (city tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-city.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-city-ink",
+        "scorch-city-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8772,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-ice",
+      "family": "ice",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (ice tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-ice.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#e6f2fb",
+        "accent": "#a9cfe8"
+      },
+      "material_slots": [
+        "crater-m-ice-ink",
+        "crater-m-ice-ground",
+        "crater-m-ice-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15224,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-ice",
+      "family": "ice",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (ice tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-ice.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-ice-ink",
+        "scorch-ice-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8768,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-sand",
+      "family": "sand",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (sand tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-sand.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#efd9a2",
+        "accent": "#d2a95e"
+      },
+      "material_slots": [
+        "crater-m-sand-ink",
+        "crater-m-sand-ground",
+        "crater-m-sand-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15232,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-sand",
+      "family": "sand",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (sand tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-sand.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-sand-ink",
+        "scorch-sand-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8772,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-meadow",
+      "family": "meadow",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (meadow tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-meadow.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#bfe0a0",
+        "accent": "#8fbf6a"
+      },
+      "material_slots": [
+        "crater-m-meadow-ink",
+        "crater-m-meadow-ground",
+        "crater-m-meadow-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15240,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-meadow",
+      "family": "meadow",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (meadow tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-meadow.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-meadow-ink",
+        "scorch-meadow-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8780,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-ocean",
+      "family": "ocean",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (ocean tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-ocean.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#9fd3e0",
+        "accent": "#4f8fb0"
+      },
+      "material_slots": [
+        "crater-m-ocean-ink",
+        "crater-m-ocean-ground",
+        "crater-m-ocean-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15240,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-ocean",
+      "family": "ocean",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (ocean tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-ocean.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-ocean-ink",
+        "scorch-ocean-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8776,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-volcanic",
+      "family": "volcanic",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (volcanic tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-volcanic.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#c9a08f",
+        "accent": "#8a4a3f"
+      },
+      "material_slots": [
+        "crater-m-volcanic-ink",
+        "crater-m-volcanic-ground",
+        "crater-m-volcanic-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15252,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-volcanic",
+      "family": "volcanic",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (volcanic tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-volcanic.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-volcanic-ink",
+        "scorch-volcanic-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8788,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-moon",
+      "family": "moon",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (moon tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-moon.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#cfd3dc",
+        "accent": "#7d86a3"
+      },
+      "material_slots": [
+        "crater-m-moon-ink",
+        "crater-m-moon-ground",
+        "crater-m-moon-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15232,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-moon",
+      "family": "moon",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (moon tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-moon.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-moon-ink",
+        "scorch-moon-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8772,
+      "glb_triangles": 148,
+      "validation": "ok"
+    },
+    {
+      "id": "crater-m-medieval",
+      "family": "medieval",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "medium impact crater (medieval tint)",
+      "file": "assets/growth/catastrophe/tinted/crater-m-medieval.glb",
+      "triangles": 244,
+      "budget": 300,
+      "height": 0.103,
+      "footprint_radius": 0.819,
+      "footprint": [
+        1.482,
+        1.563
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "ground": "#a7c17e",
+        "accent": "#6b4a3a"
+      },
+      "material_slots": [
+        "crater-m-medieval-ink",
+        "crater-m-medieval-ground",
+        "crater-m-medieval-accent"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 15252,
+      "glb_triangles": 244,
+      "validation": "ok"
+    },
+    {
+      "id": "scorch-medieval",
+      "family": "medieval",
+      "kind": "catastrophe",
+      "stage": null,
+      "name": "scorch decal disc (medieval tint)",
+      "file": "assets/growth/catastrophe/tinted/scorch-medieval.glb",
+      "triangles": 148,
+      "budget": 300,
+      "height": 0.055,
+      "footprint_radius": 0.903,
+      "footprint": [
+        1.417,
+        1.375
+      ],
+      "colours": {
+        "ink": "#3a2f45",
+        "lavender": "#6b5f7a"
+      },
+      "material_slots": [
+        "scorch-medieval-ink",
+        "scorch-medieval-lavender"
+      ],
+      "tags": [
+        "decor",
+        "tinted"
+      ],
+      "motif_of": null,
+      "night": null,
+      "notes": [],
+      "bytes": 8788,
+      "glb_triangles": 148,
+      "validation": "ok"
+    }
+  ]
+}

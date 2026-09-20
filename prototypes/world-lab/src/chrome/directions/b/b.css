@@ -1,0 +1,1169 @@
+/* Direction B: Modern DS. Two frameless screens joined by a 36 px hinge.
+   Every colour is declared once here: five world colours unchanged, and ink at an alpha.
+   Motion follows the Megaminx Lab patterns and tokens, transitions and custom properties only. */
+
+.dir-b {
+  /* world colours, unchanged */
+  --page: #e8e2f2;
+  --sheet: #fff6df;
+  --ink: #342d45;
+  --signal: #6fa4c3;
+  --ice: #a9cfe8;
+
+  /* ink alpha ramp */
+  --state-3: color-mix(in srgb, var(--ink) 3.5%, transparent);
+  --state-5: color-mix(in srgb, var(--ink) 5.5%, transparent);
+  --state-7: color-mix(in srgb, var(--ink) 7%, transparent);
+  --state-10: color-mix(in srgb, var(--ink) 10.5%, transparent);
+  --hairline: color-mix(in srgb, var(--ink) 14%, transparent);
+  --hairline-strong: color-mix(in srgb, var(--ink) 20%, transparent);
+  --ink-dim: color-mix(in srgb, var(--ink) 75%, transparent);
+  --ink-faint: color-mix(in srgb, var(--ink) 65%, transparent);
+  --scrim: color-mix(in srgb, var(--ink) 20%, transparent);
+
+  /* derived fills */
+  --hinge-bg: color-mix(in srgb, var(--ink) 5.5%, var(--page));
+  --signal-hover: color-mix(in srgb, var(--ink) 5.5%, var(--signal));
+  --signal-press: color-mix(in srgb, var(--ink) 10.5%, var(--signal));
+
+  /* shadows, all ink at an alpha */
+  --shadow-hairline: 0 0 0 1px var(--hairline);
+  --shadow-raised:
+    0 0 0 1px var(--hairline), 0 1px 0 color-mix(in srgb, var(--ink) 10%, transparent),
+    0 2px 6px color-mix(in srgb, var(--ink) 8%, transparent);
+  --shadow-overlay:
+    0 0 0 1px var(--hairline), 0 8px 24px color-mix(in srgb, var(--ink) 20%, transparent);
+
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+
+  /* motion tokens, after Megaminx Lab */
+  --duration-instant: 75ms;
+  --duration-quick: 100ms;
+  --duration: 140ms;
+  --duration-reveal: 160ms;
+  --duration-tactile: 220ms;
+  --duration-view: 250ms;
+  --duration-aperture: 720ms;
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: linear(0, 0.62 20%, 1.043 40%, 0.995 60%, 1 70%, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-aperture: cubic-bezier(0.83, 0, 0.17, 1);
+
+  --hinge-h: 36px;
+  --upper-h: clamp(440px, 60vh, 640px);
+  --gutter: 32px;
+
+  /* The lab shell hides overflow on html, body and #root, so the page scrolls itself. */
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dir-b[data-screen='landing'] {
+  --upper-h: clamp(400px, 50vh, 600px);
+}
+
+.dir-b *,
+.dir-b *::before,
+.dir-b *::after {
+  box-sizing: border-box;
+}
+
+.dir-b button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dir-b :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.dir-b h1,
+.dir-b h2,
+.dir-b h3,
+.dir-b p,
+.dir-b ol {
+  margin: 0;
+}
+
+.dir-b ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* ---- type roles ---- */
+
+.dir-b .b-display {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 60px;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.dir-b .b-h2 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.dir-b .b-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.dir-b .b-ui {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.dir-b .b-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.dir-b .b-dim {
+  color: var(--ink-dim);
+}
+
+.dir-b .b-mono {
+  font-family: 'Departure Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* ---- header: a 36 px band in the sky's own colour, scrolls away with the world ---- */
+
+.dir-b .b-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--hinge-h);
+  padding: 0 var(--gutter);
+}
+
+.dir-b .b-wordmark {
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.dir-b .b-grow {
+  flex: 1;
+}
+
+.dir-b .b-avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background: var(--sheet);
+  box-shadow: var(--shadow-hairline);
+  font-weight: 600;
+}
+
+/* ---- upper screen: the world, no frame ---- */
+
+.dir-b .b-upper {
+  position: relative;
+  height: var(--upper-h);
+  overflow: hidden;
+}
+
+.dir-b .b-world {
+  position: absolute;
+  inset: 0;
+}
+
+/* Aperture with one blade: the sheet's cream covers the upper screen and slides down its own
+   height, so the last cream pixel leaves at 720 ms; the world fades in under the last 250 ms. */
+@keyframes b-blade-open {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes b-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.dir-b .b-blade {
+  position: absolute;
+  inset: 0;
+  background: var(--sheet);
+  animation: b-blade-open var(--duration-aperture) var(--ease-aperture) both;
+  pointer-events: none;
+}
+
+.dir-b .b-upper[data-opening] .b-world {
+  animation: b-fade-in var(--duration-view) var(--ease-out-quad) both;
+  animation-delay: calc(var(--duration-aperture) - var(--duration-view));
+}
+
+/* ---- hinge: the signature, the only sticky element ---- */
+
+.dir-b .b-hinge {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  height: var(--hinge-h);
+  padding: 0 var(--gutter);
+  background: var(--hinge-bg);
+  box-shadow:
+    inset 0 1px 0 var(--hairline),
+    inset 0 -1px 0 var(--hairline-strong);
+}
+
+.dir-b .b-hinge-lead,
+.dir-b .b-hinge-trail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.dir-b .b-hinge-trail {
+  justify-content: flex-end;
+}
+
+.dir-b .b-hinge-wordmark {
+  display: none;
+  font-weight: 600;
+}
+
+.dir-b[data-pinned] .b-hinge-wordmark {
+  display: inline;
+}
+
+.dir-b .b-hinge .b-back {
+  display: none;
+}
+
+.dir-b .b-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+  padding: 0 8px;
+  margin-left: -8px;
+  border-radius: var(--radius-8);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dir-b .b-eyebrow .b-mono {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dir-b .b-eyebrow-button {
+  transition: background-color var(--duration-quick) var(--ease-out-quad);
+}
+
+.dir-b .b-eyebrow-button:hover {
+  background: var(--state-5);
+}
+
+/* The beacon: an 11 px square that reports progressState. Off is an outline, partial is ice,
+   full is signal. It is not a power light. */
+.dir-b .b-beacon {
+  width: 11px;
+  height: 11px;
+  flex: none;
+  box-shadow: inset 0 0 0 1px var(--hairline-strong);
+  transition: background-color var(--duration) var(--ease-out-quad);
+}
+
+.dir-b .b-beacon[data-level='part'] {
+  background: var(--ice);
+  box-shadow: none;
+}
+
+.dir-b .b-beacon[data-level='full'] {
+  background: var(--signal);
+  box-shadow: none;
+}
+
+.dir-b .b-counters,
+.dir-b .b-hinge-stage {
+  white-space: nowrap;
+  animation: b-rise var(--duration-reveal) var(--ease-out-quint) both;
+}
+
+/* ---- segmented control: track in state-7, thumb settles on the spring ---- */
+
+.dir-b .b-seg {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  height: 28px;
+  padding: 2px;
+  border-radius: var(--radius-8);
+  background: var(--state-7);
+}
+
+.dir-b .b-seg-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  width: calc((100% - 4px) / var(--n));
+  border-radius: 6px;
+  background: var(--sheet);
+  box-shadow: var(--shadow-raised);
+  transform: translateX(calc(var(--i) * 100%));
+  transition: transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-b .b-seg button {
+  position: relative;
+  z-index: 1;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: 6px;
+  color: var(--ink-dim);
+  white-space: nowrap;
+  text-align: center;
+  transition: color var(--duration-quick) var(--ease-out-quad);
+}
+
+.dir-b .b-seg button[aria-pressed='true'] {
+  color: var(--ink);
+}
+
+.dir-b .b-seg button:hover:not([aria-pressed='true']) {
+  color: var(--ink);
+}
+
+/* ---- buttons ---- */
+
+.dir-b .b-primary,
+.dir-b .b-secondary,
+.dir-b .b-chip,
+.dir-b .b-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--radius-8);
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-quick) var(--ease-out-quad),
+    box-shadow var(--duration-quick) var(--ease-out-quad),
+    color var(--duration-quick) var(--ease-out-quad),
+    transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-b .b-h28 {
+  height: 28px;
+}
+
+.dir-b .b-h32 {
+  height: 32px;
+  padding: 0 14px;
+}
+
+.dir-b .b-h36 {
+  height: 36px;
+  padding: 0 16px;
+}
+
+.dir-b .b-primary {
+  background: var(--signal);
+  box-shadow: var(--shadow-raised);
+}
+
+.dir-b .b-primary:hover {
+  background: var(--signal-hover);
+}
+
+.dir-b .b-secondary,
+.dir-b .b-chip {
+  background: var(--sheet);
+  box-shadow: var(--shadow-hairline);
+}
+
+.dir-b .b-secondary:hover,
+.dir-b .b-chip:hover {
+  background: color-mix(in srgb, var(--ink) 5.5%, var(--sheet));
+  box-shadow: 0 0 0 1px var(--hairline-strong);
+}
+
+.dir-b .b-text {
+  padding: 0 8px;
+}
+
+.dir-b .b-text:hover {
+  background: var(--state-5);
+}
+
+.dir-b .b-primary:active,
+.dir-b .b-secondary:active,
+.dir-b .b-chip:active,
+.dir-b .b-tile:active {
+  transform: scale(0.97);
+  transition-duration: var(--duration-instant);
+  transition-timing-function: var(--ease-standard);
+}
+
+.dir-b .b-primary:active {
+  background: var(--signal-press);
+}
+
+/* ---- lower screen: the sheet, cream to the edges ---- */
+
+.dir-b .b-sheet {
+  position: relative;
+  min-height: calc(100vh - var(--hinge-h));
+  padding: 40px var(--gutter) 96px;
+  background: var(--sheet);
+}
+
+.dir-b .b-sheet-firstrow {
+  display: none;
+}
+
+/* landing */
+
+.dir-b .b-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.dir-b .b-thesis {
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+}
+
+.dir-b .b-thesis .b-body {
+  max-width: 52ch;
+}
+
+.dir-b .b-grows {
+  display: grid;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.dir-b .b-steps {
+  display: grid;
+  gap: 4px;
+}
+
+.dir-b .b-step {
+  display: grid;
+  grid-template-columns: 16px 112px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-12);
+  transition: background-color var(--duration) var(--ease-out-quad);
+}
+
+.dir-b .b-step:hover {
+  background: var(--state-5);
+}
+
+.dir-b .b-step[aria-pressed='true'] {
+  background: var(--state-10);
+}
+
+.dir-b .b-step-n {
+  line-height: 24px;
+}
+
+.dir-b .b-step .b-badge {
+  margin-top: 2px;
+}
+
+.dir-b .b-step-hint {
+  padding-left: 12px;
+}
+
+.dir-b .b-worlds {
+  display: grid;
+  gap: 24px;
+  margin-top: 96px;
+}
+
+/* ---- Metro tiles: flat, 12 radius, one hairline, signal edge when it is the world above ---- */
+
+.dir-b .b-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dir-b .b-tile {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: var(--radius-12);
+  background: var(--sheet);
+  box-shadow: var(--shadow-hairline);
+  transition:
+    background-color var(--duration-quick) var(--ease-out-quad),
+    box-shadow var(--duration-quick) var(--ease-out-quad),
+    transform var(--duration-tactile) var(--ease-spring);
+}
+
+.dir-b .b-tile:hover {
+  background: color-mix(in srgb, var(--ink) 5.5%, var(--sheet));
+  box-shadow: 0 0 0 1px var(--hairline-strong);
+}
+
+.dir-b .b-tile[aria-pressed='true'],
+.dir-b .b-tile[aria-current='true'] {
+  box-shadow: 0 0 0 2px var(--signal);
+}
+
+.dir-b .b-tile-add {
+  align-content: center;
+  justify-items: center;
+  background: transparent;
+  box-shadow: none;
+  border: 1px dashed var(--hairline-strong);
+  color: var(--ink-dim);
+}
+
+.dir-b .b-tile-add:hover {
+  background: var(--state-5);
+  box-shadow: none;
+}
+
+.dir-b .b-course {
+  min-height: 152px;
+  grid-template-rows: auto 1fr auto;
+  padding: 16px;
+}
+
+.dir-b .b-course-name {
+  margin-top: 4px;
+}
+
+.dir-b .b-course-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.dir-b .b-windows {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.dir-b .b-windows i {
+  width: 11px;
+  height: 11px;
+  box-shadow: inset 0 0 0 1px var(--hairline-strong);
+}
+
+.dir-b .b-windows i[data-lit] {
+  background: var(--ice);
+  box-shadow: none;
+}
+
+.dir-b .b-windows i[data-lit][data-stage='mastered'] {
+  background: var(--signal);
+}
+
+/* ---- world and visit: topics 208, table, detail 320 ---- */
+
+.dir-b .b-work {
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr) 320px;
+  gap: 32px;
+  align-items: start;
+}
+
+.dir-b .b-col-head {
+  display: block;
+  padding: 0 14px 8px;
+}
+
+.dir-b .b-topic-list {
+  display: grid;
+  gap: 8px;
+}
+
+.dir-b .b-topic {
+  min-height: 60px;
+}
+
+.dir-b .b-main {
+  display: grid;
+  gap: 32px;
+  min-width: 0;
+}
+
+.dir-b .b-table {
+  display: grid;
+  gap: 0;
+}
+
+.dir-b .b-thead,
+.dir-b .b-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 124px 168px 48px;
+  gap: 12px;
+  align-items: center;
+  padding: 0 7px;
+}
+
+.dir-b .b-table-residents .b-thead,
+.dir-b .b-row-resident {
+  grid-template-columns: 148px minmax(0, 1fr);
+}
+
+.dir-b .b-thead {
+  height: 28px;
+  margin-bottom: 4px;
+  box-shadow: inset 0 -1px 0 var(--hairline);
+}
+
+.dir-b .b-row {
+  width: 100%;
+  height: 28px;
+  border-radius: var(--radius-8);
+  transition: background-color var(--duration) var(--ease-out-quad);
+}
+
+.dir-b .b-row:hover {
+  background: var(--state-5);
+}
+
+.dir-b .b-row[aria-pressed='true'] {
+  background: var(--state-10);
+}
+
+.dir-b .b-row > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dir-b .b-cell-page {
+  text-align: right;
+}
+
+.dir-b .b-cell-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dir-b .b-cell-line {
+  font-weight: 400;
+}
+
+.dir-b .b-swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  flex: none;
+}
+
+.dir-b .b-row-sub {
+  display: none;
+}
+
+/* evidence badges: one hue deepening, ink text throughout */
+
+.dir-b .b-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-4);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  justify-self: start;
+  transition: background-color var(--duration) var(--ease-out-quad);
+}
+
+.dir-b .b-badge[data-stage='touched'] {
+  background: var(--state-5);
+  box-shadow: inset 0 0 0 1px var(--hairline-strong);
+}
+
+.dir-b .b-badge[data-stage='demonstrated'] {
+  background: var(--ice);
+}
+
+.dir-b .b-badge[data-stage='mastered'] {
+  background: var(--signal);
+}
+
+/* empty topic */
+
+.dir-b .b-empty {
+  display: grid;
+  gap: 8px;
+  max-width: 44ch;
+  padding: 24px 14px;
+}
+
+/* drop zone and stage preview */
+
+.dir-b .b-drop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 24px;
+  align-items: stretch;
+}
+
+.dir-b .b-drop-zone {
+  display: grid;
+  align-content: center;
+  min-height: 88px;
+  padding: 16px 20px;
+  border: 1px dashed var(--hairline-strong);
+  border-radius: var(--radius-12);
+}
+
+.dir-b .b-stage {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.dir-b .b-status {
+  grid-column: 1 / -1;
+  padding: 0 4px;
+}
+
+.dir-b .b-note {
+  padding: 16px 14px;
+  border-radius: var(--radius-12);
+  background: var(--state-3);
+}
+
+/* detail pane: the provenance card, 16 radius, sticky under the hinge */
+
+.dir-b .b-detail {
+  position: sticky;
+  top: calc(var(--hinge-h) + 16px);
+}
+
+.dir-b .b-card {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 20px 20px 24px;
+  border-radius: var(--radius-16);
+  background: var(--sheet);
+  box-shadow: var(--shadow-overlay);
+}
+
+.dir-b .b-card-close {
+  display: none;
+}
+
+.dir-b .b-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.dir-b .b-name-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 10px;
+  margin: -32px 0 0 -8px;
+  border-radius: var(--radius-8);
+  background: var(--sheet);
+  box-shadow: var(--shadow-raised);
+  font-weight: 600;
+}
+
+.dir-b .b-line {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* course tile overlay over the lower screen only */
+
+.dir-b .b-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  padding: 24px var(--gutter);
+}
+
+.dir-b .b-overlay-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  cursor: default;
+  animation: b-fade-in var(--duration) var(--ease-out-quad) both;
+}
+
+.dir-b .b-overlay-panel {
+  position: sticky;
+  top: calc(var(--hinge-h) + 24px);
+  display: grid;
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: var(--radius-12);
+  background: var(--sheet);
+  box-shadow: var(--shadow-overlay);
+}
+
+.dir-b .b-overlay-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- motion patterns ---- */
+
+@keyframes b-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes b-view-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes b-rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dir-b .motion-reveal {
+  animation: b-reveal var(--duration-reveal) var(--ease-out-quint) both;
+}
+
+.dir-b .motion-view-enter {
+  animation: b-view-enter var(--duration-view) var(--ease-out-quint) both;
+}
+
+.dir-b .motion-rise {
+  animation: b-rise var(--duration-reveal) var(--ease-out-quint) both;
+}
+
+/* ---- 390: screens stack, the world is a square, the hinge hands counters to the sheet ---- */
+
+@media (max-width: 900px) {
+  .dir-b {
+    --gutter: 16px;
+    --upper-h: 100vw;
+  }
+
+  .dir-b .b-display {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .dir-b .b-hinge {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .dir-b .b-hinge-trail {
+    display: none;
+  }
+
+  .dir-b .b-hinge-tabs {
+    justify-self: end;
+    min-width: 0;
+  }
+
+  .dir-b .b-seg button {
+    padding: 0 8px;
+  }
+
+  .dir-b .b-hinge-wordmark,
+  .dir-b[data-pinned] .b-hinge-wordmark {
+    display: none;
+  }
+
+  .dir-b[data-pinned] .b-hinge .b-back {
+    display: inline-flex;
+  }
+
+  .dir-b[data-pinned] .b-eyebrow {
+    display: none;
+  }
+
+  .dir-b .b-sheet-firstrow {
+    display: block;
+    margin: -24px 0 24px;
+  }
+
+  .dir-b .b-sheet {
+    padding-top: 40px;
+    padding-bottom: 80px;
+  }
+
+  .dir-b .b-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .dir-b .b-thesis .b-primary {
+    width: 100%;
+  }
+
+  .dir-b .b-step {
+    grid-template-columns: 16px minmax(0, 1fr);
+    gap: 8px 12px;
+  }
+
+  .dir-b .b-step-text {
+    grid-column: 2;
+  }
+
+  .dir-b .b-worlds {
+    margin-top: 56px;
+  }
+
+  .dir-b .b-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dir-b .b-course {
+    min-height: 136px;
+  }
+
+  .dir-b .b-work {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .dir-b .b-col-head {
+    display: none;
+  }
+
+  .dir-b .b-topic-list {
+    display: flex;
+    gap: 8px;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 2px var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .dir-b .b-topic,
+  .dir-b .b-topics .b-tile-add {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 0;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: var(--radius-8);
+  }
+
+  .dir-b .b-thead {
+    display: none;
+  }
+
+  .dir-b .b-row {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 20px 20px;
+    gap: 0;
+    height: auto;
+    padding: 6px 8px;
+  }
+
+  .dir-b .b-row .b-badge,
+  .dir-b .b-row .b-cell-source,
+  .dir-b .b-row .b-cell-page {
+    display: none;
+  }
+
+  .dir-b .b-row-sub {
+    display: block;
+    font-weight: 400;
+  }
+
+  .dir-b .b-row-resident {
+    grid-template-rows: 20px 20px;
+  }
+
+  .dir-b .b-row-resident .b-cell-line {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .dir-b .b-drop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dir-b .b-stage .b-seg {
+    width: 100%;
+  }
+
+  /* the detail rises from the bottom as a card; same object, different place */
+  .dir-b .b-detail {
+    display: none;
+  }
+
+  .dir-b .b-detail[data-open] {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    z-index: 30;
+  }
+
+  .dir-b .b-detail[data-open] .b-card {
+    padding: 44px 20px 72px;
+    border-radius: var(--radius-16) var(--radius-16) 0 0;
+    animation-name: b-view-enter;
+  }
+
+  .dir-b .b-card-close {
+    display: inline-flex;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+  }
+
+  .dir-b .b-name-tab {
+    margin-top: 0;
+  }
+
+  .dir-b .b-overlay {
+    padding: 16px var(--gutter);
+  }
+}
+
+@media (max-width: 480px) {
+  .dir-b .b-seg button {
+    padding: 0 6px;
+  }
+}
+
+/* ---- reduced motion: transforms stop, opacity may still fade within 100 ms ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-b .b-primary,
+  .dir-b .b-secondary,
+  .dir-b .b-chip,
+  .dir-b .b-text,
+  .dir-b .b-tile,
+  .dir-b .b-seg-thumb,
+  .dir-b .b-row,
+  .dir-b .b-step,
+  .dir-b .b-badge,
+  .dir-b .b-beacon {
+    transition-duration: 0ms;
+  }
+
+  .dir-b .b-primary:active,
+  .dir-b .b-secondary:active,
+  .dir-b .b-chip:active,
+  .dir-b .b-tile:active {
+    transform: none;
+  }
+
+  .dir-b .motion-reveal,
+  .dir-b .motion-view-enter,
+  .dir-b .motion-rise,
+  .dir-b .b-counters,
+  .dir-b .b-hinge-stage,
+  .dir-b .b-detail[data-open] .b-card,
+  .dir-b .b-overlay-scrim {
+    animation-name: b-fade-in;
+    animation-duration: var(--duration-quick);
+  }
+
+  .dir-b .b-blade {
+    display: none;
+  }
+
+  .dir-b .b-upper[data-opening] .b-world {
+    animation: b-fade-in var(--duration-quick) var(--ease-out-quad) both;
+  }
+}

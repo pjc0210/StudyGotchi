@@ -1,0 +1,492 @@
+.camera-proof-page {
+  --camera-sky: #e8e2f2;
+  --camera-cream: #fff6df;
+  --camera-ink: #342d45;
+  --camera-muted: #6f687c;
+  --camera-line: rgba(52, 45, 69, 0.22);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--camera-ink);
+  background: var(--camera-sky);
+  font-family: ui-rounded, 'SF Pro Rounded', 'Avenir Next Rounded', system-ui, sans-serif;
+}
+
+.camera-proof-page button {
+  color: inherit;
+  font: inherit;
+}
+
+.camera-proof-canvas {
+  position: absolute;
+  top: 0;
+  right: -24vw;
+  bottom: 0;
+  width: 82vw;
+  pointer-events: auto;
+}
+
+.camera-proof-canvas canvas {
+  display: block;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+.camera-proof-header {
+  position: absolute;
+  top: 18px;
+  left: 10px;
+  z-index: 4;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.camera-proof-header button {
+  padding: 7px 10px;
+  border: 2px solid var(--camera-ink);
+  border-radius: 7px;
+  background: rgba(255, 246, 223, 0.94);
+  box-shadow: 3px 3px 0 var(--camera-ink);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.camera-proof-header button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--camera-ink);
+}
+
+.camera-proof-header div {
+  display: grid;
+  align-content: center;
+  line-height: 1.05;
+}
+
+.camera-proof-header span,
+.camera-proof-kicker,
+.camera-motion-controls > div > span {
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.camera-proof-header strong {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.camera-proof-left {
+  position: absolute;
+  top: 76px;
+  bottom: 38px;
+  left: 12px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: clamp(230px, 38vw, 430px);
+  min-height: 0;
+}
+
+.camera-proof-copy {
+  width: 100%;
+}
+
+.camera-proof-copy h1 {
+  max-width: 14ch;
+  margin: 7px 0 10px;
+  font-size: clamp(27px, 3.4vw, 48px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.camera-proof-copy p {
+  max-width: 44ch;
+  margin: 0;
+  color: var(--camera-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.camera-active-card {
+  position: relative;
+  width: 100%;
+  padding: 15px 16px 14px;
+  border: 2px solid var(--camera-ink);
+  border-radius: 11px;
+  background: rgba(255, 246, 223, 0.94);
+  box-shadow: 4px 4px 0 var(--camera-ink);
+  animation: camera-card-in 360ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes camera-card-in {
+  from {
+    opacity: 0.45;
+    transform: translateY(8px);
+  }
+}
+
+.camera-active-heading {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.camera-active-heading > span {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--camera-ink);
+  border-radius: 50%;
+}
+
+.camera-active-heading small {
+  display: block;
+  color: var(--camera-muted);
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.camera-active-heading h2 {
+  margin: 2px 0 0;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.camera-active-heading > strong {
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 18px;
+}
+
+.camera-progress-track {
+  height: 6px;
+  margin-top: 11px;
+  overflow: hidden;
+  border: 1px solid var(--camera-line);
+  border-radius: 2px;
+  background: var(--camera-sky);
+}
+
+.camera-progress-track span {
+  display: block;
+  height: 100%;
+  transition: width 380ms ease;
+}
+
+.camera-active-card > p {
+  margin: 8px 0 10px;
+  color: var(--camera-muted);
+  font-size: 11px;
+}
+
+.camera-active-card dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0;
+}
+
+.camera-active-card dl div {
+  min-width: 0;
+}
+
+.camera-active-card dt {
+  color: var(--camera-muted);
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.camera-active-card dd {
+  margin: 1px 0 0;
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.camera-course-rail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.camera-course-rail button {
+  display: grid;
+  grid-template-columns: 9px 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  min-height: 25px;
+  padding: 4px 7px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: rgba(255, 246, 223, 0.58);
+  text-align: left;
+  cursor: pointer;
+}
+
+.camera-course-rail button[aria-current='true'] {
+  border-color: var(--camera-ink);
+  background: var(--camera-cream);
+  box-shadow: 2px 2px 0 var(--camera-ink);
+}
+
+.camera-course-rail button > span {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--camera-ink);
+  border-radius: 50%;
+}
+
+.camera-course-rail b {
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 9px;
+}
+
+.camera-course-rail small {
+  overflow: hidden;
+  color: var(--camera-muted);
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.camera-motion-controls {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  z-index: 5;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 9px 10px;
+  border: 2px solid var(--camera-ink);
+  border-radius: 10px;
+  background: rgba(255, 246, 223, 0.92);
+  box-shadow: 4px 4px 0 var(--camera-ink);
+  backdrop-filter: blur(8px);
+}
+
+.camera-grain-control {
+  display: grid;
+  grid-template-columns: auto 76px 14px;
+  align-items: center;
+  gap: 6px;
+  padding-right: 10px;
+  border-right: 1px solid var(--camera-line);
+}
+
+.camera-grain-control > span {
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.camera-grain-control input {
+  width: 76px;
+  accent-color: var(--camera-ink);
+  cursor: ew-resize;
+}
+
+.camera-grain-control output {
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 10px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.camera-control-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.camera-control-block > span {
+  flex: 0 0 100%;
+}
+
+.camera-control-block > strong {
+  max-width: 180px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.camera-motion-controls button {
+  padding: 5px 8px;
+  border: 1px solid var(--camera-line);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--camera-muted);
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.camera-motion-controls button[aria-pressed='true'] {
+  color: var(--camera-cream);
+  background: var(--camera-ink);
+}
+
+.camera-motion-controls button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+.camera-arrow-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.camera-arrow-controls button {
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  color: var(--camera-ink);
+  background: var(--camera-cream);
+}
+
+.camera-arrow-controls span {
+  min-width: 28px;
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 9px;
+  text-align: center;
+}
+
+.camera-proof-footer {
+  position: absolute;
+  right: 24px;
+  bottom: 16px;
+  left: 12px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--camera-muted);
+  font-family: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .camera-proof-canvas {
+    right: -25vw;
+    width: 86vw;
+  }
+
+  .camera-proof-left {
+    top: 66px;
+    left: 8px;
+    bottom: 32px;
+    width: 39vw;
+    gap: 9px;
+  }
+
+  .camera-proof-copy p {
+    display: none;
+  }
+
+  .camera-proof-copy h1 {
+    font-size: clamp(24px, 4.4vw, 37px);
+  }
+
+  .camera-active-card dl {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .camera-active-card > p {
+    display: none;
+  }
+
+  .camera-course-rail small {
+    display: none;
+  }
+
+  .camera-course-rail button {
+    grid-template-columns: 9px 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .camera-proof-header div,
+  .camera-proof-copy,
+  .camera-proof-footer {
+    display: none;
+  }
+
+  .camera-proof-canvas {
+    top: 0;
+    right: -24vw;
+    bottom: auto;
+    width: 122vw;
+    height: 62vh;
+  }
+
+  .camera-proof-left {
+    top: auto;
+    bottom: 14px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    height: 34vh;
+    gap: 7px;
+  }
+
+  .camera-motion-controls {
+    right: 12px;
+    max-width: calc(100vw - 110px);
+  }
+
+  .camera-grain-control {
+    grid-template-columns: 64px 14px;
+  }
+
+  .camera-grain-control > span {
+    display: none;
+  }
+
+  .camera-active-card {
+    padding: 11px 12px 10px;
+  }
+
+  .camera-active-heading h2 {
+    font-size: 17px;
+  }
+
+  .camera-course-rail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .camera-course-rail button {
+    grid-template-columns: 7px 1fr;
+    padding: 3px 5px;
+  }
+
+  .camera-course-rail b {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .camera-active-card {
+    animation: none;
+  }
+}

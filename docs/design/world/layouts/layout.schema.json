@@ -1,0 +1,604 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studygotchi.local/docs/design/world/layouts/layout.schema.json",
+  "title": "StudyGotchi biome layout (version 2)",
+  "description": "One biome = one landmass = one course. This file is the single contract between the biome designers (docs/design/world/layouts/*.layout.json) and the generic renderer in prototypes/biome-lab/. Units: metres everywhere. Axes: x east, z south (toward the default camera), y up; settled ground is y = 0 and never changes with progress. Angles: laneYaw in radians from +z toward +x; azimuths in degrees from +z toward +x. Colours are lowercase 6-digit hex. Bands are the five progress steps 0 / 25 / 50 / 75 / 100 % keyed as the strings \"0\", \"25\", \"50\", \"75\", \"100\". Field names mirror prototypes/biome-lab/src/layout/biome-layout.ts wherever the concept matches (shape.kind, vertices, centreline, width, band, anchor, population, laneYaw, stationAzimuth, seaLevel, groundHeight, worldExtent -> world.extent, frameRadius, miniIsland -> soloIsland, headland -> landmark.plinth, range -> land.skyline.range). Anything the generic renderer does not interpret lives in a documented `extras` object so no design intent is lost.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "biome", "name", "palette", "scale", "world", "land", "water", "soloIsland", "districts", "landmark", "marker"],
+  "properties": {
+    "version": {
+      "description": "Schema version. Always 2 for this schema; version 1 files were the designers' free-form drafts.",
+      "const": 2
+    },
+    "biome": {
+      "description": "Kebab-case biome id, identical to the file stem (`<biome>.layout.json`) and to the sheet `docs/design/world/biomes/<biome>.md`.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "description": "Display name of the biome family, as it appears in the course picker.",
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "description": "Optional free-text status line (draft date, what it is waiting on). Not read by the renderer.",
+      "type": "string"
+    },
+    "notes": {
+      "description": "Designer notes that do not fit a field: conventions, provenance, normalisation history. Each entry is one sentence or paragraph. Not read by the renderer.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "palette": {
+      "description": "Palette roles -> hex. Roles are free-form names used by `material` fields and by the sheet's palette table (e.g. lawn, paving, brick, water, window, accent, sky, skyNight, fog). Every value must be a colour; non-colour palette parameters belong in `ambient`.",
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[a-zA-Z][a-zA-Z0-9]*$" },
+      "additionalProperties": { "$ref": "#/$defs/hex" }
+    },
+    "scale": {
+      "description": "Size rules that keep creatures readable (fix plan Review 2: creature ~1.8 m and >= 6 % of the viewport at the district station; houses 4.5-6 m; >= 20 m of empty ground between districts).",
+      "type": "object",
+      "required": ["creatureHeight", "houseHeight"],
+      "properties": {
+        "creatureHeight": { "description": "Resident base height in metres before `creatureScale`.", "type": "number", "exclusiveMinimum": 0 },
+        "creatureScale": { "description": "Per-biome creature scale multiplier chosen so the resident reaches >= 6 % of viewport height at every district station (biome-layout.ts `creatureScale`).", "type": "number", "minimum": 1 },
+        "houseHeight": { "$ref": "#/$defs/range", "description": "[min, max] house height in metres for the ordinary residential building kind." },
+        "hallHeight": { "$ref": "#/$defs/range", "description": "[min, max] height in metres for the biome's large hall / civic / industrial building kind, if it has one." },
+        "minCreatureViewportFraction": { "description": "The scale rule: minimum fraction of the viewport height a creature covers at a district station (0.06).", "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "minDistrictGap": { "description": "Minimum clear ground between any two district outlines, metres (20).", "type": "number", "minimum": 0 },
+        "pixelCellPx": { "description": "Fixed pixel-pass cell size in screen pixels at every station (Review 2: 2).", "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": {
+        "description": "Further named heights or scales specific to the family (e.g. dormHeight, bellTowerHeight): a number or a [min, max] pair in metres.",
+        "oneOf": [{ "type": "number" }, { "$ref": "#/$defs/range" }]
+      }
+    },
+    "world": {
+      "description": "Terrain frame and vertical datum. The renderer builds a heightfield of half-extent `extent`; the land continues past it into fog at the back.",
+      "type": "object",
+      "required": ["extent", "seaLevel", "groundHeight", "frameRadius"],
+      "additionalProperties": false,
+      "properties": {
+        "extent": { "description": "Terrain mesh half-extent in metres (biome-layout.ts `worldExtent`). Coordinates in this file lie within [-extent, extent] on x and z; 100 = the 200 x 200 m authoring frame.", "type": "number", "exclusiveMinimum": 0 },
+        "frameRadius": { "description": "Radius in metres that the overview / arrival camera stations frame (biome-layout.ts `frameRadius`).", "type": "number", "exclusiveMinimum": 0 },
+        "seaLevel": { "description": "Water surface height in metres (y). Negative means below the settled ground.", "type": "number" },
+        "groundHeight": { "description": "Settled ground surface height in metres (y). The coast cliff drop is groundHeight - seaLevel. Ground never changes with progress.", "type": "number" },
+        "relief": { "description": "Rolling relief amplitude on the mainland in metres (soft heightfield noise; no plateaus, no discs).", "type": "number", "minimum": 0 }
+      }
+    },
+    "land": {
+      "description": "The one landmass: its outline, the skyline element at its back that is the only thing allowed to grow in height, and how its coast is cut.",
+      "type": "object",
+      "required": ["outline", "skyline", "coastCliff"],
+      "additionalProperties": false,
+      "properties": {
+        "outline": {
+          "description": "Land footprint at settled-ground height. Either an explicit polygon (edges marked `openEdges` are frame edges or the skyline foot, not coasts) or an `open-back` lobe union in the style of biome-layout.ts `mainland` for procedurally wobbled coasts. Everything outside the outline (and outside `soloIsland`) is water.",
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["kind", "vertices"],
+              "additionalProperties": false,
+              "properties": {
+                "kind": { "description": "Explicit polygon outline.", "const": "polygon" },
+                "vertices": { "$ref": "#/$defs/polygon", "description": "Polygon vertices [x, z] in metres, any winding, no repeated closing point." },
+                "openEdges": {
+                  "description": "Which frame sides of the polygon are NOT coastlines: `back` (z = -extent, the skyline foot dissolving into fog), `west`, `east` (land continues off-frame), `front` (rare). The renderer draws no cliff there.",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": { "enum": ["back", "west", "east", "front"] }
+                },
+                "description": { "description": "One-line description of the land shape for the panel and the README.", "type": "string" }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["kind", "center", "rx", "rz"],
+              "additionalProperties": false,
+              "properties": {
+                "kind": { "description": "Open-back lobe union: an ellipse plus extra lobes; the back edge is cut open into the skyline.", "const": "open-back" },
+                "center": { "$ref": "#/$defs/point", "description": "Centre [x, z] of the main ellipse." },
+                "rx": { "description": "Main ellipse half-width along x, metres.", "type": "number", "exclusiveMinimum": 0 },
+                "rz": { "description": "Main ellipse half-depth along z, metres.", "type": "number", "exclusiveMinimum": 0 },
+                "lobes": {
+                  "description": "Extra circular lobes [x, z, radius] unioned onto the ellipse for bays and points (biome-layout.ts `mainland.lobes`).",
+                  "type": "array",
+                  "items": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } }
+                },
+                "description": { "description": "One-line description of the land shape.", "type": "string" }
+              }
+            }
+          ]
+        },
+        "skyline": {
+          "description": "The back-of-world silhouette (mountain range, gantry wall, spire rows, hall skyline...). It is the ONLY elevation that grows, driven by the course fraction; settled ground never rises.",
+          "type": "object",
+          "required": ["kind", "arc", "rows", "growth"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "description": "Skyline family. Known kinds: mountain-range (ice, alpine), gantry-wall (heavy industry), spire-rows (future utopia), hall-skyline (academy town), cream-peaks (candy world). Any other kebab-case string is allowed for new families; the renderer falls back to generic blocks of `growth[band].height`.",
+              "type": "string",
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+              "examples": ["mountain-range", "gantry-wall", "spire-rows", "hall-skyline", "cream-peaks"]
+            },
+            "description": { "description": "What the skyline is made of and how it reads at 48 px.", "type": "string" },
+            "arc": {
+              "$ref": "#/$defs/polyline",
+              "description": "The skyline's spine as a polyline [x, z] from west to east (>= 2 points). For the parametric families this is z = arcZ + arcCurve * x^2 sampled every 20 m; `range` keeps the parameters."
+            },
+            "range": {
+              "description": "Parametric form of the arc mirroring biome-layout.ts `range`: z = arcZ + arcCurve * x^2; the land's back boundary sits `footDepth` in front of the arc and the foothill belt climbs `footRise` metres toward it.",
+              "type": "object",
+              "required": ["arcZ", "arcCurve", "footDepth", "footRise"],
+              "additionalProperties": false,
+              "properties": {
+                "arcZ": { "description": "z of the arc at x = 0, metres (negative = toward the back).", "type": "number" },
+                "arcCurve": { "description": "Curvature coefficient; the arc ends wrap forward for positive values.", "type": "number" },
+                "footDepth": { "description": "Distance in metres from the arc forward to the skyline foot (where districts may start).", "type": "number", "minimum": 0 },
+                "footRise": { "description": "Height gain in metres from the foot to the arc (0 for flat-plinth skylines).", "type": "number", "minimum": 0 },
+                "footWander": { "description": "Optional +/- noise amplitude of the foot line in metres.", "type": "number", "minimum": 0 }
+              }
+            },
+            "footZ": { "description": "z of the skyline foot at x = 0: the line in front of which districts sit and behind which the skyline elements stand.", "type": "number" },
+            "fogStartZ": { "description": "z where the fog fade begins (elements behind it are paler).", "type": "number" },
+            "fogOpaqueZ": { "description": "z where the fog is fully opaque; nothing behind it is drawn.", "type": "number" },
+            "rows": {
+              "description": "z positions of the element rows, front to back (e.g. [-78, -88, -96]). The front row appears at band 0; `growth[band].rows` says how many rows exist at each band. Use one entry for single-row skylines.",
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "number" }
+            },
+            "growth": {
+              "description": "Skyline state by band. `count` and `height` are what the generic renderer uses; family-specific breakdowns (halls, towers, gantries, chimneys...) sit beside them and must be consistent with `count`/`height`. Heights must be non-decreasing by band (validated).",
+              "type": "object",
+              "required": ["0", "25", "50", "75", "100"],
+              "additionalProperties": false,
+              "properties": {
+                "0": { "$ref": "#/$defs/skylineBand", "description": "State at 0 % course fraction: the minimum silhouette." },
+                "25": { "$ref": "#/$defs/skylineBand", "description": "State at 25 %." },
+                "50": { "$ref": "#/$defs/skylineBand", "description": "State at 50 %." },
+                "75": { "$ref": "#/$defs/skylineBand", "description": "State at 75 %." },
+                "100": { "$ref": "#/$defs/skylineBand", "description": "State at 100 %: the full silhouette." }
+              }
+            },
+            "extras": { "$ref": "#/$defs/extras", "description": "Family-specific skyline parameters the generic renderer ignores (pitch, first x, footprints, materials, named towers)." }
+          }
+        },
+        "coastCliff": {
+          "description": "How every land edge over water is cut: a vertical riser of `height` metres in `color` (the cross-section that also becomes the marker pedestal side), optionally with a horizontal band (coping course, piling band, light strip).",
+          "type": "object",
+          "required": ["height", "color"],
+          "additionalProperties": false,
+          "properties": {
+            "height": { "description": "Vertical drop in metres from settled ground to the water (normally groundHeight - seaLevel).", "type": "number", "minimum": 0 },
+            "color": { "$ref": "#/$defs/hex", "description": "Cliff face colour." },
+            "material": { "description": "Palette role name of the cliff face (a key of `palette`, validated).", "type": "string" },
+            "band": {
+              "description": "One horizontal band on the riser: a coping course at the lip, a piling band at the waterline, or a light strip.",
+              "type": "object",
+              "required": ["at", "height", "color"],
+              "additionalProperties": false,
+              "properties": {
+                "at": { "description": "Where the band sits on the riser.", "enum": ["lip", "waterline"] },
+                "height": { "description": "Band height in metres.", "type": "number", "exclusiveMinimum": 0 },
+                "color": { "$ref": "#/$defs/hex", "description": "Band colour." },
+                "emissive": { "description": "True if the band glows at night.", "type": "boolean" }
+              }
+            },
+            "description": { "description": "Notes on shore variants (terrace steps, slopes instead of cliffs, etc.).", "type": "string" }
+          }
+        },
+        "extras": { "$ref": "#/$defs/extras", "description": "Family-specific land features the generic renderer ignores but the family renderer may read (slag shore terraces, open lawns that are not districts, river details)." }
+      }
+    },
+    "water": {
+      "description": "Every water body. The open sea / lagoon uses geometry kind `complement` (everything outside land.outline and soloIsland); rivers and canals are polygons or polylines with a width; ponds and pools are discs.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "geometry", "color"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/slug", "description": "Unique id of the water body within the file." },
+          "kind": { "description": "Water kind: sea (open harbour water), lake, river (flowing, one direction), canal (built banks, boats), basin (small built pond or pool), lagoon (shallow clear sea).", "enum": ["sea", "lake", "river", "canal", "basin", "lagoon"] },
+          "geometry": {
+            "description": "Footprint of the water surface.",
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["kind", "vertices"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "polygon", "description": "Explicit polygon." },
+                  "vertices": { "$ref": "#/$defs/polygon", "description": "Polygon vertices [x, z]." }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "centreline", "width"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "polyline", "description": "Centreline swept by a width (rivers, canals)." },
+                  "centreline": { "$ref": "#/$defs/polyline", "description": "Centreline [x, z] points." },
+                  "width": { "description": "Water width in metres.", "type": "number", "exclusiveMinimum": 0 }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "center", "radius"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "disc", "description": "Round pond or pool." },
+                  "center": { "$ref": "#/$defs/point", "description": "Centre [x, z]." },
+                  "radius": { "description": "Radius in metres.", "type": "number", "exclusiveMinimum": 0 },
+                  "innerRadius": { "description": "Optional inner radius for a ring pool (dry disc in the middle).", "type": "number", "minimum": 0 }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "complement", "description": "Everything outside land.outline and soloIsland: the open sea or lagoon." }
+                }
+              }
+            ]
+          },
+          "color": { "$ref": "#/$defs/hex", "description": "Day water colour." },
+          "nightColor": { "$ref": "#/$defs/hex", "description": "Night water colour, if it differs from the bible default." },
+          "deepColor": { "$ref": "#/$defs/hex", "description": "Deeper tint used far from shore (lagoons)." },
+          "shallowsColor": { "$ref": "#/$defs/hex", "description": "Pale tint within a few metres of shore (lagoons)." },
+          "material": { "description": "Palette role name of the colour (a key of `palette`, validated).", "type": "string" },
+          "flow": { "description": "Flow direction for rivers/canals: east, west, north (toward -z), south (toward +z).", "enum": ["east", "west", "north", "south"] },
+          "flowSpeed": { "description": "Surface flow speed in m/s for the shader.", "type": "number", "minimum": 0 },
+          "description": { "description": "Notes on the body (what it is, far bank, how it joins other water).", "type": "string" },
+          "extras": { "$ref": "#/$defs/extras", "description": "Family-specific water details (turning basin, lift bridge, etc.)." }
+        }
+      }
+    },
+    "soloIsland": {
+      "description": "The second, solitary island (fix plan: 'the research station is the exception: alone on its own, bigger, island'). Null if the biome has none. Its district is listed in `districts` with `solitary: true` and referenced by `district`. Must be >= 15 m from every non-solitary district (validated).",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["center", "feature", "population"],
+          "anyOf": [{ "required": ["radius"] }, { "required": ["polygon"] }],
+          "additionalProperties": false,
+          "properties": {
+            "id": { "$ref": "#/$defs/slug", "description": "Island id." },
+            "district": { "$ref": "#/$defs/slug", "description": "Id of the district that sits on the island (that district has `solitary: true`)." },
+            "center": { "$ref": "#/$defs/point", "description": "Island centre [x, z] (biome-layout.ts `miniIsland.center`)." },
+            "radius": { "description": "Nominal radius in metres (biome-layout.ts `miniIsland.radius`); the polygon, if given, is the real outline.", "type": "number", "exclusiveMinimum": 0 },
+            "polygon": { "$ref": "#/$defs/polygon", "description": "Island outline [x, z] at settled-ground height." },
+            "feature": { "description": "What stands on the island and how it reads at 48 px (the anchor that exists at 0 %).", "type": "string" },
+            "population": { "$ref": "#/$defs/population", "description": "Buildings on the island by band; normally identical to its district's population." },
+            "material": { "description": "Palette role of the island's cliff / wall (a key of `palette`, validated).", "type": "string" },
+            "offshoreGap": { "description": "Clear water in metres between the island and the nearest mainland shore (fix plan: 25-35 m).", "type": "number", "minimum": 0 },
+            "access": { "description": "How residents reach it: boat route, causeway, transit; never a bridge that reads as a road.", "type": "string" },
+            "description": { "description": "Shape notes (lobes, shelves).", "type": "string" }
+          }
+        }
+      ]
+    },
+    "transit": {
+      "description": "Linear infrastructure: monorails, rails, roads, paths, causeways, pipe racks, conveyors. Each is a polyline with a width and an elevation above settled ground. Optional; local paths inside districts need not be listed.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "polyline", "width", "elevation"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/slug", "description": "Unique id of the line within the file." },
+          "kind": { "description": "monorail (elevated pods), rail (freight/passenger rails at grade), road (vehicles), path (pedestrian paving), causeway (a low crossing over water), pipe (elevated pipe rack), conveyor (moving belt).", "enum": ["monorail", "rail", "road", "path", "causeway", "pipe", "conveyor"] },
+          "polyline": { "$ref": "#/$defs/polyline", "description": "Route [x, z] in metres." },
+          "closed": { "description": "True if the route is a loop (last point joins the first).", "type": "boolean" },
+          "width": { "description": "Width in metres (rail gauge for rails, beam width for monorails, pipe diameter for pipes). Null if the designer has not specified it yet (listed under Gaps).", "type": ["number", "null"], "exclusiveMinimum": 0 },
+          "edgeWidth": { "description": "Optional total width including kerbs / edge bands, metres.", "type": "number", "exclusiveMinimum": 0 },
+          "elevation": { "description": "Height of the running surface above settled ground, metres (0 for roads and paths).", "type": "number", "minimum": 0 },
+          "color": { "$ref": "#/$defs/hex", "description": "Main surface colour." },
+          "edgeColor": { "$ref": "#/$defs/hex", "description": "Edge / underside colour." },
+          "material": { "description": "Palette role of the surface (a key of `palette`, validated).", "type": "string" },
+          "appearsAtBand": { "description": "Course-fraction band at which this line first exists (omit for always-present).", "enum": [0, 25, 50, 75, 100] },
+          "stations": {
+            "description": "Stops along the line.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["at"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "description": "Stop name for the panel.", "type": "string" },
+                "at": { "$ref": "#/$defs/point", "description": "Stop position [x, z]; should be a vertex of `polyline`." },
+                "district": { "$ref": "#/$defs/slug", "description": "District id the stop serves." }
+              }
+            }
+          },
+          "description": { "description": "What runs on it and why it is there.", "type": "string" },
+          "extras": { "$ref": "#/$defs/extras", "description": "Family-specific details (pods, pylon spacing, belt speed, water crossings, lamp spacing)." }
+        }
+      }
+    },
+    "districts": {
+      "description": "Four to six large, multi-purpose districts shaped by the land (polygons or strips, never circles), each recognisable by its anchor with buildings hidden. Every pair must be >= 20 m apart (strips expanded by width / 2). Sorted by `band`.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "band", "shape", "material", "anchor", "features", "population", "extras100", "accent", "camera"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "#/$defs/slug", "description": "Unique district id (biome-layout.ts `DistrictDef.id`)." },
+          "name": { "description": "Display name for the region panel.", "type": "string", "minLength": 1 },
+          "band": { "description": "Topic slot: course order from the arrival district (1) outward. Several topics map onto one district when a course has more topics than districts.", "type": "integer", "minimum": 1 },
+          "solitary": { "description": "True for the district on `soloIsland`; it is exempt from the soloIsland distance rule.", "type": "boolean" },
+          "shape": {
+            "description": "District region (biome-layout.ts `DistrictShape`): a polygon with >= 5 distinct vertices, or a strip (centreline + width). Circles are forbidden (validated).",
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["kind", "vertices"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "polygon", "description": "Polygon region." },
+                  "vertices": { "$ref": "#/$defs/polygon", "description": "Vertices [x, z], any winding, >= 5 distinct points (collinear points are allowed to keep a rectangle's shape).", "minItems": 5 }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "centreline", "width"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "strip", "description": "Strip region: the centreline offset both ways by width / 2 (biome-layout.ts `stripPolygon`)." },
+                  "centreline": { "$ref": "#/$defs/polyline", "description": "Centreline [x, z] points." },
+                  "width": { "description": "Strip width in metres.", "type": "number", "exclusiveMinimum": 0 }
+                }
+              }
+            ]
+          },
+          "fittedTo": { "description": "The land feature the shape follows (a shore, a river bank, the skyline foot, a rail spine).", "type": "string" },
+          "material": { "description": "Palette role of the district's ground / dominant building material (biome-layout.ts `material`). Must be a key of `palette` (validated).", "type": "string" },
+          "anchor": {
+            "description": "The one thing present at 0 % that identifies the district at 48 px with every building hidden (fix plan §2).",
+            "type": "object",
+            "required": ["id", "description", "footprint"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "$ref": "#/$defs/slug", "description": "Slug naming the anchor object (e.g. quay-crane, boathouse-dock)." },
+              "description": { "description": "What the anchor is, with dimensions (biome-layout.ts `anchor` blurb).", "type": "string" },
+              "position": { "description": "Anchor position [x, z], or null if not yet placed by the designer.", "oneOf": [{ "$ref": "#/$defs/point" }, { "type": "null" }] },
+              "footprint": { "description": "Ground footprint [width, depth] in metres of the anchor group, or null if unknown (listed under Gaps).", "oneOf": [{ "$ref": "#/$defs/range" }, { "type": "null" }] },
+              "silhouette48": { "description": "How the anchor reads at 48 px with buildings hidden, in words.", "type": "string" }
+            }
+          },
+          "features": { "description": "Everything the district contains at 100 %, one string per feature, with counts and metres.", "type": "array", "items": { "type": "string" } },
+          "building": { "description": "Kind of the counted building (biome-layout.ts `BuildingKind`), kebab-case.", "$ref": "#/$defs/slug" },
+          "buildingHeight": { "$ref": "#/$defs/range", "description": "[min, max] height in metres of the counted building kind." },
+          "population": { "$ref": "#/$defs/population", "description": "Building count by band (biome-layout.ts `PopulationTable`): 0 % anchor only; 25 % first buildings and the warm accent; 50 % half plus fences and lamps; 75 % all buildings plus clutter and string lights; 100 % extras. Non-decreasing (validated)." },
+          "populationNotes": { "$ref": "#/$defs/bandStrings", "description": "What each band adds, in words (props, lights, ambient), for the panel and for the family renderer." },
+          "props": {
+            "description": "Named prop counts by band that scale alongside the buildings (stalls, containers, trees, valves...).",
+            "type": "object",
+            "propertyNames": { "pattern": "^[a-zA-Z][a-zA-Z0-9]*$" },
+            "additionalProperties": { "$ref": "#/$defs/population" }
+          },
+          "extras100": { "description": "The 100 % extras beyond the building count (second dock, watchtower, vehicles, string lights): one string each.", "type": "array", "items": { "type": "string" } },
+          "accent": {
+            "description": "The one warm accent per district, shown from 25 % ('first light').",
+            "type": "object",
+            "required": ["object", "hex"],
+            "additionalProperties": false,
+            "properties": {
+              "object": { "description": "Which object carries the accent colour.", "type": "string" },
+              "hex": { "$ref": "#/$defs/hex", "description": "Accent colour (biome-layout.ts `accent`)." }
+            }
+          },
+          "camera": {
+            "description": "District station framing that satisfies the scale rule.",
+            "type": "object",
+            "required": ["pitchDeg", "azimuthDeg", "fitWidth"],
+            "additionalProperties": false,
+            "properties": {
+              "pitchDeg": { "description": "Camera pitch above the ground plane, degrees.", "type": "number", "minimum": 0, "maximum": 90 },
+              "azimuthDeg": { "description": "Camera azimuth, degrees from +z toward +x (same convention as stationAzimuth).", "type": "number" },
+              "fitWidth": { "description": "Fraction of the frame width the district's chord fills.", "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+            }
+          },
+          "laneYaw": { "description": "Lane direction in radians from +z toward +x, used to lay building rows in polygon districts (biome-layout.ts `laneYaw`).", "type": "number" },
+          "stationAzimuth": { "description": "District-station azimuth in degrees from +z toward +x; long districts are framed along their length (biome-layout.ts `stationAzimuth`).", "type": "number" },
+          "extras": { "$ref": "#/$defs/extras", "description": "Family-specific district data the generic renderer ignores." }
+        }
+      }
+    },
+    "landmark": {
+      "description": "The grand landmark on its own plinth (headland, slab, court) that evolves s1 -> s2 -> s3 with the course fraction (bible §a). Plinth must be >= 15 m from every district (validated).",
+      "type": "object",
+      "required": ["position", "plinth", "stages"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/slug", "description": "Landmark id / working title slug." },
+        "name": { "description": "Display name of the finished landmark.", "type": "string" },
+        "position": { "$ref": "#/$defs/point", "description": "Landmark centre [x, z] (biome-layout.ts `headland.center`)." },
+        "plinth": {
+          "description": "The fixed base the landmark stands on: a disc (`radius`) or an explicit `polygon`, `height` above settled ground. Never changes with progress.",
+          "type": "object",
+          "required": ["height"],
+          "anyOf": [{ "required": ["radius"] }, { "required": ["polygon"] }],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "description": "Plinth form in words (12-facet court, slab with causeway, headland).", "type": "string" },
+            "radius": { "description": "Plinth radius in metres (biome-layout.ts `headland.radius`).", "type": "number", "exclusiveMinimum": 0 },
+            "polygon": { "$ref": "#/$defs/polygon", "description": "Plinth outline [x, z] when it is not round." },
+            "facets": { "description": "Number of facets for a faceted round plinth.", "type": "integer", "minimum": 3 },
+            "height": { "description": "Plinth top above settled ground, metres.", "type": "number", "minimum": 0 },
+            "material": { "description": "Palette role of the plinth (a key of `palette`, validated).", "type": "string" },
+            "color": { "$ref": "#/$defs/hex", "description": "Plinth side colour." },
+            "causeway": { "$ref": "#/$defs/polygon", "description": "Outline of a causeway joining the plinth to the mainland, if any." },
+            "steps": { "description": "Steps and links onto the plinth, in words.", "type": "string" },
+            "description": { "description": "Placement notes.", "type": "string" }
+          }
+        },
+        "stages": {
+          "description": "The three built stages. Stage from course fraction: 0 -> stake, < 0.5 -> s1, < 1 -> s2, 1 -> s3 (biome-layout.ts `landmarkStage`).",
+          "type": "object",
+          "required": ["s1", "s2", "s3"],
+          "additionalProperties": false,
+          "properties": {
+            "s1": { "$ref": "#/$defs/landmarkStage", "description": "First stage (course started)." },
+            "s2": { "$ref": "#/$defs/landmarkStage", "description": "Second stage (course half done)." },
+            "s3": { "$ref": "#/$defs/landmarkStage", "description": "Final stage (course complete)." }
+          }
+        },
+        "motif": { "description": "Catalog motif the line continues (e.g. 'gear').", "type": "string" },
+        "ruin": {
+          "description": "Catastrophe ruin state of the landmark and its recovery.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": { "description": "Catalog id of the ruin asset.", "type": "string" },
+            "brief": { "description": "What the ruin looks like.", "type": "string" },
+            "recovery": { "description": "How it recovers.", "type": "string" }
+          }
+        },
+        "ipNote": { "description": "How the design differs from the real-world reference it echoes.", "type": "string" }
+      }
+    },
+    "marker": {
+      "description": "The globe marker: the biome's 48 px summary per globe-markers.md §3. A stacked pedestal in the ground material with 2-4 signature props in fixed slots; no signpost, no text.",
+      "type": "object",
+      "required": ["side", "top", "lip", "rim", "props", "accent"],
+      "additionalProperties": false,
+      "properties": {
+        "side": { "$ref": "#/$defs/hex", "description": "Pedestal side colour (= the coast cliff / cross-section colour)." },
+        "top": { "$ref": "#/$defs/hex", "description": "Pedestal top colour (= the dominant ground colour)." },
+        "lip": { "$ref": "#/$defs/hex", "description": "Pedestal lip / rim colour." },
+        "rim": { "description": "Rim treatment in words (coping course, riveted band, glass strip).", "type": "string" },
+        "props": {
+          "description": "Signature props in fixed slot order P1 (8 m) .. P4 (4 m).",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["slot", "id", "height", "color"],
+            "additionalProperties": false,
+            "properties": {
+              "slot": { "description": "Slot name; P1 is the tallest and reads first.", "enum": ["P1", "P2", "P3", "P4"] },
+              "id": { "$ref": "#/$defs/slug", "description": "Prop slug (bell-tower, gantry-crane, civic-spire...)." },
+              "height": { "description": "Prop height in metres on the marker (8 / 6 / 4.8 / 4 by slot).", "type": "number", "exclusiveMinimum": 0 },
+              "color": { "$ref": "#/$defs/hex", "description": "Primary prop colour." },
+              "colours": { "description": "All flat colours on the prop, primary first (2-3 plus accent).", "type": "array", "items": { "$ref": "#/$defs/hex" } },
+              "accent": { "description": "Accent colour on this prop, or null.", "oneOf": [{ "$ref": "#/$defs/hex" }, { "type": "null" }] },
+              "direction": { "description": "Unit-ish direction [x, z] from the pedestal centre where the prop stands.", "$ref": "#/$defs/point" },
+              "description": { "description": "What the prop is, in words.", "type": "string" }
+            }
+          }
+        },
+        "accent": {
+          "description": "The single accent object on the marker.",
+          "type": "object",
+          "required": ["object", "hex"],
+          "additionalProperties": false,
+          "properties": {
+            "object": { "description": "Which prop part carries the accent.", "type": "string" },
+            "hex": { "$ref": "#/$defs/hex", "description": "Accent colour." }
+          }
+        },
+        "signpost": { "description": "Always false: the course code lives in the HTML card.", "type": "boolean" },
+        "silhouette48": { "description": "What the marker reads as at 48 px, in words.", "type": "string" },
+        "night": { "description": "Night emissives on the marker (the pedestal never emits).", "type": ["string", "object"] }
+      }
+    },
+    "ambient": { "$ref": "#/$defs/extras", "description": "Always-on ambient layers (residents, boats, smoke, creature events, night order). Free-form; read by the family renderer only." },
+    "catastrophe": {
+      "description": "Family skin of the fixed catastrophe sequence: weather rolls in, residents fall apart, a family-specific ruin state, recovery.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "weather": { "description": "The weather that rolls in.", "type": "string" },
+        "fallApart": { "description": "How residents comically fall apart.", "type": "string" },
+        "ruin": { "description": "The family-specific ruin state.", "type": "string" },
+        "recovery": { "description": "How the biome recovers.", "type": "string" }
+      }
+    },
+    "creatureRoster": {
+      "description": "Creature accent colours that contrast with the ground, and colours to avoid.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "accents": { "description": "Allowed creature accent colours.", "type": "array", "items": { "$ref": "#/$defs/hex" } },
+        "avoid": { "description": "Colours to avoid, with the reason.", "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "hex": { "description": "Lowercase 6-digit hex colour, e.g. #ffe9a8.", "type": "string", "pattern": "^#[0-9a-f]{6}$" },
+    "slug": { "description": "Kebab-case identifier.", "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "point": { "description": "[x, z] in metres; x east, z south.", "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number" } },
+    "range": { "description": "[min, max] pair in metres.", "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number" } },
+    "polyline": { "description": "Ordered [x, z] points, >= 2.", "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/point" } },
+    "polygon": { "description": "Closed outline as ordered [x, z] points (>= 3), no repeated closing point.", "type": "array", "minItems": 3, "items": { "$ref": "#/$defs/point" } },
+    "population": {
+      "description": "Integer count by band.",
+      "type": "object",
+      "required": ["0", "25", "50", "75", "100"],
+      "additionalProperties": false,
+      "properties": {
+        "0": { "description": "Count at 0 %.", "type": "integer", "minimum": 0 },
+        "25": { "description": "Count at 25 %.", "type": "integer", "minimum": 0 },
+        "50": { "description": "Count at 50 %.", "type": "integer", "minimum": 0 },
+        "75": { "description": "Count at 75 %.", "type": "integer", "minimum": 0 },
+        "100": { "description": "Count at 100 %.", "type": "integer", "minimum": 0 }
+      }
+    },
+    "bandStrings": {
+      "description": "One string per band.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "0": { "description": "At 0 %.", "type": "string" },
+        "25": { "description": "At 25 %.", "type": "string" },
+        "50": { "description": "At 50 %.", "type": "string" },
+        "75": { "description": "At 75 %.", "type": "string" },
+        "100": { "description": "At 100 %.", "type": "string" }
+      }
+    },
+    "skylineBand": {
+      "description": "Skyline state at one band.",
+      "type": "object",
+      "required": ["count", "height"],
+      "properties": {
+        "count": { "description": "Number of primary skyline elements in the front row (peaks, gantries, spires, halls).", "type": "integer", "minimum": 0 },
+        "height": { "description": "Tallest skyline element at this band, metres. Non-decreasing by band.", "type": "number", "minimum": 0 },
+        "rows": { "description": "How many of `skyline.rows` exist at this band.", "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": {
+        "description": "Family-specific breakdown (halls, hallHeight, towers, chimneys, coolingTowers, bandsLit, moving...).",
+        "type": ["number", "integer", "boolean", "string", "array"]
+      }
+    },
+    "landmarkStage": {
+      "description": "One landmark stage.",
+      "type": "object",
+      "required": ["name", "height", "persists", "grows", "lights"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "description": "Stage name.", "type": "string" },
+        "height": { "description": "Total height in metres at this stage.", "type": "number", "exclusiveMinimum": 0 },
+        "footprint": { "$ref": "#/$defs/range", "description": "[width, depth] footprint in metres." },
+        "description": { "description": "What the stage looks like.", "type": "string" },
+        "persists": { "description": "Parts kept from the previous stage (empty for s1 means only the plinth).", "type": "array", "items": { "type": "string" } },
+        "grows": { "description": "Parts that grow or are added at this stage.", "type": "array", "items": { "type": "string" } },
+        "lights": { "description": "Parts that light up at night at this stage.", "type": "array", "items": { "type": "string" } },
+        "motion": { "description": "Moving parts at this stage.", "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "extras": {
+      "description": "Free-form object for family-specific design intent the generic renderer ignores. Keep it small and describe each key in a sibling `description` or `note` where possible.",
+      "type": "object"
+    }
+  }
+}

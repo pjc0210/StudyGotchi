@@ -41,6 +41,8 @@ interface GoldenIceSceneProps extends SceneInteraction {
   view: GoldenView
   progress: number
   onResidentFocus: () => void
+  skyColor?: string
+  lightScale?: number
 }
 
 const InteractionContext = createContext<SceneInteraction>({})
@@ -791,6 +793,8 @@ export function GoldenIceScene({
   reducedMotion,
   onHover,
   onSelect,
+  skyColor = GOLDEN_PALETTE.sky,
+  lightScale = 1,
 }: GoldenIceSceneProps) {
   const profile = rendererProfile(variant)
   const state = progressState(progress)
@@ -816,12 +820,12 @@ export function GoldenIceScene({
 
   return (
     <InteractionContext value={interaction}>
-      <color attach="background" args={[GOLDEN_PALETTE.sky]} />
-      <fog attach="fog" args={[GOLDEN_PALETTE.sky, 16, 32]} />
-      <hemisphereLight args={['#dff4ff', '#8e799e', variant === 'pixel' ? 0.42 : 0.58]} />
+      <color attach="background" args={[skyColor]} />
+      <fog attach="fog" args={[skyColor, 16, 32]} />
+      <hemisphereLight args={['#dff4ff', '#8e799e', (variant === 'pixel' ? 0.42 : 0.58) * lightScale]} />
       <directionalLight
         position={[6, 10, 8]}
-        intensity={variant === 'pixel' ? 2.15 : 2.5}
+        intensity={(variant === 'pixel' ? 2.15 : 2.5) * lightScale}
         color="#fff1d9"
         castShadow
         shadow-mapSize-width={variant === 'pixel' ? 1024 : 2048}

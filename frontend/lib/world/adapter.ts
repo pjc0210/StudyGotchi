@@ -102,6 +102,67 @@ export function toCanvasWorld(world: WorldResponse): CanvasWorld {
   };
 }
 
+export type WorldChangeKind =
+  | "hatch"
+  | "sprout"
+  | "landmark"
+  | "upgrade"
+  | "grow"
+  | "master"
+  | "explode"
+  | "recover"
+  | "fade";
+
+export interface WorldChange {
+  concept_id: string;
+  kind: WorldChangeKind;
+  /** landmark size when `kind` is `landmark`, from the concept's understanding */
+  stage?: 1 | 2 | 3;
+}
+
+/** loudest news first, so a capped sound budget spends itself on what matters */
+export const WORLD_CHANGE_PRIORITY: WorldChangeKind[] = ["explode", "recover", "master", "landmark", "upgrade", "hatch", "sprout", "grow", "fade"];
+
+function landmarkStage(height: number): 1 | 2 | 3 {
+  return height < 0.45 ? 1 : height < 0.75 ? 2 : 3;
+}
+
+/**
+ * What actually happened between two payloads, in the island's own words (a sprout came up, a
+ * landmark was built, a resident was knocked over). The first paint has no previous world and
+ * therefore no changes: arriving is not news.
+ */
+export function describeChanges(previous: WorldResponse | null, next: WorldResponse): WorldChange[] {
+  if (!previous) return [];
+  const before = new Map(previous.regions.map((r) => [r.concept_id, r]));
+  const out: WorldChange[] = [];
+  for (const region of next.regions) {
+    const old = before.get(region.concept_id);
+    const id = region.concept_id;
+    if (!old) {
+      if (spotStateOf(region.semantic_state) === 1) out.push({ concept_id: id, kind: "sprout" });
+      continue;
+    }
+    const s0 = spotStateOf(old.semantic_state);
+    const s1 = spotStateOf(region.semantic_state);
+    const rise = region.terrain_height - old.terrain_height;
+    if (s0 === 0 && s1 === 1) out.push({ concept_id: id, kind: "sprout" });
+    else if (s0 < 2 && s1 === 2) out.push({ concept_id: id, kind: "landmark", stage: landmarkStage(region.terrain_height) });
+    else if (s0 === 2 && s1 === 2 && rise > 0.1) out.push({ concept_id: id, kind: "upgrade" });
+    else if (rise > 0.02) out.push({ concept_id: id, kind: "grow" });
+    if (old.semantic_state !== "mastered" && region.semantic_state === "mastered") out.push({ concept_id: id, kind: "master" });
+
+    const c0 = old.creature_state;
+    const c1 = region.creature_state;
+    if (c0 === c1) continue;
+    if (c0 === "unhatched") out.push({ concept_id: id, kind: "hatch" });
+    else if (c1 === "weak") out.push({ concept_id: id, kind: "explode" });
+    else if (c0 === "weak") out.push({ concept_id: id, kind: "recover" });
+    else if (c1 === "sleepy") out.push({ concept_id: id, kind: "fade" });
+  }
+  return out;
+}
+
 /** Concepts whose look changed between two payloads, so the island can pulse them. */
 export function changedRegions(previous: WorldResponse | null, next: WorldResponse): Set<string> {
   const changed = new Set<string>();

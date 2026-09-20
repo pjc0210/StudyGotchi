@@ -1,0 +1,5820 @@
+{
+ "tool": "silhouette_test.py",
+ "version": 1,
+ "set": "creatures-generated",
+ "generated_at": "2026-09-19T22:24:48-0400",
+ "blender": "5.2.0 LTS",
+ "thresholds": {
+  "fill": [
+   0.25,
+   0.75
+  ],
+  "components": 1,
+  "min_distinct": 0.05
+ },
+ "view": {
+  "projection": "orthographic",
+  "azimuth_deg": 34.0,
+  "elevation_deg": 22.0,
+  "sizes": [
+   96,
+   48
+  ]
+ },
+ "family_mode": "archetype",
+ "grid": {
+  "png": "tools/qa/out/silhouettes-creatures-generated.png",
+  "rows_cols": [
+   28,
+   8
+  ],
+  "cell": "96 px silhouette | 48 px silhouette x2 | label | f=fill c=components96/48 d=distinctness"
+ },
+ "files": [
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-cave-1.glb",
+   "rel": "assets/creatures/generated/bean-cave-1.glb",
+   "label": "bean-cave-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.647,
+   "frame_fill96": 0.2555,
+   "components96": 1,
+   "component_areas96": [
+    2355
+   ],
+   "fill48": 0.6596,
+   "frame_fill48": 0.2565,
+   "components48": 1,
+   "component_areas48": [
+    591
+   ],
+   "distinctness": 0.0847,
+   "nearest": "bean-meadow-9218",
+   "nearest_score": 0.0269
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-cave-2.glb",
+   "rel": "assets/creatures/generated/bean-cave-2.glb",
+   "label": "bean-cave-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5721,
+   "frame_fill96": 0.1877,
+   "components96": 1,
+   "component_areas96": [
+    1730
+   ],
+   "fill48": 0.5901,
+   "frame_fill48": 0.1905,
+   "components48": 1,
+   "component_areas48": [
+    439
+   ],
+   "distinctness": 0.0788,
+   "nearest": "bean-lab-1",
+   "nearest_score": 0.0334
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-city-1.glb",
+   "rel": "assets/creatures/generated/bean-city-1.glb",
+   "label": "bean-city-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5941,
+   "frame_fill96": 0.2638,
+   "components96": 1,
+   "component_areas96": [
+    2431
+   ],
+   "fill48": 0.5953,
+   "frame_fill48": 0.2643,
+   "components48": 1,
+   "component_areas48": [
+    609
+   ],
+   "distinctness": 0.0884,
+   "nearest": "bean-city-2",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-city-2.glb",
+   "rel": "assets/creatures/generated/bean-city-2.glb",
+   "label": "bean-city-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6018,
+   "frame_fill96": 0.2591,
+   "components96": 1,
+   "component_areas96": [
+    2388
+   ],
+   "fill48": 0.6233,
+   "frame_fill48": 0.26,
+   "components48": 1,
+   "component_areas48": [
+    599
+   ],
+   "distinctness": 0.0822,
+   "nearest": "bean-city-1",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-factory-1.glb",
+   "rel": "assets/creatures/generated/bean-factory-1.glb",
+   "label": "bean-factory-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6076,
+   "frame_fill96": 0.182,
+   "components96": 1,
+   "component_areas96": [
+    1677
+   ],
+   "fill48": 0.5933,
+   "frame_fill48": 0.1836,
+   "components48": 1,
+   "component_areas48": [
+    423
+   ],
+   "distinctness": 0.0869,
+   "nearest": "bean-lab-1",
+   "nearest_score": 0.043
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-factory-2.glb",
+   "rel": "assets/creatures/generated/bean-factory-2.glb",
+   "label": "bean-factory-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6505,
+   "frame_fill96": 0.2134,
+   "components96": 1,
+   "component_areas96": [
+    1967
+   ],
+   "fill48": 0.6521,
+   "frame_fill48": 0.214,
+   "components48": 1,
+   "component_areas48": [
+    493
+   ],
+   "distinctness": 0.0801,
+   "nearest": "bean-graveyard-2",
+   "nearest_score": 0.0343
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-forest-1.glb",
+   "rel": "assets/creatures/generated/bean-forest-1.glb",
+   "label": "bean-forest-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6915,
+   "frame_fill96": 0.2437,
+   "components96": 1,
+   "component_areas96": [
+    2246
+   ],
+   "fill48": 0.6884,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.0837,
+   "nearest": "bean-jungle-2",
+   "nearest_score": 0.0425
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-forest-2.glb",
+   "rel": "assets/creatures/generated/bean-forest-2.glb",
+   "label": "bean-forest-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5969,
+   "frame_fill96": 0.2099,
+   "components96": 1,
+   "component_areas96": [
+    1934
+   ],
+   "fill48": 0.5926,
+   "frame_fill48": 0.2083,
+   "components48": 1,
+   "component_areas48": [
+    480
+   ],
+   "distinctness": 0.0672,
+   "nearest": "bean-factory-2",
+   "nearest_score": 0.0378
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-graveyard-1.glb",
+   "rel": "assets/creatures/generated/bean-graveyard-1.glb",
+   "label": "bean-graveyard-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6002,
+   "frame_fill96": 0.2334,
+   "components96": 1,
+   "component_areas96": [
+    2151
+   ],
+   "fill48": 0.6187,
+   "frame_fill48": 0.2331,
+   "components48": 1,
+   "component_areas48": [
+    537
+   ],
+   "distinctness": 0.0631,
+   "nearest": "bean-ice-2",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-graveyard-2.glb",
+   "rel": "assets/creatures/generated/bean-graveyard-2.glb",
+   "label": "bean-graveyard-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6309,
+   "frame_fill96": 0.2029,
+   "components96": 1,
+   "component_areas96": [
+    1870
+   ],
+   "fill48": 0.6686,
+   "frame_fill48": 0.2031,
+   "components48": 1,
+   "component_areas48": [
+    468
+   ],
+   "distinctness": 0.0718,
+   "nearest": "bean-factory-2",
+   "nearest_score": 0.0343
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-ice-1.glb",
+   "rel": "assets/creatures/generated/bean-ice-1.glb",
+   "label": "bean-ice-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5445,
+   "frame_fill96": 0.2004,
+   "components96": 1,
+   "component_areas96": [
+    1847
+   ],
+   "fill48": 0.5553,
+   "frame_fill48": 0.2005,
+   "components48": 1,
+   "component_areas48": [
+    462
+   ],
+   "distinctness": 0.0798,
+   "nearest": "bean-space-1",
+   "nearest_score": 0.0412
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-ice-2.glb",
+   "rel": "assets/creatures/generated/bean-ice-2.glb",
+   "label": "bean-ice-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5655,
+   "frame_fill96": 0.2146,
+   "components96": 1,
+   "component_areas96": [
+    1978
+   ],
+   "fill48": 0.595,
+   "frame_fill48": 0.2148,
+   "components48": 1,
+   "component_areas48": [
+    495
+   ],
+   "distinctness": 0.0649,
+   "nearest": "bean-graveyard-1",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-jungle-1.glb",
+   "rel": "assets/creatures/generated/bean-jungle-1.glb",
+   "label": "bean-jungle-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6034,
+   "frame_fill96": 0.2463,
+   "components96": 1,
+   "component_areas96": [
+    2270
+   ],
+   "fill48": 0.6395,
+   "frame_fill48": 0.2487,
+   "components48": 1,
+   "component_areas48": [
+    573
+   ],
+   "distinctness": 0.0798,
+   "nearest": "bean-sand-2",
+   "nearest_score": 0.0304
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-jungle-2.glb",
+   "rel": "assets/creatures/generated/bean-jungle-2.glb",
+   "label": "bean-jungle-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6667,
+   "frame_fill96": 0.2391,
+   "components96": 1,
+   "component_areas96": [
+    2204
+   ],
+   "fill48": 0.6528,
+   "frame_fill48": 0.2383,
+   "components48": 1,
+   "component_areas48": [
+    549
+   ],
+   "distinctness": 0.068,
+   "nearest": "bean-wildwest-2",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-lab-1.glb",
+   "rel": "assets/creatures/generated/bean-lab-1.glb",
+   "label": "bean-lab-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6209,
+   "frame_fill96": 0.2062,
+   "components96": 1,
+   "component_areas96": [
+    1900
+   ],
+   "fill48": 0.6293,
+   "frame_fill48": 0.2049,
+   "components48": 1,
+   "component_areas48": [
+    472
+   ],
+   "distinctness": 0.0679,
+   "nearest": "bean-cave-2",
+   "nearest_score": 0.0334
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-lab-2.glb",
+   "rel": "assets/creatures/generated/bean-lab-2.glb",
+   "label": "bean-lab-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6062,
+   "frame_fill96": 0.2362,
+   "components96": 1,
+   "component_areas96": [
+    2177
+   ],
+   "fill48": 0.6267,
+   "frame_fill48": 0.2361,
+   "components48": 1,
+   "component_areas48": [
+    544
+   ],
+   "distinctness": 0.0651,
+   "nearest": "bean-wildwest-2",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-meadow-1.glb",
+   "rel": "assets/creatures/generated/bean-meadow-1.glb",
+   "label": "bean-meadow-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5889,
+   "frame_fill96": 0.21,
+   "components96": 1,
+   "component_areas96": [
+    1935
+   ],
+   "fill48": 0.5931,
+   "frame_fill48": 0.2075,
+   "components48": 1,
+   "component_areas48": [
+    478
+   ],
+   "distinctness": 0.0603,
+   "nearest": "bean-space-2",
+   "nearest_score": 0.0265
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-meadow-2.glb",
+   "rel": "assets/creatures/generated/bean-meadow-2.glb",
+   "label": "bean-meadow-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5094,
+   "frame_fill96": 0.2122,
+   "components96": 1,
+   "component_areas96": [
+    1956
+   ],
+   "fill48": 0.5484,
+   "frame_fill48": 0.214,
+   "components48": 1,
+   "component_areas48": [
+    493
+   ],
+   "distinctness": 0.0795,
+   "nearest": "bean-forest-2",
+   "nearest_score": 0.0456
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-meadow-9218.glb",
+   "rel": "assets/creatures/generated/bean-meadow-9218.glb",
+   "label": "bean-meadow-9218",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6515,
+   "frame_fill96": 0.2566,
+   "components96": 1,
+   "component_areas96": [
+    2365
+   ],
+   "fill48": 0.6678,
+   "frame_fill48": 0.2582,
+   "components48": 1,
+   "component_areas48": [
+    595
+   ],
+   "distinctness": 0.0905,
+   "nearest": "bean-cave-1",
+   "nearest_score": 0.0269
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-medieval-1.glb",
+   "rel": "assets/creatures/generated/bean-medieval-1.glb",
+   "label": "bean-medieval-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5813,
+   "frame_fill96": 0.2367,
+   "components96": 1,
+   "component_areas96": [
+    2181
+   ],
+   "fill48": 0.6105,
+   "frame_fill48": 0.2374,
+   "components48": 1,
+   "component_areas48": [
+    547
+   ],
+   "distinctness": 0.063,
+   "nearest": "bean-sand-1",
+   "nearest_score": 0.0317
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-medieval-2.glb",
+   "rel": "assets/creatures/generated/bean-medieval-2.glb",
+   "label": "bean-medieval-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5135,
+   "frame_fill96": 0.2059,
+   "components96": 1,
+   "component_areas96": [
+    1898
+   ],
+   "fill48": 0.5119,
+   "frame_fill48": 0.2053,
+   "components48": 1,
+   "component_areas48": [
+    473
+   ],
+   "distinctness": 0.0827,
+   "nearest": "bean-space-1",
+   "nearest_score": 0.0286
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-ocean-1.glb",
+   "rel": "assets/creatures/generated/bean-ocean-1.glb",
+   "label": "bean-ocean-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5429,
+   "frame_fill96": 0.1876,
+   "components96": 1,
+   "component_areas96": [
+    1729
+   ],
+   "fill48": 0.5742,
+   "frame_fill48": 0.1914,
+   "components48": 1,
+   "component_areas48": [
+    441
+   ],
+   "distinctness": 0.0773,
+   "nearest": "bean-ocean-2",
+   "nearest_score": 0.0339
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-ocean-2.glb",
+   "rel": "assets/creatures/generated/bean-ocean-2.glb",
+   "label": "bean-ocean-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5182,
+   "frame_fill96": 0.195,
+   "components96": 1,
+   "component_areas96": [
+    1797
+   ],
+   "fill48": 0.5102,
+   "frame_fill48": 0.1957,
+   "components48": 1,
+   "component_areas48": [
+    451
+   ],
+   "distinctness": 0.0838,
+   "nearest": "bean-ocean-1",
+   "nearest_score": 0.0339
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-park-1.glb",
+   "rel": "assets/creatures/generated/bean-park-1.glb",
+   "label": "bean-park-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6671,
+   "frame_fill96": 0.2738,
+   "components96": 1,
+   "component_areas96": [
+    2523
+   ],
+   "fill48": 0.7089,
+   "frame_fill48": 0.2769,
+   "components48": 1,
+   "component_areas48": [
+    638
+   ],
+   "distinctness": 0.0927,
+   "nearest": "bean-jungle-2",
+   "nearest_score": 0.0569
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-park-2.glb",
+   "rel": "assets/creatures/generated/bean-park-2.glb",
+   "label": "bean-park-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5797,
+   "frame_fill96": 0.2225,
+   "components96": 1,
+   "component_areas96": [
+    2051
+   ],
+   "fill48": 0.5954,
+   "frame_fill48": 0.2248,
+   "components48": 1,
+   "component_areas48": [
+    518
+   ],
+   "distinctness": 0.0706,
+   "nearest": "bean-medieval-2",
+   "nearest_score": 0.0369
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-sand-1.glb",
+   "rel": "assets/creatures/generated/bean-sand-1.glb",
+   "label": "bean-sand-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6293,
+   "frame_fill96": 0.2323,
+   "components96": 1,
+   "component_areas96": [
+    2141
+   ],
+   "fill48": 0.6181,
+   "frame_fill48": 0.2318,
+   "components48": 1,
+   "component_areas48": [
+    534
+   ],
+   "distinctness": 0.0639,
+   "nearest": "bean-wildwest-1",
+   "nearest_score": 0.0291
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-sand-2.glb",
+   "rel": "assets/creatures/generated/bean-sand-2.glb",
+   "label": "bean-sand-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6449,
+   "frame_fill96": 0.2473,
+   "components96": 1,
+   "component_areas96": [
+    2279
+   ],
+   "fill48": 0.6471,
+   "frame_fill48": 0.2444,
+   "components48": 1,
+   "component_areas48": [
+    563
+   ],
+   "distinctness": 0.0716,
+   "nearest": "bean-jungle-1",
+   "nearest_score": 0.0304
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-space-1.glb",
+   "rel": "assets/creatures/generated/bean-space-1.glb",
+   "label": "bean-space-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5471,
+   "frame_fill96": 0.2166,
+   "components96": 1,
+   "component_areas96": [
+    1996
+   ],
+   "fill48": 0.5569,
+   "frame_fill48": 0.2166,
+   "components48": 1,
+   "component_areas48": [
+    499
+   ],
+   "distinctness": 0.0842,
+   "nearest": "bean-medieval-2",
+   "nearest_score": 0.0286
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-space-2.glb",
+   "rel": "assets/creatures/generated/bean-space-2.glb",
+   "label": "bean-space-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6309,
+   "frame_fill96": 0.2181,
+   "components96": 1,
+   "component_areas96": [
+    2010
+   ],
+   "fill48": 0.6706,
+   "frame_fill48": 0.2201,
+   "components48": 1,
+   "component_areas48": [
+    507
+   ],
+   "distinctness": 0.0593,
+   "nearest": "bean-meadow-1",
+   "nearest_score": 0.0265
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-volcanic-1.glb",
+   "rel": "assets/creatures/generated/bean-volcanic-1.glb",
+   "label": "bean-volcanic-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6562,
+   "frame_fill96": 0.2512,
+   "components96": 1,
+   "component_areas96": [
+    2315
+   ],
+   "fill48": 0.6918,
+   "frame_fill48": 0.2513,
+   "components48": 1,
+   "component_areas48": [
+    579
+   ],
+   "distinctness": 0.072,
+   "nearest": "bean-graveyard-1",
+   "nearest_score": 0.0321
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-volcanic-2.glb",
+   "rel": "assets/creatures/generated/bean-volcanic-2.glb",
+   "label": "bean-volcanic-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5767,
+   "frame_fill96": 0.2024,
+   "components96": 1,
+   "component_areas96": [
+    1865
+   ],
+   "fill48": 0.5763,
+   "frame_fill48": 0.2001,
+   "components48": 1,
+   "component_areas48": [
+    461
+   ],
+   "distinctness": 0.0739,
+   "nearest": "bean-lab-1",
+   "nearest_score": 0.0412
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-wildwest-1.glb",
+   "rel": "assets/creatures/generated/bean-wildwest-1.glb",
+   "label": "bean-wildwest-1",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6649,
+   "frame_fill96": 0.2493,
+   "components96": 1,
+   "component_areas96": [
+    2298
+   ],
+   "fill48": 0.6586,
+   "frame_fill48": 0.247,
+   "components48": 1,
+   "component_areas48": [
+    569
+   ],
+   "distinctness": 0.0747,
+   "nearest": "bean-sand-1",
+   "nearest_score": 0.0291
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bean-wildwest-2.glb",
+   "rel": "assets/creatures/generated/bean-wildwest-2.glb",
+   "label": "bean-wildwest-2",
+   "family": "bean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6638,
+   "frame_fill96": 0.2423,
+   "components96": 1,
+   "component_areas96": [
+    2233
+   ],
+   "fill48": 0.6587,
+   "frame_fill48": 0.2405,
+   "components48": 1,
+   "component_areas48": [
+    554
+   ],
+   "distinctness": 0.0666,
+   "nearest": "bean-jungle-2",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-cave-1.glb",
+   "rel": "assets/creatures/generated/biped-cave-1.glb",
+   "label": "biped-cave-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6286,
+   "frame_fill96": 0.1915,
+   "components96": 1,
+   "component_areas96": [
+    1765
+   ],
+   "fill48": 0.6389,
+   "frame_fill48": 0.1897,
+   "components48": 1,
+   "component_areas48": [
+    437
+   ],
+   "distinctness": 0.0593,
+   "nearest": "biped-forest-2",
+   "nearest_score": 0.0339
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-cave-2.glb",
+   "rel": "assets/creatures/generated/biped-cave-2.glb",
+   "label": "biped-cave-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.534,
+   "frame_fill96": 0.1651,
+   "components96": 1,
+   "component_areas96": [
+    1522
+   ],
+   "fill48": 0.5363,
+   "frame_fill48": 0.1636,
+   "components48": 1,
+   "component_areas48": [
+    377
+   ],
+   "distinctness": 0.0788,
+   "nearest": "biped-medieval-2",
+   "nearest_score": 0.0295
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-city-1.glb",
+   "rel": "assets/creatures/generated/biped-city-1.glb",
+   "label": "biped-city-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3794,
+   "frame_fill96": 0.1359,
+   "components96": 1,
+   "component_areas96": [
+    1252
+   ],
+   "fill48": 0.3845,
+   "frame_fill48": 0.1359,
+   "components48": 1,
+   "component_areas48": [
+    313
+   ],
+   "distinctness": 0.1427,
+   "nearest": "biped-sand-1",
+   "nearest_score": 0.1072
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-city-2.glb",
+   "rel": "assets/creatures/generated/biped-city-2.glb",
+   "label": "biped-city-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6007,
+   "frame_fill96": 0.1951,
+   "components96": 1,
+   "component_areas96": [
+    1798
+   ],
+   "fill48": 0.6414,
+   "frame_fill48": 0.1949,
+   "components48": 1,
+   "component_areas48": [
+    449
+   ],
+   "distinctness": 0.0594,
+   "nearest": "biped-graveyard-2",
+   "nearest_score": 0.0273
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-factory-1.glb",
+   "rel": "assets/creatures/generated/biped-factory-1.glb",
+   "label": "biped-factory-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6288,
+   "frame_fill96": 0.249,
+   "components96": 1,
+   "component_areas96": [
+    2295
+   ],
+   "fill48": 0.6389,
+   "frame_fill48": 0.2496,
+   "components48": 1,
+   "component_areas48": [
+    575
+   ],
+   "distinctness": 0.0772,
+   "nearest": "biped-graveyard-1",
+   "nearest_score": 0.036
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-factory-2.glb",
+   "rel": "assets/creatures/generated/biped-factory-2.glb",
+   "label": "biped-factory-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6315,
+   "frame_fill96": 0.2533,
+   "components96": 1,
+   "component_areas96": [
+    2334
+   ],
+   "fill48": 0.6499,
+   "frame_fill48": 0.253,
+   "components48": 1,
+   "component_areas48": [
+    583
+   ],
+   "distinctness": 0.0797,
+   "nearest": "biped-park-1",
+   "nearest_score": 0.023
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-factory-427.glb",
+   "rel": "assets/creatures/generated/biped-factory-427.glb",
+   "label": "biped-factory-427",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5935,
+   "frame_fill96": 0.2287,
+   "components96": 1,
+   "component_areas96": [
+    2108
+   ],
+   "fill48": 0.5856,
+   "frame_fill48": 0.2257,
+   "components48": 1,
+   "component_areas48": [
+    520
+   ],
+   "distinctness": 0.0712,
+   "nearest": "biped-volcanic-1",
+   "nearest_score": 0.0191
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-forest-1.glb",
+   "rel": "assets/creatures/generated/biped-forest-1.glb",
+   "label": "biped-forest-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6549,
+   "frame_fill96": 0.2624,
+   "components96": 1,
+   "component_areas96": [
+    2418
+   ],
+   "fill48": 0.6453,
+   "frame_fill48": 0.2622,
+   "components48": 1,
+   "component_areas48": [
+    604
+   ],
+   "distinctness": 0.0856,
+   "nearest": "biped-sand-2",
+   "nearest_score": 0.0143
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-forest-2.glb",
+   "rel": "assets/creatures/generated/biped-forest-2.glb",
+   "label": "biped-forest-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5992,
+   "frame_fill96": 0.1828,
+   "components96": 1,
+   "component_areas96": [
+    1685
+   ],
+   "fill48": 0.5689,
+   "frame_fill48": 0.1827,
+   "components48": 1,
+   "component_areas48": [
+    421
+   ],
+   "distinctness": 0.063,
+   "nearest": "biped-city-2",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-forest-8132.glb",
+   "rel": "assets/creatures/generated/biped-forest-8132.glb",
+   "label": "biped-forest-8132",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5263,
+   "frame_fill96": 0.1584,
+   "components96": 1,
+   "component_areas96": [
+    1460
+   ],
+   "fill48": 0.5679,
+   "frame_fill48": 0.1597,
+   "components48": 1,
+   "component_areas48": [
+    368
+   ],
+   "distinctness": 0.0766,
+   "nearest": "biped-jungle-2",
+   "nearest_score": 0.0243
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-graveyard-1.glb",
+   "rel": "assets/creatures/generated/biped-graveyard-1.glb",
+   "label": "biped-graveyard-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.62,
+   "frame_fill96": 0.2259,
+   "components96": 1,
+   "component_areas96": [
+    2082
+   ],
+   "fill48": 0.6256,
+   "frame_fill48": 0.2248,
+   "components48": 1,
+   "component_areas48": [
+    518
+   ],
+   "distinctness": 0.0642,
+   "nearest": "biped-factory-427",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-graveyard-2.glb",
+   "rel": "assets/creatures/generated/biped-graveyard-2.glb",
+   "label": "biped-graveyard-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6193,
+   "frame_fill96": 0.2225,
+   "components96": 1,
+   "component_areas96": [
+    2051
+   ],
+   "fill48": 0.6623,
+   "frame_fill48": 0.2214,
+   "components48": 1,
+   "component_areas48": [
+    510
+   ],
+   "distinctness": 0.0592,
+   "nearest": "biped-ocean-1",
+   "nearest_score": 0.0226
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-ice-1.glb",
+   "rel": "assets/creatures/generated/biped-ice-1.glb",
+   "label": "biped-ice-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5949,
+   "frame_fill96": 0.2102,
+   "components96": 1,
+   "component_areas96": [
+    1937
+   ],
+   "fill48": 0.5946,
+   "frame_fill48": 0.2101,
+   "components48": 1,
+   "component_areas48": [
+    484
+   ],
+   "distinctness": 0.0637,
+   "nearest": "biped-lab-2",
+   "nearest_score": 0.0382
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-ice-2.glb",
+   "rel": "assets/creatures/generated/biped-ice-2.glb",
+   "label": "biped-ice-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5972,
+   "frame_fill96": 0.2206,
+   "components96": 1,
+   "component_areas96": [
+    2033
+   ],
+   "fill48": 0.5969,
+   "frame_fill48": 0.2205,
+   "components48": 1,
+   "component_areas48": [
+    508
+   ],
+   "distinctness": 0.063,
+   "nearest": "biped-ocean-1",
+   "nearest_score": 0.0286
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-ice-5796.glb",
+   "rel": "assets/creatures/generated/biped-ice-5796.glb",
+   "label": "biped-ice-5796",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6538,
+   "frame_fill96": 0.2641,
+   "components96": 1,
+   "component_areas96": [
+    2434
+   ],
+   "fill48": 0.6414,
+   "frame_fill48": 0.2678,
+   "components48": 1,
+   "component_areas48": [
+    617
+   ],
+   "distinctness": 0.0866,
+   "nearest": "biped-wildwest-1",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-jungle-1.glb",
+   "rel": "assets/creatures/generated/biped-jungle-1.glb",
+   "label": "biped-jungle-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5658,
+   "frame_fill96": 0.1866,
+   "components96": 1,
+   "component_areas96": [
+    1720
+   ],
+   "fill48": 0.5684,
+   "frame_fill48": 0.1875,
+   "components48": 1,
+   "component_areas48": [
+    432
+   ],
+   "distinctness": 0.0679,
+   "nearest": "biped-wildwest-2",
+   "nearest_score": 0.0104
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-jungle-2.glb",
+   "rel": "assets/creatures/generated/biped-jungle-2.glb",
+   "label": "biped-jungle-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5673,
+   "frame_fill96": 0.1684,
+   "components96": 1,
+   "component_areas96": [
+    1552
+   ],
+   "fill48": 0.5731,
+   "frame_fill48": 0.1701,
+   "components48": 1,
+   "component_areas48": [
+    392
+   ],
+   "distinctness": 0.0698,
+   "nearest": "biped-forest-8132",
+   "nearest_score": 0.0243
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-lab-1.glb",
+   "rel": "assets/creatures/generated/biped-lab-1.glb",
+   "label": "biped-lab-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6436,
+   "frame_fill96": 0.2004,
+   "components96": 1,
+   "component_areas96": [
+    1847
+   ],
+   "fill48": 0.6457,
+   "frame_fill48": 0.2001,
+   "components48": 1,
+   "component_areas48": [
+    461
+   ],
+   "distinctness": 0.0629,
+   "nearest": "biped-lab-2",
+   "nearest_score": 0.0299
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-lab-2.glb",
+   "rel": "assets/creatures/generated/biped-lab-2.glb",
+   "label": "biped-lab-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6033,
+   "frame_fill96": 0.1952,
+   "components96": 1,
+   "component_areas96": [
+    1799
+   ],
+   "fill48": 0.64,
+   "frame_fill48": 0.1944,
+   "components48": 1,
+   "component_areas48": [
+    448
+   ],
+   "distinctness": 0.0607,
+   "nearest": "biped-lab-1",
+   "nearest_score": 0.0299
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-meadow-1.glb",
+   "rel": "assets/creatures/generated/biped-meadow-1.glb",
+   "label": "biped-meadow-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6038,
+   "frame_fill96": 0.1865,
+   "components96": 1,
+   "component_areas96": [
+    1719
+   ],
+   "fill48": 0.5824,
+   "frame_fill48": 0.1871,
+   "components48": 1,
+   "component_areas48": [
+    431
+   ],
+   "distinctness": 0.0699,
+   "nearest": "biped-sand-1",
+   "nearest_score": 0.0109
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-meadow-2.glb",
+   "rel": "assets/creatures/generated/biped-meadow-2.glb",
+   "label": "biped-meadow-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5497,
+   "frame_fill96": 0.1745,
+   "components96": 1,
+   "component_areas96": [
+    1608
+   ],
+   "fill48": 0.5432,
+   "frame_fill48": 0.1745,
+   "components48": 1,
+   "component_areas48": [
+    402
+   ],
+   "distinctness": 0.0766,
+   "nearest": "biped-ocean-2",
+   "nearest_score": 0.0178
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-medieval-1.glb",
+   "rel": "assets/creatures/generated/biped-medieval-1.glb",
+   "label": "biped-medieval-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5967,
+   "frame_fill96": 0.2108,
+   "components96": 1,
+   "component_areas96": [
+    1943
+   ],
+   "fill48": 0.5723,
+   "frame_fill48": 0.2114,
+   "components48": 1,
+   "component_areas48": [
+    487
+   ],
+   "distinctness": 0.0732,
+   "nearest": "biped-medieval-1562",
+   "nearest_score": 0.0213
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-medieval-1562.glb",
+   "rel": "assets/creatures/generated/biped-medieval-1562.glb",
+   "label": "biped-medieval-1562",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5586,
+   "frame_fill96": 0.2018,
+   "components96": 1,
+   "component_areas96": [
+    1860
+   ],
+   "fill48": 0.5628,
+   "frame_fill48": 0.2023,
+   "components48": 1,
+   "component_areas48": [
+    466
+   ],
+   "distinctness": 0.0742,
+   "nearest": "biped-wildwest-9948",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-medieval-2.glb",
+   "rel": "assets/creatures/generated/biped-medieval-2.glb",
+   "label": "biped-medieval-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5677,
+   "frame_fill96": 0.1774,
+   "components96": 1,
+   "component_areas96": [
+    1635
+   ],
+   "fill48": 0.5736,
+   "frame_fill48": 0.1793,
+   "components48": 1,
+   "component_areas48": [
+    413
+   ],
+   "distinctness": 0.0764,
+   "nearest": "biped-meadow-2",
+   "nearest_score": 0.0247
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-ocean-1.glb",
+   "rel": "assets/creatures/generated/biped-ocean-1.glb",
+   "label": "biped-ocean-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6401,
+   "frame_fill96": 0.2253,
+   "components96": 1,
+   "component_areas96": [
+    2076
+   ],
+   "fill48": 0.6566,
+   "frame_fill48": 0.2257,
+   "components48": 1,
+   "component_areas48": [
+    520
+   ],
+   "distinctness": 0.0653,
+   "nearest": "biped-graveyard-2",
+   "nearest_score": 0.0226
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-ocean-2.glb",
+   "rel": "assets/creatures/generated/biped-ocean-2.glb",
+   "label": "biped-ocean-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5633,
+   "frame_fill96": 0.1719,
+   "components96": 1,
+   "component_areas96": [
+    1584
+   ],
+   "fill48": 0.5746,
+   "frame_fill48": 0.1706,
+   "components48": 1,
+   "component_areas48": [
+    393
+   ],
+   "distinctness": 0.075,
+   "nearest": "biped-meadow-2",
+   "nearest_score": 0.0178
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-park-1.glb",
+   "rel": "assets/creatures/generated/biped-park-1.glb",
+   "label": "biped-park-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6514,
+   "frame_fill96": 0.2449,
+   "components96": 1,
+   "component_areas96": [
+    2257
+   ],
+   "fill48": 0.6597,
+   "frame_fill48": 0.2457,
+   "components48": 1,
+   "component_areas48": [
+    566
+   ],
+   "distinctness": 0.0798,
+   "nearest": "biped-factory-2",
+   "nearest_score": 0.023
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-park-2.glb",
+   "rel": "assets/creatures/generated/biped-park-2.glb",
+   "label": "biped-park-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5709,
+   "frame_fill96": 0.1944,
+   "components96": 1,
+   "component_areas96": [
+    1792
+   ],
+   "fill48": 0.5694,
+   "frame_fill48": 0.1957,
+   "components48": 1,
+   "component_areas48": [
+    451
+   ],
+   "distinctness": 0.0626,
+   "nearest": "biped-ice-2",
+   "nearest_score": 0.0334
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-sand-1.glb",
+   "rel": "assets/creatures/generated/biped-sand-1.glb",
+   "label": "biped-sand-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.581,
+   "frame_fill96": 0.1795,
+   "components96": 1,
+   "component_areas96": [
+    1654
+   ],
+   "fill48": 0.5568,
+   "frame_fill48": 0.1788,
+   "components48": 1,
+   "component_areas48": [
+    412
+   ],
+   "distinctness": 0.0709,
+   "nearest": "biped-meadow-1",
+   "nearest_score": 0.0109
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-sand-2.glb",
+   "rel": "assets/creatures/generated/biped-sand-2.glb",
+   "label": "biped-sand-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6664,
+   "frame_fill96": 0.2603,
+   "components96": 1,
+   "component_areas96": [
+    2399
+   ],
+   "fill48": 0.6464,
+   "frame_fill48": 0.2626,
+   "components48": 1,
+   "component_areas48": [
+    605
+   ],
+   "distinctness": 0.0873,
+   "nearest": "biped-forest-1",
+   "nearest_score": 0.0143
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-space-1.glb",
+   "rel": "assets/creatures/generated/biped-space-1.glb",
+   "label": "biped-space-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5065,
+   "frame_fill96": 0.165,
+   "components96": 1,
+   "component_areas96": [
+    1521
+   ],
+   "fill48": 0.5208,
+   "frame_fill48": 0.1632,
+   "components48": 1,
+   "component_areas48": [
+    376
+   ],
+   "distinctness": 0.0886,
+   "nearest": "biped-sand-1",
+   "nearest_score": 0.0477
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-space-2.glb",
+   "rel": "assets/creatures/generated/biped-space-2.glb",
+   "label": "biped-space-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.62,
+   "frame_fill96": 0.2276,
+   "components96": 1,
+   "component_areas96": [
+    2098
+   ],
+   "fill48": 0.61,
+   "frame_fill48": 0.2287,
+   "components48": 1,
+   "component_areas48": [
+    527
+   ],
+   "distinctness": 0.0697,
+   "nearest": "biped-graveyard-1",
+   "nearest_score": 0.0334
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-space-5802.glb",
+   "rel": "assets/creatures/generated/biped-space-5802.glb",
+   "label": "biped-space-5802",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5984,
+   "frame_fill96": 0.1943,
+   "components96": 1,
+   "component_areas96": [
+    1791
+   ],
+   "fill48": 0.5817,
+   "frame_fill48": 0.1962,
+   "components48": 1,
+   "component_areas48": [
+    452
+   ],
+   "distinctness": 0.0646,
+   "nearest": "biped-cave-1",
+   "nearest_score": 0.0386
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-volcanic-1.glb",
+   "rel": "assets/creatures/generated/biped-volcanic-1.glb",
+   "label": "biped-volcanic-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6202,
+   "frame_fill96": 0.2291,
+   "components96": 1,
+   "component_areas96": [
+    2111
+   ],
+   "fill48": 0.6204,
+   "frame_fill48": 0.2292,
+   "components48": 1,
+   "component_areas48": [
+    528
+   ],
+   "distinctness": 0.0693,
+   "nearest": "biped-factory-427",
+   "nearest_score": 0.0191
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-volcanic-2.glb",
+   "rel": "assets/creatures/generated/biped-volcanic-2.glb",
+   "label": "biped-volcanic-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5498,
+   "frame_fill96": 0.1838,
+   "components96": 1,
+   "component_areas96": [
+    1694
+   ],
+   "fill48": 0.53,
+   "frame_fill48": 0.184,
+   "components48": 1,
+   "component_areas48": [
+    424
+   ],
+   "distinctness": 0.0749,
+   "nearest": "biped-cave-2",
+   "nearest_score": 0.0317
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-volcanic-9480.glb",
+   "rel": "assets/creatures/generated/biped-volcanic-9480.glb",
+   "label": "biped-volcanic-9480",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6163,
+   "frame_fill96": 0.2236,
+   "components96": 1,
+   "component_areas96": [
+    2061
+   ],
+   "fill48": 0.6196,
+   "frame_fill48": 0.2248,
+   "components48": 1,
+   "component_areas48": [
+    518
+   ],
+   "distinctness": 0.0639,
+   "nearest": "biped-ice-2",
+   "nearest_score": 0.0425
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-wildwest-1.glb",
+   "rel": "assets/creatures/generated/biped-wildwest-1.glb",
+   "label": "biped-wildwest-1",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6657,
+   "frame_fill96": 0.2718,
+   "components96": 1,
+   "component_areas96": [
+    2505
+   ],
+   "fill48": 0.6731,
+   "frame_fill48": 0.2734,
+   "components48": 1,
+   "component_areas48": [
+    630
+   ],
+   "distinctness": 0.0928,
+   "nearest": "biped-sand-2",
+   "nearest_score": 0.0161
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-wildwest-2.glb",
+   "rel": "assets/creatures/generated/biped-wildwest-2.glb",
+   "label": "biped-wildwest-2",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5719,
+   "frame_fill96": 0.1839,
+   "components96": 1,
+   "component_areas96": [
+    1695
+   ],
+   "fill48": 0.5873,
+   "frame_fill48": 0.184,
+   "components48": 1,
+   "component_areas48": [
+    424
+   ],
+   "distinctness": 0.0675,
+   "nearest": "biped-jungle-1",
+   "nearest_score": 0.0104
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/biped-wildwest-9948.glb",
+   "rel": "assets/creatures/generated/biped-wildwest-9948.glb",
+   "label": "biped-wildwest-9948",
+   "family": "biped",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5595,
+   "frame_fill96": 0.2021,
+   "components96": 1,
+   "component_areas96": [
+    1863
+   ],
+   "fill48": 0.5499,
+   "frame_fill48": 0.2031,
+   "components48": 1,
+   "component_areas48": [
+    468
+   ],
+   "distinctness": 0.0727,
+   "nearest": "biped-medieval-1562",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-cave-1.glb",
+   "rel": "assets/creatures/generated/bird-cave-1.glb",
+   "label": "bird-cave-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5521,
+   "frame_fill96": 0.1574,
+   "components96": 1,
+   "component_areas96": [
+    1451
+   ],
+   "fill48": 0.5135,
+   "frame_fill48": 0.1567,
+   "components48": 1,
+   "component_areas48": [
+    361
+   ],
+   "distinctness": 0.0757,
+   "nearest": "bird-lab-1",
+   "nearest_score": 0.023
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-cave-2.glb",
+   "rel": "assets/creatures/generated/bird-cave-2.glb",
+   "label": "bird-cave-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6287,
+   "frame_fill96": 0.203,
+   "components96": 1,
+   "component_areas96": [
+    1871
+   ],
+   "fill48": 0.6263,
+   "frame_fill48": 0.2023,
+   "components48": 1,
+   "component_areas48": [
+    466
+   ],
+   "distinctness": 0.0763,
+   "nearest": "bird-volcanic-2",
+   "nearest_score": 0.033
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-city-1.glb",
+   "rel": "assets/creatures/generated/bird-city-1.glb",
+   "label": "bird-city-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5614,
+   "frame_fill96": 0.1905,
+   "components96": 1,
+   "component_areas96": [
+    1756
+   ],
+   "fill48": 0.5837,
+   "frame_fill48": 0.1923,
+   "components48": 1,
+   "component_areas48": [
+    443
+   ],
+   "distinctness": 0.0574,
+   "nearest": "bird-wildwest-1",
+   "nearest_score": 0.0187
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-city-2.glb",
+   "rel": "assets/creatures/generated/bird-city-2.glb",
+   "label": "bird-city-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6246,
+   "frame_fill96": 0.1865,
+   "components96": 1,
+   "component_areas96": [
+    1719
+   ],
+   "fill48": 0.6513,
+   "frame_fill48": 0.184,
+   "components48": 1,
+   "component_areas48": [
+    424
+   ],
+   "distinctness": 0.0544,
+   "nearest": "bird-volcanic-6266",
+   "nearest_score": 0.0299
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-factory-1.glb",
+   "rel": "assets/creatures/generated/bird-factory-1.glb",
+   "label": "bird-factory-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6406,
+   "frame_fill96": 0.211,
+   "components96": 1,
+   "component_areas96": [
+    1945
+   ],
+   "fill48": 0.6337,
+   "frame_fill48": 0.2088,
+   "components48": 1,
+   "component_areas48": [
+    481
+   ],
+   "distinctness": 0.0649,
+   "nearest": "bird-space-2",
+   "nearest_score": 0.0295
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-factory-2.glb",
+   "rel": "assets/creatures/generated/bird-factory-2.glb",
+   "label": "bird-factory-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4606,
+   "frame_fill96": 0.1624,
+   "components96": 1,
+   "component_areas96": [
+    1497
+   ],
+   "fill48": 0.4928,
+   "frame_fill48": 0.1623,
+   "components48": 1,
+   "component_areas48": [
+    374
+   ],
+   "distinctness": 0.0715,
+   "nearest": "bird-sand-1",
+   "nearest_score": 0.0365
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-forest-1.glb",
+   "rel": "assets/creatures/generated/bird-forest-1.glb",
+   "label": "bird-forest-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6222,
+   "frame_fill96": 0.2036,
+   "components96": 1,
+   "component_areas96": [
+    1876
+   ],
+   "fill48": 0.631,
+   "frame_fill48": 0.2049,
+   "components48": 1,
+   "component_areas48": [
+    472
+   ],
+   "distinctness": 0.063,
+   "nearest": "bird-ocean-1",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-forest-2.glb",
+   "rel": "assets/creatures/generated/bird-forest-2.glb",
+   "label": "bird-forest-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5469,
+   "frame_fill96": 0.1645,
+   "components96": 1,
+   "component_areas96": [
+    1516
+   ],
+   "fill48": 0.5758,
+   "frame_fill48": 0.1649,
+   "components48": 1,
+   "component_areas48": [
+    380
+   ],
+   "distinctness": 0.0935,
+   "nearest": "bird-jungle-1",
+   "nearest_score": 0.0573
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-graveyard-1.glb",
+   "rel": "assets/creatures/generated/bird-graveyard-1.glb",
+   "label": "bird-graveyard-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6368,
+   "frame_fill96": 0.1687,
+   "components96": 1,
+   "component_areas96": [
+    1555
+   ],
+   "fill48": 0.596,
+   "frame_fill48": 0.1671,
+   "components48": 1,
+   "component_areas48": [
+    385
+   ],
+   "distinctness": 0.0648,
+   "nearest": "bird-sand-1",
+   "nearest_score": 0.0273
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-graveyard-2.glb",
+   "rel": "assets/creatures/generated/bird-graveyard-2.glb",
+   "label": "bird-graveyard-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5635,
+   "frame_fill96": 0.1516,
+   "components96": 1,
+   "component_areas96": [
+    1397
+   ],
+   "fill48": 0.5926,
+   "frame_fill48": 0.1528,
+   "components48": 1,
+   "component_areas48": [
+    352
+   ],
+   "distinctness": 0.073,
+   "nearest": "bird-sand-1",
+   "nearest_score": 0.0286
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-ice-1.glb",
+   "rel": "assets/creatures/generated/bird-ice-1.glb",
+   "label": "bird-ice-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5687,
+   "frame_fill96": 0.2444,
+   "components96": 1,
+   "component_areas96": [
+    2252
+   ],
+   "fill48": 0.5935,
+   "frame_fill48": 0.2465,
+   "components48": 1,
+   "component_areas48": [
+    568
+   ],
+   "distinctness": 0.0947,
+   "nearest": "bird-meadow-2",
+   "nearest_score": 0.056
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-ice-2.glb",
+   "rel": "assets/creatures/generated/bird-ice-2.glb",
+   "label": "bird-ice-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6092,
+   "frame_fill96": 0.1803,
+   "components96": 1,
+   "component_areas96": [
+    1662
+   ],
+   "fill48": 0.6476,
+   "frame_fill48": 0.1771,
+   "components48": 1,
+   "component_areas48": [
+    408
+   ],
+   "distinctness": 0.0612,
+   "nearest": "bird-park-1",
+   "nearest_score": 0.0269
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-jungle-1.glb",
+   "rel": "assets/creatures/generated/bird-jungle-1.glb",
+   "label": "bird-jungle-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5777,
+   "frame_fill96": 0.163,
+   "components96": 1,
+   "component_areas96": [
+    1502
+   ],
+   "fill48": 0.6086,
+   "frame_fill48": 0.1606,
+   "components48": 1,
+   "component_areas48": [
+    370
+   ],
+   "distinctness": 0.0687,
+   "nearest": "bird-sand-1",
+   "nearest_score": 0.0217
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-jungle-2.glb",
+   "rel": "assets/creatures/generated/bird-jungle-2.glb",
+   "label": "bird-jungle-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.567,
+   "frame_fill96": 0.159,
+   "components96": 1,
+   "component_areas96": [
+    1465
+   ],
+   "fill48": 0.5915,
+   "frame_fill48": 0.1571,
+   "components48": 1,
+   "component_areas48": [
+    362
+   ],
+   "distinctness": 0.0821,
+   "nearest": "bird-jungle-1",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-lab-1.glb",
+   "rel": "assets/creatures/generated/bird-lab-1.glb",
+   "label": "bird-lab-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5774,
+   "frame_fill96": 0.1715,
+   "components96": 1,
+   "component_areas96": [
+    1581
+   ],
+   "fill48": 0.569,
+   "frame_fill48": 0.1736,
+   "components48": 1,
+   "component_areas48": [
+    400
+   ],
+   "distinctness": 0.0676,
+   "nearest": "bird-cave-1",
+   "nearest_score": 0.023
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-lab-2.glb",
+   "rel": "assets/creatures/generated/bird-lab-2.glb",
+   "label": "bird-lab-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6232,
+   "frame_fill96": 0.2053,
+   "components96": 1,
+   "component_areas96": [
+    1892
+   ],
+   "fill48": 0.6271,
+   "frame_fill48": 0.2066,
+   "components48": 1,
+   "component_areas48": [
+    476
+   ],
+   "distinctness": 0.0808,
+   "nearest": "bird-lab-2800",
+   "nearest_score": 0.0382
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-lab-2800.glb",
+   "rel": "assets/creatures/generated/bird-lab-2800.glb",
+   "label": "bird-lab-2800",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5645,
+   "frame_fill96": 0.2166,
+   "components96": 1,
+   "component_areas96": [
+    1996
+   ],
+   "fill48": 0.5835,
+   "frame_fill48": 0.2153,
+   "components48": 1,
+   "component_areas48": [
+    496
+   ],
+   "distinctness": 0.0747,
+   "nearest": "bird-space-2",
+   "nearest_score": 0.0334
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-meadow-1.glb",
+   "rel": "assets/creatures/generated/bird-meadow-1.glb",
+   "label": "bird-meadow-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6278,
+   "frame_fill96": 0.186,
+   "components96": 1,
+   "component_areas96": [
+    1714
+   ],
+   "fill48": 0.598,
+   "frame_fill48": 0.1827,
+   "components48": 1,
+   "component_areas48": [
+    421
+   ],
+   "distinctness": 0.0571,
+   "nearest": "bird-space-1",
+   "nearest_score": 0.0278
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-meadow-2.glb",
+   "rel": "assets/creatures/generated/bird-meadow-2.glb",
+   "label": "bird-meadow-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6341,
+   "frame_fill96": 0.2134,
+   "components96": 1,
+   "component_areas96": [
+    1967
+   ],
+   "fill48": 0.6708,
+   "frame_fill48": 0.2114,
+   "components48": 1,
+   "component_areas48": [
+    487
+   ],
+   "distinctness": 0.0858,
+   "nearest": "bird-wildwest-2",
+   "nearest_score": 0.0365
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-medieval-1.glb",
+   "rel": "assets/creatures/generated/bird-medieval-1.glb",
+   "label": "bird-medieval-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5914,
+   "frame_fill96": 0.1707,
+   "components96": 1,
+   "component_areas96": [
+    1573
+   ],
+   "fill48": 0.6222,
+   "frame_fill48": 0.1701,
+   "components48": 1,
+   "component_areas48": [
+    392
+   ],
+   "distinctness": 0.0636,
+   "nearest": "bird-lab-1",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-medieval-2.glb",
+   "rel": "assets/creatures/generated/bird-medieval-2.glb",
+   "label": "bird-medieval-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6019,
+   "frame_fill96": 0.242,
+   "components96": 1,
+   "component_areas96": [
+    2230
+   ],
+   "fill48": 0.6389,
+   "frame_fill48": 0.2396,
+   "components48": 1,
+   "component_areas48": [
+    552
+   ],
+   "distinctness": 0.0945,
+   "nearest": "bird-lab-2800",
+   "nearest_score": 0.0486
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-medieval-4412.glb",
+   "rel": "assets/creatures/generated/bird-medieval-4412.glb",
+   "label": "bird-medieval-4412",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6033,
+   "frame_fill96": 0.1667,
+   "components96": 1,
+   "component_areas96": [
+    1536
+   ],
+   "fill48": 0.6108,
+   "frame_fill48": 0.1662,
+   "components48": 1,
+   "component_areas48": [
+    383
+   ],
+   "distinctness": 0.0602,
+   "nearest": "bird-park-2",
+   "nearest_score": 0.0269
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-ocean-1.glb",
+   "rel": "assets/creatures/generated/bird-ocean-1.glb",
+   "label": "bird-ocean-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.593,
+   "frame_fill96": 0.1882,
+   "components96": 1,
+   "component_areas96": [
+    1734
+   ],
+   "fill48": 0.5775,
+   "frame_fill48": 0.1875,
+   "components48": 1,
+   "component_areas48": [
+    432
+   ],
+   "distinctness": 0.0655,
+   "nearest": "bird-forest-1",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-ocean-2.glb",
+   "rel": "assets/creatures/generated/bird-ocean-2.glb",
+   "label": "bird-ocean-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6555,
+   "frame_fill96": 0.1912,
+   "components96": 1,
+   "component_areas96": [
+    1762
+   ],
+   "fill48": 0.6743,
+   "frame_fill48": 0.1905,
+   "components48": 1,
+   "component_areas48": [
+    439
+   ],
+   "distinctness": 0.0567,
+   "nearest": "bird-volcanic-6266",
+   "nearest_score": 0.0243
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-park-1.glb",
+   "rel": "assets/creatures/generated/bird-park-1.glb",
+   "label": "bird-park-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6536,
+   "frame_fill96": 0.1759,
+   "components96": 1,
+   "component_areas96": [
+    1621
+   ],
+   "fill48": 0.6344,
+   "frame_fill48": 0.1762,
+   "components48": 1,
+   "component_areas48": [
+    406
+   ],
+   "distinctness": 0.0564,
+   "nearest": "bird-volcanic-1",
+   "nearest_score": 0.0148
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-park-2.glb",
+   "rel": "assets/creatures/generated/bird-park-2.glb",
+   "label": "bird-park-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6097,
+   "frame_fill96": 0.1616,
+   "components96": 1,
+   "component_areas96": [
+    1489
+   ],
+   "fill48": 0.5949,
+   "frame_fill48": 0.1619,
+   "components48": 1,
+   "component_areas48": [
+    373
+   ],
+   "distinctness": 0.061,
+   "nearest": "bird-sand-1",
+   "nearest_score": 0.0247
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-park-2905.glb",
+   "rel": "assets/creatures/generated/bird-park-2905.glb",
+   "label": "bird-park-2905",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5379,
+   "frame_fill96": 0.1494,
+   "components96": 1,
+   "component_areas96": [
+    1377
+   ],
+   "fill48": 0.5691,
+   "frame_fill48": 0.1502,
+   "components48": 1,
+   "component_areas48": [
+    346
+   ],
+   "distinctness": 0.0626,
+   "nearest": "bird-medieval-1",
+   "nearest_score": 0.0347
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-sand-1.glb",
+   "rel": "assets/creatures/generated/bird-sand-1.glb",
+   "label": "bird-sand-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5687,
+   "frame_fill96": 0.1571,
+   "components96": 1,
+   "component_areas96": [
+    1448
+   ],
+   "fill48": 0.5805,
+   "frame_fill48": 0.158,
+   "components48": 1,
+   "component_areas48": [
+    364
+   ],
+   "distinctness": 0.0643,
+   "nearest": "bird-jungle-1",
+   "nearest_score": 0.0217
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-sand-2.glb",
+   "rel": "assets/creatures/generated/bird-sand-2.glb",
+   "label": "bird-sand-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6352,
+   "frame_fill96": 0.1897,
+   "components96": 1,
+   "component_areas96": [
+    1748
+   ],
+   "fill48": 0.6488,
+   "frame_fill48": 0.1892,
+   "components48": 1,
+   "component_areas48": [
+    436
+   ],
+   "distinctness": 0.0591,
+   "nearest": "bird-park-1",
+   "nearest_score": 0.0226
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-space-1.glb",
+   "rel": "assets/creatures/generated/bird-space-1.glb",
+   "label": "bird-space-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6242,
+   "frame_fill96": 0.1777,
+   "components96": 1,
+   "component_areas96": [
+    1638
+   ],
+   "fill48": 0.6532,
+   "frame_fill48": 0.1758,
+   "components48": 1,
+   "component_areas48": [
+    405
+   ],
+   "distinctness": 0.0571,
+   "nearest": "bird-meadow-1",
+   "nearest_score": 0.0278
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-space-2.glb",
+   "rel": "assets/creatures/generated/bird-space-2.glb",
+   "label": "bird-space-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.647,
+   "frame_fill96": 0.2039,
+   "components96": 1,
+   "component_areas96": [
+    1879
+   ],
+   "fill48": 0.6337,
+   "frame_fill48": 0.2088,
+   "components48": 1,
+   "component_areas48": [
+    481
+   ],
+   "distinctness": 0.061,
+   "nearest": "bird-ocean-2",
+   "nearest_score": 0.0286
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-volcanic-1.glb",
+   "rel": "assets/creatures/generated/bird-volcanic-1.glb",
+   "label": "bird-volcanic-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6027,
+   "frame_fill96": 0.1726,
+   "components96": 1,
+   "component_areas96": [
+    1591
+   ],
+   "fill48": 0.6219,
+   "frame_fill48": 0.1727,
+   "components48": 1,
+   "component_areas48": [
+    398
+   ],
+   "distinctness": 0.055,
+   "nearest": "bird-park-1",
+   "nearest_score": 0.0148
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-volcanic-2.glb",
+   "rel": "assets/creatures/generated/bird-volcanic-2.glb",
+   "label": "bird-volcanic-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6335,
+   "frame_fill96": 0.2003,
+   "components96": 1,
+   "component_areas96": [
+    1846
+   ],
+   "fill48": 0.6452,
+   "frame_fill48": 0.1997,
+   "components48": 1,
+   "component_areas48": [
+    460
+   ],
+   "distinctness": 0.0761,
+   "nearest": "bird-cave-2",
+   "nearest_score": 0.033
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-volcanic-6266.glb",
+   "rel": "assets/creatures/generated/bird-volcanic-6266.glb",
+   "label": "bird-volcanic-6266",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6118,
+   "frame_fill96": 0.1855,
+   "components96": 1,
+   "component_areas96": [
+    1710
+   ],
+   "fill48": 0.6354,
+   "frame_fill48": 0.1853,
+   "components48": 1,
+   "component_areas48": [
+    427
+   ],
+   "distinctness": 0.0553,
+   "nearest": "bird-city-1",
+   "nearest_score": 0.0234
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-wildwest-1.glb",
+   "rel": "assets/creatures/generated/bird-wildwest-1.glb",
+   "label": "bird-wildwest-1",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.58,
+   "frame_fill96": 0.1911,
+   "components96": 1,
+   "component_areas96": [
+    1761
+   ],
+   "fill48": 0.6006,
+   "frame_fill48": 0.1892,
+   "components48": 1,
+   "component_areas48": [
+    436
+   ],
+   "distinctness": 0.0569,
+   "nearest": "bird-city-1",
+   "nearest_score": 0.0187
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/bird-wildwest-2.glb",
+   "rel": "assets/creatures/generated/bird-wildwest-2.glb",
+   "label": "bird-wildwest-2",
+   "family": "bird",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.586,
+   "frame_fill96": 0.1892,
+   "components96": 1,
+   "component_areas96": [
+    1744
+   ],
+   "fill48": 0.5847,
+   "frame_fill48": 0.1888,
+   "components48": 1,
+   "component_areas48": [
+    435
+   ],
+   "distinctness": 0.08,
+   "nearest": "bird-meadow-2",
+   "nearest_score": 0.0365
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-cave-1.glb",
+   "rel": "assets/creatures/generated/blob-cave-1.glb",
+   "label": "blob-cave-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7014,
+   "frame_fill96": 0.2829,
+   "components96": 1,
+   "component_areas96": [
+    2607
+   ],
+   "fill48": 0.6978,
+   "frame_fill48": 0.2817,
+   "components48": 1,
+   "component_areas48": [
+    649
+   ],
+   "distinctness": 0.0841,
+   "nearest": "blob-wildwest-2",
+   "nearest_score": 0.0582
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-cave-2.glb",
+   "rel": "assets/creatures/generated/blob-cave-2.glb",
+   "label": "blob-cave-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7192,
+   "frame_fill96": 0.2571,
+   "components96": 1,
+   "component_areas96": [
+    2369
+   ],
+   "fill48": 0.7222,
+   "frame_fill48": 0.2539,
+   "components48": 1,
+   "component_areas48": [
+    585
+   ],
+   "distinctness": 0.0865,
+   "nearest": "blob-volcanic-1",
+   "nearest_score": 0.0148
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-cave-2481.glb",
+   "rel": "assets/creatures/generated/blob-cave-2481.glb",
+   "label": "blob-cave-2481",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5522,
+   "frame_fill96": 0.2181,
+   "components96": 1,
+   "component_areas96": [
+    2010
+   ],
+   "fill48": 0.5645,
+   "frame_fill48": 0.2166,
+   "components48": 1,
+   "component_areas48": [
+    499
+   ],
+   "distinctness": 0.0844,
+   "nearest": "blob-jungle-2",
+   "nearest_score": 0.0221
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-city-1.glb",
+   "rel": "assets/creatures/generated/blob-city-1.glb",
+   "label": "blob-city-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7198,
+   "frame_fill96": 0.2484,
+   "components96": 1,
+   "component_areas96": [
+    2289
+   ],
+   "fill48": 0.7359,
+   "frame_fill48": 0.2491,
+   "components48": 1,
+   "component_areas48": [
+    574
+   ],
+   "distinctness": 0.0825,
+   "nearest": "blob-volcanic-1",
+   "nearest_score": 0.0178
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-city-2.glb",
+   "rel": "assets/creatures/generated/blob-city-2.glb",
+   "label": "blob-city-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5919,
+   "frame_fill96": 0.2673,
+   "components96": 1,
+   "component_areas96": [
+    2463
+   ],
+   "fill48": 0.6296,
+   "frame_fill48": 0.2678,
+   "components48": 1,
+   "component_areas48": [
+    617
+   ],
+   "distinctness": 0.0725,
+   "nearest": "blob-factory-2",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-factory-1.glb",
+   "rel": "assets/creatures/generated/blob-factory-1.glb",
+   "label": "blob-factory-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6726,
+   "frame_fill96": 0.2575,
+   "components96": 1,
+   "component_areas96": [
+    2373
+   ],
+   "fill48": 0.6336,
+   "frame_fill48": 0.2552,
+   "components48": 1,
+   "component_areas48": [
+    588
+   ],
+   "distinctness": 0.0936,
+   "nearest": "blob-wildwest-8100",
+   "nearest_score": 0.0443
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-factory-2.glb",
+   "rel": "assets/creatures/generated/blob-factory-2.glb",
+   "label": "blob-factory-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6266,
+   "frame_fill96": 0.2655,
+   "components96": 1,
+   "component_areas96": [
+    2447
+   ],
+   "fill48": 0.6235,
+   "frame_fill48": 0.2652,
+   "components48": 1,
+   "component_areas48": [
+    611
+   ],
+   "distinctness": 0.074,
+   "nearest": "blob-city-2",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-forest-1.glb",
+   "rel": "assets/creatures/generated/blob-forest-1.glb",
+   "label": "blob-forest-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5797,
+   "frame_fill96": 0.2598,
+   "components96": 1,
+   "component_areas96": [
+    2394
+   ],
+   "fill48": 0.5705,
+   "frame_fill48": 0.26,
+   "components48": 1,
+   "component_areas48": [
+    599
+   ],
+   "distinctness": 0.08,
+   "nearest": "blob-volcanic-2",
+   "nearest_score": 0.0217
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-forest-2.glb",
+   "rel": "assets/creatures/generated/blob-forest-2.glb",
+   "label": "blob-forest-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.621,
+   "frame_fill96": 0.2628,
+   "components96": 1,
+   "component_areas96": [
+    2422
+   ],
+   "fill48": 0.6344,
+   "frame_fill48": 0.2643,
+   "components48": 1,
+   "component_areas48": [
+    609
+   ],
+   "distinctness": 0.0731,
+   "nearest": "blob-forest-1",
+   "nearest_score": 0.0295
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-graveyard-1.glb",
+   "rel": "assets/creatures/generated/blob-graveyard-1.glb",
+   "label": "blob-graveyard-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6352,
+   "frame_fill96": 0.3034,
+   "components96": 1,
+   "component_areas96": [
+    2796
+   ],
+   "fill48": 0.6705,
+   "frame_fill48": 0.3056,
+   "components48": 1,
+   "component_areas48": [
+    704
+   ],
+   "distinctness": 0.0836,
+   "nearest": "blob-lab-2",
+   "nearest_score": 0.0239
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-graveyard-2.glb",
+   "rel": "assets/creatures/generated/blob-graveyard-2.glb",
+   "label": "blob-graveyard-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6074,
+   "frame_fill96": 0.2839,
+   "components96": 1,
+   "component_areas96": [
+    2616
+   ],
+   "fill48": 0.6046,
+   "frame_fill48": 0.2834,
+   "components48": 1,
+   "component_areas48": [
+    653
+   ],
+   "distinctness": 0.0779,
+   "nearest": "blob-city-2",
+   "nearest_score": 0.0382
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-graveyard-8728.glb",
+   "rel": "assets/creatures/generated/blob-graveyard-8728.glb",
+   "label": "blob-graveyard-8728",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4961,
+   "frame_fill96": 0.2185,
+   "components96": 1,
+   "component_areas96": [
+    2014
+   ],
+   "fill48": 0.4985,
+   "frame_fill48": 0.2196,
+   "components48": 1,
+   "component_areas48": [
+    506
+   ],
+   "distinctness": 0.0996,
+   "nearest": "blob-cave-2481",
+   "nearest_score": 0.0395
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-graveyard-9455.glb",
+   "rel": "assets/creatures/generated/blob-graveyard-9455.glb",
+   "label": "blob-graveyard-9455",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6213,
+   "frame_fill96": 0.2629,
+   "components96": 1,
+   "component_areas96": [
+    2423
+   ],
+   "fill48": 0.6505,
+   "frame_fill48": 0.2626,
+   "components48": 1,
+   "component_areas48": [
+    605
+   ],
+   "distinctness": 0.0795,
+   "nearest": "blob-jungle-1",
+   "nearest_score": 0.0438
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-ice-1.glb",
+   "rel": "assets/creatures/generated/blob-ice-1.glb",
+   "label": "blob-ice-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6452,
+   "frame_fill96": 0.2352,
+   "components96": 1,
+   "component_areas96": [
+    2168
+   ],
+   "fill48": 0.6476,
+   "frame_fill48": 0.2361,
+   "components48": 1,
+   "component_areas48": [
+    544
+   ],
+   "distinctness": 0.0861,
+   "nearest": "blob-meadow-2",
+   "nearest_score": 0.0299
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-ice-1706.glb",
+   "rel": "assets/creatures/generated/blob-ice-1706.glb",
+   "label": "blob-ice-1706",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5842,
+   "frame_fill96": 0.2537,
+   "components96": 1,
+   "component_areas96": [
+    2338
+   ],
+   "fill48": 0.5903,
+   "frame_fill48": 0.2526,
+   "components48": 1,
+   "component_areas48": [
+    582
+   ],
+   "distinctness": 0.0729,
+   "nearest": "blob-city-2",
+   "nearest_score": 0.0352
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-ice-2.glb",
+   "rel": "assets/creatures/generated/blob-ice-2.glb",
+   "label": "blob-ice-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7248,
+   "frame_fill96": 0.3121,
+   "components96": 1,
+   "component_areas96": [
+    2876
+   ],
+   "fill48": 0.7218,
+   "frame_fill48": 0.3108,
+   "components48": 1,
+   "component_areas48": [
+    716
+   ],
+   "distinctness": 0.0991,
+   "nearest": "blob-wildwest-2",
+   "nearest_score": 0.0317
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-ice-8333.glb",
+   "rel": "assets/creatures/generated/blob-ice-8333.glb",
+   "label": "blob-ice-8333",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5895,
+   "frame_fill96": 0.2427,
+   "components96": 1,
+   "component_areas96": [
+    2237
+   ],
+   "fill48": 0.5872,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.081,
+   "nearest": "blob-jungle-2",
+   "nearest_score": 0.0378
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-jungle-1.glb",
+   "rel": "assets/creatures/generated/blob-jungle-1.glb",
+   "label": "blob-jungle-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6193,
+   "frame_fill96": 0.2794,
+   "components96": 1,
+   "component_areas96": [
+    2575
+   ],
+   "fill48": 0.6117,
+   "frame_fill48": 0.2804,
+   "components48": 1,
+   "component_areas48": [
+    646
+   ],
+   "distinctness": 0.0736,
+   "nearest": "blob-lab-2",
+   "nearest_score": 0.0221
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-jungle-2.glb",
+   "rel": "assets/creatures/generated/blob-jungle-2.glb",
+   "label": "blob-jungle-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5857,
+   "frame_fill96": 0.2299,
+   "components96": 1,
+   "component_areas96": [
+    2119
+   ],
+   "fill48": 0.6177,
+   "frame_fill48": 0.23,
+   "components48": 1,
+   "component_areas48": [
+    530
+   ],
+   "distinctness": 0.075,
+   "nearest": "blob-cave-2481",
+   "nearest_score": 0.0221
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-jungle-5792.glb",
+   "rel": "assets/creatures/generated/blob-jungle-5792.glb",
+   "label": "blob-jungle-5792",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6984,
+   "frame_fill96": 0.3346,
+   "components96": 1,
+   "component_areas96": [
+    3084
+   ],
+   "fill48": 0.6884,
+   "frame_fill48": 0.3346,
+   "components48": 1,
+   "component_areas48": [
+    771
+   ],
+   "distinctness": 0.1135,
+   "nearest": "blob-ice-2",
+   "nearest_score": 0.0395
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-lab-1.glb",
+   "rel": "assets/creatures/generated/blob-lab-1.glb",
+   "label": "blob-lab-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7156,
+   "frame_fill96": 0.2321,
+   "components96": 1,
+   "component_areas96": [
+    2139
+   ],
+   "fill48": 0.7458,
+   "frame_fill48": 0.2331,
+   "components48": 1,
+   "component_areas48": [
+    537
+   ],
+   "distinctness": 0.0888,
+   "nearest": "blob-cave-2",
+   "nearest_score": 0.0234
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-lab-2.glb",
+   "rel": "assets/creatures/generated/blob-lab-2.glb",
+   "label": "blob-lab-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6069,
+   "frame_fill96": 0.2858,
+   "components96": 1,
+   "component_areas96": [
+    2634
+   ],
+   "fill48": 0.6055,
+   "frame_fill48": 0.2852,
+   "components48": 1,
+   "component_areas48": [
+    657
+   ],
+   "distinctness": 0.0748,
+   "nearest": "blob-jungle-1",
+   "nearest_score": 0.0221
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-meadow-1.glb",
+   "rel": "assets/creatures/generated/blob-meadow-1.glb",
+   "label": "blob-meadow-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5914,
+   "frame_fill96": 0.2258,
+   "components96": 1,
+   "component_areas96": [
+    2081
+   ],
+   "fill48": 0.5863,
+   "frame_fill48": 0.2227,
+   "components48": 1,
+   "component_areas48": [
+    513
+   ],
+   "distinctness": 0.1037,
+   "nearest": "blob-park-1",
+   "nearest_score": 0.0404
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-meadow-1422.glb",
+   "rel": "assets/creatures/generated/blob-meadow-1422.glb",
+   "label": "blob-meadow-1422",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6887,
+   "frame_fill96": 0.2683,
+   "components96": 1,
+   "component_areas96": [
+    2473
+   ],
+   "fill48": 0.6885,
+   "frame_fill48": 0.2687,
+   "components48": 1,
+   "component_areas48": [
+    619
+   ],
+   "distinctness": 0.0967,
+   "nearest": "blob-factory-1",
+   "nearest_score": 0.056
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-meadow-2.glb",
+   "rel": "assets/creatures/generated/blob-meadow-2.glb",
+   "label": "blob-meadow-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5838,
+   "frame_fill96": 0.2306,
+   "components96": 1,
+   "component_areas96": [
+    2125
+   ],
+   "fill48": 0.5949,
+   "frame_fill48": 0.2313,
+   "components48": 1,
+   "component_areas48": [
+    533
+   ],
+   "distinctness": 0.0798,
+   "nearest": "blob-medieval-1",
+   "nearest_score": 0.0269
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-medieval-1.glb",
+   "rel": "assets/creatures/generated/blob-medieval-1.glb",
+   "label": "blob-medieval-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5774,
+   "frame_fill96": 0.2064,
+   "components96": 1,
+   "component_areas96": [
+    1902
+   ],
+   "fill48": 0.584,
+   "frame_fill48": 0.2053,
+   "components48": 1,
+   "component_areas48": [
+    473
+   ],
+   "distinctness": 0.0881,
+   "nearest": "blob-meadow-2",
+   "nearest_score": 0.0269
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-medieval-2.glb",
+   "rel": "assets/creatures/generated/blob-medieval-2.glb",
+   "label": "blob-medieval-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6692,
+   "frame_fill96": 0.2562,
+   "components96": 1,
+   "component_areas96": [
+    2361
+   ],
+   "fill48": 0.6618,
+   "frame_fill48": 0.2574,
+   "components48": 1,
+   "component_areas48": [
+    593
+   ],
+   "distinctness": 0.0823,
+   "nearest": "blob-forest-2",
+   "nearest_score": 0.0443
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-ocean-1.glb",
+   "rel": "assets/creatures/generated/blob-ocean-1.glb",
+   "label": "blob-ocean-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.628,
+   "frame_fill96": 0.2398,
+   "components96": 1,
+   "component_areas96": [
+    2210
+   ],
+   "fill48": 0.6267,
+   "frame_fill48": 0.2405,
+   "components48": 1,
+   "component_areas48": [
+    554
+   ],
+   "distinctness": 0.0748,
+   "nearest": "blob-cave-2481",
+   "nearest_score": 0.0291
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-ocean-2.glb",
+   "rel": "assets/creatures/generated/blob-ocean-2.glb",
+   "label": "blob-ocean-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7145,
+   "frame_fill96": 0.2338,
+   "components96": 1,
+   "component_areas96": [
+    2155
+   ],
+   "fill48": 0.7056,
+   "frame_fill48": 0.2309,
+   "components48": 1,
+   "component_areas48": [
+    532
+   ],
+   "distinctness": 0.0784,
+   "nearest": "blob-city-1",
+   "nearest_score": 0.0234
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-park-1.glb",
+   "rel": "assets/creatures/generated/blob-park-1.glb",
+   "label": "blob-park-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.51,
+   "frame_fill96": 0.1986,
+   "components96": 1,
+   "component_areas96": [
+    1830
+   ],
+   "fill48": 0.5204,
+   "frame_fill48": 0.1997,
+   "components48": 1,
+   "component_areas48": [
+    460
+   ],
+   "distinctness": 0.1087,
+   "nearest": "blob-meadow-1",
+   "nearest_score": 0.0404
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-park-2.glb",
+   "rel": "assets/creatures/generated/blob-park-2.glb",
+   "label": "blob-park-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5511,
+   "frame_fill96": 0.2556,
+   "components96": 1,
+   "component_areas96": [
+    2356
+   ],
+   "fill48": 0.5508,
+   "frame_fill48": 0.2565,
+   "components48": 1,
+   "component_areas48": [
+    591
+   ],
+   "distinctness": 0.0958,
+   "nearest": "blob-graveyard-2",
+   "nearest_score": 0.0538
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-sand-1.glb",
+   "rel": "assets/creatures/generated/blob-sand-1.glb",
+   "label": "blob-sand-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6893,
+   "frame_fill96": 0.278,
+   "components96": 1,
+   "component_areas96": [
+    2562
+   ],
+   "fill48": 0.6918,
+   "frame_fill48": 0.2786,
+   "components48": 1,
+   "component_areas48": [
+    642
+   ],
+   "distinctness": 0.0875,
+   "nearest": "blob-wildwest-2",
+   "nearest_score": 0.0326
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-sand-2.glb",
+   "rel": "assets/creatures/generated/blob-sand-2.glb",
+   "label": "blob-sand-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5576,
+   "frame_fill96": 0.262,
+   "components96": 1,
+   "component_areas96": [
+    2415
+   ],
+   "fill48": 0.5752,
+   "frame_fill48": 0.2622,
+   "components48": 1,
+   "component_areas48": [
+    604
+   ],
+   "distinctness": 0.0836,
+   "nearest": "blob-forest-2",
+   "nearest_score": 0.0369
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-space-1.glb",
+   "rel": "assets/creatures/generated/blob-space-1.glb",
+   "label": "blob-space-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7242,
+   "frame_fill96": 0.2624,
+   "components96": 1,
+   "component_areas96": [
+    2418
+   ],
+   "fill48": 0.7025,
+   "frame_fill48": 0.2635,
+   "components48": 1,
+   "component_areas48": [
+    607
+   ],
+   "distinctness": 0.087,
+   "nearest": "blob-volcanic-1",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-space-2.glb",
+   "rel": "assets/creatures/generated/blob-space-2.glb",
+   "label": "blob-space-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6288,
+   "frame_fill96": 0.2314,
+   "components96": 1,
+   "component_areas96": [
+    2133
+   ],
+   "fill48": 0.596,
+   "frame_fill48": 0.2305,
+   "components48": 1,
+   "component_areas48": [
+    531
+   ],
+   "distinctness": 0.0761,
+   "nearest": "blob-meadow-2",
+   "nearest_score": 0.046
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-volcanic-1.glb",
+   "rel": "assets/creatures/generated/blob-volcanic-1.glb",
+   "label": "blob-volcanic-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7165,
+   "frame_fill96": 0.2603,
+   "components96": 1,
+   "component_areas96": [
+    2399
+   ],
+   "fill48": 0.7407,
+   "frame_fill48": 0.2591,
+   "components48": 1,
+   "component_areas48": [
+    597
+   ],
+   "distinctness": 0.0854,
+   "nearest": "blob-cave-2",
+   "nearest_score": 0.0148
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-volcanic-2.glb",
+   "rel": "assets/creatures/generated/blob-volcanic-2.glb",
+   "label": "blob-volcanic-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5483,
+   "frame_fill96": 0.245,
+   "components96": 1,
+   "component_areas96": [
+    2258
+   ],
+   "fill48": 0.5567,
+   "frame_fill48": 0.2452,
+   "components48": 1,
+   "component_areas48": [
+    565
+   ],
+   "distinctness": 0.0863,
+   "nearest": "blob-forest-1",
+   "nearest_score": 0.0217
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-wildwest-1.glb",
+   "rel": "assets/creatures/generated/blob-wildwest-1.glb",
+   "label": "blob-wildwest-1",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5523,
+   "frame_fill96": 0.2233,
+   "components96": 1,
+   "component_areas96": [
+    2058
+   ],
+   "fill48": 0.5621,
+   "frame_fill48": 0.224,
+   "components48": 1,
+   "component_areas48": [
+    516
+   ],
+   "distinctness": 0.0939,
+   "nearest": "blob-park-1",
+   "nearest_score": 0.0547
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-wildwest-2.glb",
+   "rel": "assets/creatures/generated/blob-wildwest-2.glb",
+   "label": "blob-wildwest-2",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7235,
+   "frame_fill96": 0.2826,
+   "components96": 1,
+   "component_areas96": [
+    2604
+   ],
+   "fill48": 0.7233,
+   "frame_fill48": 0.2826,
+   "components48": 1,
+   "component_areas48": [
+    651
+   ],
+   "distinctness": 0.0851,
+   "nearest": "blob-ice-2",
+   "nearest_score": 0.0317
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/blob-wildwest-8100.glb",
+   "rel": "assets/creatures/generated/blob-wildwest-8100.glb",
+   "label": "blob-wildwest-8100",
+   "family": "blob",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7263,
+   "frame_fill96": 0.2364,
+   "components96": 1,
+   "component_areas96": [
+    2179
+   ],
+   "fill48": 0.7307,
+   "frame_fill48": 0.2378,
+   "components48": 1,
+   "component_areas48": [
+    548
+   ],
+   "distinctness": 0.0903,
+   "nearest": "blob-lab-1",
+   "nearest_score": 0.0386
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-cave-1.glb",
+   "rel": "assets/creatures/generated/flat-cave-1.glb",
+   "label": "flat-cave-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4598,
+   "frame_fill96": 0.2303,
+   "components96": 1,
+   "component_areas96": [
+    2122
+   ],
+   "fill48": 0.475,
+   "frame_fill48": 0.2309,
+   "components48": 1,
+   "component_areas48": [
+    532
+   ],
+   "distinctness": 0.0683,
+   "nearest": "flat-forest-2",
+   "nearest_score": 0.0391
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-cave-2.glb",
+   "rel": "assets/creatures/generated/flat-cave-2.glb",
+   "label": "flat-cave-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4546,
+   "frame_fill96": 0.177,
+   "components96": 1,
+   "component_areas96": [
+    1631
+   ],
+   "fill48": 0.4744,
+   "frame_fill48": 0.1766,
+   "components48": 1,
+   "component_areas48": [
+    407
+   ],
+   "distinctness": 0.1059,
+   "nearest": "flat-ocean-2",
+   "nearest_score": 0.0082
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-city-1.glb",
+   "rel": "assets/creatures/generated/flat-city-1.glb",
+   "label": "flat-city-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5925,
+   "frame_fill96": 0.2784,
+   "components96": 1,
+   "component_areas96": [
+    2566
+   ],
+   "fill48": 0.6076,
+   "frame_fill48": 0.2769,
+   "components48": 1,
+   "component_areas48": [
+    638
+   ],
+   "distinctness": 0.0861,
+   "nearest": "flat-ice-3544",
+   "nearest_score": 0.0165
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-city-2.glb",
+   "rel": "assets/creatures/generated/flat-city-2.glb",
+   "label": "flat-city-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5105,
+   "frame_fill96": 0.2576,
+   "components96": 1,
+   "component_areas96": [
+    2374
+   ],
+   "fill48": 0.5187,
+   "frame_fill48": 0.2582,
+   "components48": 1,
+   "component_areas48": [
+    595
+   ],
+   "distinctness": 0.0911,
+   "nearest": "flat-park-1",
+   "nearest_score": 0.0451
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-factory-1.glb",
+   "rel": "assets/creatures/generated/flat-factory-1.glb",
+   "label": "flat-factory-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5143,
+   "frame_fill96": 0.2536,
+   "components96": 1,
+   "component_areas96": [
+    2337
+   ],
+   "fill48": 0.5113,
+   "frame_fill48": 0.2556,
+   "components48": 1,
+   "component_areas48": [
+    589
+   ],
+   "distinctness": 0.0646,
+   "nearest": "flat-park-503",
+   "nearest_score": 0.0148
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-factory-2.glb",
+   "rel": "assets/creatures/generated/flat-factory-2.glb",
+   "label": "flat-factory-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5686,
+   "frame_fill96": 0.2499,
+   "components96": 1,
+   "component_areas96": [
+    2303
+   ],
+   "fill48": 0.5806,
+   "frame_fill48": 0.2517,
+   "components48": 1,
+   "component_areas48": [
+    580
+   ],
+   "distinctness": 0.0698,
+   "nearest": "flat-forest-1",
+   "nearest_score": 0.0043
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-factory-5587.glb",
+   "rel": "assets/creatures/generated/flat-factory-5587.glb",
+   "label": "flat-factory-5587",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4911,
+   "frame_fill96": 0.1918,
+   "components96": 1,
+   "component_areas96": [
+    1768
+   ],
+   "fill48": 0.4695,
+   "frame_fill48": 0.1936,
+   "components48": 1,
+   "component_areas48": [
+    446
+   ],
+   "distinctness": 0.0921,
+   "nearest": "flat-ocean-2",
+   "nearest_score": 0.0278
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-forest-1.glb",
+   "rel": "assets/creatures/generated/flat-forest-1.glb",
+   "label": "flat-forest-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5844,
+   "frame_fill96": 0.2521,
+   "components96": 1,
+   "component_areas96": [
+    2323
+   ],
+   "fill48": 0.5673,
+   "frame_fill48": 0.2526,
+   "components48": 1,
+   "component_areas48": [
+    582
+   ],
+   "distinctness": 0.071,
+   "nearest": "flat-factory-2",
+   "nearest_score": 0.0043
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-forest-2.glb",
+   "rel": "assets/creatures/generated/flat-forest-2.glb",
+   "label": "flat-forest-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4914,
+   "frame_fill96": 0.2227,
+   "components96": 1,
+   "component_areas96": [
+    2052
+   ],
+   "fill48": 0.5226,
+   "frame_fill48": 0.2205,
+   "components48": 1,
+   "component_areas48": [
+    508
+   ],
+   "distinctness": 0.0675,
+   "nearest": "flat-wildwest-2",
+   "nearest_score": 0.0282
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-graveyard-1.glb",
+   "rel": "assets/creatures/generated/flat-graveyard-1.glb",
+   "label": "flat-graveyard-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5515,
+   "frame_fill96": 0.2464,
+   "components96": 1,
+   "component_areas96": [
+    2271
+   ],
+   "fill48": 0.5576,
+   "frame_fill48": 0.2457,
+   "components48": 1,
+   "component_areas48": [
+    566
+   ],
+   "distinctness": 0.0597,
+   "nearest": "flat-meadow-2",
+   "nearest_score": 0.0204
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-graveyard-2.glb",
+   "rel": "assets/creatures/generated/flat-graveyard-2.glb",
+   "label": "flat-graveyard-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4727,
+   "frame_fill96": 0.2513,
+   "components96": 1,
+   "component_areas96": [
+    2316
+   ],
+   "fill48": 0.4832,
+   "frame_fill48": 0.2496,
+   "components48": 1,
+   "component_areas48": [
+    575
+   ],
+   "distinctness": 0.0745,
+   "nearest": "flat-lab-1",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-ice-1.glb",
+   "rel": "assets/creatures/generated/flat-ice-1.glb",
+   "label": "flat-ice-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.386,
+   "frame_fill96": 0.1709,
+   "components96": 1,
+   "component_areas96": [
+    1575
+   ],
+   "fill48": 0.4026,
+   "frame_fill48": 0.1723,
+   "components48": 1,
+   "component_areas48": [
+    397
+   ],
+   "distinctness": 0.1,
+   "nearest": "flat-ocean-2",
+   "nearest_score": 0.0299
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-ice-2.glb",
+   "rel": "assets/creatures/generated/flat-ice-2.glb",
+   "label": "flat-ice-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4586,
+   "frame_fill96": 0.2369,
+   "components96": 1,
+   "component_areas96": [
+    2183
+   ],
+   "fill48": 0.4563,
+   "frame_fill48": 0.2357,
+   "components48": 1,
+   "component_areas48": [
+    543
+   ],
+   "distinctness": 0.0596,
+   "nearest": "flat-space-2",
+   "nearest_score": 0.0082
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-ice-3544.glb",
+   "rel": "assets/creatures/generated/flat-ice-3544.glb",
+   "label": "flat-ice-3544",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.562,
+   "frame_fill96": 0.2684,
+   "components96": 1,
+   "component_areas96": [
+    2474
+   ],
+   "fill48": 0.5924,
+   "frame_fill48": 0.27,
+   "components48": 1,
+   "component_areas48": [
+    622
+   ],
+   "distinctness": 0.0771,
+   "nearest": "flat-city-1",
+   "nearest_score": 0.0165
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-jungle-1.glb",
+   "rel": "assets/creatures/generated/flat-jungle-1.glb",
+   "label": "flat-jungle-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4109,
+   "frame_fill96": 0.1782,
+   "components96": 1,
+   "component_areas96": [
+    1642
+   ],
+   "fill48": 0.4378,
+   "frame_fill48": 0.1758,
+   "components48": 1,
+   "component_areas48": [
+    405
+   ],
+   "distinctness": 0.1198,
+   "nearest": "flat-park-2",
+   "nearest_score": 0.036
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-jungle-2.glb",
+   "rel": "assets/creatures/generated/flat-jungle-2.glb",
+   "label": "flat-jungle-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.481,
+   "frame_fill96": 0.2413,
+   "components96": 1,
+   "component_areas96": [
+    2224
+   ],
+   "fill48": 0.484,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.0618,
+   "nearest": "flat-volcanic-1",
+   "nearest_score": 0.0156
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-lab-1.glb",
+   "rel": "assets/creatures/generated/flat-lab-1.glb",
+   "label": "flat-lab-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4649,
+   "frame_fill96": 0.247,
+   "components96": 1,
+   "component_areas96": [
+    2276
+   ],
+   "fill48": 0.4632,
+   "frame_fill48": 0.2461,
+   "components48": 1,
+   "component_areas48": [
+    567
+   ],
+   "distinctness": 0.0786,
+   "nearest": "flat-graveyard-2",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-lab-2.glb",
+   "rel": "assets/creatures/generated/flat-lab-2.glb",
+   "label": "flat-lab-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4932,
+   "frame_fill96": 0.24,
+   "components96": 1,
+   "component_areas96": [
+    2212
+   ],
+   "fill48": 0.4946,
+   "frame_fill48": 0.2405,
+   "components48": 1,
+   "component_areas48": [
+    554
+   ],
+   "distinctness": 0.0654,
+   "nearest": "flat-space-2",
+   "nearest_score": 0.0208
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-meadow-1.glb",
+   "rel": "assets/creatures/generated/flat-meadow-1.glb",
+   "label": "flat-meadow-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5921,
+   "frame_fill96": 0.2518,
+   "components96": 1,
+   "component_areas96": [
+    2321
+   ],
+   "fill48": 0.5959,
+   "frame_fill48": 0.2535,
+   "components48": 1,
+   "component_areas48": [
+    584
+   ],
+   "distinctness": 0.0636,
+   "nearest": "flat-space-1",
+   "nearest_score": 0.013
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-meadow-2.glb",
+   "rel": "assets/creatures/generated/flat-meadow-2.glb",
+   "label": "flat-meadow-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5804,
+   "frame_fill96": 0.2549,
+   "components96": 1,
+   "component_areas96": [
+    2349
+   ],
+   "fill48": 0.5603,
+   "frame_fill48": 0.2539,
+   "components48": 1,
+   "component_areas48": [
+    585
+   ],
+   "distinctness": 0.0613,
+   "nearest": "flat-sand-1",
+   "nearest_score": 0.013
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-medieval-1.glb",
+   "rel": "assets/creatures/generated/flat-medieval-1.glb",
+   "label": "flat-medieval-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4504,
+   "frame_fill96": 0.1791,
+   "components96": 1,
+   "component_areas96": [
+    1651
+   ],
+   "fill48": 0.4916,
+   "frame_fill48": 0.1784,
+   "components48": 1,
+   "component_areas48": [
+    411
+   ],
+   "distinctness": 0.1013,
+   "nearest": "flat-medieval-2",
+   "nearest_score": 0.0009
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-medieval-2.glb",
+   "rel": "assets/creatures/generated/flat-medieval-2.glb",
+   "label": "flat-medieval-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4476,
+   "frame_fill96": 0.1781,
+   "components96": 1,
+   "component_areas96": [
+    1641
+   ],
+   "fill48": 0.4916,
+   "frame_fill48": 0.1784,
+   "components48": 1,
+   "component_areas48": [
+    411
+   ],
+   "distinctness": 0.1004,
+   "nearest": "flat-medieval-1",
+   "nearest_score": 0.0009
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-ocean-1.glb",
+   "rel": "assets/creatures/generated/flat-ocean-1.glb",
+   "label": "flat-ocean-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5048,
+   "frame_fill96": 0.2383,
+   "components96": 1,
+   "component_areas96": [
+    2196
+   ],
+   "fill48": 0.4973,
+   "frame_fill48": 0.2378,
+   "components48": 1,
+   "component_areas48": [
+    548
+   ],
+   "distinctness": 0.065,
+   "nearest": "flat-sand-2",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-ocean-2.glb",
+   "rel": "assets/creatures/generated/flat-ocean-2.glb",
+   "label": "flat-ocean-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4449,
+   "frame_fill96": 0.1747,
+   "components96": 1,
+   "component_areas96": [
+    1610
+   ],
+   "fill48": 0.46,
+   "frame_fill48": 0.1745,
+   "components48": 1,
+   "component_areas48": [
+    402
+   ],
+   "distinctness": 0.104,
+   "nearest": "flat-cave-2",
+   "nearest_score": 0.0082
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-park-1.glb",
+   "rel": "assets/creatures/generated/flat-park-1.glb",
+   "label": "flat-park-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4751,
+   "frame_fill96": 0.2562,
+   "components96": 1,
+   "component_areas96": [
+    2361
+   ],
+   "fill48": 0.495,
+   "frame_fill48": 0.2556,
+   "components48": 1,
+   "component_areas48": [
+    589
+   ],
+   "distinctness": 0.0739,
+   "nearest": "flat-lab-1",
+   "nearest_score": 0.0347
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-park-2.glb",
+   "rel": "assets/creatures/generated/flat-park-2.glb",
+   "label": "flat-park-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4357,
+   "frame_fill96": 0.1589,
+   "components96": 1,
+   "component_areas96": [
+    1464
+   ],
+   "fill48": 0.4333,
+   "frame_fill48": 0.158,
+   "components48": 1,
+   "component_areas48": [
+    364
+   ],
+   "distinctness": 0.1122,
+   "nearest": "flat-ocean-2",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-park-503.glb",
+   "rel": "assets/creatures/generated/flat-park-503.glb",
+   "label": "flat-park-503",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5784,
+   "frame_fill96": 0.2469,
+   "components96": 1,
+   "component_areas96": [
+    2275
+   ],
+   "fill48": 0.5626,
+   "frame_fill48": 0.2478,
+   "components48": 1,
+   "component_areas48": [
+    571
+   ],
+   "distinctness": 0.0635,
+   "nearest": "flat-space-9953",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-sand-1.glb",
+   "rel": "assets/creatures/generated/flat-sand-1.glb",
+   "label": "flat-sand-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5901,
+   "frame_fill96": 0.2591,
+   "components96": 1,
+   "component_areas96": [
+    2388
+   ],
+   "fill48": 0.5942,
+   "frame_fill48": 0.26,
+   "components48": 1,
+   "component_areas48": [
+    599
+   ],
+   "distinctness": 0.0654,
+   "nearest": "flat-meadow-2",
+   "nearest_score": 0.013
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-sand-2.glb",
+   "rel": "assets/creatures/generated/flat-sand-2.glb",
+   "label": "flat-sand-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5143,
+   "frame_fill96": 0.2427,
+   "components96": 1,
+   "component_areas96": [
+    2237
+   ],
+   "fill48": 0.5045,
+   "frame_fill48": 0.2413,
+   "components48": 1,
+   "component_areas48": [
+    556
+   ],
+   "distinctness": 0.0657,
+   "nearest": "flat-ocean-1",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-space-1.glb",
+   "rel": "assets/creatures/generated/flat-space-1.glb",
+   "label": "flat-space-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5249,
+   "frame_fill96": 0.2472,
+   "components96": 1,
+   "component_areas96": [
+    2278
+   ],
+   "fill48": 0.5253,
+   "frame_fill48": 0.2474,
+   "components48": 1,
+   "component_areas48": [
+    570
+   ],
+   "distinctness": 0.0625,
+   "nearest": "flat-space-9953",
+   "nearest_score": 0.0091
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-space-2.glb",
+   "rel": "assets/creatures/generated/flat-space-2.glb",
+   "label": "flat-space-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4657,
+   "frame_fill96": 0.237,
+   "components96": 1,
+   "component_areas96": [
+    2184
+   ],
+   "fill48": 0.4706,
+   "frame_fill48": 0.2361,
+   "components48": 1,
+   "component_areas48": [
+    544
+   ],
+   "distinctness": 0.059,
+   "nearest": "flat-ice-2",
+   "nearest_score": 0.0082
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-space-9953.glb",
+   "rel": "assets/creatures/generated/flat-space-9953.glb",
+   "label": "flat-space-9953",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5178,
+   "frame_fill96": 0.2442,
+   "components96": 1,
+   "component_areas96": [
+    2251
+   ],
+   "fill48": 0.5207,
+   "frame_fill48": 0.2452,
+   "components48": 1,
+   "component_areas48": [
+    565
+   ],
+   "distinctness": 0.0637,
+   "nearest": "flat-park-503",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-volcanic-1.glb",
+   "rel": "assets/creatures/generated/flat-volcanic-1.glb",
+   "label": "flat-volcanic-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.468,
+   "frame_fill96": 0.2383,
+   "components96": 1,
+   "component_areas96": [
+    2196
+   ],
+   "fill48": 0.4732,
+   "frame_fill48": 0.2374,
+   "components48": 1,
+   "component_areas48": [
+    547
+   ],
+   "distinctness": 0.0627,
+   "nearest": "flat-jungle-2",
+   "nearest_score": 0.0156
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-volcanic-2.glb",
+   "rel": "assets/creatures/generated/flat-volcanic-2.glb",
+   "label": "flat-volcanic-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5346,
+   "frame_fill96": 0.2396,
+   "components96": 1,
+   "component_areas96": [
+    2208
+   ],
+   "fill48": 0.5448,
+   "frame_fill48": 0.24,
+   "components48": 1,
+   "component_areas48": [
+    553
+   ],
+   "distinctness": 0.0618,
+   "nearest": "flat-volcanic-1",
+   "nearest_score": 0.0191
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-wildwest-1.glb",
+   "rel": "assets/creatures/generated/flat-wildwest-1.glb",
+   "label": "flat-wildwest-1",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6033,
+   "frame_fill96": 0.2795,
+   "components96": 1,
+   "component_areas96": [
+    2576
+   ],
+   "fill48": 0.5917,
+   "frame_fill48": 0.2786,
+   "components48": 1,
+   "component_areas48": [
+    642
+   ],
+   "distinctness": 0.0906,
+   "nearest": "flat-city-1",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/flat-wildwest-2.glb",
+   "rel": "assets/creatures/generated/flat-wildwest-2.glb",
+   "label": "flat-wildwest-2",
+   "family": "flat",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4953,
+   "frame_fill96": 0.2295,
+   "components96": 1,
+   "component_areas96": [
+    2115
+   ],
+   "fill48": 0.5038,
+   "frame_fill48": 0.2296,
+   "components48": 1,
+   "component_areas48": [
+    529
+   ],
+   "distinctness": 0.0657,
+   "nearest": "flat-forest-2",
+   "nearest_score": 0.0282
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-cave-1.glb",
+   "rel": "assets/creatures/generated/sprite-cave-1.glb",
+   "label": "sprite-cave-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7293,
+   "frame_fill96": 0.3013,
+   "components96": 1,
+   "component_areas96": [
+    2777
+   ],
+   "fill48": 0.7554,
+   "frame_fill48": 0.303,
+   "components48": 1,
+   "component_areas48": [
+    698
+   ],
+   "distinctness": 0.0788,
+   "nearest": "sprite-jungle-5050",
+   "nearest_score": 0.026
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-cave-2.glb",
+   "rel": "assets/creatures/generated/sprite-cave-2.glb",
+   "label": "sprite-cave-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6973,
+   "frame_fill96": 0.3087,
+   "components96": 1,
+   "component_areas96": [
+    2845
+   ],
+   "fill48": 0.7181,
+   "frame_fill48": 0.3073,
+   "components48": 1,
+   "component_areas48": [
+    708
+   ],
+   "distinctness": 0.0841,
+   "nearest": "sprite-medieval-2",
+   "nearest_score": 0.0386
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-cave-887.glb",
+   "rel": "assets/creatures/generated/sprite-cave-887.glb",
+   "label": "sprite-cave-887",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6919,
+   "frame_fill96": 0.3038,
+   "components96": 1,
+   "component_areas96": [
+    2800
+   ],
+   "fill48": 0.6715,
+   "frame_fill48": 0.3043,
+   "components48": 1,
+   "component_areas48": [
+    701
+   ],
+   "distinctness": 0.0823,
+   "nearest": "sprite-volcanic-8142",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-city-1.glb",
+   "rel": "assets/creatures/generated/sprite-city-1.glb",
+   "label": "sprite-city-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6617,
+   "frame_fill96": 0.2748,
+   "components96": 1,
+   "component_areas96": [
+    2533
+   ],
+   "fill48": 0.6843,
+   "frame_fill48": 0.2756,
+   "components48": 1,
+   "component_areas48": [
+    635
+   ],
+   "distinctness": 0.1306,
+   "nearest": "sprite-space-1",
+   "nearest_score": 0.023
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-city-2.glb",
+   "rel": "assets/creatures/generated/sprite-city-2.glb",
+   "label": "sprite-city-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7135,
+   "frame_fill96": 0.327,
+   "components96": 1,
+   "component_areas96": [
+    3014
+   ],
+   "fill48": 0.7102,
+   "frame_fill48": 0.3255,
+   "components48": 1,
+   "component_areas48": [
+    750
+   ],
+   "distinctness": 0.0963,
+   "nearest": "sprite-lab-6129",
+   "nearest_score": 0.0352
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-factory-1.glb",
+   "rel": "assets/creatures/generated/sprite-factory-1.glb",
+   "label": "sprite-factory-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6018,
+   "frame_fill96": 0.2364,
+   "components96": 1,
+   "component_areas96": [
+    2179
+   ],
+   "fill48": 0.5823,
+   "frame_fill48": 0.2365,
+   "components48": 1,
+   "component_areas48": [
+    545
+   ],
+   "distinctness": 0.1023,
+   "nearest": "sprite-sand-4031",
+   "nearest_score": 0.0165
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-factory-2.glb",
+   "rel": "assets/creatures/generated/sprite-factory-2.glb",
+   "label": "sprite-factory-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5908,
+   "frame_fill96": 0.2378,
+   "components96": 1,
+   "component_areas96": [
+    2192
+   ],
+   "fill48": 0.5778,
+   "frame_fill48": 0.237,
+   "components48": 1,
+   "component_areas48": [
+    546
+   ],
+   "distinctness": 0.1009,
+   "nearest": "sprite-sand-4031",
+   "nearest_score": 0.0152
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-forest-1.glb",
+   "rel": "assets/creatures/generated/sprite-forest-1.glb",
+   "label": "sprite-forest-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6901,
+   "frame_fill96": 0.3092,
+   "components96": 1,
+   "component_areas96": [
+    2850
+   ],
+   "fill48": 0.7054,
+   "frame_fill48": 0.3108,
+   "components48": 1,
+   "component_areas48": [
+    716
+   ],
+   "distinctness": 0.0809,
+   "nearest": "sprite-ice-1",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-forest-2.glb",
+   "rel": "assets/creatures/generated/sprite-forest-2.glb",
+   "label": "sprite-forest-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5472,
+   "frame_fill96": 0.2138,
+   "components96": 1,
+   "component_areas96": [
+    1970
+   ],
+   "fill48": 0.5433,
+   "frame_fill48": 0.2122,
+   "components48": 1,
+   "component_areas48": [
+    489
+   ],
+   "distinctness": 0.1412,
+   "nearest": "sprite-ocean-1",
+   "nearest_score": 0.1072
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-graveyard-1.glb",
+   "rel": "assets/creatures/generated/sprite-graveyard-1.glb",
+   "label": "sprite-graveyard-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6765,
+   "frame_fill96": 0.2645,
+   "components96": 1,
+   "component_areas96": [
+    2438
+   ],
+   "fill48": 0.6889,
+   "frame_fill48": 0.2643,
+   "components48": 1,
+   "component_areas48": [
+    609
+   ],
+   "distinctness": 0.131,
+   "nearest": "sprite-wildwest-1",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-graveyard-2.glb",
+   "rel": "assets/creatures/generated/sprite-graveyard-2.glb",
+   "label": "sprite-graveyard-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5883,
+   "frame_fill96": 0.2458,
+   "components96": 1,
+   "component_areas96": [
+    2265
+   ],
+   "fill48": 0.5926,
+   "frame_fill48": 0.2431,
+   "components48": 1,
+   "component_areas48": [
+    560
+   ],
+   "distinctness": 0.0987,
+   "nearest": "sprite-ice-2",
+   "nearest_score": 0.01
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-ice-1.glb",
+   "rel": "assets/creatures/generated/sprite-ice-1.glb",
+   "label": "sprite-ice-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6909,
+   "frame_fill96": 0.314,
+   "components96": 1,
+   "component_areas96": [
+    2894
+   ],
+   "fill48": 0.6722,
+   "frame_fill48": 0.3151,
+   "components48": 1,
+   "component_areas48": [
+    726
+   ],
+   "distinctness": 0.0836,
+   "nearest": "sprite-meadow-2",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-ice-2.glb",
+   "rel": "assets/creatures/generated/sprite-ice-2.glb",
+   "label": "sprite-ice-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5921,
+   "frame_fill96": 0.2418,
+   "components96": 1,
+   "component_areas96": [
+    2228
+   ],
+   "fill48": 0.5751,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.0989,
+   "nearest": "sprite-graveyard-2",
+   "nearest_score": 0.01
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-jungle-1.glb",
+   "rel": "assets/creatures/generated/sprite-jungle-1.glb",
+   "label": "sprite-jungle-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7136,
+   "frame_fill96": 0.3674,
+   "components96": 1,
+   "component_areas96": [
+    3386
+   ],
+   "fill48": 0.6953,
+   "frame_fill48": 0.3685,
+   "components48": 1,
+   "component_areas48": [
+    849
+   ],
+   "distinctness": 0.1151,
+   "nearest": "sprite-medieval-1",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-jungle-2.glb",
+   "rel": "assets/creatures/generated/sprite-jungle-2.glb",
+   "label": "sprite-jungle-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6774,
+   "frame_fill96": 0.2668,
+   "components96": 1,
+   "component_areas96": [
+    2459
+   ],
+   "fill48": 0.6842,
+   "frame_fill48": 0.2661,
+   "components48": 1,
+   "component_areas48": [
+    613
+   ],
+   "distinctness": 0.1284,
+   "nearest": "sprite-graveyard-1",
+   "nearest_score": 0.0286
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-jungle-5050.glb",
+   "rel": "assets/creatures/generated/sprite-jungle-5050.glb",
+   "label": "sprite-jungle-5050",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6935,
+   "frame_fill96": 0.2866,
+   "components96": 1,
+   "component_areas96": [
+    2641
+   ],
+   "fill48": 0.7146,
+   "frame_fill48": 0.2847,
+   "components48": 1,
+   "component_areas48": [
+    656
+   ],
+   "distinctness": 0.0786,
+   "nearest": "sprite-medieval-2",
+   "nearest_score": 0.0213
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-lab-1.glb",
+   "rel": "assets/creatures/generated/sprite-lab-1.glb",
+   "label": "sprite-lab-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.612,
+   "frame_fill96": 0.2428,
+   "components96": 1,
+   "component_areas96": [
+    2238
+   ],
+   "fill48": 0.6155,
+   "frame_fill48": 0.2452,
+   "components48": 1,
+   "component_areas48": [
+    565
+   ],
+   "distinctness": 0.0953,
+   "nearest": "sprite-lab-2",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-lab-2.glb",
+   "rel": "assets/creatures/generated/sprite-lab-2.glb",
+   "label": "sprite-lab-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6018,
+   "frame_fill96": 0.2478,
+   "components96": 1,
+   "component_areas96": [
+    2284
+   ],
+   "fill48": 0.5998,
+   "frame_fill48": 0.2478,
+   "components48": 1,
+   "component_areas48": [
+    571
+   ],
+   "distinctness": 0.0971,
+   "nearest": "sprite-lab-1",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-lab-6129.glb",
+   "rel": "assets/creatures/generated/sprite-lab-6129.glb",
+   "label": "sprite-lab-6129",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6982,
+   "frame_fill96": 0.32,
+   "components96": 1,
+   "component_areas96": [
+    2949
+   ],
+   "fill48": 0.7369,
+   "frame_fill48": 0.3173,
+   "components48": 1,
+   "component_areas48": [
+    731
+   ],
+   "distinctness": 0.0884,
+   "nearest": "sprite-meadow-1",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-meadow-1.glb",
+   "rel": "assets/creatures/generated/sprite-meadow-1.glb",
+   "label": "sprite-meadow-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7172,
+   "frame_fill96": 0.3035,
+   "components96": 1,
+   "component_areas96": [
+    2797
+   ],
+   "fill48": 0.6833,
+   "frame_fill48": 0.3034,
+   "components48": 1,
+   "component_areas48": [
+    699
+   ],
+   "distinctness": 0.0813,
+   "nearest": "sprite-lab-6129",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-meadow-2.glb",
+   "rel": "assets/creatures/generated/sprite-meadow-2.glb",
+   "label": "sprite-meadow-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6825,
+   "frame_fill96": 0.3207,
+   "components96": 1,
+   "component_areas96": [
+    2956
+   ],
+   "fill48": 0.6815,
+   "frame_fill48": 0.3194,
+   "components48": 1,
+   "component_areas48": [
+    736
+   ],
+   "distinctness": 0.0845,
+   "nearest": "sprite-ice-1",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-medieval-1.glb",
+   "rel": "assets/creatures/generated/sprite-medieval-1.glb",
+   "label": "sprite-medieval-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6836,
+   "frame_fill96": 0.3721,
+   "components96": 1,
+   "component_areas96": [
+    3429
+   ],
+   "fill48": 0.685,
+   "frame_fill48": 0.3728,
+   "components48": 1,
+   "component_areas48": [
+    859
+   ],
+   "distinctness": 0.1179,
+   "nearest": "sprite-jungle-1",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-medieval-2.glb",
+   "rel": "assets/creatures/generated/sprite-medieval-2.glb",
+   "label": "sprite-medieval-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7098,
+   "frame_fill96": 0.2933,
+   "components96": 1,
+   "component_areas96": [
+    2703
+   ],
+   "fill48": 0.7069,
+   "frame_fill48": 0.2921,
+   "components48": 1,
+   "component_areas48": [
+    673
+   ],
+   "distinctness": 0.0799,
+   "nearest": "sprite-jungle-5050",
+   "nearest_score": 0.0213
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-ocean-1.glb",
+   "rel": "assets/creatures/generated/sprite-ocean-1.glb",
+   "label": "sprite-ocean-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.676,
+   "frame_fill96": 0.2581,
+   "components96": 1,
+   "component_areas96": [
+    2379
+   ],
+   "fill48": 0.6593,
+   "frame_fill48": 0.2604,
+   "components48": 1,
+   "component_areas48": [
+    600
+   ],
+   "distinctness": 0.0968,
+   "nearest": "sprite-park-1",
+   "nearest_score": 0.0443
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-ocean-1781.glb",
+   "rel": "assets/creatures/generated/sprite-ocean-1781.glb",
+   "label": "sprite-ocean-1781",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6832,
+   "frame_fill96": 0.2642,
+   "components96": 1,
+   "component_areas96": [
+    2435
+   ],
+   "fill48": 0.679,
+   "frame_fill48": 0.2626,
+   "components48": 1,
+   "component_areas48": [
+    605
+   ],
+   "distinctness": 0.1321,
+   "nearest": "sprite-wildwest-1",
+   "nearest_score": 0.0191
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-ocean-2.glb",
+   "rel": "assets/creatures/generated/sprite-ocean-2.glb",
+   "label": "sprite-ocean-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6552,
+   "frame_fill96": 0.2721,
+   "components96": 1,
+   "component_areas96": [
+    2508
+   ],
+   "fill48": 0.6778,
+   "frame_fill48": 0.273,
+   "components48": 1,
+   "component_areas48": [
+    629
+   ],
+   "distinctness": 0.1162,
+   "nearest": "sprite-park-2",
+   "nearest_score": 0.0187
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-park-1.glb",
+   "rel": "assets/creatures/generated/sprite-park-1.glb",
+   "label": "sprite-park-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5989,
+   "frame_fill96": 0.2386,
+   "components96": 1,
+   "component_areas96": [
+    2199
+   ],
+   "fill48": 0.5969,
+   "frame_fill48": 0.2378,
+   "components48": 1,
+   "component_areas48": [
+    548
+   ],
+   "distinctness": 0.0946,
+   "nearest": "sprite-lab-1",
+   "nearest_score": 0.0135
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-park-2.glb",
+   "rel": "assets/creatures/generated/sprite-park-2.glb",
+   "label": "sprite-park-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6539,
+   "frame_fill96": 0.2669,
+   "components96": 1,
+   "component_areas96": [
+    2460
+   ],
+   "fill48": 0.6595,
+   "frame_fill48": 0.2656,
+   "components48": 1,
+   "component_areas48": [
+    612
+   ],
+   "distinctness": 0.116,
+   "nearest": "sprite-ocean-2",
+   "nearest_score": 0.0187
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-sand-1.glb",
+   "rel": "assets/creatures/generated/sprite-sand-1.glb",
+   "label": "sprite-sand-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5878,
+   "frame_fill96": 0.2434,
+   "components96": 1,
+   "component_areas96": [
+    2243
+   ],
+   "fill48": 0.5994,
+   "frame_fill48": 0.2435,
+   "components48": 1,
+   "component_areas48": [
+    561
+   ],
+   "distinctness": 0.1,
+   "nearest": "sprite-ice-2",
+   "nearest_score": 0.0156
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-sand-2.glb",
+   "rel": "assets/creatures/generated/sprite-sand-2.glb",
+   "label": "sprite-sand-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7334,
+   "frame_fill96": 0.3253,
+   "components96": 1,
+   "component_areas96": [
+    2998
+   ],
+   "fill48": 0.7307,
+   "frame_fill48": 0.3286,
+   "components48": 1,
+   "component_areas48": [
+    757
+   ],
+   "distinctness": 0.0939,
+   "nearest": "sprite-volcanic-1",
+   "nearest_score": 0.0143
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-sand-4031.glb",
+   "rel": "assets/creatures/generated/sprite-sand-4031.glb",
+   "label": "sprite-sand-4031",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5934,
+   "frame_fill96": 0.2423,
+   "components96": 1,
+   "component_areas96": [
+    2233
+   ],
+   "fill48": 0.5915,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.1036,
+   "nearest": "sprite-factory-2",
+   "nearest_score": 0.0152
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-space-1.glb",
+   "rel": "assets/creatures/generated/sprite-space-1.glb",
+   "label": "sprite-space-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.672,
+   "frame_fill96": 0.2925,
+   "components96": 1,
+   "component_areas96": [
+    2696
+   ],
+   "fill48": 0.6627,
+   "frame_fill48": 0.2934,
+   "components48": 1,
+   "component_areas48": [
+    676
+   ],
+   "distinctness": 0.1291,
+   "nearest": "sprite-city-1",
+   "nearest_score": 0.023
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-space-2.glb",
+   "rel": "assets/creatures/generated/sprite-space-2.glb",
+   "label": "sprite-space-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5572,
+   "frame_fill96": 0.2525,
+   "components96": 1,
+   "component_areas96": [
+    2327
+   ],
+   "fill48": 0.5536,
+   "frame_fill48": 0.2509,
+   "components48": 1,
+   "component_areas48": [
+    578
+   ],
+   "distinctness": 0.1115,
+   "nearest": "sprite-factory-2",
+   "nearest_score": 0.0434
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-volcanic-1.glb",
+   "rel": "assets/creatures/generated/sprite-volcanic-1.glb",
+   "label": "sprite-volcanic-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7215,
+   "frame_fill96": 0.3156,
+   "components96": 1,
+   "component_areas96": [
+    2909
+   ],
+   "fill48": 0.7242,
+   "frame_fill48": 0.3168,
+   "components48": 1,
+   "component_areas48": [
+    730
+   ],
+   "distinctness": 0.0932,
+   "nearest": "sprite-sand-2",
+   "nearest_score": 0.0143
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-volcanic-2.glb",
+   "rel": "assets/creatures/generated/sprite-volcanic-2.glb",
+   "label": "sprite-volcanic-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5634,
+   "frame_fill96": 0.2624,
+   "components96": 1,
+   "component_areas96": [
+    2418
+   ],
+   "fill48": 0.5785,
+   "frame_fill48": 0.2622,
+   "components48": 1,
+   "component_areas48": [
+    604
+   ],
+   "distinctness": 0.1109,
+   "nearest": "sprite-factory-2",
+   "nearest_score": 0.0417
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-volcanic-8142.glb",
+   "rel": "assets/creatures/generated/sprite-volcanic-8142.glb",
+   "label": "sprite-volcanic-8142",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6841,
+   "frame_fill96": 0.2939,
+   "components96": 1,
+   "component_areas96": [
+    2709
+   ],
+   "fill48": 0.6944,
+   "frame_fill48": 0.293,
+   "components48": 1,
+   "component_areas48": [
+    675
+   ],
+   "distinctness": 0.0825,
+   "nearest": "sprite-cave-887",
+   "nearest_score": 0.0174
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-wildwest-1.glb",
+   "rel": "assets/creatures/generated/sprite-wildwest-1.glb",
+   "label": "sprite-wildwest-1",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6915,
+   "frame_fill96": 0.2602,
+   "components96": 1,
+   "component_areas96": [
+    2398
+   ],
+   "fill48": 0.6799,
+   "frame_fill48": 0.2609,
+   "components48": 1,
+   "component_areas48": [
+    601
+   ],
+   "distinctness": 0.1344,
+   "nearest": "sprite-graveyard-1",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/generated/sprite-wildwest-2.glb",
+   "rel": "assets/creatures/generated/sprite-wildwest-2.glb",
+   "label": "sprite-wildwest-2",
+   "family": "sprite",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6991,
+   "frame_fill96": 0.2897,
+   "components96": 1,
+   "component_areas96": [
+    2670
+   ],
+   "fill48": 0.7006,
+   "frame_fill48": 0.2895,
+   "components48": 1,
+   "component_areas48": [
+    667
+   ],
+   "distinctness": 0.0766,
+   "nearest": "sprite-meadow-1",
+   "nearest_score": 0.02
+  }
+ ],
+ "manifest": "assets/creatures/generated/manifest.json",
+ "summary": {
+  "count": 222,
+  "pass": 222,
+  "fail": 0,
+  "samey": 0,
+  "decor": 0,
+  "fill_range": [
+   0.3794,
+   0.7334
+  ],
+  "seconds": 20.1
+ }
+}
