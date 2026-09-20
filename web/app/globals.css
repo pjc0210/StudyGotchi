@@ -187,42 +187,57 @@ h1, h2 {
 }
 
 .map-edge {
-  stroke: #4f8ec8;
-  stroke-width: 1.6;
+  fill: none;
+  stroke: #9fd0ee;
+  stroke-width: 0.7;
   stroke-opacity: 0.55;
+  stroke-linecap: round;
 }
 
 .map-edge.is-active {
-  stroke: #2f6faa;
-  stroke-width: 2.4;
-  stroke-opacity: 0.95;
+  stroke: #7ebce6;
+  stroke-width: 1.05;
+  stroke-opacity: 0.9;
 }
 
 .map-node {
   cursor: pointer;
 }
 
-.map-node circle {
-  fill: #6aaee0;
-  stroke: #3b7eb8;
-  stroke-width: 1.5;
-}
-
-.map-node .map-node-halo {
-  fill: #6aaee0;
-  fill-opacity: 0.14;
+.map-node .map-node-hit {
+  fill: transparent;
   stroke: none;
 }
 
-.map-node.is-selected circle {
-  fill: #3b7eb8;
-  stroke: #245c8f;
+.map-node .map-node-glow {
+  fill: url(#star-glow);
+  stroke: none;
+}
+
+.map-node.is-selected .map-node-glow {
+  fill: url(#star-glow-active);
+}
+
+.map-node .map-node-ray {
+  stroke: #c5e4f7;
+  stroke-width: 0.55;
+  stroke-opacity: 0.38;
+}
+
+.map-node .map-node-core {
+  fill: #d7eef9;
+  stroke: none;
+}
+
+.map-node.is-selected .map-node-core {
+  fill: #f4fbff;
 }
 
 .map-node text {
-  font-size: 13px;
-  fill: #3b7eb8;
+  font-size: 12px;
+  fill: #6aaee0;
   pointer-events: none;
+  dominant-baseline: middle;
 }
 
 .course-overlay {
