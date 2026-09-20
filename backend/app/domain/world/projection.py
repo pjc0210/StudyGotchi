@@ -71,9 +71,9 @@ def project_world(
                 if node.understanding is not None
                 else 0.05,
                 "terrain_area": node.importance * node.personal_relevance,
-                "fog": 0.9 if state == "frontier" else 0.5 * (1 - understanding) * (
-                    1 - 0.5 * recency
-                ),
+                # Rounded so the version hash only moves when the world visibly does,
+                # not with every tick of the recency clock.
+                "fog": 0.9 if state == "frontier" else round(0.5 * (1 - understanding) * (1 - 0.5 * recency), 3),
                 "semantic_state": state,
                 "creature_state": {
                     "frontier": "unhatched",

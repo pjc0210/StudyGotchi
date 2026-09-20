@@ -8,10 +8,11 @@ import json
 from dataclasses import asdict
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_db, require_student
+from app.api.etag import etag_matches, not_modified, set_etag
 from app.domain.personal_graph.concept_state import classify_concept_state
 from app.pipelines.personal_graph_query import build_student_personal_graph
 from app.repositories.courses import get_course
@@ -31,9 +32,11 @@ router = APIRouter(
 async def get_knowledge_graph_endpoint(
     course_id: UUID,
     student_id: UUID,
+    request: Request,
+    response: Response,
     session: AsyncSession = Depends(get_db),
     _: UUID = Depends(require_student),
-) -> PersonalGraphResponse:
+):
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
@@ -44,6 +47,9 @@ async def get_knowledge_graph_endpoint(
     version = hashlib.sha256(
         json.dumps(asdict(graph), default=str, sort_keys=True).encode()
     ).hexdigest()[:16]
+    if etag_matches(request, version):
+        return not_modified(version)
+    set_etag(response, version)
     # Staleness needs the practice timestamp, which the graph builder does not carry.
     states = await get_student_concept_states(session, student_id=student_id, course_id=course_id)
     return PersonalGraphResponse(
