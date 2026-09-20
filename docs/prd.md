@@ -4,7 +4,9 @@
 
 ## One paragraph
 
-A student signs in and gets an island. The island is their knowledge of one course. Regions of the island are topics. When the student's own work (notes, problem sets, exams) lines up with material the course has already taught, a small character appears on that topic and stays there. Good results make the ground rise and characters grow up. Bad results crack the ground and knock characters over. The same records that draw the island also draw a concept graph, a gap list, and a study plan, so the toy and the tool never disagree.
+A student signs in and gets an island. The island is their knowledge of one course. Regions of the island are topics. When the student's own work (notes, problem sets, exams) lines up with material the course has already taught, a small character appears on that topic and stays there. Good results make the ground rise and characters grow up. Bad results crack the ground and knock characters over. The same records that draw the island also draw a concept graph, a gap list, and a study plan, so the toy and the tool never disagree. Friends can visit the island, and when the owner allows it, take a copy of their notes home.
+
+The app never quizzes anyone. It takes the pile of files a course already produces and turns it into a place you can walk around in.
 
 ## Who it is for
 
@@ -94,9 +96,15 @@ Course choice: pick the course with the most graded, worked copies that also has
 - No WebGL: a message and a link to the graph.
 - Deep phase failed: the file row says so, the fast phase results stay, and retry is allowed.
 
+### Taking notes from a visit (build after everything above works)
+
+- An owner can mark a notes file shareable. Graded work and worked solutions cannot be shared. Default is not shareable.
+- A signed-in visitor can take a shareable notes file from a visit. It is copied into their account as classmate notes and matched to concepts without any model call. It raises familiarity only.
+- Taking the same notes twice does nothing. The owner's scores and mastery are never part of the copy.
+
 ## Out of scope for this build
 
-Live multiplayer, note trading between students, mobile layout, multiple courses per world, Canvas or Dropbox API integration, local model inference, sound design beyond a few one-shot blips, and any art pipeline that produces a unique rigged model per character.
+Practice questions, quizzes or flashcards of any kind (the app reads what the student already produced; it does not test them), live multiplayer, mobile layout, multiple courses per world, Canvas or Dropbox API integration, local model inference, sound design beyond a few one-shot blips, and any art pipeline that produces a unique rigged model per character.
 
 ## Acceptance checks
 

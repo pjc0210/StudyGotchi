@@ -376,6 +376,17 @@ class WorldShare(Base, UUIDPKMixin, TimestampMixin):
 
 Check: the visit payload string-searched for the demo file names, "score", and any mastery value returns nothing.
 
+## Task 7b: Taking notes from a visit (only after Tasks 1 to 11 and 14 are live)
+
+Files: `backend/app/api/routes/shares.py`, `backend/app/repositories/resources.py`, `backend/app/pipelines/student_ingestion.py`, `backend/app/db/models.py` (a `shareable` boolean on `resources`, default false).
+
+- `PATCH .../students/{student_id}/resources/{resource_id}` with `{ "shareable": true }`, owner only, rejected for artifact types other than `student_notes`.
+- The visit projection marks wisps whose resource is shareable with `shareable: true` and a `page_count`.
+- `POST /api/w/{token}/notes/{resource_id}/take` requires a bearer token (the visitor). It copies the resource and its chunks into the visitor's account with `origin="classmate"`, `artifact_type="classmate_notes"`, `metadata.taken_from=token`, then runs phase A matching against the course concepts and writes `resource_view` evidence at certainty 0.5. Same content hash for the visitor is a no-op.
+- Web: on `/w/[token]`, a shareable wisp's card shows "Take notes" for signed-in visitors. The Files tab labels the copy "from a visit".
+
+Check: two accounts. A shares notes, B takes them from A's link; B's Files gains one classmate entry, B's familiarity rises on the matched concepts, B's mastery is unchanged, and taking again creates nothing.
+
 ## Task 8: Preload script
 
 File: `backend/scripts/ingest_folder.py`.
@@ -402,9 +413,13 @@ Check: `/world` renders the fixture in mock mode at 60 frames per second on the 
 
 ## Task 10: Characters
 
-Files: `frontend/components/world/Character.tsx`.
+Files: `frontend/components/world/Character.tsx`, `frontend/components/world/GlbCreature.tsx` (lifted from the lab), `frontend/public/assets/creatures/tripo-cleaned/textured/*.glb` (active roster only, about 15 files, 4.5 MB).
 
-One component, one blob mesh from `Blob.tsx`, one accessory slot, tint by place biome. Animation is a small state machine driven by `character.state` and a `prevState` ref:
+Residents use the animated GLB roster from `assets/creatures/tripo-cleaned/textured/` through the lab's `GlbCreature` (idle, walk, happy, sad, sleep clips; textured toon material that keeps the face atlas). The active roster and biome assignment live in the lab's `data/tripo-assets.ts` and move over unchanged. Wisps use the primitive blob at half size. The blob also remains the fallback when a GLB fails to load.
+
+State to clip: `idle` plays idle (sleep for sleepy personalities after six seconds still); `evolved` plays idle at 1.15 scale with a brighter tint; `exploded` plays `sad` and the body tips onto its side with a small puff, then lies still; `recovered` plays `happy` once on the transition and returns to idle; `faded` is the exploded pose at 0.6 scale and 0.6 opacity. Appear is the lab's pop-in. Every transition is the existing 0.15 s crossfade.
+
+The blob-only description below is the fallback path when a resident has no GLB:
 
 - Appear (first render of an id not seen before): scale 0 to 1 with overshoot over 600 ms, dust ring of eight instanced discs.
 - `idle`: bob and slow look-around from the lab.

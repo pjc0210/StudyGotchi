@@ -94,8 +94,25 @@ Why not one per item: a pset with eight questions should not feel like eight vis
 Ways a character can be born, in the order we build them:
 
 1. Tonight: an uploaded assignment with items (resident), an uploaded notes file (wisp).
-2. Sunday, if time remains: a practice question. The app picks a frontier concept with high readiness, writes one question from the cited course chunks, grades the answer, and records `verified_practice` evidence with an outcome. A correct answer raises a landmark and can birth a resident on that place without any file upload. This is the loop that keeps the island alive between psets.
+2. If time remains: notes taken from a friend's island (a wisp with a second colour, see "Taking notes from a visit").
 3. Later: handwritten work photographed and read (`verified_practice`), and shared extensions between two students' pockets.
+
+The app never asks the student questions. It reads what they already produced for the course and draws it. Quizzes, flashcards and practice prompts are out of scope on purpose.
+
+## Taking notes from a visit
+
+The reason to visit another island is to see how someone else's knowledge of the same course is shaped, and to take their notes home when they allow it. The engine already has the vocabulary: a resource with origin `classmate` and type `classmate_notes`, and concepts of scope `shared_extension`.
+
+How it works:
+
+1. The owner marks one of their own notes files as shareable. Default is not shareable. Graded work and worked solutions cannot be shared.
+2. On the owner's island a shareable notes file is a wisp with a small satchel. On a visit it is clickable and shows the topic name and page count, never the text.
+3. A signed-in visitor clicks "Take notes". The API copies the resource row and its chunks (embeddings included) into the visitor's account with origin `classmate`, type `classmate_notes`, and a `metadata.taken_from` field holding the share token. No model call runs.
+4. The copy goes through phase A only: match chunk embeddings to the course concepts, write `resource_view` evidence at certainty 0.5. Familiarity on those concepts rises; mastery cannot move. On the visitor's island that is a second-colour wisp on the matching place and a little more grass.
+5. The visitor's Files tab lists the notes with "from a visit" and the owner's display name if the owner allowed names on the share.
+6. Taking the same notes twice is a no-op (same content hash for this student).
+
+What this is not: it is not a grade transfer, not a mastery transfer, and not a way to see the owner's scores. A friend's notes make your island a little greener where you have read them, and that is all they can do.
 
 ## Personal concepts
 
