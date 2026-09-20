@@ -1,11 +1,15 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from openai import APIError
 
+from app.config import get_settings
 from app.api.routes import (
     concepts,
     courses,
     debug,
+    concept_detail,
+    mastery,
     ontology,
     personal_graph,
     resources,
@@ -19,6 +23,14 @@ app = FastAPI(
     description="Canonical course ontology, personal knowledge graph, and understanding-scoring backend.",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=get_settings().cors_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(courses.router)
 app.include_router(concepts.router)
 app.include_router(debug.router)
@@ -28,6 +40,8 @@ app.include_router(personal_graph.router)
 app.include_router(understanding.router)
 app.include_router(study.router)
 app.include_router(world.router)
+app.include_router(mastery.router)
+app.include_router(concept_detail.router)
 
 
 @app.get("/health")

@@ -62,8 +62,14 @@ export interface Gap {
   reason: string;
 }
 
+export interface StudyTarget {
+  /** Concept id the backend addresses this target by. */
+  id: string;
+  label: string;
+}
+
 export interface GapsResponse {
-  target: string;
+  target: StudyTarget;
   gaps: Gap[];
 }
 
@@ -77,7 +83,7 @@ export interface StudyStep {
 }
 
 export interface StudyPlan {
-  target: string;
+  target: StudyTarget;
   steps: StudyStep[];
 }
 
@@ -124,10 +130,13 @@ export type EvidencePolarity = "positive" | "negative" | "neutral";
 export interface Evidence {
   id: string;
   label: string;
+  /** Empty when the backend recorded no graded outcome. */
   detail: string;
   kind: EvidenceKind;
   polarity: EvidencePolarity;
-  source: Resource;
+  /** Absent when the evidence event is not linked to a resource. Never
+   *  substitute a placeholder - unknown provenance must read as unknown. */
+  source?: Resource;
 }
 
 export interface ConceptDetail {
@@ -180,6 +189,9 @@ export interface CourseResource {
   origin: SourceOrigin;
   artifact_type: ArtifactType;
   concept_count: number;
+  /** Concepts this resource explains or assesses. Empty when the backend has
+   *  recorded no provenance links - never inferred client-side. */
+  concept_ids: string[];
   status: UploadStatus;
   uploaded_at: string;
 }

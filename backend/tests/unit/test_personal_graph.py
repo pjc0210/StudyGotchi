@@ -17,23 +17,22 @@ from app.domain.personal_graph.builder import (
 from app.schemas.personal_graph import PersonalGraphNodeOut
 
 
-def test_node_carries_only_understanding_as_learning_state():
-    # Spec: "a single quantitative learning-state measurement" — no
-    # familiarity/confidence/mastery_confidence/evidence_strength/fragility/
-    # readiness fields anywhere on the node or its API schema.
-    removed = {
+def test_internal_graph_keeps_understanding_while_api_exposes_ui_projection():
+    # The builder retains the canonical understanding-only state. The API
+    # boundary additionally exposes the frontend's backend-derived display
+    # metrics without storing them on the graph node itself.
+    display_fields = {
         "mastery",
         "familiarity",
         "confidence",
-        "mastery_confidence",
-        "evidence_strength",
         "fragility",
         "readiness",
+        "state",
     }
     node_fields = set(PersonalGraphNode.__dataclass_fields__)
     schema_fields = set(PersonalGraphNodeOut.model_fields)
-    assert not (removed & node_fields)
-    assert not (removed & schema_fields)
+    assert not (display_fields & node_fields)
+    assert display_fields <= schema_fields
     assert "understanding" in node_fields
     assert "understanding" in schema_fields
 

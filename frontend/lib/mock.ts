@@ -425,8 +425,14 @@ export function mockWhy(conceptId: string): WhyExplanation | null {
 
 export const MOCK_TARGET = "Prepare for HW3";
 
+export const MOCK_TARGETS = ["Prepare for HW3", "Prepare for the Final", "Shore up weak foundations"];
+
+/** Mock targets are identified the same way real ones are, so the components
+ *  cannot tell the two modes apart. */
+export const MOCK_TARGET_OBJ = { id: "mock_target_0", label: MOCK_TARGET };
+
 export const MOCK_GAPS: GapsResponse = {
-  target: MOCK_TARGET,
+  target: MOCK_TARGET_OBJ,
   gaps: [
     {
       concept_id: "psd-matrices",
@@ -468,7 +474,7 @@ export const MOCK_GAPS: GapsResponse = {
 };
 
 export const MOCK_STUDY_PLAN: StudyPlan = {
-  target: MOCK_TARGET,
+  target: MOCK_TARGET_OBJ,
   steps: [
     {
       order: 1,
@@ -511,22 +517,149 @@ export const MOCK_STUDY_PLAN: StudyPlan = {
   ],
 };
 
-export const MOCK_TARGETS = [
-  "Prepare for HW3",
-  "Prepare for the Final",
-  "Shore up weak foundations",
-];
-
 // ---------------------------------------------------------------------------
 // Files view
 // ---------------------------------------------------------------------------
 
 export const MOCK_RESOURCES: CourseResource[] = [
-  { id: "lec6", title: "Professor Lecture 6", origin: "instructor", artifact_type: "lecture", concept_count: 12, status: "complete", uploaded_at: "2026-09-14" },
-  { id: "lec7", title: "Professor Lecture 7", origin: "instructor", artifact_type: "lecture", concept_count: 9, status: "complete", uploaded_at: "2026-09-16" },
-  { id: "notes4", title: "My Week 4 Notes", origin: "student_self", artifact_type: "student_notes", concept_count: 6, status: "complete", uploaded_at: "2026-09-15" },
-  { id: "hw3", title: "Homework 3", origin: "instructor", artifact_type: "homework", concept_count: 8, status: "complete", uploaded_at: "2026-09-17" },
-  { id: "sarah", title: "Sarah's Notes", origin: "classmate", artifact_type: "classmate_notes", concept_count: 5, status: "complete", uploaded_at: "2026-09-17" },
-  { id: "midterm", title: "Midterm", origin: "instructor", artifact_type: "exam", concept_count: 11, status: "complete", uploaded_at: "2026-09-12" },
-  { id: "recitation", title: "TA Recitation 4", origin: "ta", artifact_type: "study_guide", concept_count: 4, status: "processing", uploaded_at: "2026-09-18" },
+  {
+    id: "lec5",
+    title: "Lecture 05 - Vector Spaces",
+    origin: "instructor",
+    artifact_type: "lecture",
+    concept_count: 3,
+    concept_ids: ["linear-algebra", "inner-products", "eigendecomposition"],
+    status: "complete",
+    uploaded_at: "2026-09-11",
+  },
+  {
+    id: "lec6",
+    title: "Lecture 06 - PSD Matrices",
+    origin: "instructor",
+    artifact_type: "lecture",
+    concept_count: 4,
+    concept_ids: ["gram-matrix", "psd-matrices", "mercer", "eigendecomposition"],
+    status: "complete",
+    uploaded_at: "2026-09-14",
+  },
+  {
+    id: "lec7",
+    title: "Lecture 07 - Kernels",
+    origin: "instructor",
+    artifact_type: "lecture",
+    concept_count: 4,
+    concept_ids: ["kernel-functions", "kernel-trick", "kernel-regression", "rkhs"],
+    status: "complete",
+    uploaded_at: "2026-09-16",
+  },
+  {
+    id: "bishop",
+    title: "Bishop Ch. 6 - Kernel Methods",
+    origin: "instructor",
+    artifact_type: "reading",
+    concept_count: 3,
+    concept_ids: ["mercer", "kernel-functions", "rkhs"],
+    status: "complete",
+    uploaded_at: "2026-09-10",
+  },
+  {
+    id: "hw2",
+    title: "Homework 2",
+    origin: "instructor",
+    artifact_type: "homework",
+    concept_count: 3,
+    concept_ids: ["linear-algebra", "inner-products", "psd-matrices"],
+    status: "complete",
+    uploaded_at: "2026-09-09",
+  },
+  {
+    id: "hw3",
+    title: "Homework 3",
+    origin: "instructor",
+    artifact_type: "homework",
+    concept_count: 4,
+    concept_ids: ["psd-matrices", "mercer", "kernel-functions", "kernel-regression"],
+    status: "complete",
+    uploaded_at: "2026-09-17",
+  },
+  {
+    id: "midterm",
+    title: "Midterm",
+    origin: "instructor",
+    artifact_type: "exam",
+    concept_count: 4,
+    concept_ids: ["psd-matrices", "mercer", "eigendecomposition", "kernel-trick"],
+    status: "complete",
+    uploaded_at: "2026-09-12",
+  },
+  {
+    id: "recitation",
+    title: "TA Recitation 4",
+    origin: "ta",
+    artifact_type: "study_guide",
+    concept_count: 2,
+    concept_ids: ["psd-matrices", "gram-matrix"],
+    status: "complete",
+    uploaded_at: "2026-09-18",
+  },
+  {
+    id: "notes4",
+    title: "My Week 4 Notes",
+    origin: "student_self",
+    artifact_type: "student_notes",
+    concept_count: 3,
+    concept_ids: ["psd-matrices", "mercer", "gram-matrix"],
+    status: "complete",
+    uploaded_at: "2026-09-15",
+  },
+  {
+    id: "notes5",
+    title: "My Week 5 Notes",
+    origin: "student_self",
+    artifact_type: "student_notes",
+    concept_count: 3,
+    concept_ids: ["kernel-functions", "kernel-trick", "random-fourier-features"],
+    status: "complete",
+    uploaded_at: "2026-09-18",
+  },
+  {
+    id: "sarah",
+    title: "Sarah's Notes",
+    origin: "classmate",
+    artifact_type: "classmate_notes",
+    concept_count: 3,
+    concept_ids: ["mercer", "psd-matrices", "kernel-functions"],
+    status: "complete",
+    uploaded_at: "2026-09-17",
+  },
+  {
+    id: "solution3",
+    title: "HW3 Worked Solution",
+    origin: "student_self",
+    artifact_type: "worked_solution",
+    concept_count: 2,
+    concept_ids: ["kernel-regression", "regularization"],
+    status: "complete",
+    uploaded_at: "2026-09-19",
+  },
+  {
+    id: "blog",
+    title: "Random Features blog post",
+    origin: "external",
+    artifact_type: "other",
+    concept_count: 2,
+    concept_ids: ["random-fourier-features", "kernel-functions"],
+    status: "complete",
+    uploaded_at: "2026-09-19",
+  },
+  {
+    id: "cvguide",
+    title: "Cross Validation Study Guide",
+    origin: "ta",
+    artifact_type: "study_guide",
+    concept_count: 2,
+    concept_ids: ["cross-validation", "regularization"],
+    status: "processing",
+    uploaded_at: "2026-09-19",
+  },
 ];

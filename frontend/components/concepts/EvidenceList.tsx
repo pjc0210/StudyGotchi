@@ -25,9 +25,11 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
           >
             <div className="flex items-center justify-between gap-2">
               <span className="truncate text-[13px] text-ink">{e.label}</span>
-              <span className="font-mono text-[12px] tabular-nums text-ink-dim">
-                {e.detail}
-              </span>
+              {e.detail ? (
+                <span className="font-mono text-[12px] tabular-nums text-ink-dim">
+                  {e.detail}
+                </span>
+              ) : null}
             </div>
             <div className="mt-1.5 flex items-center gap-1.5">
               {negative || positive ? (
@@ -42,7 +44,11 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
               ) : null}
               <span className="text-[10px] text-ink-faint">{KIND_LABEL[e.kind]}</span>
               <span className="ml-auto">
-                <OriginChip origin={e.source.origin} />
+                {e.source ? (
+                  <OriginChip origin={e.source.origin} />
+                ) : (
+                  <span className="text-[10px] text-ink-faint">Source not linked</span>
+                )}
               </span>
             </div>
           </li>

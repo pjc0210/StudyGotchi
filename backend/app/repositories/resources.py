@@ -138,3 +138,21 @@ async def lock_course_ingestion(session: AsyncSession, course_id: UUID) -> None:
     # inside its own dispatch (calling event.remove() there raises
     # "deque mutated during iteration").
     event.listen(sync_session, "after_transaction_end", _release, once=True)
+
+
+async def list_resources(session: AsyncSession, course_id: UUID) -> list[Resource]:
+    result = await session.execute(
+        select(Resource)
+        .where(Resource.course_id == course_id)
+        .order_by(Resource.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def get_resources_by_ids(
+    session: AsyncSession, resource_ids: set[UUID]
+) -> dict[UUID, Resource]:
+    if not resource_ids:
+        return {}
+    result = await session.execute(select(Resource).where(Resource.id.in_(resource_ids)))
+    return {resource.id: resource for resource in result.scalars().all()}

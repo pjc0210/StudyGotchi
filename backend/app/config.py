@@ -34,6 +34,10 @@ class Settings(BaseSettings):
     understanding_alpha_prior: float = 1.5
     understanding_beta_prior: float = 1.5
 
+    # Browser clients allowed to call this API. Explicit origins only - the
+    # frontend sends no credentials today, but "*" would foreclose that.
+    cors_origins: list[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
     # Concept canonicalization thresholds (spec: "Concept canonicalization")
     concept_merge_threshold: float = 0.94
     concept_adjudicate_threshold: float = 0.82
