@@ -141,6 +141,30 @@
         { "name": "sparkle", "at": 0.5, "gain": 1, "zzfx": [0.28, 0.05, 1568, 0.01, 0.2, 0.2, 0, 1, 0, 0, 392, 0.001, 0.07, 0, 0, 0, 0.14, 0.7, 0, 0.4, 0] }
       ]
     },
+    "space-enter": {
+      "group": "space",
+      "description": "Into the sky: a low-passed air swell that lifts, a slow sine climb from C5 that flattens near the top, then a G6 sparkle arpeggio with echo; the zoom-out into the Information sky.",
+      "layers": [
+        { "name": "air", "at": 0, "gain": 1, "zzfx": [0.26, 0.05, 500, 0.35, 0.15, 0.6, 4, 1, 1.5, -2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -800] },
+        { "name": "rise", "at": 0.05, "gain": 1, "zzfx": [0.26, 0.02, 523.25, 0.2, 0.3, 0.4, 0, 1, 2, -2, 0, 0, 0, 0, 0, 0, 0.1, 1, 0, 0, -1500] },
+        { "name": "shimmer", "at": 0.45, "gain": 1, "zzfx": [0.2, 0.05, 1568, 0.01, 0.3, 0.35, 0, 1, 0, 0, 392, 0.001, 0.09, 0, 0, 0, 0.16, 0.6, 0, 0.4, 0] }
+      ]
+    },
+    "star-select": {
+      "group": "space",
+      "description": "Small two-note bell E6 -> B6, pure sine with a short echo; a star picked in the sky.",
+      "zzfx": [0.45, 0.02, 1318.51, 0.004, 0.06, 0.28, 0, 1, 0, 0, 656.5, 0.06, 0, 0, 0, 0, 0.08, 0.8, 0, 0, 0]
+    },
+    "lens-weak": {
+      "group": "space",
+      "description": "Low, soft triangle sinking A4 -> ~D4 with a slow attack and low-pass; the Weak Areas lens coming on.",
+      "zzfx": [0.42, 0.02, 440, 0.04, 0.22, 0.3, 1, 1, -1.2, 0, 0, 0, 0, 0, 0, 0, 0, 0.85, 0.05, 0, -700]
+    },
+    "cluster-glide": {
+      "group": "space",
+      "description": "Short sine glide G5 -> ~D6 that eases into its landing; the camera flying to a cluster label.",
+      "zzfx": [0.4, 0.02, 784, 0.01, 0.08, 0.16, 0, 1, 2.6, -8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -2200]
+    },
     "error-soft": {
       "group": "ui",
       "description": "Wobbly low 'mmp' on A3 (18 Hz tremolo), low-passed; a gentle no.",

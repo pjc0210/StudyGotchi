@@ -10,7 +10,7 @@ Territory: `tools/sound-factory/` (this folder) and `assets/audio/` (outputs). N
 
 | Path | What |
 |---|---|
-| `assets/audio/sfx/<name>.wav` | 29 sound effects, deterministic renders of `presets.json` |
+| `assets/audio/sfx/<name>.wav` | 33 sound effects, deterministic renders of `presets.json` (the `space` group is the Information sky) |
 | `assets/audio/sfx/manifest.json` | name, file, group, bus, duration, peak dBFS, description, the ZzFX params (or layers) |
 | `assets/audio/voices/<species>/<letter>.wav` | 5 voices (peach, coral, mint, olive, lilac) x 26 letters + `comma`/`period`/`question` pauses |
 | `assets/audio/voices/manifest.json` | per-species base pitch, synth settings, letter table, scheduler constants, demo list |

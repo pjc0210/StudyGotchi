@@ -2,13 +2,13 @@
  * The one table that ties what happens on screen to what you hear. Components call
  * `emit({ type })` where the visual change happens, so picture and sound cannot drift.
  *
- * Scene events (world / island / night) drive the music director; everything else is a
- * one-shot from the kit, sometimes with a creature saying its name.
+ * Scene events (world / island / space / night) drive the music director; everything else is
+ * a one-shot from the kit, sometimes with a creature saying its name.
  */
 
 import type { BiomeId } from "@/lib/world/types";
 import { BIOME_VOICE, type SfxName, type VoiceMood, type VoiceSpecies } from "./catalog.ts";
-import { EMPTY_SCENE, pickMusic, type Scene } from "./director.ts";
+import { EMPTY_SCENE, makeThrottle, pickMusic, type Scene } from "./director.ts";
 import { audio } from "./runtime.ts";
 
 export type CreaturePersonality = "sleepy" | "bold" | "curious" | "grumpy" | "shy";
@@ -23,6 +23,15 @@ export type AudioEvent =
   | { type: "leave-island" }
   /** the product page unmounted */
   | { type: "leave-world" }
+  /** the Information tab (/knowledge) mounted: the sky zooms out and the astral bed fades in */
+  | { type: "enter-space" }
+  | { type: "leave-space" }
+  /** a star in the knowledge sky: hover twinkles (throttled), select chimes */
+  | { type: "star"; kind: "hover" | "select" }
+  /** the Weak Areas lens came on */
+  | { type: "lens-weak" }
+  /** a cluster label was clicked and the camera is flying to it */
+  | { type: "cluster-focus" }
   | { type: "night"; on: boolean }
   | { type: "ui"; kind: "tap" | "confirm" | "cancel" | "hover" }
   | { type: "card"; open: boolean }
@@ -77,6 +86,14 @@ const ISLAND_WARM: SfxName[] = [
   "recover-chime",
   "evidence-ingested",
 ];
+
+const SPACE_WARM: SfxName[] = ["space-enter", "star-select", "lens-weak", "cluster-glide", "ui-hover", "ui-tap"];
+
+/** Pointer sweeps cross many stars a second; at most one twinkle per this many ms. */
+export const STAR_HOVER_GAP_MS = 110;
+const starHoverAllowed = makeThrottle(STAR_HOVER_GAP_MS);
+/** One whoosh per arrival, even when dev StrictMode mounts the page twice. */
+const spaceEnterAllowed = makeThrottle(1500);
 
 let scene: Scene = EMPTY_SCENE;
 let nightOverride: boolean | null = null;
@@ -136,6 +153,35 @@ export function emit(event: AudioEvent): void {
     case "leave-world":
       audio.stopSpeech();
       setScene({ view: "none", biome: null });
+      return;
+
+    case "enter-space":
+      // Mounting is not a gesture; the bed is remembered and starts once the context runs,
+      // and the whoosh only sounds when the sky was reached from a page that already unlocked.
+      if (spaceEnterAllowed(performance.now())) audio.playSfx("space-enter", { gain: 0.8 });
+      setScene({ view: "space", biome: null });
+      audio.preloadSfx(SPACE_WARM);
+      return;
+
+    case "leave-space":
+      setScene({ view: "none", biome: null });
+      return;
+
+    case "star":
+      if (event.kind === "select") {
+        audio.playSfx("star-select", { gain: 0.8 });
+      } else if (starHoverAllowed(performance.now())) {
+        // The ordinary hover tick, lifted a fifth: same family, further away.
+        audio.playSfx("ui-hover", { gain: 0.45, rate: 1.5 });
+      }
+      return;
+
+    case "lens-weak":
+      audio.playSfx("lens-weak", { gain: 0.8 });
+      return;
+
+    case "cluster-focus":
+      audio.playSfx("cluster-glide", { gain: 0.75 });
       return;
 
     case "night":

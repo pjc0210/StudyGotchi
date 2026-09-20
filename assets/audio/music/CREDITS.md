@@ -44,6 +44,7 @@ Music
   Cherry Blossom — Kevin MacLeod (CC-BY-3.0)
   New Friendly — Kevin MacLeod (CC-BY-3.0)
   Local Forecast - Elevator — Kevin MacLeod (CC-BY-3.0)
+  Lunar shop — glitchart (CC-BY-4.0), remixing Trevor Lentz, CleytonKauffman, migfus20 and FrancisLeeMusic
 Kevin MacLeod tracks: incompetech.com
 ```
 
@@ -144,6 +145,12 @@ _Room tone under music, not a song_
 
 - **Forest Ambience** — TinyWorlds · 0:45 · forest · `tracks/forest-ambience.mp3`
 
+### space
+
+_Information tab: the knowledge sky. Astral, drifting, still bossa_
+
+- **Lunar shop** — glitchart · 3:34 loop (cut from 5:11) · `tracks/information-astral-bossa.mp3`
+
 ## By biome
 
 ### ice
@@ -218,6 +225,7 @@ _Room tone under music, not a song_
 ### unassigned / any
 
 - **New Friendly** — Kevin MacLeod · 2:49 · title, menu · CC-BY-3.0
+- **Lunar shop** — glitchart · 3:34 · space · CC-BY-4.0
 
 ## Full credits (required text)
 
@@ -492,3 +500,20 @@ Local Forecast - Elevator by Kevin MacLeod (incompetech.com) — Licensed under 
 Source: https://incompetech.com/music/royalty-free/index.html
 
 Classic silly elevator jazz. Shop / menu.
+
+### Lunar shop
+
+Lunar shop by glitchart — https://opengameart.org/content/lunar-shop-trevor-lentz-cleyton-kauffman-migfus-francisleemusic — CC-BY 4.0
+
+Source: https://opengameart.org/content/lunar-shop-trevor-lentz-cleyton-kauffman-migfus-francisleemusic
+
+A remix; its parts and their licences, as listed by the remixer:
+
+- Lunar Echo by Trevor Lentz — https://opengameart.org/content/lunar-echo — CC-BY 3.0
+- Shop Theme by CleytonKauffman — https://opengameart.org/content/shop-theme — CC0
+- GoodNight - Lofi by migfus20 — https://opengameart.org/content/goodnight-lofi — CC-BY 4.0
+- Cutie Pie by FrancisLeeMusic — https://opengameart.org/content/cutie-pie — CC-BY 3.0
+
+Bossa nova groove under airy sci-fi synth pads, ~81 BPM. Plays on the Information tab (the knowledge sky). Because it is built on Cutie Pie, the globe theme, Space sounds like Courses drifting into orbit.
+
+Changes we made (CC-BY asks us to say so): the 5:11 OGG mix (`lunarshopmix.ogg`) was cut to its first 72 bars (3:34) on the beat grid with a 60 ms crossfade at the seam so it loops, peak-normalised to -1 dBFS, and transcoded to MP3 (`information-astral-bossa.mp3`).

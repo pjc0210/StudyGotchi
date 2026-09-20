@@ -679,6 +679,23 @@
       "file": "tracks/local-forecast-elevator.mp3",
       "bytes": 7570404,
       "durationSec": 189.2
+    },
+    {
+      "id": "information-astral-bossa",
+      "title": "Lunar shop",
+      "artist": "glitchart",
+      "license": "CC-BY-4.0",
+      "source": "https://opengameart.org/content/lunar-shop-trevor-lentz-cleyton-kauffman-migfus-francisleemusic",
+      "credit": "Lunar shop by glitchart \u2014 https://opengameart.org/content/lunar-shop-trevor-lentz-cleyton-kauffman-migfus-francisleemusic \u2014 CC-BY 4.0. Remix of Lunar Echo (Trevor Lentz, CC-BY 3.0), Shop Theme (CleytonKauffman, CC0), GoodNight - Lofi (migfus20, CC-BY 4.0) and Cutie Pie (FrancisLeeMusic, CC-BY 3.0). Cut to a 72-bar loop for StudyGotchi.",
+      "note": "Bossa nova groove under airy sci-fi pads, ~81 BPM. Built on Cutie Pie, so the Information sky is the globe theme drifting into space. We cut bars 1-72 (3:34) of the 5:11 mix into a beat-aligned loop.",
+      "uses": [
+        "space"
+      ],
+      "biomes": [],
+      "batch": "space",
+      "file": "tracks/information-astral-bossa.mp3",
+      "bytes": 3224082,
+      "durationSec": 214.0
     }
   ],
   "uses": {
@@ -689,7 +706,8 @@
     "night": "Night variant of a biome or hub",
     "underscore": "Very quiet under creature speech",
     "stinger": "Short intro/punctuation, not a loop",
-    "ambient": "Room tone under music, not a song"
+    "ambient": "Room tone under music, not a song",
+    "space": "Information tab: the knowledge sky. Astral, drifting, still bossa"
   },
   "biomes": [
     "ice",

@@ -23,7 +23,8 @@ export function GraphLenses({
           title={l.hint}
           className="sg-seg-item"
           onClick={() => {
-            if (lens !== l.id) emit({ type: "ui", kind: "tap" });
+            // Weak Areas gets its own low tone instead of the tap: the sky is about to dim.
+            if (lens !== l.id) emit(l.id === "weak" ? { type: "lens-weak" } : { type: "ui", kind: "tap" });
             onChange(l.id);
           }}
         >

@@ -46,6 +46,10 @@ export const SFX_NAMES = [
   "recover-chime",
   "ambient-wind-gust",
   "ambient-bird-chirp",
+  "space-enter",
+  "star-select",
+  "lens-weak",
+  "cluster-glide",
 ] as const;
 
 export type SfxName = (typeof SFX_NAMES)[number];
@@ -255,11 +259,25 @@ export const BGM = {
     file: `${AUDIO_BASE}/music/tracks/snow-globe.mp3`,
     gain: 0.68,
   }),
+  "information-astral-bossa": track({
+    id: "information-astral-bossa",
+    title: "Lunar shop",
+    artist: "glitchart",
+    license: "CC-BY 4.0",
+    credit:
+      "Lunar shop by glitchart (opengameart.org), CC-BY 4.0; remixing Lunar Echo (Trevor Lentz), Shop Theme (CleytonKauffman), GoodNight - Lofi (migfus20) and Cutie Pie (FrancisLeeMusic). Cut to a 72-bar loop.",
+    source: "https://opengameart.org/content/lunar-shop-trevor-lentz-cleyton-kauffman-migfus-francisleemusic",
+    file: `${AUDIO_BASE}/music/tracks/information-astral-bossa.mp3`,
+    gain: 0.62,
+  }),
 } as const satisfies Record<string, BgmTrack>;
 
 export type BgmId = keyof typeof BGM;
 
 export const GLOBE_BGM: BgmId = "cutie-pie";
+
+/** The Information tab: the globe theme, remixed into orbit. Same bossa, airier. */
+export const SPACE_BGM: BgmId = "information-astral-bossa";
 
 export const BGM_FOR_BIOME: Record<BiomeId, BgmId> = {
   forest: "ukulele-forest-loop",
@@ -288,7 +306,13 @@ export const CROSSFADE_MS = 600;
 
 /** Every bed the website can actually play, for the in-chrome credits list. */
 export function usedBgmTracks(): BgmTrack[] {
-  const ids = new Set<BgmId>([GLOBE_BGM, ...Object.values(BGM_FOR_BIOME), ...Object.values(NIGHT_BGM_FOR_BIOME), ...Object.values(AMBIENCE_FOR_BIOME)]);
+  const ids = new Set<BgmId>([
+    GLOBE_BGM,
+    SPACE_BGM,
+    ...Object.values(BGM_FOR_BIOME),
+    ...Object.values(NIGHT_BGM_FOR_BIOME),
+    ...Object.values(AMBIENCE_FOR_BIOME),
+  ]);
   return [...ids]
     .map((id) => BGM[id])
     .sort((a, b) => a.artist.localeCompare(b.artist) || a.title.localeCompare(b.title));

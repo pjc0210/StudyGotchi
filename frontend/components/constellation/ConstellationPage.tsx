@@ -31,6 +31,13 @@ export function ConstellationPage() {
   const [uploadOpen, setUploadOpen] = useState(false);
   const [focusIds, setFocusIds] = useState<string[]>([]);
 
+  // The sky is its own scene: the astral bed fades in with the zoom-out and hands back to
+  // the globe or island bed when the page unmounts.
+  useEffect(() => {
+    emit({ type: "enter-space" });
+    return () => emit({ type: "leave-space" });
+  }, []);
+
   const openUpload = useCallback(() => {
     emit({ type: "ui", kind: "tap" });
     setUploadOpen(true);

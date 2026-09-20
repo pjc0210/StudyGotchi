@@ -17,6 +17,7 @@ import {
   type PositionedNode,
 } from "@/lib/forceLayout";
 import { useSpaceAttribute } from "@/components/shell/useSpaceAttribute";
+import { emit } from "@/lib/audio/events";
 import {
   buildSpaceClusters,
   clipSpaceLabel,
@@ -729,6 +730,8 @@ export function KnowledgeCanvas({
         if (id !== hoveredRef.current) {
           hoveredRef.current = id;
           markDirty();
+          // Only on arriving at a new star; the event table throttles sweeps.
+          if (id) emit({ type: "star", kind: "hover" });
           onHover(id ? { id, screenX: e.clientX, screenY: e.clientY } : null);
         } else if (id) {
           onHover({ id, screenX: e.clientX, screenY: e.clientY });
@@ -770,8 +773,10 @@ export function KnowledgeCanvas({
       const drag = dragRef.current;
       if (!drag.moved) {
         if (drag.clusterIds?.length) {
+          emit({ type: "cluster-focus" });
           fitTo(drag.clusterIds);
         } else {
+          if (drag.nodeId) emit({ type: "star", kind: "select" });
           onSelect(drag.nodeId);
         }
       }
