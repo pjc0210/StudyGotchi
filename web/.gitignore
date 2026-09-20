@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+node_modules
+.next
+out
+dist
+*.local
+AGENTS.md
+CLAUDE.md
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
