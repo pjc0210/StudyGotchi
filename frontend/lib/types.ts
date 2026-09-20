@@ -148,14 +148,6 @@ export interface UnderstandingEntry {
   last_practiced_at: string | null;
 }
 
-export interface WhyExplanation {
-  concept_id: string;
-  summary: string;
-  strongest_evidence?: string;
-  weakest_evidence?: string;
-  prerequisite_reason?: string;
-}
-
 // ---------------------------------------------------------------------------
 // Ingestion
 // ---------------------------------------------------------------------------

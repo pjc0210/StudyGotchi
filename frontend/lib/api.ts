@@ -6,7 +6,6 @@ import {
   mockStudyPlan,
   mockTargets,
   mockConceptDetail,
-  mockWhy,
 } from "./mock";
 import type {
   ArtifactType,
@@ -24,7 +23,6 @@ import type {
   StudyPlan,
   StudyTarget,
   UnderstandingEntry,
-  WhyExplanation,
 } from "./types";
 
 export const API_URL =
@@ -66,7 +64,6 @@ export interface IngestInput {
 export interface KnowledgeApi {
   getKnowledgeGraph(): Promise<KnowledgeGraphResponse>;
   getConceptDetail(conceptId: string): Promise<ConceptDetail>;
-  getWhy(conceptId: string): Promise<WhyExplanation | null>;
   listUnderstanding(): Promise<UnderstandingEntry[]>;
   listStudyTargets(): Promise<StudyTarget[]>;
   getGaps(target: StudyTarget): Promise<GapsResponse>;
@@ -308,12 +305,6 @@ const httpApi: KnowledgeApi = {
     };
   },
 
-  async getWhy() {
-    // The engine exposes no explainability endpoint yet. Returning null makes
-    // the inspector hide the section rather than invent a narrative.
-    return null;
-  },
-
   async listUnderstanding() {
     const raw = await request<{
       concepts: {
@@ -466,10 +457,6 @@ const mockApi: KnowledgeApi = {
     await delay(160);
     return mockConceptDetail(selectedMockCourseId, conceptId);
   },
-  async getWhy(conceptId) {
-    await delay(200);
-    return mockWhy(selectedMockCourseId, conceptId);
-  },
   async listUnderstanding() {
     await delay(120);
     return getMockCourseData(selectedMockCourseId).graph.nodes.map(
@@ -478,12 +465,18 @@ const mockApi: KnowledgeApi = {
         name: node.name,
         discovery_state: node.discovery_state,
         understanding: node.understanding,
-        positive_evidence: node.understanding === null ? 0 : 2 + (index % 3),
-        negative_evidence: node.understanding === null ? 0 : index % 2,
+        positive_evidence:
+          node.understanding === null ? 0 : 1.5 + ((index * 7) % 6) / 2,
+        negative_evidence:
+          node.understanding === null ? 0 : ((index * 5) % 5) / 2,
         last_evidence_at:
-          node.understanding === null ? null : "2026-02-01T00:00:00Z",
+          node.understanding === null
+            ? null
+            : `2026-09-${String(20 - (index % 8)).padStart(2, "0")}T00:00:00Z`,
         last_practiced_at:
-          node.understanding === null ? null : "2026-02-03T00:00:00Z",
+          node.understanding === null
+            ? null
+            : `2026-09-${String(19 - (index % 7)).padStart(2, "0")}T00:00:00Z`,
       }),
     );
   },

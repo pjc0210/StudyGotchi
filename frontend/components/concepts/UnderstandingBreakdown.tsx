@@ -1,4 +1,5 @@
 import { formatScore } from "@/lib/graph";
+import { relativeDate } from "@/lib/conceptAnalysis";
 import type { ConceptNode, UnderstandingEntry } from "@/lib/types";
 
 export function UnderstandingBreakdown({
@@ -10,6 +11,12 @@ export function UnderstandingBreakdown({
 }) {
   const value = concept.understanding;
   const percent = value === null ? 0 : Math.max(0, Math.min(1, value)) * 100;
+  const positive = detail?.positive_evidence ?? 0;
+  const negative = detail?.negative_evidence ?? 0;
+  const balance = positive + negative;
+  const positivePercent = balance > 0 ? (positive / balance) * 100 : 0;
+  const formatEvidence = (amount: number | undefined) =>
+    (amount ?? 0).toLocaleString(undefined, { maximumFractionDigits: 1 });
 
   return (
     <div>
@@ -34,23 +41,42 @@ export function UnderstandingBreakdown({
           <div>
             <dt className="text-ink-faint">Positive evidence</dt>
             <dd className="font-mono text-[12px] text-ink">
-              {detail?.positive_evidence ?? 0}
+              {formatEvidence(detail?.positive_evidence)}
             </dd>
+          </div>
+          <div
+            className="col-span-2 h-[2px] overflow-hidden rounded-full bg-line"
+            aria-label="Evidence balance"
+          >
+            <div
+              className="h-full rounded-full bg-ink"
+              style={{ width: `${positivePercent}%` }}
+            />
           </div>
           <div>
             <dt className="text-ink-faint">Negative evidence</dt>
             <dd className="font-mono text-[12px] text-ink">
-              {detail?.negative_evidence ?? 0}
+              {formatEvidence(detail?.negative_evidence)}
             </dd>
           </div>
-          {detail?.last_practiced_at ? (
-            <div className="col-span-2">
-              <dt className="text-ink-faint">Last practiced</dt>
-              <dd className="text-ink">
-                {new Date(detail.last_practiced_at).toLocaleDateString()}
-              </dd>
-            </div>
-          ) : null}
+          <div>
+            <dt className="text-ink-faint">Last practiced</dt>
+            <dd className="text-ink">
+              {relativeDate(
+                detail?.last_practiced_at ?? null,
+                "No practice recorded",
+              )}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-ink-faint">Last evidence</dt>
+            <dd className="text-ink">
+              {relativeDate(
+                detail?.last_evidence_at ?? null,
+                "No evidence recorded",
+              )}
+            </dd>
+          </div>
         </dl>
       )}
     </div>

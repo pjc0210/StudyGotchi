@@ -9,7 +9,6 @@ import type {
   Resource,
   StudyPlan,
   StudyTarget,
-  WhyExplanation,
 } from "./types";
 
 /** File-derived HackMIT course fixtures. Only DEMO_STATES are simulated. */
@@ -619,19 +618,6 @@ function detail(courseId: string, id: string): ConceptDetail {
 }
 export function mockConceptDetail(courseId: string, conceptId?: string) {
   return detail(conceptId ? courseId : MOCK_COURSE.id, conceptId ?? courseId);
-}
-export function mockWhy(
-  courseId: string,
-  conceptId?: string,
-): WhyExplanation | null {
-  const data = getMockCourseData(conceptId ? courseId : MOCK_COURSE.id);
-  const id = conceptId ?? courseId;
-  if (!data.graph.nodes.some((n) => n.id === id)) return null;
-  return {
-    concept_id: id,
-    summary:
-      "Demo student state is deterministic; linked course materials provide the academic provenance.",
-  };
 }
 export function mockTargets(courseId: string): StudyTarget[] {
   return getMockCourseData(courseId)

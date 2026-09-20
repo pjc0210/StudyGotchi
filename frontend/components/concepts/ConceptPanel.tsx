@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
 import { formatScore } from "@/lib/graph";
+import { analyzeConcept } from "@/lib/conceptAnalysis";
 import { useStore } from "@/lib/store";
 import type {
   ConceptDetail,
   ConceptNode,
   UnderstandingEntry,
-  WhyExplanation,
 } from "@/lib/types";
 import { StateBadge } from "@/components/common/StatusBadge";
 import { UnderstandingBreakdown } from "./UnderstandingBreakdown";
@@ -36,7 +36,6 @@ function Section({
 export function ConceptPanel() {
   const { graph, selectedId, select } = useStore();
   const [detail, setDetail] = useState<ConceptDetail | null>(null);
-  const [why, setWhy] = useState<WhyExplanation | null>(null);
   const [understanding, setUnderstanding] = useState<UnderstandingEntry | null>(
     null,
   );
@@ -50,7 +49,6 @@ export function ConceptPanel() {
   useEffect(() => {
     if (!selectedId) {
       setDetail(null);
-      setWhy(null);
       setUnderstanding(null);
       setError(null);
       return;
@@ -59,15 +57,10 @@ export function ConceptPanel() {
     setLoading(true);
     setError(null);
 
-    Promise.all([
-      api.getConceptDetail(selectedId),
-      api.getWhy(selectedId).catch(() => null),
-      api.listUnderstanding(),
-    ])
-      .then(([d, w, entries]) => {
+    Promise.all([api.getConceptDetail(selectedId), api.listUnderstanding()])
+      .then(([d, entries]) => {
         if (cancelled) return;
         setDetail(d);
-        setWhy(w);
         setUnderstanding(
           entries.find((entry) => entry.concept_id === selectedId) ?? null,
         );
@@ -91,6 +84,11 @@ export function ConceptPanel() {
 
   // The inspector appears only on selection, so the graph keeps the full canvas.
   if (!concept) return null;
+  const analysis = analyzeConcept(
+    concept,
+    understanding,
+    graph.data?.edges ?? [],
+  );
 
   return (
     <aside
@@ -131,41 +129,28 @@ export function ConceptPanel() {
         <UnderstandingBreakdown concept={concept} detail={understanding} />
       </div>
 
-      {why ? (
-        <Section
-          title={`Why is my understanding ${formatScore(concept.understanding)}?`}
-        >
-          <p className="text-[13px] leading-relaxed text-ink-dim">
-            {why.summary}
+      <Section
+        title={`Why is my understanding ${formatScore(concept.understanding)}?`}
+      >
+        <p className="text-[13px] leading-relaxed text-ink-dim">
+          {analysis.understandingSummary}
+        </p>
+      </Section>
+
+      <Section title="Why this matters">
+        <p className="text-[13px] text-ink-dim">{analysis.importanceLabel}</p>
+        {analysis.graphFacts.length > 0 ? (
+          <ul className="mt-2 space-y-1 text-[12px] leading-relaxed text-ink-dim">
+            {analysis.graphFacts.map((fact) => (
+              <li key={fact}>{fact}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-2 text-[12px] text-ink-faint">
+            No additional relationships are recorded for this concept yet.
           </p>
-          {why.strongest_evidence || why.weakest_evidence ? (
-            <dl className="mt-3 space-y-1.5">
-              {why.strongest_evidence ? (
-                <div className="flex gap-2 text-[12px]">
-                  <dt className="shrink-0 text-state-mastered">Strongest</dt>
-                  <dd className="text-ink-dim">{why.strongest_evidence}</dd>
-                </div>
-              ) : null}
-              {why.weakest_evidence ? (
-                <div className="flex gap-2 text-[12px]">
-                  <dt className="shrink-0 text-state-struggling">Weakest</dt>
-                  <dd className="text-ink-dim">{why.weakest_evidence}</dd>
-                </div>
-              ) : null}
-            </dl>
-          ) : null}
-          {why.prerequisite_reason ? (
-            <div className="mt-3 rounded-md border border-line bg-raised/60 p-2.5">
-              <p className="text-[11px] font-medium text-ink-faint">
-                Why is this a prerequisite?
-              </p>
-              <p className="mt-1 text-[12px] leading-relaxed text-ink-dim">
-                {why.prerequisite_reason}
-              </p>
-            </div>
-          ) : null}
-        </Section>
-      ) : null}
+        )}
+      </Section>
 
       <Section title="Evidence">
         {error ? (
