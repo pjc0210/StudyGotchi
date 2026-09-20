@@ -30,31 +30,10 @@
 }
 
 html.night {
-  --paper: #0c1218;
-  --ink: #d8d4cc;
-  --ink-soft: #9a938a;
-  --title: #f3eee6;
-  --ocean: #3a5570;
-  --land: #4a5c3e;
-  --land-2: #3e5236;
-  --ice: #6d8294;
-  --rose: #8a5e58;
-  --sage: #5d7350;
-  --peach: #3a322c;
-  --mint: #2f3a2c;
-  --sky: #2a3640;
-  --line: #2a313a;
-  --overlay: #161c24;
-  --raised: rgba(22, 28, 36, 0.72);
-  --input: #12181f;
-  --star-hot: #d6eef9;
-  --star-mid: #9fd0ee;
-  --star-edge: #6aaee0;
-  --star-core: #c5e4f7;
-  --star-ray: #b7dbf2;
-  --star-label: #b7dbf2;
-  color-scheme: dark;
+  color-scheme: light;
 }
+
+* { box-sizing: border-box; }
 
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
@@ -220,71 +199,23 @@ h1, h2 {
   position: relative;
   flex: 1;
   min-width: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: auto;
+  margin: 1rem 2.25rem 3rem 1.25rem;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #efe8dc;
+  touch-action: none;
+  cursor: grab;
 }
 
-.neural-map svg {
+.neural-map.is-night {
+  background: #4f4a43;
+}
+
+.neural-map canvas {
   display: block;
   width: 100%;
   height: 100%;
-  cursor: default;
-}
-
-.map-edge {
-  fill: none;
-  stroke: var(--star-mid);
-  stroke-width: 0.85;
-  stroke-opacity: 0.62;
-  stroke-linecap: round;
-}
-
-.map-edge.is-active {
-  stroke: var(--star-edge);
-  stroke-width: 1.2;
-  stroke-opacity: 0.95;
-}
-
-.map-node {
-  cursor: pointer;
-}
-
-.map-node .map-node-hit {
-  fill: transparent;
-  stroke: none;
-}
-
-.map-node .map-node-glow {
-  fill: url(#star-glow);
-  stroke: none;
-}
-
-.map-node.is-selected .map-node-glow {
-  fill: url(#star-glow-active);
-}
-
-.map-node .map-node-ray {
-  stroke: var(--star-ray);
-  stroke-width: 0.65;
-  stroke-opacity: 0.55;
-}
-
-.map-node .map-node-core {
-  fill: var(--star-core);
-  stroke: none;
-}
-
-.map-node.is-selected .map-node-core {
-  fill: var(--star-hot);
-}
-
-.map-node text {
-  font-size: 12px;
-  fill: var(--star-label);
-  pointer-events: none;
-  dominant-baseline: middle;
 }
 
 .course-overlay {
