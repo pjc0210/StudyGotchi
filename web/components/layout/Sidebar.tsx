@@ -79,9 +79,13 @@ export function Sidebar({
 
       <div className="mt-auto flex flex-col gap-2 px-2.5 pb-1 pt-4">
         <Link
-          // Friends lives in the separate frontend app, not this dashboard -
-          // a plain route wouldn't resolve here. Dev-only absolute link.
-          href="http://localhost:3000/friends"
+          // Friends lives in the separate frontend/ app, not this dashboard -
+          // a plain route wouldn't resolve here. This dashboard (web/) binds
+          // itself to :3000 (see package.json), so frontend/ - started
+          // alongside it with no explicit port - lands on :3001, the other
+          // origin the backend's CORS allowlist already trusts. Dev-only
+          // absolute link; pointing this at :3000 (this app) 404s.
+          href="http://localhost:3001/friends"
           className="group flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[13px] text-ink-dim transition-colors hover:bg-raised/60 hover:text-ink"
         >
           <Users
