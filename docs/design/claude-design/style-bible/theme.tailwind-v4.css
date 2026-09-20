@@ -1,0 +1,102 @@
+/* StudyGotchi · Toybox Low-Poly tokens for Tailwind v4.
+   Paste into frontend/app/globals.css after @import "tailwindcss";
+   Utilities follow: bg-sky, text-ink, bg-forest-ground, border-ink, rounded-lg,
+   shadow-rest, ease-overshoot, duration-appear, font-sans, text-h1, etc. */
+
+@theme {
+  /* Core */
+  --color-sky: #f3e4ee;
+  --color-cream: #fffaf3;
+  --color-cream-glass: rgba(255, 250, 243, 0.78);
+  --color-ink: #3a2f45;
+  --color-ink-muted: #6b5f78;
+  --color-ink-faint: #e9dce6;
+  --color-ink-disabled: #b9a9b8;
+
+  /* Biomes: ground + accent, with the 3-step ramp for the toon shader */
+  --color-forest-ground: #8fc48a;  --color-forest-ground-light: #b4dab0;  --color-forest-ground-shade: #6ea369;
+  --color-forest-accent: #4f8a4a;  --color-forest-accent-light: #79ab74;  --color-forest-accent-shade: #3a6b36;
+  --color-city-ground: #d9c3d6;    --color-city-ground-light: #ece0ea;    --color-city-ground-shade: #bda5ba;
+  --color-city-accent: #b98bb0;    --color-city-accent-light: #d0adc8;    --color-city-accent-shade: #986e90;
+  --color-ice-ground: #e6f2fb;     --color-ice-ground-light: #f6fafd;     --color-ice-ground-shade: #c7dcec;
+  --color-ice-accent: #a9cfe8;     --color-ice-accent-light: #c6e1f1;     --color-ice-accent-shade: #86b2cf;
+  --color-sand-ground: #efd9a2;    --color-sand-ground-light: #f6e8c2;    --color-sand-ground-shade: #d5bc7e;
+  --color-sand-accent: #d2a95e;    --color-sand-accent-light: #e0c184;    --color-sand-accent-shade: #b08a45;
+  --color-meadow-ground: #bfe0a0;  --color-meadow-ground-light: #d6ecc2;  --color-meadow-ground-shade: #9fc47f;
+  --color-meadow-accent: #8fbf6a;  --color-meadow-accent-light: #aed08e;  --color-meadow-accent-shade: #6f9d4f;
+
+  /* Creature accents (one per creature) */
+  --color-peach: #f2a86f;
+  --color-coral: #e88a8a;
+  --color-mint: #8fc9d8;
+  --color-olive: #b9c96f;
+  --color-lilac: #c9a2e6;
+
+  /* Semantic states */
+  --color-touched: #bfe0a0;        --color-touched-dot: #4f8a4a;
+  --color-demonstrated: #f2a86f;   --color-demonstrated-dot: #d2a95e;
+  --color-creature: #c9a2e6;       --color-creature-dot: #b98bb0;
+  --color-visiting: #a9cfe8;
+  --color-error: #e88a8a;          --color-error-text: #b34a4a;
+  --color-focus: #4f8a4a;
+
+  /* Type */
+  --font-sans: "Nunito", "SF Pro Rounded", ui-rounded, system-ui, sans-serif;
+  --text-display: 56px;  --text-display--line-height: 1.05; --text-display--font-weight: 800; --text-display--letter-spacing: -0.01em;
+  --text-h1: 40px;       --text-h1--line-height: 1.1;       --text-h1--font-weight: 800;
+  --text-h2: 28px;       --text-h2--line-height: 1.2;       --text-h2--font-weight: 800;
+  --text-h3: 22px;       --text-h3--line-height: 1.25;      --text-h3--font-weight: 700;
+  --text-body: 17px;     --text-body--line-height: 1.5;     --text-body--font-weight: 500;
+  --text-caption: 14px;  --text-caption--line-height: 1.45; --text-caption--font-weight: 500;
+  --text-label: 13px;    --text-label--line-height: 1.3;    --text-label--font-weight: 800; --text-label--letter-spacing: 0.12em;
+
+  /* Spacing (4 px grid; default Tailwind scale already matches) */
+  --spacing: 4px;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Sticker outline */
+  --border-width-sticker: 3px;
+
+  /* Shadow (always violet-tinted, never black) */
+  --shadow-rest: 0 6px 16px rgba(90, 63, 107, 0.12);
+  --shadow-raised: 0 12px 28px rgba(90, 63, 107, 0.16);
+  --shadow-drop: 0 3px 0 #3a2f45;
+  --blur-glass: 12px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-overshoot: cubic-bezier(0.2, 1.4, 0.4, 1);
+  --ease-overshoot-soft: cubic-bezier(0.2, 1.2, 0.4, 1);
+  --duration-hover: 120ms;
+  --duration-close: 200ms;
+  --duration-appear: 320ms;
+  --duration-panel: 360ms;
+  --duration-bob: 2400ms;
+  --animate-pop: sg-pop 320ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  --animate-slide-up: sg-slide 360ms cubic-bezier(0.2, 1.2, 0.4, 1) both;
+  --animate-bob: sg-bob 2400ms ease-in-out infinite;
+
+  @keyframes sg-pop   { 0% { transform: scale(0.6); opacity: 0 } 60% { transform: scale(1.08); opacity: 1 } 100% { transform: scale(1) } }
+  @keyframes sg-slide { 0% { transform: translateY(24px); opacity: 0 } 70% { transform: translateY(-3px); opacity: 1 } 100% { transform: translateY(0) } }
+  @keyframes sg-bob   { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop, .animate-slide-up, .animate-bob { animation: none; }
+}
+
+/* Sticker primitives (optional, use as @apply targets) */
+@utility sticker {
+  border: 3px solid var(--color-ink);
+  border-radius: var(--radius-md);
+  background: var(--color-cream);
+}
+@utility glass {
+  background: var(--color-cream-glass);
+  backdrop-filter: blur(var(--blur-glass));
+}

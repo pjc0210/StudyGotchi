@@ -1,0 +1,366 @@
+{
+  "student_id": "61400000-0000-4000-8000-000000000001",
+  "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+  "concepts": [
+    {
+      "concept_id": "c46aa1b9-20ee-4c50-96ba-364a650e29cb",
+      "name": "DFA with Exactly One Accepting State",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d74309df-cceb-401e-9cbb-8496b71a22d8",
+      "name": "Language of Binary Palindromes",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "18241402-0a9c-4901-a346-6d40e8986775",
+      "name": "\u03b5-transition",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708726,
+      "positive_evidence": 0.3599958155,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "060b38e0-222b-4a6a-a1d6-e93501d548b5",
+      "name": "Intersection of a Context Free Language and a Regular Language",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "name": "Non-Regularity of the Language of Binary Palindromes",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "63a3d522-6d48-4012-949c-fc155bbd18f0",
+      "name": "Language with Equal Number of 01 and 10 Substrings",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1f26a96a-4c26-4f36-8cd3-a807aefd2362",
+      "name": "Concatenation of Regular Languages",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6cdce0e6-3f16-4cf9-ba04-c5f1474cca3b",
+      "name": "Alphabet in Formal Languages",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d18f86eb-d414-424a-8630-029732ecfa22",
+      "name": "Run of an NFA",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "name": "Characterization of Strings with Equal #01 and #10",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "85824d5b-504c-4978-b443-ee4208e34847",
+      "name": "Acceptance of Input by DFA",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "name": "Deterministic Finite Automaton (DFA)",
+      "discovery_state": "encountered",
+      "understanding": 0.6489162806,
+      "positive_evidence": 1.2724852134,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": "2026-09-20T02:41:31.123276"
+    },
+    {
+      "concept_id": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+      "name": "Pumping Lemma for Regular Languages",
+      "discovery_state": "unseen",
+      "understanding": 0.5661600499,
+      "positive_evidence": 0.4574962489,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": "2026-09-20T02:41:31.123276"
+    },
+    {
+      "concept_id": "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+      "name": "Palindrome",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f77a35b7-e306-4bb1-862c-bf3f0d580b6e",
+      "name": "DFA Accepts Infinite Language If Loop Exists",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0f618724-e08a-45da-8921-f84371479ee3",
+      "name": "Existence of Decisive NFA for Regular Languages",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d4d7048f-49a1-45a0-b84b-1b43d6f23302",
+      "name": "Regular Language Because It Matches First and Last Bit Equality",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+      "name": "Language recognized by a DFA",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2b5bad4e-670a-40d5-b6dd-c103d5f5bc88",
+      "name": "Independently and identically distributed (i.i.d.) sample",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bb837f95-545a-453b-adf3-0b1e38d97c38",
+      "name": "Existence of Decisive DFA for Regular Languages",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "name": "Regular Language",
+      "discovery_state": "encountered",
+      "understanding": 0.6378986585,
+      "positive_evidence": 1.142486724,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": "2026-09-20T02:41:31.123276"
+    },
+    {
+      "concept_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "name": "Myhill-Nerode Theorem application for lower bound on DFA states",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9fe41000-1225-436e-903e-cc0040d0b2b3",
+      "name": "Finite Language Size Upper Bound for DFA",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b30001f8-8fe0-4d53-ac5e-422ccac59386",
+      "name": "Language L\u2193 construction",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+      "name": "Decisive Nondeterministic Finite Automaton",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "16ffe22f-f150-44aa-b8e4-1faad287ea7a",
+      "name": "Language of Strings Whose First and Last Bit are Equal",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "name": "Regular Languages Closed Under Insertion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+      "name": "Language L defined by balancing substrings 01 and 10",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "name": "Nondeterministic Finite Automaton",
+      "discovery_state": "unseen",
+      "understanding": 0.5701998716,
+      "positive_evidence": 0.4899943045,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": "2026-09-20T02:41:31.123276"
+    },
+    {
+      "concept_id": "52b0842b-ab88-40f3-a69b-deb7f4ad9133",
+      "name": "Distinguishability of prefixes in L\u2193",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+      "name": "Language Regularity Closure Under Insertion at Positions",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b30f0dee-73c2-48f8-a4b9-ff8ba8e1380a",
+      "name": "Construction of NFA for L\u2193",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "580d7939-a4c0-40d2-a38c-07c401b8633d",
+      "name": "Moment integrability condition",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1bfaf617-474b-41fc-92a6-879df8f4c683",
+      "name": "Empty Language",
+      "discovery_state": "unseen",
+      "understanding": 0.5535710364,
+      "positive_evidence": 0.3599970483,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:41:31.123276",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "793c2134-9857-4073-bb26-35bd82d1fbbf",
+      "name": "Basic Regular Language",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+      "name": "Computation of a DFA",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    }
+  ]
+}

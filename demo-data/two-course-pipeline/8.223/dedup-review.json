@@ -1,0 +1,70 @@
+{
+  "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+  "clusters_merged": 3,
+  "clusters": [
+    {
+      "survivor": "085699dc-1387-441b-87ae-78f0951e3757",
+      "survivor_name": "Euler-Lagrange Equation",
+      "merged": [
+        {
+          "id": "e8eb597d-6956-48a8-87f4-7bad2926d9be",
+          "name": "Equations of Motion (EoM)"
+        }
+      ]
+    },
+    {
+      "survivor": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "survivor_name": "Lagrangian Formalism",
+      "merged": [
+        {
+          "id": "3ea8d2f7-6fe2-4eed-8ff0-f9e31ea31aef",
+          "name": "Lagrangian Function"
+        },
+        {
+          "id": "80cffe8d-e220-41da-a774-c5de00c64c7c",
+          "name": "Lagrangian"
+        }
+      ]
+    },
+    {
+      "survivor": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "survivor_name": "Normal Mode",
+      "merged": [
+        {
+          "id": "2686abc6-6f00-4743-967f-d727bfe05f97",
+          "name": "Normal Modes of Coupled Oscillators"
+        }
+      ]
+    }
+  ],
+  "approved_survivors": [
+    "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba"
+  ],
+  "deferred_clusters": [
+    {
+      "survivor": "085699dc-1387-441b-87ae-78f0951e3757",
+      "survivor_name": "Euler-Lagrange Equation",
+      "merged": [
+        {
+          "id": "e8eb597d-6956-48a8-87f4-7bad2926d9be",
+          "name": "Equations of Motion (EoM)"
+        }
+      ]
+    },
+    {
+      "survivor": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "survivor_name": "Lagrangian Formalism",
+      "merged": [
+        {
+          "id": "3ea8d2f7-6fe2-4eed-8ff0-f9e31ea31aef",
+          "name": "Lagrangian Function"
+        },
+        {
+          "id": "80cffe8d-e220-41da-a774-c5de00c64c7c",
+          "name": "Lagrangian"
+        }
+      ]
+    }
+  ],
+  "review_note": "Deferred broad or context-dependent aliases: induction in different settings, general versus polynomial reductions, accepting runs in different automata, general equations of motion versus Euler-Lagrange, and Lagrangian formalism versus the Lagrangian function. Numbered theorem and symbolic-label collisions are excluded by code."
+}

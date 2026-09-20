@@ -1,0 +1,427 @@
+{
+  "events": [
+    {
+      "id": "8530498a-426c-40b1-a286-4560814332da",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:43:05.301945"
+    },
+    {
+      "id": "d0e53631-4f7c-413a-aac0-0a8cce1ffc58",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "18241402-0a9c-4901-a346-6d40e8986775",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:43:05.300265"
+    },
+    {
+      "id": "efca6e38-5552-45a4-b68c-aa8fa95b7c21",
+      "event": "UNDERSTANDING_GAIN",
+      "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": 0.0167895485,
+      "explanation": "Recomputed from 4 scored evidence events; understanding 0.632 \u2192 0.649.",
+      "created_at": "2026-09-20T02:43:05.276454"
+    },
+    {
+      "id": "9b860781-fb00-4d77-94ff-50c73846deaf",
+      "event": "UNDERSTANDING_GAIN",
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": 0.0166288355,
+      "explanation": "Recomputed from 1 scored evidence events; understanding 0.554 \u2192 0.570.",
+      "created_at": "2026-09-20T02:43:05.273877"
+    },
+    {
+      "id": "498e72fb-fc5d-49f0-bb44-c7bbf373a432",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:43:05.273581"
+    },
+    {
+      "id": "314097ad-2ec4-4ff7-97f4-ec198d770654",
+      "event": "UNDERSTANDING_GAIN",
+      "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": 0.041125105,
+      "explanation": "Recomputed from 3 scored evidence events; understanding 0.597 \u2192 0.638.",
+      "created_at": "2026-09-20T02:43:05.256420"
+    },
+    {
+      "id": "020eb46a-35a0-47fe-b319-0fda3bd94f24",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.575768"
+    },
+    {
+      "id": "b92a5291-d663-421c-8086-fc0a02fb7095",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "793c2134-9857-4073-bb26-35bd82d1fbbf",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.575169"
+    },
+    {
+      "id": "4ab59e1b-8643-44d7-977d-2e7311a4eade",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "1bfaf617-474b-41fc-92a6-879df8f4c683",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.574642"
+    },
+    {
+      "id": "4285c551-221f-404d-84bd-9c2b71f53678",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "580d7939-a4c0-40d2-a38c-07c401b8633d",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.574132"
+    },
+    {
+      "id": "829e91a4-c2a9-4ad0-9d03-9b73a0d1455e",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "b30f0dee-73c2-48f8-a4b9-ff8ba8e1380a",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.573623"
+    },
+    {
+      "id": "0bf43902-2232-438d-9b53-21d51d85cdf2",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.573089"
+    },
+    {
+      "id": "2f3d2a7f-f8bc-4ff0-ae08-f18ffb106f59",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "52b0842b-ab88-40f3-a69b-deb7f4ad9133",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.572580"
+    },
+    {
+      "id": "f64faf71-d8bb-4014-aa59-089549c99003",
+      "event": "UNDERSTANDING_GAIN",
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": 0.02076661,
+      "explanation": "Recomputed from 1 scored evidence events; understanding 0.500 \u2192 0.521.",
+      "created_at": "2026-09-20T02:42:37.572037"
+    },
+    {
+      "id": "6e35ce9c-21b9-4561-9e8a-4724f508e645",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.571841"
+    },
+    {
+      "id": "19513cd6-b608-427d-a114-d62ee6e7ebc9",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.571258"
+    },
+    {
+      "id": "6f62f1d9-05c9-4be3-a746-7ac3907c8f66",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.570696"
+    },
+    {
+      "id": "e1622d1f-8e62-4008-aa9d-bfc082f6eca0",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.570145"
+    },
+    {
+      "id": "dfc1603a-39e6-4c41-991f-36db35f5318b",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "16ffe22f-f150-44aa-b8e4-1faad287ea7a",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.569622"
+    },
+    {
+      "id": "4ffad071-5386-410f-827a-f065a44426a1",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.569084"
+    },
+    {
+      "id": "dad04223-16c6-42a6-a5cb-5de3c8553664",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "b30001f8-8fe0-4d53-ac5e-422ccac59386",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.568473"
+    },
+    {
+      "id": "4cafe8fc-115a-4c6f-9399-19ed67da5463",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "9fe41000-1225-436e-903e-cc0040d0b2b3",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.567929"
+    },
+    {
+      "id": "ca424a8c-2ea9-4703-a706-fa8d894c411e",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.567345"
+    },
+    {
+      "id": "f5c84b9c-82d4-4a0c-ae46-61ea5839d0a6",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.566774"
+    },
+    {
+      "id": "7cd1e2ce-5cc9-4250-9a06-dd05ca1da997",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "bb837f95-545a-453b-adf3-0b1e38d97c38",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.566212"
+    },
+    {
+      "id": "4662ded4-04de-40eb-80b4-74a9ff017b27",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "2b5bad4e-670a-40d5-b6dd-c103d5f5bc88",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.565668"
+    },
+    {
+      "id": "7d4b67cc-3fa9-427c-bd93-ff7fa153aeab",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.565012"
+    },
+    {
+      "id": "f4fe2556-81ac-4b6a-84aa-712883fc0b4b",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "d4d7048f-49a1-45a0-b84b-1b43d6f23302",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.564452"
+    },
+    {
+      "id": "9179e7de-3b64-47b0-bf06-dd97623db71b",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "0f618724-e08a-45da-8921-f84371479ee3",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.563935"
+    },
+    {
+      "id": "f384442f-97f8-4e3b-88e3-9246e0d64602",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "f77a35b7-e306-4bb1-862c-bf3f0d580b6e",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.563395"
+    },
+    {
+      "id": "b88ef4fd-4eba-4cd8-9055-c9d4716c7c75",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.562892"
+    },
+    {
+      "id": "c70f5881-1334-41c3-a4dc-600b41e411b3",
+      "event": "UNDERSTANDING_GAIN",
+      "concept_id": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": 0.0661600499,
+      "explanation": "Recomputed from 1 scored evidence events; understanding 0.500 \u2192 0.566.",
+      "created_at": "2026-09-20T02:42:37.562363"
+    },
+    {
+      "id": "a136769e-84dc-442f-b76a-b98ea6eaee93",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.562178"
+    },
+    {
+      "id": "a6278955-4806-4591-9226-d3ec87edbe7e",
+      "event": "UNDERSTANDING_GAIN",
+      "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": 0.1321267321,
+      "explanation": "Recomputed from 3 scored evidence events; understanding 0.500 \u2192 0.632.",
+      "created_at": "2026-09-20T02:42:37.561652"
+    },
+    {
+      "id": "a9b6deca-dd29-4989-a752-32886541213d",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.561451"
+    },
+    {
+      "id": "1ddefaeb-22ac-424d-a776-c202765424fe",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "85824d5b-504c-4978-b443-ee4208e34847",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.560932"
+    },
+    {
+      "id": "680208e3-9010-4113-9a2a-5fc600a883cd",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.560324"
+    },
+    {
+      "id": "c5687e8f-bf52-4489-a957-604c6faf0151",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "d18f86eb-d414-424a-8630-029732ecfa22",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.559691"
+    },
+    {
+      "id": "ac528c7f-6dde-4368-88a0-c2c9e308f777",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "6cdce0e6-3f16-4cf9-ba04-c5f1474cca3b",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.559012"
+    },
+    {
+      "id": "2bc5a838-5a08-4e45-99a2-449146e2cad5",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "1f26a96a-4c26-4f36-8cd3-a807aefd2362",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.558317"
+    },
+    {
+      "id": "68335cd9-91a9-4585-8dbe-b808c7ec5eb1",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "63a3d522-6d48-4012-949c-fc155bbd18f0",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.557732"
+    },
+    {
+      "id": "7f179fe6-03ce-4d89-8670-8da76d6e42dd",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.557205"
+    },
+    {
+      "id": "5338e2f1-e335-459d-9318-a0f6c85ea737",
+      "event": "FRONTIER_EXPANDED",
+      "concept_id": "060b38e0-222b-4a6a-a1d6-e93501d548b5",
+      "resource_id": null,
+      "delta": null,
+      "explanation": "Adjacent prerequisite structure exposed this frontier.",
+      "created_at": "2026-09-20T02:42:37.556677"
+    },
+    {
+      "id": "469597f3-bd53-45ce-8cf3-e6dbc5a329e9",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "18241402-0a9c-4901-a346-6d40e8986775",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.556099"
+    },
+    {
+      "id": "098364a2-0b27-4638-94df-ede5eb625a93",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "d74309df-cceb-401e-9cbb-8496b71a22d8",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.555492"
+    },
+    {
+      "id": "9b0de4c6-4b69-4fe4-ad9c-0496589b9003",
+      "event": "CONCEPT_DISCOVERED",
+      "concept_id": "c46aa1b9-20ee-4c50-96ba-364a650e29cb",
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Source evidence introduced this concept.",
+      "created_at": "2026-09-20T02:42:37.554592"
+    },
+    {
+      "id": "1bb4e7c4-32c7-431a-8705-4799809f2638",
+      "event": "RESOURCE_ADDED",
+      "concept_id": null,
+      "resource_id": "fa027a2d-f782-4461-8618-24753599c169",
+      "delta": null,
+      "explanation": "Ingested handwritten_work from student_self.",
+      "created_at": "2026-09-20T02:42:37.541145"
+    }
+  ]
+}

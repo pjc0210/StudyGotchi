@@ -1,0 +1,186 @@
+{
+  "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+  "clusters_merged": 16,
+  "clusters": [
+    {
+      "survivor": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "survivor_name": "Deterministic Finite Automaton (DFA)",
+      "merged": [
+        {
+          "id": "50bbfe50-2501-4de2-af93-15919f5851e0",
+          "name": "Deterministic Finite Automata (DFA)"
+        }
+      ]
+    },
+    {
+      "survivor": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "survivor_name": "Regular Language",
+      "merged": [
+        {
+          "id": "163769db-6796-4bad-9a9f-f6183f6e7603",
+          "name": "Regular Languages"
+        }
+      ]
+    },
+    {
+      "survivor": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+      "survivor_name": "Context Free Language",
+      "merged": [
+        {
+          "id": "6ddc236a-c7d9-42f8-947d-27c312c78c10",
+          "name": "Context Free Languages"
+        }
+      ]
+    },
+    {
+      "survivor": "501530ba-29f2-41a4-acd6-0b7ec11e0013",
+      "survivor_name": "Recursive Languages (R) Characterization",
+      "merged": [
+        {
+          "id": "bc1680fb-b727-497e-a899-327a962edd97",
+          "name": "Decidable Languages"
+        },
+        {
+          "id": "0a2c9e09-2146-494a-babb-00a90bf1d226",
+          "name": "Decidability of a Language"
+        },
+        {
+          "id": "89c7e6ab-ee9d-4caa-838f-9196ad50df19",
+          "name": "Class R"
+        },
+        {
+          "id": "9e9795ef-e272-47d7-843a-39235d406efd",
+          "name": "Decidable Language"
+        }
+      ]
+    },
+    {
+      "survivor": "5d8f3384-a8d1-4184-9e50-b7d085adb0ea",
+      "survivor_name": "Class RE (Recursively Enumerable Languages)",
+      "merged": [
+        {
+          "id": "2998399d-bdf1-4d27-a1da-15a6887454d1",
+          "name": "Recursively Enumerable Language"
+        }
+      ]
+    },
+    {
+      "survivor": "76f51eab-6e76-48c1-97cc-c026b10eb597",
+      "survivor_name": "Turing Machine Halting Problem",
+      "merged": [
+        {
+          "id": "f5592118-27d3-47bc-a9d6-c5cd4eb7e7e0",
+          "name": "Halting Problem"
+        },
+        {
+          "id": "8e2848fa-138d-48b8-80a8-b95052869bf9",
+          "name": "HTM"
+        }
+      ]
+    },
+    {
+      "survivor": "a953226a-f52b-48cd-920b-a9be97ca0d59",
+      "survivor_name": "Acceptance Problem for Turing Machines (ATM)",
+      "merged": [
+        {
+          "id": "c19000d5-d574-470f-96f4-9f1e7f8c64a8",
+          "name": "ATM"
+        }
+      ]
+    },
+    {
+      "survivor": "142e1535-7838-4cb8-ad83-11fa797d6e80",
+      "survivor_name": "Time Hierarchy Theorem",
+      "merged": [
+        {
+          "id": "2661bb5e-f17c-4335-97c3-7456933eeffa",
+          "name": "Strict Containment of Deterministic Time Classes"
+        }
+      ]
+    },
+    {
+      "survivor": "e4de23e5-95ce-4a3a-b808-6100e387c2c0",
+      "survivor_name": "Computational Problem in P",
+      "merged": [
+        {
+          "id": "65b295eb-f912-4977-9932-081456f20c9c",
+          "name": "Class P"
+        },
+        {
+          "id": "6f018e3e-14c0-4bb8-8931-d8dc629247b5",
+          "name": "Polynomial-Time Complexity Class P"
+        }
+      ]
+    },
+    {
+      "survivor": "0e68058c-0056-4286-963d-405d0e55d593",
+      "survivor_name": "Greatest Common Divisor (GCD) Calculation Procedure",
+      "merged": [
+        {
+          "id": "d079fc0a-3b22-4d68-944b-29657e768c54",
+          "name": "Euclid's Algorithm for gcd"
+        }
+      ]
+    },
+    {
+      "survivor": "31e1f062-0401-4a99-a734-f2c74771037b",
+      "survivor_name": "Satisfiability of 3CNF Formula (3SAT)",
+      "merged": [
+        {
+          "id": "3639d9ed-12c6-4829-a72c-4b9b5d69244f",
+          "name": "Class 3SAT"
+        }
+      ]
+    },
+    {
+      "survivor": "d9947112-48b8-49c7-ab11-e4f47b64ab11",
+      "survivor_name": "Independent Set",
+      "merged": [
+        {
+          "id": "65aa4101-4e26-4375-a603-130f4357a45f",
+          "name": "Independent Set Language (IS)"
+        }
+      ]
+    },
+    {
+      "survivor": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "survivor_name": "Nondeterministic Finite Automaton",
+      "merged": [
+        {
+          "id": "34326516-7389-4c67-8758-0d5e3a223b96",
+          "name": "Nondeterministic Finite Automaton (NFA)"
+        }
+      ]
+    },
+    {
+      "survivor": "a2cb7eb4-10e7-4563-a96b-fab06e922875",
+      "survivor_name": "Derivation Tree",
+      "merged": [
+        {
+          "id": "90d0cb04-1319-4dcb-8970-3e651ff46d09",
+          "name": "Parsing Tree for Context Free Grammars"
+        }
+      ]
+    },
+    {
+      "survivor": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+      "survivor_name": "Pumping Lemma for Context Free Languages",
+      "merged": [
+        {
+          "id": "71e52147-0cea-46d8-b2f9-566f2956afa1",
+          "name": "Context-Free Language Pumping Lemma"
+        }
+      ]
+    },
+    {
+      "survivor": "e84a44de-c646-4513-9390-afcb36f97d59",
+      "survivor_name": "Pushdown Automaton",
+      "merged": [
+        {
+          "id": "1beb08b9-3650-40fc-be4c-f8c6ddb7cc08",
+          "name": "Pushdown Automaton (PDA)"
+        }
+      ]
+    }
+  ]
+}

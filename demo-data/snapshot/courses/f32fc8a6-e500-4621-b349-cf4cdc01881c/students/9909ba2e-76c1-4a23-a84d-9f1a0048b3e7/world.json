@@ -1,0 +1,113 @@
+{
+  "course_id": "f32fc8a6-e500-4621-b349-cf4cdc01881c",
+  "edges": [
+    {
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "source": "0adf7708-3a66-4769-911b-c3bcbaf8e23a",
+      "target": "dc266ac7-0069-43e7-8416-314034e0300a"
+    },
+    {
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "source": "46629bed-a1f1-4a18-bd91-76a92213c0df",
+      "target": "0adf7708-3a66-4769-911b-c3bcbaf8e23a"
+    },
+    {
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "source": "dc266ac7-0069-43e7-8416-314034e0300a",
+      "target": "d132b178-1ffe-40d6-8154-9d647ffc94a6"
+    },
+    {
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "source": "ea49620a-bd7f-455f-bdae-8f4af3f9e153",
+      "target": "46629bed-a1f1-4a18-bd91-76a92213c0df"
+    }
+  ],
+  "hidden_concept_count": 0,
+  "regions": [
+    {
+      "cluster": "Kernel Regression",
+      "cluster_id": "d132b178-1ffe-40d6-8154-9d647ffc94a6",
+      "concept_id": "0adf7708-3a66-4769-911b-c3bcbaf8e23a",
+      "creature_state": "normal",
+      "fog": 0.388647182418278,
+      "fragility": 0.2753901362384668,
+      "name": "Mercer's Theorem",
+      "readiness": 0.46717111160553826,
+      "semantic_state": "exposed",
+      "stability": 0.222705635163444,
+      "terrain_area": 0.85,
+      "terrain_height": 0.4856195585617959,
+      "vegetation": 0.5654536594664535
+    },
+    {
+      "cluster": "Positive Semidefinite Matrices",
+      "cluster_id": "46629bed-a1f1-4a18-bd91-76a92213c0df",
+      "concept_id": "46629bed-a1f1-4a18-bd91-76a92213c0df",
+      "creature_state": "normal",
+      "fog": 0.24873982222887958,
+      "fragility": 0.16083423343884082,
+      "name": "Positive Semidefinite Matrices",
+      "readiness": 0.501359620466462,
+      "semantic_state": "developing",
+      "stability": 0.5025203555422408,
+      "terrain_area": 0.6511937918513966,
+      "terrain_height": 0.4329097101153454,
+      "vegetation": 0.4042703520973303
+    },
+    {
+      "cluster": "Kernel Regression",
+      "cluster_id": "d132b178-1ffe-40d6-8154-9d647ffc94a6",
+      "concept_id": "d132b178-1ffe-40d6-8154-9d647ffc94a6",
+      "creature_state": "normal",
+      "fog": 0.23491320012570815,
+      "fragility": 0.29347422789182237,
+      "name": "Kernel Regression",
+      "readiness": 0.5783925405160296,
+      "semantic_state": "developing",
+      "stability": 0.5301735997485837,
+      "terrain_area": 0.9,
+      "terrain_height": 0.6103017499850018,
+      "vegetation": 0.5615251450193521
+    },
+    {
+      "cluster": "Kernel Regression",
+      "cluster_id": "d132b178-1ffe-40d6-8154-9d647ffc94a6",
+      "concept_id": "dc266ac7-0069-43e7-8416-314034e0300a",
+      "creature_state": "normal",
+      "fog": 0.40154146838318544,
+      "fragility": 0.26703164570323934,
+      "name": "Kernel Functions",
+      "readiness": 0.5074030225445029,
+      "semantic_state": "uncertain",
+      "stability": 0.19691706323362912,
+      "terrain_area": 0.6257435893401481,
+      "terrain_height": 0.5191325800736528,
+      "vegetation": 0.25329507902483855
+    },
+    {
+      "cluster": "Positive Semidefinite Matrices",
+      "cluster_id": "46629bed-a1f1-4a18-bd91-76a92213c0df",
+      "concept_id": "ea49620a-bd7f-455f-bdae-8f4af3f9e153",
+      "creature_state": "normal",
+      "fog": 0.2639754917181885,
+      "fragility": 0.0,
+      "name": "Linear Algebra",
+      "readiness": 0.6284808825471071,
+      "semantic_state": "developing",
+      "stability": 0.47204901656362297,
+      "terrain_area": 0.5248202542166761,
+      "terrain_height": 0.6284808825471071,
+      "vegetation": 0.20066240164659924
+    }
+  ],
+  "student_id": "9909ba2e-76c1-4a23-a84d-9f1a0048b3e7",
+  "world_version": "982c11732f28fb38"
+}

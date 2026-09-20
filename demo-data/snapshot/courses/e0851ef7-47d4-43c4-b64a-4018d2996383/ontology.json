@@ -1,0 +1,430 @@
+{
+  "concepts": [
+    {
+      "canonical_name": "Alphabet in Automata Theory",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "a3521afe-ad10-4d7e-b374-b4f768d32bab",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "A finite set of symbols from which input strings are formed for deterministic finite automata."
+    },
+    {
+      "canonical_name": "Complexity Classes P and NP",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "87ad41ba-bcfe-4e7b-9694-acb40797e9c7",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "Computational complexity classes defined to capture efficient computation and nondeterministic polynomial-time problems."
+    },
+    {
+      "canonical_name": "Complexity Theory",
+      "concept_kind": "topic_cluster",
+      "granularity": "cluster",
+      "id": "06c39301-ae43-4a86-85c0-933558fb6da5",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "The study of efficiency measures of Turing machines and what efficient algorithms can compute."
+    },
+    {
+      "canonical_name": "Computability",
+      "concept_kind": "principle",
+      "granularity": "core",
+      "id": "9ae04998-a200-41ac-8319-187a5f050eff",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "The notion of whether a problem can be computed by a computational model like a Turing machine."
+    },
+    {
+      "canonical_name": "Computation Problem as a Language",
+      "concept_kind": "principle",
+      "granularity": "core",
+      "id": "811c67df-5856-4b21-9d96-5f7013d72577",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "Viewing a language as a computational problem where inputs are strings and the goal is to decide membership in the language, e.g., determining if a binary input string has an even number of 1's."
+    },
+    {
+      "canonical_name": "Constructing a DFA for a Given Language",
+      "concept_kind": "skill",
+      "granularity": "core",
+      "id": "f3784514-a020-4920-8467-e4bb25c506f6",
+      "importance": 0.75,
+      "scope": "course",
+      "short_definition": "The process of defining a DFA that accepts exactly the strings in a given language L."
+    },
+    {
+      "canonical_name": "Context Free Languages",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "599c3fdf-85ee-4702-aaf0-eadaf1d930d6",
+      "importance": 0.3,
+      "scope": "course",
+      "short_definition": "A class of languages with interesting additional applications, to be discussed later in the course."
+    },
+    {
+      "canonical_name": "Decidable Languages",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "aabd1d3a-8d53-4543-89a6-ff176c395006",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "The class of languages that can be computed by a Turing machine."
+    },
+    {
+      "canonical_name": "Deterministic Finite Automata",
+      "concept_kind": "model",
+      "granularity": "core",
+      "id": "f6a58b93-c148-47b5-9b44-61839347dcfd",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "The most basic computational model that recognizes regular languages."
+    },
+    {
+      "canonical_name": "Deterministic Finite Automaton",
+      "concept_kind": "model",
+      "granularity": "core",
+      "id": "c400b37a-e106-4292-be8d-5bb2fd46abfa",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "A computation model defined by a finite set of states and a transition function on an alphabet, which accepts an input string if the computation ends in an accepting state."
+    },
+    {
+      "canonical_name": "DFA Computation Process",
+      "concept_kind": "procedure",
+      "granularity": "core",
+      "id": "1c6189ee-f358-487b-af70-6b972f0cb4d4",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "The stepwise procedure by which a DFA reads each symbol of an input string, updates its state according to the transition function, and eventually accepts or rejects the string based on the final state."
+    },
+    {
+      "canonical_name": "DFA for Odd Number of 1's",
+      "concept_kind": "model",
+      "granularity": "atomic",
+      "id": "a22f125f-90e5-4902-9b4e-142c4d7bfcb3",
+      "importance": 0.6,
+      "scope": "course",
+      "short_definition": "A DFA accepting the language of all strings over {0,1} having an odd number of 1's."
+    },
+    {
+      "canonical_name": "DFA for Strings Containing Substring 'abc'",
+      "concept_kind": "model",
+      "granularity": "atomic",
+      "id": "5271c563-1810-43a4-aff1-7e60cff36fad",
+      "importance": 0.6,
+      "scope": "course",
+      "short_definition": "A DFA accepting strings over {a,b,c} that contain the substring \"abc\"."
+    },
+    {
+      "canonical_name": "Empty Language",
+      "concept_kind": "definition",
+      "granularity": "atomic",
+      "id": "9385b10c-d6ae-485d-967c-3a8dccf4f6fa",
+      "importance": 0.7,
+      "scope": "course",
+      "short_definition": "A language that contains no strings; symbolically \u2205."
+    },
+    {
+      "canonical_name": "Empty String",
+      "concept_kind": "definition",
+      "granularity": "atomic",
+      "id": "1d429db7-7d4f-4407-8a0c-db7c2591cdb3",
+      "importance": 0.5,
+      "scope": "course",
+      "short_definition": "A string of length zero, denoted by \u03b5, containing no elements."
+    },
+    {
+      "canonical_name": "Example Language L(M2)",
+      "concept_kind": "application",
+      "granularity": "atomic",
+      "id": "d1b392de-e361-4265-9adc-35503d62b8e8",
+      "importance": 0.5,
+      "scope": "course",
+      "short_definition": "The language recognized by the example DFA M2 that consists of all binary strings whose first symbol is 1."
+    },
+    {
+      "canonical_name": "Formal Proof of Language Recognition",
+      "concept_kind": "method",
+      "granularity": "core",
+      "id": "a1b810b8-5909-43ec-8cb3-e8670b512f1c",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "A rigorous argument establishing the precise set of strings accepted by a DFA, beyond informal or semi-formal reasoning."
+    },
+    {
+      "canonical_name": "Inductive Proof for Membership of Strings in DFA Language",
+      "concept_kind": "method",
+      "granularity": "core",
+      "id": "fe833baf-c18a-4b97-9634-e66514876423",
+      "importance": 0.7,
+      "scope": "course",
+      "short_definition": "A proof technique using induction on the length of strings to determine which state in a DFA the string leads to."
+    },
+    {
+      "canonical_name": "Language Accepted by a DFA",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "be819748-c8cc-453c-a1c6-a8b5196010c7",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "For each state q in a DFA M, Lq is the set of strings that cause the DFA to reach q from the initial state q0."
+    },
+    {
+      "canonical_name": "Language of a DFA",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "11c212d3-b38b-49cb-8c11-8fd63e2cb433",
+      "importance": 1.0,
+      "scope": "course",
+      "short_definition": "The language accepted by a DFA is the set of all input strings over its alphabet that lead the automaton to an accepting state when processed."
+    },
+    {
+      "canonical_name": "Language over an Alphabet",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "24bda6c3-659c-4940-98de-85ce6c67fba9",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "A subset of the set of all strings (\u03a3*) over an alphabet \u03a3, representing a collection of strings recognized or defined by an automaton."
+    },
+    {
+      "canonical_name": "NP-Completeness",
+      "concept_kind": "theorem",
+      "granularity": "core",
+      "id": "3c5d01e9-7041-47c6-801c-cb5fbc37ff0f",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "Theory involving the classification of computational problems that are both in NP and as hard as any problem in NP."
+    },
+    {
+      "canonical_name": "Regular Language",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "c5699af1-15fc-412f-8f1b-5854e9d7940e",
+      "importance": 1.0,
+      "scope": "course",
+      "short_definition": "A language L over an alphabet \u03a3 is regular if there exists a deterministic finite automaton M such that L is exactly the language accepted by M."
+    },
+    {
+      "canonical_name": "Regular Languages",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "502d5a09-e826-4d71-8441-2f3f8cb27c68",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "The class of problems/computations recognized by Deterministic Finite Automata (DFA)."
+    },
+    {
+      "canonical_name": "String over an Alphabet",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "a6483073-1f00-430b-8ae6-33454c89fcfc",
+      "importance": 0.85,
+      "scope": "course",
+      "short_definition": "A finite ordered sequence of elements from a given alphabet."
+    },
+    {
+      "canonical_name": "Traveling Salesman Problem",
+      "concept_kind": "application",
+      "granularity": "core",
+      "id": "612c79ce-8648-4ad0-8918-8f86290fad97",
+      "importance": 0.7,
+      "scope": "course",
+      "short_definition": "A computational problem that seeks the cheapest tour visiting all cities in a weighted graph."
+    },
+    {
+      "canonical_name": "Turing Machine",
+      "concept_kind": "model",
+      "granularity": "core",
+      "id": "a4de3a18-96cf-4ea2-838f-99f545d347f6",
+      "importance": 1.0,
+      "scope": "course",
+      "short_definition": "A fundamental computational model that captures anything computable by modern computers, used to study decidable languages."
+    }
+  ],
+  "course_id": "e0851ef7-47d4-43c4-b64a-4018d2996383",
+  "edges": [
+    {
+      "authority_weight": 1.0,
+      "confidence": 0.6,
+      "edge_type": "EXAMPLE_OF",
+      "id": "24ef03e0-0a3b-4bce-bc6b-abbce8fc17b6",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "d1b392de-e361-4265-9adc-35503d62b8e8",
+      "status": "active",
+      "target_concept_id": "11c212d3-b38b-49cb-8c11-8fd63e2cb433"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "360bc6f4-09b8-4475-86ff-633d3c8e424d",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "c400b37a-e106-4292-be8d-5bb2fd46abfa",
+      "status": "active",
+      "target_concept_id": "11c212d3-b38b-49cb-8c11-8fd63e2cb433"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "3d4b15c3-b158-4ba6-82ba-e7ba96dd26f0",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "fe833baf-c18a-4b97-9634-e66514876423",
+      "status": "active",
+      "target_concept_id": "be819748-c8cc-453c-a1c6-a8b5196010c7"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "5f9171c0-9963-4e9e-a385-1a5c9691912e",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "a4de3a18-96cf-4ea2-838f-99f545d347f6",
+      "status": "active",
+      "target_concept_id": "aabd1d3a-8d53-4543-89a6-ff176c395006"
+    },
+    {
+      "authority_weight": 1.0,
+      "confidence": 0.6,
+      "edge_type": "APPLICATION_OF",
+      "id": "74f2319c-5659-4b4f-b5c7-d6026bef1011",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "612c79ce-8648-4ad0-8918-8f86290fad97",
+      "status": "active",
+      "target_concept_id": "3c5d01e9-7041-47c6-801c-cb5fbc37ff0f"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "7616c8b2-cbef-4245-81a3-531aa48fbc49",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "1c6189ee-f358-487b-af70-6b972f0cb4d4",
+      "status": "active",
+      "target_concept_id": "11c212d3-b38b-49cb-8c11-8fd63e2cb433"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "8a3b9ace-ad18-4493-ae9a-fc16f462e2d7",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "a4de3a18-96cf-4ea2-838f-99f545d347f6",
+      "status": "active",
+      "target_concept_id": "9ae04998-a200-41ac-8319-187a5f050eff"
+    },
+    {
+      "authority_weight": 1.0,
+      "confidence": 0.6,
+      "edge_type": "APPLICATION_OF",
+      "id": "90a38826-ee8a-42f1-8de8-4659e1ccd8c1",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "c400b37a-e106-4292-be8d-5bb2fd46abfa",
+      "status": "active",
+      "target_concept_id": "24bda6c3-659c-4940-98de-85ce6c67fba9"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "aaf242e3-e4ce-4cd1-b057-96cde7c97dad",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "06c39301-ae43-4a86-85c0-933558fb6da5",
+      "status": "active",
+      "target_concept_id": "87ad41ba-bcfe-4e7b-9694-acb40797e9c7"
+    },
+    {
+      "authority_weight": 1.0,
+      "confidence": 0.6,
+      "edge_type": "BUILDS_ON",
+      "id": "ab72c8a5-1539-44ab-b545-4d73b90ef59d",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "be819748-c8cc-453c-a1c6-a8b5196010c7",
+      "status": "active",
+      "target_concept_id": "c5699af1-15fc-412f-8f1b-5854e9d7940e"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "b4343466-490a-42b2-a1fc-b951f9c9d6ed",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "87ad41ba-bcfe-4e7b-9694-acb40797e9c7",
+      "status": "active",
+      "target_concept_id": "3c5d01e9-7041-47c6-801c-cb5fbc37ff0f"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "c125119a-8628-4281-b0e9-8e0a85e6402e",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "c400b37a-e106-4292-be8d-5bb2fd46abfa",
+      "status": "active",
+      "target_concept_id": "c5699af1-15fc-412f-8f1b-5854e9d7940e"
+    },
+    {
+      "authority_weight": 1.0,
+      "confidence": 0.6,
+      "edge_type": "RELATED_TO",
+      "id": "c20c1467-fc5e-49f6-a654-64e7c2d15ebd",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "811c67df-5856-4b21-9d96-5f7013d72577",
+      "status": "active",
+      "target_concept_id": "11c212d3-b38b-49cb-8c11-8fd63e2cb433"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "cc6b8522-4478-4c3a-a087-892140b6b523",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "a6483073-1f00-430b-8ae6-33454c89fcfc",
+      "status": "active",
+      "target_concept_id": "24bda6c3-659c-4940-98de-85ce6c67fba9"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "e1fe8572-bc32-42ec-91b6-f5c1e45e412a",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "f6a58b93-c148-47b5-9b44-61839347dcfd",
+      "status": "active",
+      "target_concept_id": "502d5a09-e826-4d71-8441-2f3f8cb27c68"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "ed2ad89c-9597-4e44-8bfc-4dd7d42cb04b",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "be819748-c8cc-453c-a1c6-a8b5196010c7",
+      "status": "active",
+      "target_concept_id": "f3784514-a020-4920-8467-e4bb25c506f6"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "fc98d667-d5c9-4200-b00d-0beddefed124",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "a3521afe-ad10-4d7e-b374-b4f768d32bab",
+      "status": "active",
+      "target_concept_id": "a6483073-1f00-430b-8ae6-33454c89fcfc"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.882,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "ff6819d0-eed4-4518-b63f-3fca5e8cc26c",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "c400b37a-e106-4292-be8d-5bb2fd46abfa",
+      "status": "active",
+      "target_concept_id": "a1b810b8-5909-43ec-8cb3-e8670b512f1c"
+    }
+  ]
+}

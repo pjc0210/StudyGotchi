@@ -1,0 +1,22 @@
+{
+  "course": {
+    "name": "Linear Algebra",
+    "code": "18.06",
+    "term": "Spring 2026"
+  },
+  "resources": [
+    {
+      "path": "18.06.zip",
+      "member": "18.06/spring-2026/exercises/pset1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.06.zip",
+      "member": "18.06/local-coursework/Pset 1 LA.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18060000-0000-4000-8000-000000000001"
+    }
+  ]
+}

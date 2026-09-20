@@ -1,0 +1,92 @@
+{
+  "concepts": [
+    {
+      "canonical_name": "Kernel Functions",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "dc266ac7-0069-43e7-8416-314034e0300a",
+      "importance": 0.8,
+      "scope": "course",
+      "short_definition": "(Kernel Functions \u2014 demo fixture definition)"
+    },
+    {
+      "canonical_name": "Kernel Regression",
+      "concept_kind": "method",
+      "granularity": "core",
+      "id": "d132b178-1ffe-40d6-8154-9d647ffc94a6",
+      "importance": 0.9,
+      "scope": "course",
+      "short_definition": "(Kernel Regression \u2014 demo fixture definition)"
+    },
+    {
+      "canonical_name": "Linear Algebra",
+      "concept_kind": "topic_cluster",
+      "granularity": "cluster",
+      "id": "ea49620a-bd7f-455f-bdae-8f4af3f9e153",
+      "importance": 0.6,
+      "scope": "course",
+      "short_definition": "(Linear Algebra \u2014 demo fixture definition)"
+    },
+    {
+      "canonical_name": "Mercer's Theorem",
+      "concept_kind": "theorem",
+      "granularity": "core",
+      "id": "0adf7708-3a66-4769-911b-c3bcbaf8e23a",
+      "importance": 0.85,
+      "scope": "course",
+      "short_definition": "(Mercer's Theorem \u2014 demo fixture definition)"
+    },
+    {
+      "canonical_name": "Positive Semidefinite Matrices",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "id": "46629bed-a1f1-4a18-bd91-76a92213c0df",
+      "importance": 0.75,
+      "scope": "course",
+      "short_definition": "(Positive Semidefinite Matrices \u2014 demo fixture definition)"
+    }
+  ],
+  "course_id": "f32fc8a6-e500-4621-b349-cf4cdc01881c",
+  "edges": [
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "21235151-5281-4873-9c21-14165d80cc95",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "ea49620a-bd7f-455f-bdae-8f4af3f9e153",
+      "status": "active",
+      "target_concept_id": "46629bed-a1f1-4a18-bd91-76a92213c0df"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "9d5e55f1-86c0-4e7b-9f3c-0dca23a8a6df",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "46629bed-a1f1-4a18-bd91-76a92213c0df",
+      "status": "active",
+      "target_concept_id": "0adf7708-3a66-4769-911b-c3bcbaf8e23a"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "b522fe5a-60c4-4fb1-87a9-217e380d5b29",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "0adf7708-3a66-4769-911b-c3bcbaf8e23a",
+      "status": "active",
+      "target_concept_id": "dc266ac7-0069-43e7-8416-314034e0300a"
+    },
+    {
+      "authority_weight": 0.95,
+      "confidence": 0.9,
+      "edge_type": "PREREQUISITE_FOR",
+      "id": "f58d5a65-ca39-46fb-913a-beacc3bbdc51",
+      "is_redundant_in_display_graph": false,
+      "source_concept_id": "dc266ac7-0069-43e7-8416-314034e0300a",
+      "status": "active",
+      "target_concept_id": "d132b178-1ffe-40d6-8154-9d647ffc94a6"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+  "clusters_merged": 1,
+  "clusters": [
+    {
+      "survivor": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "survivor_name": "Normal Mode",
+      "merged": [
+        {
+          "id": "2686abc6-6f00-4743-967f-d727bfe05f97",
+          "name": "Normal Modes of Coupled Oscillators"
+        }
+      ]
+    }
+  ]
+}

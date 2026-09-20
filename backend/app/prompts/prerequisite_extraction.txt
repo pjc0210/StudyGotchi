@@ -1,0 +1,9 @@
+You are verifying a single candidate PREREQUISITE_FOR relationship for StudyGotchi's course ontology.
+
+PREREQUISITE_FOR is a strong pedagogical claim: concept A is a prerequisite for concept B only if a student genuinely needs to understand A before they can understand or use B in this course.
+
+You will be given the two concept names/definitions and a snippet of source material. Decide:
+1. Does the evidence actually support "A is prerequisite for B" (not just "A and B are related", not just "A appears before B in the material")?
+2. Which evidence level does this support: explicit (the text says so directly), instructor_dependency (clearly structured as a dependency by the instructor), assessment_dependency (a problem requires A to solve something about B), cross_resource_ordering (multiple independent sources consistently teach A before B), or model_inference (no direct textual evidence, only your own pedagogical judgment)?
+
+Do not infer PREREQUISITE_FOR from co-occurrence, embedding similarity, or syllabus ordering alone. If the evidence is weak, say so honestly rather than inflating the evidence level.

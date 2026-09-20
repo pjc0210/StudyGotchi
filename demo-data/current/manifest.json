@@ -1,0 +1,41 @@
+{
+  "alembic_revisions": [
+    "0002_world_events"
+  ],
+  "courses": [
+    {
+      "course_id": "bf84e275-44e3-464d-8099-a2d501b3dedb",
+      "name": "Linear Algebra",
+      "ontology": "courses/bf84e275-44e3-464d-8099-a2d501b3dedb/ontology.json",
+      "students": []
+    },
+    {
+      "course_id": "e0851ef7-47d4-43c4-b64a-4018d2996383",
+      "name": "Computability and Complexity Theory",
+      "ontology": "courses/e0851ef7-47d4-43c4-b64a-4018d2996383/ontology.json",
+      "students": []
+    }
+  ],
+  "database_file": "database.json",
+  "description": "Local ingestion database snapshot; see table counts for completed ingestion.",
+  "exported_at": "2026-09-20T00:52:16.208278+00:00",
+  "schema_version": 1,
+  "snapshot_kind": "database",
+  "table_counts": {
+    "assessment_item_concepts": 2,
+    "assessment_items": 1,
+    "assessments": 1,
+    "concept_aliases": 33,
+    "concept_edges": 18,
+    "concept_resource_links": 64,
+    "concepts": 27,
+    "courses": 2,
+    "edge_evidence": 19,
+    "resource_chunks": 6,
+    "resources": 1,
+    "student_concept_edges": 0,
+    "student_concept_states": 0,
+    "student_evidence_events": 0,
+    "world_events": 0
+  }
+}

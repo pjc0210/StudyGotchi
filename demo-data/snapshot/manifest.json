@@ -1,0 +1,53 @@
+{
+  "alembic_revisions": [
+    "0002_world_events"
+  ],
+  "courses": [
+    {
+      "course_id": "bf84e275-44e3-464d-8099-a2d501b3dedb",
+      "name": "Linear Algebra",
+      "ontology": "courses/bf84e275-44e3-464d-8099-a2d501b3dedb/ontology.json",
+      "students": []
+    },
+    {
+      "course_id": "e0851ef7-47d4-43c4-b64a-4018d2996383",
+      "name": "Computability and Complexity Theory",
+      "ontology": "courses/e0851ef7-47d4-43c4-b64a-4018d2996383/ontology.json",
+      "students": []
+    },
+    {
+      "course_id": "f32fc8a6-e500-4621-b349-cf4cdc01881c",
+      "name": "Intermediate Machine Learning",
+      "ontology": "courses/f32fc8a6-e500-4621-b349-cf4cdc01881c/ontology.json",
+      "students": [
+        {
+          "knowledge_graph": "courses/f32fc8a6-e500-4621-b349-cf4cdc01881c/students/9909ba2e-76c1-4a23-a84d-9f1a0048b3e7/knowledge-graph.json",
+          "student_id": "9909ba2e-76c1-4a23-a84d-9f1a0048b3e7",
+          "world": "courses/f32fc8a6-e500-4621-b349-cf4cdc01881c/students/9909ba2e-76c1-4a23-a84d-9f1a0048b3e7/world.json"
+        }
+      ]
+    }
+  ],
+  "database_file": "database.json",
+  "description": "Imported course data plus the synthetic CS-4780 student fixture. All CS-4780 grades and student state are synthetic examples, not extracted student performance.",
+  "exported_at": "2026-09-20T00:56:37.720537+00:00",
+  "schema_version": 1,
+  "snapshot_kind": "mixed_demo",
+  "table_counts": {
+    "assessment_item_concepts": 2,
+    "assessment_items": 1,
+    "assessments": 1,
+    "concept_aliases": 38,
+    "concept_edges": 22,
+    "concept_resource_links": 64,
+    "concepts": 32,
+    "courses": 3,
+    "edge_evidence": 19,
+    "resource_chunks": 6,
+    "resources": 1,
+    "student_concept_edges": 0,
+    "student_concept_states": 5,
+    "student_evidence_events": 9,
+    "world_events": 13
+  }
+}

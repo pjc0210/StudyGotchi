@@ -1,0 +1,2867 @@
+{
+  "student_id": "82230000-0000-4000-8000-000000000001",
+  "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+  "world_version": "e95348db3f9a5065",
+  "regions": [
+    {
+      "concept_id": "0335b690-d27a-425f-af32-b8a6b2601d9f",
+      "name": "Euler-Lagrange Equation Derived Frequencies \\(\\omega_p\\) and \\(\\omega_s\\)",
+      "cluster_id": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "cluster": "Energy Conservation in Lagrangian Mechanics",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.6,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+      "name": "Euler-Lagrange Equation",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.7485643783,
+      "terrain_area": 0.9484777645045727,
+      "fog": 0.06286425234835934,
+      "semantic_state": "strong",
+      "creature_state": "evolved"
+    },
+    {
+      "concept_id": "0ab944ce-1cd0-4899-b152-ca69d59d9ee6",
+      "name": "Angular Frequency of Spring-Mass System",
+      "cluster_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "cluster": "Euler-Lagrange Equation for Radial Displacement",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.6,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "0b8722b2-54f6-4b15-a5c3-cc2c8b74083c",
+      "name": "Integration of Acceleration to Obtain Velocity and Position",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "0de9a099-0808-4367-a744-b5db6843f09e",
+      "name": "Euler-Lagrange Equation with Electromagnetic Potential",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.85,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+      "name": "Conserved Energy in Lagrangian Systems",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.5871159877,
+      "terrain_area": 0.4689937846934803,
+      "fog": 0.10322978329140346,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "0fd49a99-4b7f-476f-828e-6f9cd7b5e046",
+      "name": "Kinetic Energy in Polar Coordinates",
+      "cluster_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.6,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d",
+      "name": "Constraint Forces in Rolling Without Slipping",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "1595a327-9415-475e-9c96-36f19e6bf95f",
+      "name": "Potential Energy from Spring Displacement",
+      "cluster_id": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "15a36609-4fde-4d7f-8282-2e6083d11309",
+      "name": "Potential Energy in Gravitational Field on Inclined Plane",
+      "cluster_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1642f502-f226-460d-8c3e-0b619f7b3317",
+      "name": "Potential Energy from Spring Coupling Between Pendulums",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1853b2bf-4039-4ed7-8e80-6c640f169397",
+      "name": "Non-standard Splitting of Energy in Electromagnetic Lagrangian",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "18bbcf17-6f53-4d21-b51a-93ce31585aad",
+      "name": "Conservation of Torque",
+      "cluster_id": "18bbcf17-6f53-4d21-b51a-93ce31585aad",
+      "cluster": "Conservation of Torque",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.6,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "18cd1e56-3175-416a-987f-3c4919a3c465",
+      "name": "Hamiltonian Function with Coupling Term",
+      "cluster_id": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "cluster": "Poisson Bracket Definition",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.9,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+      "name": "Action Functional",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "1a8846b8-10c5-4319-bc3c-ede7229575ef",
+      "name": "Angular Momentum in Two Dimensions",
+      "cluster_id": "547579f9-7a7c-4243-a087-eef28263ce20",
+      "cluster": "Angular Momentum Conservation Criterion",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.9,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1b1dbac8-48f8-491e-97a5-f0e381dd25d5",
+      "name": "Spatial Translational Invariance and Conservation of Momentum",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "1b207606-aec4-46ab-9bd3-82b273969a6d",
+      "name": "Potential Energy on Inclined Plane",
+      "cluster_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "cluster": "Lagrangian for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+      "name": "Hamiltonian Mechanics",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.5791630183,
+      "terrain_area": 0.3776392666363074,
+      "fog": 0.1052181947658798,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1d54b657-2d36-4903-ab9f-0f035d45fbe2",
+      "name": "Symmetry of Second Derivatives",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1fb35d8d-8921-4f3f-8d2e-a0282052886d",
+      "name": "Equations of Motion for Coupled Oscillators",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 1.0,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "1fecf000-d07f-4d59-9996-a568df1b3e17",
+      "name": "Fourth-order differential equations in mechanics",
+      "cluster_id": "2083cc06-0ec6-443d-a3b4-1a17d00f481b",
+      "cluster": "Euler-Lagrange equation for higher derivatives",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "1fff1bcf-ed3a-4e1d-b544-871b6d4ba9df",
+      "name": "Coriolis Force",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.5,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "2223e82d-e0e1-4c10-af26-46a246ea3ffd",
+      "name": "Orbit Equation in Polar Coordinates",
+      "cluster_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "cluster": "Orbital Energy and Conic Sections Relationship",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "name": "Lorentz Force Law",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5780579054,
+      "terrain_area": 0.42592209776958856,
+      "fog": 0.10550360567531203,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "22e498f3-2ba8-4679-b9e9-0c10af834113",
+      "name": "General Solution of Coupled Pendulum Angles",
+      "cluster_id": "22e498f3-2ba8-4679-b9e9-0c10af834113",
+      "cluster": "General Solution of Coupled Pendulum Angles",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.85,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "2527d4f6-5d42-4cc3-931a-d6b1fe333c20",
+      "name": "Equation of Motion for a Particle in Potential",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "2719d7d1-7774-4cbe-a0e8-c823f4c04786",
+      "name": "Potential Energy of a Pendulum",
+      "cluster_id": "2719d7d1-7774-4cbe-a0e8-c823f4c04786",
+      "cluster": "Potential Energy of a Pendulum",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.8,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "28b6983b-9781-4ccd-a493-6faa003a8b81",
+      "name": "Potential Energy of a Spring Mass System in Polar Coordinates",
+      "cluster_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "2b387e0f-9f35-4d8e-9227-b03217e5b66c",
+      "name": "Relation Between Scattering Angle \u03b8 and \u03c9",
+      "cluster_id": "e10bfbc2-a129-4a1d-b7ca-18f35ba48e21",
+      "cluster": "Radial Equation of Motion in Central Force Field",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "2c91aa67-5e11-46e0-91f6-8a33e8052c32",
+      "name": "Lagrangian of Radially Displaced Spring-Pendulum System",
+      "cluster_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "cluster": "Euler-Lagrange Equation for Radial Displacement",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 1.0,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "2f95366b-8a19-4527-9428-5220826149d5",
+      "name": "Conservative System",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "317fe1ea-2df6-47d9-bb05-9426d5f1a474",
+      "name": "Small Angle Approximation for Sine Function",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "321ec39f-dcd4-42b4-8a68-a457ebbd0249",
+      "name": "Action Principle in Classical Mechanics",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "322b3c44-0f56-4391-95e9-fbcaa45ba02d",
+      "name": "Lagrange Equations of Motion for Spring Pendulum",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "32d6edc8-3b83-4aad-91d0-5e96d0f869b7",
+      "name": "Generalized Coordinates in Dynamics",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "33ef7d3e-65a6-4280-af54-e6a6d5cd5639",
+      "name": "Conservation Law from Symmetry",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.8,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "36019b68-0b16-4199-8ea6-f287aabaa260",
+      "name": "Dimensionless Radial Displacement",
+      "cluster_id": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "375f72b9-f90f-4789-8a5a-fbc6c5907a40",
+      "name": "Coupling Frequency Contribution",
+      "cluster_id": "375f72b9-f90f-4789-8a5a-fbc6c5907a40",
+      "cluster": "Coupling Frequency Contribution",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "3b8862d8-2ce3-4b54-ab49-7a35179cb19c",
+      "name": "Centrifugal Force in Rotating Frame",
+      "cluster_id": "3b8862d8-2ce3-4b54-ab49-7a35179cb19c",
+      "cluster": "Centrifugal Force in Rotating Frame",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "name": "Lagrange Multipliers",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.6130013307,
+      "terrain_area": 0.5835472711604615,
+      "fog": 0.0967578970746708,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "417e7904-a9e2-47dc-a9f1-a0ffb1962a73",
+      "name": "Equation of Motion for Translational Coordinate with Constraint Force",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5967727998,
+      "terrain_area": 1.0,
+      "fog": 0.10081797586476901,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "440a0bab-1b7f-4466-9474-615733f741cd",
+      "name": "Energy Function from Lagrangian (Hamiltonian) in Electromagnetic Field",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.85,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "name": "Kinetic Energy Expression in Spring-Pendulum System",
+      "cluster_id": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.8,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "46f19b7b-a02d-4c64-8846-2f1cb8a5eb21",
+      "name": "Nonholonomic Constraints",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.6081489566,
+      "terrain_area": 0.39414989718702775,
+      "fog": 0.0979736213640623,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "name": "Poisson Bracket Definition",
+      "cluster_id": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "cluster": "Poisson Bracket Definition",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.9,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "490d901a-ebdf-4adc-8699-277b7eac6ab6",
+      "name": "Conservation of Angular Momentum in Central Force Motion",
+      "cluster_id": "490d901a-ebdf-4adc-8699-277b7eac6ab6",
+      "cluster": "Conservation of Angular Momentum in Central Force Motion",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.6,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "4a29bb78-6be4-48aa-ac36-f25f2aed4d4e",
+      "name": "Energy Expression for Orbital Motion",
+      "cluster_id": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "cluster": "Equation of Conic Section Orbit",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.9,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "4ad9d823-5d43-4a9f-895b-15c123c9be4c",
+      "name": "Euler-Lagrange Equation for Angular Motion",
+      "cluster_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "cluster": "Euler-Lagrange Equation for Radial Displacement",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "4cd672ef-76c9-444f-aec6-5485eb900cf1",
+      "name": "Hamiltonian Conservation",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "5016d0e3-a037-40d1-8ca2-ff0613fed1ec",
+      "name": "Lagrangian of a Two-Mass Rotating System",
+      "cluster_id": "5016d0e3-a037-40d1-8ca2-ff0613fed1ec",
+      "cluster": "Lagrangian of a Two-Mass Rotating System",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 1.0,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+      "name": "Equations of Motion from Lagrangian",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "533ac192-4478-4039-bd6f-d26f903716cb",
+      "name": "Simple Pendulum Equation of Motion",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "54052acf-3640-47d3-914b-a62a8b53f674",
+      "name": "Final Formula for Orbital Energy in Terms of \\alpha",
+      "cluster_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "cluster": "Orbital Energy and Conic Sections Relationship",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 1.0,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "547579f9-7a7c-4243-a087-eef28263ce20",
+      "name": "Angular Momentum Conservation Criterion",
+      "cluster_id": "547579f9-7a7c-4243-a087-eef28263ce20",
+      "cluster": "Angular Momentum Conservation Criterion",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 1.0,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "54ec1a61-e1c1-4c5e-81d6-ece7848fc306",
+      "name": "Lagrangian of a Pendulum",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "551029d9-fbe1-4c8f-bf3c-6f5aee129470",
+      "name": "Substitution u = 1/r in Orbital Mechanics",
+      "cluster_id": "e10bfbc2-a129-4a1d-b7ca-18f35ba48e21",
+      "cluster": "Radial Equation of Motion in Central Force Field",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "name": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
+      "cluster_id": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "cluster": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 1.0,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "58406be5-da3c-471b-a5a2-fff33383ba98",
+      "name": "Canonical Momentum in Electromagnetic Field",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "593cd940-5114-4dc8-b170-90ef1b0a601f",
+      "name": "Partial Derivative of Lagrangian with respect to \\( \\dot{\\phi} \\)",
+      "cluster_id": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "cluster": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.6,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "594658ff-0393-479f-b9fc-87c135f16228",
+      "name": "Parameter \\alpha in Orbital Mechanics",
+      "cluster_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "cluster": "Orbital Energy and Conic Sections Relationship",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5a559cd7-a8da-4136-96c2-ce1304dbf4b3",
+      "name": "Velocity at Contact Point (\\(\\vec{V}_{ct}\\))",
+      "cluster_id": "5a559cd7-a8da-4136-96c2-ce1304dbf4b3",
+      "cluster": "Velocity at Contact Point (\\(\\vec{V}_{ct}\\))",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5ae26457-9194-49d8-aa92-e8f60237a7f7",
+      "name": "Energy Expression in Terms of \\varepsilon and Constants",
+      "cluster_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "cluster": "Orbital Energy and Conic Sections Relationship",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.9,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5c49d17a-6662-45b0-bc83-b01427aa5741",
+      "name": "Determinant Condition for Eigenvalue Problems",
+      "cluster_id": "e3517221-f35c-459e-8fe3-cf62c12a8bbe",
+      "cluster": "Normal Modes in Coupled Oscillators",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5c5c1e31-5e05-4419-8e8b-efce24af2205",
+      "name": "Kinetic Energy of a Rotating Pendulum",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5c9fb2a1-519a-4f65-937f-b4ff058a377d",
+      "name": "Equation of Motion for Rolling Object on Inclined Plane",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5d2e498e-01b3-4556-acd0-ca052ea1d412",
+      "name": "Combined Potential Energy for System of Masses",
+      "cluster_id": "5d2e498e-01b3-4556-acd0-ca052ea1d412",
+      "cluster": "Combined Potential Energy for System of Masses",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5d7a924d-d7ab-4807-983e-081fffa89130",
+      "name": "Generalized Momentum for Angular Coordinate",
+      "cluster_id": "5d7a924d-d7ab-4807-983e-081fffa89130",
+      "cluster": "Generalized Momentum for Angular Coordinate",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5f57ccb5-acaf-4c18-8113-b1c5330ae043",
+      "name": "Hamiltonian",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "5fd21f6f-4c70-46bb-9d76-a7fe13581958",
+      "name": "Total Time Derivative of Partial Derivative of Lagrangian",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "600452e5-d2b2-4182-94dd-e163cba30b84",
+      "name": "Energy Conservation under Constraints",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "6068a5ef-fb29-4c0d-b2d7-5266178033cd",
+      "name": "Reducing Coordinates by Solving Constraints",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "61932dbf-3a89-4fd6-ba5a-b0608946b049",
+      "name": "Kinetic Energy of Translational Motion",
+      "cluster_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "634c1d57-c52c-438f-b8a0-c9c36e2152fe",
+      "name": "Velocity Components in Polar Coordinates",
+      "cluster_id": "634c1d57-c52c-438f-b8a0-c9c36e2152fe",
+      "cluster": "Velocity Components in Polar Coordinates",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "6583abe0-dc79-49ea-b696-760d1a3ab6a3",
+      "name": "Euler-Lagrange Equation for \\( \\theta \\)",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 1.0,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "6634b32f-46fb-4325-a447-f43d08eb0c02",
+      "name": "Kinetic Energy of a Rotating Body",
+      "cluster_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "terrain_height": 0.6323490576,
+      "terrain_area": 0.8,
+      "fog": 0.09192292538588218,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "name": "Euler-Lagrange Equation for Radial Displacement",
+      "cluster_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "cluster": "Euler-Lagrange Equation for Radial Displacement",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 1.0,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "6f4bffe5-863a-4b99-893e-86568318c7a9",
+      "name": "Conservation of Angular Momentum from Cyclic Coordinate",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "6f5b918a-663c-4c95-bc74-7bdd1adc64ce",
+      "name": "Natural Frequency of Single Pendulum (\u03c9\u2080)",
+      "cluster_id": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "cluster": "Normalized Equations of Motion for Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "702daa5c-fe09-4464-adbe-0999bb5883f6",
+      "name": "Angular Frequency of Pendulum",
+      "cluster_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "cluster": "Euler-Lagrange Equation for Radial Displacement",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.6,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "711a351f-bb26-4823-af6b-4d3de5e95014",
+      "name": "Simplification of Equations for Equal Masses",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "71f01caf-875b-4516-aa33-bdf2821f4760",
+      "name": "Lagrangian Energy Function",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "729382a7-c110-4cca-a6a1-e7b415b04039",
+      "name": "Equation of Motion for a Rotating Pendulum with Fixed Length",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 1.0,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "74551b8b-ed34-4c95-bd0f-d775243b12bc",
+      "name": "Potential Energy of a Rotating Pendulum",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.75,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "769405d3-194b-4638-bb85-048a02ca5433",
+      "name": "Moment of Inertia for a Point Mass on a Radius",
+      "cluster_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "name": "Rolling Without Slipping Constraint",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5967727998,
+      "terrain_area": 0.5132414852906082,
+      "fog": 0.10081797586476901,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "name": "Normalized Equations of Motion for Coupled Pendulums",
+      "cluster_id": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "cluster": "Normalized Equations of Motion for Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.9,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "7fe9797e-66b5-466b-9cc3-299be28b245c",
+      "name": "Symmetric Normal Mode Condition",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.5,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "81ee2d95-a981-475a-a7e8-956a5aee8805",
+      "name": "Torque",
+      "cluster_id": "81ee2d95-a981-475a-a7e8-956a5aee8805",
+      "cluster": "Torque",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.7,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "82a34364-b337-4eab-9843-92de87df9370",
+      "name": "Calculation of Friction Force on Rolling Object",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "842dd63a-33cc-4322-807c-d2a51881422c",
+      "name": "Coupled Differential Equations for Mechanical System",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.9,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8488e5fa-934e-4bba-a71b-8479c21db3b6",
+      "name": "Orbital Parameters alpha and eccentricity epsilon",
+      "cluster_id": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "cluster": "Equation of Conic Section Orbit",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "88c7aa27-5b6a-4483-b12c-0a945157d0ec",
+      "name": "Lagrangian for a Central Force Problem",
+      "cluster_id": "88c7aa27-5b6a-4483-b12c-0a945157d0ec",
+      "cluster": "Lagrangian for a Central Force Problem",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8b00bb9b-535a-45be-b3f4-09fb962722b2",
+      "name": "Relationship Between Constraint Force and Acceleration",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.6,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8d405220-2462-4b8d-bcd8-bb09499fe289",
+      "name": "Energy Conservation in Velocity-Dependent Electromagnetic Interaction",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "8e47d0c9-0501-463b-85a9-488936d12d10",
+      "name": "Negligible Assumption in Physics",
+      "cluster_id": "8e47d0c9-0501-463b-85a9-488936d12d10",
+      "cluster": "Negligible Assumption in Physics",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.3,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8e4f1793-3b6a-4b87-ad2e-ed9588784706",
+      "name": "Potential Energy of a Simple Pendulum",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8eb04c46-8be4-4998-b1b8-6d1c4f0eda0e",
+      "name": "Small Angle Approximations for Cosine Functions",
+      "cluster_id": "8eb04c46-8be4-4998-b1b8-6d1c4f0eda0e",
+      "cluster": "Small Angle Approximations for Cosine Functions",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8f0692ad-dc93-4075-af7f-2c6f56ba1097",
+      "name": "Equation of Motion for a Pendulum in a Rotating Reference Frame",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8f26ed6e-a493-4090-b7cd-7e7612214363",
+      "name": "Simple Harmonic Motion Frequency of a Pendulum",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5967716131,
+      "terrain_area": 0.85,
+      "fog": 0.10082179805051049,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "907799f8-44a9-450e-8c17-bd91c9aa4a70",
+      "name": "Static Equilibrium Condition for Radial Coordinate",
+      "cluster_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.8,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "92488b38-c3ea-437c-a726-285534020479",
+      "name": "Generalized coordinate",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "955f4773-38a1-4d33-950d-ed6594fc6e9d",
+      "name": "Potential Energy of Pendulum under Gravity",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "957e453f-811f-4200-90bd-23cbff3680be",
+      "name": "Coupled Oscillator System",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.9,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "970d8069-e9c2-434c-baeb-0f1b870f5cef",
+      "name": "Hamiltonian of Coupled Pendulums",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "97a338a8-7d72-47b3-a4a0-2de2c363e45e",
+      "name": "Lagrangian of a Simple Pendulum",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "97ca537b-0744-4d85-a242-343699941837",
+      "name": "Holonomic Constraints in Rolling Motion",
+      "cluster_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9838159a-c2a0-4be6-a7d7-1263d402e62c",
+      "name": "Coordinate Transformation in Polar Coordinates",
+      "cluster_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.5,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "98bf8a23-d933-4063-b2b8-169012493a81",
+      "name": "Velocity of Center of Mass (\\(\\vec{V}_{cm}\\))",
+      "cluster_id": "98bf8a23-d933-4063-b2b8-169012493a81",
+      "cluster": "Velocity of Center of Mass (\\(\\vec{V}_{cm}\\))",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9953f723-14f2-40c6-b5c8-d54c8e1c3cc3",
+      "name": "Hamilton's Equations",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "9a46d64c-b8be-4ace-a92f-cf7cf481a72a",
+      "name": "Expression for Energy in Standard Lagrangian Mechanics",
+      "cluster_id": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "cluster": "Energy Conservation in Lagrangian Mechanics",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "name": "Orbital Energy and Conic Sections Relationship",
+      "cluster_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "cluster": "Orbital Energy and Conic Sections Relationship",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 1.0,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9c1bc4b1-6117-42ba-87ed-f340ac3d2bd8",
+      "name": "Lagrangian for a Rolling Sphere on an Inclined Surface",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "9ca1768a-14f6-4b5d-82fd-d14cd30851d8",
+      "name": "General Solution to Linearized Pendulum Equation",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.85,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9ccb394f-07a1-4236-a2f9-6b0a4aa7d0e1",
+      "name": "Lagrangian Function with Velocity-dependent Potential",
+      "cluster_id": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "cluster": "Energy Conservation in Lagrangian Mechanics",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.8,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9d71d668-cef2-4320-9cb1-dde3f6a33378",
+      "name": "Kinetic Energy of a Simple Pendulum",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9dc13e98-8308-4872-9bfd-5a113b753c05",
+      "name": "Partial Derivative of Lagrangian with respect to Generalized Velocity",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9f12db65-19fc-475b-a00a-dfa21a8faa2c",
+      "name": "Rigid Body Pendulum Equation of Motion",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "9f29a0d0-af3f-4c97-be52-741d7dee0df9",
+      "name": "Partial Derivatives of Angular Momentum and Hamiltonian",
+      "cluster_id": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "cluster": "Poisson Bracket Definition",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.8,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9fcf57cd-d09e-45b7-95c9-d463b73df32b",
+      "name": "Linear Oscillatory System",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "a4456686-2ef7-4284-b25a-9787c5f4d5b7",
+      "name": "Conserved Quantity from Time Translation Symmetry",
+      "cluster_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "cluster": "Noether's Theorem",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "a4499e18-70f1-40ec-b661-1e3e02a8e5ee",
+      "name": "Equation of Motion for a Damped Oscillator",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "a4b7412e-e5fc-4767-9c8f-28fb41bde25a",
+      "name": "Electric and Magnetic Fields from Potentials",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.8,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "a59d3891-4d62-4880-ab86-fd230a382d37",
+      "name": "Transformation to Time-Independent Hamiltonian",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "a677a078-6084-4c83-886f-12022763a815",
+      "name": "Potential Energy from Gravity in Spring-Pendulum",
+      "cluster_id": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.7,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "a9550eaa-3761-4dfb-a36a-b69718c3d48d",
+      "name": "Kinetic Energy of Rotating Cylinder",
+      "cluster_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "cluster": "Lagrangian for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "ab8838e9-c76d-45fe-a22f-124dd8644836",
+      "name": "Elimination of Angular Velocity in Normal Force Expression",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "ad338b07-b4b0-411b-9ec4-7f0fbf6c955b",
+      "name": "Scattering",
+      "cluster_id": "ad338b07-b4b0-411b-9ec4-7f0fbf6c955b",
+      "cluster": "Scattering",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.5,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "adcc80bd-14da-49f6-a029-c4b9ef29c267",
+      "name": "Harmonic Oscillator Ansatz for Angular Motion",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "name": "Lagrangian for Rolling Cylinder",
+      "cluster_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "cluster": "Lagrangian for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 1.0,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b237c8cd-a2da-41cc-8334-c35c6eeabca1",
+      "name": "Potential Energy of Rotating Masses in Gravitational Field",
+      "cluster_id": "b237c8cd-a2da-41cc-8334-c35c6eeabca1",
+      "cluster": "Potential Energy of Rotating Masses in Gravitational Field",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf",
+      "name": "Equation of Motion for a Simple Pendulum",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5967728118,
+      "terrain_area": 0.9,
+      "fog": 0.10082407706144433,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b3ef9331-83b2-4cf4-a86a-0c134afd71fa",
+      "name": "Kinetic Energy of a Pendulum",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b675ae73-d5ba-4f38-aaaa-852c99a81648",
+      "name": "Coupling Frequency of Oscillators (\u03c9\u2096)",
+      "cluster_id": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "cluster": "Normalized Equations of Motion for Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b67b909e-9274-4457-8fa8-13fe1990e01c",
+      "name": "Angular Momentum as a Phase Space Function",
+      "cluster_id": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "cluster": "Poisson Bracket Definition",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.7,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+      "name": "Energy in Lagrangian Mechanics",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "b961f44c-2d48-4323-908b-11f0c2fed41b",
+      "name": "Integration by Parts in Variational Calculus",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "bbd4c1dc-f561-48d2-bce6-20f0075fcf7a",
+      "name": "Energy Conservation in Mechanical Systems",
+      "cluster_id": "bbd4c1dc-f561-48d2-bce6-20f0075fcf7a",
+      "cluster": "Energy Conservation in Mechanical Systems",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.5,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "name": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "cluster_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.8,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "name": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "cluster_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c19a2a51-2ad2-4747-8d79-14ad5d1de95c",
+      "name": "Angular Velocity Vector (\\(\\vec{\\omega}\\))",
+      "cluster_id": "c19a2a51-2ad2-4747-8d79-14ad5d1de95c",
+      "cluster": "Angular Velocity Vector (\\(\\vec{\\omega}\\))",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c463b84a-dc82-4edd-b5ca-bbdbe943281f",
+      "name": "Euler-Lagrange Equation Applied to a Pendulum",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b",
+      "name": "Equations of Motion for Small Oscillations",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "name": "Normal Mode",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.6653960675,
+      "terrain_area": 0.6957218152557051,
+      "fog": 0.08365809867040566,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c667d542-984e-4f30-85a4-4d890fa1a7ae",
+      "name": "Energy condition for elliptical orbit",
+      "cluster_id": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "cluster": "Equation of Conic Section Orbit",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.9,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c78dd90d-2078-4454-bc31-8b32028c32cd",
+      "name": "Partial Derivatives of Lagrangian Components",
+      "cluster_id": "c78dd90d-2078-4454-bc31-8b32028c32cd",
+      "cluster": "Partial Derivatives of Lagrangian Components",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c79b6401-14c6-438a-aef5-865e46a99953",
+      "name": "Expanded Kinetic Energy for System with Angular Velocities",
+      "cluster_id": "c79b6401-14c6-438a-aef5-865e46a99953",
+      "cluster": "Expanded Kinetic Energy for System with Angular Velocities",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "c99b9e30-0b1e-47ba-972d-df0f9e8a3858",
+      "name": "Constrained Optimization in Lagrangian Mechanics",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "cb45fc4a-2690-4381-a5d2-6105b8dba215",
+      "name": "Kinetic Energy of Translating Mass",
+      "cluster_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "cluster": "Lagrangian for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "cb7e73f6-bd49-4ee1-bda7-f3ce20cfc86f",
+      "name": "Determinant Condition for Normal Mode Frequencies",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "cc7acffa-d3bc-48c6-8938-ec8aae42a202",
+      "name": "Electromagnetic Lagrangian",
+      "cluster_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "cluster": "Lorentz Force Law",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "cdbe9395-74d5-44d1-8732-635bf7c4061b",
+      "name": "Total Kinetic Energy of Rolling Cylinder",
+      "cluster_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "cluster": "Lagrangian for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "d4122a9a-4f8c-468e-ad01-447c2f637e96",
+      "name": "Time Dependence of Angular Coordinate \\( \\theta(t) \\)",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "name": "Energy Conservation in Lagrangian Mechanics",
+      "cluster_id": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "cluster": "Energy Conservation in Lagrangian Mechanics",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 1.0,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "name": "Total Potential Energy of Coupled Pendulums",
+      "cluster_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "cluster": "Total Potential Energy of Coupled Pendulums",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "dd69a394-f4db-4a14-ad2c-acb8cf501a00",
+      "name": "Torque in Two Dimensions",
+      "cluster_id": "547579f9-7a7c-4243-a087-eef28263ce20",
+      "cluster": "Angular Momentum Conservation Criterion",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.8,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb",
+      "name": "Equations of Motion for a Rolling Disc on an Inclined Plane",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.05,
+      "terrain_area": 0.0,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "de5a83f4-3c07-4a8d-815f-9d54e80b8fa7",
+      "name": "Constraint Equation Function \\(f(\\vec{q}_t, t) = 0\\)",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "df66203f-8ddf-4be0-a503-1690c6b7f361",
+      "name": "Moment of Inertia of a Solid Cylinder",
+      "cluster_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "cluster": "Lagrangian for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "name": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 1.0,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e07b98c2-a443-472c-bcbc-1e9d98a5634f",
+      "name": "Time Dependence of Angular Coordinate \\( \\phi(t) \\) with Constant Angular Velocity",
+      "cluster_id": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "cluster": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e0a61b63-6927-462a-9331-0c6c8b260823",
+      "name": "Angular Coordinates Parametrization of a Pendulum",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e10bfbc2-a129-4a1d-b7ca-18f35ba48e21",
+      "name": "Radial Equation of Motion in Central Force Field",
+      "cluster_id": "e10bfbc2-a129-4a1d-b7ca-18f35ba48e21",
+      "cluster": "Radial Equation of Motion in Central Force Field",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.9,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e3517221-f35c-459e-8fe3-cf62c12a8bbe",
+      "name": "Normal Modes in Coupled Oscillators",
+      "cluster_id": "e3517221-f35c-459e-8fe3-cf62c12a8bbe",
+      "cluster": "Normal Modes in Coupled Oscillators",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.8,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e5f80fd1-28c4-4564-8c9f-2e56699d09b7",
+      "name": "Small Angle Approximation for Pendulum",
+      "cluster_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "cluster": "Canonical Momentum",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "name": "Equation of Conic Section Orbit",
+      "cluster_id": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "cluster": "Equation of Conic Section Orbit",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 1.0,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "name": "General Solution for Simple Harmonic Oscillator",
+      "cluster_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "cluster": "General Solution for Simple Harmonic Oscillator",
+      "terrain_height": 0.5535705817,
+      "terrain_area": 0.9,
+      "fog": 0.11162648598697583,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "name": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 1.0,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "f0cf22e6-752d-4192-a437-c046871603df",
+      "name": "Total Time Derivative of a Constraint",
+      "cluster_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.8,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "f4f57774-ade5-4b74-a715-9a2b6ddcb0a8",
+      "name": "Expression for Angular Displacement from Linear Displacement",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.6,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "f4fb8a97-1a2e-421f-aaf0-276d95d55a0c",
+      "name": "Kinetic Energy of a Body in Cartesian Coordinates",
+      "cluster_id": "634c1d57-c52c-438f-b8a0-c9c36e2152fe",
+      "cluster": "Velocity Components in Polar Coordinates",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.7,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "f7aefdee-0410-4cc1-b45c-e2b6e36e2d04",
+      "name": "Partial Derivative of Lagrangian with respect to Generalized Coordinate",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "f82be75e-7578-47fb-8967-b7422733b1d1",
+      "name": "Initial Conditions for Coupled Oscillator Amplitudes",
+      "cluster_id": "f82be75e-7578-47fb-8967-b7422733b1d1",
+      "cluster": "Initial Conditions for Coupled Oscillator Amplitudes",
+      "terrain_height": 0.5535702706,
+      "terrain_area": 0.6,
+      "fog": 0.11162370875558725,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "f8d41df6-8259-4095-bc40-ba411c909ab6",
+      "name": "Time Dependence of Angular Velocity \\( \\dot{\\theta}(t) \\)",
+      "cluster_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.9,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "fa72e23c-3758-4ff1-9f60-3c67332502bc",
+      "name": "Generalized Force from Constraint",
+      "cluster_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "cluster": "Lagrange Multipliers",
+      "terrain_height": 0.5535708904,
+      "terrain_area": 0.9,
+      "fog": 0.11161677097222446,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "fef03cf4-e4dd-4f57-96db-80aa748f0bb8",
+      "name": "Generalized Coordinates for Rolling Cylinder",
+      "cluster_id": "fef03cf4-e4dd-4f57-96db-80aa748f0bb8",
+      "cluster": "Generalized Coordinates for Rolling Cylinder",
+      "terrain_height": 0.5535705744,
+      "terrain_area": 0.7,
+      "fog": 0.11161972960440054,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "name": "Lagrangian Formalism",
+      "cluster_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "cluster": "Lagrangian Formalism",
+      "terrain_height": 0.7798066096,
+      "terrain_area": 0.9779003515317729,
+      "fog": 0.055053030139310614,
+      "semantic_state": "strong",
+      "creature_state": "evolved"
+    }
+  ],
+  "edges": [
+    {
+      "source": "0335b690-d27a-425f-af32-b8a6b2601d9f",
+      "target": "9ccb394f-07a1-4236-a2f9-6b0a4aa7d0e1",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "1fb35d8d-8921-4f3f-8d2e-a0282052886d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "842dd63a-33cc-4322-807c-d2a51881422c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "9953f723-14f2-40c6-b5c8-d54c8e1c3cc3",
+      "edge_type": "CONTRASTS_WITH",
+      "origin": "course",
+      "confidence": 0.6
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "a4499e18-70f1-40ec-b661-1e3e02a8e5ee",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target": "cb7e73f6-bd49-4ee1-bda7-f3ce20cfc86f",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.792
+    },
+    {
+      "source": "0ab944ce-1cd0-4899-b152-ca69d59d9ee6",
+      "target": "2c91aa67-5e11-46e0-91f6-8a33e8052c32",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "0b8722b2-54f6-4b15-a5c3-cc2c8b74083c",
+      "target": "f4f57774-ade5-4b74-a715-9a2b6ddcb0a8",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "0de9a099-0808-4367-a744-b5db6843f09e",
+      "target": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "0fd49a99-4b7f-476f-828e-6f9cd7b5e046",
+      "target": "9838159a-c2a0-4be6-a7d7-1263d402e62c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "15a36609-4fde-4d7f-8282-2e6083d11309",
+      "target": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "1642f502-f226-460d-8c3e-0b619f7b3317",
+      "target": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "18cd1e56-3175-416a-987f-3c4919a3c465",
+      "target": "9f29a0d0-af3f-4c97-be52-741d7dee0df9",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "1a8846b8-10c5-4319-bc3c-ede7229575ef",
+      "target": "dd69a394-f4db-4a14-ad2c-acb8cf501a00",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "1b207606-aec4-46ab-9bd3-82b273969a6d",
+      "target": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+      "target": "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+      "target": "4cd672ef-76c9-444f-aec6-5485eb900cf1",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "1fff1bcf-ed3a-4e1d-b544-871b6d4ba9df",
+      "target": "8f0692ad-dc93-4075-af7f-2c6f56ba1097",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "target": "8d405220-2462-4b8d-bcd8-bb09499fe289",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.752
+    },
+    {
+      "source": "28b6983b-9781-4ccd-a493-6faa003a8b81",
+      "target": "9838159a-c2a0-4be6-a7d7-1263d402e62c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "2c91aa67-5e11-46e0-91f6-8a33e8052c32",
+      "target": "4ad9d823-5d43-4a9f-895b-15c123c9be4c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "2c91aa67-5e11-46e0-91f6-8a33e8052c32",
+      "target": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "2f95366b-8a19-4527-9428-5220826149d5",
+      "target": "321ec39f-dcd4-42b4-8a68-a457ebbd0249",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "317fe1ea-2df6-47d9-bb05-9426d5f1a474",
+      "target": "8f0692ad-dc93-4075-af7f-2c6f56ba1097",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "317fe1ea-2df6-47d9-bb05-9426d5f1a474",
+      "target": "955f4773-38a1-4d33-950d-ed6594fc6e9d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "32d6edc8-3b83-4aad-91d0-5e96d0f869b7",
+      "target": "085699dc-1387-441b-87ae-78f0951e3757",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "36019b68-0b16-4199-8ea6-f287aabaa260",
+      "target": "1595a327-9415-475e-9c96-36f19e6bf95f",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "36019b68-0b16-4199-8ea6-f287aabaa260",
+      "target": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "36019b68-0b16-4199-8ea6-f287aabaa260",
+      "target": "a677a078-6084-4c83-886f-12022763a815",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "target": "5c9fb2a1-519a-4f65-937f-b4ff058a377d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "target": "fa72e23c-3758-4ff1-9f60-3c67332502bc",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "417e7904-a9e2-47dc-a9f1-a0ffb1962a73",
+      "target": "600452e5-d2b2-4182-94dd-e163cba30b84",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "440a0bab-1b7f-4466-9474-615733f741cd",
+      "target": "1853b2bf-4039-4ed7-8e80-6c640f169397",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "46f19b7b-a02d-4c64-8846-2f1cb8a5eb21",
+      "target": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "target": "18cd1e56-3175-416a-987f-3c4919a3c465",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "target": "b67b909e-9274-4457-8fa8-13fe1990e01c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "4a29bb78-6be4-48aa-ac36-f25f2aed4d4e",
+      "target": "8488e5fa-934e-4bba-a71b-8479c21db3b6",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+      "target": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "54052acf-3640-47d3-914b-a62a8b53f674",
+      "target": "5ae26457-9194-49d8-aa92-e8f60237a7f7",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "54ec1a61-e1c1-4c5e-81d6-ece7848fc306",
+      "target": "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "target": "e07b98c2-a443-472c-bcbc-1e9d98a5634f",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "58406be5-da3c-471b-a5a2-fff33383ba98",
+      "target": "0de9a099-0808-4367-a744-b5db6843f09e",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "593cd940-5114-4dc8-b170-90ef1b0a601f",
+      "target": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "594658ff-0393-479f-b9fc-87c135f16228",
+      "target": "2223e82d-e0e1-4c10-af26-46a246ea3ffd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "5ae26457-9194-49d8-aa92-e8f60237a7f7",
+      "target": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "5c49d17a-6662-45b0-bc83-b01427aa5741",
+      "target": "e3517221-f35c-459e-8fe3-cf62c12a8bbe",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "5c5c1e31-5e05-4419-8e8b-efce24af2205",
+      "target": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "5c9fb2a1-519a-4f65-937f-b4ff058a377d",
+      "target": "0b8722b2-54f6-4b15-a5c3-cc2c8b74083c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "5c9fb2a1-519a-4f65-937f-b4ff058a377d",
+      "target": "82a34364-b337-4eab-9843-92de87df9370",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "5f57ccb5-acaf-4c18-8113-b1c5330ae043",
+      "target": "9953f723-14f2-40c6-b5c8-d54c8e1c3cc3",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "5fd21f6f-4c70-46bb-9d76-a7fe13581958",
+      "target": "6583abe0-dc79-49ea-b696-760d1a3ab6a3",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "61932dbf-3a89-4fd6-ba5a-b0608946b049",
+      "target": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "634c1d57-c52c-438f-b8a0-c9c36e2152fe",
+      "target": "f4fb8a97-1a2e-421f-aaf0-276d95d55a0c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "6583abe0-dc79-49ea-b696-760d1a3ab6a3",
+      "target": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "6634b32f-46fb-4325-a447-f43d08eb0c02",
+      "target": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "6f4bffe5-863a-4b99-893e-86568318c7a9",
+      "target": "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+      "edge_type": "BUILDS_ON",
+      "origin": "course",
+      "confidence": 0.588
+    },
+    {
+      "source": "6f5b918a-663c-4c95-bc74-7bdd1adc64ce",
+      "target": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "702daa5c-fe09-4464-adbe-0999bb5883f6",
+      "target": "2c91aa67-5e11-46e0-91f6-8a33e8052c32",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "711a351f-bb26-4823-af6b-4d3de5e95014",
+      "target": "842dd63a-33cc-4322-807c-d2a51881422c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "71f01caf-875b-4516-aa33-bdf2821f4760",
+      "target": "600452e5-d2b2-4182-94dd-e163cba30b84",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "74551b8b-ed34-4c95-bd0f-d775243b12bc",
+      "target": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "769405d3-194b-4638-bb85-048a02ca5433",
+      "target": "6634b32f-46fb-4325-a447-f43d08eb0c02",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "target": "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "target": "2f95366b-8a19-4527-9428-5220826149d5",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "target": "9c1bc4b1-6117-42ba-87ed-f340ac3d2bd8",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "target": "ab8838e9-c76d-45fe-a22f-124dd8644836",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "target": "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "target": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "7fe9797e-66b5-466b-9cc3-299be28b245c",
+      "target": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "8488e5fa-934e-4bba-a71b-8479c21db3b6",
+      "target": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "8b00bb9b-535a-45be-b3f4-09fb962722b2",
+      "target": "5c9fb2a1-519a-4f65-937f-b4ff058a377d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "8e4f1793-3b6a-4b87-ad2e-ed9588784706",
+      "target": "97a338a8-7d72-47b3-a4a0-2de2c363e45e",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "8f26ed6e-a493-4090-b7cd-7e7612214363",
+      "target": "9ca1768a-14f6-4b5d-82fd-d14cd30851d8",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "8f26ed6e-a493-4090-b7cd-7e7612214363",
+      "target": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "907799f8-44a9-450e-8c17-bd91c9aa4a70",
+      "target": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "92488b38-c3ea-437c-a726-285534020479",
+      "target": "46f19b7b-a02d-4c64-8846-2f1cb8a5eb21",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "92488b38-c3ea-437c-a726-285534020479",
+      "target": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "edge_type": "RELATED_TO",
+      "origin": "course",
+      "confidence": 0.702
+    },
+    {
+      "source": "955f4773-38a1-4d33-950d-ed6594fc6e9d",
+      "target": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "957e453f-811f-4200-90bd-23cbff3680be",
+      "target": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "97a338a8-7d72-47b3-a4a0-2de2c363e45e",
+      "target": "c463b84a-dc82-4edd-b5ca-bbdbe943281f",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "97ca537b-0744-4d85-a242-343699941837",
+      "target": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "9a46d64c-b8be-4ace-a92f-cf7cf481a72a",
+      "target": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "target": "2223e82d-e0e1-4c10-af26-46a246ea3ffd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "9ccb394f-07a1-4236-a2f9-6b0a4aa7d0e1",
+      "target": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "9d71d668-cef2-4320-9cb1-dde3f6a33378",
+      "target": "97a338a8-7d72-47b3-a4a0-2de2c363e45e",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "9dc13e98-8308-4872-9bfd-5a113b753c05",
+      "target": "5fd21f6f-4c70-46bb-9d76-a7fe13581958",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "a4b7412e-e5fc-4767-9c8f-28fb41bde25a",
+      "target": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "a9550eaa-3761-4dfb-a36a-b69718c3d48d",
+      "target": "cdbe9395-74d5-44d1-8732-635bf7c4061b",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "adcc80bd-14da-49f6-a029-c4b9ef29c267",
+      "target": "842dd63a-33cc-4322-807c-d2a51881422c",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "b3ef9331-83b2-4cf4-a86a-0c134afd71fa",
+      "target": "8f0692ad-dc93-4075-af7f-2c6f56ba1097",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "b675ae73-d5ba-4f38-aaaa-852c99a81648",
+      "target": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "b67b909e-9274-4457-8fa8-13fe1990e01c",
+      "target": "9f29a0d0-af3f-4c97-be52-741d7dee0df9",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "b961f44c-2d48-4323-908b-11f0c2fed41b",
+      "target": "085699dc-1387-441b-87ae-78f0951e3757",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "target": "0fd49a99-4b7f-476f-828e-6f9cd7b5e046",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "target": "28b6983b-9781-4ccd-a493-6faa003a8b81",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "c463b84a-dc82-4edd-b5ca-bbdbe943281f",
+      "target": "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "target": "970d8069-e9c2-434c-baeb-0f1b870f5cef",
+      "edge_type": "APPLICATION_OF",
+      "origin": "course",
+      "confidence": 0.6
+    },
+    {
+      "source": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "target": "9fcf57cd-d09e-45b7-95c9-d463b73df32b",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "c667d542-984e-4f30-85a4-4d890fa1a7ae",
+      "target": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "cb45fc4a-2690-4381-a5d2-6105b8dba215",
+      "target": "cdbe9395-74d5-44d1-8732-635bf7c4061b",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "cc7acffa-d3bc-48c6-8938-ec8aae42a202",
+      "target": "0de9a099-0808-4367-a744-b5db6843f09e",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "cc7acffa-d3bc-48c6-8938-ec8aae42a202",
+      "target": "440a0bab-1b7f-4466-9474-615733f741cd",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "cc7acffa-d3bc-48c6-8938-ec8aae42a202",
+      "target": "58406be5-da3c-471b-a5a2-fff33383ba98",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "cdbe9395-74d5-44d1-8732-635bf7c4061b",
+      "target": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "dd69a394-f4db-4a14-ad2c-acb8cf501a00",
+      "target": "547579f9-7a7c-4243-a087-eef28263ce20",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "de5a83f4-3c07-4a8d-815f-9d54e80b8fa7",
+      "target": "46f19b7b-a02d-4c64-8846-2f1cb8a5eb21",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "df66203f-8ddf-4be0-a503-1690c6b7f361",
+      "target": "a9550eaa-3761-4dfb-a36a-b69718c3d48d",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "target": "f8d41df6-8259-4095-bc40-ba411c909ab6",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "e0a61b63-6927-462a-9331-0c6c8b260823",
+      "target": "5c5c1e31-5e05-4419-8e8b-efce24af2205",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "e5f80fd1-28c4-4564-8c9f-2e56699d09b7",
+      "target": "8f26ed6e-a493-4090-b7cd-7e7612214363",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "target": "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "target": "417e7904-a9e2-47dc-a9f1-a0ffb1962a73",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "f0cf22e6-752d-4192-a437-c046871603df",
+      "target": "de5a83f4-3c07-4a8d-815f-9d54e80b8fa7",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "f7aefdee-0410-4cc1-b45c-e2b6e36e2d04",
+      "target": "6583abe0-dc79-49ea-b696-760d1a3ab6a3",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "f8d41df6-8259-4095-bc40-ba411c909ab6",
+      "target": "d4122a9a-4f8c-468e-ad01-447c2f637e96",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "085699dc-1387-441b-87ae-78f0951e3757",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "19c96995-dfb0-4296-af81-ca02d198ca61",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "2527d4f6-5d42-4cc3-931a-d6b1fe333c20",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "321ec39f-dcd4-42b4-8a68-a457ebbd0249",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "322b3c44-0f56-4391-95e9-fbcaa45ba02d",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "533ac192-4478-4039-bd6f-d26f903716cb",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "5f57ccb5-acaf-4c18-8113-b1c5330ae043",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "5f57ccb5-acaf-4c18-8113-b1c5330ae043",
+      "edge_type": "RELATED_TO",
+      "origin": "course",
+      "confidence": 0.702
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "729382a7-c110-4cca-a6a1-e7b415b04039",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "9f12db65-19fc-475b-a00a-dfa21a8faa2c",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "target": "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    }
+  ],
+  "hidden_concept_count": 425
+}

@@ -1,0 +1,61 @@
+{
+  "verified_at": "2026-09-20T02:45:46.052965+00:00",
+  "courses": [
+    {
+      "code": "6.1400",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "resources_processed": 23,
+      "canonical_and_shared_concepts": 449,
+      "personal_concepts": 17,
+      "students": [
+        {
+          "student_id": "61400000-0000-4000-8000-000000000001",
+          "graph_nodes": 36,
+          "graph_edges": 32,
+          "world_regions": 32,
+          "understanding_entries": 36,
+          "study_plans": 7,
+          "evidence_events": 37,
+          "scored_evidence_events": 12
+        }
+      ],
+      "idempotency_replay": "all unchanged",
+      "prerequisite_cycles": 0,
+      "active_concepts_without_sources": 0,
+      "knowledge_graph_path": "6.1400/students/61400000-0000-4000-8000-000000000001/knowledge-graph.json",
+      "world_path": "6.1400/students/61400000-0000-4000-8000-000000000001/world.json"
+    },
+    {
+      "code": "8.223",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "resources_processed": 24,
+      "canonical_and_shared_concepts": 473,
+      "personal_concepts": 137,
+      "students": [
+        {
+          "student_id": "82230000-0000-4000-8000-000000000001",
+          "graph_nodes": 186,
+          "graph_edges": 157,
+          "world_regions": 177,
+          "understanding_entries": 195,
+          "study_plans": 10,
+          "evidence_events": 241,
+          "scored_evidence_events": 69
+        }
+      ],
+      "idempotency_replay": "all unchanged",
+      "prerequisite_cycles": 0,
+      "active_concepts_without_sources": 0,
+      "knowledge_graph_path": "8.223/students/82230000-0000-4000-8000-000000000001/knowledge-graph.json",
+      "world_path": "8.223/students/82230000-0000-4000-8000-000000000001/world.json"
+    }
+  ],
+  "unit_and_integration_tests_passed": 70,
+  "http_checks": 1130,
+  "database_integrity": "ok",
+  "foreign_key_violations": 0,
+  "dedup_repair": {
+    "6.1400": {"clusters_merged": 19, "excluded_as_false_positive": 2},
+    "8.223": {"clusters_merged": 3, "excluded_as_false_positive": 0}
+  }
+}
