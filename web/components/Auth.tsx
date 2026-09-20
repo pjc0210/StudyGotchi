@@ -3,23 +3,20 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { DEMO_PASSWORD_HINT } from '@/lib/mock'
 import { useStore } from '@/lib/store'
 
 export function LoginPage() {
-  const { ready, user, pendingTwoFactor, login } = useStore()
-  const [email, setEmail] = useState('pj@studygotchi.app')
-  const [password, setPassword] = useState('study')
+  const { ready, pendingTwoFactor, login } = useStore()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
   useEffect(() => {
-    if (!ready) return
-    if (pendingTwoFactor) router.replace('/2fa')
-    else if (user) router.replace('/earth')
-  }, [ready, pendingTwoFactor, user, router])
+    if (ready && pendingTwoFactor) router.replace('/2fa')
+  }, [ready, pendingTwoFactor, router])
 
-  if (ready && (pendingTwoFactor || user)) return null
+  if (ready && pendingTwoFactor) return null
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -30,26 +27,36 @@ export function LoginPage() {
   }
 
   return (
-    <div className="auth">
-      <form className="auth-card" onSubmit={onSubmit}>
-        <p className="auth-kicker">StudyGotchi</p>
-        <h2>Log in</h2>
-        <p className="muted">{DEMO_PASSWORD_HINT}</p>
+    <div className="login-page">
+      <Link href="/" className="site-wordmark login-logo">
+        StudyGotchi
+      </Link>
+      <form className="login-form" onSubmit={onSubmit}>
+        <h1>Login</h1>
         {error && <p className="error">{error}</p>}
-        <label className="field">
-          <span>Email</span>
-          <input value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" />
-        </label>
-        <label className="field">
-          <span>Password</span>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <button className="auth-submit" type="submit">
+        <input
+          className="login-input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          autoComplete="email"
+          placeholder="Login"
+          aria-label="Login"
+        />
+        <input
+          className="login-input"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          autoComplete="current-password"
+          placeholder="Password"
+          aria-label="Password"
+        />
+        <button className="login-submit" type="submit">
           Login
         </button>
-        <div className="auth-links">
-          <Link href="/register">Register</Link>
+        <div className="login-links">
           <Link href="/forgot">Forgot password</Link>
+          <Link href="/register">Register</Link>
         </div>
       </form>
     </div>
