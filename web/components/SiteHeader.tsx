@@ -21,27 +21,32 @@ export function SiteHeader() {
         <Link href="/earth" className={pathname === '/earth' ? 'active' : undefined}>
           Earth
         </Link>
-      </nav>
-      {user ? (
-        <div className="account-bar">
-          <span className="account-email">{user.email}</span>
-          <button
-            className="login-btn"
-            type="button"
-            onClick={async () => {
-              await logout()
-              router.push('/')
-              router.refresh()
-            }}
-          >
-            Log out
-          </button>
-        </div>
-      ) : (
-        <Link className="login-btn" href="/login">
-          Login
+        <Link href="/graph" className={pathname === '/graph' ? 'active' : undefined}>
+          Graph
         </Link>
-      )}
+      </nav>
+      <div className="account-bar">
+        {user ? (
+          <>
+            <span className="account-email">{user.email}</span>
+            <button
+              className="login-btn"
+              type="button"
+              onClick={async () => {
+                await logout()
+                router.push('/')
+                router.refresh()
+              }}
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <Link className="login-btn" href="/login">
+            Login
+          </Link>
+        )}
+      </div>
     </header>
   )
 }
