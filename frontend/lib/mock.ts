@@ -56,11 +56,7 @@ const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
     discovery_state: "active",
     importance: 0.92,
     personal_relevance: 0.82,
-    mastery: 0.88,
-    familiarity: 0.94,
-    confidence: 0.86,
-    readiness: 0.88,
-    fragility: 0.08,
+    understanding: 0.88,
     state: "mastered",
   },
   {
@@ -68,11 +64,7 @@ const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
     discovery_state: "encountered",
     importance: 0.86,
     personal_relevance: 0.78,
-    mastery: 0.66,
-    familiarity: 0.78,
-    confidence: 0.64,
-    readiness: 0.66,
-    fragility: 0.22,
+    understanding: 0.66,
     state: "strong",
   },
   {
@@ -80,11 +72,7 @@ const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
     discovery_state: "active",
     importance: 0.9,
     personal_relevance: 0.88,
-    mastery: 0.48,
-    familiarity: 0.69,
-    confidence: 0.47,
-    readiness: 0.52,
-    fragility: 0.48,
+    understanding: 0.48,
     state: "uncertain",
   },
   {
@@ -92,11 +80,7 @@ const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
     discovery_state: "frontier",
     importance: 0.82,
     personal_relevance: 0.74,
-    mastery: null,
-    familiarity: 0.25,
-    confidence: 0.2,
-    readiness: 0.3,
-    fragility: 0.6,
+    understanding: null,
     state: "frontier",
   },
   {
@@ -104,11 +88,7 @@ const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
     discovery_state: "encountered",
     importance: 0.8,
     personal_relevance: 0.7,
-    mastery: 0.37,
-    familiarity: 0.58,
-    confidence: 0.34,
-    readiness: 0.4,
-    fragility: 0.62,
+    understanding: 0.37,
     state: "struggling",
   },
   {
@@ -116,11 +96,7 @@ const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
     discovery_state: "active",
     importance: 0.84,
     personal_relevance: 0.8,
-    mastery: 0.72,
-    familiarity: 0.83,
-    confidence: 0.7,
-    readiness: 0.74,
-    fragility: 0.18,
+    understanding: 0.72,
     state: "developing",
   },
 ];
@@ -665,16 +641,17 @@ export function mockTargets(courseId: string): StudyTarget[] {
 export function mockGaps(courseId: string, target: StudyTarget): GapsResponse {
   const gaps: Gap[] = getMockCourseData(courseId)
     .graph.nodes.filter(
-      (n) => n.id !== target.id && (n.mastery === null || n.mastery < 0.55),
+      (n) =>
+        n.id !== target.id &&
+        (n.understanding === null || n.understanding < 0.55),
     )
     .slice(0, 4)
     .map((n, i) => ({
       concept_id: n.id,
       concept_name: n.name,
-      mastery: n.mastery ?? 0,
-      confidence: n.confidence,
+      understanding: n.understanding ?? 0,
       priority: 1 - i * 0.12,
-      action: n.mastery === null ? "STUDY" : "REVIEW",
+      action: n.understanding === null ? "STUDY" : "REVIEW",
       reason:
         "Deterministic demo state marks this file-supported concept for review.",
     }));
@@ -704,7 +681,7 @@ export function mockStudyPlan(
           id === target.id
             ? "Selected course target."
             : "Prerequisite relationship in this course graph.",
-        mastery: n.mastery,
+        understanding: n.understanding,
         resources: detail(courseId, id).resources,
       };
     }),

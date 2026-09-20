@@ -23,6 +23,7 @@ import type {
   SourceOrigin,
   StudyPlan,
   StudyTarget,
+  UnderstandingEntry,
   WhyExplanation,
 } from "./types";
 
@@ -66,6 +67,7 @@ export interface KnowledgeApi {
   getKnowledgeGraph(): Promise<KnowledgeGraphResponse>;
   getConceptDetail(conceptId: string): Promise<ConceptDetail>;
   getWhy(conceptId: string): Promise<WhyExplanation | null>;
+  listUnderstanding(): Promise<UnderstandingEntry[]>;
   listStudyTargets(): Promise<StudyTarget[]>;
   getGaps(target: StudyTarget): Promise<GapsResponse>;
   createStudyPlan(target: StudyTarget): Promise<StudyPlan>;
@@ -79,7 +81,7 @@ export interface KnowledgeApi {
  * Instructor and TA material defines the curriculum, so it shapes the canonical
  * course ontology. Anything the student produced is evidence about *them*.
  * Classmate notes are shared study material rather than evidence of this
- * student's mastery, so they go to the course side too.
+ * student's understanding, so it goes to the course side too.
  */
 export function isStudentScoped(origin: SourceOrigin): boolean {
   return origin === "student_self";
@@ -100,7 +102,7 @@ function normalizeNode(
   raw: Record<string, unknown>,
   index: number,
 ): ConceptNode {
-  const mastery = raw.mastery;
+  const understanding = raw.understanding;
   return {
     id: str(raw.concept_id ?? raw.id, `concept_${index}`),
     name: str(raw.name, "Untitled concept"),
@@ -113,12 +115,10 @@ function normalizeNode(
     cluster: typeof raw.cluster === "string" ? raw.cluster : undefined,
     importance: num(raw.importance, 0.5),
     personal_relevance: num(raw.personal_relevance, 0.5),
-    mastery:
-      typeof mastery === "number" && Number.isFinite(mastery) ? mastery : null,
-    familiarity: num(raw.familiarity),
-    confidence: num(raw.confidence),
-    readiness: num(raw.readiness),
-    fragility: num(raw.fragility),
+    understanding:
+      typeof understanding === "number" && Number.isFinite(understanding)
+        ? understanding
+        : null,
     // The engine owns this label; never re-derive it here.
     state: (str(raw.state, "exposed") as ConceptNode["state"]) ?? "exposed",
   };
@@ -228,27 +228,6 @@ function toResource(r: BackendResource, role?: string): Resource {
   };
 }
 
-const LINK_ROLE: Record<string, string> = {
-  EXPLAINED_IN: "Primary explanation",
-  WORKED_EXAMPLE_IN: "Worked example",
-  ASSESSED_IN: "Assessed here",
-  APPEARS_IN: "Mentioned in",
-};
-
-/** Which score an evidence type feeds. Mirrors the backend taxonomy. */
-const EVIDENCE_KIND: Record<string, Evidence["kind"]> = {
-  graded_exam: "mastery",
-  graded_quiz: "mastery",
-  graded_homework: "mastery",
-  diagnostic: "mastery",
-  verified_practice: "mastery",
-  worked_solution: "mastery",
-  student_notes: "familiarity",
-  resource_view: "familiarity",
-  self_explanation: "confidence",
-  self_rating: "confidence",
-};
-
 function humanize(value: string): string {
   return value
     .split("_")
@@ -268,33 +247,49 @@ const httpApi: KnowledgeApi = {
       concept_id: string;
       name: string;
       evidence: {
-        evidence_type: string;
+        id: string;
+        type: string;
         outcome: number | null;
         strength: number;
         certainty: number;
         occurred_at: string;
-        resource: BackendResource | null;
+        resource_id: string | null;
       }[];
       resources: {
-        resource: BackendResource;
-        link_type: string;
-        depth_score: number;
+        resource_id: string;
+        title: string;
+        origin: string;
+        artifact_type: string;
       }[];
     }>(`${studentBase()}/concepts/${conceptId}`);
 
+    const resources = raw.resources.map((resource) =>
+      toResource({
+        id: resource.resource_id,
+        title: resource.title,
+        origin: resource.origin,
+        artifact_type: resource.artifact_type,
+        status: "complete",
+        concept_count: 0,
+      }),
+    );
+    const resourceById = new Map(
+      resources.map((resource) => [resource.id, resource]),
+    );
     return {
       concept_id: raw.concept_id,
       evidence: raw.evidence.map((e, i) => {
         return {
-          id: `${conceptId}_${i}`,
-          label: e.resource?.title ?? humanize(e.evidence_type),
+          id: e.id || `${conceptId}_${i}`,
+          label:
+            resourceById.get(e.resource_id ?? "")?.title ?? humanize(e.type),
           // Outcome is the backend's graded result; only formatted here.
           // No outcome means no score to show - not a score of zero.
           detail:
             e.outcome === null || e.outcome === undefined
               ? ""
               : `${Math.round(e.outcome * 100)}%`,
-          kind: EVIDENCE_KIND[e.evidence_type] ?? "familiarity",
+          kind: "understanding",
           // Presentation cue only - a direction read off the backend's own
           // outcome, not a recomputed score.
           polarity:
@@ -303,12 +298,13 @@ const httpApi: KnowledgeApi = {
               : e.outcome >= 0.5
                 ? "positive"
                 : "negative",
-          source: e.resource ? toResource(e.resource) : undefined,
+          source: resourceById.get(e.resource_id ?? ""),
         } satisfies Evidence;
       }),
-      resources: raw.resources.map((r) =>
-        toResource(r.resource, LINK_ROLE[r.link_type] ?? humanize(r.link_type)),
-      ),
+      resources: resources.map((resource) => ({
+        ...resource,
+        role: "Course material",
+      })),
     };
   },
 
@@ -316,6 +312,26 @@ const httpApi: KnowledgeApi = {
     // The engine exposes no explainability endpoint yet. Returning null makes
     // the inspector hide the section rather than invent a narrative.
     return null;
+  },
+
+  async listUnderstanding() {
+    const raw = await request<{
+      concepts: {
+        concept_id: string;
+        name: string;
+        discovery_state: string;
+        understanding: number | null;
+        positive_evidence: number;
+        negative_evidence: number;
+        last_evidence_at: string | null;
+        last_practiced_at: string | null;
+      }[];
+    }>(`${studentBase()}/understanding`);
+    return raw.concepts.map((concept) => ({
+      ...concept,
+      discovery_state:
+        concept.discovery_state as UnderstandingEntry["discovery_state"],
+    }));
   },
 
   async listStudyTargets() {
@@ -333,8 +349,7 @@ const httpApi: KnowledgeApi = {
       gaps: {
         concept_id: string;
         name: string;
-        mastery: number;
-        confidence: number;
+        understanding: number;
         priority: number;
         action: string;
         reason: string;
@@ -348,8 +363,7 @@ const httpApi: KnowledgeApi = {
       gaps: raw.gaps.map((g) => ({
         concept_id: g.concept_id,
         concept_name: g.name,
-        mastery: g.mastery,
-        confidence: g.confidence,
+        understanding: g.understanding,
         priority: g.priority,
         // Backend enum is lowercase; the UI labels are uppercase.
         action: g.action.toUpperCase() as GapAction,
@@ -364,8 +378,7 @@ const httpApi: KnowledgeApi = {
       gaps: {
         concept_id: string;
         name: string;
-        mastery: number;
-        confidence: number;
+        understanding: number;
         priority: number;
         action: string;
         reason: string;
@@ -387,7 +400,7 @@ const httpApi: KnowledgeApi = {
         concept_id: conceptId,
         concept_name: gap?.name ?? "(unknown concept)",
         reason: gap?.reason ?? "Required on the path to your target.",
-        mastery: gap ? gap.mastery : null,
+        understanding: gap ? gap.understanding : null,
         resources: [] as Resource[],
       };
     });
@@ -456,6 +469,23 @@ const mockApi: KnowledgeApi = {
   async getWhy(conceptId) {
     await delay(200);
     return mockWhy(selectedMockCourseId, conceptId);
+  },
+  async listUnderstanding() {
+    await delay(120);
+    return getMockCourseData(selectedMockCourseId).graph.nodes.map(
+      (node, index) => ({
+        concept_id: node.id,
+        name: node.name,
+        discovery_state: node.discovery_state,
+        understanding: node.understanding,
+        positive_evidence: node.understanding === null ? 0 : 2 + (index % 3),
+        negative_evidence: node.understanding === null ? 0 : index % 2,
+        last_evidence_at:
+          node.understanding === null ? null : "2026-02-01T00:00:00Z",
+        last_practiced_at:
+          node.understanding === null ? null : "2026-02-03T00:00:00Z",
+      }),
+    );
   },
   async listStudyTargets() {
     await delay(80);

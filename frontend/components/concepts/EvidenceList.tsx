@@ -3,14 +3,14 @@ import type { Evidence } from "@/lib/types";
 import { OriginChip } from "@/components/common/StatusBadge";
 
 const KIND_LABEL: Record<Evidence["kind"], string> = {
-  mastery: "mastery evidence",
-  familiarity: "familiarity evidence",
-  confidence: "confidence evidence",
+  understanding: "understanding evidence",
 };
 
 export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
   if (evidence.length === 0) {
-    return <p className="text-[13px] text-ink-faint">No evidence recorded yet.</p>;
+    return (
+      <p className="text-[13px] text-ink-faint">No evidence recorded yet.</p>
+    );
   }
 
   return (
@@ -38,16 +38,24 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
                     positive ? "text-state-mastered" : "text-state-struggling"
                   }`}
                 >
-                  {positive ? <Plus size={9} aria-hidden /> : <Minus size={9} aria-hidden />}
+                  {positive ? (
+                    <Plus size={9} aria-hidden />
+                  ) : (
+                    <Minus size={9} aria-hidden />
+                  )}
                   {positive ? "Positive" : "Negative"}
                 </span>
               ) : null}
-              <span className="text-[10px] text-ink-faint">{KIND_LABEL[e.kind]}</span>
+              <span className="text-[10px] text-ink-faint">
+                {KIND_LABEL[e.kind]}
+              </span>
               <span className="ml-auto">
                 {e.source ? (
                   <OriginChip origin={e.source.origin} />
                 ) : (
-                  <span className="text-[10px] text-ink-faint">Source not linked</span>
+                  <span className="text-[10px] text-ink-faint">
+                    Source not linked
+                  </span>
                 )}
               </span>
             </div>

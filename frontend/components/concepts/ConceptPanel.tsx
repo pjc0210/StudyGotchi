@@ -5,13 +5,24 @@ import { Sparkles, X } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
 import { formatScore } from "@/lib/graph";
 import { useStore } from "@/lib/store";
-import type { ConceptDetail, ConceptNode, WhyExplanation } from "@/lib/types";
+import type {
+  ConceptDetail,
+  ConceptNode,
+  UnderstandingEntry,
+  WhyExplanation,
+} from "@/lib/types";
 import { StateBadge } from "@/components/common/StatusBadge";
-import { MasteryBreakdown } from "./MasteryBreakdown";
+import { UnderstandingBreakdown } from "./UnderstandingBreakdown";
 import { EvidenceList } from "./EvidenceList";
 import { ResourceList } from "./ResourceList";
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="border-t border-line px-4 py-4">
       <h3 className="mb-2.5 text-[11px] font-semibold uppercase tracking-wider text-ink-faint">
@@ -26,6 +37,9 @@ export function ConceptPanel() {
   const { graph, selectedId, select } = useStore();
   const [detail, setDetail] = useState<ConceptDetail | null>(null);
   const [why, setWhy] = useState<WhyExplanation | null>(null);
+  const [understanding, setUnderstanding] = useState<UnderstandingEntry | null>(
+    null,
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -37,6 +51,7 @@ export function ConceptPanel() {
     if (!selectedId) {
       setDetail(null);
       setWhy(null);
+      setUnderstanding(null);
       setError(null);
       return;
     }
@@ -47,15 +62,23 @@ export function ConceptPanel() {
     Promise.all([
       api.getConceptDetail(selectedId),
       api.getWhy(selectedId).catch(() => null),
+      api.listUnderstanding(),
     ])
-      .then(([d, w]) => {
+      .then(([d, w, entries]) => {
         if (cancelled) return;
         setDetail(d);
         setWhy(w);
+        setUnderstanding(
+          entries.find((entry) => entry.concept_id === selectedId) ?? null,
+        );
       })
       .catch((err: unknown) => {
         if (cancelled) return;
-        setError(err instanceof ApiError ? err.message : "Could not load this concept.");
+        setError(
+          err instanceof ApiError
+            ? err.message
+            : "Could not load this concept.",
+        );
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -97,18 +120,24 @@ export function ConceptPanel() {
             </span>
           ) : null}
           {concept.cluster ? (
-            <span className="text-[11px] text-ink-faint">{concept.cluster}</span>
+            <span className="text-[11px] text-ink-faint">
+              {concept.cluster}
+            </span>
           ) : null}
         </div>
       </header>
 
       <div className="px-4 py-4">
-        <MasteryBreakdown concept={concept} />
+        <UnderstandingBreakdown concept={concept} detail={understanding} />
       </div>
 
       {why ? (
-        <Section title={`Why is my mastery ${formatScore(concept.mastery)}?`}>
-          <p className="text-[13px] leading-relaxed text-ink-dim">{why.summary}</p>
+        <Section
+          title={`Why is my understanding ${formatScore(concept.understanding)}?`}
+        >
+          <p className="text-[13px] leading-relaxed text-ink-dim">
+            {why.summary}
+          </p>
           {why.strongest_evidence || why.weakest_evidence ? (
             <dl className="mt-3 space-y-1.5">
               {why.strongest_evidence ? (
