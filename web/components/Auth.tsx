@@ -3,24 +3,25 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { SiteHeader } from '@/components/SiteHeader'
 import { useStore } from '@/lib/store'
 
 export function LoginPage() {
-  const { ready, pendingTwoFactor, login } = useStore()
+  const { pendingTwoFactor, login } = useStore()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
   useEffect(() => {
-    if (ready && pendingTwoFactor) router.replace('/2fa')
-  }, [ready, pendingTwoFactor, router])
+    if (pendingTwoFactor) router.replace('/2fa')
+  }, [pendingTwoFactor, router])
 
-  if (ready && pendingTwoFactor) return null
+  if (pendingTwoFactor) return null
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const result = login(email, password)
+    const result = await login(email, password)
     if (result === 'ok') router.push('/earth')
     else if (result === '2fa') router.push('/2fa')
     else setError(result)
@@ -28,9 +29,7 @@ export function LoginPage() {
 
   return (
     <div className="login-page">
-      <Link href="/" className="site-wordmark login-logo">
-        StudyGotchi
-      </Link>
+      <SiteHeader />
       <form className="login-form" onSubmit={onSubmit}>
         <h1>Login</h1>
         {error && <p className="error">{error}</p>}
@@ -77,9 +76,9 @@ export function RegisterPage() {
 
   if (ready && user) return null
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const err = register(name, email, password)
+    const err = await register(name, email, password)
     if (err) setError(err)
     else router.push('/earth')
   }
@@ -164,9 +163,9 @@ export function TwoFactorPage() {
     <div className="auth">
       <form
         className="auth-card"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault()
-          if (verifyTwoFactor(code)) router.push('/earth')
+          if (await verifyTwoFactor(code)) router.push('/earth')
           else setError('Use mock code 123456.')
         }}
       >

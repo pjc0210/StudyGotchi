@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Fraunces, Outfit } from 'next/font/google'
 import { Providers } from '@/components/Providers'
+import { readSession } from '@/lib/session'
 import './globals.css'
 
 const outfit = Outfit({
@@ -18,11 +19,13 @@ export const metadata: Metadata = {
   description: 'A living knowledge world for the courses you study.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const user = await readSession()
+
   return (
     <html lang="en" className={`${outfit.variable} ${fraunces.variable}`}>
       <body>
-        <Providers>{children}</Providers>
+        <Providers initialUser={user}>{children}</Providers>
       </body>
     </html>
   )
