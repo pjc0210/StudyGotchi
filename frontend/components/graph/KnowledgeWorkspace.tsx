@@ -164,7 +164,7 @@ export function KnowledgeWorkspace({
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-[#07111f]">
+    <div className="absolute inset-0 overflow-hidden bg-[#04030F]">
       <KnowledgeCanvas
         model={model}
         emphasis={emphasis}
