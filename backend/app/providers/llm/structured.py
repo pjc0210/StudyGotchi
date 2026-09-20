@@ -43,6 +43,10 @@ def validate_structured(schema: type[SchemaT], payload: Any) -> SchemaT:
     without dumping the whole document.
     """
 
+    # Strict tool schemas mark every optional field nullable, and models then send
+    # `null` where the Pydantic model wants its default (an empty list, say). Drop
+    # those nulls so the default applies instead of failing validation.
+    payload = _drop_null_optionals(model_tool_schema(schema), payload)
     try:
         return schema.model_validate(payload)
     except ValidationError as exc:
@@ -50,6 +54,27 @@ def validate_structured(schema: type[SchemaT], payload: Any) -> SchemaT:
             f"Structured LLM output failed {schema.__name__} validation: {exc.error_count()} error(s). "
             f"{exc.errors()[:8]}"
         ) from exc
+
+
+def _drop_null_optionals(schema: Any, payload: Any) -> Any:
+    if not isinstance(schema, dict):
+        return payload
+    if "anyOf" in schema and isinstance(payload, (dict, list)):
+        for option in schema["anyOf"]:
+            if isinstance(option, dict) and option.get("type") == ("object" if isinstance(payload, dict) else "array"):
+                return _drop_null_optionals(option, payload)
+        return payload
+    if isinstance(payload, list) and "items" in schema:
+        return [_drop_null_optionals(schema["items"], item) for item in payload]
+    if isinstance(payload, dict) and "properties" in schema:
+        required = _as_set(schema.get("required"))
+        cleaned: dict[str, Any] = {}
+        for key, value in payload.items():
+            if value is None and key not in required:
+                continue
+            cleaned[key] = _drop_null_optionals(schema["properties"].get(key), value)
+        return cleaned
+    return payload
 
 
 def _as_set(value: Any) -> set[str]:

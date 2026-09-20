@@ -2,9 +2,9 @@ from datetime import UTC, datetime
 from uuid import UUID
 
 from sqlalchemy import select
-from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.db.base import upsert_insert
 from app.db.models import StudentConceptState, StudentEvidenceEvent
 from app.domain.mastery.evidence import EvidenceEvent, EvidenceType, evidence_strength
 
@@ -101,7 +101,7 @@ async def upsert_student_concept_state(
         "last_practiced_at": last_practiced_at,
         "updated_at": now,
     }
-    stmt = sqlite_insert(StudentConceptState).values(**values)
+    stmt = upsert_insert(session, StudentConceptState).values(**values)
     update_cols = {
         k: v
         for k, v in values.items()

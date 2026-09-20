@@ -2,9 +2,9 @@ from datetime import UTC, datetime
 from uuid import UUID
 
 from sqlalchemy import select, update
-from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.db.base import upsert_insert
 from app.db.models import ConceptEdge, EdgeEvidence, StudentConceptEdge
 from app.domain.ontology.edges import (
     ConceptEdgeData,
@@ -44,9 +44,9 @@ async def upsert_concept_edge(
     `domain.graph.reduction`).
     """
 
+    insert = upsert_insert(session, ConceptEdge)
     stmt = (
-        sqlite_insert(ConceptEdge)
-        .values(
+        insert.values(
             course_id=course_id,
             source_concept_id=source_concept_id,
             target_concept_id=target_concept_id,
@@ -58,10 +58,8 @@ async def upsert_concept_edge(
         .on_conflict_do_update(
             index_elements=["course_id", "source_concept_id", "target_concept_id", "edge_type"],
             set_={
-                "confidence": sqlite_insert(ConceptEdge).excluded.confidence,
-                "authority_weight": sqlite_insert(
-                    ConceptEdge
-                ).excluded.authority_weight,
+                "confidence": insert.excluded.confidence,
+                "authority_weight": insert.excluded.authority_weight,
             },
             where=ConceptEdge.confidence < confidence,
         )
@@ -173,7 +171,7 @@ async def upsert_student_concept_edge(
     origin_resource_id: UUID | None,
 ) -> None:
     stmt = (
-        sqlite_insert(StudentConceptEdge)
+        upsert_insert(session, StudentConceptEdge)
         .values(
             student_id=student_id,
             course_id=course_id,
