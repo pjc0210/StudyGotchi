@@ -12,6 +12,8 @@ import {
   boundsOf,
   createLayout,
   settle,
+  syncLayout,
+  type Layout,
   type PositionedNode,
 } from "@/lib/forceLayout";
 import { useSpaceAttribute } from "@/components/shell/useSpaceAttribute";
@@ -96,11 +98,40 @@ export function KnowledgeCanvas({
     moved: boolean;
   }>({ mode: "none", nodeId: null, startX: 0, startY: 0, moved: false });
 
-  // Layout is computed once per model and then frozen.
+  // Keep the last settled sky so a dropped file can reheat in place instead of
+  // reseeding every star. Bulk hydrates still start from a fresh layout.
+  const layoutRef = useRef<Layout | null>(null);
+  const firstFitRef = useRef(true);
   const layout = useMemo(() => {
-    const l = createLayout(model);
-    settle(l);
-    return l;
+    const prev = layoutRef.current;
+    const nextIds = new Set(model.nodes.map((node) => node.id));
+    const prevIds = new Set(prev?.nodes.map((node) => node.id) ?? []);
+    let shared = 0;
+    let added = 0;
+    for (const id of nextIds) {
+      if (prevIds.has(id)) shared += 1;
+      else added += 1;
+    }
+
+    let next: Layout;
+    if (!prev || shared === 0 || added > 8) {
+      if (prev) prev.simulation.stop();
+      next = createLayout(model);
+      settle(next);
+    } else if (added === 0) {
+      for (const node of prev.nodes) {
+        const fresh = model.byId.get(node.id);
+        if (fresh) node.node = fresh;
+      }
+      const prevLinkIds = new Set(prev.links.map((link) => link.id));
+      const linksSame =
+        prevLinkIds.size === model.links.length && model.links.every((link) => prevLinkIds.has(link.id));
+      next = linksSame ? prev : syncLayout(prev, model);
+    } else {
+      next = syncLayout(prev, model);
+    }
+    layoutRef.current = next;
+    return next;
   }, [model]);
 
   const nodeIndex = useMemo(() => {
@@ -125,14 +156,21 @@ export function KnowledgeCanvas({
   }, []);
 
   // Let d3 move the node data directly while the canvas remains React-free.
-  // The layout starts settled; it only wakes briefly while a node is handled.
+  // Do not stop the sim here: a file insert reuses the same simulation, and
+  // rebinding the tick handler must not freeze the structural shift.
   useEffect(() => {
     layout.simulation.on("tick.canvas", markDirty);
     return () => {
       layout.simulation.on("tick.canvas", null);
-      layout.simulation.stop();
     };
   }, [layout, markDirty]);
+
+  useEffect(
+    () => () => {
+      layoutRef.current?.simulation.stop();
+    },
+    [],
+  );
 
   // --- camera helpers -----------------------------------------------------
 
@@ -215,9 +253,15 @@ export function KnowledgeCanvas({
     [fit, fitTo, nodeIndex, animateTo],
   );
 
-  // Fit whenever the underlying graph changes shape.
+  // First layout snaps to the whole sky. A later insert eases to the new
+  // bounds so the structural shift is visible without zooming into the file.
   useEffect(() => {
-    const id = setTimeout(() => fit(0), 30);
+    if (firstFitRef.current) {
+      firstFitRef.current = false;
+      const id = setTimeout(() => fit(0), 30);
+      return () => clearTimeout(id);
+    }
+    const id = setTimeout(() => fit(900), 240);
     return () => clearTimeout(id);
   }, [fit]);
 

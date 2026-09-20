@@ -20,6 +20,7 @@ export function UploadDialog({ open, onClose }: { open: boolean; onClose: () => 
   const accept = (files: FileList | null) => {
     if (!files || files.length === 0) return;
     addUploads(Array.from(files), origin, artifactType);
+    onClose();
   };
 
   return (
