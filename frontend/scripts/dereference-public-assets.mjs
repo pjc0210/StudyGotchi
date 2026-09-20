@@ -16,7 +16,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const dest = resolve(dirname(fileURLToPath(import.meta.url)), "../public/assets");
-const keep = ["audio", "biomes", "growth", "landmarks", "QA.md"];
+const keep = ["audio", "biomes", "growth", "landmarks", "space", "QA.md"];
 const keepCreatures = ["animated", "cc0", "tripo-cleaned"];
 
 function resolveSource() {

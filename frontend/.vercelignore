@@ -1,0 +1,9 @@
+# The public/assets symlink points at the 400MB repo assets tree.
+# Following it exceeds Vercel's 100MB file cap. Galaxy uses the
+# generated React spiral; the build script can rematerialize a slim
+# public/assets if a local assets source exists.
+public/assets
+.next-verify
+.next-demo-verify
+.next-verify/**
+.next-demo-verify/**
