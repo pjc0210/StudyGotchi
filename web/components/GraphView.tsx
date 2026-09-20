@@ -12,7 +12,13 @@ import {
   type CanvasHandle,
   type HoverInfo,
 } from '@/components/graph/KnowledgeCanvas'
+import { PeerChrome } from '@/components/PeerChrome'
 import { SiteHeader } from '@/components/SiteHeader'
+import {
+  friendHasGraph,
+  getFriendCourseData,
+  type Friend,
+} from '@/lib/friends'
 import { buildGraphModel, lensEmphasis, type Lens } from '@/lib/kg/graphModel'
 import {
   MOCK_COURSE,
@@ -21,14 +27,28 @@ import {
 } from '@/lib/kg/mock'
 import { useStore } from '@/lib/store'
 
-export function GraphView() {
+export function GraphView({ peer }: { peer?: Friend }) {
   const { courses } = useStore()
+  const overlayCourses = peer?.courses ?? courses
+  const [courseId, setCourseId] = useState(
+    peer?.graphCourseId ?? MOCK_COURSE.id,
+  )
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [lens, setLens] = useState<Lens>('all')
   const [hover, setHover] = useState<HoverInfo | null>(null)
   const canvasRef = useRef<CanvasHandle | null>(null)
 
-  const data = useMemo(() => getMockCourseData(MOCK_COURSE.id), [])
+  useEffect(() => {
+    setCourseId(peer?.graphCourseId ?? MOCK_COURSE.id)
+  }, [peer?.id, peer?.graphCourseId])
+
+  const data = useMemo(
+    () =>
+      peer
+        ? getFriendCourseData(peer, courseId)
+        : getMockCourseData(courseId),
+    [peer, courseId],
+  )
   const model = useMemo(
     () => buildGraphModel(data.graph, data.resources),
     [data],
@@ -37,6 +57,10 @@ export function GraphView() {
 
   const hoveredNode = hover ? model.byId.get(hover.id) : undefined
   const selectedNode = selectedId ? model.byId.get(selectedId) : undefined
+
+  useEffect(() => {
+    setSelectedId(null)
+  }, [courseId])
 
   // Changing lens is a change of view, so reframe onto what it emphasises.
   const firstLensRender = useRef(true)
@@ -76,7 +100,13 @@ export function GraphView() {
       <div className="graph-stage">
         <aside
           className="course-overlay"
-          aria-label={selectedNode ? 'Concept inspector' : 'Your courses'}
+          aria-label={
+            selectedNode
+              ? 'Concept inspector'
+              : peer
+                ? `${peer.name}'s courses`
+                : 'Your courses'
+          }
         >
           {selectedNode?.kind === 'concept' ? (
             <ConceptOverlay
@@ -96,15 +126,42 @@ export function GraphView() {
             />
           ) : (
             <>
-              <h1>Your courses</h1>
-              <p>Courses you submitted materials for.</p>
+              {peer ? (
+                <PeerChrome friend={peer} view="graph" />
+              ) : (
+                <h1>Your courses</h1>
+              )}
+              <p>
+                {peer
+                  ? 'Open a course to see their graph. Click a star to inspect a concept.'
+                  : 'Courses you submitted materials for.'}
+              </p>
               <ul className="course-list">
-                {courses.map((course) => (
-                  <li key={course.code}>
-                    <span className="course-code">{course.code}</span>
-                    <span className="course-name">{course.name}</span>
-                  </li>
-                ))}
+                {overlayCourses.map((course) => {
+                  const canOpenGraph = peer && friendHasGraph(course.code)
+                  if (canOpenGraph) {
+                    return (
+                      <li key={course.code}>
+                        <button
+                          type="button"
+                          className={
+                            course.code === data.course.id ? 'is-active' : undefined
+                          }
+                          onClick={() => setCourseId(course.code)}
+                        >
+                          <span className="course-code">{course.code}</span>
+                          <span className="course-name">{course.name}</span>
+                        </button>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={course.code}>
+                      <span className="course-code">{course.code}</span>
+                      <span className="course-name">{course.name}</span>
+                    </li>
+                  )
+                })}
               </ul>
             </>
           )}

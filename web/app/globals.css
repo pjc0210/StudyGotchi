@@ -358,6 +358,174 @@ h1, h2 {
   color: var(--ink-soft);
 }
 
+.course-list li button {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: inherit;
+}
+
+.course-list li:has(button.is-active) {
+  box-shadow: inset 0 0 0 2px var(--title);
+}
+
+.peer-chrome {
+  margin-bottom: 8px;
+}
+
+.peer-back {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.peer-back:hover {
+  color: var(--title);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.peer-kicker {
+  margin: 0 0 4px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.peer-handle {
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.peer-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 8px;
+}
+
+.peer-tabs a {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  background: var(--peach);
+  color: var(--title);
+}
+
+.peer-tabs a:nth-child(2) {
+  background: var(--sky);
+}
+
+.peer-tabs a.active {
+  box-shadow: inset 0 0 0 2px var(--title);
+}
+
+.friend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.friend-list > li {
+  background: var(--peach);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.friend-list > li:nth-child(2) { background: var(--mint); }
+.friend-list > li:nth-child(3) { background: var(--sky); }
+.friend-list > li:nth-child(4) { background: var(--rose); }
+.friend-list > li:nth-child(5) { background: var(--sage); }
+.friend-list > li:nth-child(6) { background: var(--sky); }
+
+.friend-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.friend-avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--raised);
+  font-size: 13px;
+  font-weight: 640;
+  letter-spacing: 0.04em;
+  color: var(--title);
+  flex-shrink: 0;
+}
+
+.friend-name {
+  display: block;
+  font-weight: 640;
+}
+
+.friend-handle {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.friend-blurb {
+  margin: 10px 0 12px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.friend-courses {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.friend-courses li {
+  background: var(--raised);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 640;
+  letter-spacing: 0.03em;
+}
+
+.friend-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.friend-actions a {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  background: var(--raised);
+  color: var(--title);
+}
+
+.friend-actions a:hover {
+  color: var(--title);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .overlay-heading {
   display: flex;
   align-items: flex-start;
