@@ -92,19 +92,8 @@ h1, h2 {
 
 .earth-globe {
   position: absolute;
-  width: 1000px;
-  height: 1000px;
-  right: -250px;
-  bottom: -250px;
   z-index: 0;
   pointer-events: none;
-}
-
-.is-main .earth-globe {
-  width: calc(100vw * 3 / 7);
-  height: calc(100vw * 3 / 7);
-  right: calc(100vw * -3 / 28);
-  bottom: calc(100vw * -3 / 28);
 }
 
 .earth-globe svg {
@@ -120,7 +109,7 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: calc(100vw * 19 / 28);
+  width: calc(100% - var(--globe-size, calc(100vw * 3 / 7)) * 0.75);
   min-height: calc(100vh - 80px);
   padding: 0 7vw 8vh;
 }
@@ -151,7 +140,7 @@ h1, h2 {
 .course-overlay {
   position: relative;
   z-index: 1;
-  width: min(24rem, calc(100vw - 750px - 4.5rem));
+  width: min(24rem, calc(100vw - var(--globe-size, calc(100vw * 3 / 7)) * 0.75 - 4.5rem));
   height: calc(100vh - 72px - 4rem);
   margin: 1rem 2.25rem 3rem;
   padding: 36px 28px 32px;

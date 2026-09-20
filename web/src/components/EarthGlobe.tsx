@@ -1,7 +1,39 @@
-/** Pastel globe. Size and clip are set in CSS per page. */
+import { useLayoutEffect, useState } from 'react'
+
+function sizeFromWindow() {
+  return (window.innerWidth * 3) / 7
+}
+
+/** Square globe: width and height are 3/7 of the window width. Scales on resize. */
 export function EarthGlobe() {
+  const [size, setSize] = useState(() =>
+    typeof window === 'undefined' ? 0 : sizeFromWindow(),
+  )
+
+  useLayoutEffect(() => {
+    const apply = () => {
+      const next = sizeFromWindow()
+      setSize(next)
+      document.documentElement.style.setProperty('--globe-size', `${next}px`)
+    }
+    apply()
+    window.addEventListener('resize', apply)
+    return () => window.removeEventListener('resize', apply)
+  }, [])
+
+  const shift = size / 4
+
   return (
-    <div className="earth-globe" aria-hidden="true">
+    <div
+      className="earth-globe"
+      aria-hidden="true"
+      style={{
+        width: size,
+        height: size,
+        right: -shift,
+        bottom: -shift,
+      }}
+    >
       <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
         <circle cx="500" cy="500" r="500" fill="#b9d4e8" />
         <path
