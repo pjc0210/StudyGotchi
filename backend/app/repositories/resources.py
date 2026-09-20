@@ -13,11 +13,39 @@ def compute_content_hash(content_bytes: bytes) -> str:
     return hashlib.sha256(content_bytes).hexdigest()
 
 
-async def get_resource_by_hash(session: AsyncSession, course_id: UUID, content_hash: str) -> Resource | None:
-    result = await session.execute(
-        select(Resource).where(Resource.course_id == course_id, Resource.content_hash == content_hash)
-    )
+async def get_resource_by_hash(
+    session: AsyncSession, course_id: UUID, content_hash: str, *, owner_user_id: UUID | None = None
+) -> Resource | None:
+    stmt = select(Resource).where(Resource.course_id == course_id, Resource.content_hash == content_hash)
+    if owner_user_id is not None:
+        stmt = stmt.where(Resource.owner_user_id == owner_user_id)
+    result = await session.execute(stmt)
     return result.scalars().first()
+
+
+async def list_student_resources(session: AsyncSession, *, course_id: UUID, student_id: UUID) -> list[Resource]:
+    result = await session.execute(
+        select(Resource)
+        .where(Resource.course_id == course_id, Resource.owner_user_id == student_id)
+        .order_by(Resource.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def get_resource_chunks(session: AsyncSession, resource_id: UUID) -> list[ResourceChunk]:
+    result = await session.execute(
+        select(ResourceChunk).where(ResourceChunk.resource_id == resource_id).order_by(ResourceChunk.chunk_index)
+    )
+    return list(result.scalars().all())
+
+
+async def merge_resource_metadata(session: AsyncSession, resource_id: UUID, **fields: object) -> None:
+    """JSONB is only written back when the attribute is reassigned, so merge into a new dict."""
+
+    resource = await session.get(Resource, resource_id)
+    if resource is not None:
+        resource.resource_metadata = {**resource.resource_metadata, **fields}
+        await session.flush()
 
 
 async def create_resource(

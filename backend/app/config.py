@@ -28,9 +28,10 @@ class Settings(BaseSettings):
     clerk_issuer: str | None = None
     clerk_authorized_parties: str = "http://localhost:3000"
 
-    # Ingest: parallel model calls per file, and the cosine floor for phase A matches.
+    # Ingest: parallel model calls per file, and the absolute cosine floor for fast-phase
+    # matches (a chunk whose best concept is below this is about nothing we know).
     ingest_concurrency: int = 6
-    match_threshold: float = 0.80
+    match_threshold: float = 0.35
 
     @property
     def cors_origins_list(self) -> list[str]:

@@ -1,5 +1,6 @@
 """Miscellaneous request/response DTOs not tied to one domain schema file."""
 
+from datetime import datetime
 from uuid import UUID
 
 from pydantic import BaseModel, Field, model_validator
@@ -31,10 +32,27 @@ class ResourceIngestResponse(BaseModel):
 
 class StudentResourceIngestResponse(BaseModel):
     resource_id: UUID
+    # unchanged (same bytes seen before), matched (fast phase done, deep analysis queued), processed
     status: str
     evidence_events_created: int
     concepts_touched: list[UUID]
     personal_concepts_created: int = 0
+    # queued when the deep analysis runs after this response, none when nothing is left to do
+    analysis: str = "none"
+
+
+class ResourceStatusOut(BaseModel):
+    resource_id: UUID
+    title: str
+    origin: str
+    artifact_type: str
+    # parsing, matched, analyzing, processed, failed, unchanged, empty
+    status: str
+    error: str | None = None
+    phase_a_ms: int | None = None
+    phase_b_ms: int | None = None
+    created_at: datetime
+    updated_at: datetime
 
 
 class GapOut(BaseModel):
