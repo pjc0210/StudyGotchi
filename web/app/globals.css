@@ -653,6 +653,19 @@ h1, h2 {
   margin-top: 6px;
 }
 
+a.login-submit {
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+}
+
+.login-success {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+
 .login-links {
   display: flex;
   justify-content: center;
