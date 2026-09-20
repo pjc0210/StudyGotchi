@@ -1,13 +1,54 @@
 from functools import lru_cache
 from pathlib import Path
+from typing import Any
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic.fields import FieldInfo
+from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict
 
 _BACKEND_DIR = Path(__file__).resolve().parents[1]
+
+# Fields where this project's own `.env` outranks the shell. A developer's shell may
+# carry an LLM-gateway OPENAI_API_KEY for other tools; that key is not valid here.
+_DOTENV_WINS = frozenset({"openai_api_key"})
+
+
+class _ShellEnvDeferringToDotenv(PydanticBaseSettingsSource):
+    """The normal environment source, minus the fields the `.env` file already sets."""
+
+    def __init__(self, settings_cls, env_source: PydanticBaseSettingsSource, dotenv_source: PydanticBaseSettingsSource):
+        super().__init__(settings_cls)
+        self._env = env_source
+        self._dotenv = dotenv_source
+
+    def get_field_value(self, field: FieldInfo, field_name: str) -> tuple[Any, str, bool]:
+        return self._env.get_field_value(field, field_name)
+
+    def __call__(self) -> dict[str, Any]:
+        values = self._env()
+        from_file = self._dotenv()
+        for name in _DOTENV_WINS & from_file.keys():
+            values.pop(name, None)
+        return values
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=_BACKEND_DIR / ".env", extra="ignore")
+
+    @classmethod
+    def settings_customise_sources(
+        cls,
+        settings_cls: type[BaseSettings],
+        init_settings: PydanticBaseSettingsSource,
+        env_settings: PydanticBaseSettingsSource,
+        dotenv_settings: PydanticBaseSettingsSource,
+        file_secret_settings: PydanticBaseSettingsSource,
+    ) -> tuple[PydanticBaseSettingsSource, ...]:
+        return (
+            init_settings,
+            _ShellEnvDeferringToDotenv(settings_cls, env_settings, dotenv_settings),
+            dotenv_settings,
+            file_secret_settings,
+        )
 
     # SQLite for a laptop; production sets DATABASE_URL to a Postgres (asyncpg) URL.
     # Every match against embeddings happens in Python (app.resolution), so the
