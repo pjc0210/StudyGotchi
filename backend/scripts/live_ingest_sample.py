@@ -15,6 +15,7 @@ import asyncio
 from pathlib import Path
 from uuid import uuid4
 
+from openai import APIStatusError
 from sqlalchemy import func, select
 
 from app.config import get_settings
@@ -116,6 +117,15 @@ async def run(scratch: Path) -> None:
 
     provider = get_llm_provider()
     print("provider:", _provider_label())
+    try:
+        vectors = await provider.embed(["openai key preflight"])
+    except RuntimeError as exc:
+        raise SystemExit(str(exc)) from exc
+    except APIStatusError as exc:
+        raise SystemExit(f"OpenAI preflight failed with HTTP {exc.status_code}.") from exc
+    if not vectors or len(vectors[0]) != settings.openai_embed_dimensions:
+        raise SystemExit("OpenAI embedding preflight returned an unexpected vector width.")
+    print("openai embedding preflight: ok")
 
     files: list[tuple[Path, ArtifactType, str]] = []
     for zip_name, member, artifact, dest_name in _DEFAULT_FILES:

@@ -13,13 +13,26 @@ fit `Vector(1024)` in `app.db.models.EMBEDDING_DIM` without a schema change.
 import base64
 import json
 
-from openai import AsyncOpenAI
+from openai import APIStatusError, AsyncOpenAI
 
 from app.config import get_settings
 from app.providers.llm.base import SchemaT
 from app.providers.llm.structured import model_tool_schema, validate_structured
 
 _STRUCTURED_OUTPUT_TOOL_NAME = "emit_structured_output"
+
+
+def _openai_error(exc: APIStatusError) -> RuntimeError:
+    payload = exc.body if isinstance(exc.body, dict) else {}
+    error = payload.get("error") if isinstance(payload.get("error"), dict) else payload
+    code = error.get("code") if isinstance(error, dict) else None
+    if exc.status_code == 401:
+        return RuntimeError("OpenAI rejected the API key.")
+    if exc.status_code == 429 and code == "credit_balance_exhausted":
+        return RuntimeError("OpenAI account has no remaining credits.")
+    if exc.status_code == 429:
+        return RuntimeError("OpenAI rate-limited the request.")
+    return RuntimeError(f"OpenAI request failed with HTTP {exc.status_code}.")
 
 
 class OpenAILLMProvider:
@@ -38,26 +51,29 @@ class OpenAILLMProvider:
         self, *, system: str, prompt: str, schema: type[SchemaT]
     ) -> SchemaT:
         parameters = model_tool_schema(schema, strict=True)
-        response = await self._client.chat.completions.create(
-            model=self._model,
-            max_tokens=4096,
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": prompt},
-            ],
-            tools=[
-                {
-                    "type": "function",
-                    "function": {
-                        "name": _STRUCTURED_OUTPUT_TOOL_NAME,
-                        "description": f"Emit the extraction result matching the {schema.__name__} schema.",
-                        "parameters": parameters,
-                        "strict": True,
-                    },
-                }
-            ],
-            tool_choice={"type": "function", "function": {"name": _STRUCTURED_OUTPUT_TOOL_NAME}},
-        )
+        try:
+            response = await self._client.chat.completions.create(
+                model=self._model,
+                max_tokens=4096,
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": prompt},
+                ],
+                tools=[
+                    {
+                        "type": "function",
+                        "function": {
+                            "name": _STRUCTURED_OUTPUT_TOOL_NAME,
+                            "description": f"Emit the extraction result matching the {schema.__name__} schema.",
+                            "parameters": parameters,
+                            "strict": True,
+                        },
+                    }
+                ],
+                tool_choice={"type": "function", "function": {"name": _STRUCTURED_OUTPUT_TOOL_NAME}},
+            )
+        except APIStatusError as exc:
+            raise _openai_error(exc) from exc
         message = response.choices[0].message
         for call in message.tool_calls or []:
             if call.function.name != _STRUCTURED_OUTPUT_TOOL_NAME:
@@ -77,11 +93,14 @@ class OpenAILLMProvider:
         vectors: list[list[float]] = []
         for start in range(0, len(texts), batch_size):
             batch = texts[start : start + batch_size]
-            result = await self._client.embeddings.create(
-                model=self._embed_model,
-                input=batch,
-                dimensions=self._embed_dimensions,
-            )
+            try:
+                result = await self._client.embeddings.create(
+                    model=self._embed_model,
+                    input=batch,
+                    dimensions=self._embed_dimensions,
+                )
+            except APIStatusError as exc:
+                raise _openai_error(exc) from exc
             by_index = sorted(result.data, key=lambda row: row.index)
             vectors.extend(row.embedding for row in by_index)
         return vectors
@@ -91,18 +110,21 @@ class OpenAILLMProvider:
     ) -> str:
         encoded = base64.standard_b64encode(image_bytes).decode("utf-8")
         data_url = f"data:{media_type};base64,{encoded}"
-        response = await self._client.chat.completions.create(
-            model=self._vision_model,
-            max_tokens=2048,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": prompt},
-                        {"type": "image_url", "image_url": {"url": data_url}},
-                    ],
-                }
-            ],
-        )
+        try:
+            response = await self._client.chat.completions.create(
+                model=self._vision_model,
+                max_tokens=2048,
+                messages=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": prompt},
+                            {"type": "image_url", "image_url": {"url": data_url}},
+                        ],
+                    }
+                ],
+            )
+        except APIStatusError as exc:
+            raise _openai_error(exc) from exc
         content = response.choices[0].message.content
         return content or ""
