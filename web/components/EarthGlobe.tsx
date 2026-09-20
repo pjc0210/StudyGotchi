@@ -3,10 +3,10 @@
 import { useLayoutEffect, useState } from 'react'
 
 function sizeFromWindow() {
-  return (window.innerWidth * 5) / 7
+  return (window.innerWidth * 4) / 7
 }
 
-/** Square globe: width and height are 5/7 of the window width. Scales on resize. */
+/** Square globe: width and height are 4/7 of the window width. Scales on resize. */
 export function EarthGlobe() {
   const [size, setSize] = useState(0)
 
