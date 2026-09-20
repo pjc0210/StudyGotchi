@@ -118,7 +118,7 @@ export function ConceptPanel() {
   return (
     <aside
       aria-label="Concept inspector"
-      className="sg-enter absolute right-0 top-0 z-20 flex h-full w-[304px] flex-col 2xl:w-[330px] overflow-y-auto border-l border-white/[0.08] bg-[#0c1018] shadow-2xl shadow-black/60"
+      className="sg-enter absolute right-0 top-[78px] z-20 flex h-[calc(100%-78px)] w-[304px] flex-col 2xl:w-[330px] overflow-y-auto border-l border-white/[0.08] bg-[#0c1018] shadow-2xl shadow-black/60"
     >
       <header className="sticky top-0 z-10 border-b border-white/[0.08] bg-[#0c1018] px-5 py-5">
         <div className="flex items-start gap-2">

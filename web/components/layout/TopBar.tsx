@@ -182,40 +182,42 @@ export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
 
       {/* Demo-only: fabricates a file and its effect on the graph, no
           backend call. For running the demo when there is no time to wire
-          up a live upload. */}
+          up a live upload. Labels stay icon-only until 2xl - this cluster
+          is additive to an already-full bar, so it must not be what pushes
+          the bar into wrapping at ordinary laptop widths. */}
       <div
-        className="pointer-events-auto flex h-[34px] items-center gap-0.5 rounded-full border border-dashed border-amber-400/30 bg-amber-400/[0.06] pl-2.5 pr-1"
+        className="pointer-events-auto flex h-[34px] shrink-0 items-center gap-0.5 rounded-full border border-dashed border-amber-400/30 bg-amber-400/[0.06] pl-2 pr-1"
         aria-label="Demo controls"
       >
-        <span className="hidden text-[10px] font-medium uppercase tracking-wide text-amber-300/70 xl:inline">
+        <span className="hidden shrink-0 whitespace-nowrap pl-0.5 text-[10px] font-medium uppercase tracking-wide text-amber-300/70 2xl:inline">
           Demo
         </span>
         <button
           type="button"
           onClick={() => simulateIngest("notes")}
           disabled={!graph.data}
-          title="Simulate uploading a notes file"
-          className="flex h-[26px] items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium text-amber-100 transition-colors hover:bg-amber-400/15 disabled:pointer-events-none disabled:opacity-40"
+          title="Add Monday's Notes (simulated - no upload)"
+          className="flex h-[26px] shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 text-[12px] font-medium text-amber-100 transition-colors hover:bg-amber-400/15 disabled:pointer-events-none disabled:opacity-40"
         >
           <NotebookPen size={12} strokeWidth={2.25} aria-hidden />
-          <span className="sr-only xl:not-sr-only">Add Monday&rsquo;s Notes</span>
+          <span className="sr-only 2xl:not-sr-only">Add Monday&rsquo;s Notes</span>
         </button>
         <button
           type="button"
           onClick={() => simulateIngest("exam")}
           disabled={!graph.data}
-          title="Simulate uploading a graded exam"
-          className="flex h-[26px] items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium text-amber-100 transition-colors hover:bg-amber-400/15 disabled:pointer-events-none disabled:opacity-40"
+          title="Add Graded Exam (simulated - no upload)"
+          className="flex h-[26px] shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 text-[12px] font-medium text-amber-100 transition-colors hover:bg-amber-400/15 disabled:pointer-events-none disabled:opacity-40"
         >
           <GraduationCap size={12} strokeWidth={2.25} aria-hidden />
-          <span className="sr-only xl:not-sr-only">Add Graded Exam</span>
+          <span className="sr-only 2xl:not-sr-only">Add Graded Exam</span>
         </button>
       </div>
 
       <button
         type="button"
         onClick={onUploadClick}
-        className="pointer-events-auto flex h-[34px] items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.06] px-3 text-[12px] font-medium text-ink transition-colors hover:bg-white/[0.1]"
+        className="pointer-events-auto flex h-[34px] shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.06] px-3 text-[12px] font-medium text-ink transition-colors hover:bg-white/[0.1]"
       >
         <Upload size={13} strokeWidth={2.25} aria-hidden />
         <span className="sr-only xl:not-sr-only">Upload</span>
