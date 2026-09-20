@@ -69,10 +69,10 @@ h1, h2 {
   text-underline-offset: 5px;
 }
 
-.site-wordmark,
-.site-wordmark:hover,
-.site-wordmark:focus,
-.site-wordmark.active {
+.site-nav a.site-wordmark,
+.site-nav a.site-wordmark:hover,
+.site-nav a.site-wordmark:focus,
+.site-nav a.site-wordmark.active {
   font-family: var(--font-fraunces), Georgia, serif;
   font-size: clamp(3.25rem, 6.4vw, 6.25rem);
   line-height: 1.05;
