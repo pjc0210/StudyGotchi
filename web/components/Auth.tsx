@@ -63,50 +63,79 @@ export function LoginPage() {
 }
 
 export function RegisterPage() {
-  const { ready, user, register } = useStore()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
-  const router = useRouter()
+  const [created, setCreated] = useState(false)
 
-  useEffect(() => {
-    if (ready && user) router.replace('/earth')
-  }, [ready, user, router])
-
-  if (ready && user) return null
-
-  const onSubmit = async (e: FormEvent) => {
+  const onSubmit = (e: FormEvent) => {
     e.preventDefault()
-    const err = await register(name, email, password)
-    if (err) setError(err)
-    else router.push('/earth')
+    if (!name.trim()) {
+      setError('Name is required.')
+      return
+    }
+    if (!email.includes('@')) {
+      setError('Use a valid email.')
+      return
+    }
+    if (!password) {
+      setError('Password is required.')
+      return
+    }
+    setError(null)
+    setCreated(true)
   }
 
   return (
-    <div className="auth">
-      <form className="auth-card" onSubmit={onSubmit}>
-        <h2>Register</h2>
-        <p className="muted">Mock account — stored only in this browser.</p>
+    <div className="login-page">
+      <SiteHeader />
+      <form className="login-form" onSubmit={onSubmit}>
+        <h1>Register</h1>
         {error && <p className="error">{error}</p>}
-        <label className="field">
-          <span>Name</span>
-          <input value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label className="field">
-          <span>Email</span>
-          <input value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label className="field">
-          <span>Password</span>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <button className="auth-submit" type="submit">
-          Create account
-        </button>
-        <div className="auth-links">
-          <Link href="/login">Already have one?</Link>
-        </div>
+        {created ? (
+          <>
+            <p className="login-success">You&apos;re registered. You can log in now.</p>
+            <Link className="login-submit" href="/login">
+              Login
+            </Link>
+          </>
+        ) : (
+          <>
+            <input
+              className="login-input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoComplete="name"
+              placeholder="Name"
+              aria-label="Name"
+            />
+            <input
+              className="login-input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              placeholder="Email"
+              aria-label="Email"
+            />
+            <input
+              className="login-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
+              placeholder="Password"
+              aria-label="Password"
+            />
+            <button className="login-submit" type="submit">
+              Register
+            </button>
+            <div className="login-links">
+              <Link href="/login">Login</Link>
+            </div>
+          </>
+        )}
       </form>
     </div>
   )
