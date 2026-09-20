@@ -168,17 +168,6 @@ export function EarthShell() {
     [activeCourseId, enterCourse, flag],
   );
 
-  const raiseFlag = useCallback(
-    (courseId: string, anchor: ScreenPoint | null) => {
-      if (!isOwnedCourse(courseId, courses) && !courses.some((course) => course.id === courseId)) {
-        return;
-      }
-      focusCourse(courseId);
-      setFlag({ courseId, anchor });
-    },
-    [courses, focusCourse],
-  );
-
   const leave = useCallback(() => {
     if (enterTimer.current) {
       clearTimeout(enterTimer.current);
@@ -295,7 +284,7 @@ export function EarthShell() {
                 diveAnchor={diving?.anchor ?? null}
                 onActiveCourseChange={focusCourse}
                 onCourseTownOpen={(courseId, anchor) => {
-                  raiseFlag(courseId, anchor);
+                  enterCourse(courseId, anchor);
                 }}
               />
             </div>

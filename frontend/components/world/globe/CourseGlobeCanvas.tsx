@@ -133,14 +133,16 @@ export default function CourseGlobeCanvas({
       data-diving={diving}
       data-reduced-motion={reducedMotion}
       data-theme={theme}
-      style={
-        diving
+      style={{
+        position: "absolute",
+        inset: 0,
+        ...(diving
           ? {
               ["--dive-origin-x" as string]: origin.x,
               ["--dive-origin-y" as string]: origin.y,
             }
-          : undefined
-      }
+          : {}),
+      }}
     >
       <Canvas
         className="course-globe-canvas"

@@ -2,9 +2,10 @@
 
 import { useMemo, useRef } from "react";
 import { Html } from "@react-three/drei";
-import { useThree, type ThreeEvent } from "@react-three/fiber";
+import { useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
 import { showGlobeLandmarkNumberPin } from "@/lib/world/earth-nav";
+import { isLandmarkVisible } from "@/lib/world/landmark-hit";
 import { markerIdForCourse } from "@/lib/world/globe-courses";
 import { BouquetBase } from "./bouquet/BouquetBase";
 import { WorldProps } from "./bouquet/WorldProps";
@@ -23,6 +24,7 @@ export { GLOBE_BOUQUET_SCALE };
 
 const UP = new THREE.Vector3(0, 1, 0);
 const ACTIVE_LIFT = 2.8;
+const LANDMARK_DEAD_LAYER = 31;
 
 export interface GlobeTownOpenEvent {
   courseId: string;
@@ -51,6 +53,9 @@ export function GlobeTown({
   onOpen,
 }: GlobeTownProps) {
   const group = useRef<THREE.Group>(null);
+  const hittable = useRef(true);
+  const pinWorld = useRef(new THREE.Vector3());
+  const planetCenter = useRef(new THREE.Vector3());
   const { camera, size } = useThree();
   const markerState = courseMarkerState(course.progress);
   const marker =
@@ -70,6 +75,26 @@ export function GlobeTown({
   );
   const scale = GLOBE_BOUQUET_SCALE * markerState.footprintScale;
 
+  useFrame(() => {
+    const root = group.current;
+    if (!root) return;
+    root.updateWorldMatrix(true, false);
+    root.getWorldPosition(pinWorld.current);
+    const center = root.parent
+      ? root.parent.getWorldPosition(planetCenter.current)
+      : planetCenter.current.set(0, -0.7, 0);
+    const next = isLandmarkVisible({
+      pin: pinWorld.current,
+      camera: camera.position,
+      planetCenter: center,
+      planetRadius: GLOBE_RADIUS,
+    });
+    hittable.current = next;
+    root.traverse((obj) => {
+      obj.layers.set(next ? 0 : LANDMARK_DEAD_LAYER);
+    });
+  });
+
   const raiseFlag = () => {
     if (!group.current) return;
     group.current.updateWorldMatrix(true, false);
@@ -85,6 +110,7 @@ export function GlobeTown({
   };
 
   const openTown = (event: ThreeEvent<MouseEvent>) => {
+    if (!hittable.current) return;
     event.stopPropagation();
     raiseFlag();
   };
@@ -97,12 +123,12 @@ export function GlobeTown({
       scale={active ? scale * GLOBE_ACTIVE_POP : scale}
       userData={{ courseLandmark: course.id }}
       onClick={(event) => {
+        if (!hittable.current) return;
         event.stopPropagation();
         openTown(event);
       }}
-      onPointerDown={(event) => event.stopPropagation()}
-      onPointerUp={(event) => event.stopPropagation()}
       onPointerOver={(event) => {
+        if (!hittable.current) return;
         event.stopPropagation();
         document.body.style.cursor = "pointer";
       }}
@@ -123,10 +149,6 @@ export function GlobeTown({
             <meshBasicMaterial color="#fff0ae" toneMapped={false} />
           </mesh>
         ) : null}
-        <mesh position={[0, 36, 0]} userData={{ courseLandmark: course.id }}>
-          <sphereGeometry args={[88, 14, 12]} />
-          <meshBasicMaterial transparent opacity={0} depthWrite={false} />
-        </mesh>
         {active && showGlobeLandmarkNumberPin() ? (
           <Html
             position={[0, 42, 0]}

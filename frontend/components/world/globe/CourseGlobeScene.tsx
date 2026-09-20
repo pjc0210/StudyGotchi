@@ -37,6 +37,10 @@ import { PixelComposer } from "./PixelComposer";
 import { DIVE_MS, diveCameraPosition, easeInOutCubic } from "./globe-dive";
 import { seatedCameraPosition } from "./globe-seat";
 import { screenPointFromNdc } from "@/lib/world/earth-nav";
+import {
+  isLandmarkVisible,
+  pickNearestVisibleLandmark,
+} from "@/lib/world/landmark-hit";
 
 const LAYOUT_SEED = "studygotchi:production-course-globe";
 const FOCUS_DIRECTION = new THREE.Vector3(-0.55, 0.48, 1).normalize();
@@ -51,6 +55,32 @@ interface R3FPointerCaptureTarget extends EventTarget {
 
 function pointerCaptureTarget(event: ThreeEvent<PointerEvent>) {
   return event.target as R3FPointerCaptureTarget | null;
+}
+
+function landmarkPinWorld(
+  direction: UnitDirection,
+  globe: THREE.Object3D,
+  radius = GLOBE_RADIUS + 0.45,
+): THREE.Vector3 {
+  return new THREE.Vector3(...direction)
+    .normalize()
+    .multiplyScalar(radius)
+    .applyMatrix4(globe.matrixWorld);
+}
+
+function courseLandmarkVisible(
+  direction: UnitDirection,
+  camera: THREE.Camera,
+  globe: THREE.Object3D,
+): boolean {
+  globe.updateWorldMatrix(true, false);
+  const pin = landmarkPinWorld(direction, globe);
+  return isLandmarkVisible({
+    pin,
+    camera: camera.position,
+    planetCenter: globe.getWorldPosition(new THREE.Vector3()),
+    planetRadius: GLOBE_RADIUS,
+  });
 }
 
 function nearestLandmarkToPointer(
@@ -68,30 +98,37 @@ function nearestLandmarkToPointer(
   const raycaster = new THREE.Raycaster();
   raycaster.setFromCamera(ndc, camera);
   globe.updateWorldMatrix(true, false);
-  let best: string | null = null;
-  let bestDist = 4.6;
+  const planetCenter = globe.getWorldPosition(new THREE.Vector3());
+  const landmarks = [];
   for (const [courseId, direction] of directions) {
-    const world = new THREE.Vector3(...direction)
-      .normalize()
-      .multiplyScalar(GLOBE_RADIUS + 0.45)
-      .applyMatrix4(globe.matrixWorld);
-    const dist = raycaster.ray.distanceToPoint(world);
-    if (dist < bestDist) {
-      bestDist = dist;
-      best = courseId;
-    }
+    landmarks.push({ id: courseId, pin: landmarkPinWorld(direction, globe) });
   }
-  return best;
+  return pickNearestVisibleLandmark({
+    rayOrigin: raycaster.ray.origin,
+    rayDirection: raycaster.ray.direction,
+    landmarks,
+    camera: camera.position,
+    planetCenter,
+    planetRadius: GLOBE_RADIUS,
+  });
 }
 
 function landmarkFromIntersections(
   intersections: readonly { object: THREE.Object3D }[],
+  camera: THREE.Camera,
+  globe: THREE.Object3D,
+  directions: ReadonlyMap<string, UnitDirection>,
 ): string | null {
   for (const hit of intersections) {
     let current: THREE.Object3D | null = hit.object;
     while (current) {
       const courseId = current.userData.courseLandmark;
-      if (typeof courseId === "string" && courseId) return courseId;
+      if (typeof courseId === "string" && courseId) {
+        const direction = directions.get(courseId);
+        if (direction && courseLandmarkVisible(direction, camera, globe)) {
+          return courseId;
+        }
+      }
       current = current.parent;
     }
   }
@@ -382,20 +419,21 @@ function OrbitingGlobe({
       return;
     }
     group.current.updateWorldMatrix(true, false);
-    const world = new THREE.Vector3(...direction)
-      .normalize()
-      .multiplyScalar(GLOBE_RADIUS + 0.85)
-      .applyMatrix4(group.current.matrixWorld);
-    const facing = new THREE.Vector3(...direction).applyQuaternion(group.current.quaternion);
-    const toCamera = camera.position
-      .clone()
-      .sub(group.current.getWorldPosition(new THREE.Vector3()))
-      .normalize();
-    if (facing.dot(toCamera) < 0.08) {
+    const world = landmarkPinWorld(direction, group.current, GLOBE_RADIUS + 0.85);
+    const ndc = world.clone().project(camera);
+    if (
+      !isLandmarkVisible({
+        pin: world,
+        camera: camera.position,
+        planetCenter: group.current.getWorldPosition(new THREE.Vector3()),
+        planetRadius: GLOBE_RADIUS,
+        ndc,
+      })
+    ) {
       onLandmarkAnchor(null);
       return;
     }
-    onLandmarkAnchor(screenPointFromNdc(world.project(camera), size));
+    onLandmarkAnchor(screenPointFromNdc(ndc, size));
   });
 
   const spin = (horizontal: number, vertical: number) => {
@@ -480,7 +518,14 @@ function OrbitingGlobe({
     document.body.style.cursor = "grab";
     if (!moved) {
       const courseId =
-        landmarkFromIntersections(event.intersections) ??
+        (group.current
+          ? landmarkFromIntersections(
+              event.intersections,
+              camera,
+              group.current,
+              directions,
+            )
+          : null) ??
         (group.current
           ? nearestLandmarkToPointer(
               camera,
@@ -519,7 +564,21 @@ function OrbitingGlobe({
   };
 
   return (
-    <group ref={group} position={[0, -0.7, 0]}>
+    <group
+      ref={group}
+      position={[0, -0.7, 0]}
+      onPointerDown={pointerDown}
+      onPointerMove={pointerMove}
+      onPointerUp={finishPointerDrag}
+      onPointerCancel={finishPointerDrag}
+      onLostPointerCapture={finishPointerDrag}
+      onPointerOver={() => {
+        if (!dragging.current) document.body.style.cursor = "grab";
+      }}
+      onPointerOut={() => {
+        if (!dragging.current) document.body.style.cursor = "auto";
+      }}
+    >
       {resources ? (
         <>
           <GlobeTerrain
@@ -560,14 +619,8 @@ function OrbitingGlobe({
         onPointerUp={finishPointerDrag}
         onPointerCancel={finishPointerDrag}
         onLostPointerCapture={finishPointerDrag}
-        onPointerOver={() => {
-          if (!dragging.current) document.body.style.cursor = "grab";
-        }}
-        onPointerOut={() => {
-          if (!dragging.current) document.body.style.cursor = "auto";
-        }}
       >
-        <sphereGeometry args={[GLOBE_RADIUS + 0.08, 48, 32]} />
+        <sphereGeometry args={[GLOBE_RADIUS + 2.4, 48, 32]} />
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
       </mesh>
     </group>
