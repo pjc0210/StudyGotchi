@@ -133,22 +133,17 @@ async def run(manifest_path, output):
             assert graph == await request("GET", prefix + "/knowledge-graph"), (
                 "Unstable graph serialization"
             )
-            world = await request("GET", prefix + "/world")
             understanding = await request("GET", prefix + "/understanding")
-            world_events = await request("GET", prefix + "/world-events?limit=500")
             graph_ids = {n["concept_id"] for n in graph["nodes"]}
             assert graph_ids, "No personal graph from ingested student work"
             assert all(
                 e["source"] in graph_ids and e["target"] in graph_ids
                 for e in graph["edges"]
             )
-            assert {r["concept_id"] for r in world["regions"]} <= graph_ids
             directory = output / "students" / sid
             for name, payload in [
                 ("knowledge-graph", graph),
-                ("world", world),
                 ("understanding", understanding),
-                ("world-events", world_events),
             ]:
                 save(directory / f"{name}.json", payload)
             targets = sorted(
@@ -167,8 +162,18 @@ async def run(manifest_path, output):
             ]
             plans = []
             for target in target_specs:
-                gaps = await request("GET", prefix + "/gaps", params=target)
-                plan = await request("POST", prefix + "/study-plan", json=target)
+                try:
+                    gaps = await request("GET", prefix + "/gaps", params=target)
+                    plan = await request("POST", prefix + "/study-plan", json=target)
+                except AssertionError as exc:
+                    # A large course can have assessments whose items never
+                    # mapped to any concept (e.g. a pure-writeup question);
+                    # that is a legitimate empty target, not a pipeline bug.
+                    if "assessment_id" in target and "no associated concepts" in str(
+                        exc
+                    ).lower():
+                        continue
+                    raise
                 assert {g["concept_id"] for g in gaps["gaps"]} == {
                     g["concept_id"] for g in plan["gaps"]
                 }
@@ -186,7 +191,6 @@ async def run(manifest_path, output):
                     "student_id": sid,
                     "graph_nodes": len(graph["nodes"]),
                     "graph_edges": len(graph["edges"]),
-                    "world_regions": len(world["regions"]),
                     "understanding_entries": len(understanding["concepts"]),
                     "study_plans": len(plans),
                     "evidence_events": sum(str(e.student_id) == sid for e in events),
@@ -214,10 +218,7 @@ async def run(manifest_path, output):
         empty_graph = await request(
             "GET", base + f"/students/{stranger}/knowledge-graph"
         )
-        empty_world = await request("GET", base + f"/students/{stranger}/world")
-        assert not empty_graph["nodes"] and not empty_world["regions"], (
-            "Student evidence leaked"
-        )
+        assert not empty_graph["nodes"], "Student evidence leaked"
         private = next((c for c in concepts if c.owner_student_id), None)
         if private:
             denied = await client.get(

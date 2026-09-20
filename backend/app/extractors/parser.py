@@ -26,7 +26,7 @@ _IMAGE_EXTENSIONS = {
     "jpeg": "image/jpeg",
     "webp": "image/webp",
 }
-_TEXT_EXTENSIONS = {"md", "markdown", "txt"}
+_TEXT_EXTENSIONS = {"md", "markdown", "txt", "py", "csv", "ipynb"}
 
 
 def _extension(filename: str) -> str:

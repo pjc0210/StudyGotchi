@@ -263,21 +263,40 @@ Reading a lecture is not evidence that a student mastered it.
 
 ---
 
-## 2.5 Mastery and familiarity are different
+## 2.5 Implementation note: mastery/familiarity/confidence collapsed to `understanding`
 
-Store both.
-
-Example:
+**As actually built, this is no longer a spread of separate stored fields.**
+The sections below (originally: separate mastery, familiarity, confidence,
+readiness, and fragility scores) described the target design. The shipped
+backend simplified this to one persisted, evidence-driven score:
 
 ```text
-Concept: Mercer's Theorem
-
-familiarity = 0.82
-mastery     = 0.34
-confidence  = 0.76
+understanding = alpha / (alpha + beta)   (see "Mastery model", unchanged)
 ```
 
-A student may have seen a concept many times while still being unable to solve problems about it.
+`StudentConceptState` stores `understanding`, `personal_relevance`,
+`positive_evidence`, and `negative_evidence` — nothing else. There is no
+stored `familiarity`, `confidence`, `readiness`, or `fragility` column.
+Where those concepts are still useful, they are **derived on demand, not
+persisted**, and by two different pieces of code for two different jobs:
+
+- `app/domain/gaps/prerequisite_support.py` computes prerequisite support
+  and "weak prerequisite" lists straight from the prerequisite graph +
+  current `understanding` values, for the gap engine and study plans (see
+  "Readiness" and "Fragility" below — these sections describe that logic
+  and remain accurate).
+- `app/api/routes/personal_graph.py` separately derives simpler,
+  evidence-volume-based `confidence`/`fragility`/`readiness` numbers (not
+  graph-derived) purely to classify the display `state` badge
+  (mastered/struggling/fragile/...) on the `/knowledge-graph` response, and
+  reuses `personal_relevance` as that response's `familiarity` field. This
+  is a display convenience, not a second semantic measurement — do not
+  treat it as authoritative evidence about the student.
+
+A student may still have seen a concept many times while being unable to
+solve problems about it; that distinction now lives in `personal_relevance`
+(exposure/relevance) vs. `understanding` (evidence-weighted correctness),
+not in a separate "familiarity" score.
 
 ---
 
@@ -376,7 +395,7 @@ Do not add Neo4j unless the team already knows it well.
                   PERSONAL GRAPH BUILDER
                relevant canonical concepts
                + personal concepts/edges
-               + mastery/familiarity state
+               + understanding state
                + frontier discovery
                             │
           ┌─────────────────┼────────────────┐
@@ -582,16 +601,17 @@ Optional in visualization; useful for provenance.
 
 This is a first-class domain object, not merely display metadata.
 
+As shipped (see 2.5): `mastery`/`familiarity`/`confidence`/`readiness`/
+`fragility` are not separate stored fields. The actual persisted shape is:
+
 ```text
 student_id
 concept_id
 discovery_state
-mastery
-familiarity
-confidence
-readiness
-fragility
+understanding
 personal_relevance
+positive_evidence
+negative_evidence
 last_evidence_at
 last_practiced_at
 ```
@@ -880,24 +900,23 @@ primary key (assessment_item_id, concept_id)
 
 ## `student_concept_states`
 
-Materialized/current state:
+Materialized/current state. **As shipped** (see 2.5) — no `mastery`,
+`familiarity`, `mastery_confidence`, `readiness`, or `fragility` columns;
+those are either folded into `understanding` or computed dynamically at
+query time, never persisted:
 
 ```sql
 student_id uuid not null
-course_id uuid not null references courses(id)
 concept_id uuid not null references concepts(id)
-discovery_state text not null
-mastery real not null
-familiarity real not null
-mastery_confidence real not null
-readiness real not null default 0
-fragility real not null default 0
-personal_relevance real not null default 0
+course_id uuid not null references courses(id)
+discovery_state text not null default 'unseen'
+understanding real null
+personal_relevance real null
 last_evidence_at timestamptz null
 last_practiced_at timestamptz null
 positive_evidence real not null default 0
 negative_evidence real not null default 0
-metadata jsonb not null default '{}'
+state_metadata jsonb not null default '{}'
 updated_at timestamptz not null
 primary key (student_id, concept_id)
 ```
@@ -1500,9 +1519,11 @@ Passive exposure must never strongly increase mastery.
 
 ---
 
-# 30. Mastery model
+# 30. Understanding model (originally "Mastery model")
 
-Use a weighted Bayesian evidence model.
+Use a weighted Bayesian evidence model. This section matches the shipped
+backend as-is, modulo the rename: the single stored score is called
+`understanding`, not `mastery` (see 2.5).
 
 For each concept:
 
@@ -1511,17 +1532,17 @@ alpha = alpha_prior + positive evidence
 beta  = beta_prior  + negative evidence
 ```
 
-Mastery:
+Understanding:
 
 ```text
-mastery = alpha / (alpha + beta)
+understanding = alpha / (alpha + beta)
 ```
 
-Suggested prior:
+Shipped prior (`app.config.Settings`):
 
 ```text
-alpha_prior = 1.5
-beta_prior  = 1.5
+understanding_alpha_prior = 1.5
+understanding_beta_prior  = 1.5
 ```
 
 This starts near 0.5 with low confidence rather than assuming ignorance/mastery.
@@ -1647,73 +1668,63 @@ Use mild decay for the hackathon.
 
 ---
 
-# 37. Familiarity model
+# 37. Familiarity — not implemented as its own model
 
-Familiarity can rise from:
-- notes
-- views
-- annotations
-- repeated exposure
-- class discussions
-
-Simple saturating formula:
-
-```text
-familiarity = 1 - exp(-sum(exposure_weights))
-```
-
-This allows:
-
-```text
-high familiarity
-low mastery
-```
-
-which is pedagogically useful.
+**Not shipped as spec'd.** There is no exposure-weighted saturating formula
+and no persisted `familiarity` score. `personal_relevance` is a separate,
+independently-set field (how relevant a concept is to this student's own
+graph) — it is not exposure-derived, and the `/knowledge-graph` API response
+reuses it verbatim as a `familiarity` display field for the frontend. If a
+real notes/views/annotations-driven familiarity signal is ever wanted, it
+does not exist in the current code and would need to be built.
 
 ---
 
-# 38. Mastery confidence
+# 38. Confidence — derived, not stored, and computed two different ways
 
-Confidence answers:
+There is no persisted `mastery_confidence` column. Two different pieces of
+code derive a confidence-like number on demand, for different purposes:
 
-> How much evidence exists?
+**Gap engine / study plans** (`app/domain/gaps/prerequisite_support.py`):
+does not compute a scalar "confidence" at all — it works directly with
+prerequisite `understanding` values and an explicit threshold (see
+`weak_prerequisites` in 41) rather than a confidence score.
 
-Suggested:
+**Personal-graph API display** (`app/api/routes/personal_graph.py`), used
+only to classify the `state` badge shown to the student:
 
-```text
-effective_evidence = positive + negative
-confidence = 1 - exp(-k * effective_evidence)
+```python
+effective_evidence = positive_evidence + negative_evidence
+confidence = effective_evidence / (effective_evidence + 1)  # 0 when no evidence at all
 ```
 
-Examples:
+This is a different curve from the originally-spec'd
+`1 - exp(-k * effective_evidence)`, but the same idea: it saturates toward 1
+as evidence accumulates and is exactly 0 with none. Not persisted — recomputed
+on every request from `positive_evidence`/`negative_evidence`.
+
+Examples still hold conceptually:
 
 ```text
-mastery 0.90, confidence 0.20
+understanding 0.90, confidence 0.20   -> probably strong but barely tested
+understanding 0.55, confidence 0.95   -> substantial evidence of inconsistent performance
 ```
-
-means probably strong but barely tested.
-
-```text
-mastery 0.55, confidence 0.95
-```
-
-means substantial evidence of inconsistent performance.
 
 ---
 
-# 39. Do not blindly propagate mastery
+# 39. Do not blindly propagate understanding
 
 Do not infer:
 
 ```text
-low PSD mastery
-=> automatically low Kernel Regression mastery
+low PSD understanding
+=> automatically low Kernel Regression understanding
 ```
 
 A student may demonstrate downstream competence.
 
-Keep direct mastery evidence-based.
+Keep direct understanding evidence-based (this principle is unchanged from
+the original mastery-based wording).
 
 Use prerequisites for:
 - readiness
@@ -1722,44 +1733,66 @@ Use prerequisites for:
 
 ---
 
-# 40. Readiness
+# 40. Readiness — two different implementations, not one shared formula
 
-For target concept `c`:
+**As shipped, this is graph-derived where it matters and a separate,
+simpler thing where it doesn't:**
 
-```text
-prereq_support =
-weighted_average(mastery(p) for direct prerequisite p)
-
-readiness(c) =
-0.65 * mastery(c)
-+ 0.35 * prereq_support
-```
-
-No prerequisites:
+**Gap engine / study plans** (`app/domain/gaps/prerequisite_support.py`,
+`compute_prerequisite_understanding_support`) — the version that actually
+drives gap prioritization:
 
 ```text
-readiness = mastery
+prereq_support(c) =
+  weighted_average(understanding(p) for direct prerequisite p,
+                    weighted by each PREREQUISITE_FOR edge's confidence)
 ```
+
+Returns `None` (a distinct sentinel, not 0) when `c` has no prerequisites —
+callers must not treat "no prerequisites" as "fully ready" or "not ready"
+without checking for `None` first.
+
+**Personal-graph API display** (`app/api/routes/personal_graph.py`,
+`_readiness`) — used only for the `readiness` field on `/knowledge-graph`
+and the `state` badge, and is *not* prerequisite-graph-derived at all:
+
+```python
+readiness = (understanding or 0.0) * (1.0 - fragility)
+# where fragility is the evidence-ratio version from 41, not weak-prerequisite-derived
+```
+
+These two "readiness" numbers can legitimately disagree — they answer
+different questions (is this concept's foundation solid in the prerequisite
+graph, vs. a display heuristic off this concept's own evidence volume).
 
 ---
 
-# 41. Fragility
+# 41. Fragility — two different implementations, not one shared formula
 
-A concept may be mastered but poorly supported by foundations.
-
-```text
-fragility(c) =
-mastery(c) * (1 - prerequisite_support(c))
-```
-
-Example:
+**Gap engine / study plans** (`prerequisite_support.py`, `weak_prerequisites`)
+— identifies which specific direct prerequisites are weak, as a list, not a
+continuous score:
 
 ```text
-Kernel Regression mastery = 0.82
-PSD mastery               = 0.25
+weak_prerequisites(c) =
+  [p for p in direct_prerequisites(c) if understanding(p) < threshold]
 ```
 
-Kernel Regression can be flagged as fragile rather than simply weak.
+No stored fragility field; a concept resting on these is only as solid as
+its listed weak prerequisites, checked fresh every time.
+
+**Personal-graph API display** (`personal_graph.py`, `_fragility`) — used
+only for the `fragility` field and `state` badge, and has nothing to do with
+prerequisites:
+
+```python
+fragility = negative_evidence / (positive_evidence + negative_evidence)  # 0 with no evidence
+```
+
+This is an evidence-ratio number ("how much of the evidence on this concept
+itself was negative"), not the originally-spec'd
+`mastery(c) * (1 - prerequisite_support(c))`. Do not conflate the two when
+reading `/knowledge-graph` responses versus gap/study-plan output.
 
 ---
 
@@ -1839,23 +1872,29 @@ Store mapping confidence.
 
 # 44. Knowledge-gap engine
 
-A gap is contextual, not just `mastery < threshold`.
+A gap is contextual, not just `understanding < threshold`.
+
+**As shipped** (`app/domain/gaps/scoring.py`) — `confidence_adjustment` was
+dropped entirely, deliberately: gap priority depends only on
+`understanding` + graph structure + target + importance, not on
+familiarity/confidence/evidence_strength/readiness/fragility. Where "how
+much evidence exists" matters (STUDY vs. DIAGNOSE, see 47), it reads the raw
+evidence totals directly rather than a derived confidence score.
 
 Given target `T`, get prerequisite ancestors and score:
 
 ```text
 gap_priority(c,T) =
-    mastery_deficit(c)
+    understanding_deficit(c)
   * goal_relevance(c,T)
   * bottleneck_weight(c,T)
   * course_importance(c)
-  * confidence_adjustment(c)
 ```
 
 Where:
 
 ```text
-mastery_deficit = 1 - mastery
+understanding_deficit = 1 - understanding
 ```
 
 ---
@@ -1894,18 +1933,22 @@ This surfaces foundational gaps.
 
 ---
 
-# 47. Confidence-aware actions
+# 47. Evidence-amount-aware actions (originally "Confidence-aware actions")
 
-If mastery is low but evidence is sparse, recommend diagnosis rather than claiming weakness.
-
-Example:
+If understanding is low but evidence is sparse, recommend diagnosis rather
+than claiming weakness. **As shipped** (`app/domain/gaps/scoring.py`,
+`recommend_action`) — reads `effective_evidence = positive + negative`
+directly, not a derived confidence score, and the thresholds differ from
+the original example:
 
 ```text
-if mastery < 0.5 and confidence > 0.6:
+has_enough_evidence = effective_evidence > 1.0
+
+if understanding < 0.50 and has_enough_evidence:
     action = STUDY
-elif mastery < 0.6 and confidence <= 0.6:
+elif understanding < 0.60 and not has_enough_evidence:
     action = DIAGNOSE
-elif mastery >= 0.75 and recency_low:
+elif understanding >= 0.75 and is_stale:
     action = REVIEW
 else:
     action = OPTIONAL
@@ -2054,36 +2097,49 @@ GET /api/courses/{course_id}/students/{student_id}/world
 
 ## 55.1 Personal knowledge graph DTO
 
+**As shipped** — field names as actually returned by
+`GET .../knowledge-graph` (`app/schemas/personal_graph.py`,
+`app/api/routes/personal_graph.py`). `understanding` is the one persisted
+score; `mastery`, `familiarity`, `confidence`, `readiness`, `fragility`, and
+`state` are still present on the response but are all derived at request
+time (see 2.5, 38, 40, 41) — `mastery` and `familiarity` are literally
+`understanding` and `personal_relevance` under different names, not
+independent measurements:
+
 ```json
 {
   "student_id": "student-1",
   "course_id": "course-1",
-  "graph_version": 18,
+  "graph_version": "a1b2c3d4e5f6a7b8",
   "nodes": [
     {
-      "id": "mercer",
+      "concept_id": "mercer",
       "name": "Mercer's Theorem",
       "scope": "course",
       "discovery_state": "active",
       "cluster": "Kernel Methods",
       "importance": 0.83,
       "personal_relevance": 0.94,
+      "understanding": 0.34,
       "mastery": 0.34,
-      "familiarity": 0.78,
+      "familiarity": 0.94,
       "confidence": 0.72,
-      "readiness": 0.41,
-      "fragility": 0.18,
+      "readiness": 0.09,
+      "fragility": 0.28,
       "state": "struggling"
     },
     {
-      "id": "kernel-regression",
+      "concept_id": "kernel-regression",
       "name": "Kernel Regression",
       "scope": "course",
       "discovery_state": "frontier",
       "cluster": "Kernel Methods",
+      "understanding": null,
       "mastery": null,
       "familiarity": 0.08,
-      "confidence": 0.03,
+      "confidence": 0,
+      "readiness": 0,
+      "fragility": 0,
       "state": "frontier"
     }
   ],
@@ -2091,7 +2147,7 @@ GET /api/courses/{course_id}/students/{student_id}/world
     {
       "source": "psd",
       "target": "mercer",
-      "type": "PREREQUISITE_FOR",
+      "edge_type": "PREREQUISITE_FOR",
       "origin": "course",
       "confidence": 0.91
     }
@@ -2100,54 +2156,22 @@ GET /api/courses/{course_id}/students/{student_id}/world
 }
 ```
 
-## 55.2 World-state DTO
+`graph_version` is a content hash of the payload (changes only when the
+payload actually changes), not an incrementing sequence.
 
-The world projection is a semantic rendering contract.
+## 55.2 World-state DTO — removed
 
-```json
-{
-  "student_id": "student-1",
-  "world_version": 22,
-  "regions": [
-    {
-      "concept_id": "mercer",
-      "terrain_height": 0.34,
-      "terrain_area": 0.83,
-      "stability": 0.72,
-      "vegetation": 0.66,
-      "fog": 0.0,
-      "fragility": 0.18,
-      "creature_state": "weak",
-      "semantic_state": "struggling"
-    },
-    {
-      "concept_id": "kernel-regression",
-      "terrain_height": 0.05,
-      "terrain_area": 0.71,
-      "stability": 0.10,
-      "vegetation": 0.05,
-      "fog": 0.90,
-      "fragility": 0.0,
-      "creature_state": "unhatched",
-      "semantic_state": "frontier"
-    }
-  ]
-}
-```
-
-Recommended semantic mapping:
-
-```text
-terrain height       <- mastery
-region size          <- importance × personal relevance
-stability            <- mastery confidence
-vegetation/activity  <- familiarity + recency
-cracks/instability   <- fragility
-fog                  <- discovery/frontier uncertainty
-creature evolution   <- mastery + confidence thresholds
-```
-
-The backend exposes normalized semantic dimensions; the frontend owns exact visual styling and animation.
+**This entire DTO and the `/world`, `/world-events` endpoints no longer
+exist in the backend.** World/game logic (terrain, fog, creature states, a
+discovery/mastery event feed) moved to a separate, teammate-owned frontend
+component that consumes raw knowledge-graph node/edge data instead
+(`understanding`, `importance`, `personal_relevance`, edge `edge_type`/
+`origin`/`confidence` from 55.1) — not a backend-computed semantic
+projection. `WorldEvent`, `app/domain/world/`, `app/api/routes/world.py`,
+and `app/repositories/world.py` were deleted; migration
+`0003_drop_world_events` removes the now-unused table. If a rendering layer
+needs derived semantic states again, build it as part of that frontend
+component from the raw fields above, not by resurrecting this DTO here.
 
 # 56. Derived StudyGotchi semantic states
 
@@ -2166,36 +2190,45 @@ fragile
 stale
 ```
 
-Possible rules:
+**As shipped** (`app/domain/personal_graph/concept_state.py`,
+`classify_concept_state`) — an ordered cascade, not independent rules;
+order matters because earlier checks win. `mastery`/`confidence`/
+`fragility` here are the request-time-derived values from 2.5/38/41, not
+stored fields, and `understanding` is the one persisted score:
 
 ```text
-unseen:
-  discovery_state = unseen
+1. frontier:
+     discovery_state == frontier, OR understanding is None
 
-frontier:
-  discovery_state = frontier
+2. fragile:
+     fragility >= 0.5
+     (checked before the understanding bands below - a fragile concept
+     is flagged regardless of how good its own understanding looks)
 
-exposed:
-  familiarity >= 0.3 and confidence < 0.25
+3. stale:
+     last_practiced_at is >= 45 days old (staleness_days)
+     and understanding >= 0.45 (developing_threshold)
 
-struggling:
-  mastery < 0.45 and confidence >= 0.55
+4. struggling / exposed  (understanding < 0.45):
+     struggling if confidence >= 0.4 (low_confidence_threshold)
+     exposed    if confidence <  0.4
 
-developing:
-  mastery 0.45–0.70
+5. uncertain:
+     confidence < 0.4 (and understanding >= 0.45, else rule 4 already fired)
 
-strong:
-  mastery 0.70–0.88
+6. mastered:
+     understanding >= 0.85 (mastered_threshold)
 
-mastered:
-  mastery >= 0.88 and confidence >= 0.65
+7. strong:
+     understanding >= 0.70 (strong_threshold)
 
-fragile:
-  mastery >= 0.70 and prereq_support < 0.45
-
-stale:
-  mastery >= 0.70 and last_practiced_at is old
+8. developing:
+     everything else
 ```
+
+`unseen` is a `discovery_state`, not a `state` this function ever returns —
+`unseen` concepts are excluded from the personal graph before this
+classification runs at all (see 28.1/28.2).
 
 The frontend can map these to playful creature behavior:
 
@@ -2207,20 +2240,10 @@ strong     -> evolved
 mastered   -> ascended
 ```
 
-The backend should emit semantic events, not animation instructions.
-
-Example:
-
-```json
-{
-  "event": "MASTERY_DROP",
-  "concept_id": "mercer",
-  "delta": -0.18,
-  "severity": "high"
-}
-```
-
-The frontend decides whether that means wobbling, fainting, exploding, etc.
+**The world-event feed this section originally referenced (`MASTERY_DROP`
+etc.) no longer exists** — see 55.2. State changes are visible only by
+re-fetching `/knowledge-graph` and diffing `state`/`understanding`
+yourself; the backend does not emit a change-event stream.
 
 # 57. API endpoints
 
@@ -2254,19 +2277,23 @@ GET /api/courses/{course_id}/students/{student_id}/knowledge-graph
 
 Primary semantic product endpoint.
 
-## World state
+## World state — removed
 
-```text
-GET /api/courses/{course_id}/students/{student_id}/world
-```
-
-Primary visualization endpoint.
+**Deleted.** No `/world` endpoint exists in the shipped backend (see 55.2).
+The visualization/game component reads `/knowledge-graph` (and
+`/understanding` if it needs the raw evidence numbers) directly.
 
 ## Student analytical overlay
 
 ```text
 GET /api/courses/{course_id}/students/{student_id}/overlay
 ```
+
+**As shipped**, this is not a distinct endpoint — `/overlay`,
+`/understanding`, and `/mastery` are three paths mounted on the exact same
+handler in `app/api/routes/understanding.py`, all returning the identical
+`UnderstandingResponse` shape. `/understanding` is the canonical name; the
+other two are compatibility aliases.
 
 ## Ingest student resource
 
@@ -2293,25 +2320,13 @@ Optional target parameters:
 POST /api/courses/{course_id}/students/{student_id}/study-plan
 ```
 
-## World change events
+## World change events — removed
 
-```text
-GET /api/courses/{course_id}/students/{student_id}/world-events
-```
-
-Examples:
-
-```text
-CONCEPT_DISCOVERED
-FRONTIER_EXPANDED
-MASTERY_GAIN
-MASTERY_DROP
-CONCEPT_BECAME_FRAGILE
-CONCEPT_MASTERED
-RESOURCE_ADDED
-```
-
-This gives the visualization deterministic semantic events to animate.
+**Deleted.** No `/world-events` endpoint, no `WorldEvent` table, no event
+emission of any kind (see 55.2/56). If the visualization component needs to
+know what changed, it re-fetches `/knowledge-graph` and diffs
+`understanding`/`state` against what it last saw — there is no
+backend-pushed event stream to consume instead.
 
 # 58. Graph algorithms module
 
@@ -2339,29 +2354,35 @@ Keep these independent from FastAPI/database I/O.
 
 # 59. Domain models
 
-Example:
+**As shipped** — no `ConceptState` dataclass with mastery/familiarity/
+confidence/readiness/fragility fields exists (note: `ConceptState` is
+instead the name of the *display-state enum* in
+`app/domain/personal_graph/concept_state.py` — mastered/struggling/
+fragile/... from 56 — a different thing entirely from what this section
+originally meant). The real per-concept score type is `UnderstandingResult`
+(`app/domain/mastery/scorer.py`), and `EvidenceEvent`
+(`app/domain/mastery/evidence.py`) has more fields than originally spec'd:
 
 ```python
-@dataclass
-class ConceptState:
-    concept_id: UUID
-    mastery: float
-    familiarity: float
-    confidence: float
-    readiness: float
-    fragility: float
+@dataclass(frozen=True)
+class UnderstandingResult:
+    understanding: float
+    positive_evidence: float
+    negative_evidence: float
 
 
 @dataclass
 class EvidenceEvent:
     concept_id: UUID
-    evidence_type: str
-    outcome: float | None
-    strength: float
+    student_id: UUID
+    evidence_type: EvidenceType
+    outcome: float | None  # None for pure-exposure events
     certainty: float
-    difficulty: float
-    relevance: float
     occurred_at: datetime
+    resource_id: UUID | None = None
+    assessment_item_id: UUID | None = None
+    difficulty: float = 1.0
+    concept_relevance: float = 1.0
 ```
 
 ---
@@ -2413,9 +2434,8 @@ studygotchi/
 │       │   │   │   ├── ontology.py
 │       │   │   │   ├── personal_graph.py
 │       │   │   │   ├── students.py
-│       │   │   │   ├── mastery.py
-│       │   │   │   ├── study.py
-│       │   │   │   └── world.py
+│       │   │   │   ├── understanding.py    # shipped as understanding.py, not mastery.py
+│       │   │   │   └── study.py            # world.py existed, then was deleted (see 55.2)
 │       │   │   └── dependencies.py
 │       │   ├── domain/
 │       │   │   ├── ontology/
@@ -2783,25 +2803,28 @@ Deliberately include:
 
 # 66. Example student state
 
+Field renamed per 2.5: `mastery` below is `understanding` (the one stored
+score); `confidence` is the derived value from 38, not a stored column.
+
 ```text
 Linear Algebra
-mastery = 0.92
+understanding = 0.92
 confidence = 0.85
 
 PSD Matrices
-mastery = 0.31
+understanding = 0.31
 confidence = 0.78
 
 Mercer's Theorem
-mastery = 0.39
+understanding = 0.39
 confidence = 0.65
 
 Kernel Functions
-mastery = 0.68
+understanding = 0.68
 confidence = 0.52
 
 Kernel Regression
-mastery = 0.74
+understanding = 0.74
 confidence = 0.71
 ```
 
@@ -2815,8 +2838,15 @@ Fragile:
 Kernel Regression
 
 Reason:
-Kernel Regression performance is fairly strong, but its prerequisite chain contains weak PSD/Mercer mastery.
+Kernel Regression performance is fairly strong, but its prerequisite chain contains weak PSD/Mercer understanding.
 ```
+
+This is still what `compute_prerequisite_understanding_support` +
+`weak_prerequisites` (40/41) actually compute for the gap engine — that
+part of the design shipped as spec'd. The display-only `fragility`
+number on `/knowledge-graph` (41) would *not* necessarily flag Kernel
+Regression here, since it looks only at Kernel Regression's own
+positive/negative evidence ratio, not its prerequisites' understanding.
 
 ---
 
@@ -2834,7 +2864,7 @@ Process:
 
 1. map HW3 items to concepts
 2. collect prerequisite ancestors
-3. read student mastery
+3. read student understanding
 4. compute goal relevance
 5. compute bottleneck weight
 6. separate uncertain from known weakness
@@ -2842,42 +2872,36 @@ Process:
 8. produce topological minimal path
 9. select representative resources
 
-Output:
+**As shipped** — `POST .../study-plan` (`app/api/routes/study.py`), verified
+against a real course. No top-level `"target": "HW3"` string; the target is
+`target_concept_id` or `target_assessment_id` (UUID). Each gap has
+`concept_id` + `name` (not just a name string), `understanding` (not
+`mastery`), and no per-gap `confidence` field at all — `action` already
+encodes the evidence-amount judgment (47). `study_order` is a list of
+concept ids, not names:
 
 ```json
 {
-  "target": "HW3",
+  "student_id": "...",
+  "course_id": "...",
+  "target_concept_id": "...",
   "gaps": [
     {
-      "concept": "Positive Semidefinite Matrices",
-      "mastery": 0.31,
-      "confidence": 0.78,
-      "priority": 0.93,
-      "action": "study",
-      "reason": "Foundational prerequisite for 3 HW3-relevant concepts."
-    },
-    {
-      "concept": "Mercer's Theorem",
-      "mastery": 0.39,
-      "confidence": 0.65,
-      "priority": 0.84,
-      "action": "study"
-    },
-    {
-      "concept": "Kernel Functions",
-      "mastery": 0.68,
-      "confidence": 0.52,
-      "priority": 0.55,
-      "action": "diagnose"
+      "concept_id": "...",
+      "name": "Reverse Edges of a Graph",
+      "understanding": 0.0,
+      "priority": 0.169,
+      "action": "diagnose",
+      "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
     }
   ],
-  "study_order": [
-    "Positive Semidefinite Matrices",
-    "Mercer's Theorem",
-    "Kernel Functions"
-  ]
+  "study_order": ["<concept_id>", "<concept_id>", "..."]
 }
 ```
+
+`GET .../gaps` returns the identical `gaps` shape (plus
+`target_assessment_id`) without a `study_order` - that field is
+study-plan-specific.
 
 ---
 
@@ -2889,26 +2913,51 @@ Build:
 GET /api/.../concepts/{concept_id}/why
 ```
 
-Return:
+(Also mounted, with identical output, at `GET /api/.../concepts/{concept_id}`
+— `/why` is a second path on the same handler, not a separate response
+shape.)
+
+**As shipped** — a differently-structured, more detailed payload than
+originally spec'd; there is no top-level `mastery_explanation`/
+`prerequisite_explanation`/`resource_explanation` grouping. Actual shape
+(`app/api/routes/concepts.py`):
 
 ```json
 {
-  "mastery_explanation": [
-    "Midterm Q4: 2/8 points",
-    "Homework 3 Q2: 4/5 points"
+  "concept_id": "...",
+  "name": "Correctness of Bellman-Ford Algorithm",
+  "definition": "A proof that Bellman-Ford algorithm correctly computes shortest paths or detects negative-weight cycles...",
+  "scope": "course",
+  "aliases": ["Correctness of Bellman-Ford Algorithm"],
+  "resources": [
+    {
+      "resource_id": "...",
+      "title": "6.1210/lectures/L15-Bellman-Ford.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture",
+      "citations": [
+        {"chunk_id": "...", "page_number": 6, "snippet": "...", "link_type": "EXPLAINED_IN"}
+      ],
+      "rank_score": 3.7,
+      "novelty": 1.0
+    }
   ],
-  "prerequisite_explanation": [
-    "Lecture 6 explicitly introduces PSD matrices before Mercer's theorem.",
-    "HW3 Q2 requires checking a PSD condition."
+  "relationships": [
+    {
+      "source": "...", "target": "...", "edge_type": "PREREQUISITE_FOR",
+      "status": "active", "confidence": 0.882,
+      "resource_id": "...", "page_number": 6, "snippet": "..."
+    }
   ],
-  "resource_explanation": [
-    "Lecture 6 is the primary official explanation.",
-    "Sarah's notes add a visual intuition not present in the lecture."
-  ]
+  "assessments": [],
+  "evidence": [],
+  "suppressed_resource_count": 0
 }
 ```
 
-This is valuable both for debugging and the judge demo.
+`resources[].citations` and `relationships[].snippet` carry the "why" —
+page-and-quote provenance, not a prose mastery narrative. This is valuable
+both for debugging and the judge demo.
 
 ---
 
@@ -2926,7 +2975,7 @@ edge candidates
 cycle removals
 assessment mappings
 student evidence
-mastery breakdown
+understanding breakdown (positive/negative evidence, derived confidence/fragility - see 2.5/38/41)
 gap-score breakdown
 ```
 
@@ -2957,21 +3006,22 @@ Display graph suppresses redundant A->C.
 
 Lowest-confidence edge is removed/downgraded.
 
-## Mastery
+## Understanding (originally "Mastery")
 
-Correct graded answer increases mastery.
+Correct graded answer increases understanding.
 
 ## Negative evidence
 
-Incorrect high-certainty assessment decreases mastery.
+Incorrect high-certainty assessment decreases understanding.
 
 ## Passive exposure
 
-Viewing/notes barely affect mastery.
+Viewing/notes barely affect understanding.
 
 ## Confidence
 
-More evidence increases confidence.
+More evidence increases the derived confidence value (2.5/38) - not a
+stored field, but still worth testing where it's computed.
 
 ## Study ordering
 
@@ -2998,7 +3048,7 @@ Graded homework:
 - assessment identified
 - item mapped to concepts
 - evidence events created
-- mastery updated
+- understanding updated
 
 ## Classmate notes
 
@@ -3183,23 +3233,23 @@ The StudyGotchi backend is HackMIT-ready when:
 3. prerequisite edges are sparse and explainable
 4. file links retain provenance
 5. personal student files can enrich or extend the personal graph
-6. student notes affect familiarity much more than mastery
+6. student notes affect `personal_relevance` much more than `understanding` (2.5 — "familiarity" isn't its own field, but the underlying principle holds: passive exposure alone must not move the evidence-backed score much)
 7. graded work creates concept-level evidence
-8. mastery includes confidence
-9. weak prerequisites affect readiness/fragility without overwriting direct mastery
-10. classmate resources enrich available knowledge without altering another student's mastery
+8. understanding pairs with a derived confidence value so low-evidence scores aren't overstated (38 — not a stored field, but the distinction must be visible somewhere, e.g. `positive_evidence + negative_evidence`)
+9. weak prerequisites affect readiness/fragility (40/41, graph-derived version) without overwriting direct `understanding`
+10. classmate resources enrich available knowledge without altering another student's `understanding`
 11. redundant resources are suppressed
 12. the personal graph hides irrelevant/unseen syllabus concepts by default
 13. frontier concepts appear when they become immediately learnable/relevant
 14. personal concepts can exist beyond the official course ontology
-15. two students in the same course produce different personal graphs/world states
+15. two students in the same course produce different personal graphs (55.2 — no world state anymore; judge this from `/knowledge-graph` alone)
 16. a target assignment creates a minimal study subgraph
 17. every knowledge gap has a human-readable reason
 18. `/knowledge-graph` returns the student's actual personal graph
-19. `/world` returns stable semantic terrain/creature-driving state
+19. ~~`/world` returns stable semantic terrain/creature-driving state~~ — removed (55.2); not a criterion for this backend anymore
 20. a failed assessment item changes only relevant concept states
-21. the system emits a meaningful world event describing that change
-22. the system can explain why the world changed
+21. ~~the system emits a meaningful world event describing that change~~ — removed (55.2); re-fetch and diff `/knowledge-graph` instead
+22. the system can explain why understanding/gaps changed, via `/concepts/{id}/why` (68) — not via world events
 
 # 80. Final priority order
 
@@ -3210,10 +3260,10 @@ If time becomes limited:
 2. Canonicalization / duplicate removal
 3. Prerequisite quality
 4. Student assessment mapping
-5. Mastery + confidence
+5. Understanding + derived confidence (2.5, 38)
 6. Personal graph construction
 7. Frontier discovery
-8. World-state API
+8. ~~World-state API~~ — removed; not part of this backend (55.2)
 9. Gap engine
 10. Classmate resource integration
 11. Resource redundancy reduction

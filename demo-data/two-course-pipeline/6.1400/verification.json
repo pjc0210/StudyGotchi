@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-09-20T02:45:34.780767+00:00",
+  "verified_at": "2026-09-20T02:51:39.479204+00:00",
   "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
   "code": "6.1400",
   "manifest_resources": 23,
@@ -121,11 +121,11 @@
     }
   ],
   "active_concepts_by_scope": {
-    "course": 449,
+    "course": 450,
     "personal": 17
   },
   "metrics": {
-    "concept_count": 466,
+    "concept_count": 467,
     "prerequisite_edge_count": 209,
     "related_edge_count": 48,
     "cycle_count_after_cleanup": 0,
@@ -145,9 +145,9 @@
       "scored_evidence_events": 12
     }
   ],
-  "concept_details_verified": 466,
+  "concept_details_verified": 467,
   "empty_student_isolation": "passed",
-  "http_checks": 490,
+  "http_checks": 491,
   "requests": [
     {
       "method": "GET",
@@ -672,6 +672,11 @@
     {
       "method": "GET",
       "path": "/api/courses/6fb9c56e-0a47-479f-a80c-588ad07ff85e/concepts/14e1b1e5-4705-4467-87ac-c21ff7715bee/why",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/courses/6fb9c56e-0a47-479f-a80c-588ad07ff85e/concepts/36e2f3c0-2286-4234-b1d0-1cf2700f71a5/why",
       "status": 200
     },
     {

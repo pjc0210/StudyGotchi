@@ -32,12 +32,16 @@ Verification makes no AI calls and does not add evidence. It checks manifest con
 
 | Course | Processed files | Canonical/shared concepts | Personal graph nodes | World regions | Study plans |
 |---|---:|---:|---:|---:|---:|
-| 6.1400 | 23 | 449 | 36 | 32 | 7 |
-| 8.223 | 24 | 473 | 186 | 177 | 10 |
+| 6.1400 | 23 | 450 | 36 | 32 | 7 |
+| 8.223 | 24 | 476 | 186 | 177 | 10 |
 
-All 1,130 HTTP checks passed. Both prerequisite graphs are acyclic; every active concept has source backing. Replaying all 47 manifest entries returned `unchanged`. SQLite integrity and foreign-key checks passed. The test suite passed 70 tests.
+All 1,134 HTTP checks passed. Both prerequisite graphs are acyclic; every active concept has source backing. Replaying all 47 manifest entries returned `unchanged`. SQLite integrity and foreign-key checks passed. The test suite passed 70 tests.
 
-Duplicate-concept repair is fully applied for both courses as of this export: 19 of 21 candidate clusters for 6.1400 (2 excluded as false positives — a reused per-example notation label and a reused theorem-number reference, both now also excluded automatically by `is_locally_scoped_label`), and all 3 candidate clusters for 8.223. A fresh dry-run (`scripts.repair_duplicate_concepts --dry-run`) on both courses now returns zero clusters.
+Duplicate-concept repair is fully applied for both courses as of this export, and a fresh dry-run (`scripts.repair_duplicate_concepts --dry-run`) on both now returns zero clusters. History:
+
+- **6.1400:** 19 of 21 candidate clusters were merged (2 excluded as false positives by code — a reused per-example notation label and a reused theorem-number reference — both now caught automatically by `is_locally_scoped_label`).
+- **8.223:** all 3 candidate clusters were merged.
+- **Reviewed and reversed after execution:** one merge per course was executed without first checking `dedup-review.json`'s "deferred" list, then caught on re-review against the concepts' own recorded definitions and reversed: `Reduction` (a general/Turing-style reduction used for undecidability proofs) had been folded into `Polynomial-Time Reduction`, and `Equations of Motion (EoM)` (the general Newtonian concept) had been folded into `Euler-Lagrange Equation` (its Lagrangian-specific derived form). Both are separate active concepts again, with their own alias and source backing restored; the ambiguous shared alias that caused the re-collision was removed from the more specific survivor concept instead. A third pair — `Lagrangian`/`Lagrangian Function` (the object) merged into `Lagrangian Formalism` (the method) — was reversed the same way for consistency, since the same object-vs-method distinction applied. `Accepting Run of PDA` merged into the general `Accepting run` was reviewed and *kept* merged: unlike the cases above, the definition genuinely doesn't differ by automaton type. Historical edges/evidence created while these were merged still point at the (former) survivor concept and were not retroactively re-split — only the concept identity going forward is corrected.
 
 ## API identifiers
 
