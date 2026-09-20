@@ -6,7 +6,17 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export PATH="$HOME/.local/bin:$PATH"
 
-# uv is baked into the base snapshot; self-heal if it is ever missing.
+# --- System dependencies -------------------------------------------------
+# PostgreSQL 16 + pgvector back the knowledge engine. Installed here (rather
+# than assumed present) so the repo-managed environment is self-contained on
+# the stock base image. Guarded so re-runs are a fast no-op.
+if ! dpkg -s postgresql-16-pgvector >/dev/null 2>&1; then
+  sudo apt-get update -qq
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    postgresql-16 postgresql-16-pgvector postgresql-client-16
+fi
+
+# uv drives the backend Python toolchain; self-heal if it is ever missing.
 if ! command -v uv >/dev/null 2>&1; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
   export PATH="$HOME/.local/bin:$PATH"
