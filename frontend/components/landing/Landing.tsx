@@ -1,108 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import { useLayoutEffect, useState, ViewTransition } from "react";
+import { ViewTransition } from "react";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { ProductHeader } from "@/components/shell/ProductHeader";
-import { useReducedMotion } from "@/components/shell/useSpaceAttribute";
-import { EarthGlobe } from "@/components/site/EarthGlobe";
+import { GeneratedPixelSpiral } from "@/components/shell/GeneratedPixelSpiral";
 import { SITE_GATED } from "@/lib/config";
+import { planetHref } from "@/lib/world/earth-nav";
+import { LandingEarth } from "./LandingEarth";
+import "./landing.css";
 
-/* The window is cut open once per session; a reload after that just shows the planet. */
-function useOnce(key: string) {
-  const [first, setFirst] = useState(false);
-  useLayoutEffect(() => {
-    try {
-      if (sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key, "1");
-    } catch {
-      /* storage unavailable; the cut plays again */
-    }
-    setFirst(true);
-  }, [key]);
-  return first;
-}
+const TABS = [
+  { href: planetHref(), label: "Knowledge" },
+  { href: "/knowledge", label: "Information" },
+] as const;
 
-const LADDER = [
-  { label: "Touched", fill: "var(--a-touched)", note: "A lecture opened. A sprout." },
-  { label: "Demonstrated", fill: "var(--a-demonstrated)", note: "A problem solved. A landmark." },
-  { label: "Mastered", fill: "var(--a-mastered)", note: "Confirmed. The light stays on." },
-];
+const CONTINUE = (
+  <Link className="sg-btn sg-btn-primary sg-btn-lg" href={planetHref()} transitionTypes={["enter-world"]}>
+    Continue
+  </Link>
+);
 
 export function Landing() {
-  const cut = useOnce("sg-landing-cut");
-  const reduced = useReducedMotion();
-
-  const enter = (
-    <Link className="sg-btn sg-btn-primary sg-btn-lg" href="/earth" transitionTypes={["enter-world"]}>
-      Enter your world
-    </Link>
+  const action = SITE_GATED ? (
+    <>
+      <SignedOut>
+        <Link className="sg-btn sg-btn-primary sg-btn-lg" href="/login">
+          Login
+        </Link>
+      </SignedOut>
+      <SignedIn>{CONTINUE}</SignedIn>
+    </>
+  ) : (
+    CONTINUE
   );
 
   return (
     <div className="sg-landing">
-      <ProductHeader variant="static" />
-      <section className="sg-hero" aria-labelledby="sg-hero-title">
-        <div className="sg-hero-copy">
-          <span className="sg-eyebrow">One world per course</span>
-          <h1 id="sg-hero-title" className="sg-display">
-            Turn in a problem set. Someone moves in.
-          </h1>
-          <p className="sg-body">
-            Drop in the notes and problem sets you already have. Each course becomes a small world you can
-            walk around: an idea you have touched sprouts, one you have worked becomes a landmark, and every
-            resident can name the page it came from. Nothing grows from work you did not do.
-          </p>
-          <div className="sg-hero-actions">
-            {SITE_GATED ? (
-              <>
-                <SignedOut>
-                  <Link className="sg-btn sg-btn-primary sg-btn-lg" href="/login">
-                    Start your world
-                  </Link>
-                </SignedOut>
-                <SignedIn>{enter}</SignedIn>
-              </>
-            ) : (
-              enter
-            )}
-            <Link className="sg-btn sg-btn-text" href="/knowledge">
-              Look at the sky
-            </Link>
+      <div className="sg-landing-art" aria-hidden>
+        <span className="sg-landing-wash" />
+        <GeneratedPixelSpiral className="sg-landing-galaxy" size={72} opacity={0.32} spin />
+        <ViewTransition name="studygotchi-earth" share="earth-morph" default="none">
+          <div className="sg-landing-planet">
+            <LandingEarth />
+            <span className="sg-landing-shadow" />
           </div>
-          <ul className="sg-ladder" aria-label="The three states an idea can be in">
-            {LADDER.map((step) => (
-              <li key={step.label}>
-                <span
-                  className="sg-chip"
-                  style={{ ["--fill" as string]: step.fill, ["--fill-ring" as string]: "none" }}
-                >
-                  {step.label}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <p className="sg-ladder-note">
-            {LADDER.map((s) => s.note).join(" ")}
-          </p>
-        </div>
+        </ViewTransition>
+      </div>
 
-        <div className="sg-window" aria-label="The planet, one town per course">
-          <div className="sg-window-stage" data-cut={cut && !reduced ? "true" : undefined}>
-            <ViewTransition name="studygotchi-earth" share="earth-morph" default="none">
-              <div className="sg-window-fallback">
-                <EarthGlobe decorative />
-              </div>
-            </ViewTransition>
-          </div>
-          <span className="sg-window-caption">
-            <span className="sg-live-dot" aria-hidden />
-            <span className="sg-eyebrow" style={{ color: "var(--a-ink)" }}>
-              Seven courses, one planet
-            </span>
-          </span>
-        </div>
-      </section>
+      <header className="sg-landing-bar">
+        <span className="sg-landing-word">StudyGotchi</span>
+        <nav className="sg-landing-tabs" aria-label="Product">
+          {TABS.map((tab) => (
+            <Link key={tab.href} href={tab.href} className="sg-landing-tab">
+              {tab.label}
+            </Link>
+          ))}
+        </nav>
+      </header>
+
+      <main className="sg-landing-fore">
+        <p className="sg-landing-line">
+          Continue where{" "}
+          <br />
+          you left off.
+        </p>
+        <p className="sg-landing-note">Your towns are still turning.</p>
+        {action}
+      </main>
     </div>
   );
 }

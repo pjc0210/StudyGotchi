@@ -20,20 +20,45 @@ export interface Station {
 }
 
 export const STATIONS: Record<StationId, Station> = {
-  arrival: { id: 'arrival', label: 'Arrival', pitchDeg: 35, azimuthDeg: 12, fov: 26, fitWidth: 0.78, targetLift: 7 },
-  overview: { id: 'overview', label: 'Overview', pitchDeg: 35, azimuthDeg: 0, fov: 26, fitWidth: 0.88, targetLift: 7 },
+  arrival: { id: 'arrival', label: 'Arrival', pitchDeg: 22, azimuthDeg: 8, fov: 36, fitWidth: 0.82, targetLift: 3 },
+  overview: { id: 'overview', label: 'Overview', pitchDeg: 22, azimuthDeg: 8, fov: 36, fitWidth: 0.9, targetLift: 3 },
   /** Frames the district shape at ~70 % of the frame width (creature size follows the scale rule). */
-  district: { id: 'district', label: 'District', pitchDeg: 34, azimuthDeg: 0, fov: 26, fitWidth: 0.8, targetLift: 3.2 },
-  resident: { id: 'resident', label: 'Resident', pitchDeg: 34, azimuthDeg: 0, fov: 26, distance: 9, targetLift: 1.2 },
+  district: { id: 'district', label: 'District', pitchDeg: 20, azimuthDeg: 8, fov: 36, fitWidth: 0.8, targetLift: 2.4 },
+  resident: { id: 'resident', label: 'Resident', pitchDeg: 18, azimuthDeg: 8, fov: 36, distance: 9, targetLift: 1.2 },
 }
 
+/** Product-land roam: preferred heading, side clamps, zoom — not a 6° pitch rail. */
+export const CAMERA_LIMITS = {
+  preferredHeadingDeg: 8,
+  yawDeg: 42,
+  pitchMinDeg: 16,
+  pitchMaxDeg: 48,
+  minDistance: 22,
+  maxDistance: 300,
+  minDolly: 0.42,
+  maxDolly: 1.65,
+} as const
+
 export function clampDioramaYaw(yawDeg: number): number {
-  return Math.min(35, Math.max(-35, yawDeg))
+  return Math.min(CAMERA_LIMITS.yawDeg, Math.max(-CAMERA_LIMITS.yawDeg, yawDeg))
+}
+
+export function clampDioramaPitch(pitchDeg: number): number {
+  return Math.min(CAMERA_LIMITS.pitchMaxDeg, Math.max(CAMERA_LIMITS.pitchMinDeg, pitchDeg))
+}
+
+export function clampDolly(dolly: number): number {
+  return Math.min(CAMERA_LIMITS.maxDolly, Math.max(CAMERA_LIMITS.minDolly, dolly))
 }
 
 /** Fixed front-facing acceptance pose used for the −35/0/+35 yaw checks. */
 export function overviewPoseForYaw(yawDeg: number, dolly = 1): CameraOverride {
-  return { pitchDeg: 35, azimuthDeg: clampDioramaYaw(yawDeg), dolly: Math.min(2.2, Math.max(0.5, dolly)), fov: 26 }
+  return {
+    pitchDeg: STATIONS.overview.pitchDeg,
+    azimuthDeg: clampDioramaYaw(yawDeg),
+    dolly: clampDolly(dolly),
+    fov: STATIONS.overview.fov,
+  }
 }
 
 export interface CameraOverride {
@@ -44,7 +69,12 @@ export interface CameraOverride {
 }
 
 export function defaultOverride(station: Station): CameraOverride {
-  return { pitchDeg: station.pitchDeg, azimuthDeg: clampDioramaYaw(station.azimuthDeg), dolly: 1, fov: station.fov }
+  return {
+    pitchDeg: clampDioramaPitch(station.pitchDeg),
+    azimuthDeg: clampDioramaYaw(station.azimuthDeg),
+    dolly: 1,
+    fov: station.fov,
+  }
 }
 
 /** Distance so that a chord of `width` metres fills `fraction` of the frame width. */
@@ -69,7 +99,7 @@ export function poseFor(
     (station.fitWidth !== undefined
       ? fitDistance(subject.chord, station.fitWidth, override.fov, aspect)
       : (station.distance ?? 10)) * override.dolly
-  const pitch = (Math.min(40, Math.max(34, override.pitchDeg)) * Math.PI) / 180
+  const pitch = (clampDioramaPitch(override.pitchDeg) * Math.PI) / 180
   const azimuth = (clampDioramaYaw(override.azimuthDeg) * Math.PI) / 180
   const horizontal = Math.cos(pitch) * distance
   const target: [number, number, number] = [

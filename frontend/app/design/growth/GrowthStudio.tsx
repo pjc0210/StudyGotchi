@@ -24,10 +24,24 @@ const LAND_PREVIEWS: Array<{ id: LocalBiomeId; name: string }> = [
   { id: "ice-golden", name: "Ice" },
 ];
 
-export function GrowthStudio() {
-  const [courseId, setCourseId] = useState(DEMO_GROWTH_COURSES[0].id);
+export function GrowthStudio({
+  initialCourseCode,
+  initialLand,
+}: {
+  initialCourseCode?: string;
+  initialLand?: string;
+} = {}) {
+  const startCourse =
+    DEMO_GROWTH_COURSES.find((row) => row.code === initialCourseCode) ??
+    DEMO_GROWTH_COURSES.find((row) => row.land === initialLand) ??
+    DEMO_GROWTH_COURSES[0];
+  const startLand =
+    LAND_PREVIEWS.some((land) => land.id === initialLand) && initialLand !== startCourse.land
+      ? (initialLand as LocalBiomeId)
+      : null;
+  const [courseId, setCourseId] = useState(startCourse.id);
   const [progress, setProgress] = useState(progressForStage("sprouting"));
-  const [landOverride, setLandOverride] = useState<LocalBiomeId | null>(null);
+  const [landOverride, setLandOverride] = useState<LocalBiomeId | null>(startLand);
 
   const course = DEMO_GROWTH_COURSES.find((row) => row.id === courseId) ?? DEMO_GROWTH_COURSES[0];
   const visual = landOverride ?? course.land;

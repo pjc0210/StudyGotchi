@@ -1,9 +1,18 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { LENSES, type Lens } from "@/lib/graphModel";
 import { emit } from "@/lib/audio/events";
 
-export function GraphLenses({ lens, onChange }: { lens: Lens; onChange: (l: Lens) => void }) {
+export function GraphLenses({
+  lens,
+  onChange,
+  extra,
+}: {
+  lens: Lens;
+  onChange: (l: Lens) => void;
+  extra?: ReactNode;
+}) {
   return (
     <div role="group" aria-label="Graph lens" className="sg-seg">
       {LENSES.map((l) => (
@@ -21,6 +30,7 @@ export function GraphLenses({ lens, onChange }: { lens: Lens; onChange: (l: Lens
           {l.label}
         </button>
       ))}
+      {extra}
     </div>
   );
 }

@@ -72,6 +72,7 @@ describe("live demo graph fallback", () => {
     const seeded = seededKnowledgeGraph(DEMO_COURSES[0].id);
     expect(seeded?.nodes.length).toBe(graph.nodes.length);
     expect(seeded?.nodes.some((node) => node.cluster === "Canonical Momentum")).toBe(true);
+    expect(JSON.stringify(graph)).not.toContain("../../../demo-data");
   });
 
   it("rethrows when there is no pipeline graph for the course", async () => {

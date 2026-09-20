@@ -14,6 +14,7 @@ export interface CourseGlobeProps {
   onSelect?: (courseId: string) => void;
   onActiveCourseChange?: (courseId: string) => void;
   onCourseTownOpen?: (courseId: string, anchor: ScreenPoint) => void;
+  onLandmarkAnchor?: (anchor: ScreenPoint | null) => void;
   arriving?: boolean;
   diving?: boolean;
   diveAnchor?: ScreenPoint | null;
@@ -42,6 +43,7 @@ export function CourseGlobe({
   onSelect,
   onActiveCourseChange,
   onCourseTownOpen,
+  onLandmarkAnchor,
   arriving = true,
   diving = false,
   diveAnchor = null,
@@ -86,6 +88,7 @@ export function CourseGlobe({
         }
         onSelect?.(courseId);
       }}
+      onLandmarkAnchor={decorative ? undefined : onLandmarkAnchor}
     />
   );
 

@@ -1,90 +1,69 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PartyPopper } from "lucide-react";
-import { api, ApiError } from "@/lib/api";
+import { formatScore } from "@/lib/graph";
 import { useStore } from "@/lib/store";
-import type { GapsResponse } from "@/lib/types";
+import { weakAreaTracks, type WeakTrack } from "@/lib/world/pipeline-understanding";
 import { EmptyState } from "@/components/common/EmptyState";
-import { ErrorState, SkeletonRows } from "@/components/common/LoadingState";
-import { GapItem } from "./GapItem";
+import { SkeletonRows } from "@/components/common/LoadingState";
 
 export function GapPanel({
   onGapsLoaded,
+  onFocusTrack,
 }: {
   onGapsLoaded?: (conceptIds: string[]) => void;
+  onFocusTrack?: (conceptIds: string[]) => void;
 }) {
-  const { target, selectedId, focusConcept } = useStore();
-  const [data, setData] = useState<GapsResponse | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [nonce, setNonce] = useState(0);
+  const { graph, selectedId, focusConcept } = useStore();
+  const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
+
+  const tracks = useMemo(() => weakAreaTracks(graph.data?.nodes ?? []), [graph.data]);
+  const trackKeys = useMemo(() => tracks.map((track) => track.id), [tracks]);
 
   useEffect(() => {
-    if (!target) {
-      setLoading(false);
-      return;
-    }
-    let cancelled = false;
-    setLoading(true);
-    setError(null);
+    onGapsLoaded?.(trackKeys);
+  }, [trackKeys, onGapsLoaded]);
 
-    api
-      .getGaps(target)
-      .then((res) => {
-        if (cancelled) return;
-        setData(res);
-        onGapsLoaded?.(res.gaps.map((g) => g.concept_id));
-      })
-      .catch((err: unknown) => {
-        if (cancelled) return;
-        setError(err instanceof ApiError ? err.message : "Could not load your gaps.");
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-    // onGapsLoaded is a stable callback from the page.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [target, nonce]);
-
-  if (!target) {
-    return (
-      <EmptyState
-        title="No target available"
-        body="Upload course material so the engine has concepts to aim at."
-      />
-    );
-  }
-  if (loading) return <SkeletonRows rows={3} />;
-  if (error) return <ErrorState message={error} onRetry={() => setNonce((n) => n + 1)} />;
-  if (!data || data.gaps.length === 0) {
+  if (!graph.data) return <SkeletonRows rows={3} />;
+  if (tracks.length === 0) {
     return (
       <EmptyState
         icon={<PartyPopper size={22} strokeWidth={1.5} />}
-        title="No gaps for this target"
-        body="Nothing is blocking you right now. Pick a different target to look further ahead."
+        title="No weak tracks right now"
+        body="Nothing is clustering as a gap. Keep a target in mind and the engine will rank the next ones."
       />
     );
   }
 
+  const openTrack = (track: WeakTrack) => {
+    setSelectedTrack(track.id);
+    onFocusTrack?.(track.conceptIds);
+    if (track.conceptIds[0]) focusConcept(track.conceptIds[0]);
+  };
+
   return (
-    <div className="p-4">
-      <p className="mb-3 text-[12px] text-ink-dim">
-        Ranked by the engine for <span className="text-ink">{data.target.label}</span>.
-      </p>
-      <ul className="space-y-2">
-        {data.gaps.map((gap, i) => (
-          <GapItem
-            key={gap.concept_id}
-            gap={gap}
-            index={i}
-            selected={selectedId === gap.concept_id}
-            onSelect={() => focusConcept(gap.concept_id)}
-          />
+    <div className="sg-weak-tracks">
+      <p className="sg-weak-lede">The three weakest clusters. A short red trace marks each, then fades.</p>
+      <ul>
+        {tracks.map((track) => (
+          <li key={track.id}>
+            <button
+              type="button"
+              className={`sg-weak-row${selectedTrack === track.id ? " is-on" : ""}`}
+              aria-pressed={selectedTrack === track.id || track.conceptIds.includes(selectedId ?? "")}
+              onClick={() => openTrack(track)}
+            >
+              <div className="sg-weak-head">
+                <strong>{track.label}</strong>
+                <span>{track.count}</span>
+              </div>
+              <div className="sg-weak-meta">
+                <span>Mastery {formatScore(track.mastery)}</span>
+                <span>Track</span>
+              </div>
+            </button>
+          </li>
         ))}
       </ul>
     </div>

@@ -180,13 +180,12 @@ export function buildGraphModel(
 // Lenses. These change emphasis only - they never recompute semantic state.
 // ---------------------------------------------------------------------------
 
-export type Lens = "all" | "mine" | "weak" | "frontier";
+export type Lens = "all" | "mine" | "weak";
 
 export const LENSES: { id: Lens; label: string; hint: string }[] = [
   { id: "all", label: "All", hint: "Concepts and connected material" },
   { id: "mine", label: "My Knowledge", hint: "What you have actually worked with" },
-  { id: "weak", label: "Weak Areas", hint: "Where the engine sees trouble" },
-  { id: "frontier", label: "Frontier", hint: "What becomes reachable next" },
+  { id: "weak", label: "Weak Areas", hint: "The three weakest clusters" },
 ];
 
 /** Backend states the engine considers unstable or under-evidenced. */
@@ -206,9 +205,7 @@ export function lensEmphasis(model: GraphModel, lens: Lens): Set<string> | null 
       const hit =
         lens === "mine"
           ? node.discoveryState === "active" || node.discoveryState === "encountered"
-          : lens === "weak"
-            ? WEAK_STATES.has(node.state)
-            : node.discoveryState === "frontier";
+          : WEAK_STATES.has(node.state);
       if (hit) emphasised.add(node.id);
     } else if (lens === "mine" && node.origin === "student_self") {
       emphasised.add(node.id);

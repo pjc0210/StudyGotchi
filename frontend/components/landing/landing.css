@@ -1,0 +1,225 @@
+/* Mineral paper, slate ink, lamp once. Not cream-serif, not acid-green, not broadsheet. */
+
+.sg-landing {
+  --land-paper: #e4eaf0;
+  --land-ink: #2a3344;
+  --land-sea: #6aa8c4;
+  --land-meadow: #8fb56f;
+  --land-ice: #f4f7f8;
+  --land-lamp: #d4b056;
+  --land-mute: color-mix(in srgb, var(--land-ink) 52%, transparent);
+
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--land-paper);
+  color: var(--land-ink);
+}
+
+:root[data-space-theme="dark"] .sg-landing,
+:root[data-palette="night"] .sg-landing {
+  --land-paper: #1b2130;
+  --land-ink: #e6e2d6;
+  --land-mute: color-mix(in srgb, var(--land-ink) 48%, transparent);
+}
+
+.sg-landing-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sg-landing-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 52% 46% at 74% 64%, color-mix(in srgb, var(--land-sea) 24%, transparent), transparent 72%),
+    radial-gradient(ellipse 26% 22% at 14% 16%, color-mix(in srgb, var(--land-ice) 38%, transparent), transparent 70%);
+}
+
+/* Fable's generated spiral: small sky object. Size/fade/spin live on the component. */
+.sg-landing-galaxy {
+  position: absolute;
+  top: 15vh;
+  right: clamp(20px, 7vw, 76px);
+  z-index: 1;
+}
+
+.sg-landing-planet {
+  position: absolute;
+  right: -8vw;
+  bottom: 4vh;
+  z-index: 2;
+  width: min(68vmin, 580px);
+  height: min(68vmin, 580px);
+  animation: sg-landing-drift 36s ease-in-out infinite alternate;
+}
+
+.sg-landing-earth {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sg-landing-waves {
+  animation: sg-landing-tide 18s ease-in-out infinite alternate;
+}
+
+.sg-landing-shadow {
+  position: absolute;
+  left: 16%;
+  right: 22%;
+  bottom: 7%;
+  height: 11%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--land-ink) 24%, transparent), transparent 70%);
+  filter: blur(7px);
+}
+
+.sg-landing-bar {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px var(--sg-gutter) 0;
+}
+
+.sg-landing-word {
+  font-family: var(--a-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--land-mute);
+}
+
+.sg-landing-tabs {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.sg-landing-tab {
+  font-family: var(--a-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--land-mute);
+}
+
+.sg-landing-tab:hover {
+  color: var(--land-ink);
+}
+
+.sg-landing-tab:focus-visible {
+  outline: 2px solid var(--land-ink);
+  outline-offset: 3px;
+}
+
+.sg-landing-fore {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: min(400px, calc(100% - 2 * var(--sg-gutter)));
+  margin-top: clamp(48px, 14vh, 112px);
+  padding: 0 var(--sg-gutter);
+}
+
+.sg-landing-line {
+  margin: 0;
+  font-family: var(--a-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+  word-spacing: 0.08em;
+  color: var(--land-ink);
+}
+
+.sg-landing-note {
+  margin: 0 0 8px;
+  font-family: var(--a-ui);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--land-mute);
+}
+
+.sg-landing-fore .sg-btn-primary {
+  background: var(--land-ink);
+  color: var(--land-paper);
+}
+
+.sg-landing-fore .sg-btn-primary:hover {
+  background: color-mix(in srgb, var(--land-ink) 88%, var(--land-paper));
+}
+
+:root[data-space-theme="dark"] .sg-landing-fore .sg-btn-primary,
+:root[data-palette="night"] .sg-landing-fore .sg-btn-primary {
+  background: var(--land-lamp);
+  color: #1b2130;
+}
+
+.sg-landing-fore .sg-btn:focus-visible {
+  outline: 2px solid var(--land-ink);
+  outline-offset: 3px;
+}
+
+:root[data-space-theme="dark"] .sg-landing-fore .sg-btn:focus-visible,
+:root[data-palette="night"] .sg-landing-fore .sg-btn:focus-visible {
+  outline-color: var(--land-lamp);
+}
+
+@media (max-width: 699px) {
+  .sg-landing-galaxy {
+    top: 11vh;
+    right: 16px;
+  }
+
+  .sg-landing-planet {
+    right: -18vw;
+    bottom: 2vh;
+    width: min(78vmin, 360px);
+    height: min(78vmin, 360px);
+  }
+
+  .sg-landing-bar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .sg-landing-fore {
+    margin-top: clamp(36px, 9vh, 64px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-landing-planet,
+  .sg-landing-waves {
+    animation: none;
+  }
+}
+
+@keyframes sg-landing-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-1.1%, -0.8%, 0);
+  }
+}
+
+@keyframes sg-landing-tide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}

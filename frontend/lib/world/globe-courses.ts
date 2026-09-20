@@ -6,8 +6,27 @@ import type {
   GlobeMarkerId,
 } from "@/components/world/globe/globe-types";
 import type { BiomeId } from "@/lib/world/types";
-import { DEMO_COURSES, DEMO_HERO_CODE, DEMO_SECOND_CODE } from "./demo-courses";
+import { DEMO_SECOND_CODE } from "./demo-courses";
+import { SANDBOX_COURSES, sandboxCourseByCode, sandboxCourseById, withSandboxCourses } from "./sandbox-roster";
 import { isCourseUuid } from "./sandbox-courses";
+
+export const GLOBE_BIOME_LABEL: Record<GlobeBiome, string> = {
+  ice: "Ice Observatory",
+  city: "City",
+  meadow: "Meadow kingdom",
+  forest: "Jungle forest",
+  volcanic: "Volcanic highlands",
+  sand: "Frontier town",
+  coast: "Coastal ruins",
+};
+
+export function globeBiomeLabel(biome: GlobeBiome): string {
+  return GLOBE_BIOME_LABEL[biome];
+}
+
+export function withEarthCourses(courses: readonly CourseSummary[]): CourseSummary[] {
+  return withSandboxCourses(courses, SANDBOX_COURSES);
+}
 
 const BIOME_MARKERS: Record<GlobeBiome, GlobeMarkerId> = {
   ice: "ice-town",
@@ -55,8 +74,10 @@ export function biomeForGlobeCourse(
   courseCode?: string | null,
   _ignored?: string | null,
 ): GlobeBiome {
-  if (courseCode === DEMO_HERO_CODE || courseId === DEMO_COURSES[0].id) return "sand";
-  if (courseCode === DEMO_SECOND_CODE || courseId === DEMO_COURSES[1].id) return "forest";
+  const sandbox =
+    sandboxCourseById(courseId) ?? sandboxCourseByCode(courseCode ?? undefined);
+  if (sandbox) return sandbox.biome;
+  if (courseCode === DEMO_SECOND_CODE) return "forest";
   const pinned = GLOBE_SHOWCASE.find(
     (course) => course.id === courseId || (courseCode && course.id === courseCode),
   );

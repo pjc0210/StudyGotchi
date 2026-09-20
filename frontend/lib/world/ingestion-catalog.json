@@ -1,0 +1,3079 @@
+{
+  "8.223": {
+    "name": "Classical Mechanics II",
+    "term": "Spring 2026",
+    "files": [
+      {
+        "title": "L1-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L2-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L3-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L4-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L5-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L6-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L7-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L8-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L9-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L10-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L11-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "pset1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "midterm_2025.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "midterm_sol_2025.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "final_2025.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "final_sol_2025.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "Legendre Transforms for Dummies.pdf",
+        "origin": "external",
+        "artifact_type": "reading"
+      },
+      {
+        "title": "Pset 1 CM2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 2 CM2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 3 CM2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 4 CM2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      }
+    ]
+  },
+  "6.1400": {
+    "name": "Computability and Complexity Theory",
+    "term": "Spring 2026",
+    "files": [
+      {
+        "title": "Lecture 1.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 10.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 11.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 12.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 13.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 14.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 15.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 16.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 17.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 18.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 19.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 2.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 20.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 21.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 3.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 4.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 5.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 6.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 7.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 8.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Lecture 9.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "61400_Pset1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "Pset 1 CCT.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      }
+    ]
+  },
+  "6.1210": {
+    "name": "Introduction to Algorithms",
+    "term": "Spring 2026",
+    "files": [
+      {
+        "title": "final_review.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "final_review_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "final_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "review1.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "review1_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "review2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "review2_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "review3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "review3_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "mid1-table.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "midterm1_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice1.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice1_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice2_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice3_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "review.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "review_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "mid2-table.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "midterm2_review_reupload.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "midterm2_review_solutions_reupload.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "midterm2_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice1.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice1_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice2_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice3_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "course_information.pdf",
+        "origin": "instructor",
+        "artifact_type": "syllabus"
+      },
+      {
+        "title": "L01-karatsuba.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L02-efficient-algorithms.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L03-seqs.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L04-sets-and-sorting.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L05-linear-sort.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L06-hashing.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L07-BSTs.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L08-avl-trees.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L09-Augmentation.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L10-graph-search.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L11-SCC.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L12-reduction.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L13-heaps-and-pqs.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L14-Dijkstra.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L15-Bellman-Ford.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L16-APSP.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L17-greedy.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L18-huffman.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L19-DP.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L20-DPII.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L21-DP-SP.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L22-DP-Subset-Sum.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L23-Complexity.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L24-Computability.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "ps1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps10.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps10_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps11.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps11_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps1_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps2_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps3_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps4_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps5.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps5_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps6.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps6_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps7.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps7_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps8.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps8_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "ps9.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps9_solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R00.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R00_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R01.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R01_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R02.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R02_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R03.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R03_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R04.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R04_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R05-06.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R05-06_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R07.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R07_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R08.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R08_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R09.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R09_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R10.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R10_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R11.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R11_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R12.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R12_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R13.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R13_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R14.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R14_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R15.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R15_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R16.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R16_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R17.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R17_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R18.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R18_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R19.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R19_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R20.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R20_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R21.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R21_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R22.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R22_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R23.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R23_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R24.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R24_solutions.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps10.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps10Sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps1_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps2_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps3_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps4_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps5.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps5_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps6.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps6_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps7.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps7_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps8.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps8_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "sps9.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "sps9_sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "Computability-Terminology.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "Tips on Writing Solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rec20.py",
+        "origin": "instructor",
+        "artifact_type": "other"
+      },
+      {
+        "title": "pset10-count-paths.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset10-tests.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset2.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset3.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset4.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset5.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset6.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset7.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset7b.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset8.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset9.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      }
+    ]
+  },
+  "18.06": {
+    "name": "Linear Algebra",
+    "term": "Spring 2026",
+    "files": [
+      {
+        "title": "2002f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2004f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2004s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2005s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2006f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2007f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2008f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2009f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2009s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2010f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2010s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2011s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2012f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2012s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2013f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2013s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2014f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2014s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2015f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2015s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2017f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2017s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2018f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2019f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2019s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2020s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2021s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2010f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2010s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2011f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2011s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2012f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2012s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2013s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2014f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2014s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2015s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2017s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2018f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2021s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2022f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2022s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "1806_SP26_rec6sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "FourierJordan.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "final_practice.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "final_practice_sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "finalsols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "midterm2sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "midterm3sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset1sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset2sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset3sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset4sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset5.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset5sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset6.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset6sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset7.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset7sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset8.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset8sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset9.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset9sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz10sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz11sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz12sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz1sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz2sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz4sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz5sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz6sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz7sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz8sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "quiz9sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec10sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec11sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec12sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec1sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec2sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec3sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec4sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec5sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec6sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec7sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec8sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rec9sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "1806_SP26_rec10.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "1806_SP26_rec10_sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "1806_SP26_rec7_sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "1806_SP26_rec8-sols-1.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "1806_SP26_rec9_sols.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "schedule.pdf",
+        "origin": "instructor",
+        "artifact_type": "syllabus"
+      },
+      {
+        "title": "syllabus.pdf",
+        "origin": "instructor",
+        "artifact_type": "syllabus"
+      },
+      {
+        "title": "1806_SP26_recitations-51.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "Final_Review_Problem_Solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "Recitation 11.pdf",
+        "origin": "ta",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Recitation 9.pdf",
+        "origin": "ta",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Comp 1.1  LA.ipynb",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Comp 1.1 LA.ipynb",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Comp 1.1 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Comp 1.2 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Comp 1.2 LA.py",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Comp Pset 5 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "2000f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2001s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2003f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2005f.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2006s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "2008s.pdf",
+        "origin": "external",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "Pset 1 LA Comb.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 1 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 2 LA 2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 2 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 3 LA 2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 3 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 4 LA Comp.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Pset 4 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 5 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 6 2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 6.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 7 LA Comp.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Pset 7 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 8 LA Comp.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Pset 8 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 9 LA Comp.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "Pset 9 LA.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "comp pset 6.\u2026 (7) - JupyterLab.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "comp-4-la.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "compute 1.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "compute 2.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "compute 8 la\u2026 (9) - JupyterLab.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "compute 9 la\u2026 (10) - JupyterLab.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "compute-7.ipynb.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "computes 5.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      },
+      {
+        "title": "pset2.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "pset4compute\u2026 - JupyterLab.pdf",
+        "origin": "student_self",
+        "artifact_type": "worked_solution"
+      }
+    ]
+  },
+  "18.03": {
+    "name": "Differential Equations",
+    "term": "Spring 2026",
+    "files": [
+      {
+        "title": "final1.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "final1s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "midterm1.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "midterm1s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "midterm2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "midterm2s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "midterm3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "midterm3s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice1a.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice1as.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice1b.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice1bs.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "oldmidterm2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "oldmidterm2s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice2s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "extra3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "extra3s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "oldmidterm3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "oldmidterm3s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practice3.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practice3s.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "extrafinal.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "extrafinals.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "oldfinal.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "oldfinals.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "practicefinal.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "practicefinals.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "RS11.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "RS11s.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "pset8.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset8sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs10.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs10s.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs12.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs12sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs13.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs13sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs14.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs14sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs15.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs15s.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs16.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs16sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs17.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs17sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs18sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs19.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs8.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs8sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs9.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs9sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "Extra-Final-solutions.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "Pset 1 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 2 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 3 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 4 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 5 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 6 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 7 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 9 DE.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Yes.pdf",
+        "origin": "student_self",
+        "artifact_type": "other"
+      },
+      {
+        "title": "midtermpractice.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "mt1review.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "mt2review-sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "mt2review.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "mt3review-sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "mt3review.pdf",
+        "origin": "instructor",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "pset1-soln.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset2sol.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset5.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset6.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset6sols.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "pset7.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "pset9.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "rs1.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs18.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs1sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs2.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs2sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "rs3.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs4.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs5.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs6.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "rs7.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      }
+    ]
+  },
+  "8.022": {
+    "name": "Physics II: Electricity and Magnetism",
+    "term": "Spring 2026",
+    "files": [
+      {
+        "title": "Practice Exam 1.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "Practice Exam 2.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "Practice Final.pdf",
+        "origin": "instructor",
+        "artifact_type": "exam"
+      },
+      {
+        "title": "ps1-1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps10.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps11.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps12.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps5.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps6.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps7.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps8.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "ps9.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "Faraday_Ice_Pail.pdf",
+        "origin": "instructor",
+        "artifact_type": "reading"
+      },
+      {
+        "title": "Helmholtz_Coil.pdf",
+        "origin": "instructor",
+        "artifact_type": "reading"
+      },
+      {
+        "title": "Wireless_Power_Transfer.pdf",
+        "origin": "instructor",
+        "artifact_type": "reading"
+      },
+      {
+        "title": "L10_Slides_CircuitsKirchoff.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L11_Slides_Lorentz.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L12_Slides_Ampere.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L13_Slides_VpotentialBiot.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L14_Slides_Faraday.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L15_Slides_InductorsMagneticEnergy.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L16_Slides_RLC_DC.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L17_Slides_ACsources.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L18_Slides_Impedance.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L19_Slides_Displacement.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L1_Slides_CoulombCharges.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L20_Slides_Wave1.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L21_Slides_Wave2.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L25_Slides_SummaryPart123.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L2_Slides_EfieldGauss.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L3_Slides_EnergyElectrost.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L4_Slides_VectorCalculus.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L5_Slides_MaxwellStaticPoissonLaplace.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L6_Slides_Conductors.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L7_Slides_Capacitors.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L8_Slides_Currents.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "L9_Slides_ResiBatteries.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "Review_MIdTerm2.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "LowPassFilter.pdf",
+        "origin": "instructor",
+        "artifact_type": "reading"
+      },
+      {
+        "title": "RQ1.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ10.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ11.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ12.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ2.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ3.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ4.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ5.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ6.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ7.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ8.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "RQ9.pdf",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "8022_recitation_5_Assembly Energy.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R1.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R10.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R11.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R12.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R13.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R14.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R15.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R16.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R18.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R19.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R2.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R20.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R21.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R22.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R23.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R3.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R4.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R5.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R6.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R7.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R8.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R9.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "thevenin.pdf",
+        "origin": "ta",
+        "artifact_type": "study_guide"
+      },
+      {
+        "title": "R10sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R11sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R12sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R13sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R14sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R15sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R16sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R18sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R19sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R1sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R20sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R21sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R22sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R23sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R2sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R3sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R4sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R5sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R6sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R7sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R8sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "R9sol.pdf",
+        "origin": "ta",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "solPracticeExam.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "solPracticeFinal.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "solPracticeexam2.pdf",
+        "origin": "instructor",
+        "artifact_type": "solution_key"
+      },
+      {
+        "title": "8.022 MT1.pdf.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Lab 1 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "PSET 4 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "PSet 6 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 1 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 10 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 12 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 2 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 3 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 5 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 7 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 8 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 9 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 10 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 11 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 12 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 2 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 3 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 4 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 5 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 6 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 7 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 8 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 9 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Untitled.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 7 EM Comp.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "Pset 7 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      },
+      {
+        "title": "RQ 6 EM.pdf",
+        "origin": "student_self",
+        "artifact_type": "handwritten_work"
+      }
+    ]
+  },
+  "16.C20": {
+    "name": "Numerical Methods and Computation",
+    "term": null,
+    "files": [
+      {
+        "title": "IVPlib_rev0.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "coffee_model_rev0.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "can_opt.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "can_opt_con.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "can_opt_scipy.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "gd1.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "np_creation.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "np_ops.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "np_timings.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "np_viewcopy.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      },
+      {
+        "title": "IVP_scenarios.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "IVPlib_pset1.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "hail.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "lander.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "HVACIVP.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "IVPlib_pset2.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "LinSysIVP.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "mylinsolver.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "mynonlinsolver.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "slimmons.csv",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "solve_robertson.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "solve_slimmons.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "HVACIVP.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "IVPlib_pset2.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "LinSysIVP.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "mylinsolver.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "mynonlinsolver.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "slimmons.csv",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "solve_robertson.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "solve_slimmons.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "cellopt.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "gd.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "gd_tests.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "cellopt.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "gd.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "gd_tests.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "IVPlib_pset4.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "neuron_Ifunctors.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "neuron_main.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "neuron_model.py",
+        "origin": "instructor",
+        "artifact_type": "homework"
+      },
+      {
+        "title": "smooter.py",
+        "origin": "instructor",
+        "artifact_type": "lecture"
+      }
+    ]
+  }
+}

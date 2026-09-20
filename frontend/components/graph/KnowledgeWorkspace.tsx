@@ -8,6 +8,7 @@ import {
   type Lens,
 } from "@/lib/graphModel";
 import { useStore } from "@/lib/store";
+import { weakAreaTracks, weakGapTraces } from "@/lib/world/pipeline-understanding";
 import { EmptyState } from "@/components/common/EmptyState";
 import { ErrorState } from "@/components/common/LoadingState";
 import { ConceptPanel } from "@/components/concepts/ConceptPanel";
@@ -51,6 +52,7 @@ export function KnowledgeWorkspace({
     select,
     focusNonce,
     focusConcept,
+    recentlyTouched,
   } = useStore();
 
   const [ownLens, setOwnLens] = useState<Lens>("all");
@@ -64,7 +66,9 @@ export function KnowledgeWorkspace({
     [graph.data, resources],
   );
 
-  const lensSet = useMemo(() => lensEmphasis(model, lens), [model, lens]);
+  const weakTracks = useMemo(() => weakAreaTracks(graph.data?.nodes ?? []), [graph.data]);
+  const weakTraceIds = useMemo(() => weakGapTraces(weakTracks, model.links), [weakTracks, model]);
+  const lensSet = useMemo(() => (lens === "weak" ? null : lensEmphasis(model, lens)), [model, lens]);
 
   // An explicit gap focus outranks the lens - the user asked for it directly.
   const emphasis = useMemo(() => {
@@ -96,7 +100,8 @@ export function KnowledgeWorkspace({
       return;
     }
     const id = setTimeout(() => {
-      if (lensSet && lensSet.size > 0) canvasRef.current?.fitTo([...lensSet]);
+      if (lens === "weak") canvasRef.current?.fit();
+      else if (lensSet && lensSet.size > 0) canvasRef.current?.fitTo([...lensSet]);
       else canvasRef.current?.fit();
     }, 40);
     return () => clearTimeout(id);
@@ -118,10 +123,9 @@ export function KnowledgeWorkspace({
     return () => clearTimeout(id);
   }, [routeIds]);
 
-  // So should a fresh set of gaps.
+  // A weak-area track should frame itself when the student picks it.
   useEffect(() => {
     if (focusIds.length === 0) return;
-    setLens("all");
     const id = setTimeout(() => canvasRef.current?.fitTo(focusIds), 260);
     return () => clearTimeout(id);
   }, [focusIds]);
@@ -171,6 +175,9 @@ export function KnowledgeWorkspace({
         emphasis={emphasis}
         routeIds={routeIds}
         selectedId={selectedId}
+        arrivingIds={recentlyTouched}
+        weakFlash={lens === "weak"}
+        weakTraceIds={lens === "weak" ? weakTraceIds : []}
         onSelect={handleSelect}
         onHover={setHover}
         handleRef={canvasRef}

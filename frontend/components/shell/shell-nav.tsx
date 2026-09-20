@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
 /** How long a page gets to play its exit before the route changes under it. */
@@ -21,8 +21,10 @@ const ShellNavContext = createContext<ShellNav>({ available: false, leavingTo: n
 export function ShellNavProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [leavingTo, setLeavingTo] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const here = searchParams.toString() ? `${pathname}?${searchParams}` : pathname;
 
   // Arrival clears the exit state in the same commit that mounts the new page.
   useEffect(() => {
@@ -38,13 +40,13 @@ export function ShellNavProvider({ children }: { children: ReactNode }) {
 
   const go = useCallback(
     (href: string) => {
-      if (href === pathname || leavingTo) return;
+      if (href === here || leavingTo) return;
       router.prefetch(href);
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       setLeavingTo(href);
       timer.current = setTimeout(() => router.push(href), reduced ? LEAVE_REDUCED_MS : LEAVE_MS);
     },
-    [pathname, leavingTo, router],
+    [here, leavingTo, router],
   );
 
   const value = useMemo<ShellNav>(() => ({ available: true, leavingTo, go }), [leavingTo, go]);

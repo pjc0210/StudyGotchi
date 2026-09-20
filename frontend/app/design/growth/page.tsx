@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: "How demo-data courses map onto biomes, districts, and growth stages.",
 };
 
-export default function GrowthPage() {
-  return <GrowthStudio />;
+export default async function GrowthPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ course?: string; land?: string }>;
+}) {
+  const query = await searchParams;
+  return <GrowthStudio initialCourseCode={query.course} initialLand={query.land} />;
 }

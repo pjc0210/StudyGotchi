@@ -4,6 +4,14 @@ import { API_URL } from "./config";
 import { credentialHeaders, getIdentity, type CourseSummary } from "./identity";
 import { studentIdForCourse } from "./world/demo-courses";
 import { pipelineGraphForCourse, pipelineWorldForCourse } from "./world/pipeline-assets";
+import { canDemoIngest, demoGraphExtras, demoIngestFallback, demoUploadsForCourse, rememberSemanticNode } from "./world/demo-ingest";
+import { enrichPipelineNode, pipelineConceptDetail, weakAreaTracks, withPipelineSources } from "./world/pipeline-understanding";
+import {
+  emptyWorldForCourse,
+  ingestionResourcesForCourse,
+  isThinSandboxCourse,
+  mergeVisibleFiles,
+} from "./world/sandbox-roster";
 import {
   MOCK_GAPS,
   MOCK_GRAPH,
@@ -54,6 +62,8 @@ export interface IngestInput {
   artifactType: ArtifactType;
   /** Student-owned material posts to the student-scoped ingest route. */
   studentScoped: boolean;
+  /** Land that should list the file when Railway 403s the Clerk caller. */
+  courseId?: string;
 }
 
 export interface KnowledgeApi {
@@ -107,9 +117,9 @@ const num = (v: unknown, fallback = 0): number =>
 const str = (v: unknown, fallback = ""): string => (typeof v === "string" ? v : fallback);
 
 /** Backend node uses `concept_id`; the UI has always used `id`. */
-function normalizeNode(raw: Record<string, unknown>, index: number): ConceptNode {
+function normalizeNode(raw: Record<string, unknown>, index: number, courseId: string): ConceptNode {
   const understanding = raw.understanding ?? raw.mastery;
-  return {
+  const node: ConceptNode = {
     id: str(raw.concept_id ?? raw.id, `concept_${index}`),
     name: str(raw.name, "Untitled concept"),
     scope: (str(raw.scope, "course") as ConceptNode["scope"]) ?? "course",
@@ -124,9 +134,10 @@ function normalizeNode(raw: Record<string, unknown>, index: number): ConceptNode
     confidence: num(raw.confidence),
     readiness: num(raw.readiness),
     fragility: num(raw.fragility),
-    // The engine owns this label; never re-derive it here.
+    // Pipeline overlay fills dashes; live engine labels stay when present.
     state: (str(raw.state, "exposed") as ConceptNode["state"]) ?? "exposed",
   };
+  return enrichPipelineNode(node, courseId);
 }
 
 /** Backend edge uses `edge_type`; the UI has always used `type`. */
@@ -147,6 +158,12 @@ function normalizeEdge(raw: Record<string, unknown>): ConceptEdge {
 export function liveOrPipeline<T>(fallback: T | null, error: unknown): T {
   if (fallback) return fallback;
   throw error;
+}
+
+export function isSandboxWorldError(error: unknown): boolean {
+  if (!(error instanceof ApiError)) return false;
+  if (error.status === 403) return true;
+  return /not your world/i.test(error.message);
 }
 
 /** An empty live payload is the same as a failed one: keep the demo sky up. */
@@ -171,9 +188,16 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
   const obj = (raw ?? {}) as Record<string, unknown>;
   const rawNodes = Array.isArray(obj.nodes) ? obj.nodes : [];
   const rawEdges = Array.isArray(obj.edges) ? obj.edges : [];
+  const courseId = str(obj.course_id, getIdentity().courseId);
 
-  const nodes = rawNodes.map((n, i) => normalizeNode(n as Record<string, unknown>, i));
-  const ids = new Set(nodes.map((n) => n.id));
+  const nodes = rawNodes.map((n, i) => normalizeNode(n as Record<string, unknown>, i, courseId));
+  const seen = new Set(nodes.map((n) => n.id));
+  for (const extra of demoGraphExtras(courseId)) {
+    if (seen.has(extra.id)) continue;
+    seen.add(extra.id);
+    nodes.push(extra);
+  }
+  const ids = seen;
 
   // Drop dangling edges rather than letting the canvas throw on them.
   const edges = rawEdges
@@ -182,7 +206,7 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
 
   return {
     student_id: str(obj.student_id, getIdentity().studentId),
-    course_id: str(obj.course_id, getIdentity().courseId),
+    course_id: courseId,
     graph_version: str(obj.graph_version, String(num(obj.graph_version, 0))),
     nodes,
     edges,
@@ -386,43 +410,48 @@ const httpApi: KnowledgeApi = {
 
   async getConceptDetail(conceptId) {
     requireIdentity();
-    const raw = await request<{
-      concept_id: string;
-      name: string;
-      evidence: {
-        evidence_type: string;
-        outcome: number | null;
-        strength: number;
-        certainty: number;
-        occurred_at: string;
-        resource: BackendResource | null;
-      }[];
-      resources: { resource: BackendResource; link_type: string; depth_score: number }[];
-    }>(`${studentBase()}/concepts/${conceptId}`);
+    const courseId = getIdentity().courseId;
+    const fallback = pipelineConceptDetail(courseId, conceptId);
+    try {
+      const raw = await request<{
+        concept_id: string;
+        name: string;
+        evidence: {
+          evidence_type: string;
+          outcome: number | null;
+          strength: number;
+          certainty: number;
+          occurred_at: string;
+          resource: BackendResource | null;
+        }[];
+        resources: { resource: BackendResource; link_type: string; depth_score: number }[];
+      }>(`${studentBase()}/concepts/${conceptId}`);
 
-    return {
-      concept_id: raw.concept_id,
-      evidence: raw.evidence.map((e, i) => {
-        return {
-          id: `${conceptId}_${i}`,
-          label: e.resource?.title ?? humanize(e.evidence_type),
-          // Outcome is the backend's graded result; only formatted here.
-          // No outcome means no score to show - not a score of zero.
-          detail: e.outcome === null || e.outcome === undefined ? "" : `${Math.round(e.outcome * 100)}%`,
-          kind: EVIDENCE_KIND[e.evidence_type] ?? "familiarity",
-          // Presentation cue only - a direction read off the backend's own
-          // outcome, not a recomputed score.
-          polarity:
-            e.outcome === null || e.outcome === undefined
-              ? "neutral"
-              : e.outcome >= 0.5
-                ? "positive"
-                : "negative",
-          source: e.resource ? toResource(e.resource) : undefined,
-        } satisfies Evidence;
-      }),
-      resources: raw.resources.map((r) => toResource(r.resource, LINK_ROLE[r.link_type] ?? humanize(r.link_type))),
-    };
+      const detail = {
+        concept_id: raw.concept_id,
+        evidence: raw.evidence.map((e, i) => {
+          return {
+            id: `${conceptId}_${i}`,
+            label: e.resource?.title ?? humanize(e.evidence_type),
+            detail: e.outcome === null || e.outcome === undefined ? "" : `${Math.round(e.outcome * 100)}%`,
+            kind: EVIDENCE_KIND[e.evidence_type] ?? "familiarity",
+            polarity:
+              e.outcome === null || e.outcome === undefined
+                ? "neutral"
+                : e.outcome >= 0.5
+                  ? "positive"
+                  : "negative",
+            source: e.resource ? toResource(e.resource) : undefined,
+          } satisfies Evidence;
+        }),
+        resources: raw.resources.map((r) => toResource(r.resource, LINK_ROLE[r.link_type] ?? humanize(r.link_type))),
+      };
+      if (detail.resources.length === 0 && fallback) return fallback;
+      return detail;
+    } catch (error) {
+      if (fallback) return fallback;
+      throw error;
+    }
   },
 
   async getWhy() {
@@ -443,10 +472,33 @@ const httpApi: KnowledgeApi = {
 
   async getGaps(target) {
     requireIdentity();
-    const raw = await request<{ gaps: BackendGap[] }>(
-      `${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`,
-    );
-    return { target, gaps: raw.gaps.map(toGap) };
+    try {
+      const raw = await request<{ gaps: BackendGap[] }>(
+        `${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`,
+      );
+      if (raw.gaps.length > 0) return { target, gaps: raw.gaps.map(toGap) };
+    } catch (error) {
+      if (!isSandboxWorldError(error)) throw error;
+    }
+    const graph = await httpApi.getKnowledgeGraph();
+    const tracks = weakAreaTracks(graph.nodes);
+    return {
+      target,
+      gaps: tracks.flatMap((track, index) =>
+        track.conceptIds.slice(0, 1).map((conceptId) => {
+          const node = graph.nodes.find((item) => item.id === conceptId);
+          return {
+            concept_id: conceptId,
+            concept_name: track.label,
+            mastery: track.mastery,
+            confidence: node?.confidence ?? track.mastery,
+            priority: Math.max(0.2, 1 - track.mastery - index * 0.04),
+            action: "STUDY" as const,
+            reason: `${track.count} ideas in this cluster need work.`,
+          };
+        }),
+      ),
+    };
   },
 
   async createStudyPlan(target) {
@@ -481,8 +533,19 @@ const httpApi: KnowledgeApi = {
 
   async listResources() {
     requireIdentity();
-    const raw = await request<BackendResource[]>(`${base()}/resources`);
-    return normalizeCourseResources(raw);
+    const courseId = getIdentity().courseId;
+    try {
+      const raw = await request<BackendResource[]>(`${base()}/resources`);
+      return withPipelineSources(courseId, [
+        ...normalizeCourseResources(raw),
+        ...demoUploadsForCourse(courseId),
+      ]);
+    } catch (error) {
+      if (isSandboxWorldError(error) && canDemoIngest(courseId)) {
+        return withPipelineSources(courseId, demoUploadsForCourse(courseId));
+      }
+      throw error;
+    }
   },
 
   async listResourcesForCourse(courseId) {
@@ -491,7 +554,7 @@ const httpApi: KnowledgeApi = {
     return normalizeCourseResources(raw);
   },
 
-  async ingest({ file, origin, artifactType, studentScoped }) {
+  async ingest({ file, origin, artifactType, studentScoped, courseId: landCourseId }) {
     requireIdentity();
     const form = new FormData();
     form.append("file", file);
@@ -500,27 +563,40 @@ const httpApi: KnowledgeApi = {
     form.append("artifact_type", artifactType);
 
     const path = studentScoped ? `${studentBase()}/resources/ingest` : `${base()}/resources/ingest`;
+    const courseId = landCourseId || getIdentity().courseId;
 
-    const raw = await request<{
-      resource_id: string;
-      status: string;
-      analysis?: string;
-      concepts_touched?: string[];
-      child_count?: number | null;
-      child_failures?: string[];
-    }>(path, { method: "POST", body: form });
+    try {
+      const raw = await request<{
+        resource_id: string;
+        status: string;
+        analysis?: string;
+        concepts_touched?: string[];
+        child_count?: number | null;
+        child_failures?: string[];
+      }>(path, { method: "POST", body: form });
 
-    invalidateApiCache();
-    // Course files finish on the request. Student files answer after the fast
-    // phase; the queue keeps polling while the analysis runs in the background.
-    const analysisPending = studentScoped && raw.analysis === "queued";
-    return {
-      resource_id: raw.resource_id,
-      status: analysisPending ? "processing" : toUploadStatus(raw.status),
-      child_count: raw.child_count ?? undefined,
-      concepts_touched: raw.concepts_touched ?? [],
-      analysis_pending: analysisPending,
-    };
+      invalidateApiCache();
+      // Course files finish on the request. Student files answer after the fast
+      // phase; the queue keeps polling while the analysis runs in the background.
+      const analysisPending = studentScoped && raw.analysis === "queued";
+      const touched = raw.concepts_touched ?? [];
+      if (touched.length === 0 && canDemoIngest(courseId)) {
+        touched.push(rememberSemanticNode(courseId, file.name).id);
+      }
+      return {
+        resource_id: raw.resource_id,
+        status: analysisPending ? "processing" : toUploadStatus(raw.status),
+        child_count: raw.child_count ?? undefined,
+        concepts_touched: touched,
+        analysis_pending: analysisPending,
+      };
+    } catch (error) {
+      if (isSandboxWorldError(error) && canDemoIngest(courseId)) {
+        invalidateApiCache();
+        return demoIngestFallback(courseId, file, origin, artifactType);
+      }
+      throw error;
+    }
   },
 
   async getResourceStatus(resourceId) {
@@ -579,6 +655,7 @@ const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export function mockWorldForCourse(courseId: string): WorldResponse {
   const pipeline = pipelineWorldForCourse(courseId);
   if (pipeline) return pipeline;
+  if (isThinSandboxCourse(courseId)) return emptyWorldForCourse(courseId);
   const world = fixture as WorldResponse;
   return {
     ...world,
@@ -603,7 +680,7 @@ const mockApi: KnowledgeApi = {
   },
   async getConceptDetail(conceptId) {
     await delay(160);
-    return mockConceptDetail(conceptId);
+    return pipelineConceptDetail(getIdentity().courseId, conceptId) ?? mockConceptDetail(conceptId);
   },
   async getWhy(conceptId) {
     await delay(200);
@@ -615,7 +692,21 @@ const mockApi: KnowledgeApi = {
   },
   async getGaps(target) {
     await delay(280);
-    return { ...MOCK_GAPS, target };
+    const graph = normalizeGraph(pipelineGraphForCourse(getIdentity().courseId) ?? MOCK_GRAPH);
+    const tracks = weakAreaTracks(graph.nodes);
+    if (tracks.length === 0) return { ...MOCK_GAPS, target };
+    return {
+      target,
+      gaps: tracks.map((track, index) => ({
+        concept_id: track.conceptIds[0] ?? `track-${index}`,
+        concept_name: track.label,
+        mastery: track.mastery,
+        confidence: track.mastery,
+        priority: Math.max(0.2, 1 - track.mastery),
+        action: "STUDY" as const,
+        reason: `${track.count} ideas in this cluster need work.`,
+      })),
+    };
   },
   async createStudyPlan(target) {
     await delay(500);
@@ -623,14 +714,25 @@ const mockApi: KnowledgeApi = {
   },
   async listResources() {
     await delay(220);
-    return MOCK_RESOURCES;
+    const courseId = getIdentity().courseId;
+    const catalog = ingestionResourcesForCourse(courseId);
+    const extras = demoUploadsForCourse(courseId);
+    const merged = catalog.length > 0 ? mergeVisibleFiles(courseId, extras) : [...MOCK_RESOURCES, ...extras];
+    return withPipelineSources(courseId, merged);
   },
-  async listResourcesForCourse() {
+  async listResourcesForCourse(courseId) {
     await delay(220);
-    return cloneMockResources();
+    const catalog = ingestionResourcesForCourse(courseId);
+    const extras = demoUploadsForCourse(courseId);
+    const merged = catalog.length > 0 ? mergeVisibleFiles(courseId, extras) : [...cloneMockResources(), ...extras];
+    return withPipelineSources(courseId, merged);
   },
-  async ingest({ file }) {
+  async ingest({ file, origin, artifactType, courseId: landCourseId }) {
     await delay(400);
+    const courseId = landCourseId || getIdentity().courseId;
+    if (canDemoIngest(courseId)) {
+      return demoIngestFallback(courseId, file, origin, artifactType);
+    }
     const id = `mock_${file.name}_${Date.now()}`;
     mockPolls.set(id, 0);
     const world = fixture as WorldResponse;

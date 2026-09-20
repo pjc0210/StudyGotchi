@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { Html } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import {
@@ -18,6 +17,7 @@ import { Catastrophe } from './Catastrophe'
 import { Landmark } from './Landmark'
 import { Residents } from './Residents'
 import { Districts } from './Structures'
+import { HoverTabs } from './HoverTabs'
 import { GreenCrown, MeadowScatter, River, Roads, Terrain, Woodland } from './Terrain'
 
 function FogFollow({ catastrophe }: { catastrophe: boolean }) {
@@ -40,11 +40,15 @@ export function BiomeScene({
   state,
   onDiveEnd,
   onPickDistrict,
+  hoveredId,
+  onHover,
 }: {
   layout: GeneratedKingdom
   state: LabState
   onDiveEnd: () => void
   onPickDistrict: (id: string) => void
+  hoveredId: string | null
+  onHover: (id: string | null) => void
 }) {
   const fraction = courseProgress(layout, state.progress)
   const crown = greenCrownProfile(fraction)
@@ -123,13 +127,9 @@ export function BiomeScene({
             <cylinderGeometry args={[11, 11, 5, 10]} />
             <meshBasicMaterial transparent opacity={0} depthWrite={false} />
           </mesh>
-          {state.focusDistrict === district.id && (
-            <Html position={[0, 12, 0]} center distanceFactor={90} className="region-label">
-              <span>{district.name}</span>
-            </Html>
-          )}
         </group>
       ))}
+      <HoverTabs layout={layout} state={state} hoveredId={hoveredId} onHover={onHover} />
 
       <CameraRig
         layout={layout}

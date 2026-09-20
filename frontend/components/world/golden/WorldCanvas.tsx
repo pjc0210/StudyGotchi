@@ -14,6 +14,9 @@ export interface WorldCanvasProps {
   skyColor?: string
   lightScale?: number
   className?: string
+  catastrophe?: boolean
+  celebrate?: boolean
+  populate?: number
 }
 
 /**
@@ -28,6 +31,9 @@ export function WorldCanvas({
   skyColor = clear,
   lightScale = 1,
   className,
+  catastrophe = false,
+  celebrate = false,
+  populate = 1,
 }: WorldCanvasProps) {
   const profile = rendererProfile('pixel')
   return (
@@ -56,6 +62,9 @@ export function WorldCanvas({
           onResidentFocus={onResidentFocus}
           skyColor={skyColor}
           lightScale={lightScale}
+          catastrophe={catastrophe}
+          celebrate={celebrate}
+          populate={populate}
         />
       </Canvas>
     </div>

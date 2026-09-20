@@ -1,7 +1,11 @@
 import type { KnowledgeGraphResponse } from "@/lib/types";
 import type { WorldResponse } from "@/lib/api";
 import { DEMO_COURSES } from "./demo-courses";
-/** Copies of `demo-data/two-course-pipeline` — kept inside the app so Turbopack can resolve them. */
+/**
+ * In-app copies of two-course-pipeline JSON. Do not import
+ * `../../../demo-data/two-course-pipeline/...` — Turbopack's frontend root
+ * cannot resolve that path and /earth goes blank.
+ */
 import graphHero from "./pipeline/8.223-knowledge-graph.json";
 import worldHero from "./pipeline/8.223-world.json";
 import graphSecond from "./pipeline/6.1400-knowledge-graph.json";

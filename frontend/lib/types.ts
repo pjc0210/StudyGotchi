@@ -23,6 +23,8 @@ export interface ConceptNode {
   discovery_state: DiscoveryState;
   cluster?: string;
   cluster_id?: string;
+  /** Broader sky name. Zoomed-out labels use this instead of the local cluster. */
+  constellation?: string;
   importance: number;
   personal_relevance: number;
   /** null = no evidence yet (frontier). 0 = evidence says they don't know it. */

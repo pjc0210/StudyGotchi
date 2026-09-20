@@ -3,18 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { emit } from "@/lib/audio/events";
+import { planetHref } from "@/lib/world/earth-nav";
 import { AccountMenu } from "./AccountMenu";
 import { useShellNav } from "./shell-nav";
 
-const ITEMS: { href: string; label: string; match: RegExp }[] = [
-  { href: "/earth", label: "Planet", match: /^\/(earth|world|w)(\/|$)/ },
-  { href: "/knowledge", label: "Galaxy", match: /^\/knowledge(\/|$)/ },
+const ITEMS: { id: "knowledge" | "information"; href: string; label: string; match: RegExp }[] = [
+  { id: "knowledge", href: planetHref(), label: "Knowledge", match: /^\/(earth|world|w)(\/|$)/ },
+  { id: "information", href: "/knowledge", label: "Information", match: /^\/knowledge(\/|$)/ },
 ];
 
 /**
- * The one header. Wordmark left, World | Space centre, account right. Inside
- * the product shell the two tabs hand off through the shell's exit beat so the
- * sky holds while the planet leaves and the constellation arrives.
+ * The one header. Wordmark left, Knowledge | Information centre, account right.
+ * Routes stay /earth and /knowledge; the tabs hand off through the shell's exit beat.
  */
 export function ProductHeader({ variant = "floating" }: { variant?: "floating" | "static" }) {
   const pathname = usePathname();

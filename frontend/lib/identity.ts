@@ -10,12 +10,8 @@
 import { useSyncExternalStore } from "react";
 import { DEMO_COURSE_ID, DEV_STUDENT_ID } from "./config";
 import { MOCK_STUDENT_ID } from "./mock";
-import {
-  DEMO_COURSES,
-  DEMO_STUDENT_ID,
-  demoHeroCourseId,
-  withDemoCourses,
-} from "./world/demo-courses";
+import { DEMO_STUDENT_ID, demoHeroCourseId } from "./world/demo-courses";
+import { SANDBOX_COURSES, withSandboxCourses } from "./world/sandbox-roster";
 import { isCourseUuid } from "./world/sandbox-courses";
 
 export interface CourseSummary {
@@ -55,7 +51,7 @@ export function bearerAdapter(getToken: () => Promise<string | null>): Credentia
 }
 
 function demoIdentity(studentId: string = DEMO_STUDENT_ID || MOCK_STUDENT_ID): Identity {
-  const courses = withDemoCourses([], DEMO_COURSES);
+  const courses = withSandboxCourses([], SANDBOX_COURSES);
   const course = courses[0];
   return {
     studentId,
@@ -108,7 +104,7 @@ export function receiveMe(
   me: { student_id: string; courses: CourseSummary[] },
   catalog: CourseSummary[] = [],
 ) {
-  const courses = withDemoCourses(me.courses, catalog).filter((course) =>
+  const courses = withSandboxCourses(me.courses, catalog).filter((course) =>
     isCourseUuid(course.id),
   );
   const heroId = demoHeroCourseId(courses);

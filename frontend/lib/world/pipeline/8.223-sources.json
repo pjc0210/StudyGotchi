@@ -1,0 +1,1304 @@
+{
+  "321ec39f-dcd4-42b4-8a68-a457ebbd0249": {
+    "title": "L1-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "aa407710-ab73-4275-bebd-0656133e76f8",
+    "name": "Action Principle in Classical Mechanics"
+  },
+  "19c96995-dfb0-4296-af81-ca02d198ca61": {
+    "title": "L1-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "aa407710-ab73-4275-bebd-0656133e76f8",
+    "name": "Action Functional"
+  },
+  "085699dc-1387-441b-87ae-78f0951e3757": {
+    "title": "L1-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "aa407710-ab73-4275-bebd-0656133e76f8",
+    "name": "Euler-Lagrange Equation"
+  },
+  "7e9fef99-9052-45f7-b659-76f99e22000f": {
+    "title": "L2-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "26b96afd-d59f-454b-94cd-acdfaa6ae40d",
+    "name": "Rolling Without Slipping Constraint"
+  },
+  "2f95366b-8a19-4527-9428-5220826149d5": {
+    "title": "L2-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "26b96afd-d59f-454b-94cd-acdfaa6ae40d",
+    "name": "Conservative System"
+  },
+  "9c1bc4b1-6117-42ba-87ed-f340ac3d2bd8": {
+    "title": "L2-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "26b96afd-d59f-454b-94cd-acdfaa6ae40d",
+    "name": "Lagrangian for a Rolling Sphere on an Inclined Surface"
+  },
+  "fffbe263-f438-422e-aa58-f99c5e8ca3dd": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Lagrangian Formalism"
+  },
+  "50b54fae-9e85-4fcc-9082-5a0d01e0b332": {
+    "title": "final_2025.pdf",
+    "origin": "instructor",
+    "artifact_type": "exam",
+    "resource_id": "2b4d992d-f967-4c61-9ca8-f95005783fa3",
+    "name": "Equations of Motion from Lagrangian"
+  },
+  "a4456686-2ef7-4284-b25a-9787c5f4d5b7": {
+    "title": "L3-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fedb553f-83df-4af7-9737-2a58e2937540",
+    "name": "Conserved Quantity from Time Translation Symmetry"
+  },
+  "ae88dc79-7547-4131-893e-902e4dec69e9": {
+    "title": "L3-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fedb553f-83df-4af7-9737-2a58e2937540",
+    "name": "Noether's Theorem"
+  },
+  "1b1dbac8-48f8-491e-97a5-f0e381dd25d5": {
+    "title": "L3-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fedb553f-83df-4af7-9737-2a58e2937540",
+    "name": "Spatial Translational Invariance and Conservation of Momentum"
+  },
+  "cd9d6a4e-0266-43db-a0fc-94742c79b347": {
+    "title": "L3-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fedb553f-83df-4af7-9737-2a58e2937540",
+    "name": "Conjugate Momentum"
+  },
+  "6f4bffe5-863a-4b99-893e-86568318c7a9": {
+    "title": "L3-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fedb553f-83df-4af7-9737-2a58e2937540",
+    "name": "Conservation of Angular Momentum from Cyclic Coordinate"
+  },
+  "a4499e18-70f1-40ec-b661-1e3e02a8e5ee": {
+    "title": "L3-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fedb553f-83df-4af7-9737-2a58e2937540",
+    "name": "Equation of Motion for a Damped Oscillator"
+  },
+  "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba": {
+    "title": "L10-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "b89401c9-b423-46a9-9cec-f301ddd2c2a3",
+    "name": "Normal Mode"
+  },
+  "9fcf57cd-d09e-45b7-95c9-d463b73df32b": {
+    "title": "L5-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "fe565b65-2151-4745-b3a1-55365e885140",
+    "name": "Linear Oscillatory System"
+  },
+  "8e644dc9-0e4b-4b55-a968-f6c565c22f2e": {
+    "title": "L9-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "2fa0cbd9-8d14-40ea-9d7d-49ac14899b77",
+    "name": "Constraint Equation in Mechanical Systems"
+  },
+  "6068a5ef-fb29-4c0d-b2d7-5266178033cd": {
+    "title": "L9-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "2fa0cbd9-8d14-40ea-9d7d-49ac14899b77",
+    "name": "Reducing Coordinates by Solving Constraints"
+  },
+  "c99b9e30-0b1e-47ba-972d-df0f9e8a3858": {
+    "title": "L9-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "2fa0cbd9-8d14-40ea-9d7d-49ac14899b77",
+    "name": "Constrained Optimization in Lagrangian Mechanics"
+  },
+  "46f19b7b-a02d-4c64-8846-2f1cb8a5eb21": {
+    "title": "L9-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "2fa0cbd9-8d14-40ea-9d7d-49ac14899b77",
+    "name": "Nonholonomic Constraints"
+  },
+  "3fa76df3-5bdb-4f06-94cb-1649ca7c3287": {
+    "title": "L9-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "2fa0cbd9-8d14-40ea-9d7d-49ac14899b77",
+    "name": "Lagrange Multipliers"
+  },
+  "ab8838e9-c76d-45fe-a22f-124dd8644836": {
+    "title": "L9-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "2fa0cbd9-8d14-40ea-9d7d-49ac14899b77",
+    "name": "Elimination of Angular Velocity in Normal Force Expression"
+  },
+  "5f57ccb5-acaf-4c18-8113-b1c5330ae043": {
+    "title": "L10-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "b89401c9-b423-46a9-9cec-f301ddd2c2a3",
+    "name": "Hamiltonian"
+  },
+  "e34c84db-3b89-4526-a44a-68bcb8e2caa8": {
+    "title": "L10-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "b89401c9-b423-46a9-9cec-f301ddd2c2a3",
+    "name": "Canonical Momentum"
+  },
+  "9953f723-14f2-40c6-b5c8-d54c8e1c3cc3": {
+    "title": "L10-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "b89401c9-b423-46a9-9cec-f301ddd2c2a3",
+    "name": "Hamilton's Equations"
+  },
+  "0240617f-dc4b-4c3f-8107-8c9eb5143998": {
+    "title": "L10-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "b89401c9-b423-46a9-9cec-f301ddd2c2a3",
+    "name": "Canonical Transformation"
+  },
+  "970d8069-e9c2-434c-baeb-0f1b870f5cef": {
+    "title": "L10-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "b89401c9-b423-46a9-9cec-f301ddd2c2a3",
+    "name": "Hamiltonian of Coupled Pendulums"
+  },
+  "1b958cf7-d68b-489c-89da-061da0e96bde": {
+    "title": "L11-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "c2574020-600a-4e65-b8d4-0d63154d6cf7",
+    "name": "Variational Principle in Hamiltonian Mechanics"
+  },
+  "a59d3891-4d62-4880-ab86-fd230a382d37": {
+    "title": "L11-notes.pdf",
+    "origin": "instructor",
+    "artifact_type": "lecture",
+    "resource_id": "c2574020-600a-4e65-b8d4-0d63154d6cf7",
+    "name": "Transformation to Time-Independent Hamiltonian"
+  },
+  "533ac192-4478-4039-bd6f-d26f903716cb": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Simple Pendulum Equation of Motion"
+  },
+  "9f12db65-19fc-475b-a00a-dfa21a8faa2c": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Rigid Body Pendulum Equation of Motion"
+  },
+  "2083cc06-0ec6-443d-a3b4-1a17d00f481b": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Euler-Lagrange equation for higher derivatives"
+  },
+  "1fecf000-d07f-4d59-9996-a568df1b3e17": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Fourth-order differential equations in mechanics"
+  },
+  "322b3c44-0f56-4391-95e9-fbcaa45ba02d": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Lagrange Equations of Motion for Spring Pendulum"
+  },
+  "b909a90c-e0d2-4524-a4bf-2410f9e237ad": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Energy in Lagrangian Mechanics"
+  },
+  "22cabc68-31a8-465e-8f37-bcbabeb61ffd": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Lorentz Force Law"
+  },
+  "8d405220-2462-4b8d-bcd8-bb09499fe289": {
+    "title": "pset1.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b33cbe77-5558-4942-bab2-d7a82a26a43e",
+    "name": "Energy Conservation in Velocity-Dependent Electromagnetic Interaction"
+  },
+  "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b": {
+    "title": "pset2.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "b7324431-f520-46a1-8f83-c42301d83feb",
+    "name": "Equations of Motion for Small Oscillations"
+  },
+  "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb": {
+    "title": "pset3.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "427593d2-6486-4fb5-8a47-8a21de98e3ec",
+    "name": "Equations of Motion for a Rolling Disc on an Inclined Plane"
+  },
+  "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d": {
+    "title": "pset3.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "427593d2-6486-4fb5-8a47-8a21de98e3ec",
+    "name": "Constraint Forces in Rolling Without Slipping"
+  },
+  "2527d4f6-5d42-4cc3-931a-d6b1fe333c20": {
+    "title": "pset4.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "08401e15-1f40-4965-af2d-377a1d98c056",
+    "name": "Equation of Motion for a Particle in Potential"
+  },
+  "1d47e643-f2c4-44e0-969f-1cf94cbe7752": {
+    "title": "pset4.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "08401e15-1f40-4965-af2d-377a1d98c056",
+    "name": "Hamiltonian Mechanics"
+  },
+  "4cd672ef-76c9-444f-aec6-5485eb900cf1": {
+    "title": "pset4.pdf",
+    "origin": "instructor",
+    "artifact_type": "homework",
+    "resource_id": "08401e15-1f40-4965-af2d-377a1d98c056",
+    "name": "Hamiltonian Conservation"
+  },
+  "0e9c4b2a-faa1-422a-bdcd-be2511de74fe": {
+    "title": "midterm_2025.pdf",
+    "origin": "instructor",
+    "artifact_type": "exam",
+    "resource_id": "54014b40-f93e-430b-9d4b-1fbced692af5",
+    "name": "Conserved Energy in Lagrangian Systems"
+  },
+  "7ab0d75b-4ed9-494c-9858-05ff49c200cc": {
+    "title": "midterm_2025.pdf",
+    "origin": "instructor",
+    "artifact_type": "exam",
+    "resource_id": "54014b40-f93e-430b-9d4b-1fbced692af5",
+    "name": "Equations of Motion"
+  },
+  "cb7e73f6-bd49-4ee1-bda7-f3ce20cfc86f": {
+    "title": "midterm_sol_2025.pdf",
+    "origin": "instructor",
+    "artifact_type": "solution_key",
+    "resource_id": "d64365f5-69c9-43f3-ad8f-8b7b8e5cb547",
+    "name": "Determinant Condition for Normal Mode Frequencies"
+  },
+  "f3d0a8c8-3afc-488c-a773-3b19ed1efc36": {
+    "title": "final_2025.pdf",
+    "origin": "instructor",
+    "artifact_type": "exam",
+    "resource_id": "2b4d992d-f967-4c61-9ca8-f95005783fa3",
+    "name": "Differential Equation for Orbit Shape"
+  },
+  "2b387e0f-9f35-4d8e-9227-b03217e5b66c": {
+    "title": "final_2025.pdf",
+    "origin": "instructor",
+    "artifact_type": "exam",
+    "resource_id": "2b4d992d-f967-4c61-9ca8-f95005783fa3",
+    "name": "Relation Between Scattering Angle \u03b8 and \u03c9"
+  },
+  "92488b38-c3ea-437c-a726-285534020479": {
+    "title": "Legendre Transforms for Dummies.pdf",
+    "origin": "external",
+    "artifact_type": "reading",
+    "resource_id": "a10a3902-6b38-45ab-8141-fbd873ab2f79",
+    "name": "Generalized coordinate"
+  },
+  "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Equation of Motion for a Simple Pendulum"
+  },
+  "9d71d668-cef2-4320-9cb1-dde3f6a33378": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Kinetic Energy of a Simple Pendulum"
+  },
+  "8e4f1793-3b6a-4b87-ad2e-ed9588784706": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Potential Energy of a Simple Pendulum"
+  },
+  "97a338a8-7d72-47b3-a4a0-2de2c363e45e": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Lagrangian of a Simple Pendulum"
+  },
+  "c463b84a-dc82-4edd-b5ca-bbdbe943281f": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Euler-Lagrange Equation Applied to a Pendulum"
+  },
+  "e5f80fd1-28c4-4564-8c9f-2e56699d09b7": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Small Angle Approximation for Pendulum"
+  },
+  "8f26ed6e-a493-4090-b7cd-7e7612214363": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Simple Harmonic Motion Frequency of a Pendulum"
+  },
+  "9ca1768a-14f6-4b5d-82fd-d14cd30851d8": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "General Solution to Linearized Pendulum Equation"
+  },
+  "e774f1ba-d4a6-4244-9bec-febb7a22cd01": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "General Solution for Simple Harmonic Oscillator"
+  },
+  "6634b32f-46fb-4325-a447-f43d08eb0c02": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Kinetic Energy of a Rotating Body"
+  },
+  "2719d7d1-7774-4cbe-a0e8-c823f4c04786": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Potential Energy of a Pendulum"
+  },
+  "54ec1a61-e1c1-4c5e-81d6-ece7848fc306": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Lagrangian of a Pendulum"
+  },
+  "b961f44c-2d48-4323-908b-11f0c2fed41b": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Integration by Parts in Variational Calculus"
+  },
+  "9838159a-c2a0-4be6-a7d7-1263d402e62c": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Coordinate Transformation in Polar Coordinates"
+  },
+  "0fd49a99-4b7f-476f-828e-6f9cd7b5e046": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Kinetic Energy in Polar Coordinates"
+  },
+  "28b6983b-9781-4ccd-a493-6faa003a8b81": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Potential Energy of a Spring Mass System in Polar Coordinates"
+  },
+  "c07304ba-aed5-4577-ae46-5d6628dc8452": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Lagrangian Function for a Mass-Spring-Gravitational System"
+  },
+  "907799f8-44a9-450e-8c17-bd91c9aa4a70": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Static Equilibrium Condition for Radial Coordinate"
+  },
+  "0ab944ce-1cd0-4899-b152-ca69d59d9ee6": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Angular Frequency of Spring-Mass System"
+  },
+  "702daa5c-fe09-4464-adbe-0999bb5883f6": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Angular Frequency of Pendulum"
+  },
+  "36019b68-0b16-4199-8ea6-f287aabaa260": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Dimensionless Radial Displacement"
+  },
+  "2c91aa67-5e11-46e0-91f6-8a33e8052c32": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Lagrangian of Radially Displaced Spring-Pendulum System"
+  },
+  "5d7a924d-d7ab-4807-983e-081fffa89130": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Generalized Momentum for Angular Coordinate"
+  },
+  "4ad9d823-5d43-4a9f-895b-15c123c9be4c": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Euler-Lagrange Equation for Angular Motion"
+  },
+  "6a3d8246-2f95-46fa-8082-91147908f732": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Euler-Lagrange Equation for Radial Displacement"
+  },
+  "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Kinetic Energy Expression in Spring-Pendulum System"
+  },
+  "1595a327-9415-475e-9c96-36f19e6bf95f": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Potential Energy from Spring Displacement"
+  },
+  "a677a078-6084-4c83-886f-12022763a815": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Potential Energy from Gravity in Spring-Pendulum"
+  },
+  "d41f044b-ecb5-4b9c-bd2e-410a21f78275": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Energy Conservation in Lagrangian Mechanics"
+  },
+  "9ccb394f-07a1-4236-a2f9-6b0a4aa7d0e1": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Lagrangian Function with Velocity-dependent Potential"
+  },
+  "9a46d64c-b8be-4ace-a92f-cf7cf481a72a": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Expression for Energy in Standard Lagrangian Mechanics"
+  },
+  "0335b690-d27a-425f-af32-b8a6b2601d9f": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Euler-Lagrange Equation Derived Frequencies \\(\\omega_p\\) and \\(\\omega_s\\)"
+  },
+  "cc7acffa-d3bc-48c6-8938-ec8aae42a202": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Electromagnetic Lagrangian"
+  },
+  "0de9a099-0808-4367-a744-b5db6843f09e": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Euler-Lagrange Equation with Electromagnetic Potential"
+  },
+  "58406be5-da3c-471b-a5a2-fff33383ba98": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Canonical Momentum in Electromagnetic Field"
+  },
+  "a4b7412e-e5fc-4767-9c8f-28fb41bde25a": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Electric and Magnetic Fields from Potentials"
+  },
+  "440a0bab-1b7f-4466-9474-615733f741cd": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Energy Function from Lagrangian (Hamiltonian) in Electromagnetic Field"
+  },
+  "1853b2bf-4039-4ed7-8e80-6c640f169397": {
+    "title": "Pset 1 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "b4a06b40-b990-42e1-bb52-48402db6223d",
+    "name": "Non-standard Splitting of Energy in Electromagnetic Lagrangian"
+  },
+  "729382a7-c110-4cca-a6a1-e7b415b04039": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Equation of Motion for a Rotating Pendulum with Fixed Length"
+  },
+  "5c5c1e31-5e05-4419-8e8b-efce24af2205": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Kinetic Energy of a Rotating Pendulum"
+  },
+  "74551b8b-ed34-4c95-bd0f-d775243b12bc": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Potential Energy of a Rotating Pendulum"
+  },
+  "e0a61b63-6927-462a-9331-0c6c8b260823": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Angular Coordinates Parametrization of a Pendulum"
+  },
+  "8f0692ad-dc93-4075-af7f-2c6f56ba1097": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Equation of Motion for a Pendulum in a Rotating Reference Frame"
+  },
+  "3b8862d8-2ce3-4b54-ab49-7a35179cb19c": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Centrifugal Force in Rotating Frame"
+  },
+  "1fff1bcf-ed3a-4e1d-b544-871b6d4ba9df": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Coriolis Force"
+  },
+  "317fe1ea-2df6-47d9-bb05-9426d5f1a474": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Small Angle Approximation for Sine Function"
+  },
+  "b3ef9331-83b2-4cf4-a86a-0c134afd71fa": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Kinetic Energy of a Pendulum"
+  },
+  "955f4773-38a1-4d33-950d-ed6594fc6e9d": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Potential Energy of Pendulum under Gravity"
+  },
+  "1642f502-f226-460d-8c3e-0b619f7b3317": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Potential Energy from Spring Coupling Between Pendulums"
+  },
+  "dba33af5-547f-4ed0-8354-bfbc2a948f16": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Total Potential Energy of Coupled Pendulums"
+  },
+  "1fb35d8d-8921-4f3f-8d2e-a0282052886d": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Equations of Motion for Coupled Oscillators"
+  },
+  "6f5b918a-663c-4c95-bc74-7bdd1adc64ce": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Natural Frequency of Single Pendulum (\u03c9\u2080)"
+  },
+  "b675ae73-d5ba-4f38-aaaa-852c99a81648": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Coupling Frequency of Oscillators (\u03c9\u2096)"
+  },
+  "7f162dfc-c480-4c66-a378-da21e0a312db": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Normalized Equations of Motion for Coupled Pendulums"
+  },
+  "375f72b9-f90f-4789-8a5a-fbc6c5907a40": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Coupling Frequency Contribution"
+  },
+  "22e498f3-2ba8-4679-b9e9-0c10af834113": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "General Solution of Coupled Pendulum Angles"
+  },
+  "f82be75e-7578-47fb-8967-b7422733b1d1": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Initial Conditions for Coupled Oscillator Amplitudes"
+  },
+  "769405d3-194b-4638-bb85-048a02ca5433": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Moment of Inertia for a Point Mass on a Radius"
+  },
+  "634c1d57-c52c-438f-b8a0-c9c36e2152fe": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Velocity Components in Polar Coordinates"
+  },
+  "f4fb8a97-1a2e-421f-aaf0-276d95d55a0c": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Kinetic Energy of a Body in Cartesian Coordinates"
+  },
+  "c79b6401-14c6-438a-aef5-865e46a99953": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Expanded Kinetic Energy for System with Angular Velocities"
+  },
+  "b237c8cd-a2da-41cc-8334-c35c6eeabca1": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Potential Energy of Rotating Masses in Gravitational Field"
+  },
+  "5d2e498e-01b3-4556-acd0-ca052ea1d412": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Combined Potential Energy for System of Masses"
+  },
+  "5016d0e3-a037-40d1-8ca2-ff0613fed1ec": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Lagrangian of a Two-Mass Rotating System"
+  },
+  "8eb04c46-8be4-4998-b1b8-6d1c4f0eda0e": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Small Angle Approximations for Cosine Functions"
+  },
+  "32d6edc8-3b83-4aad-91d0-5e96d0f869b7": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Generalized Coordinates in Dynamics"
+  },
+  "842dd63a-33cc-4322-807c-d2a51881422c": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Coupled Differential Equations for Mechanical System"
+  },
+  "711a351f-bb26-4823-af6b-4d3de5e95014": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Simplification of Equations for Equal Masses"
+  },
+  "adcc80bd-14da-49f6-a029-c4b9ef29c267": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Harmonic Oscillator Ansatz for Angular Motion"
+  },
+  "e3517221-f35c-459e-8fe3-cf62c12a8bbe": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Normal Modes in Coupled Oscillators"
+  },
+  "5c49d17a-6662-45b0-bc83-b01427aa5741": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Determinant Condition for Eigenvalue Problems"
+  },
+  "88c7aa27-5b6a-4483-b12c-0a945157d0ec": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Lagrangian for a Central Force Problem"
+  },
+  "490d901a-ebdf-4adc-8699-277b7eac6ab6": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Conservation of Angular Momentum in Central Force Motion"
+  },
+  "e10bfbc2-a129-4a1d-b7ca-18f35ba48e21": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Radial Equation of Motion in Central Force Field"
+  },
+  "4a29bb78-6be4-48aa-ac36-f25f2aed4d4e": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Energy Expression for Orbital Motion"
+  },
+  "551029d9-fbe1-4c8f-bf3c-6f5aee129470": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Substitution u = 1/r in Orbital Mechanics"
+  },
+  "e658c8ae-3c98-4b15-8412-293f4d5a7fde": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Equation of Conic Section Orbit"
+  },
+  "8488e5fa-934e-4bba-a71b-8479c21db3b6": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Orbital Parameters alpha and eccentricity epsilon"
+  },
+  "c667d542-984e-4f30-85a4-4d890fa1a7ae": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Energy condition for elliptical orbit"
+  },
+  "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Orbital Energy and Conic Sections Relationship"
+  },
+  "2223e82d-e0e1-4c10-af26-46a246ea3ffd": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Orbit Equation in Polar Coordinates"
+  },
+  "594658ff-0393-479f-b9fc-87c135f16228": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Parameter \\alpha in Orbital Mechanics"
+  },
+  "5ae26457-9194-49d8-aa92-e8f60237a7f7": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Energy Expression in Terms of \\varepsilon and Constants"
+  },
+  "54052acf-3640-47d3-914b-a62a8b53f674": {
+    "title": "Pset 2 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "aac29af8-a412-4cd7-a9f9-fb7405d523bc",
+    "name": "Final Formula for Orbital Energy in Terms of \\alpha"
+  },
+  "df66203f-8ddf-4be0-a503-1690c6b7f361": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Moment of Inertia of a Solid Cylinder"
+  },
+  "fef03cf4-e4dd-4f57-96db-80aa748f0bb8": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Generalized Coordinates for Rolling Cylinder"
+  },
+  "cb45fc4a-2690-4381-a5d2-6105b8dba215": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Kinetic Energy of Translating Mass"
+  },
+  "a9550eaa-3761-4dfb-a36a-b69718c3d48d": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Kinetic Energy of Rotating Cylinder"
+  },
+  "cdbe9395-74d5-44d1-8732-635bf7c4061b": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Total Kinetic Energy of Rolling Cylinder"
+  },
+  "1b207606-aec4-46ab-9bd3-82b273969a6d": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Potential Energy on Inclined Plane"
+  },
+  "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Lagrangian for Rolling Cylinder"
+  },
+  "ed9dbc9e-2087-4bca-bb57-99e994142ddb": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier"
+  },
+  "c78dd90d-2078-4454-bc31-8b32028c32cd": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Partial Derivatives of Lagrangian Components"
+  },
+  "417e7904-a9e2-47dc-a9f1-a0ffb1962a73": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Equation of Motion for Translational Coordinate with Constraint Force"
+  },
+  "5c9fb2a1-519a-4f65-937f-b4ff058a377d": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Equation of Motion for Rolling Object on Inclined Plane"
+  },
+  "0b8722b2-54f6-4b15-a5c3-cc2c8b74083c": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Integration of Acceleration to Obtain Velocity and Position"
+  },
+  "f4f57774-ade5-4b74-a715-9a2b6ddcb0a8": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Expression for Angular Displacement from Linear Displacement"
+  },
+  "82a34364-b337-4eab-9843-92de87df9370": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Calculation of Friction Force on Rolling Object"
+  },
+  "8b00bb9b-535a-45be-b3f4-09fb962722b2": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Relationship Between Constraint Force and Acceleration"
+  },
+  "98bf8a23-d933-4063-b2b8-169012493a81": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Velocity of Center of Mass (\\(\\vec{V}_{cm}\\))"
+  },
+  "5a559cd7-a8da-4136-96c2-ce1304dbf4b3": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Velocity at Contact Point (\\(\\vec{V}_{ct}\\))"
+  },
+  "c19a2a51-2ad2-4747-8d79-14ad5d1de95c": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Angular Velocity Vector (\\(\\vec{\\omega}\\))"
+  },
+  "de5a83f4-3c07-4a8d-815f-9d54e80b8fa7": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Constraint Equation Function \\(f(\\vec{q}_t, t) = 0\\)"
+  },
+  "f0cf22e6-752d-4192-a437-c046871603df": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Total Time Derivative of a Constraint"
+  },
+  "71f01caf-875b-4516-aa33-bdf2821f4760": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Lagrangian Energy Function"
+  },
+  "600452e5-d2b2-4182-94dd-e163cba30b84": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Energy Conservation under Constraints"
+  },
+  "61932dbf-3a89-4fd6-ba5a-b0608946b049": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Kinetic Energy of Translational Motion"
+  },
+  "15a36609-4fde-4d7f-8282-2e6083d11309": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Potential Energy in Gravitational Field on Inclined Plane"
+  },
+  "c0864f1d-d1f9-4bba-9d09-a555de747050": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Lagrangian for Constrained Rolling Body on Inclined Plane"
+  },
+  "97ca537b-0744-4d85-a242-343699941837": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Holonomic Constraints in Rolling Motion"
+  },
+  "9dc13e98-8308-4872-9bfd-5a113b753c05": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Partial Derivative of Lagrangian with respect to Generalized Velocity"
+  },
+  "5fd21f6f-4c70-46bb-9d76-a7fe13581958": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Total Time Derivative of Partial Derivative of Lagrangian"
+  },
+  "f7aefdee-0410-4cc1-b45c-e2b6e36e2d04": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Partial Derivative of Lagrangian with respect to Generalized Coordinate"
+  },
+  "6583abe0-dc79-49ea-b696-760d1a3ab6a3": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Euler-Lagrange Equation for \\( \\theta \\)"
+  },
+  "dfaa3d6f-9a1a-44d5-9b69-99371207ce18": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters"
+  },
+  "593cd940-5114-4dc8-b170-90ef1b0a601f": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Partial Derivative of Lagrangian with respect to \\( \\dot{\\phi} \\)"
+  },
+  "56dee4da-2ded-45b9-8522-1ede11732716": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations"
+  },
+  "f8d41df6-8259-4095-bc40-ba411c909ab6": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Time Dependence of Angular Velocity \\( \\dot{\\theta}(t) \\)"
+  },
+  "d4122a9a-4f8c-468e-ad01-447c2f637e96": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Time Dependence of Angular Coordinate \\( \\theta(t) \\)"
+  },
+  "e07b98c2-a443-472c-bcbc-1e9d98a5634f": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Time Dependence of Angular Coordinate \\( \\phi(t) \\) with Constant Angular Velocity"
+  },
+  "1d54b657-2d36-4903-ab9f-0f035d45fbe2": {
+    "title": "Pset 3 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "df016dd9-22d6-42e3-9343-bda8d8002b0f",
+    "name": "Symmetry of Second Derivatives"
+  },
+  "1a8846b8-10c5-4319-bc3c-ede7229575ef": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Angular Momentum in Two Dimensions"
+  },
+  "dd69a394-f4db-4a14-ad2c-acb8cf501a00": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Torque in Two Dimensions"
+  },
+  "547579f9-7a7c-4243-a087-eef28263ce20": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Angular Momentum Conservation Criterion"
+  },
+  "47ebd6b3-b10f-4580-a9cd-be55bcff81b9": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Poisson Bracket Definition"
+  },
+  "b67b909e-9274-4457-8fa8-13fe1990e01c": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Angular Momentum as a Phase Space Function"
+  },
+  "18cd1e56-3175-416a-987f-3c4919a3c465": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Hamiltonian Function with Coupling Term"
+  },
+  "9f29a0d0-af3f-4c97-be52-741d7dee0df9": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Partial Derivatives of Angular Momentum and Hamiltonian"
+  },
+  "33ef7d3e-65a6-4280-af54-e6a6d5cd5639": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Conservation Law from Symmetry"
+  },
+  "957e453f-811f-4200-90bd-23cbff3680be": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Coupled Oscillator System"
+  },
+  "fa72e23c-3758-4ff1-9f60-3c67332502bc": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Generalized Force from Constraint"
+  },
+  "7fe9797e-66b5-466b-9cc3-299be28b245c": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Symmetric Normal Mode Condition"
+  },
+  "81ee2d95-a981-475a-a7e8-956a5aee8805": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Torque"
+  },
+  "18bbcf17-6f53-4d21-b51a-93ce31585aad": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Conservation of Torque"
+  },
+  "bbd4c1dc-f561-48d2-bce6-20f0075fcf7a": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Energy Conservation in Mechanical Systems"
+  },
+  "ad338b07-b4b0-411b-9ec4-7f0fbf6c955b": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Scattering"
+  },
+  "8e47d0c9-0501-463b-85a9-488936d12d10": {
+    "title": "Pset 4 CM2.pdf",
+    "origin": "student_self",
+    "artifact_type": "handwritten_work",
+    "resource_id": "4851ca85-93f9-4be9-997f-ea725b4061b1",
+    "name": "Negligible Assumption in Physics"
+  }
+}

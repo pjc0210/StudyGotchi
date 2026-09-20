@@ -29,12 +29,14 @@ import {
 } from "./globe-spec";
 import type {
   CourseGlobeCourse,
+  ScreenPoint,
   SpaceTheme,
   UnitDirection,
 } from "./globe-types";
 import { PixelComposer } from "./PixelComposer";
 import { DIVE_MS, diveCameraPosition, easeInOutCubic } from "./globe-dive";
 import { seatedCameraPosition } from "./globe-seat";
+import { screenPointFromNdc } from "@/lib/world/earth-nav";
 
 const LAYOUT_SEED = "studygotchi:production-course-globe";
 const FOCUS_DIRECTION = new THREE.Vector3(-0.55, 0.48, 1).normalize();
@@ -49,6 +51,51 @@ interface R3FPointerCaptureTarget extends EventTarget {
 
 function pointerCaptureTarget(event: ThreeEvent<PointerEvent>) {
   return event.target as R3FPointerCaptureTarget | null;
+}
+
+function nearestLandmarkToPointer(
+  camera: THREE.Camera,
+  clientX: number,
+  clientY: number,
+  size: { left: number; top: number; width: number; height: number },
+  directions: ReadonlyMap<string, UnitDirection>,
+  globe: THREE.Object3D,
+): string | null {
+  const ndc = new THREE.Vector2(
+    ((clientX - size.left) / Math.max(1, size.width)) * 2 - 1,
+    -((clientY - size.top) / Math.max(1, size.height)) * 2 + 1,
+  );
+  const raycaster = new THREE.Raycaster();
+  raycaster.setFromCamera(ndc, camera);
+  globe.updateWorldMatrix(true, false);
+  let best: string | null = null;
+  let bestDist = 4.6;
+  for (const [courseId, direction] of directions) {
+    const world = new THREE.Vector3(...direction)
+      .normalize()
+      .multiplyScalar(GLOBE_RADIUS + 0.45)
+      .applyMatrix4(globe.matrixWorld);
+    const dist = raycaster.ray.distanceToPoint(world);
+    if (dist < bestDist) {
+      bestDist = dist;
+      best = courseId;
+    }
+  }
+  return best;
+}
+
+function landmarkFromIntersections(
+  intersections: readonly { object: THREE.Object3D }[],
+): string | null {
+  for (const hit of intersections) {
+    let current: THREE.Object3D | null = hit.object;
+    while (current) {
+      const courseId = current.userData.courseLandmark;
+      if (typeof courseId === "string" && courseId) return courseId;
+      current = current.parent;
+    }
+  }
+  return null;
 }
 
 export type { GlobeTownOpenEvent } from "./GlobeTown";
@@ -66,6 +113,7 @@ export interface CourseGlobeSceneProps {
   reducedMotion: boolean;
   onActiveCourseChange(courseId: string): void;
   onCourseTownOpen(event: GlobeTownOpenEvent): void;
+  onLandmarkAnchor?(anchor: ScreenPoint | null): void;
   onPointerInteractionChange(interacting: boolean): void;
   spinApi: RefObject<GlobeSpinApi | null>;
 }
@@ -261,6 +309,7 @@ interface OrbitingGlobeProps {
   reducedMotion: boolean;
   onActiveCourseChange(courseId: string): void;
   onCourseTownOpen(event: GlobeTownOpenEvent): void;
+  onLandmarkAnchor?(anchor: ScreenPoint | null): void;
   onPointerInteractionChange(interacting: boolean): void;
   spinApi: RefObject<GlobeSpinApi | null>;
 }
@@ -273,6 +322,7 @@ function OrbitingGlobe({
   reducedMotion,
   onActiveCourseChange,
   onCourseTownOpen,
+  onLandmarkAnchor,
   onPointerInteractionChange,
   spinApi,
 }: OrbitingGlobeProps) {
@@ -284,6 +334,7 @@ function OrbitingGlobe({
   const dragOrigin = useRef({ x: 0, y: 0 });
   const dragMoved = useRef(false);
   const camera = useThree((state) => state.camera);
+  const size = useThree((state) => state.size);
   const cameraRight = useRef(new THREE.Vector3());
   const yawRotation = useRef(new THREE.Quaternion());
   const pitchRotation = useRef(new THREE.Quaternion());
@@ -313,13 +364,38 @@ function OrbitingGlobe({
   );
 
   useFrame((_, delta) => {
-    if (!group.current || interacting.current) return;
-    if (reducedMotion) {
-      group.current.quaternion.copy(target.current);
+    if (group.current && !interacting.current) {
+      if (reducedMotion) {
+        group.current.quaternion.copy(target.current);
+      } else {
+        const blend = 1 - Math.exp(-SNAP_DAMPING * delta);
+        group.current.quaternion.slerp(target.current, blend);
+      }
+    }
+    if (!onLandmarkAnchor || !group.current || !activeCourseId) {
+      onLandmarkAnchor?.(null);
       return;
     }
-    const blend = 1 - Math.exp(-SNAP_DAMPING * delta);
-    group.current.quaternion.slerp(target.current, blend);
+    const direction = directions.get(activeCourseId);
+    if (!direction) {
+      onLandmarkAnchor(null);
+      return;
+    }
+    group.current.updateWorldMatrix(true, false);
+    const world = new THREE.Vector3(...direction)
+      .normalize()
+      .multiplyScalar(GLOBE_RADIUS + 0.85)
+      .applyMatrix4(group.current.matrixWorld);
+    const facing = new THREE.Vector3(...direction).applyQuaternion(group.current.quaternion);
+    const toCamera = camera.position
+      .clone()
+      .sub(group.current.getWorldPosition(new THREE.Vector3()))
+      .normalize();
+    if (facing.dot(toCamera) < 0.08) {
+      onLandmarkAnchor(null);
+      return;
+    }
+    onLandmarkAnchor(screenPointFromNdc(world.project(camera), size));
   });
 
   const spin = (horizontal: number, vertical: number) => {
@@ -402,7 +478,42 @@ function OrbitingGlobe({
       captureTarget.releasePointerCapture(event.pointerId);
     }
     document.body.style.cursor = "grab";
-    if (moved) settle();
+    if (!moved) {
+      const courseId =
+        landmarkFromIntersections(event.intersections) ??
+        (group.current
+          ? nearestLandmarkToPointer(
+              camera,
+              event.nativeEvent.clientX,
+              event.nativeEvent.clientY,
+              size,
+              directions,
+              group.current,
+            )
+          : null);
+      if (courseId && group.current) {
+        group.current.updateWorldMatrix(true, false);
+        const direction = directions.get(courseId);
+        const projected = (
+          direction
+            ? new THREE.Vector3(...direction)
+                .normalize()
+                .multiplyScalar(GLOBE_RADIUS)
+                .applyMatrix4(group.current.matrixWorld)
+            : group.current.getWorldPosition(new THREE.Vector3())
+        ).project(camera);
+        onActiveCourseChange(courseId);
+        onCourseTownOpen({
+          courseId,
+          anchor: {
+            x: size.left + ((projected.x + 1) * size.width) / 2,
+            y: size.top + ((1 - projected.y) * size.height) / 2,
+          },
+        });
+      }
+    } else {
+      settle();
+    }
     interacting.current = false;
     onPointerInteractionChange(false);
   };
@@ -470,6 +581,7 @@ export function CourseGlobeScene({
   reducedMotion,
   onActiveCourseChange,
   onCourseTownOpen,
+  onLandmarkAnchor,
   onPointerInteractionChange,
   spinApi,
 }: CourseGlobeSceneProps) {
@@ -507,6 +619,7 @@ export function CourseGlobeScene({
         reducedMotion={reducedMotion}
         onActiveCourseChange={onActiveCourseChange}
         onCourseTownOpen={onCourseTownOpen}
+        onLandmarkAnchor={onLandmarkAnchor}
         onPointerInteractionChange={onPointerInteractionChange}
         spinApi={spinApi}
       />

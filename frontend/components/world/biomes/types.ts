@@ -2,6 +2,7 @@ import type { GlobeBiome } from "@/components/world/globe/globe-types";
 
 export type LocalBiomeId =
   | "ice-golden"
+  | "ice-town"
   | "frontier-town"
   | "coastal-ruins"
   | "jungle-forest-village"
@@ -12,7 +13,7 @@ export type LocalBiomeId =
 export function visualForGlobeBiome(biome: GlobeBiome): LocalBiomeId {
   switch (biome) {
     case "ice":
-      return "ice-golden";
+      return "ice-town";
     case "sand":
       return "frontier-town";
     case "coast":

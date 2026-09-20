@@ -8,10 +8,10 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 import { RenderPixelatedPass } from 'three/addons/postprocessing/RenderPixelatedPass.js'
 import { toonGradient } from './toon'
+import { CREATURE_DISPLAY_HEIGHT } from '@/lib/world/creature-scale'
 import {
   CAMERA_POSES,
   GOLDEN_PALETTE,
-  GOLDEN_RESIDENTS,
   progressState,
   rendererProfile,
   type GoldenVariant,
@@ -43,6 +43,9 @@ interface GoldenIceSceneProps extends SceneInteraction {
   onResidentFocus: () => void
   skyColor?: string
   lightScale?: number
+  catastrophe?: boolean
+  celebrate?: boolean
+  populate?: number
 }
 
 const InteractionContext = createContext<SceneInteraction>({})
@@ -602,200 +605,152 @@ function Crystal({
   )
 }
 
-function GroundShadow() {
-  return (
-    <mesh position={[0, 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-      <circleGeometry args={[0.46, 16]} />
-      <meshBasicMaterial color="#342d45" transparent opacity={0.16} depthWrite={false} />
-    </mesh>
-  )
-}
+const DEMO_CAST = [
+  { id: 'verity', kind: 'yellow-ball' as const, position: [-2.15, 0.64, 2.05] as [number, number, number], color: '#ffe14a' },
+  { id: 'lovity', kind: 'peach-ball' as const, position: [1.48, 0.64, 2.38] as [number, number, number], color: '#f4b39a' },
+  { id: 'blob', kind: 'ice-blob' as const, position: [-0.2, 0.64, -1.15] as [number, number, number], color: '#dceef2' },
+  { id: 'minion', kind: 'minion' as const, position: [2.4, 0.64, 0.35] as [number, number, number], color: '#8fc9d8' },
+]
 
-function ResidentMotion({
-  phase,
-  children,
-  onClick,
-  id,
-  groundY = 0,
-  scale = 1,
+function OurDemoCast({
+  variant,
+  count,
+  dismantle,
 }: {
-  phase: number
-  children: ReactNode
-  onClick?: () => void
-  id?: string
-  groundY?: number
-  scale?: number
+  variant: GoldenVariant
+  count: number
+  dismantle: boolean
 }) {
-  const group = useRef<THREE.Group>(null)
-  useFrame(({ clock }) => {
-    if (!group.current) return
-    const time = clock.elapsedTime + phase
-    group.current.position.x = Math.sin(time * 0.35) * 0.55
-    group.current.position.z = Math.sin(time * 0.7 + 0.4) * 0.4
-    group.current.position.y = 0.04 + Math.abs(Math.sin(time * 4.2)) * 0.04
-    group.current.rotation.y = Math.atan2(Math.cos(time * 0.35) * 0.55, Math.cos(time * 0.7 + 0.4) * 0.8)
-  })
   return (
-    <group
-      ref={group}
-      scale={scale}
-      onClick={(event) => {
-        event.stopPropagation()
-        onClick?.()
-      }}
-      onPointerOver={() => {
-        document.body.style.cursor = 'pointer'
-      }}
-      onPointerOut={() => {
-        document.body.style.cursor = 'auto'
-      }}
-    >
-      <GroundShadow />
-      {id ? (
-        <Interactive id={id} footprint={0.5} groundY={groundY}>
-          {children}
-        </Interactive>
-      ) : (
-        children
-      )}
+    <group name="our-character-slots" userData={{ displayHeight: CREATURE_DISPLAY_HEIGHT }}>
+      {DEMO_CAST.slice(0, count).map((member, index) => (
+        <DemoCreature key={member.id} variant={variant} member={member} phase={index * 0.8} dismantle={dismantle} />
+      ))}
     </group>
   )
 }
 
-interface ResidentProps {
-  variant: GoldenVariant
-  onClick: () => void
-  id?: string
-  groundY?: number
-}
-
-function IceBird({ variant, onClick, id, groundY }: ResidentProps) {
-  return (
-    <ResidentMotion phase={0.2} onClick={onClick} id={id} groundY={groundY} scale={0.96}>
-      <mesh position={[0, 0.43, 0]} scale={[0.9, 1.02, 0.78]} castShadow>
-        <dodecahedronGeometry args={[0.52, 1]} />
-        <SurfaceMaterial variant={variant} color="#dceef2" />
-      </mesh>
-      <mesh position={[0, 0.82, 0.12]} scale={[1, 0.96, 0.9]} castShadow>
-        <icosahedronGeometry args={[0.39, 2]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.cream} />
-      </mesh>
-      {[-0.14, 0.14].map((x) => (
-        <mesh key={x} position={[x, 0.89, 0.47]}>
-          <sphereGeometry args={[0.045, 8, 6]} />
-          <meshBasicMaterial color={GOLDEN_PALETTE.ink} />
-        </mesh>
-      ))}
-      <mesh position={[0, 0.78, 0.55]} rotation={[Math.PI / 2, 0, 0]} castShadow>
-        <coneGeometry args={[0.12, 0.34, 5]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.coral} />
-      </mesh>
-      {[-0.19, 0.19].map((x) => (
-        <mesh key={x} position={[x, 0.08, 0.09]} scale={[1.5, 0.55, 1.05]}>
-          <sphereGeometry args={[0.13, 8, 6]} />
-          <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.coral} />
-        </mesh>
-      ))}
-    </ResidentMotion>
-  )
-}
-
-function SnowBlob({ variant, onClick, id, groundY }: ResidentProps) {
-  return (
-    <ResidentMotion phase={1.4} onClick={onClick} id={id} groundY={groundY} scale={0.85}>
-      <mesh position={[0, 0.43, 0]} scale={[1.08, 0.88, 0.98]} castShadow>
-        <dodecahedronGeometry args={[0.54, 1]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.cream} />
-      </mesh>
-      {[-0.15, 0.15].map((x) => (
-        <mesh key={x} position={[x, 0.56, 0.49]}>
-          <sphereGeometry args={[0.05, 8, 6]} />
-          <meshBasicMaterial color={GOLDEN_PALETTE.ink} />
-        </mesh>
-      ))}
-      <mesh position={[0, 0.93, -0.02]} rotation={[0.03, 0, -0.08]} castShadow>
-        <coneGeometry args={[0.38, 0.58, 8]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.mint} />
-      </mesh>
-      <mesh position={[0.08, 1.23, -0.01]} castShadow>
-        <dodecahedronGeometry args={[0.12, 0]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.mint} />
-      </mesh>
-    </ResidentMotion>
-  )
-}
-
-function BookBeetle({ variant, onClick, id, groundY }: ResidentProps) {
-  return (
-    <ResidentMotion phase={2.6} onClick={onClick} id={id} groundY={groundY} scale={1.21}>
-      <mesh position={[0, 0.38, 0]} scale={[0.76, 0.92, 0.68]} castShadow>
-        <icosahedronGeometry args={[0.5, 2]} />
-        <SurfaceMaterial variant={variant} color="#8f789f" />
-      </mesh>
-      <mesh position={[0, 0.73, 0.16]} castShadow>
-        <icosahedronGeometry args={[0.32, 2]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.cream} />
-      </mesh>
-      {[-0.12, 0.12].map((x) => (
-        <mesh key={x} position={[x, 0.79, 0.45]}>
-          <sphereGeometry args={[0.04, 8, 6]} />
-          <meshBasicMaterial color={GOLDEN_PALETTE.ink} />
-        </mesh>
-      ))}
-      <group position={[0, 0.46, -0.43]} rotation={[0.08, 0, 0]}>
-        <mesh position={[-0.18, 0, 0]}>
-          <boxGeometry args={[0.34, 0.48, 0.08]} />
-          <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.light} />
-        </mesh>
-        <mesh position={[0.18, 0, 0]}>
-          <boxGeometry args={[0.34, 0.48, 0.08]} />
-          <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.coral} />
-        </mesh>
-      </group>
-    </ResidentMotion>
-  )
-}
-
-/** The snow top sits at world y 0.64; residents stand in it, so the ring rises to the surface. */
-const SNOW_TOP = 0.65
-
-function Residents({
+function DemoCreature({
   variant,
-  onResidentFocus,
-  interactive,
+  member,
+  phase,
+  dismantle,
 }: {
   variant: GoldenVariant
-  onResidentFocus: () => void
-  interactive: boolean
+  member: (typeof DEMO_CAST)[number]
+  phase: number
+  dismantle: boolean
 }) {
-  const [pip, mochi, glyph] = GOLDEN_RESIDENTS
+  const group = useRef<THREE.Group>(null)
+  const bits = useRef<THREE.Group>(null)
+  useFrame(({ clock }) => {
+    const root = group.current
+    const scatter = bits.current
+    if (!root || !scatter) return
+    const t = clock.elapsedTime + phase
+    if (dismantle) {
+      root.position.y = member.position[1] + Math.abs(Math.sin(t * 6)) * 0.08
+      root.rotation.z = Math.sin(t * 8) * 0.9
+      root.rotation.x = Math.cos(t * 7) * 0.4
+      scatter.children.forEach((child, index) => {
+        child.position.x = Math.sin(t * 3 + index) * (0.35 + index * 0.12)
+        child.position.y = 0.2 + Math.abs(Math.sin(t * 5 + index)) * 0.55
+        child.position.z = Math.cos(t * 2.4 + index) * 0.28
+        child.rotation.x = t * (1.4 + index)
+        child.rotation.y = t * 1.1
+      })
+      return
+    }
+    root.position.y = member.position[1] + Math.abs(Math.sin(t * 3.2)) * 0.03
+    root.rotation.set(0, Math.sin(t * 0.6) * 0.2, 0)
+    scatter.children.forEach((child) => {
+      child.position.set(0, 0, 0)
+      child.rotation.set(0, 0, 0)
+    })
+  })
+  const height = CREATURE_DISPLAY_HEIGHT
   return (
-    <>
-      <group position={pip.position}>
-        <IceBird
-          variant={variant}
-          onClick={onResidentFocus}
-          id={interactive ? pip.id : undefined}
-          groundY={SNOW_TOP - pip.position[1]}
-        />
+    <group ref={group} position={member.position} scale={height / 0.82}>
+      <group ref={bits}>
+        {member.kind === 'minion' ? (
+          <>
+            <mesh position={[0, 0.28, 0]} castShadow>
+              <capsuleGeometry args={[0.2, 0.28, 6, 10]} />
+              <SurfaceMaterial variant={variant} color={member.color} />
+            </mesh>
+            <mesh position={[0, 0.58, 0.06]} castShadow>
+              <sphereGeometry args={[0.18, 10, 8]} />
+              <SurfaceMaterial variant={variant} color="#fff6df" />
+            </mesh>
+            <mesh position={[-0.16, 0.18, 0.04]} rotation={[0, 0, 0.4]}>
+              <capsuleGeometry args={[0.05, 0.16, 4, 6]} />
+              <SurfaceMaterial variant={variant} color={member.color} />
+            </mesh>
+            <mesh position={[0.16, 0.18, 0.04]} rotation={[0, 0, -0.4]}>
+              <capsuleGeometry args={[0.05, 0.16, 4, 6]} />
+              <SurfaceMaterial variant={variant} color={member.color} />
+            </mesh>
+          </>
+        ) : (
+          <>
+            <mesh position={[0, 0.32, 0]} castShadow>
+              <sphereGeometry args={[0.32, 14, 12]} />
+              <SurfaceMaterial variant={variant} color={member.color} />
+            </mesh>
+            {member.kind === 'yellow-ball' ? (
+              <mesh position={[0, 0.32, 0]} rotation={[0.2, 0, 0]}>
+                <torusGeometry args={[0.325, 0.035, 8, 18]} />
+                <SurfaceMaterial variant={variant} color="#342d45" />
+              </mesh>
+            ) : null}
+            {member.kind === 'ice-blob' ? (
+              <mesh position={[0, 0.52, 0]} castShadow>
+                <sphereGeometry args={[0.18, 10, 8]} />
+                <SurfaceMaterial variant={variant} color="#fff6df" />
+              </mesh>
+            ) : null}
+          </>
+        )}
+        {[-0.08, 0.08].map((x) => (
+          <mesh key={x} position={[x, member.kind === 'minion' ? 0.62 : 0.38, 0.26]}>
+            <sphereGeometry args={[0.035, 8, 6]} />
+            <meshBasicMaterial color="#342d45" />
+          </mesh>
+        ))}
       </group>
-      <group position={mochi.position}>
-        <SnowBlob
-          variant={variant}
-          onClick={onResidentFocus}
-          id={interactive ? mochi.id : undefined}
-          groundY={SNOW_TOP - mochi.position[1]}
-        />
+    </group>
+  )
+}
+
+function IceCatastrophe({ active }: { active: boolean }) {
+  const flakes = useRef<THREE.Group>(null)
+  useFrame(({ clock }) => {
+    if (!flakes.current) return
+    flakes.current.children.forEach((child, index) => {
+      const t = clock.elapsedTime * (0.8 + (index % 5) * 0.12) + index
+      child.position.y = 0.4 + ((t * 0.7) % 3.2)
+      child.position.x = Math.sin(t * 0.9 + index) * 4.2
+      child.position.z = Math.cos(t * 0.7 + index) * 3.6
+    })
+  })
+  if (!active) return null
+  return (
+    <group>
+      {[[-1.4, 0.67, 0.8], [0.6, 0.67, -1.2], [2.1, 0.67, 1.1], [-2.4, 0.67, -0.6]].map((position, index) => (
+        <mesh key={index} position={position as [number, number, number]} rotation={[-Math.PI / 2, 0, index * 0.4]}>
+          <ringGeometry args={[0.08, 0.34 + index * 0.06, 7]} />
+          <meshBasicMaterial color="#342d45" transparent opacity={0.42} side={THREE.DoubleSide} />
+        </mesh>
+      ))}
+      <group ref={flakes}>
+        {Array.from({ length: 18 }, (_, index) => (
+          <mesh key={index} position={[0, 1, 0]}>
+            <octahedronGeometry args={[0.05, 0]} />
+            <meshBasicMaterial color="#fff6df" />
+          </mesh>
+        ))}
       </group>
-      <group position={glyph.position}>
-        <BookBeetle
-          variant={variant}
-          onClick={onResidentFocus}
-          id={interactive ? glyph.id : undefined}
-          groundY={SNOW_TOP - glyph.position[1]}
-        />
-      </group>
-    </>
+    </group>
   )
 }
 
@@ -803,7 +758,7 @@ export function GoldenIceScene({
   variant,
   view,
   progress,
-  onResidentFocus,
+  onResidentFocus: _onResidentFocus,
   hoveredId,
   highlight,
   reducedMotion,
@@ -811,14 +766,24 @@ export function GoldenIceScene({
   onSelect,
   skyColor = GOLDEN_PALETTE.sky,
   lightScale = 1,
+  catastrophe = false,
+  celebrate = false,
+  populate = 1,
 }: GoldenIceSceneProps) {
   const profile = rendererProfile(variant)
-  const state = progressState(progress)
+  const grown = celebrate ? Math.max(progress, 1) : progress
+  const state = progressState(grown)
+  const frontier = grown <= 0.01
+  const fogFar = catastrophe ? 14 : frontier ? 11 : grown < 0.6 ? 22 : 32
+  const fogNear = catastrophe ? 4 : frontier ? 3 : 16
+  const sceneSky = catastrophe ? '#4d3d5d' : frontier ? '#c5bfd4' : skyColor
+  const landRise = 1 + grown * 0.08 + (celebrate ? 0.06 : 0)
+  const extraGrowth = grown >= 0.99 || celebrate
+  const characterCount = frontier ? 0 : Math.round(DEMO_CAST.length * Math.min(1, populate))
   const interaction = useMemo<SceneInteraction>(
     () => ({ hoveredId, highlight, reducedMotion, onHover, onSelect }),
     [highlight, hoveredId, onHover, onSelect, reducedMotion],
   )
-  const interactive = Boolean(onHover || onSelect)
   const lampPositions: [number, number, number][] = [
     [-3.1, 0.66, 1.75],
     [-1.3, 0.66, 2.72],
@@ -836,13 +801,13 @@ export function GoldenIceScene({
 
   return (
     <InteractionContext value={interaction}>
-      <color attach="background" args={[skyColor]} />
-      <fog attach="fog" args={[skyColor, 16, 32]} />
+      <color attach="background" args={[sceneSky]} />
+      <fog attach="fog" args={[sceneSky, fogNear, fogFar]} />
       <hemisphereLight args={['#dff4ff', '#8e799e', (variant === 'pixel' ? 0.42 : 0.58) * lightScale]} />
       <directionalLight
         position={[6, 10, 8]}
-        intensity={(variant === 'pixel' ? 2.15 : 2.5) * lightScale}
-        color="#fff1d9"
+        intensity={(catastrophe ? 0.85 : variant === 'pixel' ? 2.15 : 2.5) * lightScale}
+        color={catastrophe ? '#c9b8e8' : '#fff1d9'}
         castShadow
         shadow-mapSize-width={variant === 'pixel' ? 1024 : 2048}
         shadow-mapSize-height={variant === 'pixel' ? 1024 : 2048}
@@ -855,53 +820,67 @@ export function GoldenIceScene({
         shadow-bias={-0.0005}
       />
 
-      <IslandPedestal variant={variant} />
-      <PathLoop variant={variant} />
+      <group scale={[1, landRise, 1]}>
+        <IslandPedestal variant={variant} />
+        {!frontier ? <PathLoop variant={variant} /> : null}
 
-      <mesh position={[2.65, 0.67, 1.42]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <circleGeometry args={[1.12, 18]} />
-        <SurfaceMaterial variant={variant} color="#8fc6db" side={THREE.DoubleSide} />
-      </mesh>
-      <mesh position={[2.65, 0.69, 1.42]} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[0.84, 1.13, 18]} />
-        <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.snow} side={THREE.DoubleSide} />
-      </mesh>
+        <mesh position={[2.65, 0.67, 1.42]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+          <circleGeometry args={[1.12, 18]} />
+          <SurfaceMaterial variant={variant} color="#8fc6db" side={THREE.DoubleSide} />
+        </mesh>
+        <mesh position={[2.65, 0.69, 1.42]} rotation={[-Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[0.84, 1.13, 18]} />
+          <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.snow} side={THREE.DoubleSide} />
+        </mesh>
 
-      <Observatory variant={variant} progress={progress} />
-      <StudyCabin
-        variant={variant}
-        position={GOLDEN_LANDMARKS.hutA.position}
-        rotation={GOLDEN_LANDMARKS.hutA.rotation}
-        id={GOLDEN_LANDMARKS.hutA.id}
-      />
-      <StudyCabin
-        variant={variant}
-        position={GOLDEN_LANDMARKS.hutB.position}
-        rotation={GOLDEN_LANDMARKS.hutB.rotation}
-        id={GOLDEN_LANDMARKS.hutB.id}
-      />
+        <group
+          scale={frontier ? 0.52 : catastrophe ? 0.92 : extraGrowth ? 1.08 : 1}
+          rotation={catastrophe ? [0.08, 0, 0.12] : [0, 0, 0]}
+        >
+          <Observatory variant={variant} progress={grown} />
+        </group>
+        {!frontier && populate >= 0.5 ? (
+          <StudyCabin
+            variant={variant}
+            position={GOLDEN_LANDMARKS.hutA.position}
+            rotation={GOLDEN_LANDMARKS.hutA.rotation}
+            id={GOLDEN_LANDMARKS.hutA.id}
+          />
+        ) : null}
+        {!frontier && populate >= 1 ? (
+          <StudyCabin
+            variant={variant}
+            position={GOLDEN_LANDMARKS.hutB.position}
+            rotation={GOLDEN_LANDMARKS.hutB.rotation}
+            id={GOLDEN_LANDMARKS.hutB.id}
+          />
+        ) : null}
 
-      <group>
-        <Pine variant={variant} position={[-4.15, 0.63, 0.15]} scale={1.05} />
-        <Pine variant={variant} position={[-3.72, 0.63, 0.62]} scale={0.78} />
-        <Pine variant={variant} position={[3.92, 0.63, 0.12]} scale={0.92} />
-        <Pine variant={variant} position={[4.15, 0.63, -0.55]} scale={0.72} />
-        <Pine variant={variant} position={[0.05, 0.63, -3.52]} scale={0.9} />
+        <group>
+          <Pine variant={variant} position={[-4.15, 0.63, 0.15]} scale={1.05} />
+          {populate >= 0.5 ? <Pine variant={variant} position={[-3.72, 0.63, 0.62]} scale={0.78} /> : null}
+          {populate >= 0.5 ? <Pine variant={variant} position={[3.92, 0.63, 0.12]} scale={0.92} /> : null}
+          {populate >= 1 ? <Pine variant={variant} position={[4.15, 0.63, -0.55]} scale={0.72} /> : null}
+          {populate >= 1 ? <Pine variant={variant} position={[0.05, 0.63, -3.52]} scale={0.9} /> : null}
+          {extraGrowth ? <Pine variant={variant} position={[-1.8, 0.63, 3.1]} scale={0.7} /> : null}
+          {extraGrowth ? <Pine variant={variant} position={[3.4, 0.63, -2.2]} scale={0.64} /> : null}
+        </group>
+
+        {lampPositions.map((position, index) => (
+          <Lamp key={position.join(':')} variant={variant} position={position} lit={!frontier && index < state.litWindows} />
+        ))}
+        {crystalPositions.slice(0, frontier ? 0 : state.crystalCount).map((position, index) => (
+          <Crystal
+            key={position.join(':')}
+            variant={variant}
+            position={position}
+            scale={0.8 + index * 0.07}
+          />
+        ))}
+
+        <OurDemoCast variant={variant} count={characterCount} dismantle={catastrophe} />
+        <IceCatastrophe active={catastrophe} />
       </group>
-
-      {lampPositions.map((position, index) => (
-        <Lamp key={position.join(':')} variant={variant} position={position} lit={index < state.litWindows} />
-      ))}
-      {crystalPositions.slice(0, state.crystalCount).map((position, index) => (
-        <Crystal
-          key={position.join(':')}
-          variant={variant}
-          position={position}
-          scale={0.8 + index * 0.07}
-        />
-      ))}
-
-      <Residents variant={variant} onResidentFocus={onResidentFocus} interactive={interactive} />
       <CameraDirector view={view} />
       {variant === 'pixel' && <PixelComposer profile={profile} />}
     </InteractionContext>

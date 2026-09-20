@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef } from "react";
+import { Html } from "@react-three/drei";
 import { useThree, type ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
 import { markerIdForCourse } from "@/lib/world/globe-courses";
@@ -70,8 +71,7 @@ export function GlobeTown({
   );
   const scale = GLOBE_BOUQUET_SCALE * markerState.footprintScale;
 
-  const openTown = (event: ThreeEvent<MouseEvent>) => {
-    event.stopPropagation();
+  const raiseFlag = () => {
     if (!group.current) return;
     group.current.updateWorldMatrix(true, false);
     const projected = group.current
@@ -85,14 +85,24 @@ export function GlobeTown({
     onOpen({ courseId: course.id, anchor });
   };
 
+  const openTown = (event: ThreeEvent<MouseEvent>) => {
+    event.stopPropagation();
+    raiseFlag();
+  };
+
   return (
     <group
       ref={group}
       position={position}
       quaternion={quaternion}
       scale={active ? scale * ACTIVE_POP : scale}
-      onClick={openTown}
+      userData={{ courseLandmark: course.id }}
+      onClick={(event) => {
+        event.stopPropagation();
+        openTown(event);
+      }}
       onPointerDown={(event) => event.stopPropagation()}
+      onPointerUp={(event) => event.stopPropagation()}
       onPointerOver={(event) => {
         event.stopPropagation();
         document.body.style.cursor = "pointer";
@@ -115,10 +125,24 @@ export function GlobeTown({
             <meshBasicMaterial color="#fff0ae" toneMapped={false} />
           </mesh>
         ) : null}
-        <mesh position={[0, 20, 0]}>
-          <sphereGeometry args={[32, 12, 10]} />
+        <mesh position={[0, 36, 0]} userData={{ courseLandmark: course.id }}>
+          <sphereGeometry args={[88, 14, 12]} />
           <meshBasicMaterial transparent opacity={0} depthWrite={false} />
         </mesh>
+        {active ? (
+          <Html
+            position={[0, 42, 0]}
+            center
+            occlude={false}
+            zIndexRange={[30, 0]}
+            style={{ pointerEvents: "none" }}
+          >
+            <span className="landmark-pin" aria-hidden>
+              <span className="landmark-pin-mast" />
+              <span className="landmark-pin-flag">{course.code ?? "Pin"}</span>
+            </span>
+          </Html>
+        ) : null}
       </group>
     </group>
   );

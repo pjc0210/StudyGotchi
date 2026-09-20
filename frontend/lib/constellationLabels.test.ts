@@ -46,7 +46,7 @@ describe("space label clipping", () => {
     expect(nodeLabelBudget(0.9, false)).toBeLessThan(nodeLabelBudget(1.4, false));
     expect(nodeLabelBudget(2.2, false)).toBeLessThan(30);
     expect(nodeLabelBudget(2.2, true)).toBeLessThanOrEqual(24);
-    expect(clusterLabelBudget(0.4)).toBeLessThanOrEqual(18);
+    expect(clusterLabelBudget(0.4)).toBeLessThanOrEqual(26);
   });
 });
 
@@ -61,6 +61,7 @@ describe("space clusters", () => {
     ]);
 
     expect(clusters.map((c) => c.label).sort()).toEqual(["Foundations", "Kernels"]);
+    expect(clusters.every((c) => typeof c.mastery === "number")).toBe(true);
     const foundations = clusters.find((c) => c.label === "Foundations");
     expect(foundations?.x).toBeCloseTo(5);
     expect(foundations?.y).toBeCloseTo(2);

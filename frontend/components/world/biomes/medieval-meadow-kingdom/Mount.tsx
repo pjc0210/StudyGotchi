@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { MEADOW_KINGDOM, generateKingdom } from "./layout/biome-layout";
 import { STATIONS, defaultOverride } from "./camera/stations";
 import { BiomeScene } from "./scene/BiomeScene";
@@ -10,6 +10,8 @@ import { useLandArrival } from "../useLandArrival";
 export function MeadowMount({ progress }: { progress: number }) {
   const fraction = Math.min(1, Math.max(0, progress));
   const { diving, onDiveEnd, station } = useLandArrival();
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [focusDistrict, setFocusDistrict] = useState<string | null>(null);
   const layout = useMemo(() => generateKingdom(7), []);
   const state = useMemo<LabState>(
     () => ({
@@ -23,19 +25,24 @@ export function MeadowMount({ progress }: { progress: number }) {
       pixel: true,
       showReferences: false,
       station,
-      focusDistrict: null,
+      focusDistrict,
       camera: defaultOverride(STATIONS[station]),
       catastrophe: { districtId: null, phase: "calm", startedAt: 0 },
       diving,
     }),
-    [diving, fraction, station],
+    [diving, focusDistrict, fraction, station],
   );
+  const onPickDistrict = useCallback((id: string) => {
+    setFocusDistrict((current) => (current === id ? null : id));
+  }, []);
   return (
     <BiomeScene
       layout={layout}
       state={state}
       onDiveEnd={onDiveEnd}
-      onPickDistrict={() => undefined}
+      onPickDistrict={onPickDistrict}
+      hoveredId={hoveredId}
+      onHover={setHoveredId}
     />
   );
 }

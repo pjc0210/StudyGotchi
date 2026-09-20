@@ -3,7 +3,7 @@ import { visualForGlobeBiome } from "./types";
 
 describe("developed biome wiring", () => {
   it("maps globe palettes onto finished local lands", () => {
-    expect(visualForGlobeBiome("ice")).toBe("ice-golden");
+    expect(visualForGlobeBiome("ice")).toBe("ice-town");
     expect(visualForGlobeBiome("sand")).toBe("frontier-town");
     expect(visualForGlobeBiome("coast")).toBe("coastal-ruins");
     expect(visualForGlobeBiome("forest")).toBe("jungle-forest-village");

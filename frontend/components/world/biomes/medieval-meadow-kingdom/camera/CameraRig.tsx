@@ -5,7 +5,16 @@ import * as THREE from 'three'
 import type { GeneratedKingdom } from '../layout/biome-layout'
 import { sampleTerrain } from '../layout/terrain'
 import { residentPositions } from '../scene/Residents'
-import { STATIONS, type CameraOverride, type Pose, type StationId, divePose, easeInOutCubic, poseFor } from './stations'
+import {
+  CAMERA_LIMITS,
+  STATIONS,
+  type CameraOverride,
+  type Pose,
+  type StationId,
+  divePose,
+  easeInOutCubic,
+  poseFor,
+} from './stations'
 
 interface CameraRigProps {
   layout: GeneratedKingdom
@@ -17,6 +26,8 @@ interface CameraRigProps {
 }
 
 const DIVE_SECONDS = 1.6
+const HEADING_IDLE = 1.6
+const HEADING_DAMP = 1.15
 
 /** What the station looks at: the district shape (chord as seen from the azimuth), a resident, or the land. */
 export function stationSubject(layout: GeneratedKingdom, station: StationId, _override: CameraOverride, focusDistrict: string | null) {
@@ -43,21 +54,57 @@ export function CameraRig({ layout, station, override, focusDistrict, diving, on
   const camera = useThree((s) => s.camera)
   const dive = useRef<{ from: Pose; to: Pose; t: number } | null>(null)
   const hasPose = useRef(false)
+  const userTookOver = useRef(false)
+  const dragging = useRef(false)
+  const idle = useRef(0)
+  const lastStation = useRef(station)
 
   const subject = () => stationSubject(layout, station, override, focusDistrict)
 
   useEffect(() => {
     if (diving) {
-      const to = poseFor(STATIONS.arrival, { ...override, pitchDeg: STATIONS.arrival.pitchDeg, azimuthDeg: STATIONS.arrival.azimuthDeg, dolly: 1 }, subject(), aspect)
+      userTookOver.current = false
+      idle.current = 0
+      const to = poseFor(
+        STATIONS.arrival,
+        { ...override, pitchDeg: STATIONS.arrival.pitchDeg, azimuthDeg: STATIONS.arrival.azimuthDeg, dolly: 1 },
+        subject(),
+        aspect,
+      )
       dive.current = { from: divePose(to), to, t: 0 }
       return
     }
     dive.current = null
+    if (userTookOver.current && lastStation.current === station) return
+    lastStation.current = station
     const pose = poseFor(STATIONS[station], override, subject(), aspect)
     void controls.current?.setLookAt(...pose.position, ...pose.target, hasPose.current)
     hasPose.current = true
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [aspect, camera, diving, focusDistrict, override, station, layout])
+
+  useEffect(() => {
+    const c = controls.current
+    if (!c) return
+    const halfX = layout.worldSize[0] * 0.38
+    const box = new THREE.Box3(new THREE.Vector3(-halfX, -2, -60), new THREE.Vector3(halfX, 40, 100))
+    c.setBoundary(box)
+    const mark = () => {
+      userTookOver.current = true
+      dragging.current = true
+      idle.current = 0
+    }
+    const rest = () => {
+      dragging.current = false
+      idle.current = 0
+    }
+    c.addEventListener('controlstart', mark)
+    c.addEventListener('controlend', rest)
+    return () => {
+      c.removeEventListener('controlstart', mark)
+      c.removeEventListener('controlend', rest)
+    }
+  }, [camera, layout.worldSize])
 
   useFrame((_, delta) => {
     const c = controls.current
@@ -79,25 +126,40 @@ export function CameraRig({ layout, station, override, focusDistrict, diving, on
     if (station === 'resident' && residentPositions[0]) {
       const pose = poseFor(STATIONS.resident, override, subject(), aspect)
       void c.setLookAt(...pose.position, ...pose.target, true)
+      return
     }
+    if (dragging.current) {
+      idle.current = 0
+      return
+    }
+    idle.current += delta
+    if (idle.current < HEADING_IDLE) return
+    const preferred = THREE.MathUtils.degToRad(CAMERA_LIMITS.preferredHeadingDeg)
+    const current = c.azimuthAngle
+    if (Math.abs(current - preferred) < 0.01) return
+    c.rotateAzimuthTo(THREE.MathUtils.damp(current, preferred, HEADING_DAMP, delta), false)
   })
+
+  const minPolar = THREE.MathUtils.degToRad(90 - CAMERA_LIMITS.pitchMaxDeg)
+  const maxPolar = THREE.MathUtils.degToRad(90 - CAMERA_LIMITS.pitchMinDeg)
+  const yaw = THREE.MathUtils.degToRad(CAMERA_LIMITS.yawDeg)
 
   return (
     <>
-      <PerspectiveCamera makeDefault fov={override.fov} near={0.5} far={3000} position={[80, 60, 120]} />
+      <PerspectiveCamera makeDefault fov={override.fov} near={0.5} far={3000} position={[80, 48, 140]} />
       <CameraControls
         ref={controls}
         makeDefault
-        minDistance={4}
-        maxDistance={520}
-        minPolarAngle={THREE.MathUtils.degToRad(50)}
-        maxPolarAngle={THREE.MathUtils.degToRad(56)}
-        minAzimuthAngle={THREE.MathUtils.degToRad(-35)}
-        maxAzimuthAngle={THREE.MathUtils.degToRad(35)}
-        truckSpeed={0}
-        dollySpeed={0.5}
-        smoothTime={0.55}
-        draggingSmoothTime={0.14}
+        minDistance={CAMERA_LIMITS.minDistance}
+        maxDistance={CAMERA_LIMITS.maxDistance}
+        minPolarAngle={minPolar}
+        maxPolarAngle={maxPolar}
+        minAzimuthAngle={-yaw}
+        maxAzimuthAngle={yaw}
+        truckSpeed={0.45}
+        dollySpeed={0.7}
+        smoothTime={0.45}
+        draggingSmoothTime={0.12}
       />
     </>
   )

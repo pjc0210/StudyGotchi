@@ -7,6 +7,7 @@ import type { ConceptNode } from "@/lib/types";
 import { useConceptDetail } from "@/lib/useConceptDetail";
 import { StateBadge } from "@/components/common/StatusBadge";
 import { MasteryBreakdown } from "./MasteryBreakdown";
+import { FileMark } from "@/components/files/FileMark";
 import { EvidenceList } from "./EvidenceList";
 import { ResourceList } from "./ResourceList";
 
@@ -47,7 +48,9 @@ export function ConceptPanel() {
               Personal concept
             </span>
           ) : null}
-          {concept.cluster ? <span className="sg-eyebrow">{concept.cluster}</span> : null}
+          {concept.constellation || concept.cluster ? (
+            <span className="sg-eyebrow">{concept.constellation ?? concept.cluster}</span>
+          ) : null}
         </div>
       </header>
 
@@ -55,6 +58,18 @@ export function ConceptPanel() {
         <div className="sg-sheet-section" style={{ boxShadow: "none" }}>
           <MasteryBreakdown concept={concept} />
         </div>
+
+        {detail?.resources[0] ? (
+          <Section title="Source file">
+            <div className="sg-source-file">
+              <FileMark title={detail.resources[0].title} />
+              <div>
+                <p className="sg-file-title">{detail.resources[0].title}</p>
+                <p className="text-[11px] text-ink-faint">{detail.resources[0].role ?? "Direct source"}</p>
+              </div>
+            </div>
+          </Section>
+        ) : null}
 
         {why ? (
           <Section title={`Why ${formatScore(concept.mastery)}`}>

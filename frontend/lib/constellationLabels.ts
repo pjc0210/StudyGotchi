@@ -4,6 +4,8 @@
  * canvas - the inspector and tooltip keep the complete title.
  */
 
+import { constellationFamily } from "./world/constellation-families";
+
 export type SpaceLabelLayer = "clusters" | "nodes";
 
 export const CLUSTER_ZOOM = 0.85;
@@ -39,7 +41,7 @@ export function nodeLabelBudget(zoom: number, forced: boolean): number {
 }
 
 export function clusterLabelBudget(zoom: number): number {
-  return zoom >= 0.55 ? 18 : 14;
+  return zoom >= 0.55 ? 26 : 22;
 }
 
 export function hexRgb(hex: string): { r: number; g: number; b: number } {
@@ -60,6 +62,8 @@ export interface SpaceLabelNode {
   weight: number;
   cluster?: string;
   clusterId?: string;
+  constellation?: string;
+  mastery?: number | null;
 }
 
 export interface SpaceCluster {
@@ -71,6 +75,7 @@ export interface SpaceCluster {
   count: number;
   memberIds: string[];
   tintIndex: number;
+  mastery: number;
 }
 
 export function buildSpaceClusters(
@@ -89,8 +94,9 @@ export function buildSpaceClusters(
   }
 
   for (const node of named) {
-    const id = node.clusterId ?? slug(node.cluster ?? node.id);
-    const label = node.cluster ?? titleFromNode(node);
+    const family = node.constellation ?? constellationFamily(node.cluster, node.label);
+    const label = family ?? node.cluster ?? titleFromNode(node);
+    const id = family ? `family:${family}` : (node.clusterId ?? slug(node.cluster ?? node.id));
     const group = groups.get(id) ?? { label, members: [] };
     group.members.push(node);
     groups.set(id, group);
@@ -115,15 +121,18 @@ export function buildSpaceClusters(
       weight += member.weight;
     }
     const count = group.members.length;
+    const mastery =
+      group.members.reduce((sum, member) => sum + (member.mastery ?? 0.45), 0) / Math.max(1, count);
     clusters.push({
       id,
-      label: clipSpaceLabel(group.label, 22),
+      label: clipSpaceLabel(group.label, clusterLabelBudget(1)),
       x: sx / count,
       y: sy / count,
       weight,
       count,
       memberIds: group.members.map((m) => m.id),
       tintIndex: tint % 6,
+      mastery,
     });
     tint += 1;
   }

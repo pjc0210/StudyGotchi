@@ -10,6 +10,7 @@ import { dominantBiome } from "@/lib/audio/director";
 import { useIdentity } from "@/lib/identity";
 import { WORLD_CHANGE_PRIORITY, asWorldResponse, changedRegions, describeChanges, toCanvasWorld, type WorldChange } from "@/lib/world/adapter";
 import type { WorldResponse } from "@/lib/world/types";
+import { demoProgress, type IceDemoState } from "@/lib/world/demo-theater";
 import type { LocalBiomeId } from "./biomes/types";
 
 /** at most this many one-shots per payload, 120 ms apart, loudest news first, three of a kind */
@@ -59,7 +60,6 @@ function playChanges(changes: WorldChange[]) {
 }
 
 const WorldCanvas = dynamic(() => import("./WorldCanvas"), { ssr: false });
-const IceCanvas = dynamic(() => import("./golden/WorldCanvas"), { ssr: false });
 const DevelopedBiomeCanvas = dynamic(
   () => import("./biomes/DevelopedBiomeCanvas").then((mod) => mod.DevelopedBiomeCanvas),
   { ssr: false },
@@ -75,6 +75,9 @@ export function WorldPage({
   onWorld,
   hoveredId,
   onHover,
+  iceDemo,
+  focusDistrict,
+  onFocusDistrict,
 }: {
   source?: WorldSource;
   /** Load this course's land even when identity still points at another course. */
@@ -85,6 +88,9 @@ export function WorldPage({
   onWorld?: (world: WorldResponse | null) => void;
   hoveredId?: string | null;
   onHover?: (conceptId: string | null) => void;
+  iceDemo?: IceDemoState;
+  focusDistrict?: string | null;
+  onFocusDistrict?: (id: string | null) => void;
 }) {
   const { selectedId, select, ingestVersion } = useStore();
   const { ready, courseId: identityCourseId, studentId } = useIdentity();
@@ -175,17 +181,22 @@ export function WorldPage({
 
   const reached = world ? world.regions.filter((region) => region.semantic_state !== "frontier").length : 0;
   const total = world ? world.regions.length + world.hidden_concept_count : 0;
-  const progress = total > 0 ? reached / total : 0.68;
+  const liveProgress = total > 0 ? reached / total : 0.68;
+  const progress = iceDemo
+    ? demoProgress(iceDemo.beat)
+    : visual === "ice-town" || visual === "ice-golden"
+      ? 1
+      : liveProgress;
 
   if (visual === "ice-golden") {
     return (
       <div className="relative h-full min-h-0 w-full">
-        <IceCanvas
+        <DevelopedBiomeCanvas
+          visual="ice-town"
           progress={progress}
-          view="overview"
-          onResidentFocus={() => {
-            if (hovered) select(hovered);
-          }}
+          focusDistrict={focusDistrict}
+          iceDemo={iceDemo}
+          onFocusDistrict={onFocusDistrict}
         />
         {error ? (
           <p className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-paper-card px-3 py-1 text-[12px] text-paper-soft">
@@ -197,6 +208,7 @@ export function WorldPage({
   }
 
   if (
+    visual === "ice-town" ||
     visual === "frontier-town" ||
     visual === "coastal-ruins" ||
     visual === "jungle-forest-village" ||
@@ -205,7 +217,13 @@ export function WorldPage({
   ) {
     return (
       <div className="relative h-full min-h-0 w-full">
-        <DevelopedBiomeCanvas visual={visual} progress={progress} />
+        <DevelopedBiomeCanvas
+          visual={visual}
+          progress={progress}
+          focusDistrict={focusDistrict}
+          iceDemo={iceDemo}
+          onFocusDistrict={onFocusDistrict}
+        />
         {error ? (
           <p className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-paper-card px-3 py-1 text-[12px] text-paper-soft">
             {error}

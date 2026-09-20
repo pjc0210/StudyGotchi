@@ -1,31 +1,35 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, ViewTransition } from "react";
-import { api, type WorldEvent, type WorldEventKind } from "@/lib/api";
+import { useRouter, useSearchParams } from "next/navigation";
+import { api, type WorldEvent } from "@/lib/api";
 import { emit } from "@/lib/audio/events";
 import { selectCourse, useIdentity } from "@/lib/identity";
 import { useStore } from "@/lib/store";
+import { useShellNav } from "@/components/shell/shell-nav";
 import type { WorldRegion, WorldResponse } from "@/lib/world/types";
 import { CourseGlobe } from "@/components/world/globe/CourseGlobe";
 import { diveDurationMs } from "@/components/world/globe/globe-dive";
 import type { ScreenPoint } from "@/components/world/globe/globe-types";
-import { biomeForGlobeCourse, isOwnedCourse, rosterBiome, toGlobeCourses } from "@/lib/world/globe-courses";
+import { biomeForGlobeCourse, isOwnedCourse, rosterBiome, toGlobeCourses, withEarthCourses } from "@/lib/world/globe-courses";
+import { DEMO_HERO_CODE } from "@/lib/world/demo-courses";
+import { ICE_DEMO_DEFAULT, type IceDemoState } from "@/lib/world/demo-theater";
+import {
+  galaxyHrefForConcept,
+  isConceptId,
+  landHref,
+  landParamFromSearch,
+  planetHref,
+  resolveLandCourseId,
+} from "@/lib/world/earth-nav";
 import { BiomeLand } from "./BiomeLand";
 import { ConceptCard } from "./ConceptCard";
+import { ConceptRail } from "./ConceptRail";
 import { CourseNavigator } from "./CourseNavigator";
-import { UploadBox } from "./UploadBox";
+import { DemoTheater } from "./DemoTheater";
+import { LandmarkFlag } from "./LandmarkFlag";
 import { useCourseOverviewCache } from "./useCourseOverviewCache";
 import "./earth-integration.css";
-
-const EVENT_LABEL: Record<WorldEventKind, string> = {
-  RESOURCE_ADDED: "New file",
-  RESOURCE_ANALYZED: "Read closely",
-  UNDERSTANDING_GAIN: "Grew",
-  UNDERSTANDING_DROP: "Slipped",
-  CONCEPT_MASTERED: "Mastered",
-  CONCEPT_DISCOVERED: "New idea",
-  FRONTIER_EXPANDED: "Frontier grew",
-};
 
 /**
  * The product page. Level 1: the globe with one pin per course. Level 2: the
@@ -33,18 +37,15 @@ const EVENT_LABEL: Record<WorldEventKind, string> = {
  * the island shows a marker; clicking moves the concept into the panel.
  */
 export function EarthShell() {
-  const { selectedId, select, ingestVersion } = useStore();
+  const { selectedId, select, ingestVersion, focusConcept } = useStore();
   const identity = useIdentity();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const nav = useShellNav();
   const [activeCourseId, setActiveCourseId] = useState<string | null>(
     () => identity.courseId || identity.courses[0]?.id || null,
   );
   const [enteredCourseId, setEnteredCourseId] = useState<string | null>(null);
-  const [expandedCourseIds, setExpandedCourseIds] = useState<Set<string>>(
-    () => new Set(),
-  );
-  const [expandedTopicIds, setExpandedTopicIds] = useState<Set<string>>(
-    () => new Set(),
-  );
   const [diving, setDiving] = useState<{
     courseId: string;
     anchor: ScreenPoint | null;
@@ -53,8 +54,16 @@ export function EarthShell() {
   const [world, setWorld] = useState<WorldResponse | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [events, setEvents] = useState<WorldEvent[]>([]);
+  const [flag, setFlag] = useState<{
+    courseId: string;
+    anchor: ScreenPoint | null;
+  } | null>(null);
+  const [iceDemo, setIceDemo] = useState<IceDemoState>(ICE_DEMO_DEFAULT);
+  const [focusDistrict, setFocusDistrict] = useState<string | null>(null);
+  const [landArriving, setLandArriving] = useState(false);
 
-  const courses = identity.courses;
+  const courses = useMemo(() => withEarthCourses(identity.courses), [identity.courses]);
+  const landCourseId = resolveLandCourseId(landParamFromSearch(searchParams), courses);
   const entered = enteredCourseId !== null;
   const overviewCache = useCourseOverviewCache(identity.studentId, courses);
   const globeCourses = useMemo(
@@ -102,50 +111,19 @@ export function EarthShell() {
   }, [courses, identity.courseId]);
 
   useEffect(() => {
-    if (!entered && activeCourseId && identity.studentId) {
-      void overviewCache.load(activeCourseId);
-    }
-  }, [activeCourseId, entered, identity.studentId, overviewCache.load]);
+    for (const course of courses) void overviewCache.load(course.id);
+  }, [courses, overviewCache.load]);
 
   const focusCourse = useCallback(
     (courseId: string) => {
-      if (!isOwnedCourse(courseId, courses)) return;
+      if (!isOwnedCourse(courseId, courses) && !courses.some((course) => course.id === courseId)) {
+        return;
+      }
       setActiveCourseId(courseId);
-      setExpandedCourseIds((expanded) => {
-        if (expanded.has(courseId)) return expanded;
-        const next = new Set(expanded);
-        next.add(courseId);
-        return next;
-      });
       void overviewCache.load(courseId);
     },
     [courses, overviewCache.load],
   );
-
-  const toggleCourse = useCallback(
-    (courseId: string) => {
-      setExpandedCourseIds((expanded) => {
-        const next = new Set(expanded);
-        if (next.has(courseId)) {
-          next.delete(courseId);
-        } else {
-          next.add(courseId);
-          void overviewCache.load(courseId);
-        }
-        return next;
-      });
-    },
-    [overviewCache.load],
-  );
-
-  const toggleTopic = useCallback((nodeId: string) => {
-    setExpandedTopicIds((expanded) => {
-      const next = new Set(expanded);
-      if (next.has(nodeId)) next.delete(nodeId);
-      else next.add(nodeId);
-      return next;
-    });
-  }, []);
 
   const enterCourse = useCallback(
     (courseId: string, anchor: ScreenPoint | null = null) => {
@@ -168,18 +146,38 @@ export function EarthShell() {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (enterTimer.current) clearTimeout(enterTimer.current);
       enterTimer.current = setTimeout(() => {
+        const code = globeCourses.find((course) => course.id === courseId)?.code ?? courseId;
+        router.replace(landHref(code));
         setEnteredCourseId(courseId);
         setDiving(null);
+        setLandArriving(true);
+        setFocusDistrict(null);
         enterTimer.current = null;
       }, diveDurationMs(reduced));
     },
-    [courses, diving, enteredCourseId, focusCourse, globeCourses, select],
+    [courses, diving, enteredCourseId, focusCourse, globeCourses, router, select],
   );
 
-  const land = useCallback(() => {
-    if (!activeCourseId) return;
-    enterCourse(activeCourseId);
-  }, [activeCourseId, enterCourse]);
+  const land = useCallback(
+    (courseId?: string) => {
+      const target = courseId ?? flag?.courseId ?? activeCourseId;
+      if (!target) return;
+      setFlag(null);
+      enterCourse(target, flag?.courseId === target ? flag.anchor : null);
+    },
+    [activeCourseId, enterCourse, flag],
+  );
+
+  const raiseFlag = useCallback(
+    (courseId: string, anchor: ScreenPoint | null) => {
+      if (!isOwnedCourse(courseId, courses) && !courses.some((course) => course.id === courseId)) {
+        return;
+      }
+      focusCourse(courseId);
+      setFlag({ courseId, anchor });
+    },
+    [courses, focusCourse],
+  );
 
   const leave = useCallback(() => {
     if (enterTimer.current) {
@@ -191,8 +189,28 @@ export function EarthShell() {
     setEnteredCourseId(null);
     setWorld(null);
     setHovered(null);
+    setIceDemo(ICE_DEMO_DEFAULT);
+    setFocusDistrict(null);
+    setLandArriving(false);
     emit({ type: "leave-island" });
-  }, [select]);
+    if (landParamFromSearch(searchParams)) router.replace(planetHref());
+  }, [router, searchParams, select]);
+
+  useEffect(() => {
+    if (nav.leavingTo === planetHref() || (!landCourseId && !diving)) {
+      setEnteredCourseId(null);
+      setWorld(null);
+      setHovered(null);
+      setIceDemo(ICE_DEMO_DEFAULT);
+      setFocusDistrict(null);
+      setLandArriving(false);
+      return;
+    }
+    if (landCourseId) {
+      setEnteredCourseId(landCourseId);
+      if (isOwnedCourse(landCourseId, courses)) selectCourse(landCourseId);
+    }
+  }, [courses, diving, landCourseId, nav.leavingTo]);
 
   useEffect(
     () => () => {
@@ -242,8 +260,10 @@ export function EarthShell() {
     }
   }, [enteredCourseId, ingestVersion, overviewCache.invalidate]);
 
-  const reached = world ? world.regions.filter((r) => r.semantic_state !== "frontier").length : 0;
-  const total = world ? world.regions.length + world.hidden_concept_count : 0;
+  const iceLandOpen =
+    entered &&
+    (enteredCourse?.code === DEMO_HERO_CODE || current?.code === DEMO_HERO_CODE) &&
+    (enteredCourse?.biome ?? biomeForGlobeCourse(enteredCourseId ?? "", current?.code)) === "ice";
 
   return (
     <div className="earth-page is-earth">
@@ -256,10 +276,13 @@ export function EarthShell() {
               enteredCourse?.biome ??
               biomeForGlobeCourse(enteredCourseId, current?.code)
             }
-            arriving
+            arriving={landArriving}
+            focusDistrict={focusDistrict}
+            onFocusDistrict={setFocusDistrict}
             onWorld={setWorld}
             hoveredId={hovered}
             onHover={setHovered}
+            iceDemo={iceLandOpen ? iceDemo : undefined}
           />
         ) : (
           <ViewTransition name="studygotchi-earth" share="earth-morph" default="none">
@@ -272,7 +295,7 @@ export function EarthShell() {
                 diveAnchor={diving?.anchor ?? null}
                 onActiveCourseChange={focusCourse}
                 onCourseTownOpen={(courseId, anchor) => {
-                  enterCourse(courseId, anchor);
+                  raiseFlag(courseId, anchor);
                 }}
               />
             </div>
@@ -280,72 +303,68 @@ export function EarthShell() {
         )}
       </div>
 
+      {iceLandOpen ? (
+        <DemoTheater enabled demo={iceDemo} onChange={setIceDemo} />
+      ) : null}
+
       {!entered ? (
-        <CourseNavigator
-          courses={courses}
-          activeCourseId={activeCourseId}
-          records={overviewCache.records}
-          expandedCourseIds={expandedCourseIds}
-          expandedTopicIds={expandedTopicIds}
-          onToggleCourse={toggleCourse}
-          onToggleTopic={toggleTopic}
-          onFocusCourse={focusCourse}
-          onLand={land}
-          onRetry={(courseId) => void overviewCache.load(courseId)}
-        />
-      ) : (
-        <aside className="earth-panel" aria-label="Course">
-          {selectedRegion ? (
-            <ConceptCard region={selectedRegion} onClose={() => select(null)} />
-          ) : (
-          <>
-            <button type="button" className="pill-link" onClick={leave}>
-              The planet
-            </button>
-            <h1 style={{ marginTop: 10 }}>{current?.code ?? identity.courseName}</h1>
-            <p className="lede">
-              {current?.name ?? identity.courseName}
-              {world ? ` · ${reached} of ${total} ideas reached` : ""}
-            </p>
-
-            <UploadBox />
-
-            {hovered && regionById.get(hovered) ? (
-              <p className="mt-4 text-[13px] text-paper-soft">
-                Click <strong className="text-paper-title">{regionById.get(hovered)?.name}</strong> to open it here.
-              </p>
-            ) : (
-              <p className="mt-4 text-[13px] text-paper-soft">Hover the island to read a place; click to open it here.</p>
-            )}
-
-            {events.length > 0 ? (
-              <>
-                <h3 className="mb-1 mt-5 text-[12px] uppercase tracking-wider text-paper-soft">What changed</h3>
-                <ul className="change-feed">
-                  {events.slice(0, 8).map((e) => (
-                    <li key={e.id}>
-                      <button
-                        type="button"
-                        className="pill-link"
-                        style={{ fontSize: 13, textAlign: "left" }}
-                        onClick={() => {
-                          emit({ type: "ui", kind: "tap" });
-                          if (e.concept_id) select(e.concept_id);
-                        }}
-                      >
-                        <strong className="text-paper-title" style={{ fontWeight: 500 }}>
-                          {EVENT_LABEL[e.event] ?? e.event}
-                        </strong>{" "}
-                        {e.explanation}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-          </>
-          )}
+        <div className="earth-planet-chrome">
+          <CourseNavigator
+            courses={courses}
+            activeCourseId={activeCourseId}
+            records={overviewCache.records}
+            onFocusCourse={focusCourse}
+          />
+          {activeCourseId ? (
+            <LandmarkFlag
+              course={
+                globeCourses.find((course) => course.id === activeCourseId) ?? {
+                  id: activeCourseId,
+                  code: courses.find((course) => course.id === activeCourseId)?.code ?? null,
+                  name: courses.find((course) => course.id === activeCourseId)?.name ?? "Course",
+                  biome: biomeForGlobeCourse(
+                    activeCourseId,
+                    courses.find((course) => course.id === activeCourseId)?.code,
+                  ),
+                  progress: null,
+                  stats: null,
+                }
+              }
+              record={overviewCache.records.get(activeCourseId)}
+              onLand={() => land(activeCourseId)}
+            />
+          ) : null}
+        </div>
+      ) : selectedRegion ? (
+        <aside className="earth-panel" aria-label="Place">
+          <ConceptCard region={selectedRegion} onClose={() => select(null)} />
         </aside>
+      ) : (
+        <ConceptRail
+          courseCode={current?.code ?? identity.courseName}
+          world={world}
+          overview={
+            enteredCourseId
+              ? overviewCache.records.get(enteredCourseId)?.status === "ready"
+                ? overviewCache.records.get(enteredCourseId)?.data ?? null
+                : null
+              : null
+          }
+          events={events}
+          activeConceptId={selectedId}
+          activePlaceId={focusDistrict}
+          iceLand={iceLandOpen}
+          onLeave={leave}
+          onSelectConcept={(conceptId) => {
+            emit({ type: "ui", kind: "tap" });
+            if (isConceptId(conceptId)) focusConcept(conceptId);
+            nav.go(galaxyHrefForConcept(conceptId));
+          }}
+          onVisitPlace={(placeId) => {
+            emit({ type: "ui", kind: "tap" });
+            setFocusDistrict(placeId);
+          }}
+        />
       )}
 
     </div>

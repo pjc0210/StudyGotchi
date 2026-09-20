@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { fieldStarCount } from "@/lib/space-field";
+import { SkySpiral } from "./SkySpiral";
 import { resolveCssColor, useSpaceAttribute } from "./useSpaceAttribute";
 
 /** World pixel: stars sit on this grid so they read as the same grain as the planet. */
@@ -19,8 +21,8 @@ function mulberry32(seed: number) {
 }
 
 /**
- * The sky both product pages share. Deterministic nebula dust plus pixel stars
- * on the space colour, redrawn when size or theme changes.
+ * Shared sky: grain stars plus a slot for the original generated spiral.
+ * Ice land hides this layer; the globe and Information keep it.
  */
 export function SpaceField() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -60,10 +62,10 @@ export function SpaceField() {
       ctx.imageSmoothingEnabled = false;
 
       const rng = mulberry32(SEED);
-      for (let i = 0; i < 7; i++) {
+      for (let i = 0; i < 8; i++) {
         const x = rng() * w;
         const y = rng() * h;
-        const radius = 80 + rng() * 220;
+        const radius = 70 + rng() * 200;
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
         gradient.addColorStop(0, nebula);
         gradient.addColorStop(1, "transparent");
@@ -71,15 +73,15 @@ export function SpaceField() {
         ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
       }
 
-      const count = Math.round((w * h) / 5200);
+      const count = fieldStarCount(w, h);
       for (let i = 0; i < count; i++) {
         const x = Math.floor((rng() * w) / GRID) * GRID;
         const y = Math.floor((rng() * h) / GRID) * GRID;
         const band = rng();
-        if (band < 0.58) {
+        if (band < 0.52) {
           ctx.fillStyle = soft;
           ctx.fillRect(x, y, GRID, GRID);
-        } else if (band < 0.9) {
+        } else if (band < 0.88) {
           ctx.fillStyle = star;
           ctx.fillRect(x, y, GRID, GRID);
         } else {
@@ -100,5 +102,10 @@ export function SpaceField() {
     return () => observer.disconnect();
   }, [theme]);
 
-  return <canvas ref={ref} className="sg-field" aria-hidden />;
+  return (
+    <>
+      <canvas ref={ref} className="sg-field" aria-hidden />
+      <SkySpiral />
+    </>
+  );
 }

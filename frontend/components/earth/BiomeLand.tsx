@@ -3,6 +3,7 @@
 import { WorldPage } from "@/components/world/WorldPage";
 import { visualForGlobeBiome } from "@/components/world/biomes/types";
 import type { GlobeBiome } from "@/components/world/globe/globe-types";
+import type { IceDemoState } from "@/lib/world/demo-theater";
 import type { WorldResponse } from "@/lib/world/types";
 
 /**
@@ -14,16 +15,22 @@ export function BiomeLand({
   courseId,
   biome,
   arriving,
+  focusDistrict,
+  onFocusDistrict,
   onWorld,
   hoveredId,
   onHover,
+  iceDemo,
 }: {
   courseId: string;
   biome: GlobeBiome;
   arriving: boolean;
+  focusDistrict?: string | null;
+  onFocusDistrict?: (id: string | null) => void;
   onWorld?: (world: WorldResponse | null) => void;
   hoveredId?: string | null;
   onHover?: (conceptId: string | null) => void;
+  iceDemo?: IceDemoState;
 }) {
   return (
     <div
@@ -38,6 +45,9 @@ export function BiomeLand({
         onWorld={onWorld}
         hoveredId={hoveredId}
         onHover={onHover}
+        iceDemo={iceDemo}
+        focusDistrict={focusDistrict}
+        onFocusDistrict={onFocusDistrict}
       />
     </div>
   );

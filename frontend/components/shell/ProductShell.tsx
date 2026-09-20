@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { ProductHeader } from "./ProductHeader";
 import { ShellNavProvider, useShellNav } from "./shell-nav";
 import { SpaceField } from "./SpaceField";
@@ -21,12 +21,14 @@ function ShellPage({ children }: { children: ReactNode }) {
  */
 export function ProductShell({ children }: { children: ReactNode }) {
   return (
-    <ShellNavProvider>
-      <div className="sg-shell">
-        <SpaceField />
-        <ShellPage>{children}</ShellPage>
-        <ProductHeader />
-      </div>
-    </ShellNavProvider>
+    <Suspense fallback={null}>
+      <ShellNavProvider>
+        <div className="sg-shell">
+          <SpaceField />
+          <ShellPage>{children}</ShellPage>
+          <ProductHeader />
+        </div>
+      </ShellNavProvider>
+    </Suspense>
   );
 }

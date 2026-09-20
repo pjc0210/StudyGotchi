@@ -14,7 +14,7 @@ const STATUS_LABEL: Record<UploadStatus, string> = {
 };
 
 /** Drop zone for the student's own work. Files go straight to the engine. */
-export function UploadBox() {
+export function UploadBox({ courseId }: { courseId?: string }) {
   const { addUploads, uploads, clearFinishedUploads } = useStore();
   const [kind, setKind] = useState<ArtifactType>("homework");
   const [active, setActive] = useState(false);
@@ -22,7 +22,7 @@ export function UploadBox() {
 
   const take = (files: FileList | null) => {
     if (!files || files.length === 0) return;
-    addUploads(Array.from(files), "student_self", kind);
+    addUploads(Array.from(files), "student_self", kind, courseId);
   };
 
   return (
@@ -45,6 +45,15 @@ export function UploadBox() {
       </div>
       <div
         className={`drop-zone${active ? " active" : ""}`}
+        role="button"
+        tabIndex={0}
+        onClick={() => input.current?.click()}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            input.current?.click();
+          }
+        }}
         onDragOver={(e) => {
           e.preventDefault();
           setActive(true);
@@ -57,21 +66,20 @@ export function UploadBox() {
         }}
       >
         Drop a PDF or photo here, or{" "}
-        <label>
-          choose a file
-          <input
-            ref={input}
-            type="file"
-            multiple
-            accept={ACCEPT_ATTRIBUTE}
-            className="sr-only"
-            onChange={(e) => {
-              take(e.target.files);
-              e.target.value = "";
-            }}
-          />
-        </label>
+        <span className="drop-zone-choose">choose a file</span>
         . The island reacts in seconds; the close read finishes in the background.
+        <input
+          ref={input}
+          type="file"
+          multiple
+          accept={ACCEPT_ATTRIBUTE}
+          className="sr-only"
+          onClick={(event) => event.stopPropagation()}
+          onChange={(e) => {
+            take(e.target.files);
+            e.target.value = "";
+          }}
+        />
       </div>
       {uploads.length > 0 ? (
         <>

@@ -54,4 +54,5 @@ export interface CourseGlobeCanvasProps {
   reducedMotion: boolean;
   onActiveCourseChange(courseId: string): void;
   onCourseTownOpen(courseId: string, anchor: ScreenPoint): void;
+  onLandmarkAnchor?(anchor: ScreenPoint | null): void;
 }

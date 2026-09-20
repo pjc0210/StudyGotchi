@@ -2,6 +2,9 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { api, ApiError, invalidateApiCache, isStudentScoped, seededKnowledgeGraph } from "./api";
+import { demoUploadsForCourse } from "./world/demo-ingest";
+import { mergeVisibleFiles } from "./world/sandbox-roster";
+import { withPipelineSources } from "./world/pipeline-understanding";
 import { useIdentity } from "./identity";
 import { ACCEPT_COPY, artifactTypeFor, isAcceptedFile } from "./uploadIntake";
 import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
@@ -42,7 +45,7 @@ interface StoreValue {
   ingestVersion: number;
   /** Concepts the latest uploads touched, most recent first. The island highlights them. */
   recentlyTouched: string[];
-  addUploads: (files: File[], origin: SourceOrigin, artifactType: ArtifactType) => void;
+  addUploads: (files: File[], origin: SourceOrigin, artifactType: ArtifactType, courseId?: string) => void;
   clearFinishedUploads: () => void;
 }
 
@@ -102,12 +105,16 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     setResourcesLoading(true);
     api
       .listResources()
-      .then(setResources)
+      .then((live) =>
+        setResources(withPipelineSources(courseId, mergeVisibleFiles(courseId, [...live, ...demoUploadsForCourse(courseId)]))),
+      )
       // A missing resource list must not take the graph down with it; the
       // graph simply renders concepts alone.
-      .catch(() => setResources([]))
+      .catch(() =>
+        setResources(withPipelineSources(courseId, mergeVisibleFiles(courseId, demoUploadsForCourse(courseId)))),
+      )
       .finally(() => setResourcesLoading(false));
-  }, [ready]);
+  }, [courseId, ready]);
 
   useEffect(() => {
     reloadResources();
@@ -185,7 +192,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   );
 
   const addUploads = useCallback<StoreValue["addUploads"]>(
-    (files, origin, artifactType) => {
+    (files, origin, artifactType, courseId) => {
       const accepted = files.filter(isAcceptedFile);
       const rejected = files.filter((f) => !isAcceptedFile(f));
 
@@ -219,10 +226,11 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           patchUpload(item.id, { status: "uploading" });
 
           api
-            .ingest({ file, origin, artifactType: item.artifact_type, studentScoped })
+            .ingest({ file, origin, artifactType: item.artifact_type, studentScoped, courseId })
             .then((res) => {
               patchUpload(item.id, { status: res.status ?? "processing", child_count: res.child_count });
-              noteTouched(res.concepts_touched ?? []);
+              const touched = res.concepts_touched ?? [];
+              noteTouched(touched);
 
               // The fast phase already moved this student's state; show it now,
               // then follow the background read until the engine is done.

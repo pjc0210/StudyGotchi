@@ -1,18 +1,34 @@
 "use client";
 
-import { FileArchive, FileText, FolderOpen } from "lucide-react";
+import { FolderOpen } from "lucide-react";
+import { useMemo } from "react";
 import { useStore } from "@/lib/store";
 import { EmptyState } from "@/components/common/EmptyState";
 import { SkeletonRows } from "@/components/common/LoadingState";
 import { OriginChip, artifactLabel } from "@/components/common/StatusBadge";
 import { UploadRow } from "@/components/upload/UploadItem";
+import { fileGroup } from "@/lib/world/file-mark";
+import { FileMark } from "./FileMark";
+
+const SHELF_ORDER = ["Lectures", "Problem sets", "Exams", "Readings", "Your work", "Files"];
 
 export function FileList({ onUploadClick }: { onUploadClick: () => void }) {
-  const { uploads, resources, resourcesLoading } = useStore();
-  // Anything not yet settled into the resource list - still processing, or
-  // rejected - shows above it, rendered by the same row as the upload queue so
-  // the two views can never disagree about what a status looks like.
+  const { uploads, resources, resourcesLoading, focusConcept } = useStore();
   const inFlight = uploads.filter((u) => u.status !== "complete");
+
+  const shelves = useMemo(() => {
+    const groups = new Map<string, typeof resources>();
+    for (const resource of resources) {
+      const shelf = fileGroup(resource.title, resource.artifact_type);
+      const list = groups.get(shelf) ?? [];
+      list.push(resource);
+      groups.set(shelf, list);
+    }
+    return SHELF_ORDER.filter((name) => groups.has(name)).map((name) => ({
+      name,
+      files: groups.get(name)!,
+    }));
+  }, [resources]);
 
   if (resourcesLoading) return <SkeletonRows rows={5} />;
 
@@ -36,48 +52,49 @@ export function FileList({ onUploadClick }: { onUploadClick: () => void }) {
   }
 
   return (
-    <div className="p-4">
+    <div className="sg-file-dock">
       {inFlight.length > 0 ? (
-        <ul className="mb-4 space-y-1.5">
+        <ul className="sg-file-queue">
           {inFlight.map((u) => (
             <UploadRow key={u.id} item={u} />
           ))}
         </ul>
       ) : null}
 
-      <ul className="space-y-1.5">
-        {resources.map((r) => {
-          const Icon = r.artifact_type === "course_bundle" ? FileArchive : FileText;
-          return (
-            <li
-              key={r.id}
-              className="flex items-center gap-3 rounded-lg border border-line bg-raised/40 px-3 py-2.5"
-            >
-              <Icon
-                size={14}
-                strokeWidth={1.75}
-                className="shrink-0 text-ink-faint"
-                aria-hidden
-              />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[13px] text-ink">{r.title}</p>
-                <p className="flex items-center gap-1.5 text-[11px] text-ink-faint">
-                  <OriginChip origin={r.origin} />
-                  <span>{artifactLabel(r.artifact_type)}</span>
-                </p>
-              </div>
-              <div className="shrink-0 text-right">
-                <p className="font-mono text-[13px] tabular-nums text-ink">
-                  {r.concept_count}
-                </p>
-                <p className="text-[10px] text-ink-faint">
-                  {r.status === "complete" ? "concepts" : r.status}
-                </p>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      {shelves.map((shelf) => (
+        <section key={shelf.name} className="sg-file-shelf">
+          <header>
+            <h3>{shelf.name}</h3>
+            <span>{shelf.files.length}</span>
+          </header>
+          <ul>
+            {shelf.files.map((r) => (
+              <li key={r.id}>
+                <button
+                  type="button"
+                  className="sg-file-row"
+                  onClick={() => {
+                    if (r.concept_ids[0]) focusConcept(r.concept_ids[0]);
+                  }}
+                >
+                  <FileMark title={r.title} />
+                  <div className="sg-file-copy">
+                    <p className="sg-file-title">{r.title}</p>
+                    <p className="sg-file-meta">
+                      <OriginChip origin={r.origin} />
+                      <span>{artifactLabel(r.artifact_type)}</span>
+                    </p>
+                  </div>
+                  <div className="sg-file-count">
+                    <p>{r.concept_count}</p>
+                    <span>{r.status === "complete" ? "ideas" : r.status}</span>
+                  </div>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </div>
   );
 }

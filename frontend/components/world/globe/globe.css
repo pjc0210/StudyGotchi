@@ -95,3 +95,36 @@
     opacity: 0;
   }
 }
+
+.landmark-pin {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 72px;
+  min-height: 44px;
+  padding: 0 10px 0 6px;
+  border: 0;
+  color: #17151d;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(23, 21, 29, 0.28));
+}
+
+.landmark-pin-mast {
+  width: 3px;
+  height: 28px;
+  background: #342d45;
+  border-radius: 1px;
+}
+
+.landmark-pin-flag {
+  padding: 3px 7px;
+  color: #fff6df;
+  background: #342d45;
+  border-radius: 3px 6px 6px 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

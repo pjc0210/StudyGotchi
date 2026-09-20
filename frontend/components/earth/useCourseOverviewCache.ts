@@ -3,6 +3,7 @@
 import { useMemo, useRef, useSyncExternalStore } from "react";
 import { api, mockWorldForCourse } from "@/lib/api";
 import { isSandboxCatalogId } from "@/lib/world/sandbox-courses";
+import { ingestionResourcesForCourse } from "@/lib/world/sandbox-roster";
 import type { CourseSummary } from "@/lib/identity";
 import {
   buildCourseOverview,
@@ -140,14 +141,16 @@ export function useCourseOverviewCache(
       const course = coursesRef.current.find((candidate) => candidate.id === courseId);
       if (!course) throw new Error("This course is no longer available.");
 
+      const ingested = ingestionResourcesForCourse(courseId);
       if (isSandboxCatalogId(courseId)) {
-        return buildCourseOverview(course, mockWorldForCourse(courseId), []);
+        return buildCourseOverview(course, mockWorldForCourse(courseId), ingested);
       }
       const [world, resources] = await Promise.all([
         api.getWorldForCourse(courseId),
         api.listResourcesForCourse(courseId).catch(() => []),
       ]);
-      return buildCourseOverview(course, world, resources);
+      const merged = resources.length > 0 ? resources : ingested;
+      return buildCourseOverview(course, world, merged);
     });
   }
 

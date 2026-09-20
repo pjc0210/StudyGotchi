@@ -27,6 +27,7 @@ export default function CourseGlobeCanvas({
   reducedMotion,
   onActiveCourseChange,
   onCourseTownOpen,
+  onLandmarkAnchor,
 }: CourseGlobeCanvasProps) {
   const hostRef = useRef<HTMLDivElement>(null);
   const spinApi = useRef<GlobeSpinApi | null>(null);
@@ -170,6 +171,7 @@ export default function CourseGlobeCanvas({
           onCourseTownOpen={({ courseId, anchor }) =>
             onCourseTownOpen(courseId, anchor)
           }
+          onLandmarkAnchor={onLandmarkAnchor}
           onPointerInteractionChange={handlePointerInteractionChange}
           spinApi={spinApi}
         />

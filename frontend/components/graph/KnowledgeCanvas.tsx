@@ -27,6 +27,7 @@ import {
 } from "@/lib/constellationLabels";
 import type { GraphModel } from "@/lib/graphModel";
 import { spacePalette, type SpacePalette } from "@/lib/graphTheme";
+import { edgeBackboneScore, edgeDrawBudget, keepBackboneEdge } from "@/lib/space-field";
 
 export interface CanvasHandle {
   fit: (duration?: number) => void;
@@ -57,6 +58,10 @@ interface Props {
   /** Backend study route, drawn as a prominent path. */
   routeIds: string[];
   selectedId: string | null;
+  arrivingIds?: string[];
+  weakFlash?: boolean;
+  /** Short local gap traces — one id per top weak cluster, not a red web. */
+  weakTraceIds?: string[];
   onSelect: (id: string | null) => void;
   onHover: (info: HoverInfo | null) => void;
   handleRef: RefObject<CanvasHandle | null>;
@@ -70,6 +75,9 @@ export function KnowledgeCanvas({
   emphasis,
   routeIds,
   selectedId,
+  arrivingIds = [],
+  weakFlash = false,
+  weakTraceIds = [],
   onSelect,
   onHover,
   handleRef,
@@ -84,6 +92,11 @@ export function KnowledgeCanvas({
   const hoveredRef = useRef<string | null>(null);
   const dirtyRef = useRef(true);
   const rafRef = useRef<number | null>(null);
+  const arrivingAtRef = useRef(new Map<string, number>());
+  const weakPulseAtRef = useRef(0);
+  const weakTraceSetRef = useRef(new Set<string>());
+  weakTraceSetRef.current = new Set(weakTraceIds);
+  const clusterHitsRef = useRef<{ x0: number; y0: number; x1: number; y1: number; memberIds: string[] }[]>([]);
   const sizeRef = useRef({ w: 0, h: 0 });
   const onResizeRef = useRef<(() => void) | null>(null);
 
@@ -91,10 +104,11 @@ export function KnowledgeCanvas({
   const dragRef = useRef<{
     mode: "none" | "pan" | "node";
     nodeId: string | null;
+    clusterIds: string[] | null;
     startX: number;
     startY: number;
     moved: boolean;
-  }>({ mode: "none", nodeId: null, startX: 0, startY: 0, moved: false });
+  }>({ mode: "none", nodeId: null, clusterIds: null, startX: 0, startY: 0, moved: false });
 
   // Layout is computed once per model and then frozen.
   const layout = useMemo(() => {
@@ -253,8 +267,21 @@ export function KnowledgeCanvas({
   // --- drawing ------------------------------------------------------------
 
   useEffect(() => {
+    const now = performance.now();
+    for (const id of arrivingIds) {
+      if (!arrivingAtRef.current.has(id)) arrivingAtRef.current.set(id, now);
+    }
     markDirty();
-  }, [emphasis, routeIds, selectedId, theme, markDirty]);
+  }, [arrivingIds, markDirty]);
+
+  useEffect(() => {
+    weakPulseAtRef.current = weakFlash ? performance.now() : 0;
+    markDirty();
+  }, [weakFlash, markDirty]);
+
+  useEffect(() => {
+    markDirty();
+  }, [emphasis, routeIds, selectedId, theme, weakTraceIds, markDirty]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -264,7 +291,15 @@ export function KnowledgeCanvas({
 
     const draw = () => {
       rafRef.current = requestAnimationFrame(draw);
-      if (!dirtyRef.current) return;
+      const now = performance.now();
+      const weakPulse = weakPulseAtRef.current
+        ? Math.max(0, 1 - (now - weakPulseAtRef.current) / 1600)
+        : 0;
+      let popping = false;
+      for (const started of arrivingAtRef.current.values()) {
+        if (now - started < 640) popping = true;
+      }
+      if (!dirtyRef.current && weakPulse <= 0 && !popping) return;
       dirtyRef.current = false;
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -302,18 +337,22 @@ export function KnowledgeCanvas({
         weight: pn.node.weight,
         cluster: pn.node.kind === "concept" ? pn.node.concept.cluster : undefined,
         clusterId: pn.node.kind === "concept" ? pn.node.concept.cluster_id : undefined,
+        constellation: pn.node.kind === "concept" ? pn.node.concept.constellation : undefined,
+        mastery: pn.node.kind === "concept" ? pn.node.concept.mastery : undefined,
       }));
       const clusters = buildSpaceClusters(labelables, model.adjacency);
 
-      // ---- nebula dust behind topic clusters ----
+      // ---- nebula dust behind topic clusters: light blue mastered, red not ----
       for (const cluster of clusters) {
-        const tint = palette.nebula[cluster.tintIndex % palette.nebula.length];
+        const tint = (cluster.mastery ?? 0.45) >= 0.6 ? palette.nebula[0] : palette.nebula[1];
         const { r, g, b } = hexRgb(tint);
         const x = sx(cluster.x);
         const y = sy(cluster.y);
-        const radius = 48 + Math.sqrt(cluster.count) * 26 * Math.min(1.15, Math.max(0.55, cam.k));
+        const radius = 58 + Math.sqrt(cluster.count) * 30 * Math.min(1.15, Math.max(0.55, cam.k));
         const dust = ctx.createRadialGradient(x, y, 0, x, y, radius);
-        dust.addColorStop(0, `rgba(${r},${g},${b},${palette.halo === "#17152c" ? 0.16 : 0.1})`);
+        const core = palette.halo === "#080716" ? 0.34 : 0.22;
+        dust.addColorStop(0, `rgba(${r},${g},${b},${core})`);
+        dust.addColorStop(0.55, `rgba(${r},${g},${b},${core * 0.45})`);
         dust.addColorStop(1, `rgba(${r},${g},${b},0)`);
         ctx.globalAlpha = 1;
         ctx.fillStyle = dust;
@@ -324,18 +363,43 @@ export function KnowledgeCanvas({
 
       // ---- edges ----
       ctx.lineCap = "round";
+      const lod = edgeDrawBudget(cam.k);
       for (const link of model.links) {
         const a = nodeIndex.get(link.source);
         const b = nodeIndex.get(link.target);
         if (!a || !b) continue;
 
         const onRoute = routeEdgeSet.has(`${link.source}|${link.target}`);
+        const weakLink = weakPulse > 0 && weakTraceSetRef.current.has(link.id);
         const lit =
           onRoute ||
           (!focusSet ? false : focusSet.has(link.source) && focusSet.has(link.target));
-        ctx.globalAlpha = focusSet ? (lit ? 1 : 0.1) : 1;
-        ctx.strokeStyle = lit || onRoute ? palette.edgeStrong : link.kind === "resource" ? palette.edgeResource : palette.edge;
-        ctx.lineWidth = onRoute ? 1.4 : lit ? 1.1 : 0.9;
+        const score = edgeBackboneScore({
+          kind: link.kind,
+          directed: link.directed,
+          type: link.type,
+          sourceWeight: a.node.weight,
+          targetWeight: b.node.weight,
+        });
+        if (!onRoute && !lit && !weakLink && !keepBackboneEdge(score, cam.k)) continue;
+        const dim = !onRoute && !lit && !weakLink;
+        ctx.globalAlpha = weakLink
+          ? Math.max(0.2, weakPulse)
+          : focusSet
+            ? lit
+              ? 1
+              : 0.08
+            : dim
+              ? lod.alpha
+              : 1;
+        ctx.strokeStyle = weakLink
+          ? palette.live
+          : lit || onRoute
+            ? palette.edgeStrong
+            : link.kind === "resource"
+              ? palette.edgeResource
+              : palette.edge;
+        ctx.lineWidth = weakLink ? 2.1 : onRoute ? 1.4 : lit ? 1.1 : lod.width;
 
         const angle = Math.atan2(b.y - a.y, b.x - a.x);
         const aProfile = starProfile(a.node.id, a.node.radius, a.node.kind, cam.k);
@@ -350,8 +414,22 @@ export function KnowledgeCanvas({
         const cx = mx - Math.sin(angle) * curve;
         const cy = my + Math.cos(angle) * curve;
         ctx.beginPath();
-        ctx.moveTo(ax, ay);
-        ctx.quadraticCurveTo(cx, cy, bx, by);
+        if (weakLink) {
+          const along = (t: number) => {
+            const u = 1 - t;
+            return {
+              x: u * u * ax + 2 * u * t * cx + t * t * bx,
+              y: u * u * ay + 2 * u * t * cy + t * t * by,
+            };
+          };
+          const start = along(0.38);
+          const end = along(0.62);
+          ctx.moveTo(start.x, start.y);
+          ctx.lineTo(end.x, end.y);
+        } else {
+          ctx.moveTo(ax, ay);
+          ctx.quadraticCurveTo(cx, cy, bx, by);
+        }
         ctx.stroke();
       }
 
@@ -365,7 +443,20 @@ export function KnowledgeCanvas({
 
         const isSelected = selectedId === node.id;
         const onRoute = routeSet.has(node.id);
-        drawStar(ctx, x, y, profile, alphaFor(node.id), isSelected || onRoute, node.id, palette);
+        if (spaceLabelLayer(cam.k) === "clusters" && node.kind === "resource" && !isSelected && !onRoute) {
+          continue;
+        }
+        const born = arrivingAtRef.current.get(node.id);
+        const pop = born ? Math.min(1, (now - born) / 520) : 1;
+        const popScale = born ? 0.25 + (1 - Math.pow(1 - pop, 3)) * 1.05 : 1;
+        ctx.save();
+        if (popScale !== 1) {
+          ctx.translate(x, y);
+          ctx.scale(popScale, popScale);
+          ctx.translate(-x, -y);
+        }
+        drawStar(ctx, x, y, profile, alphaFor(node.id), isSelected || onRoute || Boolean(born && pop < 1), node.id, palette);
+        ctx.restore();
       }
 
       // ---- labels (drawn last, with collision avoidance) ----
@@ -376,6 +467,7 @@ export function KnowledgeCanvas({
       const displayFace = spaceTypeface("display");
       const uiFace = spaceTypeface("ui");
       const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
+      clusterHitsRef.current = [];
 
       const paintLabel = (
         text: string,
@@ -401,7 +493,7 @@ export function KnowledgeCanvas({
         const collides = placed.some(
           (p) => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0,
         );
-        if (collides && !forced) return;
+        if (collides && !forced) return false;
         placed.push(box);
         ctx.globalAlpha = alpha;
         ctx.lineWidth = 3;
@@ -410,6 +502,7 @@ export function KnowledgeCanvas({
         ctx.strokeText(text, labelX, labelY);
         ctx.fillStyle = fill;
         ctx.fillText(text, labelX, labelY);
+        return box;
       };
 
       if (layer === "clusters") {
@@ -418,7 +511,7 @@ export function KnowledgeCanvas({
           const y = sy(cluster.y);
           if (x < -80 || y < -40 || x > w + 80 || y > h + 40) continue;
           const size = cam.k > 0.55 ? 13 : 12;
-          paintLabel(
+          const box = paintLabel(
             clipSpaceLabel(cluster.label, clusterLabelBudget(cam.k)),
             x,
             y - 18,
@@ -429,6 +522,15 @@ export function KnowledgeCanvas({
             1,
             false,
           );
+          if (box) {
+            clusterHitsRef.current.push({
+              x0: box.x0 - 10,
+              y0: box.y0 - 8,
+              x1: box.x1 + 10,
+              y1: box.y1 + 8,
+              memberIds: cluster.memberIds,
+            });
+          }
         }
       }
 
@@ -532,15 +634,32 @@ export function KnowledgeCanvas({
     [layout],
   );
 
+  const pickCluster = useCallback((clientX: number, clientY: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
+    const px = clientX - rect.left;
+    const py = clientY - rect.top;
+    for (let i = clusterHitsRef.current.length - 1; i >= 0; i -= 1) {
+      const box = clusterHitsRef.current[i];
+      if (px >= box.x0 && px <= box.x1 && py >= box.y0 && py <= box.y1) {
+        return box;
+      }
+    }
+    return null;
+  }, []);
+
   // --- pointer interaction ------------------------------------------------
 
   const onPointerDown = useCallback(
     (e: React.PointerEvent<HTMLCanvasElement>) => {
       (e.target as HTMLCanvasElement).setPointerCapture(e.pointerId);
-      const hit = pick(e.clientX, e.clientY);
+      const cluster = pickCluster(e.clientX, e.clientY);
+      const hit = cluster ? null : pick(e.clientX, e.clientY);
       dragRef.current = {
         mode: hit ? "node" : "pan",
         nodeId: hit?.id ?? null,
+        clusterIds: cluster?.memberIds ?? null,
         startX: e.clientX,
         startY: e.clientY,
         moved: false,
@@ -550,9 +669,9 @@ export function KnowledgeCanvas({
         hit.fy = hit.y;
         layout.simulation.alphaTarget(0.12).alpha(0.22).restart();
       }
-      (e.currentTarget.style.cursor = hit ? "grabbing" : "grabbing");
+      e.currentTarget.style.cursor = "grabbing";
     },
-    [pick],
+    [pick, pickCluster, layout],
   );
 
   const onPointerMove = useCallback(
@@ -561,15 +680,20 @@ export function KnowledgeCanvas({
       const cam = camRef.current;
 
       if (drag.mode === "none") {
-        const hit = pick(e.clientX, e.clientY);
+        const cluster = pickCluster(e.clientX, e.clientY);
+        const hit = cluster ? null : pick(e.clientX, e.clientY);
         const id = hit?.id ?? null;
+        e.currentTarget.style.cursor = cluster || id ? "pointer" : "grab";
         if (id !== hoveredRef.current) {
           hoveredRef.current = id;
-          e.currentTarget.style.cursor = id ? "pointer" : "grab";
           markDirty();
           onHover(id ? { id, screenX: e.clientX, screenY: e.clientY } : null);
         } else if (id) {
           onHover({ id, screenX: e.clientX, screenY: e.clientY });
+        } else if (!id && hoveredRef.current) {
+          hoveredRef.current = null;
+          markDirty();
+          onHover(null);
         }
         return;
       }
@@ -596,15 +720,18 @@ export function KnowledgeCanvas({
         }
       }
     },
-    [pick, nodeIndex, layout, markDirty, onHover],
+    [pick, pickCluster, nodeIndex, layout, markDirty, onHover],
   );
 
   const onPointerUp = useCallback(
     (e: React.PointerEvent<HTMLCanvasElement>) => {
       const drag = dragRef.current;
       if (!drag.moved) {
-        // A click, not a drag.
-        onSelect(drag.nodeId);
+        if (drag.clusterIds?.length) {
+          fitTo(drag.clusterIds);
+        } else {
+          onSelect(drag.nodeId);
+        }
       }
       if (drag.nodeId) {
         const pn = nodeIndex.get(drag.nodeId);
@@ -628,7 +755,7 @@ export function KnowledgeCanvas({
             : null,
         );
       }
-      dragRef.current = { mode: "none", nodeId: null, startX: 0, startY: 0, moved: false };
+      dragRef.current = { mode: "none", nodeId: null, clusterIds: null, startX: 0, startY: 0, moved: false };
       try {
         (e.target as HTMLCanvasElement).releasePointerCapture(e.pointerId);
       } catch {
@@ -636,7 +763,7 @@ export function KnowledgeCanvas({
       }
       e.currentTarget.style.cursor = stillUnder ? "pointer" : "grab";
     },
-    [onSelect, pick, nodeIndex, layout, markDirty, onHover],
+    [onSelect, fitTo, pick, pickCluster, nodeIndex, layout, markDirty, onHover],
   );
 
   const onWheel = useCallback(

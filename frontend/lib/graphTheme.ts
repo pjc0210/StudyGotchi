@@ -43,7 +43,7 @@ export function spacePalette(theme: "light" | "dark"): SpacePalette {
       label: "#efe6d3",
       labelDim: "rgba(239, 230, 211, 0.66)",
       labelStrong: "#fff6df",
-      nebula: ["#8fc9d8", "#c9a2e6", "#e88a8a", "#ffe7a3", "#a9cfe8", "#b7e7b0"],
+      nebula: ["#9ad8ff", "#ff6b6b"],
     };
   }
   return {
@@ -58,7 +58,7 @@ export function spacePalette(theme: "light" | "dark"): SpacePalette {
     label: "#29303a",
     labelDim: "rgba(41, 48, 58, 0.66)",
     labelStrong: "#17151d",
-    nebula: ["#8fc9d8", "#c9a2e6", "#e88a8a", "#f0d77d", "#a9cfe8", "#9fd39a"],
+    nebula: ["#7eb7e8", "#e45d5d"],
   };
 }
 

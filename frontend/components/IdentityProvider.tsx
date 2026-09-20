@@ -4,7 +4,8 @@ import { useAuth } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { api } from "@/lib/api";
 import { DEV_STUDENT_ID, USE_MOCK } from "@/lib/config";
-import { DEMO_COURSES, DEMO_STUDENT_ID } from "@/lib/world/demo-courses";
+import { DEMO_STUDENT_ID } from "@/lib/world/demo-courses";
+import { SANDBOX_COURSES } from "@/lib/world/sandbox-roster";
 import { bearerAdapter, receiveMe, setCredentials } from "@/lib/identity";
 
 /**
@@ -25,8 +26,8 @@ export function IdentityProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     receiveMe(
-      { student_id: DEV_STUDENT_ID || DEMO_STUDENT_ID, courses: DEMO_COURSES },
-      DEMO_COURSES,
+      { student_id: DEV_STUDENT_ID || DEMO_STUDENT_ID, courses: SANDBOX_COURSES },
+      SANDBOX_COURSES,
     );
     if (USE_MOCK || !canAsk) return;
     let cancelled = false;
@@ -38,7 +39,7 @@ export function IdentityProvider({ children }: { children: React.ReactNode }) {
       } catch {
         if (!cancelled) {
           receiveMe(
-            { student_id: DEV_STUDENT_ID || DEMO_STUDENT_ID, courses: DEMO_COURSES },
+            { student_id: DEV_STUDENT_ID || DEMO_STUDENT_ID, courses: SANDBOX_COURSES },
             catalog,
           );
         }

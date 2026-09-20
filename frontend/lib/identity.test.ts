@@ -6,8 +6,17 @@ describe("demo identity", () => {
   it("keeps 8.223 and 6.1400 after a signed-out clear", () => {
     clearIdentity();
     const identity = getIdentity();
-    expect(identity.courses.map((course) => course.code)).toEqual(["8.223", "6.1400"]);
-    expect(identity.courses.map((course) => course.id)).toEqual(DEMO_COURSES.map((course) => course.id));
+    expect(identity.courses.map((course) => course.code)).toEqual([
+      "8.223",
+      "6.1400",
+      "6.1210",
+      "18.06",
+      "18.03",
+      "8.022",
+      "16.C20",
+    ]);
+    expect(identity.courses[0]?.id).toBe(DEMO_COURSES[0].id);
+    expect(identity.courses).toHaveLength(7);
     expect(identity.ready).toBe(true);
     expect(identity.studentId).toBe(DEMO_STUDENT_ID);
   });
@@ -15,7 +24,16 @@ describe("demo identity", () => {
   it("keeps pipeline UUIDs when /api/me returns no courses", () => {
     receiveMe({ student_id: "clerk_sandbox", courses: [] });
     const identity = getIdentity();
-    expect(identity.courses.map((course) => course.id)).toEqual(DEMO_COURSES.map((course) => course.id));
+    expect(identity.courses.map((course) => course.code)).toEqual([
+      "8.223",
+      "6.1400",
+      "6.1210",
+      "18.06",
+      "18.03",
+      "8.022",
+      "16.C20",
+    ]);
+    expect(identity.courses[0]?.id).toBe(DEMO_COURSES[0].id);
     expect(identity.studentId).toBe("clerk_sandbox");
     expect(identity.ready).toBe(true);
     expect(identity.courseId).toBe(DEMO_COURSES[0].id);
