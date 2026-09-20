@@ -1,6 +1,6 @@
 import type { Course } from './types'
 
-export const DEMO_PASSWORD_HINT = 'Any password works in this mock. Use 123456 for 2FA.'
+export const DEMO_PASSWORD_HINT = 'Seeded accounts use password 123456.'
 
 export const submittedCourses: Course[] = [
   { code: 'CSSE120', name: 'Introduction to Software Development' },

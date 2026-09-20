@@ -32,6 +32,7 @@ export function LoginPage() {
       <SiteHeader />
       <form className="login-form" onSubmit={onSubmit}>
         <h1>Login</h1>
+        <p className="muted login-hint">Seeded mock: demo@example.com / 123456</p>
         {error && <p className="error">{error}</p>}
         <input
           className="login-input"

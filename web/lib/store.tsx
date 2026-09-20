@@ -8,8 +8,31 @@ import {
   type ReactNode,
 } from 'react'
 import { saveSession } from '@/app/actions/session'
+import {
+  createAccount,
+  findAccountByEmail,
+  verifyLogin,
+} from '@/lib/db/users'
 import { submittedCourses } from './mock'
 import type { Course, User } from './types'
+
+function toSessionUser(
+  account: {
+    id: string
+    name: string
+    email: string
+    handle: string
+  },
+  twoFactor = false,
+): User {
+  return {
+    id: account.id,
+    name: account.name,
+    email: account.email,
+    handle: account.handle,
+    twoFactor,
+  }
+}
 
 type Store = {
   ready: boolean
@@ -40,14 +63,10 @@ export function StoreProvider({
     await saveSession(next)
   }
 
-  const login = async (email: string, _password: string): Promise<'ok' | '2fa' | string> => {
-    if (!email.includes('@')) return 'Use a valid email in this mock.'
-    const next: User = {
-      name: email.split('@')[0].replace(/\./g, ' '),
-      email,
-      handle: `@${email.split('@')[0]}`,
-      twoFactor: email.toLowerCase().includes('2fa'),
-    }
+  const login = async (email: string, password: string): Promise<'ok' | '2fa' | string> => {
+    const result = verifyLogin(email, password)
+    if (typeof result === 'string') return result
+    const next = toSessionUser(result, email.toLowerCase().includes('2fa'))
     if (next.twoFactor) {
       setPendingTwoFactor(true)
       sessionStorage.setItem('sg.pending', JSON.stringify(next))
@@ -72,12 +91,9 @@ export function StoreProvider({
     if (!name.trim()) return 'Name is required.'
     if (!email.includes('@')) return 'Email looks off.'
     if (password.length < 4) return 'Use at least 4 characters (mock).'
-    await persist({
-      name,
-      email,
-      handle: `@${name.split(' ')[0].toLowerCase()}`,
-      twoFactor: false,
-    })
+    const created = createAccount(name, email, password)
+    if (typeof created === 'string') return created
+    await persist(toSessionUser(created))
     return null
   }
 
@@ -91,17 +107,20 @@ export function StoreProvider({
   }
 
   const value = useMemo<Store>(
-    () => ({
-      ready: true,
-      user,
-      pendingTwoFactor,
-      courses: submittedCourses,
-      login,
-      verifyTwoFactor,
-      register,
-      logout,
-      requestReset,
-    }),
+    () => {
+      const account = user ? findAccountByEmail(user.email) : null
+      return {
+        ready: true,
+        user,
+        pendingTwoFactor,
+        courses: account?.courses ?? submittedCourses,
+        login,
+        verifyTwoFactor,
+        register,
+        logout,
+        requestReset,
+      }
+    },
     [user, pendingTwoFactor],
   )
 

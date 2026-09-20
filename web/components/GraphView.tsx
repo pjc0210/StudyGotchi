@@ -12,7 +12,15 @@ import {
   type CanvasHandle,
   type HoverInfo,
 } from '@/components/graph/KnowledgeCanvas'
+import { PeerChrome } from '@/components/PeerChrome'
 import { SiteHeader } from '@/components/SiteHeader'
+import {
+  accountHasGraph,
+  findAccountByEmail,
+  getAccountCourseData,
+  toPublic,
+  type PublicAccount,
+} from '@/lib/db/users'
 import { buildGraphModel, lensEmphasis, type Lens } from '@/lib/kg/graphModel'
 import {
   MOCK_COURSE,
@@ -21,14 +29,29 @@ import {
 } from '@/lib/kg/mock'
 import { useStore } from '@/lib/store'
 
-export function GraphView() {
-  const { courses } = useStore()
+export function GraphView({ peer }: { peer?: PublicAccount }) {
+  const { courses, user } = useStore()
+  const self = user ? findAccountByEmail(user.email) : null
+  const account: PublicAccount | null = peer ?? (self ? toPublic(self) : null)
+  const overlayCourses = account?.courses ?? courses
+  const [courseId, setCourseId] = useState(
+    account?.graphCourseId ?? MOCK_COURSE.id,
+  )
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [lens, setLens] = useState<Lens>('all')
   const [hover, setHover] = useState<HoverInfo | null>(null)
   const canvasRef = useRef<CanvasHandle | null>(null)
 
-  const data = useMemo(() => getMockCourseData(MOCK_COURSE.id), [])
+  useEffect(() => {
+    setCourseId(account?.graphCourseId ?? MOCK_COURSE.id)
+  }, [account?.id, account?.graphCourseId])
+
+  const data = useMemo(() => {
+    const owner = peer ?? (self ? toPublic(self) : null)
+    return owner
+      ? getAccountCourseData(owner, courseId)
+      : getMockCourseData(courseId)
+  }, [peer, self, courseId])
   const model = useMemo(
     () => buildGraphModel(data.graph, data.resources),
     [data],
@@ -38,7 +61,10 @@ export function GraphView() {
   const hoveredNode = hover ? model.byId.get(hover.id) : undefined
   const selectedNode = selectedId ? model.byId.get(selectedId) : undefined
 
-  // Changing lens is a change of view, so reframe onto what it emphasises.
+  useEffect(() => {
+    setSelectedId(null)
+  }, [courseId])
+
   const firstLensRender = useRef(true)
   useEffect(() => {
     if (firstLensRender.current) {
@@ -52,7 +78,6 @@ export function GraphView() {
     return () => clearTimeout(id)
   }, [lens, emphasis])
 
-  // Backing out of a selection returns the camera to the whole graph.
   const hadSelection = useRef(false)
   useEffect(() => {
     if (selectedId) {
@@ -76,7 +101,13 @@ export function GraphView() {
       <div className="graph-stage">
         <aside
           className="course-overlay"
-          aria-label={selectedNode ? 'Concept inspector' : 'Your courses'}
+          aria-label={
+            selectedNode
+              ? 'Concept inspector'
+              : peer
+                ? `${peer.name}'s courses`
+                : 'Your courses'
+          }
         >
           {selectedNode?.kind === 'concept' ? (
             <ConceptOverlay
@@ -96,15 +127,42 @@ export function GraphView() {
             />
           ) : (
             <>
-              <h1>Your courses</h1>
-              <p>Courses you submitted materials for.</p>
+              {peer ? (
+                <PeerChrome account={peer} view="map" />
+              ) : (
+                <h1>Your courses</h1>
+              )}
+              <p>
+                {peer
+                  ? 'Open a course to see their map. Click a star to inspect a concept.'
+                  : 'Courses you submitted materials for.'}
+              </p>
               <ul className="course-list">
-                {courses.map((course) => (
-                  <li key={course.code}>
-                    <span className="course-code">{course.code}</span>
-                    <span className="course-name">{course.name}</span>
-                  </li>
-                ))}
+                {overlayCourses.map((course) => {
+                  const canOpen = accountHasGraph(course.code)
+                  if (canOpen) {
+                    return (
+                      <li key={course.code}>
+                        <button
+                          type="button"
+                          className={
+                            course.code === data.course.id ? 'is-active' : undefined
+                          }
+                          onClick={() => setCourseId(course.code)}
+                        >
+                          <span className="course-code">{course.code}</span>
+                          <span className="course-name">{course.name}</span>
+                        </button>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={course.code}>
+                      <span className="course-code">{course.code}</span>
+                      <span className="course-name">{course.name}</span>
+                    </li>
+                  )
+                })}
               </ul>
             </>
           )}
