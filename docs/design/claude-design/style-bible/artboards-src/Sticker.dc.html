@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StudyGotchi style bible: sticker rule and components</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;background:#f3e4ee;color:#3a2f45}
+a{color:#4f8a4a}a:hover{color:#3a2f45}
+button{font-family:inherit;cursor:pointer}
+input{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 1280px; height: 1000px; box-sizing: border-box; padding: 56px 64px; display: flex; flex-direction: column; gap: 28px; background: #f3e4ee; color: #3a2f45;">
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #6b5f78;">StudyGotchi · Style bible · 05</div>
+    <h1 style="margin: 0; font-size: 44px; line-height: 1.1; font-weight: 800;">The sticker rule, and the parts built from it</h1>
+    <p style="margin: 0; max-width: 960px; font-size: 18px; line-height: 1.5; font-weight: 500;">Every 2D element that can be pressed, picked, or read as a status wears a 3 px ink outline (#3a2f45), a flat fill, and a rounded corner. Over the 3D canvas, only interactive elements get the outline; the panels behind them are glass. On full pages (landing, sign-in, My worlds) panels get the outline too.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 14px; background: #fffaf3; border: 3px solid #3a2f45; border-radius: 24px; padding: 24px; box-shadow: 0 6px 16px rgba(90,63,107,0.12);">
+      <div style="font-size: 18px; font-weight: 800;">Buttons</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+        <button type="button" style="height: 48px; padding: 0 22px; border-radius: 16px; background: #3a2f45; color: #fffaf3; border: 3px solid #3a2f45; font-size: 16px; font-weight: 800;">Open page</button>
+        <button type="button" style="height: 48px; padding: 0 22px; border-radius: 16px; background: #fffaf3; color: #3a2f45; border: 3px solid #3a2f45; font-size: 16px; font-weight: 800; box-shadow: 0 3px 0 #3a2f45;">Visit a friend</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 16px; background: transparent; color: #3a2f45; border: 3px solid transparent; font-size: 16px; font-weight: 800;">Rename</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+        <button type="button" aria-label="Back" style="width: 48px; height: 48px; border-radius: 16px; background: #fffaf3; border: 3px solid #3a2f45; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 3px 0 #3a2f45;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a2f45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <button type="button" style="height: 48px; padding: 0 22px; border-radius: 16px; background: #e9dce6; color: #6b5f78; border: 3px solid #b9a9b8; font-size: 16px; font-weight: 800;" disabled>Read-only</button>
+      </div>
+      <div style="font-size: 13px; line-height: 1.45; color: #6b5f78;">Primary is ink-filled. Secondary is cream with a 3 px hard drop (a sticker lifted off the page); pressed removes the drop and moves down 3 px. Ghost has no outline and is only for tertiary actions inside a card. Min height 44 px.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; background: #fffaf3; border: 3px solid #3a2f45; border-radius: 24px; padding: 24px; box-shadow: 0 6px 16px rgba(90,63,107,0.12);">
+      <div style="font-size: 18px; font-weight: 800;">Chips and badges</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; background: #fffaf3; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;"><span style="width: 14px; height: 14px; border-radius: 4px; background: #8fc48a; border: 2px solid #3a2f45;"></span>Forest</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; background: #fffaf3; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;"><span style="width: 14px; height: 14px; border-radius: 4px; background: #d9c3d6; border: 2px solid #3a2f45;"></span>City</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; background: #fffaf3; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;"><span style="width: 14px; height: 14px; border-radius: 4px; background: #e6f2fb; border: 2px solid #3a2f45;"></span>Ice</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; background: #fffaf3; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;"><span style="width: 14px; height: 14px; border-radius: 4px; background: #efd9a2; border: 2px solid #3a2f45;"></span>Sand</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; background: #fffaf3; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;"><span style="width: 14px; height: 14px; border-radius: 4px; background: #bfe0a0; border: 2px solid #3a2f45;"></span>Meadow</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 999px; background: #bfe0a0; border: 3px solid #3a2f45; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">Touched</span>
+        <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 999px; background: #f2a86f; border: 3px solid #3a2f45; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">Demonstrated</span>
+        <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 999px; background: #c9a2e6; border: 3px solid #3a2f45; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">New</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <button type="button" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 999px; background: #3a2f45; color: #fffaf3; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;">Shortest paths</button>
+        <button type="button" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 999px; background: #fffaf3; color: #3a2f45; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;">Hashing</button>
+        <button type="button" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 999px; background: #fffaf3; color: #3a2f45; border: 3px solid #3a2f45; font-size: 14px; font-weight: 800;">Sorting</button>
+      </div>
+      <div style="font-size: 13px; line-height: 1.45; color: #6b5f78;">Legend chips carry a square swatch. State badges are caps, filled with their semantic colour. Topic chips are toggles: selected is ink-filled.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; background: #fffaf3; border: 3px solid #3a2f45; border-radius: 24px; padding: 24px; box-shadow: 0 6px 16px rgba(90,63,107,0.12);">
+      <div style="font-size: 18px; font-weight: 800;">Course chip and progress ring</div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="display: inline-flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px 0 8px; border-radius: 999px; background: #fffaf3; border: 3px solid #3a2f45;">
+          <svg width="40" height="40" viewBox="0 0 40 40" aria-label="72 percent demonstrated" role="img"><circle cx="20" cy="20" r="15" fill="none" stroke="#e9dce6" stroke-width="6"></circle><circle cx="20" cy="20" r="15" fill="none" stroke="#4f8a4a" stroke-width="6" stroke-linecap="round" stroke-dasharray="67.9 94.2" transform="rotate(-90 20 20)"></circle></svg>
+          <div style="display: flex; flex-direction: column; line-height: 1.1;"><div style="font-size: 15px; font-weight: 800;">6.1210</div><div style="font-size: 12px; font-weight: 700; color: #6b5f78;">Algorithms</div></div>
+          <div style="font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums;">72%</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700;">
+        <button type="button" aria-label="Back" style="width: 36px; height: 36px; border-radius: 12px; background: #fffaf3; border: 3px solid #3a2f45; display: inline-flex; align-items: center; justify-content: center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a2f45" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></button>
+        <span>6.1210</span><span style="color: #6b5f78;">›</span><span style="font-weight: 800;">Graphs and shortest paths</span>
+      </div>
+      <div style="font-size: 13px; line-height: 1.45; color: #6b5f78;">The ring is 6 px, forest accent on a pale track, round caps, and it counts demonstrated concepts only. Breadcrumb is one level deep at most.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; background: #fffaf3; border: 3px solid #3a2f45; border-radius: 24px; padding: 24px; box-shadow: 0 6px 16px rgba(90,63,107,0.12);">
+      <div style="font-size: 18px; font-weight: 800;">Inputs</div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="share" style="font-size: 13px; font-weight: 800;">Share code</label>
+        <input id="share" type="text" placeholder="ada-4f2k" style="height: 48px; padding: 0 14px; border-radius: 12px; border: 3px solid #3a2f45; background: #fffaf3; font-size: 16px; font-weight: 700; color: #3a2f45; box-sizing: border-box; width: 100%;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label for="name" style="font-size: 13px; font-weight: 800;">Creature name</label>
+        <input id="name" type="text" value="Dour Pebble" style="height: 48px; padding: 0 14px; border-radius: 12px; border: 3px solid #e88a8a; background: #fffaf3; font-size: 16px; font-weight: 700; color: #3a2f45; box-sizing: border-box; width: 100%;">
+        <div style="font-size: 12px; font-weight: 700; color: #b34a4a;">Names are two words, and this one is taken.</div>
+      </div>
+      <div style="font-size: 13px; line-height: 1.45; color: #6b5f78;">Focus swaps the outline to forest accent, 3 px, no glow. Error swaps it to coral, with the message in a darker coral (#b34a4a) for contrast.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; background: #fffaf3; border: 3px solid #3a2f45; border-radius: 24px; padding: 24px; box-shadow: 0 6px 16px rgba(90,63,107,0.12);">
+      <div style="font-size: 18px; font-weight: 800;">Banner</div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 16px; background: #a9cfe8; border: 3px solid #3a2f45;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a2f45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        <div style="font-size: 15px; font-weight: 800;">You are visiting Ada's world (read-only)</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 16px; background: #c9a2e6; border: 3px solid #3a2f45;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3a2f45" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="6"></circle><circle cx="10" cy="12" r="0.8" fill="#3a2f45"></circle><circle cx="14" cy="12" r="0.8" fill="#3a2f45"></circle><path d="M8 8l-2-4M16 8l2-4"></path></svg>
+        <div style="font-size: 15px; font-weight: 800;">A creature arrived in Ice. Pset 4 is done.</div>
+      </div>
+      <div style="font-size: 13px; line-height: 1.45; color: #6b5f78;">Banners are full-width sticker strips pinned top-centre, one line, no close button for the visitor state (it is a fact, not a notice).</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px; background: rgba(255,250,243,0.78); border: 3px solid #3a2f45; border-radius: 24px; padding: 24px; box-shadow: 0 12px 28px rgba(90,63,107,0.16);">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+        <div style="font-size: 22px; font-weight: 800;">Dijkstra's algorithm</div>
+        <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 999px; background: #f2a86f; border: 3px solid #3a2f45; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">Demonstrated</span>
+      </div>
+      <div style="font-size: 14px; font-weight: 500; color: #6b5f78;">Lecture 14, page 3 · Pset 4, problem 2</div>
+      <div style="display: flex; gap: 10px;">
+        <button type="button" style="height: 44px; padding: 0 18px; border-radius: 16px; background: #3a2f45; color: #fffaf3; border: 3px solid #3a2f45; font-size: 15px; font-weight: 800;">Open page</button>
+        <button type="button" style="height: 44px; padding: 0 14px; border-radius: 16px; background: transparent; color: #3a2f45; border: 3px solid transparent; font-size: 15px; font-weight: 800;">Show in graph</button>
+      </div>
+      <div style="font-size: 13px; line-height: 1.45; color: #6b5f78;">Provenance card: glass panel, lg radius, raised shadow. The only place a heading sits inside glass.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

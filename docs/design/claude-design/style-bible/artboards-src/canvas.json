@@ -1,0 +1,23 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-09-19T20:30:00Z" },
+  "title": "StudyGotchi style bible",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html":    { "x": 0,    "y": 0,    "w": 1280, "h": 980,  "title": "01 · References" },
+    "Colour.dc.html":  { "x": 1360, "y": 0,    "w": 1280, "h": 1040, "title": "02 · Colour" },
+    "Type.dc.html":    { "x": 0,    "y": 1160, "w": 1280, "h": 860,  "title": "03 · Type" },
+    "Surface.dc.html": { "x": 1360, "y": 1160, "w": 1280, "h": 760,  "title": "04 · Spacing, radius, shadow" },
+    "Sticker.dc.html": { "x": 0,    "y": 2140, "w": 1280, "h": 1000, "title": "05 · Sticker rule and components" },
+    "Icons.dc.html":   { "x": 1360, "y": 2140, "w": 1280, "h": 640,  "title": "06 · Icons" },
+    "DoDont.dc.html":  { "x": 0,    "y": 3260, "w": 1280, "h": 820,  "title": "07 · Do and don't" },
+    "Motion.dc.html":  { "x": 1360, "y": 3260, "w": 1280, "h": 760,  "title": "08 · Motion", "is_interactive": true }
+  },
+  "order": ["Main.dc.html", "Colour.dc.html", "Type.dc.html", "Surface.dc.html", "Sticker.dc.html", "Icons.dc.html", "DoDont.dc.html", "Motion.dc.html"],
+  "notes": {
+    "title": { "x": 0, "y": -300, "text": "StudyGotchi · Toybox Low-Poly style bible", "kind": "title1", "maxW": 2640 },
+    "handoff": { "x": 2720, "y": 0, "w": 360, "text": "Handoff: project/tokens.json is the token source of truth; project/theme.css is the same set as a Tailwind v4 @theme block, ready to paste into frontend/app/globals.css. Both are also in the chat as downloads.", "size": "s" }
+  },
+  "designSystems": []
+}
