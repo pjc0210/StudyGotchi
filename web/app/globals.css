@@ -92,6 +92,10 @@ h1, h2 {
 
 .earth-globe {
   position: absolute;
+  width: calc(100vw * 5 / 7);
+  height: calc(100vw * 5 / 7);
+  right: calc(100vw * -5 / 28);
+  bottom: calc(100vw * -5 / 28);
   z-index: 0;
   pointer-events: none;
 }
@@ -189,6 +193,79 @@ h1, h2 {
 .course-name {
   font-size: 14px;
   color: var(--ink-soft);
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 32px 20px 48px;
+  background: var(--paper);
+}
+
+.login-logo {
+  text-decoration: none;
+}
+
+.login-form {
+  width: min(22rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  text-align: center;
+}
+
+.login-form h1 {
+  margin: 0 0 12px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.login-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fffdf8;
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.login-submit {
+  width: 100%;
+  border: 0;
+  background: var(--rose);
+  color: var(--title);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+.login-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.login-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  color: var(--title);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.login-form .error {
+  text-align: center;
 }
 
 .auth {
