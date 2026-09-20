@@ -1,3 +1,5 @@
+'use client'
+
 import { useLayoutEffect, useState } from 'react'
 
 function sizeFromWindow() {
@@ -6,9 +8,7 @@ function sizeFromWindow() {
 
 /** Square globe: width and height are 5/7 of the window width. Scales on resize. */
 export function EarthGlobe() {
-  const [size, setSize] = useState(() =>
-    typeof window === 'undefined' ? 0 : sizeFromWindow()
-  )
+  const [size, setSize] = useState(0)
 
   useLayoutEffect(() => {
     const apply = () => {

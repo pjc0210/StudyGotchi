@@ -1,6 +1,9 @@
+'use client'
+
 import {
   createContext,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -9,6 +12,7 @@ import { submittedCourses } from './mock'
 import type { Course, User } from './types'
 
 type Store = {
+  ready: boolean
   user: User | null
   pendingTwoFactor: boolean
   courses: Course[]
@@ -32,8 +36,15 @@ function loadUser(): User | null {
 }
 
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(loadUser)
+  const [ready, setReady] = useState(false)
+  const [user, setUser] = useState<User | null>(null)
   const [pendingTwoFactor, setPendingTwoFactor] = useState(false)
+
+  useEffect(() => {
+    setUser(loadUser())
+    setPendingTwoFactor(Boolean(sessionStorage.getItem('sg.pending')))
+    setReady(true)
+  }, [])
 
   const persist = (next: User | null) => {
     setUser(next)
@@ -94,6 +105,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<Store>(
     () => ({
+      ready,
       user,
       pendingTwoFactor,
       courses: submittedCourses,
@@ -103,7 +115,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       logout,
       requestReset,
     }),
-    [user, pendingTwoFactor],
+    [ready, user, pendingTwoFactor],
   )
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>

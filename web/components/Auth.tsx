@@ -1,23 +1,31 @@
-import { useState, type FormEvent } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
-import { DEMO_PASSWORD_HINT } from '../mock'
-import { useStore } from '../store'
+'use client'
+
+import { useEffect, useState, type FormEvent } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { DEMO_PASSWORD_HINT } from '@/lib/mock'
+import { useStore } from '@/lib/store'
 
 export function LoginPage() {
-  const { user, pendingTwoFactor, login } = useStore()
+  const { ready, user, pendingTwoFactor, login } = useStore()
   const [email, setEmail] = useState('pj@studygotchi.app')
   const [password, setPassword] = useState('study')
   const [error, setError] = useState<string | null>(null)
-  const navigate = useNavigate()
+  const router = useRouter()
 
-  if (pendingTwoFactor) return <Navigate to="/2fa" replace />
-  if (user) return <Navigate to="/earth" replace />
+  useEffect(() => {
+    if (!ready) return
+    if (pendingTwoFactor) router.replace('/2fa')
+    else if (user) router.replace('/earth')
+  }, [ready, pendingTwoFactor, user, router])
+
+  if (!ready || pendingTwoFactor || user) return null
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
     const result = login(email, password)
-    if (result === 'ok') navigate('/earth')
-    else if (result === '2fa') navigate('/2fa')
+    if (result === 'ok') router.push('/earth')
+    else if (result === '2fa') router.push('/2fa')
     else setError(result)
   }
 
@@ -40,8 +48,8 @@ export function LoginPage() {
           Login
         </button>
         <div className="auth-links">
-          <Link to="/register">Register</Link>
-          <Link to="/forgot">Forgot password</Link>
+          <Link href="/register">Register</Link>
+          <Link href="/forgot">Forgot password</Link>
         </div>
       </form>
     </div>
@@ -49,19 +57,24 @@ export function LoginPage() {
 }
 
 export function RegisterPage() {
-  const { user, register } = useStore()
+  const { ready, user, register } = useStore()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
-  const navigate = useNavigate()
-  if (user) return <Navigate to="/earth" replace />
+  const router = useRouter()
+
+  useEffect(() => {
+    if (ready && user) router.replace('/earth')
+  }, [ready, user, router])
+
+  if (!ready || user) return null
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
     const err = register(name, email, password)
     if (err) setError(err)
-    else navigate('/earth')
+    else router.push('/earth')
   }
 
   return (
@@ -86,7 +99,7 @@ export function RegisterPage() {
           Create account
         </button>
         <div className="auth-links">
-          <Link to="/login">Already have one?</Link>
+          <Link href="/login">Already have one?</Link>
         </div>
       </form>
     </div>
@@ -119,7 +132,7 @@ export function ForgotPage() {
         </button>
         {sent && <p>Reset queued in the mock.</p>}
         <div className="auth-links">
-          <Link to="/login">Back to login</Link>
+          <Link href="/login">Back to login</Link>
         </div>
       </form>
     </div>
@@ -127,13 +140,18 @@ export function ForgotPage() {
 }
 
 export function TwoFactorPage() {
-  const { pendingTwoFactor, verifyTwoFactor, user } = useStore()
+  const { ready, pendingTwoFactor, verifyTwoFactor, user } = useStore()
   const [code, setCode] = useState('')
   const [error, setError] = useState<string | null>(null)
-  const navigate = useNavigate()
+  const router = useRouter()
 
-  if (user) return <Navigate to="/earth" replace />
-  if (!pendingTwoFactor) return <Navigate to="/login" replace />
+  useEffect(() => {
+    if (!ready) return
+    if (user) router.replace('/earth')
+    else if (!pendingTwoFactor) router.replace('/login')
+  }, [ready, user, pendingTwoFactor, router])
+
+  if (!ready || user || !pendingTwoFactor) return null
 
   return (
     <div className="auth">
@@ -141,7 +159,7 @@ export function TwoFactorPage() {
         className="auth-card"
         onSubmit={(e) => {
           e.preventDefault()
-          if (verifyTwoFactor(code)) navigate('/earth')
+          if (verifyTwoFactor(code)) router.push('/earth')
           else setError('Use mock code 123456.')
         }}
       >

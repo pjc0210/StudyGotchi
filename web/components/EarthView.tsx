@@ -1,8 +1,10 @@
-import { EarthGlobe } from '../components/EarthGlobe'
-import { SiteHeader } from '../components/SiteHeader'
-import { useStore } from '../store'
+'use client'
 
-export function EarthPage() {
+import { EarthGlobe } from '@/components/EarthGlobe'
+import { SiteHeader } from '@/components/SiteHeader'
+import { useStore } from '@/lib/store'
+
+export function EarthView() {
   const { courses } = useStore()
 
   return (
