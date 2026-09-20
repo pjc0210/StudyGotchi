@@ -1,11 +1,10 @@
 import {
   MOCK_COURSE,
-  MOCK_GAPS,
-  MOCK_GRAPH,
-  MOCK_RESOURCES,
   MOCK_STUDENT_ID,
-  MOCK_STUDY_PLAN,
-  MOCK_TARGETS,
+  getMockCourseData,
+  mockGaps,
+  mockStudyPlan,
+  mockTargets,
   mockConceptDetail,
   mockWhy,
 } from "./mock";
@@ -27,19 +26,29 @@ import type {
   WhyExplanation,
 } from "./types";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 export const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
 
 // Demo identifiers live here only. The backend addresses courses and students
 // by UUID; mock mode keeps its own readable ids.
 export const COURSE_ID =
   process.env.NEXT_PUBLIC_DEMO_COURSE_ID ?? (USE_MOCK ? MOCK_COURSE.id : "");
-export const COURSE_NAME = process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
+export const COURSE_NAME =
+  process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
 export const STUDENT_ID =
   process.env.NEXT_PUBLIC_DEMO_STUDENT_ID ?? (USE_MOCK ? MOCK_STUDENT_ID : "");
 
+let selectedMockCourseId = MOCK_COURSE.id;
+export function setMockCourseId(courseId: string) {
+  selectedMockCourseId = courseId;
+}
+
 export class ApiError extends Error {
-  constructor(message: string, readonly status?: number) {
+  constructor(
+    message: string,
+    readonly status?: number,
+  ) {
     super(message);
     this.name = "ApiError";
   }
@@ -83,21 +92,29 @@ export function isStudentScoped(origin: SourceOrigin): boolean {
 const num = (v: unknown, fallback = 0): number =>
   typeof v === "number" && Number.isFinite(v) ? v : fallback;
 
-const str = (v: unknown, fallback = ""): string => (typeof v === "string" ? v : fallback);
+const str = (v: unknown, fallback = ""): string =>
+  typeof v === "string" ? v : fallback;
 
 /** Backend node uses `concept_id`; the UI has always used `id`. */
-function normalizeNode(raw: Record<string, unknown>, index: number): ConceptNode {
+function normalizeNode(
+  raw: Record<string, unknown>,
+  index: number,
+): ConceptNode {
   const mastery = raw.mastery;
   return {
     id: str(raw.concept_id ?? raw.id, `concept_${index}`),
     name: str(raw.name, "Untitled concept"),
     scope: (str(raw.scope, "course") as ConceptNode["scope"]) ?? "course",
     discovery_state:
-      (str(raw.discovery_state, "encountered") as ConceptNode["discovery_state"]) ?? "encountered",
+      (str(
+        raw.discovery_state,
+        "encountered",
+      ) as ConceptNode["discovery_state"]) ?? "encountered",
     cluster: typeof raw.cluster === "string" ? raw.cluster : undefined,
     importance: num(raw.importance, 0.5),
     personal_relevance: num(raw.personal_relevance, 0.5),
-    mastery: typeof mastery === "number" && Number.isFinite(mastery) ? mastery : null,
+    mastery:
+      typeof mastery === "number" && Number.isFinite(mastery) ? mastery : null,
     familiarity: num(raw.familiarity),
     confidence: num(raw.confidence),
     readiness: num(raw.readiness),
@@ -123,13 +140,17 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
   const rawNodes = Array.isArray(obj.nodes) ? obj.nodes : [];
   const rawEdges = Array.isArray(obj.edges) ? obj.edges : [];
 
-  const nodes = rawNodes.map((n, i) => normalizeNode(n as Record<string, unknown>, i));
+  const nodes = rawNodes.map((n, i) =>
+    normalizeNode(n as Record<string, unknown>, i),
+  );
   const ids = new Set(nodes.map((n) => n.id));
 
   // Drop dangling edges rather than letting React Flow throw on them.
   const edges = rawEdges
     .map((e) => normalizeEdge(e as Record<string, unknown>))
-    .filter((e) => e.source && e.target && ids.has(e.source) && ids.has(e.target));
+    .filter(
+      (e) => e.source && e.target && ids.has(e.source) && ids.has(e.target),
+    );
 
   return {
     student_id: str(obj.student_id, STUDENT_ID),
@@ -237,7 +258,9 @@ function humanize(value: string): string {
 
 const httpApi: KnowledgeApi = {
   async getKnowledgeGraph() {
-    return normalizeGraph(await request<unknown>(`${studentBase()}/knowledge-graph`));
+    return normalizeGraph(
+      await request<unknown>(`${studentBase()}/knowledge-graph`),
+    );
   },
 
   async getConceptDetail(conceptId) {
@@ -252,7 +275,11 @@ const httpApi: KnowledgeApi = {
         occurred_at: string;
         resource: BackendResource | null;
       }[];
-      resources: { resource: BackendResource; link_type: string; depth_score: number }[];
+      resources: {
+        resource: BackendResource;
+        link_type: string;
+        depth_score: number;
+      }[];
     }>(`${studentBase()}/concepts/${conceptId}`);
 
     return {
@@ -312,7 +339,9 @@ const httpApi: KnowledgeApi = {
         action: string;
         reason: string;
       }[];
-    }>(`${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`);
+    }>(
+      `${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`,
+    );
 
     return {
       target,
@@ -375,7 +404,9 @@ const httpApi: KnowledgeApi = {
       artifact_type: r.artifact_type as ArtifactType,
       concept_count: r.concept_count,
       concept_ids: r.concept_ids ?? [],
-      status: (r.status === "complete" ? "complete" : r.status) as CourseResource["status"],
+      status: (r.status === "complete"
+        ? "complete"
+        : r.status) as CourseResource["status"],
       uploaded_at: r.created_at ?? "",
     }));
   },
@@ -416,31 +447,31 @@ const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const mockApi: KnowledgeApi = {
   async getKnowledgeGraph() {
     await delay(320);
-    return normalizeGraph(MOCK_GRAPH);
+    return normalizeGraph(getMockCourseData(selectedMockCourseId).graph);
   },
   async getConceptDetail(conceptId) {
     await delay(160);
-    return mockConceptDetail(conceptId);
+    return mockConceptDetail(selectedMockCourseId, conceptId);
   },
   async getWhy(conceptId) {
     await delay(200);
-    return mockWhy(conceptId);
+    return mockWhy(selectedMockCourseId, conceptId);
   },
   async listStudyTargets() {
     await delay(80);
-    return MOCK_TARGETS.map((label, i) => ({ id: `mock_target_${i}`, label }));
+    return mockTargets(selectedMockCourseId);
   },
   async getGaps(target) {
     await delay(280);
-    return { ...MOCK_GAPS, target };
+    return mockGaps(selectedMockCourseId, target);
   },
   async createStudyPlan(target) {
     await delay(500);
-    return { ...MOCK_STUDY_PLAN, target };
+    return mockStudyPlan(selectedMockCourseId, target);
   },
   async listResources() {
     await delay(220);
-    return MOCK_RESOURCES;
+    return getMockCourseData(selectedMockCourseId).resources;
   },
   async ingest({ file }) {
     await delay(400);

@@ -2,17 +2,17 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Network, Upload } from "lucide-react";
-import {
-  buildGraphModel,
-  lensEmphasis,
-  type Lens,
-} from "@/lib/graphModel";
+import { buildGraphModel, lensEmphasis, type Lens } from "@/lib/graphModel";
 import { useStore } from "@/lib/store";
 import { EmptyState } from "@/components/common/EmptyState";
 import { ErrorState } from "@/components/common/LoadingState";
 import { ConceptPanel } from "@/components/concepts/ConceptPanel";
 import { ResourcePanel } from "@/components/concepts/ResourcePanel";
-import { KnowledgeCanvas, type CanvasHandle, type HoverInfo } from "./KnowledgeCanvas";
+import {
+  KnowledgeCanvas,
+  type CanvasHandle,
+  type HoverInfo,
+} from "./KnowledgeCanvas";
 import { GraphControls } from "./GraphControls";
 import { GraphLenses } from "./GraphLenses";
 import { GraphTooltip } from "./GraphTooltip";
@@ -21,7 +21,10 @@ import { GraphTooltip } from "./GraphTooltip";
 function GraphLoading() {
   return (
     <div className="absolute inset-0 grid place-items-center">
-      <div className="flex items-center gap-2.5 text-[13px] text-ink-dim" role="status">
+      <div
+        className="flex items-center gap-2.5 text-[13px] text-ink-dim"
+        role="status"
+      >
         <span className="h-3 w-3 animate-spin rounded-full border-[1.5px] border-line-strong border-t-ink-dim" />
         Assembling your knowledge graph…
       </div>
@@ -129,6 +132,13 @@ export function KnowledgeWorkspace({
   );
 
   const selectedNode = selectedId ? model.byId.get(selectedId) : undefined;
+
+  useEffect(() => {
+    setHover(null);
+    setLens("all");
+    const id = setTimeout(() => canvasRef.current?.fit(), 40);
+    return () => clearTimeout(id);
+  }, [graph.data?.course_id]);
 
   if (graph.loading) return <GraphLoading />;
   if (graph.error) {
