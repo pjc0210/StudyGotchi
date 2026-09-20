@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { edgeBackboneScore, fieldStarCount, keepBackboneEdge, spiralPlacement } from "./space-field";
+import { edgeBackboneScore, fieldStarCount, keepBackboneEdge, spiralPlacement, weakTraceCurve } from "./space-field";
 
 describe("shared space backdrop", () => {
   it("keeps the generated spiral a tiny faded sky object", () => {
@@ -39,5 +39,15 @@ describe("shared space backdrop", () => {
     expect(keepBackboneEdge(resource, 0.81)).toBe(false);
     expect(keepBackboneEdge(weak, 1.4)).toBe(true);
     expect(keepBackboneEdge(resource, 1.6)).toBe(true);
+  });
+
+  it("cuts a short smooth mid-span from a quadratic edge", () => {
+    const seg = weakTraceCurve(0, 0, 50, 40, 100, 0);
+    expect(seg.x0).toBeGreaterThan(20);
+    expect(seg.x1).toBeLessThan(80);
+    expect(seg.x0).toBeLessThan(seg.xc);
+    expect(seg.xc).toBeLessThan(seg.x1);
+    expect(seg.y0).toBeGreaterThan(0);
+    expect(seg.y1).toBeGreaterThan(0);
   });
 });

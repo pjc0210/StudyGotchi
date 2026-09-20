@@ -4,6 +4,7 @@ import { visibleCourseFileTitles } from "@/lib/world/demo-ingest";
 import {
   buildLandmarkFlagCopy,
   landmarkFlagInputFromOverview,
+  landmarkFlagPlacement,
 } from "@/lib/world/landmark-flag";
 import type { CourseGlobeCourse } from "@/components/world/globe/globe-types";
 import type { CourseOverviewCacheRecord } from "./useCourseOverviewCache";
@@ -38,6 +39,7 @@ export function LandmarkFlag({ course, record, onLand }: LandmarkFlagProps) {
     <div
       className="landmark-flag"
       data-docked="true"
+      data-placement={landmarkFlagPlacement()}
       role="region"
       aria-label="Active course"
       aria-labelledby="landmark-flag-title"

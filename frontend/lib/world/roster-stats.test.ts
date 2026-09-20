@@ -15,12 +15,13 @@ describe("roster stats", () => {
       "Enrolled",
       "Ingested",
       "Ideas",
-      "Walkers",
+      "Buddies",
       "Term",
       "Thickest land",
       "Thinnest syllabus",
     ]);
     expect(stats.lines.find((line) => line.label === "Ideas")?.value).toBe("Waiting on lands");
+    expect(stats.lines.find((line) => line.label === "Buddies")?.value).toBe("0 buddies hatched");
   });
 
   it("reports mapped ideas without a bogus reached denominator", () => {
@@ -39,5 +40,6 @@ describe("roster stats", () => {
     expect(stats.reached).toBe(147);
     expect(stats.lines.find((line) => line.label === "Ideas")?.value).toBe("147 mapped");
     expect(stats.lines.find((line) => line.label === "Ideas")?.value).not.toMatch(/\//);
+    expect(stats.lines.find((line) => line.label === "Buddies")?.value).toBe("9 buddies hatched");
   });
 });

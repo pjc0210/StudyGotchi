@@ -136,7 +136,9 @@ function IcePointer({
   const down = useRef<{ x: number; y: number; id: string | null } | null>(null);
 
   useEffect(() => {
-    const element = gl.domElement.closest(".biome-land-stage") ?? gl.domElement.parentElement ?? gl.domElement;
+    const element = (gl.domElement.closest(".biome-land-stage") ??
+      gl.domElement.parentElement ??
+      gl.domElement) as HTMLElement;
     const ndc = new THREE.Vector2();
     const ray = new THREE.Raycaster();
     const hit = new THREE.Vector3();

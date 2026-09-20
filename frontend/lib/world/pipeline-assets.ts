@@ -12,8 +12,8 @@ import graphSecond from "./pipeline/6.1400-knowledge-graph.json";
 import worldSecond from "./pipeline/6.1400-world.json";
 
 const GRAPHS: Record<string, KnowledgeGraphResponse> = {
-  [DEMO_COURSES[0].id]: graphHero as KnowledgeGraphResponse,
-  [DEMO_COURSES[1].id]: graphSecond as KnowledgeGraphResponse,
+  [DEMO_COURSES[0].id]: graphHero as unknown as KnowledgeGraphResponse,
+  [DEMO_COURSES[1].id]: graphSecond as unknown as KnowledgeGraphResponse,
 };
 
 const WORLDS: Record<string, WorldResponse> = {

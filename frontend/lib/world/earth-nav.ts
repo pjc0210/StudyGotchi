@@ -17,6 +17,24 @@ export function planetHref(): string {
   return "/earth";
 }
 
+/** Top header pills. Routes stay /earth and /knowledge. */
+export const PRODUCT_NAV = [
+  { id: "courses", href: planetHref(), label: "Courses", match: /^\/(earth|world|w)(\/|$)/ },
+  { id: "information", href: "/knowledge", label: "Information", match: /^\/knowledge(\/|$)/ },
+] as const;
+
+/** Color key only — idea/file type labels stay off the Information sky. */
+export const INFORMATION_UNDERSTANDING_MARKS = [
+  { id: "mastered", label: "mastered", mark: "var(--a-lamp)" },
+  { id: "needs-work", label: "needs work", mark: "var(--a-live)" },
+] as const;
+
+export function courseChipLabel(course: { code?: string | null; name?: string | null } | null | undefined): string {
+  const code = course?.code?.trim();
+  if (code) return code;
+  return course?.name?.trim() ?? "";
+}
+
 export function landHref(courseKey: string): string {
   return `/earth?land=${encodeURIComponent(courseKey)}`;
 }
@@ -51,6 +69,18 @@ export function courseFilesOpenOnFocus(): boolean {
 
 export function shouldShowLandmarkFlag(activeCourseId: string | null, courseId: string): boolean {
   return Boolean(activeCourseId && activeCourseId === courseId);
+}
+
+/** Floating course-code / count badge over a globe town. Status lives on the flag panel. */
+export function showGlobeLandmarkNumberPin(): boolean {
+  return false;
+}
+
+/** Left-rail chrome that uses the Classes leave beat on Courses → Information. */
+export const PLANET_LEAVE_CHROME = ["course-navigator", "landmark-flag"] as const;
+
+export function sharesPlanetLeaveBeat(className: string): boolean {
+  return (PLANET_LEAVE_CHROME as readonly string[]).includes(className);
 }
 
 export function screenPointFromNdc(

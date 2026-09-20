@@ -42,7 +42,7 @@ export function CourseNavigator({
   const enrolled = stats.lines.find((line) => line.label === "Enrolled");
   const ingested = stats.lines.find((line) => line.label === "Ingested");
   const ideas = stats.lines.find((line) => line.label === "Ideas");
-  const walkers = stats.lines.find((line) => line.label === "Walkers");
+  const walkers = stats.lines.find((line) => line.label === "Buddies");
 
   return (
     <aside className="course-navigator" aria-label="Course navigator">
@@ -90,7 +90,7 @@ export function CourseNavigator({
             <dd>{ideas?.value}</dd>
           </div>
           <div>
-            <dt>Walkers</dt>
+            <dt>Buddies</dt>
             <dd>{walkers?.value}</dd>
           </div>
         </dl>
@@ -98,7 +98,7 @@ export function CourseNavigator({
           <Sparkline values={stats.fileSeries} label="Files by class" />
           {stats.thickest ? (
             <p className="roster-strongest">
-              Strongest · {stats.thickest.code} · {stats.thickest.files} files
+              Most material · {stats.thickest.code} · {stats.thickest.files} files
             </p>
           ) : null}
         </div>

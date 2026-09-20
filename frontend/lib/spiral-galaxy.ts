@@ -2,8 +2,8 @@
  * Original, procedurally generated pixel-art spiral galaxy.
  *
  * Every cell is painted from a seeded field (log-spiral arms over a tilted
- * disc inside a navy sky circle). Nothing is sampled from a bitmap, so the
- * output is deterministic, transparent outside the circle, and tiny when
+ * disc). The sky is left empty: only the spiral itself is opaque. Nothing is
+ * sampled from a bitmap, so the output is deterministic and tiny when
  * serialised: one SVG `<path>` per palette colour, runs merged per row.
  */
 
@@ -20,7 +20,7 @@ export interface SpiralGalaxyOptions {
   squash?: number;
   /** How tightly the arms wind (log-spiral pitch). */
   twist?: number;
-  /** Sparse stars placed in the navy sky around the disc. */
+  /** Optional specks placed on the spiral arms. 0 keeps the silhouette clean. */
   starCount?: number;
 }
 
@@ -43,7 +43,7 @@ export const SPIRAL_GALAXY_DEFAULTS: Required<SpiralGalaxyOptions> = {
   tilt: -0.42,
   squash: 0.6,
   twist: 3.7,
-  starCount: 30,
+  starCount: 0,
 };
 
 /** Static export path (see scripts/export-spiral-svg.mts). */
@@ -97,8 +97,8 @@ function resolve(options: SpiralGalaxyOptions = {}): Required<SpiralGalaxyOption
 }
 
 /**
- * Paint the galaxy as a grid of colours. `null` cells are transparent
- * (everything outside the sky circle).
+ * Paint the galaxy as a grid of colours. `null` cells are transparent:
+ * everything that is not the spiral itself.
  */
 export function paintSpiralGalaxy(options: SpiralGalaxyOptions = {}): (string | null)[][] {
   const o = resolve(options);
@@ -114,11 +114,6 @@ export function paintSpiralGalaxy(options: SpiralGalaxyOptions = {}): (string | 
     for (let x = 0; x < g; x++) {
       const nx = (x + 0.5 - half) / half;
       const ny = (y + 0.5 - half) / half;
-      const r = Math.hypot(nx, ny);
-      if (r > 1) {
-        row.push(null);
-        continue;
-      }
 
       const n = cellNoise(x, y, o.seed);
 
@@ -127,13 +122,8 @@ export function paintSpiralGalaxy(options: SpiralGalaxyOptions = {}): (string | 
       const v = (nx * sin + ny * cos) / (discScale * o.squash);
       const rho = Math.hypot(u, v);
 
-      // Sky: deep navy that lifts slightly toward the rim, dithered at the seam.
-      let sky: string = P.navyDeep;
-      if (r > 0.86 || (r > 0.8 && n < 0.35)) sky = P.navy;
-      if (r > 0.95 && n < 0.3) sky = P.navyLight;
-
       if (rho > 1.02) {
-        row.push(sky);
+        row.push(null);
         continue;
       }
 
@@ -147,12 +137,12 @@ export function paintSpiralGalaxy(options: SpiralGalaxyOptions = {}): (string | 
       const bulge = Math.exp(-((rho / 0.18) ** 2));
       const disc = Math.exp(-((rho / 0.78) ** 2));
       const edge = rho > 0.88 ? Math.max(0, (1.02 - rho) / 0.14) : 1;
-      let b =
+      const b =
         bulge * 1.7 +
         disc * (0.3 + 0.95 * arm) * edge +
         (n - 0.5) * 0.16 * disc;
 
-      let color: string;
+      let color: string | null = null;
       if (b >= 1.5) color = P.coreWhite;
       else if (b >= 1.2) color = P.cream;
       else if (b >= 0.95) color = P.gold;
@@ -162,8 +152,6 @@ export function paintSpiralGalaxy(options: SpiralGalaxyOptions = {}): (string | 
       else if (b >= 0.4) color = n < 0.5 ? P.gray : P.lilac;
       else if (b >= 0.3) color = P.dust;
       else if (b >= 0.2) color = P.dustDark;
-      else if (b >= 0.12) color = P.navyLight;
-      else color = sky;
 
       // Sparse accents riding the arms: cyan knots, a few white speckles, rare pink.
       if (arm > 0.55 && rho > 0.28 && rho < 0.9) {
@@ -177,7 +165,7 @@ export function paintSpiralGalaxy(options: SpiralGalaxyOptions = {}): (string | 
     cells.push(row);
   }
 
-  scatterStars(cells, o);
+  if (o.starCount > 0) scatterStars(cells, o);
   return cells;
 }
 

@@ -5,81 +5,69 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { emit } from "@/lib/audio/events";
 import { voiceFor } from "@/lib/audio/catalog";
-import { hashString, makeRng } from "@/lib/seed";
+import { hashString } from "@/lib/seed";
 import { BIOMES } from "@/lib/world/layout";
 import { rosterBiome } from "@/lib/world/globe-courses";
 import { pickCreature } from "@/lib/world/roster";
 import type { BlobMotion } from "@/components/world/Blob";
 import { GlbCreature, preloadRoster, type CreatureRequests } from "@/components/world/GlbCreature";
 import { courseMarkerState, sampleTerrain } from "./globe-spec";
+import { GLOBE_BUDDY_SCALE, globeBuddyPoint } from "./globe-parade";
 import { GLOBE_RADIUS } from "./globe-materials";
 import type { CourseGlobeCourse, UnitDirection } from "./globe-types";
 
 const UP = new THREE.Vector3(0, 1, 0);
 const WALKERS_PER_TOWN = 6;
-const WALKER_SCALE = 0.78;
 
 interface GlobeWalkerProps {
   id: string;
   biome: CourseGlobeCourse["biome"];
   index: number;
+  count: number;
+  progress: number | null;
+  active: boolean;
   reducedMotion: boolean;
 }
 
-function GlobeWalker({ id, biome, index, reducedMotion }: GlobeWalkerProps) {
+function GlobeWalker({
+  id,
+  biome,
+  index,
+  count,
+  progress,
+  active,
+  reducedMotion,
+}: GlobeWalkerProps) {
   const group = useRef<THREE.Group>(null);
-  const motion = useRef<BlobMotion>({ moving: false, t: 0 });
+  const motion = useRef<BlobMotion>({ moving: true, t: 0 });
   const requests = useRef<CreatureRequests>({ happy: false });
   const roster = rosterBiome(biome);
   const palette = BIOMES[roster];
-  const wander = useRef(
-    (() => {
-      const rng = makeRng(hashString(`globe:${id}:${index}`));
-      const angle = rng() * Math.PI * 2;
-      const radius = 0.55 + rng() * 0.42;
-      return {
-        x: Math.cos(angle) * radius,
-        z: Math.sin(angle) * radius,
-        heading: angle + Math.PI / 2,
-        timer: rng() * 2,
-        moving: false,
-        rng,
-      };
-    })(),
-  );
+  const parade = useRef({
+    angle: (index / Math.max(1, count)) * Math.PI * 2,
+    dir: index % 2 === 0 ? 1 : -1,
+  });
 
   useFrame((_, dt) => {
     const node = group.current;
     if (!node) return;
-    const state = wander.current;
+    const state = parade.current;
     motion.current.t += dt;
-    if (reducedMotion) {
+    if (!reducedMotion) {
+      state.angle += dt * (0.18 + (index % 3) * 0.03) * state.dir;
+      motion.current.moving = true;
+    } else {
       motion.current.moving = false;
-      node.position.set(state.x, 0.02, state.z);
-      node.rotation.y = state.heading;
-      return;
     }
-    state.timer -= dt;
-    if (state.timer <= 0) {
-      state.moving = !state.moving;
-      state.timer = state.moving ? 1.2 + state.rng() * 2 : 1 + state.rng() * 1.8;
-      if (state.moving) state.heading += (state.rng() - 0.5) * 2.1;
-    }
-    motion.current.moving = state.moving;
-    if (state.moving) {
-      const reach = state.x * state.x + state.z * state.z;
-      if (reach > 0.85) state.heading = Math.atan2(-state.x, -state.z);
-      state.x += Math.sin(state.heading) * dt * 0.22;
-      state.z += Math.cos(state.heading) * dt * 0.22;
-    }
-    node.position.set(state.x, 0.02, state.z);
-    node.rotation.y = state.heading;
+    const point = globeBuddyPoint(progress, active, index, count, state.angle);
+    node.position.set(point.x, 0.02, point.z);
+    node.rotation.y = point.heading;
   });
 
   return (
     <group
       ref={group}
-      scale={WALKER_SCALE}
+      scale={GLOBE_BUDDY_SCALE}
       onPointerDown={(event) => event.stopPropagation()}
     >
       <GlbCreature
@@ -108,6 +96,7 @@ interface TownWalkersProps {
   direction: UnitDirection;
   courses: CourseGlobeCourse[];
   directions: Map<string, UnitDirection>;
+  active: boolean;
   reducedMotion: boolean;
 }
 
@@ -116,6 +105,7 @@ function TownWalkers({
   direction,
   courses,
   directions,
+  active,
   reducedMotion,
 }: TownWalkersProps) {
   const normal = useMemo(() => new THREE.Vector3(...direction).normalize(), [direction]);
@@ -146,6 +136,9 @@ function TownWalkers({
           id={id}
           biome={course.biome}
           index={index}
+          count={count}
+          progress={course.progress}
+          active={active}
           reducedMotion={reducedMotion}
         />
       ))}
@@ -156,10 +149,16 @@ function TownWalkers({
 interface GlobeCreaturesProps {
   courses: CourseGlobeCourse[];
   directions: Map<string, UnitDirection>;
+  activeCourseId?: string | null;
   reducedMotion: boolean;
 }
 
-export function GlobeCreatures({ courses, directions, reducedMotion }: GlobeCreaturesProps) {
+export function GlobeCreatures({
+  courses,
+  directions,
+  activeCourseId = null,
+  reducedMotion,
+}: GlobeCreaturesProps) {
   useEffect(() => {
     preloadRoster(new Set(courses.map((course) => rosterBiome(course.biome))));
   }, [courses]);
@@ -175,6 +174,7 @@ export function GlobeCreatures({ courses, directions, reducedMotion }: GlobeCrea
             direction={direction}
             courses={courses}
             directions={directions}
+            active={course.id === activeCourseId}
             reducedMotion={reducedMotion}
           />
         ) : null;

@@ -29,42 +29,32 @@ describe("generated pixel spiral", () => {
     expect(paintSpiralGalaxy({ seed: 7 })).not.toEqual(cells);
   });
 
-  it("is transparent outside the sky circle and opaque inside", () => {
-    const half = g / 2;
-    for (let y = 0; y < g; y++) {
-      for (let x = 0; x < g; x++) {
-        const nx = (x + 0.5 - half) / half;
-        const ny = (y + 0.5 - half) / half;
-        const inside = Math.hypot(nx, ny) <= 1;
-        expect(cells[y][x] === null).toBe(!inside);
-      }
-    }
+  it("paints only the spiral — no sky disc, corners stay empty", () => {
+    const tally = count(cells);
+    const painted = g * g - (tally.get(null) ?? 0);
     expect(cells[0][0]).toBeNull();
     expect(cells[0][g - 1]).toBeNull();
     expect(cells[g - 1][0]).toBeNull();
+    expect(cells[2][2]).toBeNull();
+    expect(tally.get(P.navyDeep) ?? 0).toBe(0);
+    expect(tally.get(P.navy) ?? 0).toBe(0);
+    expect(painted).toBeGreaterThan(180);
+    expect(painted).toBeLessThan((g * g) / 2);
   });
 
-  it("uses the intended palette families: navy sky, lilac/gray/cyan arms, amber core, stars", () => {
+  it("uses the arm and core families, not a navy plate", () => {
     const tally = count(cells);
-    const navy = (tally.get(P.navyDeep) ?? 0) + (tally.get(P.navy) ?? 0) + (tally.get(P.navyLight) ?? 0);
-    const total = g * g - (tally.get(null) ?? 0);
-    expect(navy / total).toBeGreaterThan(0.45);
     expect(tally.get(P.lilac)).toBeGreaterThan(40);
     expect(tally.get(P.gray)).toBeGreaterThan(20);
     expect(tally.get(P.cyan)).toBeGreaterThan(4);
     expect(tally.get(P.gold)).toBeGreaterThan(15);
     expect(tally.get(P.amber)).toBeGreaterThan(8);
     expect(tally.get(P.coreWhite)).toBeGreaterThan(10);
-    expect((tally.get(P.star) ?? 0) + (tally.get(P.starBlue) ?? 0) + (tally.get(P.starWarm) ?? 0)).toBeGreaterThan(12);
   });
 
-  it("keeps the warm core centred and the sky stars sparse", () => {
+  it("keeps the warm core centred", () => {
     const mid = g / 2;
-    const centre = cells[mid][mid];
-    expect([P.coreWhite, P.cream, P.gold]).toContain(centre);
-    const starCells = count(cells);
-    const stars = (starCells.get(P.star) ?? 0) + (starCells.get(P.starBlue) ?? 0) + (starCells.get(P.starWarm) ?? 0);
-    expect(stars).toBeLessThan(80);
+    expect([P.coreWhite, P.cream, P.gold]).toContain(cells[mid][mid]);
   });
 
   it("merges rows into runs that tile the painted cells exactly", () => {

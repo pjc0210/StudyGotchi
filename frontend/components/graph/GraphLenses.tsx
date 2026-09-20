@@ -14,7 +14,7 @@ export function GraphLenses({
   extra?: ReactNode;
 }) {
   return (
-    <div role="group" aria-label="Graph lens" className="sg-seg">
+    <div role="group" aria-label="Information view" className="sg-seg">
       {LENSES.map((l) => (
         <button
           key={l.id}

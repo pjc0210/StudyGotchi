@@ -63,13 +63,15 @@
 .earth-planet-chrome {
   position: absolute;
   top: calc(var(--sg-header-h) + 12px);
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
   left: var(--sg-gutter);
   z-index: 24;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-content: stretch;
   gap: 14px;
   width: min(340px, calc(100vw - 2 * var(--sg-gutter)));
-  max-height: calc(100dvh - var(--sg-header-h) - 36px);
+  max-height: none;
   pointer-events: none;
 }
 
@@ -84,9 +86,10 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
+  align-self: start;
   width: 100%;
   min-height: 0;
-  flex: 1 1 auto;
+  max-height: 100%;
   overflow: hidden;
   color: var(--a-ink);
   background: var(--a-sheet);
@@ -734,8 +737,9 @@
   position: relative;
   left: auto;
   top: auto;
+  bottom: auto;
   z-index: 2;
-  flex: 0 0 auto;
+  align-self: stretch;
   width: 100%;
   margin: 0;
   padding: 22px 18px 16px;
@@ -744,10 +748,15 @@
   border-radius: var(--a-r-16);
   box-shadow: var(--a-shadow-sheet);
   outline: 1px solid var(--a-ink-10);
+  animation: sg-from-left var(--a-t-view) var(--a-ease-out-quint) 240ms both;
 }
 
-.landmark-flag[data-docked="true"] {
-  flex: 0 0 auto;
+.landmark-flag[data-docked="true"],
+.landmark-flag[data-placement="page-bottom-left"] {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
 }
 
 .landmark-flag[data-hidden="true"] {
@@ -922,13 +931,14 @@
     bottom: 0;
     left: 0;
     width: auto;
-    max-height: 52dvh;
-    padding: 0 10px 10px;
+    max-height: min(68dvh, calc(100dvh - var(--sg-header-h) - 16px));
+    padding: 0 10px max(10px, env(safe-area-inset-bottom, 0px));
     border-radius: 0;
+    grid-template-rows: minmax(0, 1fr) auto;
   }
 
   .course-navigator {
-    max-height: 32dvh;
+    max-height: 100%;
     border-radius: var(--a-r-16);
   }
 

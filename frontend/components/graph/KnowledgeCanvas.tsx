@@ -27,7 +27,7 @@ import {
 } from "@/lib/constellationLabels";
 import type { GraphModel } from "@/lib/graphModel";
 import { spacePalette, type SpacePalette } from "@/lib/graphTheme";
-import { edgeBackboneScore, edgeDrawBudget, keepBackboneEdge } from "@/lib/space-field";
+import { edgeBackboneScore, edgeDrawBudget, keepBackboneEdge, weakTraceCurve } from "@/lib/space-field";
 
 export interface CanvasHandle {
   fit: (duration?: number) => void;
@@ -363,14 +363,16 @@ export function KnowledgeCanvas({
 
       // ---- edges ----
       ctx.lineCap = "round";
+      ctx.lineJoin = "round";
       const lod = edgeDrawBudget(cam.k);
+      const weakDraw: { ax: number; ay: number; cx: number; cy: number; bx: number; by: number }[] = [];
       for (const link of model.links) {
         const a = nodeIndex.get(link.source);
         const b = nodeIndex.get(link.target);
         if (!a || !b) continue;
 
         const onRoute = routeEdgeSet.has(`${link.source}|${link.target}`);
-        const weakLink = weakPulse > 0 && weakTraceSetRef.current.has(link.id);
+        const markedWeak = weakTraceSetRef.current.has(link.id);
         const lit =
           onRoute ||
           (!focusSet ? false : focusSet.has(link.source) && focusSet.has(link.target));
@@ -381,25 +383,8 @@ export function KnowledgeCanvas({
           sourceWeight: a.node.weight,
           targetWeight: b.node.weight,
         });
-        if (!onRoute && !lit && !weakLink && !keepBackboneEdge(score, cam.k)) continue;
-        const dim = !onRoute && !lit && !weakLink;
-        ctx.globalAlpha = weakLink
-          ? Math.max(0.2, weakPulse)
-          : focusSet
-            ? lit
-              ? 1
-              : 0.08
-            : dim
-              ? lod.alpha
-              : 1;
-        ctx.strokeStyle = weakLink
-          ? palette.live
-          : lit || onRoute
-            ? palette.edgeStrong
-            : link.kind === "resource"
-              ? palette.edgeResource
-              : palette.edge;
-        ctx.lineWidth = weakLink ? 2.1 : onRoute ? 1.4 : lit ? 1.1 : lod.width;
+        const keep = onRoute || lit || keepBackboneEdge(score, cam.k);
+        if (!keep && !(markedWeak && weakPulse > 0)) continue;
 
         const angle = Math.atan2(b.y - a.y, b.x - a.x);
         const aProfile = starProfile(a.node.id, a.node.radius, a.node.kind, cam.k);
@@ -413,24 +398,37 @@ export function KnowledgeCanvas({
         const curve = ((((hash(link.id, 7) % 1000) / 1000) - 0.5) * 32) * Math.min(1, cam.k);
         const cx = mx - Math.sin(angle) * curve;
         const cy = my + Math.cos(angle) * curve;
+        if (markedWeak && weakPulse > 0) weakDraw.push({ ax, ay, cx, cy, bx, by });
+        if (!keep) continue;
+
+        const dim = !onRoute && !lit;
+        ctx.globalAlpha = focusSet ? (lit ? 1 : 0.08) : dim ? lod.alpha : 1;
+        ctx.strokeStyle =
+          lit || onRoute ? palette.edgeStrong : link.kind === "resource" ? palette.edgeResource : palette.edge;
+        ctx.lineWidth = onRoute ? 1.4 : lit ? 1.1 : lod.width;
         ctx.beginPath();
-        if (weakLink) {
-          const along = (t: number) => {
-            const u = 1 - t;
-            return {
-              x: u * u * ax + 2 * u * t * cx + t * t * bx,
-              y: u * u * ay + 2 * u * t * cy + t * t * by,
-            };
-          };
-          const start = along(0.38);
-          const end = along(0.62);
-          ctx.moveTo(start.x, start.y);
-          ctx.lineTo(end.x, end.y);
-        } else {
-          ctx.moveTo(ax, ay);
-          ctx.quadraticCurveTo(cx, cy, bx, by);
-        }
+        ctx.moveTo(ax, ay);
+        ctx.quadraticCurveTo(cx, cy, bx, by);
         ctx.stroke();
+      }
+
+      if (weakPulse > 0 && weakDraw.length > 0) {
+        ctx.save();
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.setLineDash([5, 9]);
+        ctx.lineDashOffset = -(now / 86);
+        ctx.strokeStyle = palette.live;
+        ctx.globalAlpha = Math.max(0.18, weakPulse);
+        ctx.lineWidth = 2.2;
+        for (const trace of weakDraw) {
+          const seg = weakTraceCurve(trace.ax, trace.ay, trace.cx, trace.cy, trace.bx, trace.by);
+          ctx.beginPath();
+          ctx.moveTo(seg.x0, seg.y0);
+          ctx.quadraticCurveTo(seg.xc, seg.yc, seg.x1, seg.y1);
+          ctx.stroke();
+        }
+        ctx.restore();
       }
 
       // ---- nodes ----

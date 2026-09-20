@@ -184,7 +184,7 @@ export type Lens = "all" | "mine" | "weak";
 
 export const LENSES: { id: Lens; label: string; hint: string }[] = [
   { id: "all", label: "All", hint: "Concepts and connected material" },
-  { id: "mine", label: "My Knowledge", hint: "What you have actually worked with" },
+  { id: "mine", label: "Knowledge", hint: "What you have actually worked with" },
   { id: "weak", label: "Weak Areas", hint: "The three weakest clusters" },
 ];
 
@@ -213,7 +213,7 @@ export function lensEmphasis(model: GraphModel, lens: Lens): Set<string> | null 
   }
 
   // Keep a resource visible when the concept it explains is emphasised,
-  // otherwise "My Knowledge" would hide the material behind the knowledge.
+  // otherwise the Knowledge lens would hide the material behind the knowledge.
   if (lens === "mine") {
     for (const node of model.nodes) {
       if (node.kind !== "resource") continue;

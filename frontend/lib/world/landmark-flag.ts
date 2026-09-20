@@ -2,10 +2,10 @@ import type { GlobeBiome } from "@/components/world/globe/globe-types";
 import type { CourseResource } from "@/lib/types";
 import type { CourseOverview } from "./course-overview";
 
-export type LandmarkFlagPlacement = "detached-under-classes";
+export type LandmarkFlagPlacement = "page-bottom-left";
 
 export function landmarkFlagPlacement(): LandmarkFlagPlacement {
-  return "detached-under-classes";
+  return "page-bottom-left";
 }
 
 const WORLD_TOWN: Record<GlobeBiome, string> = {
@@ -91,7 +91,7 @@ function latestWorkedTitle(overview: CourseOverview | null | undefined): string 
   const dated = files
     .filter((file) => file.uploaded_at)
     .sort((left, right) => (right.uploaded_at ?? "").localeCompare(left.uploaded_at ?? ""));
-  const student = dated.find((file) => file.origin === "student");
+  const student = dated.find((file) => file.origin === "student_self");
   const pick = student ?? dated[0];
   if (pick?.title) return pick.title;
   const pset = files

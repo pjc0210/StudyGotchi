@@ -105,8 +105,8 @@ export function buildRosterStats(
       value: rosterIdeasValue(reached, total),
     },
     {
-      label: "Walkers",
-      value: walkers === 1 ? "1 hatched" : `${walkers} hatched`,
+      label: "Buddies",
+      value: walkers === 1 ? "1 buddy hatched" : `${walkers} buddies hatched`,
     },
     { label: "Term", value: `${term} · in session` },
   ];

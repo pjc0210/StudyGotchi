@@ -6,8 +6,8 @@ import {
 } from "./landmark-flag";
 
 describe("planetary landmark flag", () => {
-  it("sits as a detached card under the Classes panel", () => {
-    expect(landmarkFlagPlacement()).toBe("detached-under-classes");
+  it("sits as page chrome at the bottom left of the planet view", () => {
+    expect(landmarkFlagPlacement()).toBe("page-bottom-left");
   });
 
   it("writes a short human status for 8.223 and never a bogus reached fraction", () => {

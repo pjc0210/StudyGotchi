@@ -7,14 +7,23 @@ import {
   landHref,
   landParamFromSearch,
   planetHref,
+  PRODUCT_NAV,
   resolveLandCourseId,
   screenPointFromNdc,
+  sharesPlanetLeaveBeat,
   shouldShowLandmarkFlag,
+  showGlobeLandmarkNumberPin,
 } from "./earth-nav";
 import { conceptIdForLabel } from "./ice-district-concepts";
 import world from "./pipeline/8.223-world.json";
 
 describe("earth planet vs land", () => {
+  it("labels the top header Courses and Information", () => {
+    expect(PRODUCT_NAV.map((item) => item.label)).toEqual(["Courses", "Information"]);
+    expect(PRODUCT_NAV[0]?.href).toBe(planetHref());
+    expect(PRODUCT_NAV[1]?.href).toBe("/knowledge");
+  });
+
   it("treats bare /earth as the planetary globe, not ice land", () => {
     expect(planetHref()).toBe("/earth");
     expect(landParamFromSearch("")).toBeNull();
@@ -50,5 +59,15 @@ describe("earth planet vs land", () => {
       y: 70,
     });
     expect(screenPointFromNdc({ x: 0, y: 0, z: 1.2 }, { left: 0, top: 0, width: 100, height: 100 })).toBeNull();
+  });
+
+  it("slides the flag out with Classes when leaving Courses for Information", () => {
+    expect(sharesPlanetLeaveBeat("course-navigator")).toBe(true);
+    expect(sharesPlanetLeaveBeat("landmark-flag")).toBe(true);
+    expect(sharesPlanetLeaveBeat("sg-constellation")).toBe(false);
+  });
+
+  it("does not float a numeric badge over globe landmarks", () => {
+    expect(showGlobeLandmarkNumberPin()).toBe(false);
   });
 });

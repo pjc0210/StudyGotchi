@@ -80,8 +80,8 @@ export function ConstellationPage() {
           lens={lens}
           onChange={handleLens}
           extra={
-            <button type="button" className="sg-seg-item" aria-pressed={dock === "files"} onClick={toggleFiles}>
-              <FileText size={12} aria-hidden style={{ marginRight: 6, verticalAlign: -1 }} />
+            <button type="button" className="sg-seg-item" aria-pressed={dock === "files"} aria-label="Files" onClick={toggleFiles}>
+              <FileText size={12} aria-hidden />
               Files
             </button>
           }

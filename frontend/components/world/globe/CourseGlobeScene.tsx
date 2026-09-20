@@ -551,6 +551,7 @@ function OrbitingGlobe({
       <GlobeCreatures
         courses={courses}
         directions={directions}
+        activeCourseId={activeCourseId}
         reducedMotion={reducedMotion}
       />
       <mesh

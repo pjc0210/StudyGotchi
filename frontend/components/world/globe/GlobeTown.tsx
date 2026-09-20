@@ -4,25 +4,24 @@ import { useMemo, useRef } from "react";
 import { Html } from "@react-three/drei";
 import { useThree, type ThreeEvent } from "@react-three/fiber";
 import * as THREE from "three";
+import { showGlobeLandmarkNumberPin } from "@/lib/world/earth-nav";
 import { markerIdForCourse } from "@/lib/world/globe-courses";
 import { BouquetBase } from "./bouquet/BouquetBase";
-import { Creature } from "./bouquet/Creature";
 import { WorldProps } from "./bouquet/WorldProps";
 import { MARKERS } from "./bouquet/markers";
 import { propCountFromProgress } from "./bouquet/bouquet-state";
+import { GLOBE_ACTIVE_POP, GLOBE_BOUQUET_SCALE } from "./globe-parade";
 import { courseMarkerState, sampleTerrain } from "./globe-spec";
 import { GLOBE_RADIUS } from "./globe-materials";
-import { LANDMARK_REF_FIT, LANDMARK_REF_SCALE, PLANET_SEAT } from "./globe-seat";
 import type {
   CourseGlobeCourse,
   ScreenPoint,
   UnitDirection,
 } from "./globe-types";
 
+export { GLOBE_BOUQUET_SCALE };
+
 const UP = new THREE.Vector3(0, 1, 0);
-export const GLOBE_BOUQUET_SCALE =
-  LANDMARK_REF_SCALE * (LANDMARK_REF_FIT / PLANET_SEAT.radiusFit);
-const ACTIVE_POP = 1.48;
 const ACTIVE_LIFT = 2.8;
 
 export interface GlobeTownOpenEvent {
@@ -95,7 +94,7 @@ export function GlobeTown({
       ref={group}
       position={position}
       quaternion={quaternion}
-      scale={active ? scale * ACTIVE_POP : scale}
+      scale={active ? scale * GLOBE_ACTIVE_POP : scale}
       userData={{ courseLandmark: course.id }}
       onClick={(event) => {
         event.stopPropagation();
@@ -118,7 +117,6 @@ export function GlobeTown({
           propCount={propCountFromProgress(course.progress)}
           night={night}
         />
-        {markerState.pawnCount > 1 ? <Creature /> : null}
         {active ? (
           <mesh position={[0, 0.12, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <ringGeometry args={[16.4, 19.8, 28]} />
@@ -129,7 +127,7 @@ export function GlobeTown({
           <sphereGeometry args={[88, 14, 12]} />
           <meshBasicMaterial transparent opacity={0} depthWrite={false} />
         </mesh>
-        {active ? (
+        {active && showGlobeLandmarkNumberPin() ? (
           <Html
             position={[0, 42, 0]}
             center

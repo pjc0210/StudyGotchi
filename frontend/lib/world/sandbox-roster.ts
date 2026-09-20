@@ -12,7 +12,7 @@ export interface SandboxCourseRecord extends CourseSummary {
 
 const INGESTION = catalog as Record<
   string,
-  { name: string; term: string; files: { title: string; origin: string; artifact_type: string }[] }
+  { name: string; term: string | null; files: { title: string; origin: string; artifact_type: string }[] }
 >;
 
 /** Product /earth sandbox: every GitHub course-materials archive. */

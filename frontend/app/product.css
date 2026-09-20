@@ -416,6 +416,10 @@ h3 {
 }
 
 .sg-seg-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   height: 28px;
   padding: 0 12px;
   border: 0;
@@ -431,6 +435,11 @@ h3 {
   transition:
     background-color var(--a-t-quick) var(--a-ease-out-quad),
     color var(--a-t-quick) var(--a-ease-out-quad);
+}
+
+.sg-seg-item svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .sg-seg-item:hover {
@@ -816,6 +825,10 @@ h3 {
   position: relative;
 }
 
+.sg-header.is-landing {
+  grid-template-columns: 1fr auto;
+}
+
 .sg-header-lead {
   display: flex;
   align-items: center;
@@ -1019,7 +1032,344 @@ h3 {
   outline-offset: 2px;
 }
 
-/* Landing lives in components/landing/landing.css — planet, one line, one button. */
+/* ---------- Landing: one viewport, copy left, the planet in a window right - */
+
+.sg-landing {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: var(--sg-header-h) minmax(0, 1fr);
+  background: var(--a-paper);
+  color: var(--a-ink);
+}
+
+.sg-hero {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) minmax(0, 1fr);
+  grid-template-areas:
+    "copy window"
+    "foot window";
+  column-gap: 48px;
+  row-gap: 24px;
+  align-items: center;
+  min-height: 0;
+  padding: 8px var(--sg-gutter) var(--sg-gutter);
+}
+
+.sg-hero-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 460px;
+  align-self: end;
+  animation: sg-from-left var(--a-t-view) var(--a-ease-out-quint) 120ms both;
+}
+
+.sg-hero-copy .sg-body {
+  color: var(--a-ink-75);
+  max-width: 420px;
+}
+
+.sg-hero-foot {
+  grid-area: foot;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: start;
+  max-width: 460px;
+  animation: sg-from-left var(--a-t-view) var(--a-ease-out-quint) 160ms both;
+}
+
+.sg-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.sg-ladder {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sg-ladder li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sg-landing-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-family: var(--a-mono);
+  font-size: 11px;
+  line-height: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  text-rendering: geometricPrecision;
+  color: var(--a-ink);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--a-ink-20);
+  white-space: nowrap;
+}
+
+.sg-landing-mark[data-mark="filled"],
+.sg-landing-mark[data-mark="lamp"] {
+  color: var(--a-paper);
+  background: var(--a-ink);
+  box-shadow: none;
+}
+
+.sg-landing-mark-lamp {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--a-lamp);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--a-lamp) 55%, transparent);
+}
+
+.sg-ladder-note {
+  margin: 0;
+  font-family: var(--a-ui);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--a-ink-75);
+}
+
+.sg-window-col {
+  grid-area: window;
+  position: relative;
+  align-self: stretch;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The recessed window: the only place space shows on the paper landing. */
+.sg-window {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: var(--a-r-16);
+  background: var(--a-window);
+  overflow: hidden;
+  isolation: isolate;
+  animation: sg-from-right var(--a-t-aperture) var(--a-ease-aperture) both;
+}
+
+.sg-window::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  box-shadow: var(--a-shadow-window);
+  pointer-events: none;
+}
+
+.sg-window-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.sg-window-stage[data-cut="true"] {
+  animation: sg-cut var(--a-t-aperture) var(--a-ease-aperture) both;
+}
+
+.sg-window-globe {
+  position: absolute;
+  inset: 0;
+}
+
+.sg-window-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--space-bg, var(--a-window));
+}
+
+.sg-window-fallback .earth-globe {
+  position: relative;
+  width: min(70%, 70vh) !important;
+  height: auto !important;
+  aspect-ratio: 1;
+  right: auto !important;
+  bottom: auto !important;
+}
+
+.sg-window-caption {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 16px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--a-sheet);
+  box-shadow: var(--a-shadow-hairline);
+  pointer-events: none;
+}
+
+.sg-window-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sg-window-stat-label,
+.sg-window-stat-value,
+.sg-landing .sg-eyebrow,
+.sg-landing .provenance-tab,
+.sg-landing .provenance-source {
+  font-family: var(--a-mono);
+  font-kerning: none;
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  text-rendering: geometricPrecision;
+}
+
+.sg-window-stat-label {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--a-ink-75);
+}
+
+.sg-window-stat-value {
+  font-size: 22px;
+  line-height: 22px;
+  color: var(--a-ink);
+}
+
+.sg-landing-bubble {
+  position: absolute;
+  top: 36px;
+  right: -8px;
+  left: auto;
+  z-index: 4;
+  width: 240px;
+  padding: 22px 18px 16px;
+  color: var(--a-ink);
+  background: var(--a-sheet);
+  border-radius: var(--a-r-12);
+  box-shadow: var(--a-shadow-sheet);
+  animation: sg-reveal var(--a-t-reveal) var(--a-ease-out-quint) 880ms both;
+}
+
+.sg-landing .provenance-tab {
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  height: 22px;
+  padding: 3px 9px;
+  color: var(--a-paper);
+  background: var(--a-ink);
+  border-radius: var(--a-r-4);
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.sg-landing-bubble h2 {
+  margin: 4px 0 8px;
+  font-family: var(--a-display);
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.sg-landing-bubble p {
+  margin: 0 0 10px;
+  color: var(--a-ink-75);
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.sg-landing .provenance-source {
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--a-ink-55);
+}
+
+@media (max-width: 899px) {
+  .sg-landing {
+    overflow-y: auto;
+    grid-template-rows: var(--sg-header-h) auto;
+  }
+
+  .sg-hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "copy"
+      "window"
+      "foot";
+    row-gap: 24px;
+    align-items: start;
+  }
+
+  .sg-hero-copy,
+  .sg-hero-foot {
+    max-width: none;
+  }
+
+  .sg-window-col {
+    align-self: auto;
+    min-height: auto;
+  }
+
+  .sg-window {
+    height: 52vh;
+    flex: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .sg-ladder {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sg-landing-bubble {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .sg-landing-bubble::after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 7px);
+    top: -7px;
+    width: 14px;
+    height: 14px;
+    background: var(--a-sheet);
+    box-shadow: -1px -1px 0 var(--a-ink-10);
+    transform: rotate(45deg);
+  }
+}
 
 /* ---------- World: the planet from the right, the panel from the left ----- */
 
@@ -1192,7 +1542,8 @@ h3 {
 }
 
 .sg-page[data-leaving] .earth-panel,
-.sg-page[data-leaving] .course-navigator {
+.sg-page[data-leaving] .course-navigator,
+.sg-page[data-leaving] .landmark-flag {
   animation: sg-to-left var(--a-t-aperture) var(--a-ease-aperture) both;
 }
 
@@ -1207,6 +1558,8 @@ h3 {
 
 /* Earth leftovers (view-transition snapshots or a stuck navigator) must not sit on the sky. */
 .sg-page:has(.sg-constellation) .course-navigator,
+.sg-page:has(.sg-constellation) .landmark-flag,
+.sg-page:has(.sg-constellation) .earth-planet-chrome,
 .sg-page:has(.sg-constellation) .earth-stage,
 .sg-page:has(.sg-constellation) .earth-panel {
   display: none;
@@ -1788,14 +2141,20 @@ h3 {
   .sg-popover,
   .sg-dock,
   .sg-dialog,
+  .sg-hero-copy,
+  .sg-hero-foot,
+  .sg-landing-bubble,
+  .sg-window,
   .sg-page .earth-stage,
   .sg-page .earth-panel,
   .sg-page .course-navigator,
+  .sg-page .landmark-flag,
   .sg-page[data-leaving] .earth-stage,
   .sg-page[data-leaving] .course-globe-overview,
   .sg-page[data-leaving] .course-globe-stage,
   .sg-page[data-leaving] .earth-panel,
   .sg-page[data-leaving] .course-navigator,
+  .sg-page[data-leaving] .landmark-flag,
   .sg-constellation {
     animation: sg-fade var(--a-t-quick) linear both;
   }
@@ -1803,8 +2162,13 @@ h3 {
   .sg-page[data-leaving] .earth-stage,
   .sg-page[data-leaving] .earth-panel,
   .sg-page[data-leaving] .course-navigator,
+  .sg-page[data-leaving] .landmark-flag,
   .sg-page[data-leaving] .sg-constellation {
     animation: sg-out var(--a-t-quick) linear both;
+  }
+
+  .sg-window-stage[data-cut="true"] {
+    animation: none;
   }
 
   .sg-lamp-blink,

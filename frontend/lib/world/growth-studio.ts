@@ -57,6 +57,7 @@ export interface PlaceStage {
 
 const LAND_NAME: Record<LocalBiomeId, string> = {
   "ice-golden": "Chilly Town",
+  "ice-town": "Ice Town",
   "frontier-town": "Frontier Town",
   "coastal-ruins": "Coastal Ruins",
   "jungle-forest-village": "Jungle / Forest Village",
@@ -67,6 +68,12 @@ const LAND_NAME: Record<LocalBiomeId, string> = {
 
 const DISTRICTS: Record<LocalBiomeId, GrowthDistrict[]> = {
   "ice-golden": [
+    { id: "harbour", name: "Harbour" },
+    { id: "observatory", name: "Observatory" },
+    { id: "lighthouse", name: "Lighthouse" },
+    { id: "ice-town", name: "Ice Town" },
+  ],
+  "ice-town": [
     { id: "harbour", name: "Harbour" },
     { id: "observatory", name: "Observatory" },
     { id: "lighthouse", name: "Lighthouse" },
@@ -213,7 +220,7 @@ function courseOf(
   id: string,
   code: string | null,
   name: string,
-  term: string,
+  term: string | null,
   source: string,
   role: GrowthCourse["role"],
 ): GrowthCourse {
@@ -223,7 +230,7 @@ function courseOf(
     id,
     code: code ?? id,
     name,
-    term,
+    term: term ?? "",
     source,
     role,
     globeBiome,
@@ -237,7 +244,7 @@ function courseOf(
 /** Live pipeline roster first, then leftover snapshot courses still sitting in demo-data. */
 export const DEMO_GROWTH_COURSES: GrowthCourse[] = [
   ...DEMO_COURSES.map((course) =>
-    courseOf(course.id, course.code, course.name, course.term, "demo-data/two-course-pipeline", "live"),
+    courseOf(course.id, course.code ?? course.id, course.name, course.term, "demo-data/two-course-pipeline", "live"),
   ),
   ...SNAPSHOT_EXTRAS.map((course) =>
     courseOf(course.id, course.code, course.name, course.term, "demo-data/snapshot", "snapshot"),

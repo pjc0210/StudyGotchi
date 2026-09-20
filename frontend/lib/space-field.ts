@@ -57,3 +57,37 @@ export function edgeDrawBudget(zoom: number): { alpha: number; width: number } {
   if (zoom < 1.2) return { alpha: 0.62, width: 0.82 };
   return { alpha: 0.88, width: 0.9 };
 }
+
+function lerp(a: number, b: number, t: number): number {
+  return a + (b - a) * t;
+}
+
+/** Mid-span quadratic of a quadratic curve — a short local accent, not the whole edge. */
+export function weakTraceCurve(
+  ax: number,
+  ay: number,
+  cx: number,
+  cy: number,
+  bx: number,
+  by: number,
+  t0 = 0.3,
+  t1 = 0.7,
+): { x0: number; y0: number; xc: number; yc: number; x1: number; y1: number } {
+  const at = (t: number) => {
+    const u = 1 - t;
+    return {
+      x: u * u * ax + 2 * u * t * cx + t * t * bx,
+      y: u * u * ay + 2 * u * t * cy + t * t * by,
+    };
+  };
+  const start = at(t0);
+  const end = at(t1);
+  return {
+    x0: start.x,
+    y0: start.y,
+    xc: lerp(lerp(ax, cx, t0), lerp(cx, bx, t0), t1),
+    yc: lerp(lerp(ay, cy, t0), lerp(cy, by, t0), t1),
+    x1: end.x,
+    y1: end.y,
+  };
+}

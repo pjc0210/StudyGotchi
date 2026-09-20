@@ -130,10 +130,10 @@ export function displayConceptName(raw: string | null | undefined): string {
   if (override) return override;
 
   let text = source
-    .replace(/\\\[(.+?)\\\]/gs, (_, inner: string) => texToWords(inner))
-    .replace(/\\\((.+?)\\\)/gs, (_, inner: string) => texToWords(inner))
-    .replace(/\$\$(.+?)\$\$/gs, (_, inner: string) => texToWords(inner))
-    .replace(/\$(.+?)\$/gs, (_, inner: string) => texToWords(inner));
+    .replace(/\\\[([\s\S]+?)\\\]/g, (_, inner: string) => texToWords(inner))
+    .replace(/\\\(([\s\S]+?)\\\)/g, (_, inner: string) => texToWords(inner))
+    .replace(/\$\$([\s\S]+?)\$\$/g, (_, inner: string) => texToWords(inner))
+    .replace(/\$([\s\S]+?)\$/g, (_, inner: string) => texToWords(inner));
 
   text = texToWords(text);
   text = replaceGreek(text);
