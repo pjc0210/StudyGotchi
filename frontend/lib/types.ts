@@ -46,6 +46,12 @@ export interface KnowledgeGraphResponse {
   hidden_concept_count: number;
 }
 
+export interface CourseSummary {
+  id: string;
+  code: string;
+  name: string;
+}
+
 export type GapAction = "STUDY" | "DIAGNOSE" | "REVIEW" | "OPTIONAL";
 
 export interface Gap {
@@ -132,6 +138,9 @@ export interface Evidence {
 
 export interface ConceptDetail {
   concept_id: string;
+  /** Real, per-concept description extracted from course material - empty
+   *  when the backend has none recorded yet. */
+  definition: string;
   evidence: Evidence[];
   resources: Resource[];
 }

@@ -16,13 +16,16 @@ import {
   COURSE_ID,
   COURSE_NAME,
   isStudentScoped,
+  REAL_DEMO_STUDENTS,
   setMockCourseId,
+  setRealCourse,
   USE_MOCK,
 } from "./api";
-import { MOCK_COURSE, MOCK_COURSES, type MockCourse } from "./mock";
+import { MOCK_COURSE, MOCK_COURSES } from "./mock";
 import type {
   ArtifactType,
   CourseResource,
+  CourseSummary,
   KnowledgeGraphResponse,
   SourceOrigin,
   StudyTarget,
@@ -45,8 +48,8 @@ interface Async<T> {
 interface StoreValue {
   graph: Async<KnowledgeGraphResponse>;
   reloadGraph: () => void;
-  courses: MockCourse[];
-  selectedCourse: MockCourse;
+  courses: CourseSummary[];
+  selectedCourse: CourseSummary;
   selectCourse: (id: string) => void;
 
   /** Ingested files. Shared by the graph and the Files view. */
@@ -92,16 +95,37 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [targets, setTargets] = useState<StudyTarget[]>([]);
   const [uploads, setUploads] = useState<UploadItem[]>([]);
   const [selectedCourseId, setSelectedCourseId] = useState(MOCK_COURSE.id);
-  const selectedCourse = USE_MOCK
+  // Real mode: which finished courses actually have a seeded demo student,
+  // fetched once from the backend rather than hardcoded here. `COURSE_ID` in
+  // api.ts is a plain module variable so changing it does not itself cause a
+  // re-render - `realSelectedCourseId` is the piece of React state that does.
+  const [realCourses, setRealCourses] = useState<CourseSummary[]>([
+    { id: COURSE_ID, code: COURSE_NAME, name: COURSE_NAME },
+  ]);
+  const [realSelectedCourseId, setRealSelectedCourseId] = useState(COURSE_ID);
+  useEffect(() => {
+    if (USE_MOCK) return;
+    let cancelled = false;
+    api
+      .listCourses()
+      .then((list) => {
+        if (!cancelled && list.length > 0) setRealCourses(list);
+      })
+      .catch(() => {
+        /* keep the single course already configured via env vars */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const selectedCourse: CourseSummary = USE_MOCK
     ? (MOCK_COURSES.find((course) => course.id === selectedCourseId) ??
       MOCK_COURSE)
-    : {
+    : (realCourses.find((c) => c.id === realSelectedCourseId) ?? {
         id: COURSE_ID,
-        code: COURSE_ID,
+        code: COURSE_NAME,
         name: COURSE_NAME,
-        archive: "",
-        sourceFiles: [],
-      };
+      });
   // Bumped after every successful real ingestion so dependent views refetch.
   const [ingestVersion, setIngestVersion] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -163,14 +187,23 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
   const selectCourse = useCallback(
     (id: string) => {
-      if (!USE_MOCK || id === selectedCourseId) return;
-      setMockCourseId(id);
-      setSelectedCourseId(id);
+      if (USE_MOCK) {
+        if (id === selectedCourseId) return;
+        setMockCourseId(id);
+        setSelectedCourseId(id);
+      } else {
+        if (id === realSelectedCourseId) return;
+        const course = realCourses.find((c) => c.id === id);
+        const studentId = course ? REAL_DEMO_STUDENTS[course.code] : undefined;
+        if (!course || !studentId) return;
+        setRealCourse(course.id, studentId, course.name);
+        setRealSelectedCourseId(course.id);
+      }
       setSelectedId(null);
       setTarget(null);
       setFocusNonce((n) => n + 1);
     },
-    [selectedCourseId],
+    [selectedCourseId, realSelectedCourseId, realCourses],
   );
 
   useEffect(
@@ -293,7 +326,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     () => ({
       graph,
       reloadGraph,
-      courses: USE_MOCK ? MOCK_COURSES : [selectedCourse],
+      courses: USE_MOCK ? MOCK_COURSES : realCourses,
       selectedCourse,
       selectCourse,
       selectedId,
@@ -313,6 +346,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     [
       graph,
       reloadGraph,
+      realCourses,
       selectedCourse,
       selectCourse,
       selectedId,

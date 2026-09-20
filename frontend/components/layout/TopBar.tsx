@@ -80,7 +80,7 @@ export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
         </p>
       </div>
 
-      {USE_MOCK ? (
+      {courses.length > 1 ? (
         <select
           aria-label="Selected course"
           value={selectedCourse.id}

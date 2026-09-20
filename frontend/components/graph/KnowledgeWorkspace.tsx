@@ -106,6 +106,21 @@ export function KnowledgeWorkspace({
     canvasRef.current?.focus(selectedId);
   }, [focusNonce, selectedId]);
 
+  // Closing the inspector (the X button, or clicking empty canvas) is a
+  // request to back out of wherever the zoom-in left the camera, not just
+  // to hide the panel.
+  const hadSelection = useRef(false);
+  useEffect(() => {
+    if (selectedId) {
+      hadSelection.current = true;
+      return;
+    }
+    if (hadSelection.current) {
+      hadSelection.current = false;
+      canvasRef.current?.fit();
+    }
+  }, [selectedId]);
+
   // A study route should frame itself when it arrives.
   useEffect(() => {
     if (routeIds.length === 0) return;

@@ -521,12 +521,10 @@ export function KnowledgeCanvas({
         startY: e.clientY,
         moved: false,
       };
-      if (hit) {
-        hit.fx = hit.x;
-        hit.fy = hit.y;
-        layout.simulation.alphaTarget(0.12).alpha(0.22).restart();
-      }
-      e.currentTarget.style.cursor = hit ? "grabbing" : "grabbing";
+      // Do not touch the simulation here. A plain click must never disturb
+      // the layout - only a real drag (confirmed in onPointerMove once the
+      // pointer actually moves) should pin the node and reheat the sim.
+      e.currentTarget.style.cursor = "grabbing";
     },
     [pick],
   );
@@ -552,7 +550,12 @@ export function KnowledgeCanvas({
 
       const dx = e.clientX - drag.startX;
       const dy = e.clientY - drag.startY;
-      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) drag.moved = true;
+      // A generous threshold: trackpad/mouse clicks routinely produce a
+      // couple of pixels of incidental movement, and misreading that as a
+      // drag start is exactly what made every click reheat the simulation.
+      const justStartedDragging =
+        !drag.moved && (Math.abs(dx) > 6 || Math.abs(dy) > 6);
+      if (justStartedDragging) drag.moved = true;
 
       if (drag.mode === "pan") {
         camRef.current = {
@@ -565,13 +568,26 @@ export function KnowledgeCanvas({
         markDirty();
       } else if (drag.nodeId) {
         const pn = nodeIndex.get(drag.nodeId);
-        if (pn) {
+        // The real bug lived here: this used to run on *every* pointermove
+        // while the button was down on a node, including the sub-threshold
+        // jitter of an ordinary click - pinning fx/fy and reheating the sim
+        // even though `justStartedDragging` never fired. Since `drag.moved`
+        // only ever becomes true once the threshold above is actually
+        // crossed, gating on it means real jitter-only clicks never touch
+        // the node's position or the simulation at all.
+        if (pn && drag.moved) {
+          if (justStartedDragging) {
+            // Only now is this really a drag, not a click - reheat the sim,
+            // gently: enough to let neighbours make room, not enough to
+            // read as the whole graph shaking.
+            layout.simulation.alphaTarget(0.05).alpha(0.12).restart();
+          }
           // Pin the handled star, then let its neighbours make room around it.
           pn.fx = pn.x + dx / cam.k;
           pn.fy = pn.y + dy / cam.k;
           drag.startX = e.clientX;
           drag.startY = e.clientY;
-          layout.simulation.alphaTarget(0.12).restart();
+          layout.simulation.alphaTarget(0.05).restart();
           markDirty();
         }
       }
@@ -583,10 +599,10 @@ export function KnowledgeCanvas({
     (e: React.PointerEvent<HTMLCanvasElement>) => {
       const drag = dragRef.current;
       if (!drag.moved) {
-        // A click, not a drag.
+        // A click, not a drag - the simulation was never touched, so there
+        // is nothing to release. Just select.
         onSelect(drag.nodeId);
-      }
-      if (drag.nodeId) {
+      } else if (drag.nodeId) {
         const pn = nodeIndex.get(drag.nodeId);
         if (pn) {
           // Retain the deliberate position for this session while the rest of
@@ -594,7 +610,7 @@ export function KnowledgeCanvas({
           pn.fx = pn.x;
           pn.fy = pn.y;
         }
-        layout.simulation.alphaTarget(0).alpha(0.16).restart();
+        layout.simulation.alphaTarget(0).alpha(0.08).restart();
       }
       // The pointer has not moved, so re-pick to keep hover in step with the
       // new selection instead of leaving the previous neighbourhood lit.
@@ -657,10 +673,31 @@ export function KnowledgeCanvas({
         hoveredRef.current = null;
         markDirty();
       }
+      // Safety net: if a drag is somehow interrupted without a matching
+      // pointerup (capture lost, browser quirk), never leave the simulation
+      // parked at a non-zero alphaTarget - that reads as the graph shaking
+      // forever with no user action in progress.
+      if (dragRef.current.mode === "node" && dragRef.current.moved) {
+        const pn = dragRef.current.nodeId
+          ? nodeIndex.get(dragRef.current.nodeId)
+          : undefined;
+        if (pn) {
+          pn.fx = pn.x;
+          pn.fy = pn.y;
+        }
+        layout.simulation.alphaTarget(0).alpha(0.08).restart();
+      }
+      dragRef.current = {
+        mode: "none",
+        nodeId: null,
+        startX: 0,
+        startY: 0,
+        moved: false,
+      };
       e.currentTarget.style.cursor = "grab";
       onHover(null);
     },
-    [markDirty, onHover],
+    [markDirty, onHover, nodeIndex, layout],
   );
 
   return (
@@ -694,13 +731,15 @@ interface StarProfile {
   glow: number;
   opacity: number;
   rays: boolean;
+  keyConcept: boolean;
 }
 
 function starProfile(node: GraphModelNode, zoom: number): StarProfile {
-  // Radius is importance-derived in graphModel. The tiny stable variation only
-  // prevents mechanically identical stars; it never overrides that meaning.
+  // Radius is importance-derived in graphModel (range ~14-66). The tiny
+  // stable variation only prevents mechanically identical stars; it never
+  // overrides that meaning.
   const variation = 0.94 + (hash(node.id, 19) % 120) / 1000;
-  const importanceCore = 1.55 + ((node.radius - 18) / 25) * 3.1;
+  const importanceCore = 1.3 + ((node.radius - 14) / 52) * 3.7;
   const core = Math.max(
     1.15,
     (node.kind === "concept" ? importanceCore : 1.45) *
@@ -708,8 +747,13 @@ function starProfile(node: GraphModelNode, zoom: number): StarProfile {
       Math.sqrt(Math.max(zoom, 0.32)),
   );
   if (node.kind !== "concept") {
-    return { core, glow: core * 4.4, opacity: 0.64, rays: false };
+    return { core, glow: core * 4.4, opacity: 0.64, rays: false, keyConcept: false };
   }
+
+  // Which concepts are "key" is decided once in graphModel (importance,
+  // ranked and capped so ties in the saturated top of the scale do not
+  // flood the graph with highlights) - the renderer just reads the flag.
+  const keyConcept = node.keyConcept;
 
   // Understanding controls only white-light intensity. Null is a distinct,
   // subdued unassessed state, not a synonym for zero understanding.
@@ -722,6 +766,7 @@ function starProfile(node: GraphModelNode, zoom: number): StarProfile {
     glow: core * 6.2 * glowFactor,
     opacity,
     rays: !unassessed && level >= 0.7 && core > 3.8,
+    keyConcept,
   };
 }
 
@@ -772,4 +817,15 @@ function drawStar(
   ctx.beginPath();
   ctx.arc(x, y, star.core, 0, Math.PI * 2);
   ctx.fill();
+
+  if (star.keyConcept) {
+    // A distinct colour accent, not just size, so key concepts read clearly
+    // even at a glance or when zoomed out past where size differences show.
+    ctx.globalAlpha = alpha * (active ? 0.95 : 0.75);
+    ctx.strokeStyle = CANVAS.brand;
+    ctx.lineWidth = active ? 1.6 : 1.1;
+    ctx.beginPath();
+    ctx.arc(x, y, star.core + 3.5, 0, Math.PI * 2);
+    ctx.stroke();
+  }
 }

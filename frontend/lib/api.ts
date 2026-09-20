@@ -1,5 +1,6 @@
 import {
   MOCK_COURSE,
+  MOCK_COURSES,
   MOCK_STUDENT_ID,
   getMockCourseData,
   mockGaps,
@@ -13,6 +14,7 @@ import type {
   ConceptEdge,
   ConceptNode,
   CourseResource,
+  CourseSummary,
   Evidence,
   GapAction,
   GapsResponse,
@@ -30,13 +32,33 @@ export const API_URL =
 export const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
 
 // Demo identifiers live here only. The backend addresses courses and students
-// by UUID; mock mode keeps its own readable ids.
-export const COURSE_ID =
+// by UUID; mock mode keeps its own readable ids. Mutable (not `const`) so a
+// real-mode course switch can repoint every subsequent request without a
+// page reload - mirrors `setMockCourseId` below.
+export let COURSE_ID =
   process.env.NEXT_PUBLIC_DEMO_COURSE_ID ?? (USE_MOCK ? MOCK_COURSE.id : "");
-export const COURSE_NAME =
+export let COURSE_NAME =
   process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
-export const STUDENT_ID =
+export let STUDENT_ID =
   process.env.NEXT_PUBLIC_DEMO_STUDENT_ID ?? (USE_MOCK ? MOCK_STUDENT_ID : "");
+
+export function setRealCourse(courseId: string, studentId: string, name: string) {
+  COURSE_ID = courseId;
+  STUDENT_ID = studentId;
+  COURSE_NAME = name;
+}
+
+/**
+ * Real-mode courses this demo has a seeded student for. Ingestion so far has
+ * only produced a demo student for these three; the others in the backend's
+ * course list are either mid-ingestion or not started, so they are left out
+ * of the switcher rather than shown broken.
+ */
+export const REAL_DEMO_STUDENTS: Record<string, string> = {
+  "6.1210": "61210000-0000-4000-8000-000000000001",
+  "8.223": "82230000-0000-4000-8000-000000000001",
+  "6.1400": "61400000-0000-4000-8000-000000000001",
+};
 
 let selectedMockCourseId = MOCK_COURSE.id;
 export function setMockCourseId(courseId: string) {
@@ -62,6 +84,7 @@ export interface IngestInput {
 }
 
 export interface KnowledgeApi {
+  listCourses(): Promise<CourseSummary[]>;
   getKnowledgeGraph(): Promise<KnowledgeGraphResponse>;
   getConceptDetail(conceptId: string): Promise<ConceptDetail>;
   listUnderstanding(): Promise<UnderstandingEntry[]>;
@@ -233,6 +256,15 @@ function humanize(value: string): string {
 }
 
 const httpApi: KnowledgeApi = {
+  async listCourses() {
+    const raw = await request<{ id: string; name: string; code: string | null }[]>(
+      "/api/courses",
+    );
+    return raw
+      .filter((c) => c.code && c.code in REAL_DEMO_STUDENTS)
+      .map((c) => ({ id: c.id, code: c.code!, name: c.name }));
+  },
+
   async getKnowledgeGraph() {
     return normalizeGraph(
       await request<unknown>(`${studentBase()}/knowledge-graph`),
@@ -243,6 +275,7 @@ const httpApi: KnowledgeApi = {
     const raw = await request<{
       concept_id: string;
       name: string;
+      definition?: string | null;
       evidence: {
         id: string;
         type: string;
@@ -275,6 +308,7 @@ const httpApi: KnowledgeApi = {
     );
     return {
       concept_id: raw.concept_id,
+      definition: raw.definition ?? "",
       evidence: raw.evidence.map((e, i) => {
         return {
           id: e.id || `${conceptId}_${i}`,
@@ -449,6 +483,10 @@ const httpApi: KnowledgeApi = {
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 const mockApi: KnowledgeApi = {
+  async listCourses() {
+    await delay(60);
+    return MOCK_COURSES.map((c) => ({ id: c.id, code: c.code, name: c.name }));
+  },
   async getKnowledgeGraph() {
     await delay(320);
     return normalizeGraph(getMockCourseData(selectedMockCourseId).graph);

@@ -1,33 +1,80 @@
-import type { ConceptEdge, ConceptNode, UnderstandingEntry } from "./types";
+import type { ConceptEdge, ConceptNode, ConceptState } from "./types";
 import { DEMO_CONCEPT_ANALYSIS } from "./demoConceptAnalysis";
 
+/** A concept referenced from another concept's inspector - just enough to
+ * label it, badge its state, and jump to it. */
+export interface ConceptRef {
+  id: string;
+  name: string;
+  understanding: number | null;
+  importance: number;
+  state: ConceptState;
+}
+
+export interface RelatedGroup {
+  type: string;
+  label: string;
+  concepts: ConceptRef[];
+}
+
 export interface ConceptAnalysis {
-  understandingSummary: string;
   whyItMatters: string;
   importanceLabel: string;
-  graphFacts: string[];
+  /** What this concept requires. Weakest/least-evidenced first - that is
+   * the actionable end of the list. */
+  prerequisites: ConceptRef[];
+  /** What this concept unlocks. Most important first. */
+  unlocks: ConceptRef[];
+  /** Everything else (BUILDS_ON, EXAMPLE_OF, personal associations, ...),
+   * grouped by relationship type. */
+  related: RelatedGroup[];
 }
 
 const warnedMissingAuthoredAnalysis = new Set<string>();
 
-export function relativeDate(value: string | null, empty: string): string {
-  if (!value) return empty;
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return empty;
-  const days = Math.max(
-    0,
-    Math.floor((Date.now() - date.getTime()) / 86_400_000),
-  );
-  if (days === 0) return "Today";
-  if (days === 1) return "Yesterday";
-  if (days < 14) return `${days} days ago`;
-  if (days < 60) return `${Math.floor(days / 7)} weeks ago`;
-  return `${Math.floor(days / 30)} months ago`;
+const RELATED_TYPE_LABELS: Record<string, string> = {
+  BUILDS_ON: "Builds on",
+  APPLICATION_OF: "Application of",
+  EXAMPLE_OF: "Example of",
+  CONTRASTS_WITH: "Contrasts with",
+  RELATED_TO: "Related to",
+  ASSOCIATES_WITH: "You associated this with",
+  LEARNED_THROUGH: "You learned this through",
+  PERSONAL_EXAMPLE_OF: "Your example of",
+  PERSONAL_BUILDS_ON: "Your extension of",
+};
+
+function relatedLabel(type: string): string {
+  return RELATED_TYPE_LABELS[type] ?? type.replace(/_/g, " ").toLowerCase();
+}
+
+function toRef(node: ConceptNode): ConceptRef {
+  return {
+    id: node.id,
+    name: node.name,
+    understanding: node.understanding,
+    importance: node.importance,
+    state: node.state,
+  };
+}
+
+/** Weakest/least-evidenced first: the actionable end of a prerequisite list. */
+function byWeakestFirst(a: ConceptRef, b: ConceptRef): number {
+  const av = a.understanding;
+  const bv = b.understanding;
+  if (av === null && bv === null) return b.importance - a.importance;
+  if (av === null) return -1;
+  if (bv === null) return 1;
+  return av - bv;
+}
+
+function byMostImportantFirst(a: ConceptRef, b: ConceptRef): number {
+  return b.importance - a.importance;
 }
 
 export function analyzeConcept(
   concept: ConceptNode,
-  understanding: UnderstandingEntry | null,
+  allNodes: ConceptNode[],
   edges: ConceptEdge[],
 ): ConceptAnalysis {
   const authoredAnalysis = DEMO_CONCEPT_ANALYSIS[concept.id];
@@ -42,64 +89,46 @@ export function analyzeConcept(
     );
   }
 
-  const positive = understanding?.positive_evidence ?? 0;
-  const negative = understanding?.negative_evidence ?? 0;
-  const total = positive + negative;
-  let understandingSummary: string;
-  if (concept.understanding === null || total === 0) {
-    understandingSummary =
-      "There isn't enough evidence yet to estimate your understanding reliably.";
-  } else if (positive / total >= 0.72) {
-    understandingSummary =
-      "Your aggregate evidence currently leans strongly positive.";
-  } else if (negative / total >= 0.45) {
-    understandingSummary =
-      "Your aggregate evidence includes substantial evidence against this concept, so it may need more work.";
-  } else {
-    understandingSummary =
-      "Your aggregate evidence is mixed, so this understanding estimate is still developing.";
+  const byId = new Map(allNodes.map((n) => [n.id, n]));
+  // Keyed by concept id, not pushed to arrays directly: the graph can carry
+  // more than one edge of the same type between the same two concepts (e.g.
+  // several distinct pieces of personal evidence each recorded as their own
+  // ASSOCIATES_WITH edge), and without deduping here the same concept would
+  // appear twice in a list - duplicate React keys, duplicate rows.
+  const prerequisites = new Map<string, ConceptRef>();
+  const unlocks = new Map<string, ConceptRef>();
+  const relatedByType = new Map<string, Map<string, ConceptRef>>();
+
+  for (const edge of edges) {
+    if (edge.source !== concept.id && edge.target !== concept.id) continue;
+    const otherId = edge.source === concept.id ? edge.target : edge.source;
+    const other = byId.get(otherId);
+    if (!other) continue;
+
+    if (edge.type === "PREREQUISITE_FOR") {
+      const target = edge.target === concept.id ? prerequisites : unlocks;
+      target.set(other.id, toRef(other));
+      continue;
+    }
+
+    if (!relatedByType.has(edge.type)) relatedByType.set(edge.type, new Map());
+    relatedByType.get(edge.type)!.set(other.id, toRef(other));
   }
 
-  const incomingPrerequisites = edges.filter(
-    (edge) => edge.type === "PREREQUISITE_FOR" && edge.target === concept.id,
-  ).length;
-  const outgoingPrerequisites = edges.filter(
-    (edge) => edge.type === "PREREQUISITE_FOR" && edge.source === concept.id,
-  ).length;
-  const byType = (type: string) =>
-    edges.filter(
-      (edge) =>
-        edge.type === type &&
-        (edge.source === concept.id || edge.target === concept.id),
-    ).length;
+  const prerequisiteList = Array.from(prerequisites.values()).sort(
+    byWeakestFirst,
+  );
+  const unlockList = Array.from(unlocks.values()).sort(byMostImportantFirst);
 
-  const graphFacts: string[] = [];
-  if (incomingPrerequisites)
-    graphFacts.push(
-      `Builds on ${incomingPrerequisites} prerequisite concept${incomingPrerequisites === 1 ? "" : "s"}.`,
-    );
-  if (outgoingPrerequisites)
-    graphFacts.push(
-      `Unlocks ${outgoingPrerequisites} downstream concept${outgoingPrerequisites === 1 ? "" : "s"}.`,
-    );
-  for (const [type, label] of [
-    ["BUILDS_ON", "build-on"],
-    ["APPLICATION_OF", "application"],
-    ["EXAMPLE_OF", "example"],
-    ["CONTRASTS_WITH", "contrast"],
-  ] as const) {
-    const count = byType(type);
-    if (count)
-      graphFacts.push(
-        `Has ${count} ${label} relationship${count === 1 ? "" : "s"} in this course graph.`,
-      );
-  }
-  if (concept.cluster)
-    graphFacts.push(`Part of the ${concept.cluster} cluster.`);
+  const related: RelatedGroup[] = Array.from(relatedByType.entries())
+    .map(([type, concepts]) => ({
+      type,
+      label: relatedLabel(type),
+      concepts: Array.from(concepts.values()).sort(byMostImportantFirst),
+    }))
+    .sort((a, b) => b.concepts.length - a.concepts.length);
 
   return {
-    understandingSummary:
-      authoredAnalysis?.understandingAnalysis ?? understandingSummary,
     whyItMatters:
       authoredAnalysis?.whyItMatters ??
       "This concept's role in the course is reflected in the relationships recorded below.",
@@ -109,6 +138,8 @@ export function analyzeConcept(
         : concept.importance >= 0.4
           ? "Moderate course importance"
           : "Lower course importance",
-    graphFacts,
+    prerequisites: prerequisiteList,
+    unlocks: unlockList,
+    related,
   };
 }

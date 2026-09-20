@@ -614,7 +614,7 @@ function detail(courseId: string, id: string): ConceptDetail {
       artifact_type,
       role: "Course material",
     }));
-  return { concept_id: id, evidence: [], resources };
+  return { concept_id: id, definition: "", evidence: [], resources };
 }
 export function mockConceptDetail(courseId: string, conceptId?: string) {
   return detail(conceptId ? courseId : MOCK_COURSE.id, conceptId ?? courseId);

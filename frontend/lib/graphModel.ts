@@ -35,6 +35,9 @@ export interface ConceptGraphNode extends BaseGraphNode {
   state: ConceptState;
   discoveryState: DiscoveryState;
   isPersonal: boolean;
+  /** True only for the small set of genuinely headline concepts - see
+   * `pickKeyConcepts`. Drives the distinct highlight ring in the renderer. */
+  keyConcept: boolean;
 }
 
 export interface ResourceGraphNode extends BaseGraphNode {
@@ -75,12 +78,15 @@ const DIRECTED_TYPES = new Set([
 ]);
 
 /**
- * Importance becomes visual territory. The bounded scale keeps highly central
- * course concepts prominent without letting them consume the constellation.
+ * Importance becomes visual territory. A convex curve (rather than the
+ * sqrt this used to be) is deliberate: it compresses the many average
+ * concepts toward the small end and stretches the few genuinely important
+ * ones toward the large end, so key concepts read as obviously bigger
+ * rather than blending into a crowd of similarly-sized dots.
  */
 function conceptRadius(importance: number): number {
   const clamped = Math.max(0, Math.min(1, importance));
-  return 18 + Math.sqrt(clamped) * 25;
+  return 14 + Math.pow(clamped, 1.6) * 52;
 }
 
 /** A restrained, seeded resource variation with no academic meaning. */
@@ -88,6 +94,41 @@ function resourceRadius(id: string): number {
   let hash = 0;
   for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) | 0;
   return 18 + (Math.abs(hash) % 5);
+}
+
+/** Near-1.0, "this is a headline concept of the course" territory. Real
+ * importance scores saturate at 1.0 for a large minority of concepts (not a
+ * smooth spread), so this threshold alone is not selective enough - it is
+ * combined with a hard cap below. */
+const KEY_CONCEPT_IMPORTANCE = 0.97;
+
+/**
+ * Only the true headline concepts should read as visually distinct - not a
+ * quarter of the graph. Importance saturates at 1.0 for many concepts at
+ * once, so ties are broken by how connected a concept is (more prerequisite/
+ * downstream/related edges = more structurally central), then by id for
+ * determinism. The cap scales with course size but stays small.
+ */
+function pickKeyConcepts(
+  conceptNodes: ConceptGraphNode[],
+  adjacency: Map<string, Set<string>>,
+): Set<string> {
+  const candidates = conceptNodes.filter(
+    (n) => n.concept.importance >= KEY_CONCEPT_IMPORTANCE,
+  );
+  const cap = Math.max(6, Math.round(conceptNodes.length * 0.05));
+  if (candidates.length <= cap) return new Set(candidates.map((n) => n.id));
+
+  const degree = (id: string) => adjacency.get(id)?.size ?? 0;
+  candidates.sort((a, b) => {
+    if (a.concept.importance !== b.concept.importance) {
+      return b.concept.importance - a.concept.importance;
+    }
+    const byDegree = degree(b.id) - degree(a.id);
+    if (byDegree !== 0) return byDegree;
+    return a.id.localeCompare(b.id);
+  });
+  return new Set(candidates.slice(0, cap).map((n) => n.id));
 }
 
 export function buildGraphModel(
@@ -111,6 +152,8 @@ export function buildGraphModel(
       state: concept.state,
       discoveryState: concept.discovery_state,
       isPersonal: concept.scope !== "course",
+      // Finalised below, once adjacency exists to break importance ties.
+      keyConcept: false,
     });
   }
 
@@ -175,6 +218,12 @@ export function buildGraphModel(
     touch(link.target, link.source, link.id);
   }
 
+  const conceptNodes = nodes.filter(
+    (n): n is ConceptGraphNode => n.kind === "concept",
+  );
+  const keyConceptIds = pickKeyConcepts(conceptNodes, adjacency);
+  for (const n of conceptNodes) n.keyConcept = keyConceptIds.has(n.id);
+
   return { nodes, links, byId, adjacency, incident };
 }
 
@@ -195,13 +244,44 @@ export const LENSES: { id: Lens; label: string; hint: string }[] = [
   { id: "frontier", label: "Frontier", hint: "What becomes reachable next" },
 ];
 
-/** Backend states the engine considers unstable or under-evidenced. */
-const WEAK_STATES = new Set<ConceptState>([
-  "struggling",
-  "fragile",
-  "uncertain",
-  "stale",
-]);
+/**
+ * How much understanding a concept "owes" given how important it is. A
+ * low-importance topic with mediocre understanding is normal and not worth
+ * flagging; a high-importance one needs to actually be understood well
+ * before it stops counting as a gap. Scales from a lenient 0.30 at
+ * importance 0 up to a demanding 0.85 at importance 1.
+ */
+function requiredUnderstanding(importance: number): number {
+  const clamped = Math.max(0, Math.min(1, importance));
+  return 0.3 + clamped * 0.55;
+}
+
+/**
+ * "Encountered" concepts need to fall further below their importance bar
+ * than "active" ones before counting as weak - the Bayesian prior means a
+ * barely-assessed concept sits near 0.5 understanding by construction, not
+ * necessarily because it's actually weak, so a borderline gap there is much
+ * less trustworthy than the same gap on a concept with real evidence behind
+ * it (`active`). This is a middle ground: strict enough that "just hasn't
+ * been assessed much" mostly stops counting as "confirmed weak", loose
+ * enough that clearly-concerning encountered concepts still surface.
+ */
+const ENCOUNTERED_MARGIN = 0.2;
+
+/**
+ * A concept reads as a weak area only when its understanding falls short of
+ * what its own importance calls for - not from a flat union of "struggling
+ * or fragile or uncertain or stale" states, which flagged most of the graph
+ * regardless of whether any given concept actually mattered.
+ */
+function isWeakArea(node: ConceptGraphNode): boolean {
+  const ds = node.discoveryState;
+  if (ds !== "active" && ds !== "encountered") return false;
+  const understanding = node.concept.understanding;
+  if (understanding === null) return false;
+  const required = requiredUnderstanding(node.concept.importance);
+  return understanding < (ds === "encountered" ? required - ENCOUNTERED_MARGIN : required);
+}
 
 /**
  * Which nodes a lens emphasises. Returns null when the lens emphasises
@@ -222,7 +302,7 @@ export function lensEmphasis(
           ? node.discoveryState === "active" ||
             node.discoveryState === "encountered"
           : lens === "weak"
-            ? WEAK_STATES.has(node.state)
+            ? isWeakArea(node)
             : node.discoveryState === "frontier";
       if (hit) emphasised.add(node.id);
     } else if (lens === "mine" && node.origin === "student_self") {

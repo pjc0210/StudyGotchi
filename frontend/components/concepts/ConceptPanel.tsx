@@ -4,15 +4,11 @@ import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
 import { api } from "@/lib/api";
 import { formatScore } from "@/lib/graph";
-import { analyzeConcept } from "@/lib/conceptAnalysis";
+import { analyzeConcept, type ConceptRef } from "@/lib/conceptAnalysis";
 import { useStore } from "@/lib/store";
-import type {
-  ConceptDetail,
-  ConceptNode,
-  UnderstandingEntry,
-} from "@/lib/types";
+import type { ConceptDetail, ConceptNode } from "@/lib/types";
 import { StateBadge } from "@/components/common/StatusBadge";
-import { UnderstandingBreakdown } from "./UnderstandingBreakdown";
+import { ConceptStats } from "./ConceptStats";
 import { ResourceList } from "./ResourceList";
 
 function Section({
@@ -32,12 +28,56 @@ function Section({
   );
 }
 
-export function ConceptPanel() {
-  const { graph, selectedId, select } = useStore();
-  const [detail, setDetail] = useState<ConceptDetail | null>(null);
-  const [understanding, setUnderstanding] = useState<UnderstandingEntry | null>(
-    null,
+/** A clickable reference to another concept: name, state, understanding,
+ * jumps the graph to it on click. Used for prerequisites/unlocks/related. */
+function ConceptRefRow({
+  concept,
+  onSelect,
+}: {
+  concept: ConceptRef;
+  onSelect: (id: string) => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(concept.id)}
+      className="flex w-full items-center gap-2 rounded-md px-1.5 py-1.5 text-left transition-colors hover:bg-raised"
+    >
+      <StateBadge state={concept.state} size="sm" />
+      <span className="min-w-0 flex-1 truncate text-[12.5px] text-ink">
+        {concept.name}
+      </span>
+      <span className="shrink-0 font-mono text-[11px] tabular-nums text-ink-faint">
+        {formatScore(concept.understanding)}
+      </span>
+    </button>
   );
+}
+
+function ConceptRefList({
+  concepts,
+  onSelect,
+  emptyLabel,
+}: {
+  concepts: ConceptRef[];
+  onSelect: (id: string) => void;
+  emptyLabel: string;
+}) {
+  if (concepts.length === 0) {
+    return <p className="text-[12px] text-ink-faint">{emptyLabel}</p>;
+  }
+  return (
+    <div className="-mx-1.5 space-y-0.5">
+      {concepts.map((c) => (
+        <ConceptRefRow key={c.id} concept={c} onSelect={onSelect} />
+      ))}
+    </div>
+  );
+}
+
+export function ConceptPanel() {
+  const { graph, selectedId, select, focusConcept } = useStore();
+  const [detail, setDetail] = useState<ConceptDetail | null>(null);
   const [loading, setLoading] = useState(false);
 
   const concept: ConceptNode | undefined = graph.data?.nodes.find(
@@ -47,19 +87,15 @@ export function ConceptPanel() {
   useEffect(() => {
     if (!selectedId) {
       setDetail(null);
-      setUnderstanding(null);
       return;
     }
     let cancelled = false;
     setLoading(true);
 
-    Promise.all([api.getConceptDetail(selectedId), api.listUnderstanding()])
-      .then(([d, entries]) => {
-        if (cancelled) return;
-        setDetail(d);
-        setUnderstanding(
-          entries.find((entry) => entry.concept_id === selectedId) ?? null,
-        );
+    api
+      .getConceptDetail(selectedId)
+      .then((d) => {
+        if (!cancelled) setDetail(d);
       })
       .catch(() => {})
       .finally(() => {
@@ -75,7 +111,7 @@ export function ConceptPanel() {
   if (!concept) return null;
   const analysis = analyzeConcept(
     concept,
-    understanding,
+    graph.data?.nodes ?? [],
     graph.data?.edges ?? [],
   );
 
@@ -115,40 +151,49 @@ export function ConceptPanel() {
       </header>
 
       <div className="px-4 py-4">
-        <UnderstandingBreakdown concept={concept} detail={understanding} />
+        <ConceptStats concept={concept} />
       </div>
 
-      <Section
-        title={
-          concept.understanding === null
-            ? "Why isn't my understanding estimated yet?"
-            : `Why is my understanding ${formatScore(concept.understanding)}?`
-        }
-      >
+      <Section title="About this concept">
         <p className="text-[13px] leading-relaxed text-ink-dim">
-          {analysis.understandingSummary}
+          {loading
+            ? "Loading…"
+            : detail?.definition || analysis.whyItMatters}
         </p>
       </Section>
 
-      <Section title="Why this matters">
-        <p className="text-[13px] leading-relaxed text-ink-dim">
-          {analysis.whyItMatters}
-        </p>
-        <p className="mt-2 text-[12px] text-ink-faint">
-          {analysis.importanceLabel}
-        </p>
-        {analysis.graphFacts.length > 0 ? (
-          <ul className="mt-2 space-y-1 text-[12px] leading-relaxed text-ink-dim">
-            {analysis.graphFacts.map((fact) => (
-              <li key={fact}>{fact}</li>
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-2 text-[12px] text-ink-faint">
-            No additional relationships are recorded for this concept yet.
-          </p>
-        )}
+      <Section
+        title={`Prerequisites${analysis.prerequisites.length ? ` (${analysis.prerequisites.length})` : ""}`}
+      >
+        <ConceptRefList
+          concepts={analysis.prerequisites}
+          onSelect={focusConcept}
+          emptyLabel="No prerequisites recorded for this concept."
+        />
       </Section>
+
+      <Section
+        title={`Unlocks${analysis.unlocks.length ? ` (${analysis.unlocks.length})` : ""}`}
+      >
+        <ConceptRefList
+          concepts={analysis.unlocks}
+          onSelect={focusConcept}
+          emptyLabel="This isn't a prerequisite for anything else yet."
+        />
+      </Section>
+
+      {analysis.related.map((group) => (
+        <Section
+          key={group.type}
+          title={`${group.label} (${group.concepts.length})`}
+        >
+          <ConceptRefList
+            concepts={group.concepts}
+            onSelect={focusConcept}
+            emptyLabel=""
+          />
+        </Section>
+      ))}
 
       <Section title="Resources">
         {loading ? (
