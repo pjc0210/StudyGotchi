@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 from app.domain.ontology.concepts import ConceptKind, ConceptScope, Granularity
 from app.domain.ontology.edges import ConceptEdgeType
+from app.schemas.numbers import ApiFloat
 
 
 class ConceptOut(BaseModel):
@@ -14,7 +15,7 @@ class ConceptOut(BaseModel):
     short_definition: str | None
     concept_kind: ConceptKind
     granularity: Granularity
-    importance: float
+    importance: ApiFloat
     scope: ConceptScope
 
 
@@ -23,8 +24,8 @@ class ConceptEdgeOut(BaseModel):
     source_concept_id: UUID
     target_concept_id: UUID
     edge_type: ConceptEdgeType
-    confidence: float
-    authority_weight: float
+    confidence: ApiFloat
+    authority_weight: ApiFloat
     status: str
     is_redundant_in_display_graph: bool = False
 

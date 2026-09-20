@@ -1,10 +1,16 @@
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+_BACKEND_DIR = Path(__file__).resolve().parent.parent
+
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=(_BACKEND_DIR / ".env", ".env"),
+        extra="ignore",
+    )
 
     database_url: str = "postgresql+asyncpg://studygotchi:studygotchi@localhost:5432/studygotchi"
 
@@ -12,6 +18,13 @@ class Settings(BaseSettings):
     anthropic_api_key: str | None = None
     anthropic_model: str = "claude-sonnet-5"
     anthropic_vision_model: str = "claude-sonnet-5"
+
+    openai_api_key: str | None = None
+    openai_model: str = "gpt-4.1"
+    openai_vision_model: str = "gpt-4.1"
+    openai_embed_model: str = "text-embedding-3-large"
+    # Must match Vector(EMBEDDING_DIM) in app.db.models (1024).
+    openai_embed_dimensions: int = 1024
 
     voyage_api_key: str | None = None
     voyage_embed_model: str = "voyage-3"

@@ -12,6 +12,7 @@ from anthropic import AsyncAnthropic
 
 from app.config import get_settings
 from app.providers.llm.base import SchemaT
+from app.providers.llm.structured import model_tool_schema, validate_structured
 
 _STRUCTURED_OUTPUT_TOOL_NAME = "emit_structured_output"
 
@@ -45,14 +46,14 @@ class AnthropicLLMProvider:
                 {
                     "name": _STRUCTURED_OUTPUT_TOOL_NAME,
                     "description": f"Emit the extraction result matching the {schema.__name__} schema.",
-                    "input_schema": schema.model_json_schema(),
+                    "input_schema": model_tool_schema(schema, strict=False),
                 }
             ],
             tool_choice={"type": "tool", "name": _STRUCTURED_OUTPUT_TOOL_NAME},
         )
         for block in response.content:
             if block.type == "tool_use" and block.name == _STRUCTURED_OUTPUT_TOOL_NAME:
-                return schema.model_validate(block.input)
+                return validate_structured(schema, block.input)
         raise RuntimeError("Anthropic response did not include the expected structured tool_use block.")
 
     async def embed(self, texts: list[str]) -> list[list[float]]:

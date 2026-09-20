@@ -23,8 +23,10 @@ from sqlalchemy.types import DateTime
 
 from app.db.base import Base, TimestampMixin, UUIDPKMixin
 
-# Voyage-3 embeddings are 1024-dimensional. Kept as a single constant so the
-# embedding provider and the schema never drift apart.
+# Embedding width for pgvector columns. Voyage-3 is natively 1024-d;
+# OpenAI text-embedding-3-large is requested with dimensions=1024 so both
+# providers fit this column. Change this constant and the matching
+# OPENAI_EMBED_DIMENSIONS setting together if the width must move.
 EMBEDDING_DIM = 1024
 
 

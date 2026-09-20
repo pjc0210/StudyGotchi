@@ -6,19 +6,20 @@ from uuid import UUID
 from pydantic import BaseModel
 
 from app.domain.personal_graph.discovery import DiscoveryState
+from app.schemas.numbers import ApiFloat
 
 
 class MasteryEntryOut(BaseModel):
     concept_id: UUID
     name: str
     discovery_state: DiscoveryState
-    mastery: float
-    familiarity: float
-    confidence: float
-    readiness: float
-    fragility: float
-    positive_evidence: float
-    negative_evidence: float
+    mastery: ApiFloat
+    familiarity: ApiFloat
+    confidence: ApiFloat
+    readiness: ApiFloat
+    fragility: ApiFloat
+    positive_evidence: ApiFloat
+    negative_evidence: ApiFloat
     last_evidence_at: datetime | None
     last_practiced_at: datetime | None
 

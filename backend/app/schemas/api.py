@@ -5,6 +5,7 @@ from uuid import UUID
 from pydantic import BaseModel, Field, model_validator
 
 from app.domain.gaps.scoring import GapAction
+from app.schemas.numbers import ApiFloat
 
 
 class CourseCreateRequest(BaseModel):
@@ -40,9 +41,9 @@ class StudentResourceIngestResponse(BaseModel):
 class GapOut(BaseModel):
     concept_id: UUID
     name: str
-    mastery: float
-    confidence: float
-    priority: float
+    mastery: ApiFloat
+    confidence: ApiFloat
+    priority: ApiFloat
     action: GapAction
     reason: str
 

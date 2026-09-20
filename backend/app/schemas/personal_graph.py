@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 from app.domain.ontology.concepts import ConceptScope
 from app.domain.personal_graph.discovery import DiscoveryState
+from app.schemas.numbers import ApiFloat, OptionalApiFloat
 
 
 class PersonalGraphNodeOut(BaseModel):
@@ -13,13 +14,13 @@ class PersonalGraphNodeOut(BaseModel):
     name: str
     scope: ConceptScope
     discovery_state: DiscoveryState
-    importance: float
-    personal_relevance: float
-    mastery: float | None
-    familiarity: float
-    confidence: float
-    readiness: float
-    fragility: float
+    importance: ApiFloat
+    personal_relevance: ApiFloat
+    mastery: OptionalApiFloat
+    familiarity: ApiFloat
+    confidence: ApiFloat
+    readiness: ApiFloat
+    fragility: ApiFloat
 
 
 class PersonalGraphEdgeOut(BaseModel):
@@ -27,7 +28,7 @@ class PersonalGraphEdgeOut(BaseModel):
     target: UUID
     edge_type: str
     origin: str
-    confidence: float
+    confidence: ApiFloat
 
 
 class PersonalGraphResponse(BaseModel):
