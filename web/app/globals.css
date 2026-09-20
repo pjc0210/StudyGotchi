@@ -90,6 +90,12 @@ h1, h2 {
   font-size: 14px;
 }
 
+.account-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .account-email {
   color: var(--ink-soft);
   font-size: 14px;

@@ -1,12 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useStore } from '@/lib/store'
 
 export function SiteHeader() {
   const pathname = usePathname()
-  const { user } = useStore()
+  const router = useRouter()
+  const { user, logout } = useStore()
 
   return (
     <header className="site-header">
@@ -22,7 +23,20 @@ export function SiteHeader() {
         </Link>
       </nav>
       {user ? (
-        <span className="account-email">{user.email}</span>
+        <div className="account-bar">
+          <span className="account-email">{user.email}</span>
+          <button
+            className="login-btn"
+            type="button"
+            onClick={async () => {
+              await logout()
+              router.push('/')
+              router.refresh()
+            }}
+          >
+            Log out
+          </button>
+        </div>
       ) : (
         <Link className="login-btn" href="/login">
           Login
