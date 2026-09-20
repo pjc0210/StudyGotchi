@@ -1104,11 +1104,11 @@ h3 {
 
 .sg-window-fallback .earth-globe {
   position: relative;
-  width: min(70%, 70vh);
-  height: auto;
+  width: min(70%, 70vh) !important;
+  height: auto !important;
   aspect-ratio: 1;
-  right: auto;
-  bottom: auto;
+  right: auto !important;
+  bottom: auto !important;
 }
 
 .sg-window-caption {
