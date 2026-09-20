@@ -94,7 +94,10 @@ def project_graph(
     metrics: dict[UUID, ConceptMetrics] = {}
     for node in graph.nodes:
         total = totals.get(node.concept_id)
-        support = compute_prerequisite_understanding_support(prereqs.get(node.concept_id, []), understanding_by_concept)
+        # A prerequisite nobody has evidence on is unknown, not weak; it does not
+        # count against the concept until the student touches it.
+        known = [p for p in prereqs.get(node.concept_id, []) if understanding_by_concept.get(p.prerequisite_concept_id) is not None]
+        support = compute_prerequisite_understanding_support(known, understanding_by_concept)
         understanding = node.understanding
         confidence = confidence_from_evidence(total.positive_evidence, total.negative_evidence) if total else 0.0
         if understanding is None or support is None:
