@@ -1,0 +1,823 @@
+{
+  "course": {
+    "name": "Physics II: Electricity and Magnetism",
+    "code": "8.022",
+    "term": "Spring 2026"
+  },
+  "resources": [
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exam-practice/Practice Exam 1.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exam-practice/Practice Exam 2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exam-practice/Practice Final.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps1-1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps10.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps11.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps12.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps2.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps3.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps4.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps5.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps6.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps7.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps8.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/exercises/ps9.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/labs/Faraday_Ice_Pail.pdf",
+      "origin": "instructor",
+      "artifact_type": "reading"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/labs/Helmholtz_Coil.pdf",
+      "origin": "instructor",
+      "artifact_type": "reading"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/labs/Wireless_Power_Transfer.pdf",
+      "origin": "instructor",
+      "artifact_type": "reading"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L10_Slides_CircuitsKirchoff.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L11_Slides_Lorentz.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L12_Slides_Ampere.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L13_Slides_VpotentialBiot.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L14_Slides_Faraday.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L15_Slides_InductorsMagneticEnergy.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L16_Slides_RLC_DC.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L17_Slides_ACsources.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L18_Slides_Impedance.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L19_Slides_Displacement.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L1_Slides_CoulombCharges.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L20_Slides_Wave1.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L21_Slides_Wave2.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L25_Slides_SummaryPart123.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L2_Slides_EfieldGauss.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L3_Slides_EnergyElectrost.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L4_Slides_VectorCalculus.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L5_Slides_MaxwellStaticPoissonLaplace.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L6_Slides_Conductors.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L7_Slides_Capacitors.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L8_Slides_Currents.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/L9_Slides_ResiBatteries.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/lectures/Review_MIdTerm2.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/notes/LowPassFilter.pdf",
+      "origin": "instructor",
+      "artifact_type": "reading"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ10.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ11.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ12.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ2.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ3.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ4.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ5.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ6.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ7.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ8.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/reading-questions/RQ9.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/8022_recitation_5_Assembly Energy.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R1.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R10.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R11.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R12.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R13.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R14.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R15.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R16.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R18.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R19.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R2.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R20.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R21.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R22.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R23.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R3.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R4.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R5.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R6.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R7.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R8.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/R9.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/recitations/thevenin.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R10sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R11sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R12sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R13sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R14sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R15sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R16sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R18sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R19sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R1sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R20sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R21sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R22sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R23sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R2sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R3sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R4sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R5sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R6sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R7sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R8sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/R9sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/solPracticeExam.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/solPracticeFinal.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022.zip",
+      "member": "8.022/spring-2026/solutions/solPracticeexam2.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/8.022 MT1.pdf.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Lab 1 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/PSET 4 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/PSet 6 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 1 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 10 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 12 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 2 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 3 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 5 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 7 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 8 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Pset 9 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 10 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 11 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 12 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 2 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 3 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 4 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 5 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 6 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 7 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 8 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/RQ 9 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/Untitled.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/from-18.06-folder/Pset 7 EM Comp.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/from-18.06-folder/Pset 7 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "8.022-local-coursework.zip",
+      "member": "8.022/local-coursework/from-18.06-folder/RQ 6 EM.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "80220000-0000-4000-8000-000000000001"
+    }
+  ]
+}

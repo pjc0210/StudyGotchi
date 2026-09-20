@@ -1,0 +1,628 @@
+{
+  "course_id": "1cb0b349-0ed1-4925-968d-2f703e0f9d42",
+  "clusters_merged": 45,
+  "clusters": [
+    {
+      "survivor": "70bde335-239e-4e1e-aa3d-1de2a78eb081",
+      "survivor_name": "Recurrence Relations",
+      "merged": [
+        {
+          "id": "b2aeca82-464e-476d-8f8c-471eb4a17dc4",
+          "name": "Transition Relations in DP"
+        },
+        {
+          "id": "01f78423-f98a-450b-9473-4c1a05959755",
+          "name": "Recurrence Relation in Dynamic Programming"
+        },
+        {
+          "id": "3ddf8533-e966-4a81-89cd-1f978e0d105a",
+          "name": "Recurrence Relation for Runtime Analysis"
+        }
+      ]
+    },
+    {
+      "survivor": "643eecb9-00d0-4b9d-940b-e4ad29e41391",
+      "survivor_name": "Binary Search Algorithm",
+      "merged": [
+        {
+          "id": "71fcd1a6-4931-41ae-b31d-381c21d270a0",
+          "name": "Binary Search"
+        }
+      ]
+    },
+    {
+      "survivor": "5224418d-c478-40e4-8260-c1be0a320d4d",
+      "survivor_name": "Final Exam",
+      "merged": [
+        {
+          "id": "db5ed263-e208-4bb9-be88-2e484e2747b7",
+          "name": "Practice Final Exam"
+        }
+      ]
+    },
+    {
+      "survivor": "6b849fce-b108-46af-ba89-4c862f88be3d",
+      "survivor_name": "Longest Increasing Subsequence (LIS) Problem",
+      "merged": [
+        {
+          "id": "bbba965a-3f80-481e-aacb-c597dfd97e8c",
+          "name": "Longest Strictly Increasing Subsequence in a String"
+        }
+      ]
+    },
+    {
+      "survivor": "761fece0-b259-4f10-b705-324619a42dcc",
+      "survivor_name": "Dynamic Programming Algorithm (DAA)",
+      "merged": [
+        {
+          "id": "0e39b015-a634-4f36-8084-3cd19dc4ecdd",
+          "name": "Dynamic Programming Algorithm Design"
+        }
+      ]
+    },
+    {
+      "survivor": "e0ecc8e4-f365-449b-9681-e302c85902d5",
+      "survivor_name": "Greedy Choice Property",
+      "merged": [
+        {
+          "id": "f1f5087f-2dc7-4963-8dd8-1809aec2a72f",
+          "name": "Greedy Choice Property (GCP)"
+        }
+      ]
+    },
+    {
+      "survivor": "0d78798e-84a0-49c7-89e2-617ddedd9017",
+      "survivor_name": "Reduction in computational problems",
+      "merged": [
+        {
+          "id": "6da27b2c-619c-49a2-af3d-bb466fe0e187",
+          "name": "Polynomial-time Reduction"
+        },
+        {
+          "id": "a24864f8-f2b7-4787-811e-0fe08daa2808",
+          "name": "Algorithm Reduction Techniques"
+        },
+        {
+          "id": "77ee1e16-4b5f-4f1f-8e28-b64547d436d1",
+          "name": "Polynomial Time Reduction"
+        },
+        {
+          "id": "ebc3ebae-7d63-4a15-9720-2716a2b2148d",
+          "name": "Many-One Reduction"
+        }
+      ]
+    },
+    {
+      "survivor": "63f0ecb9-3d98-4491-af8f-3a1013a233bd",
+      "survivor_name": "NP-hardness",
+      "merged": [
+        {
+          "id": "48a120dc-d0c2-4edc-b81a-f78237f97ec4",
+          "name": "NP-hard Problem"
+        }
+      ]
+    },
+    {
+      "survivor": "2a71402f-07ab-445f-90f7-984e07e1bcac",
+      "survivor_name": "Algorithm Analysis and Runtime Proofs",
+      "merged": [
+        {
+          "id": "6645fc73-9c5d-4129-a74a-15559fcad1ba",
+          "name": "Algorithm Runtime Analysis"
+        },
+        {
+          "id": "ad37b6e2-5ad4-4ecf-91a7-77d096e83aeb",
+          "name": "Big O Notation"
+        },
+        {
+          "id": "ac3e3094-0b53-44f4-9d33-979c93aca843",
+          "name": "Asymptotic Runtime Bounds O(nk log n), O(n2k), and Polynomial Time"
+        },
+        {
+          "id": "eca0907b-b2ad-4faf-a1f9-9aabe7eac383",
+          "name": "Big-Omega notation (\u2126())"
+        },
+        {
+          "id": "4fce4879-5287-4c80-8c78-7943c3a7a3d9",
+          "name": "Asymptotic Runtime Complexity"
+        },
+        {
+          "id": "fd55b3b9-dec1-4ad9-acc5-f0080af3455a",
+          "name": "Graph Algorithm Time Complexity"
+        },
+        {
+          "id": "36146740-2994-499b-8fe1-b0d6a91b81a1",
+          "name": "Asymptotic lower bound (Big Omega notation)"
+        },
+        {
+          "id": "eeaefce1-c9c6-4202-a81c-fdb3d1faf017",
+          "name": "Runtime Analysis of Graph Algorithms"
+        },
+        {
+          "id": "17414f4c-64f9-4adc-a7c5-df427f9c10e5",
+          "name": "Runtime Complexity Analysis"
+        },
+        {
+          "id": "a2e2a445-32a8-4ea5-9623-9816fa2075ec",
+          "name": "Asymptotic Notation"
+        },
+        {
+          "id": "84e251c6-9271-4b29-a35a-008ff1a2249d",
+          "name": "Theta Notation"
+        }
+      ]
+    },
+    {
+      "survivor": "a72af3cb-58a7-4b71-876b-97df4686dc6c",
+      "survivor_name": "Word-RAM Model",
+      "merged": [
+        {
+          "id": "8e9c17ba-c26b-44c3-93d6-0d7391e38185",
+          "name": "Algorithm"
+        }
+      ]
+    },
+    {
+      "survivor": "5f130f4f-9904-4285-ae39-a1142c37a3b8",
+      "survivor_name": "Bellman-Ford Algorithm",
+      "merged": [
+        {
+          "id": "098048ac-c614-4124-ad2c-5155333ddb31",
+          "name": "BFS for Single-Source Shortest Path (SSSP) in Unweighted Graphs"
+        },
+        {
+          "id": "9e487e87-28a9-4900-8d5b-25bde37274a8",
+          "name": "Depth-First Search (DFS)"
+        },
+        {
+          "id": "cfc2f34d-c74a-485a-80fa-8ba3188dc65a",
+          "name": "Breadth-First Search (BFS) Algorithm"
+        },
+        {
+          "id": "6b32ed1c-f960-4f78-92dd-33d71fd7292f",
+          "name": "Full Depth-First Search (Full DFS)"
+        },
+        {
+          "id": "083c2271-40e5-4645-a845-d3ec0390f9ad",
+          "name": "Breadth-First Search (BFS)"
+        }
+      ]
+    },
+    {
+      "survivor": "ffa42182-25b7-4c84-89ad-facc7be66e24",
+      "survivor_name": "All-Pairs Shortest Paths (APSP) Algorithms",
+      "merged": [
+        {
+          "id": "ae785f11-dd5e-41ed-9f91-b4881185de08",
+          "name": "All-Pairs Shortest Paths (APSP) Problem"
+        },
+        {
+          "id": "cb59a907-5539-443e-9aac-c7a3b42b17c4",
+          "name": "All Pairs Shortest Paths"
+        }
+      ]
+    },
+    {
+      "survivor": "2114d912-d70b-46a5-bcc7-3d56d831c3ed",
+      "survivor_name": "Radix Sort",
+      "merged": [
+        {
+          "id": "27f13df7-7bf7-4888-b909-efc6d2cd9aca",
+          "name": "Counting Sort"
+        },
+        {
+          "id": "2bf4cb1a-9351-4fba-a93a-d86b07bf23c0",
+          "name": "Counting Sort Algorithm"
+        },
+        {
+          "id": "e504c967-6733-4c00-82ab-a693d1070070",
+          "name": "Direct Access Array Sort"
+        }
+      ]
+    },
+    {
+      "survivor": "c09a5b28-d6e4-4891-8ad9-4d644addb673",
+      "survivor_name": "Stable Sorting",
+      "merged": [
+        {
+          "id": "97b7d405-57c5-4b3a-8300-d39b02614fda",
+          "name": "Radix Sort Auxiliary Sorting Algorithm Stability"
+        }
+      ]
+    },
+    {
+      "survivor": "612df082-36fb-42a5-9154-c3e555129c13",
+      "survivor_name": "Topological Order in Dynamic Programming",
+      "merged": [
+        {
+          "id": "731feec0-8062-4376-8644-a355374920ca",
+          "name": "Topological Order of a Directed Acyclic Graph (DAG)"
+        },
+        {
+          "id": "71716e85-88d3-4065-a910-0277b0ec7231",
+          "name": "Topological Sorting"
+        }
+      ]
+    },
+    {
+      "survivor": "accb3b8b-61be-4638-b6c0-2986960d0f97",
+      "survivor_name": "AVL Tree Set",
+      "merged": [
+        {
+          "id": "fb493de2-a281-4ea4-b8f1-d036cab5b000",
+          "name": "AVL Tree Augmented with Subtree Extremum"
+        },
+        {
+          "id": "fe1f0130-c8f7-48bd-9eef-6e9dd26b0ca5",
+          "name": "AVL Tree Augmentation"
+        },
+        {
+          "id": "63714e38-2ef5-4d2d-9b15-093ba499c71e",
+          "name": "Binary Search Tree (BST)"
+        },
+        {
+          "id": "c991eb3a-838e-4dcc-9b61-944c6826ed2f",
+          "name": "AVL Balanced Search Tree (AVL BST)"
+        },
+        {
+          "id": "b4798385-2981-4cdd-a86c-6a5508eda95a",
+          "name": "Doubly-Linked List"
+        },
+        {
+          "id": "a17c5468-e3c6-4a07-ade6-354fd44b2cf9",
+          "name": "Dynamic Array"
+        },
+        {
+          "id": "6f0b30a7-c7b9-4cc6-b04e-da88012b32d6",
+          "name": "Hash Table"
+        },
+        {
+          "id": "351aa577-dd75-4529-a377-466a87f52535",
+          "name": "AVL SET"
+        },
+        {
+          "id": "95e6192c-8068-4e4c-8a30-be682c8181c8",
+          "name": "Balanced Tree Data Structure"
+        },
+        {
+          "id": "f8042234-fd3d-4fe9-ab86-0fd2abb4d4d5",
+          "name": "Balanced Binary Tree"
+        },
+        {
+          "id": "a034d8cb-bf09-45ca-baec-c40524e7183f",
+          "name": "Sequence AVL Tree"
+        }
+      ]
+    },
+    {
+      "survivor": "d790e1dd-8965-452b-b152-e8e6432207e7",
+      "survivor_name": "Insertion Sort",
+      "merged": [
+        {
+          "id": "e8297f2b-f72f-40cf-ba27-f38d51d02b7e",
+          "name": "Selection Sort"
+        }
+      ]
+    },
+    {
+      "survivor": "9936878f-a922-4aa0-ac47-3a1d807e0495",
+      "survivor_name": "In-Order Traversal",
+      "merged": [
+        {
+          "id": "ed79a7c5-d5e8-4c24-a52d-196ec8b887c2",
+          "name": "In-order traversal of a Binary Search Tree (BST)"
+        }
+      ]
+    },
+    {
+      "survivor": "959bc2d6-2ce8-4193-96ea-d5505aac73ae",
+      "survivor_name": "Worst-Case Runtime Analysis",
+      "merged": [
+        {
+          "id": "b100eb0e-26e3-439c-82b4-56c968c50900",
+          "name": "Worst-case Runtime"
+        }
+      ]
+    },
+    {
+      "survivor": "3d0ea78e-a1a9-4da3-b240-e1c32e50abe8",
+      "survivor_name": "Expected Time Complexity",
+      "merged": [
+        {
+          "id": "781d22af-6940-4a28-9481-12f8f9e3fbc2",
+          "name": "Expected Runtime"
+        },
+        {
+          "id": "c5e01a83-28fe-4946-b902-2749fe03e5c8",
+          "name": "Expected Running Time"
+        }
+      ]
+    },
+    {
+      "survivor": "21471f20-1d20-49c8-961f-0a61b206cebc",
+      "survivor_name": "Amortized Runtime",
+      "merged": [
+        {
+          "id": "c9a25ede-9eac-40b7-b673-9a2db987a946",
+          "name": "Amortized analysis"
+        },
+        {
+          "id": "19e41956-4806-4c76-8682-a9eb154bf27e",
+          "name": "Amortized Constant Time Operations"
+        }
+      ]
+    },
+    {
+      "survivor": "416dbd01-3bd1-4937-9c09-3411e60afcd1",
+      "survivor_name": "Dynamic Programming State Definition",
+      "merged": [
+        {
+          "id": "76f1bd21-9766-494b-8160-525fe371f78b",
+          "name": "State Definition in Dynamic Programming"
+        }
+      ]
+    },
+    {
+      "survivor": "57639c80-53be-4be3-9266-c398c6caca9c",
+      "survivor_name": "Worst-case Time Complexity O(n)",
+      "merged": [
+        {
+          "id": "7ecb3fdf-3e4f-4949-af9f-0b6534eb5861",
+          "name": "Linear Time Complexity"
+        },
+        {
+          "id": "435c7ecd-0efe-44d0-ac4f-2cd0fe97830c",
+          "name": "Algorithm Runtime Complexity O(n)"
+        }
+      ]
+    },
+    {
+      "survivor": "2fcc991e-ac32-434a-adcc-858aa9208c6b",
+      "survivor_name": "Max-Heap Data Structure",
+      "merged": [
+        {
+          "id": "16892011-80ea-4617-aaa2-682622736d27",
+          "name": "Max-Heap"
+        },
+        {
+          "id": "d46f375f-5ec9-4e69-9036-b0e9127d86a1",
+          "name": "Max-Heap Property"
+        }
+      ]
+    },
+    {
+      "survivor": "22f616b6-c86a-49a3-8df7-5754d6a02d33",
+      "survivor_name": "Single-Source Shortest Path (SSSP) Algorithms",
+      "merged": [
+        {
+          "id": "4064550b-3436-42c8-8780-ef4d772c1ba6",
+          "name": "Shortest Path"
+        },
+        {
+          "id": "ef410319-c889-4e62-be8b-90bf150639b4",
+          "name": "Distance in Graph"
+        },
+        {
+          "id": "6f9606ee-454d-488b-93fb-f1e843696478",
+          "name": "Shortest Distance in Graph"
+        }
+      ]
+    },
+    {
+      "survivor": "dca575f4-4582-4504-9847-2528079f9de0",
+      "survivor_name": "Graph Vertex Coloring",
+      "merged": [
+        {
+          "id": "4ba95cfe-8d66-4323-b0fd-efcc9c7a253c",
+          "name": "Graph Coloring Problem (GCP)"
+        }
+      ]
+    },
+    {
+      "survivor": "4203c4ec-a8f7-4179-8d3b-5f44fb263cd9",
+      "survivor_name": "Self-Reduction",
+      "merged": [
+        {
+          "id": "87ebfe3c-8a3a-4aa6-a171-f843f2197339",
+          "name": "Self-Reduction in Greedy Algorithms"
+        }
+      ]
+    },
+    {
+      "survivor": "73389bd8-8daf-4d5c-b319-c2d1dd75a596",
+      "survivor_name": "Min-Heap Data Structure",
+      "merged": [
+        {
+          "id": "d8ab3c07-c955-4d79-ba6f-68b472e9dd5b",
+          "name": "Min-Heap"
+        }
+      ]
+    },
+    {
+      "survivor": "7e782c27-16c6-4f2a-950b-4c85611fc662",
+      "survivor_name": "Use of Max-Heap in Algorithm Optimization",
+      "merged": [
+        {
+          "id": "79d98c73-c009-4dd4-a5a2-66e45976eb4f",
+          "name": "HEAP"
+        }
+      ]
+    },
+    {
+      "survivor": "c04fb37c-ebec-41e3-b007-3b8370253b71",
+      "survivor_name": "Augmentation in balanced trees",
+      "merged": [
+        {
+          "id": "9115c6fd-e858-436e-9788-f02639ce3987",
+          "name": "Augmentation of Data Structures"
+        },
+        {
+          "id": "b6567b6d-b229-41f7-9ad8-ca2b922f7589",
+          "name": "Augmentation of AVL Tree Nodes"
+        }
+      ]
+    },
+    {
+      "survivor": "5d7c1d1c-e570-45b1-aa1c-11796a2cbca8",
+      "survivor_name": "Comparison-Based Sorting Algorithms",
+      "merged": [
+        {
+          "id": "2f9b556f-cf22-42eb-9849-34824ccf3d05",
+          "name": "Comparison Sort"
+        },
+        {
+          "id": "c12b65e4-f99a-455a-800f-8ec3b336eddb",
+          "name": "Sorting by Arbitrary Comparison"
+        }
+      ]
+    },
+    {
+      "survivor": "b3ba6aa9-ed1d-4285-af40-403f2ca9da9e",
+      "survivor_name": "Rotation in AVL Tree",
+      "merged": [
+        {
+          "id": "d704a65b-2ff6-40e3-bbec-d44a6dd69489",
+          "name": "Tree Rotation"
+        },
+        {
+          "id": "03711d9c-086d-46ac-bdb6-8d62b1aca9a6",
+          "name": "Rotations in AVL Trees"
+        }
+      ]
+    },
+    {
+      "survivor": "242a6b07-3bbd-4067-98a2-4c8d368e38a0",
+      "survivor_name": "Interval Union Computation",
+      "merged": [
+        {
+          "id": "e5eb85f2-86b4-49a7-97fc-a1634defda0d",
+          "name": "Union of Closed Intervals"
+        }
+      ]
+    },
+    {
+      "survivor": "0eeca3ed-0977-4a53-839b-39cfd850d4e7",
+      "survivor_name": "Inductive Proof of Algorithm Correctness",
+      "merged": [
+        {
+          "id": "05554f53-b7f3-411c-af7f-30f910b0918c",
+          "name": "Inductive Hypothesis"
+        }
+      ]
+    },
+    {
+      "survivor": "263766a6-d94c-45db-9be8-a631cad392be",
+      "survivor_name": "Josephus Problem",
+      "merged": [
+        {
+          "id": "48b898ff-d4dd-4428-88b6-2e7afb77e032",
+          "name": "Josephus Permutation"
+        }
+      ]
+    },
+    {
+      "survivor": "6fe377d0-6ca6-4e44-a793-3ddfaad2bbc9",
+      "survivor_name": "DAG Shortest Path Algorithm",
+      "merged": [
+        {
+          "id": "7e610003-ced5-4c37-b96c-fecccacee158",
+          "name": "Single Source Shortest Path (SSSP) on DAG"
+        }
+      ]
+    },
+    {
+      "survivor": "bbd1a6c0-4783-4056-a45c-07c6eb09ce93",
+      "survivor_name": "Strongly Connected Component",
+      "merged": [
+        {
+          "id": "d4a66547-0c3d-4f70-b5a7-300ffe66e745",
+          "name": "Strong Connectivity"
+        },
+        {
+          "id": "14bcf18f-9517-41d0-afcb-eb495f2cca6c",
+          "name": "Strongly Connected Components (SCC)"
+        }
+      ]
+    },
+    {
+      "survivor": "d832bbdc-24d9-4ce4-84ac-a370fabf0207",
+      "survivor_name": "Edge Relaxation",
+      "merged": [
+        {
+          "id": "fd4cc3f3-e938-4f42-b0d0-89aa5b828b7f",
+          "name": "Relaxation in Shortest Path Algorithms"
+        }
+      ]
+    },
+    {
+      "survivor": "08289603-6018-4206-aaa8-7800185bd612",
+      "survivor_name": "Vertex Cover Problem",
+      "merged": [
+        {
+          "id": "5f8bf775-b96a-4017-af61-b75e05fa63b0",
+          "name": "Flow Network Vertex Set Vc"
+        }
+      ]
+    },
+    {
+      "survivor": "1f35ab7b-67db-4ad1-8e54-02da2e22f05b",
+      "survivor_name": "Single Source Second-Shortest Path Problem",
+      "merged": [
+        {
+          "id": "380ce6e3-5903-47cd-8940-1d03113151d6",
+          "name": "Second Shortest Path"
+        }
+      ]
+    },
+    {
+      "survivor": "2c0da837-6ee4-4ba7-bdfa-671ac62649cc",
+      "survivor_name": "Optimal Sub-Problem Property",
+      "merged": [
+        {
+          "id": "7c72c9bf-870f-490e-9f83-cc80324304b3",
+          "name": "Shortest Path Optimal Substructure Property"
+        }
+      ]
+    },
+    {
+      "survivor": "2ee95fe2-a855-41fd-ac68-f0cdeb925ffa",
+      "survivor_name": "Karatsuba\u2019s Multiplication Algorithm",
+      "merged": [
+        {
+          "id": "f9c56a0d-2ee4-4b53-a96e-18fb3dede5a9",
+          "name": "Karatsuba's Integer Multiplication Algorithm"
+        }
+      ]
+    },
+    {
+      "survivor": "f0a715b6-421e-4ddc-8937-4c3bf1af53b3",
+      "survivor_name": "Toom-Cook Multiplication",
+      "merged": [
+        {
+          "id": "44726efd-7873-48a2-b74c-ffdf205337ba",
+          "name": "Toom-Cook algorithm"
+        }
+      ]
+    },
+    {
+      "survivor": "a44e3a24-d9c2-420e-bfc5-f6e9b78e5da6",
+      "survivor_name": "Activity Selection Problem",
+      "merged": [
+        {
+          "id": "90e14387-f2b4-498c-823c-bcfd49e45a57",
+          "name": "Activity Scheduling Problem"
+        }
+      ]
+    },
+    {
+      "survivor": "7589e96d-88c7-4b65-97b6-041424e208da",
+      "survivor_name": "Longest Common Subsequence Problem",
+      "merged": [
+        {
+          "id": "f75c0ff3-2939-43e3-8a3f-b4ae3ed52546",
+          "name": "Longest Common Subsequence (LCS) Problem"
+        }
+      ]
+    }
+  ]
+}

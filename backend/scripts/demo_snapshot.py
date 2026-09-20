@@ -17,7 +17,6 @@ from sqlalchemy import DateTime, Numeric, Uuid, func, select, text, update
 
 from app.api.routes.ontology import get_ontology_endpoint
 from app.api.routes.personal_graph import get_knowledge_graph_endpoint
-from app.api.routes.world import get_world
 from app.db import models  # noqa: F401 - register application tables
 from app.db.base import Base
 from app.db.session import async_session_factory, engine
@@ -146,22 +145,14 @@ async def export_snapshot(
                 graph = await get_knowledge_graph_endpoint(
                     course_id=cid, student_id=student, session=session
                 )
-                world = await get_world(
-                    course_id=cid, student_id=student, session=session
-                )
                 write_json(
                     directory / student_dir / "knowledge-graph.json",
                     graph.model_dump(mode="json"),
-                )
-                write_json(
-                    directory / student_dir / "world.json",
-                    world.model_dump(mode="json"),
                 )
                 entry["students"].append(
                     {
                         "student_id": student,
                         "knowledge_graph": str(student_dir / "knowledge-graph.json"),
-                        "world": str(student_dir / "world.json"),
                     }
                 )
             manifest["courses"].append(entry)

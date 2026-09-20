@@ -392,27 +392,3 @@ class StudentEvidenceEvent(Base, UUIDPKMixin):
     )
 
 
-class WorldEvent(Base, UUIDPKMixin):
-    __tablename__ = "world_events"
-
-    student_id: Mapped[uuid.UUID] = mapped_column(Uuid(as_uuid=True), nullable=False)
-    course_id: Mapped[uuid.UUID] = mapped_column(
-        Uuid(as_uuid=True), ForeignKey("courses.id"), nullable=False
-    )
-    concept_id: Mapped[uuid.UUID | None] = mapped_column(
-        Uuid(as_uuid=True), ForeignKey("concepts.id"), nullable=True
-    )
-    resource_id: Mapped[uuid.UUID | None] = mapped_column(
-        Uuid(as_uuid=True), ForeignKey("resources.id"), nullable=True
-    )
-    event: Mapped[str] = mapped_column(Text, nullable=False)
-    delta: Mapped[float | None] = mapped_column(Numeric, nullable=True)
-    explanation: Mapped[str] = mapped_column(Text, nullable=False)
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), nullable=False
-    )
-    __table_args__ = (
-        Index(
-            "ix_world_events_student_course", "student_id", "course_id", "created_at"
-        ),
-    )

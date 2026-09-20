@@ -55,7 +55,7 @@ class FixtureProvider(FakeLLMProvider):
 
 
 @pytest.mark.asyncio
-async def test_ingestion_is_idempotent_isolated_and_world_is_explainable(tmp_path):
+async def test_ingestion_is_idempotent_isolated_and_explainable(tmp_path):
     url = URL or f"sqlite+aiosqlite:///{tmp_path / 'test.db'}"
     engine = create_async_engine(url)
     if MIGRATE_URL:
@@ -146,20 +146,7 @@ async def test_ingestion_is_idempotent_isolated_and_world_is_explainable(tmp_pat
                 ) as client:
                     prefix = f"/api/courses/{course.id}/students/{student}"
                     graph = (await client.get(prefix + "/knowledge-graph")).json()
-                    world_response = await client.get(prefix + "/world")
-                    assert world_response.status_code == 200, world_response.text
-                    world = world_response.json()
-                    assert world["regions"]
-                    assert {r["concept_id"] for r in world["regions"]} <= {
-                        n["concept_id"] for n in graph["nodes"]
-                    }
-                    events = (await client.get(prefix + "/world-events")).json()[
-                        "events"
-                    ]
-                    assert any(
-                        e["event"] == "UNDERSTANDING_DROP" and e["resource_id"]
-                        for e in events
-                    )
+                    assert graph["nodes"]
                     cid = graph["nodes"][0]["concept_id"]
                     detail = await client.get(prefix + f"/concepts/{cid}/why")
                     assert detail.status_code == 200, detail.text

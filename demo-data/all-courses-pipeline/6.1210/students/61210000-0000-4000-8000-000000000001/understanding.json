@@ -1,0 +1,2226 @@
+{
+  "student_id": "61210000-0000-4000-8000-000000000001",
+  "course_id": "1cb0b349-0ed1-4925-968d-2f703e0f9d42",
+  "concepts": [
+    {
+      "concept_id": "c77d158e-bd7c-42e8-9ee6-287c467bacea",
+      "name": "Bottom-Up Dynamic Programming",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1817649e-1862-4676-8d34-ede544cc4eaa",
+      "name": "Optimal Path Counting with Obstructions and Weights",
+      "discovery_state": "unseen",
+      "understanding": 0.553571373,
+      "positive_evidence": 0.3599995821,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:42:45.748313",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "56500371-6660-44e8-91b8-2dbfbf45599b",
+      "name": "Dynamic Programming for Path Counting",
+      "discovery_state": "unseen",
+      "understanding": 0.553571373,
+      "positive_evidence": 0.3599995821,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:42:45.748313",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f24279b0-04ab-4117-b807-7e451d0d796d",
+      "name": "Use of Sentinel Values in Dynamic Programming",
+      "discovery_state": "unseen",
+      "understanding": 0.553571373,
+      "positive_evidence": 0.3599995821,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:42:45.748313",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5f130f4f-9904-4285-ae39-a1142c37a3b8",
+      "name": "Bellman-Ford Algorithm",
+      "discovery_state": "active",
+      "understanding": 0.7196843914,
+      "positive_evidence": 2.3511112259,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": "2026-09-20T06:45:36.445235"
+    },
+    {
+      "concept_id": "39883ff0-5f58-4f70-921f-7194b33c9bad",
+      "name": "Testing Code with unittest Framework",
+      "discovery_state": "unseen",
+      "understanding": 0.55357137,
+      "positive_evidence": 0.3599995588,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:42:55.176838",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c0a1beaf-d9da-459a-896c-949f3877c4e3",
+      "name": "Counting Optimal Paths in a Grid",
+      "discovery_state": "unseen",
+      "understanding": 0.55357137,
+      "positive_evidence": 0.3599995588,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:42:55.176838",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6cb97841-1ea0-44fe-bb90-d5f7fa2f2f71",
+      "name": "Insert Mid Operation in Modified Doubly Linked List",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b90050cc-e5b7-4e48-9380-5e0298548a16",
+      "name": "Weighted Undirected Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3713244a-a563-44df-8b39-adb823f8ec87",
+      "name": "Insertion at Middle of Doubly Linked List",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5628db03-1cd1-4636-b2fc-ad3ab89891dd",
+      "name": "Mid Pointer Update Rules on Insertions and Deletions",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8e37b6e7-f67d-4608-8dfa-9ee4ee6a0741",
+      "name": "Directed Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "68e9ac3e-b9a2-41b5-a593-23a9d48355ea",
+      "name": "Graph Vertex",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "74ef7446-e3b4-415f-ae6c-b509adda9e9f",
+      "name": "Handling Empty List Cases in Linked List Operations",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b2fff118-dbf5-41db-9fb7-24d4dd86d8b0",
+      "name": "Delete Operation in Binary Search Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1ba93bde-0b9c-4dd9-9e24-1735f8dfb269",
+      "name": "Delete Last Operation in Doubly Linked List",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d6779274-7248-4d45-8b0b-71961736c35b",
+      "name": "Doubly Linked List with Dummy Head Node",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6a2e83bf-35ce-4286-82fa-b43ba42d906e",
+      "name": "Mid Pointer in Doubly Linked List",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0258b1a7-9a16-46ac-879c-13b3301102dc",
+      "name": "Doubly Linked List Insertion After Node",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "023173d8-ea34-459b-9eb7-d8b72b90c1e5",
+      "name": "Insert First Operation in Doubly Linked List",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6b3bcf4d-560c-4ae7-9772-31be3057e96f",
+      "name": "2-Ended Dynamic Array",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "88f21bcd-000c-4407-a09b-966e715087ea",
+      "name": "Middle Node Insertion in Doubly Linked List",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0975bdb2-7470-4eef-8c35-3cdbc43946cf",
+      "name": "Delete First Operation in Doubly Linked List",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e8ea5fc0-53a0-432a-af9d-d98a00cf01c1",
+      "name": "Delete Mid Operation in Modified Doubly Linked List",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b24d0280-d06e-46fc-8d9b-369b099e2144",
+      "name": "Data Structure RATE Operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d17fe0bf-b4b6-4528-8fdb-a8561d10ece4",
+      "name": "Deleting the Middle Node in a Doubly Linked List",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711738,
+      "positive_evidence": 0.3599980822,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:05.127937",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b7fdd128-7ace-41f3-8372-3d04e9181e9d",
+      "name": "Insert Last Operation in Doubly Linked List",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "51c4bc5a-c6dd-4d19-af8b-88f17014e5a2",
+      "name": "BST Insertion Algorithm",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713389,
+      "positive_evidence": 0.3599993252,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:48.317889",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "accb3b8b-61be-4638-b6c0-2986960d0f97",
+      "name": "AVL Tree Set",
+      "discovery_state": "encountered",
+      "understanding": 0.6892443935,
+      "positive_evidence": 1.8269442884,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:43:05.127937"
+    },
+    {
+      "concept_id": "431fbfbe-a117-4e20-9594-269354bbd937",
+      "name": "BST Operations: Find, Insert, Delete, Successor",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c3a1d747-b924-4952-9951-3880c8a6b40b",
+      "name": "Tree Traversal",
+      "discovery_state": "unseen",
+      "understanding": 0.510586293,
+      "positive_evidence": 0.0648916825,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:44:03.540831"
+    },
+    {
+      "concept_id": "f7e0095d-a3d6-48d5-beb4-da42af7e9c65",
+      "name": "Immutable Binary Search Tree",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "643eecb9-00d0-4b9d-940b-e4ad29e41391",
+      "name": "Binary Search Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f495042e-5151-4a73-a6bf-b9916ba1c9c4",
+      "name": "BST Search (Find) Algorithm",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713389,
+      "positive_evidence": 0.3599993252,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:48.317889",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3a9d6b04-e729-4183-bff6-fe67bc9d9477",
+      "name": "Reconstructing PreOrder Traversal from InOrder and PostOrder",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d2d47c7d-fe85-4587-b737-5e0cbe6f72f5",
+      "name": "BST Inorder Traversal",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713389,
+      "positive_evidence": 0.3599993252,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:48.317889",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "96b30ade-67cc-4698-b838-5d6f1b517041",
+      "name": "Binary Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5619532171,
+      "positive_evidence": 0.424291785,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:44:03.540831"
+    },
+    {
+      "concept_id": "8cb5a935-7138-4175-b503-d9773aaaafdd",
+      "name": "BST Deletion Algorithm",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713389,
+      "positive_evidence": 0.3599993252,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:43:48.317889",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bdbd9494-6b6d-4111-bd39-23df34f3bd80",
+      "name": "Complexity of BST Insert Operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ac7d29cf-2a59-4910-8f21-82e73ccff050",
+      "name": "Index Calculation in Recursive Call",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0b85169e-fd7f-4580-880e-68ef0ad170fd",
+      "name": "Set Element at Index in Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "65befd3b-fd60-4392-a523-8e7526d16a56",
+      "name": "Linked List Implementation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "de3182da-036d-4d7a-97ab-6b352daad701",
+      "name": "Find Best Operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1910729f-42b5-4898-8955-e89f6c8e8d42",
+      "name": "Rotation Cases for Balancing Trees",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "848e2ced-6497-403f-93a3-265b8d0e9a05",
+      "name": "Range Maximum Query in Augmented Binary Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bbb201bf-97aa-4355-8d2f-d41852109749",
+      "name": "Queue Interface",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6dace18b-3340-4c48-a3a5-8153f83fe4cf",
+      "name": "Delete Element at Index in Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "020c9829-09dc-4c7e-b7d6-22ae94b2fc3b",
+      "name": "Set Data Structure Operations",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ff3db555-a443-433d-9914-a43c0e89af06",
+      "name": "Data Structure for Interval Player Queries",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "24c25a98-314b-437f-9296-271d8b312432",
+      "name": "AVL Sort",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8e012e07-a242-473f-b5e8-5e0d77b53d1b",
+      "name": "Cross-linked Doubly-Linked List in AVL Tree Nodes",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6db72637-44f1-4995-9e70-d67e53cb9282",
+      "name": "Insert Element at Index in Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7193deb3-6805-4e83-99a0-c19d144dd016",
+      "name": "FINDMAXPREFIX operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "14d02eeb-b66c-4ed2-b458-4287bf313ab7",
+      "name": "Tree Size Function",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f81ad32d-09f9-492b-9e8e-ffc4ce2b18c3",
+      "name": "Stack Interface",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2774c117-1d33-42cc-a0e4-dac38d3accf6",
+      "name": "Cost Key Function",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2fdd1da8-f5f7-4b0a-a55a-eede5a6dcf09",
+      "name": "Skew of a Subtree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "33f7c5cf-6651-4ed7-9140-1efbba3b8fa2",
+      "name": "Post-Order Traversal",
+      "discovery_state": "unseen",
+      "understanding": 0.5620431728,
+      "positive_evidence": 0.4249951294,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:44:03.540831"
+    },
+    {
+      "concept_id": "42a42b16-21dc-4497-a42e-4725eb5143a1",
+      "name": "Sequence Interface",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "49cb7ea2-d0a8-44fc-a19f-908faccf0980",
+      "name": "Binary Search Tree Augmentation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "60b09479-ecce-41c4-aa7c-87c49cba843b",
+      "name": "Insert Player Operation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "35f02a2d-d09e-4494-b4ed-df27273690c9",
+      "name": "Get Element at Index in Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4a2d2f6d-e675-4a4d-af35-b8eb00f12100",
+      "name": "Retrieving Max Rating Attribute Safely",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2924b938-6c71-4f1a-b85a-8a1d3f64c4ad",
+      "name": "Tree Node Structure",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "72dbbcbf-df04-4369-88aa-376fd2b80829",
+      "name": "Tree Constructor Method (__init__)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4825380d-806b-4b1c-855d-36ba9d3b499c",
+      "name": "Find Best Player in Cost Range Operation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "fb9200e4-85ff-4020-aa6a-74b7f5e14e54",
+      "name": "Insertion Operation in Binary Search Trees",
+      "discovery_state": "unseen",
+      "understanding": 0.5661598397,
+      "positive_evidence": 0.4574945737,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:43:48.317889"
+    },
+    {
+      "concept_id": "3a49ec88-ca57-4a10-a64e-eb4920031517",
+      "name": "Pre-Order Traversal",
+      "discovery_state": "unseen",
+      "understanding": 0.5620431728,
+      "positive_evidence": 0.4249951294,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:44:03.540831"
+    },
+    {
+      "concept_id": "5db72097-1012-4052-bea0-3c53a1f63002",
+      "name": "Binary Tree Size",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8cf86729-0a40-4cab-84ab-7ad5fae46933",
+      "name": "AVL Tree Property Violation Condition",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "46be7097-92b8-4148-b85a-d8741d454c5c",
+      "name": "Binary Tree Height",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0352911d-26d4-4629-890e-b4328c736f66",
+      "name": "Left Rotation in AVL Tree",
+      "discovery_state": "encountered",
+      "understanding": 0.5967732991,
+      "positive_evidence": 0.7199917485,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3e325334-e1c9-456e-977f-28e0002eaf33",
+      "name": "Dynamic Array Implementation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5fb4d5e7-be2e-4ca7-8ee9-93371c52f4a8",
+      "name": "Set data structure",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c04fb37c-ebec-41e3-b007-3b8370253b71",
+      "name": "Augmentation in balanced trees",
+      "discovery_state": "unseen",
+      "understanding": 0.5304686778,
+      "positive_evidence": 0.1946750499,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:44:03.540831"
+    },
+    {
+      "concept_id": "9936878f-a922-4aa0-ac47-3a1d807e0495",
+      "name": "In-Order Traversal",
+      "discovery_state": "encountered",
+      "understanding": 0.5740607677,
+      "positive_evidence": 0.5216291112,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:44:03.540831"
+    },
+    {
+      "concept_id": "36c9fade-98e1-42af-bce0-91938c6e4d40",
+      "name": "Delete Player Operation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8ba5eef6-48f1-4d2a-a5e3-7a163bbd9e5a",
+      "name": "AVL Tree Property",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "db8bb0a6-920b-4e2b-9526-3aa9e678dd47",
+      "name": "Key Function in Data Structures",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7aa5de69-d81c-4538-ba74-91de5b10b0fc",
+      "name": "recompute_max_rating Function",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a726af4c-2fc3-4748-aa83-8aaed45b6977",
+      "name": "Find Operation in a Binary Search Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d9b5b530-27a1-41dd-818e-4000c0f8abcd",
+      "name": "Tree Skew",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3ae5e699-01ed-4100-bf78-77658d6a31e8",
+      "name": "Binary Search Tree (BST) Deletion",
+      "discovery_state": "unseen",
+      "understanding": 0.5661598397,
+      "positive_evidence": 0.4574945737,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": "2026-09-20T06:43:48.317889"
+    },
+    {
+      "concept_id": "2ea273b6-dd4c-4b1f-af60-66c7bddcdaf6",
+      "name": "Augmented Binary Tree Node with Max Rating Tracking",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708804,
+      "positive_evidence": 0.3599958743,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e759b63b-5acf-416e-a4cf-9a11665fb357",
+      "name": "Optimal Movement Function for Skitty",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b00e056b-7e12-42fb-998c-34b15a9d950d",
+      "name": "Distance Function in Graphs",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "48272f62-4071-4dbf-b82e-614099e04d96",
+      "name": "Kosaraju-Sharir Algorithm",
+      "discovery_state": "encountered",
+      "understanding": 0.59664551,
+      "positive_evidence": 0.7188131958,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "15c7deb6-8d52-44c7-84e3-be47e04daa11",
+      "name": "Single-Source Reachability",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d0d9a524-b67c-43ba-8966-92d0874c844f",
+      "name": "Cycle Detection in a Sequence Using a Dictionary",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713357,
+      "positive_evidence": 0.3599993009,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:36.445235",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5050911d-0aa2-4b70-9e0f-a2b92bbe5cc0",
+      "name": "Path Reconstruction Using Parent Array",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713357,
+      "positive_evidence": 0.3599993009,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:36.445235",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a7003a26-6767-4b1b-b4f8-24124fddd0d6",
+      "name": "Finding Minimal Time to Reach a Node Under Constraints",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713357,
+      "positive_evidence": 0.3599993009,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:36.445235",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "17b0b601-4af2-4ba0-95b0-c6f15b19f9e9",
+      "name": "Single-Source Shortest Paths in Unweighted Graphs",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3483c592-1808-4d46-aec5-96736bbc16bb",
+      "name": "Constructing a Successor Function from a Path",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713357,
+      "positive_evidence": 0.3599993009,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:36.445235",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e26b1d25-d8be-4029-bfda-63276d944f77",
+      "name": "Path with Minimal Number of Red Edges in a Colored Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d2c1b947-a69c-4903-8282-a110be77623f",
+      "name": "Sorting in Descending Order",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713441,
+      "positive_evidence": 0.3599993643,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:52.212862",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "73389bd8-8daf-4d5c-b319-c2d1dd75a596",
+      "name": "Min-Heap Data Structure",
+      "discovery_state": "encountered",
+      "understanding": 0.5779501556,
+      "positive_evidence": 0.5540825802,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:52.212862",
+      "last_practiced_at": "2026-09-20T06:45:52.212862"
+    },
+    {
+      "concept_id": "39208889-36df-4ca2-9dcb-e1d4aba2b77a",
+      "name": "Top-K Largest Elements Selection",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713441,
+      "positive_evidence": 0.3599993643,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:52.212862",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bfa6016b-a453-4911-a33c-67dc20ab13e8",
+      "name": "Algorithm Complexity O(n log k)",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "98e5d65d-ef1e-4976-b470-787713be0353",
+      "name": "Median Maintenance using Two Heaps",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "145818fc-17a5-4b80-9f29-0bd53ebe9255",
+      "name": "Heap Replace Operation (heapreplace)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713441,
+      "positive_evidence": 0.3599993643,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:52.212862",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8f8fa0eb-887d-4762-8a4c-79a512f7a932",
+      "name": "Extract Minimum from Min-Heap",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f602e1f7-f040-4116-89dd-d185eec4177b",
+      "name": "Heap Push Operation (heappush)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713441,
+      "positive_evidence": 0.3599993643,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:52.212862",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "232be890-e538-44ff-8d6a-121c202f16f2",
+      "name": "Edge Case Handling for k in Top-K Selection",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713441,
+      "positive_evidence": 0.3599993643,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:45:52.212862",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e73060df-9120-44c1-8bfb-225545f9d5bd",
+      "name": "Finishing Order in DFS",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ff0bc048-ba49-4921-bd33-8d6c83fd6eb8",
+      "name": "Formulating Robot Coin Collector as a Shortest Paths Problem",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9499b4ee-f159-4dc3-bd6f-86c9d4d63bc3",
+      "name": "computing minimum color cost path via shortest paths",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "da433fe9-b4b3-4e65-853c-b1ed549f53a7",
+      "name": "Dijkstra Algorithm Runtime Analysis",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6b0284db-a6fd-4ea3-b0b4-9f01b156d0d3",
+      "name": "Graph Reversal",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f40dab71-39f7-491d-91b2-6098ec0602e5",
+      "name": "DFS Parent Array",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "387a7e6b-fc29-40c3-9007-ebab8731f4e7",
+      "name": "Algorithm for Minimizing Cost from Planet s Year 0 to Planet t Year Y Using Graph Duplication and Bellman-Ford",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "27c238a8-cc92-4fe5-a060-56ccc3dbbae7",
+      "name": "Priority Queue",
+      "discovery_state": "encountered",
+      "understanding": 0.5967736942,
+      "positive_evidence": 0.7199953932,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b490b94f-8b85-4861-8b24-10d26fff0de4",
+      "name": "Algorithm for maximum k for shortest k-safe path",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3d642e1f-a4b4-4053-8afe-8a497c1d5974",
+      "name": "Graph Reweighting",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7d54a839-f180-497a-8c9b-2bd85b14052f",
+      "name": "Graph Representation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2722b063-c920-4b46-a8f1-0e3755234bf8",
+      "name": "Parent Index in Binary Heap",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2b22c8fb-5c7b-4a8c-ad6d-14a6152891ca",
+      "name": "Algorithm with Remedy Preventing Mutations Using Mixed Bellman-Ford and DAG Relaxation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "22cb7057-e74f-488e-a824-9cfa4edc0bbf",
+      "name": "Correctness of Bellman-Ford Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "af216780-ff45-4126-a654-0a1e8515bbdd",
+      "name": "Runtime Complexity of Modified Dijkstra's Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1d516b85-8186-4a84-b3f8-b5cb7ebae411",
+      "name": "Condensation Graph",
+      "discovery_state": "unseen",
+      "understanding": 0.5534927157,
+      "positive_evidence": 0.3594076796,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ecef4b73-f998-44fc-b3b0-6dafee07b226",
+      "name": "Priority Queue in Dijkstra's Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "688b55a7-55ff-45bb-a87e-3e0398f5fe55",
+      "name": "Heapify Up Operation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ef7e85bc-2937-45e2-be28-a834ac45fafc",
+      "name": "Algorithm for shortest k-safe path given fuse range",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bdb31020-ccce-448d-b85c-4906a8478bb2",
+      "name": "Topological Order Computation Algorithms",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1c699c80-902c-47f6-a04d-ef66a325229b",
+      "name": "DFS Vertex Ordering",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "08ae50ac-dc2a-4f8f-95b3-61a0834cb3d9",
+      "name": "Reconstruction of Shortest Path from Parent Pointers",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "87d2ae3f-5ab7-4f8d-878e-0ace6df1a9c9",
+      "name": "Priority Queue Operations in Shortest Path Algorithms",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2d0769e5-a7b9-43fa-ae38-7e1494796d7b",
+      "name": "Heapify Down Operation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "58e7c0fe-0e0d-425d-9cac-d9f556d70668",
+      "name": "Stack",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "92124ba0-d1f7-438b-97d8-88abb4c600f9",
+      "name": "DFS Finishing Time",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3c14fb9c-d990-41bd-90df-fa56f959c580",
+      "name": "Johnson's Algorithm",
+      "discovery_state": "unseen",
+      "understanding": 0.5534924292,
+      "positive_evidence": 0.3594055243,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0f5b3ad3-04d9-44bc-b3ce-5a291008b99a",
+      "name": "Left Child Index in Binary Heap",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1608b9c7-53ec-4628-9cc1-9a3882e4064c",
+      "name": "Negative Cycle Detection in SCCs",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "918f1ef9-fd4d-41bf-a9c3-0d762bc8ea77",
+      "name": "Runtime Complexity of Priority Queue Operations",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d601cb9d-a9dd-4641-9dfa-2e0bbd74b659",
+      "name": "Positive-Weighted Undirected Graphs",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "827ef5ad-e65e-479d-9fb9-1428af1d4c90",
+      "name": "Dijkstra's Algorithm",
+      "discovery_state": "unseen",
+      "understanding": 0.5535709797,
+      "positive_evidence": 0.3599966213,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b0b000a4-1859-4522-b9cf-4d2c477cdf5f",
+      "name": "Runtime Analysis of Dijkstra's Algorithm with Given Priority Queue",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "70f3fe6b-8426-4824-92fa-31c3f941b462",
+      "name": "Min-Heap Property",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5f78e57e-2f5a-4a7d-80c0-6873706cc1a0",
+      "name": "Distance Estimate in Dijkstra's Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d8eec6d5-e629-4dc0-9e6b-7bb692073469",
+      "name": "Johnson's Algorithm for All-Pairs Shortest Paths",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0dca24b6-b68d-4657-8efc-fe9aec4f6cf7",
+      "name": "Huffman Coding Algorithm Complexity",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4de0313d-cf54-4fbd-baa6-267eba8b03c0",
+      "name": "Right Child Index in Binary Heap",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1bbe5fff-881c-41d7-aca8-38dbf81fa205",
+      "name": "Discovery Order in DFS",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4cfd7410-5e56-49b7-b336-c89240b75ffc",
+      "name": "Algorithm Preventing Use of Space-Tunnels After Any Time Tunnel",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "74d95224-f69a-4876-910d-a04a7b23030a",
+      "name": "Shortest Path Distance Notation (\u03b41, \u03b42)",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "42057e94-5763-4864-bb06-44705152cfa9",
+      "name": "Strongly Connected Components (SCC) Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a13fa006-0122-4a1d-b6df-a65dc185eacb",
+      "name": "Correctness of Dijkstra's Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4d3e6dd8-6077-476b-b295-a757bd4cd87f",
+      "name": "Single-Destination Shortest Path",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a466b43f-8b91-4856-8ea8-7df6451c8e19",
+      "name": "Swap Operation in Heap",
+      "discovery_state": "unseen",
+      "understanding": 0.5535711431,
+      "positive_evidence": 0.3599978517,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "faa0766b-3ed0-4116-a676-0d0bc8f02a07",
+      "name": "Correctness Proof of Modified Dijkstra",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "61101824-b722-4d05-8d21-1942f3dccfbd",
+      "name": "Semiconnected Directed Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3cc936a5-7f86-4681-a9dc-c522603bf9f7",
+      "name": "Acyclicity of Condensation Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "db09c103-33db-400f-91a1-96d5b20a1d96",
+      "name": "In-Degree and Out-Degree Counting in Condensation Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c38726f9-0440-4fb9-82d7-318d228f385c",
+      "name": "Source Strongly Connected Components in Condensation Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2e54408c-37fd-463a-80eb-c41de5768485",
+      "name": "Number of coins in an SCC",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "da5f9698-a792-49b2-b257-ccbb1631799f",
+      "name": "Algorithm to find two vertices u, v such that \u03c1(u) > \u03c1(v) or NONE",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0be7a523-a08a-41b1-a044-41457e706fe4",
+      "name": "Uniqueness of Condensation Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bbd1a6c0-4783-4056-a45c-07c6eb09ce93",
+      "name": "Strongly Connected Component",
+      "discovery_state": "unseen",
+      "understanding": 0.5534927157,
+      "positive_evidence": 0.3594076796,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3255d422-8854-4717-b685-6819547041bf",
+      "name": "Directed Acyclic Graph shortest path (DAG SP) algorithm",
+      "discovery_state": "unseen",
+      "understanding": 0.5535712654,
+      "positive_evidence": 0.359998772,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a0e6fef6-cf78-4a21-adbd-75ea438a9b5c",
+      "name": "Min Heap operations: heapify_down and heapify_up",
+      "discovery_state": "unseen",
+      "understanding": 0.5535712654,
+      "positive_evidence": 0.359998772,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b5ef615b-eb46-4362-94d1-fa4c98f0ea56",
+      "name": "Linear Time Graph Algorithms",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7e14478a-3e61-4a5f-8a0a-ea125fbbd38f",
+      "name": "Linear Time Algorithm for Semiconnectivity",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "85017194-f991-4666-8fa6-2123fbfafb5e",
+      "name": "Sanitizing Output for Infinite Values",
+      "discovery_state": "unseen",
+      "understanding": 0.5535712654,
+      "positive_evidence": 0.359998772,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "29f2e18c-a047-406f-b161-e55355a6522e",
+      "name": "Paths Fully Contained in Strongly Connected Components",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6f065f3e-1045-4c4a-8b34-8c12c7e82247",
+      "name": "Infinite Longest Path Due to Cycles",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e6d2e46e-e5b7-4aa8-b62a-3bec72a47143",
+      "name": "Full DFS over all vertices producing parent forest and finish order",
+      "discovery_state": "unseen",
+      "understanding": 0.5535712654,
+      "positive_evidence": 0.359998772,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7aaa04da-f9e1-4d41-9bfb-b385d35e2fae",
+      "name": "Cycle in Directed Graph",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "25a49fa4-29ca-416e-bfe5-bd1476e7fd5f",
+      "name": "Depth-first Search (DFS) for SCC",
+      "discovery_state": "unseen",
+      "understanding": 0.5535712654,
+      "positive_evidence": 0.359998772,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ba548fa3-b87f-416b-a3f5-374199468769",
+      "name": "Graph reversal (reverse_graph)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535712654,
+      "positive_evidence": 0.359998772,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:54.963038",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d0754239-bbc5-46e9-af35-8d49390a29c4",
+      "name": "Correctness Proof for Algorithms",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f082c333-3aae-4571-a873-1ed1dd108fb0",
+      "name": "Runtime Upper Bound",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "366993ed-c95f-4d37-9a44-e5259f4a34d7",
+      "name": "Algorithm Correctness Proof",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4203c4ec-a8f7-4179-8d3b-5f44fb263cd9",
+      "name": "Self-Reduction",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "76e6a93f-247d-48d1-999e-f0fb8b833626",
+      "name": "Greedy Algorithm for Egyptian Fractions",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713805,
+      "positive_evidence": 0.3599996378,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:22.662463",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8d481028-c91e-4da8-aec4-9d7ae5d84b6b",
+      "name": "Optimality Proof of Greedy Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "dc6c2ada-b9ff-4775-96c6-617bde7fa4f6",
+      "name": "Self-Reduction in Algorithms",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "83d62040-240e-4b56-b589-fbf2ac47c01d",
+      "name": "Greatest Common Divisor (gcd)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713805,
+      "positive_evidence": 0.3599996378,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:22.662463",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f4715178-f466-40da-b253-8f4fe6a924e3",
+      "name": "Egyptian Fraction Representation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713805,
+      "positive_evidence": 0.3599996378,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:22.662463",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "18708a58-85a8-4893-8965-0bda95745082",
+      "name": "Dynamic Programming State Space Representation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713777,
+      "positive_evidence": 0.3599996171,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:30.870017",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d9ef5a56-ea85-4881-ac3c-bbc8659b1af5",
+      "name": "Keying a Recipe with a Sorted Tuple",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "fc196fc3-81b6-4c96-a645-5a9005927277",
+      "name": "Quarter Partition Problem",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713777,
+      "positive_evidence": 0.3599996171,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:30.870017",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5cea827d-225c-42e4-9ca9-1fc1fdb3a667",
+      "name": "Quality of a Partition",
+      "discovery_state": "unseen",
+      "understanding": 0.5535713777,
+      "positive_evidence": 0.3599996171,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:30.870017",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2a71402f-07ab-445f-90f7-984e07e1bcac",
+      "name": "Algorithm Analysis and Runtime Proofs",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ffa42182-25b7-4c84-89ad-facc7be66e24",
+      "name": "All-Pairs Shortest Paths (APSP) Algorithms",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "612df082-36fb-42a5-9154-c3e555129c13",
+      "name": "Topological Order in Dynamic Programming",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2fcc991e-ac32-434a-adcc-858aa9208c6b",
+      "name": "Max-Heap Data Structure",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7e782c27-16c6-4f2a-950b-4c85611fc662",
+      "name": "Use of Max-Heap in Algorithm Optimization",
+      "discovery_state": "encountered",
+      "understanding": 0.5779502288,
+      "positive_evidence": 0.5540831967,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:46:06.559051",
+      "last_practiced_at": "2026-09-20T06:45:52.212862"
+    },
+    {
+      "concept_id": "b3ba6aa9-ed1d-4285-af40-403f2ca9da9e",
+      "name": "Rotation in AVL Tree",
+      "discovery_state": "unseen",
+      "understanding": 0.5534917044,
+      "positive_evidence": 0.3594000712,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:44:03.540831",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6fe377d0-6ca6-4e44-a793-3ddfaad2bbc9",
+      "name": "DAG Shortest Path Algorithm",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c4b611e4-6b4a-4080-a91f-7c0391c22bd5",
+      "name": "recent-up-to(max) operation in augmented AVL tree",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "50de80fe-c3db-4f61-8afb-70122b35d8f9",
+      "name": "Optimal Strategy in Two-Player Games",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9589cfa6-9914-4fc1-b3f9-0cce9509abea",
+      "name": "Sum of All Greater Keys in a BST for Each Node",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c80ce873-0bb3-4c27-bacf-ccdcd2094eca",
+      "name": "Maximal Inactive Consecutive Towers Sequence",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "963ea165-9694-4f38-b11d-043168a3b463",
+      "name": "Most Recent Access Tracking in Data Structures",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e0d9bb71-876b-4710-a137-a37361a1b192",
+      "name": "Finding the Closest Pair by Absolute Difference",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c4425065-1b70-4340-8565-2397fc1d1635",
+      "name": "Interval-Search operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6dd5372d-b1d4-4ae1-8b53-9c0846e55944",
+      "name": "Time Complexity of Operations on AVL Binary Search Tree (BST)",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9ff4b63d-509f-47f7-a116-b1afacf57e8d",
+      "name": "Problem Setup: Bauble Trading with Daily Buying Limit and Known Prices",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4fd366cb-bf29-4254-8a2c-0784324eadbf",
+      "name": "Order Statistic in AVL Sequence",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5782ed92-ac33-4761-a61c-847f2527d958",
+      "name": "Binary Search Property",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "eb210e94-7b82-467d-88e5-6a826bf9be6b",
+      "name": "BST Delete Operation with Two Children",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "416dbd01-3bd1-4937-9c09-3411e60afcd1",
+      "name": "Dynamic Programming State Definition",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "81c4adcf-70c5-49c1-a57d-1cbf7a4d6876",
+      "name": "Range Query on Augmented Search Tree",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "29ac6fc5-33b3-403d-b2f4-dcc988399ecc",
+      "name": "Toggle Tower Status Operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b33d907e-3703-4f72-9d65-bf4e366a8114",
+      "name": "BFS Runtime Complexity",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "28c988e6-ea6d-4a39-9268-a04f8d4be709",
+      "name": "Recent-up-to Function",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8179dad1-abd9-4470-b612-af1149528f3d",
+      "name": "State, Recurrence, Base Case, and Termination (SRTBOT) in DP",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d872dd57-0709-435d-a83c-77eef5d6d9f3",
+      "name": "Reversed In-order Traversal",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "807061b3-d1cd-49d6-9d77-bac99f6c727f",
+      "name": "One-sided Range Query",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8950c091-6636-4a5f-be8a-07358d5c8a35",
+      "name": "BST Delete Operation with One Child",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8546a5b8-88d4-45c0-9771-8daf837a9d3d",
+      "name": "Price Assignment for Revenue Maximization",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0e0cdf87-c475-44e2-9a5c-59562a261c4c",
+      "name": "O(log n)-Time Algorithm for Index Retrieval",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1b5c63f7-f4f2-477e-8cc7-01ff9b61efa8",
+      "name": "Recursion on Right Substructure",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d03018d8-6829-4907-902d-420a629c693f",
+      "name": "Relate Step Correctness in DP",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "44596cda-0dd6-4c5a-84a6-1270924bbacb",
+      "name": "Range Query on AVL BST",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c51b99c1-46c8-4a36-9829-57b5170157d3",
+      "name": "Zero-Indexed Position of Node in Tree Traversal",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "75721966-31da-467d-be50-d32218b32bb3",
+      "name": "recent() operation in augmented AVL tree",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "dd2da244-67ec-4125-be9d-add5570d6462",
+      "name": "Algorithm to compute index of a node in Sequence AVL Tree",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "db80e620-0c4e-4b96-9ef4-09d250aa10df",
+      "name": "BST Search Operation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "681b2f74-713a-4cb6-b39b-61edab563412",
+      "name": "Interval Tree",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "88fe9828-9cc0-4cb1-ab66-291384665c34",
+      "name": "Cycle Detection in Directed Graphs",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "cf668c3e-139b-42e3-b475-4ea84ea75899",
+      "name": "BST Successor Finding",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "761fece0-b259-4f10-b705-324619a42dcc",
+      "name": "Dynamic Programming Algorithm (DAA)",
+      "discovery_state": "encountered",
+      "understanding": 0.581476294,
+      "positive_evidence": 0.5840263729,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T06:47:30.870017",
+      "last_practiced_at": "2026-09-20T06:47:30.870017"
+    }
+  ]
+}
