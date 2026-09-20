@@ -70,13 +70,15 @@ Course choice: pick the course with the most graded, worked copies that also has
 - The island is computed on the server from the personal graph, mastery, and assessments. The browser renders and never scores.
 - Places come from communities in the course concept graph, at most five per course, with stable labels.
 - Spot state: empty for frontier or unseen; sprout for encountered; landmark for demonstrated (mastery at least 0.60 with confidence at least 0.25). Landmark height follows mastery. A spot is cracked when fragility is above 0.25.
-- One character per assignment the student has evidence on. It sits on the place its items point to most. Its state follows the mean visible score: evolved at 0.70 and above, idle between 0.45 and 0.70 or when no score is visible, exploded below 0.45, recovered when a later graded item on the same place scores 0.60 or higher.
+- Residents: one per assignment and place pair where the place holds at least 30 percent of the assignment's item relevance. A resident's state follows the mean visible score of the items on its place: evolved at 0.70 and above, idle between 0.45 and 0.70 or when no score is visible, exploded below 0.45, recovered when a later graded item on the same place scores 0.60 or higher. An exploded resident with no new evidence on its place for 14 days fades to a marker and stays clickable.
+- Wisps: one per uploaded notes file, on the place it matches most. Wisps wander and never change state.
+- A new student sees open sea and a course picker. Choosing a course raises the fogged island with place outlines. The first upload clears fog where it lands.
 - Clicking a spot or a character opens the same inspector the graph uses.
 - The world reports a version so the client can tell when a refetch changed anything.
 
 ### Visits
 
-- The visit projection returns places, spots (state and coarse height), and characters with generic labels ("Homework 3", "Exam 1") and state. It omits file names, chunk text, scores, mastery values, storage paths, and the owner's identity.
+- The visit projection returns places, spots (state and coarse height), and characters with generic labels ("Homework 3", "Exam 1"), their place name and state. It omits items, file names, chunk text, scores, mastery values, storage paths, and the owner's identity.
 - A visitor can orbit and click, and sees citations only as "Lecture 12, page 3" style references without text.
 
 ### Performance

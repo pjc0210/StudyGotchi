@@ -321,10 +321,11 @@ class SpotOut(BaseModel):
     citation: str | None                # "Lecture 12, p. 3" from the strongest resource link
 
 class CharacterOut(BaseModel):
-    id: UUID                            # assessment id
+    id: str                             # f"{assessment_id}:{place_id}" for residents, resource id for wisps
+    kind: str                           # resident, wisp
     place_id: str
     label: str
-    state: str                          # idle, evolved, exploded, recovered
+    state: str                          # idle, evolved, exploded, recovered, faded (wisps are always idle)
     mean_outcome: float | None
     concept_ids: list[UUID]
     occurred_at: datetime
@@ -343,7 +344,8 @@ class WorldOut(BaseModel):
 Rules in `projection.py`, pure functions over dataclasses so they unit test without a database:
 
 - Spot state: 2 when `mastery >= 0.60 and confidence >= 0.25`; 1 when discovery is `encountered` or `active`; else 0. `cracked = fragility > 0.25`.
-- Character per assessment with at least one evidence event from this student. Place is the argmax over places of summed item relevance. `mean_outcome` is the mean of outcome-bearing events on its items, or null. State: `evolved` at 0.70 and above, `exploded` below 0.45, `recovered` when it would be exploded but a later graded event on the same place has outcome at or above 0.60, `idle` otherwise or with no outcome.
+- Resident per (assessment, place) pair where the place holds at least 30 percent of the assessment's summed item relevance and the student has at least one evidence event on those items. `mean_outcome` is the mean of outcome-bearing events on the items in that place, or null. State: `evolved` at 0.70 and above, `exploded` below 0.45, `recovered` when it would be exploded but a later graded event on the same place has outcome at or above 0.60, `faded` when exploded and the place has had no evidence for 14 days, `idle` otherwise or with no outcome.
+- Wisp per student resource of artifact type `student_notes` (or `worked_solution` with no assessment) on the place its exposure events point to most. Always `idle`.
 - `version` is the max `updated_at` across the student's concept states and evidence events, ISO format.
 - Thresholds are module constants in `projection.py` with the same names as `build_spec.md`.
 

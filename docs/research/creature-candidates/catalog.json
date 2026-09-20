@@ -1,0 +1,2805 @@
+{
+  "count": 350,
+  "items": [
+    {
+      "name": "Ant",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/ant.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Ant/3D/ant_3d.png"
+    },
+    {
+      "name": "Baby chick",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/baby_chick.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Baby%20chick/3D/baby_chick_3d.png"
+    },
+    {
+      "name": "Badger",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/badger.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Badger/3D/badger_3d.png"
+    },
+    {
+      "name": "Bat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/bat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bat/3D/bat_3d.png"
+    },
+    {
+      "name": "Bear",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/bear.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bear/3D/bear_3d.png"
+    },
+    {
+      "name": "Beaver",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/beaver.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Beaver/3D/beaver_3d.png"
+    },
+    {
+      "name": "Bird",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/bird.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bird/3D/bird_3d.png"
+    },
+    {
+      "name": "Bison",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/bison.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bison/3D/bison_3d.png"
+    },
+    {
+      "name": "Black cat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/black_cat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Black%20cat/3D/black_cat_3d.png"
+    },
+    {
+      "name": "Blowfish",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/blowfish.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Blowfish/3D/blowfish_3d.png"
+    },
+    {
+      "name": "Boar",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/boar.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Boar/3D/boar_3d.png"
+    },
+    {
+      "name": "Bug",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/bug.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Bug/3D/bug_3d.png"
+    },
+    {
+      "name": "Butterfly",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/butterfly.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Butterfly/3D/butterfly_3d.png"
+    },
+    {
+      "name": "Camel",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/camel.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Camel/3D/camel_3d.png"
+    },
+    {
+      "name": "Cat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/cat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cat/3D/cat_3d.png"
+    },
+    {
+      "name": "Cat face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/cat_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cat%20face/3D/cat_face_3d.png"
+    },
+    {
+      "name": "Cat with wry smile",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/cat_with_wry_smile.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cat%20with%20wry%20smile/3D/cat_with_wry_smile_3d.png"
+    },
+    {
+      "name": "Chicken",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/chicken.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Chicken/3D/chicken_3d.png"
+    },
+    {
+      "name": "Chipmunk",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/chipmunk.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Chipmunk/3D/chipmunk_3d.png"
+    },
+    {
+      "name": "Cow",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/cow.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cow/3D/cow_3d.png"
+    },
+    {
+      "name": "Cow face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/cow_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cow%20face/3D/cow_face_3d.png"
+    },
+    {
+      "name": "Crab",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/crab.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Crab/3D/crab_3d.png"
+    },
+    {
+      "name": "Cricket",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/cricket.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Cricket/3D/cricket_3d.png"
+    },
+    {
+      "name": "Crocodile",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/crocodile.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Crocodile/3D/crocodile_3d.png"
+    },
+    {
+      "name": "Crying cat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/crying_cat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Crying%20cat/3D/crying_cat_3d.png"
+    },
+    {
+      "name": "Deer",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/deer.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Deer/3D/deer_3d.png"
+    },
+    {
+      "name": "Dodo",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dodo.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dodo/3D/dodo_3d.png"
+    },
+    {
+      "name": "Dog",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dog.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dog/3D/dog_3d.png"
+    },
+    {
+      "name": "Dog face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dog_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dog%20face/3D/dog_face_3d.png"
+    },
+    {
+      "name": "Dolphin",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dolphin.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dolphin/3D/dolphin_3d.png"
+    },
+    {
+      "name": "Dove",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dove.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dove/3D/dove_3d.png"
+    },
+    {
+      "name": "Dragon",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dragon.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dragon/3D/dragon_3d.png"
+    },
+    {
+      "name": "Dragon face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/dragon_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Dragon%20face/3D/dragon_face_3d.png"
+    },
+    {
+      "name": "Duck",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/duck.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Duck/3D/duck_3d.png"
+    },
+    {
+      "name": "Eagle",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/eagle.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Eagle/3D/eagle_3d.png"
+    },
+    {
+      "name": "Elephant",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/elephant.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Elephant/3D/elephant_3d.png"
+    },
+    {
+      "name": "Ewe",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/ewe.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Ewe/3D/ewe_3d.png"
+    },
+    {
+      "name": "Fish",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/fish.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Fish/3D/fish_3d.png"
+    },
+    {
+      "name": "Flamingo",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/flamingo.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Flamingo/3D/flamingo_3d.png"
+    },
+    {
+      "name": "Fox",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/fox.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Fox/3D/fox_3d.png"
+    },
+    {
+      "name": "Frog",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/frog.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Frog/3D/frog_3d.png"
+    },
+    {
+      "name": "Giraffe",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/giraffe.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Giraffe/3D/giraffe_3d.png"
+    },
+    {
+      "name": "Goat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/goat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Goat/3D/goat_3d.png"
+    },
+    {
+      "name": "Gorilla",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/gorilla.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Gorilla/3D/gorilla_3d.png"
+    },
+    {
+      "name": "Grinning cat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/grinning_cat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Grinning%20cat/3D/grinning_cat_3d.png"
+    },
+    {
+      "name": "Guide dog",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/guide_dog.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Guide%20dog/3D/guide_dog_3d.png"
+    },
+    {
+      "name": "Hamster",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/hamster.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hamster/3D/hamster_3d.png"
+    },
+    {
+      "name": "Hatching chick",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/hatching_chick.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hatching%20chick/3D/hatching_chick_3d.png"
+    },
+    {
+      "name": "Hedgehog",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/hedgehog.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hedgehog/3D/hedgehog_3d.png"
+    },
+    {
+      "name": "Hippopotamus",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/hippopotamus.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Hippopotamus/3D/hippopotamus_3d.png"
+    },
+    {
+      "name": "Honeybee",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/honeybee.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Honeybee/3D/honeybee_3d.png"
+    },
+    {
+      "name": "Horse",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/horse.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Horse/3D/horse_3d.png"
+    },
+    {
+      "name": "Horse face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/horse_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Horse%20face/3D/horse_face_3d.png"
+    },
+    {
+      "name": "Kangaroo",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/kangaroo.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Kangaroo/3D/kangaroo_3d.png"
+    },
+    {
+      "name": "Kissing cat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/kissing_cat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Kissing%20cat/3D/kissing_cat_3d.png"
+    },
+    {
+      "name": "Koala",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/koala.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Koala/3D/koala_3d.png"
+    },
+    {
+      "name": "Lady beetle",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/lady_beetle.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Lady%20beetle/3D/lady_beetle_3d.png"
+    },
+    {
+      "name": "Leopard",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/leopard.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Leopard/3D/leopard_3d.png"
+    },
+    {
+      "name": "Lion",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/lion.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Lion/3D/lion_3d.png"
+    },
+    {
+      "name": "Lizard",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/lizard.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Lizard/3D/lizard_3d.png"
+    },
+    {
+      "name": "Llama",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/llama.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Llama/3D/llama_3d.png"
+    },
+    {
+      "name": "Lobster",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/lobster.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Lobster/3D/lobster_3d.png"
+    },
+    {
+      "name": "Mammoth",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/mammoth.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Mammoth/3D/mammoth_3d.png"
+    },
+    {
+      "name": "Monkey",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/monkey.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Monkey/3D/monkey_3d.png"
+    },
+    {
+      "name": "Monkey face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/monkey_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Monkey%20face/3D/monkey_face_3d.png"
+    },
+    {
+      "name": "Moose",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/moose.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Moose/3D/moose_3d.png"
+    },
+    {
+      "name": "Mosquito",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/mosquito.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Mosquito/3D/mosquito_3d.png"
+    },
+    {
+      "name": "Mouse",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/mouse.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Mouse/3D/mouse_3d.png"
+    },
+    {
+      "name": "Mouse face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/mouse_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Mouse%20face/3D/mouse_face_3d.png"
+    },
+    {
+      "name": "Octopus",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/octopus.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Octopus/3D/octopus_3d.png"
+    },
+    {
+      "name": "Orangutan",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/orangutan.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Orangutan/3D/orangutan_3d.png"
+    },
+    {
+      "name": "Otter",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/otter.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Otter/3D/otter_3d.png"
+    },
+    {
+      "name": "Owl",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/owl.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Owl/3D/owl_3d.png"
+    },
+    {
+      "name": "Ox",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/ox.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Ox/3D/ox_3d.png"
+    },
+    {
+      "name": "Oyster",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/oyster.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Oyster/3D/oyster_3d.png"
+    },
+    {
+      "name": "Panda",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/panda.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Panda/3D/panda_3d.png"
+    },
+    {
+      "name": "Parrot",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/parrot.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Parrot/3D/parrot_3d.png"
+    },
+    {
+      "name": "Peacock",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/peacock.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Peacock/3D/peacock_3d.png"
+    },
+    {
+      "name": "Penguin",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/penguin.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Penguin/3D/penguin_3d.png"
+    },
+    {
+      "name": "Pig",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/pig.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Pig/3D/pig_3d.png"
+    },
+    {
+      "name": "Pig face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/pig_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Pig%20face/3D/pig_face_3d.png"
+    },
+    {
+      "name": "Poodle",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/poodle.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Poodle/3D/poodle_3d.png"
+    },
+    {
+      "name": "Rabbit",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/rabbit.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rabbit/3D/rabbit_3d.png"
+    },
+    {
+      "name": "Rabbit face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/rabbit_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rabbit%20face/3D/rabbit_face_3d.png"
+    },
+    {
+      "name": "Raccoon",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/raccoon.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Raccoon/3D/raccoon_3d.png"
+    },
+    {
+      "name": "Ram",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/ram.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Ram/3D/ram_3d.png"
+    },
+    {
+      "name": "Rat",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/rat.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rat/3D/rat_3d.png"
+    },
+    {
+      "name": "Rhinoceros",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/rhinoceros.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rhinoceros/3D/rhinoceros_3d.png"
+    },
+    {
+      "name": "Rooster",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/rooster.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rooster/3D/rooster_3d.png"
+    },
+    {
+      "name": "Sauropod",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/sauropod.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sauropod/3D/sauropod_3d.png"
+    },
+    {
+      "name": "Scorpion",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/scorpion.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Scorpion/3D/scorpion_3d.png"
+    },
+    {
+      "name": "Seal",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/seal.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Seal/3D/seal_3d.png"
+    },
+    {
+      "name": "Service dog",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/service_dog.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Service%20dog/3D/service_dog_3d.png"
+    },
+    {
+      "name": "Shark",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/shark.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Shark/3D/shark_3d.png"
+    },
+    {
+      "name": "Shrimp",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/shrimp.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Shrimp/3D/shrimp_3d.png"
+    },
+    {
+      "name": "Skunk",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/skunk.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Skunk/3D/skunk_3d.png"
+    },
+    {
+      "name": "Sloth",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/sloth.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Sloth/3D/sloth_3d.png"
+    },
+    {
+      "name": "Snail",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/snail.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Snail/3D/snail_3d.png"
+    },
+    {
+      "name": "Snake",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/snake.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Snake/3D/snake_3d.png"
+    },
+    {
+      "name": "Spider",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/spider.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Spider/3D/spider_3d.png"
+    },
+    {
+      "name": "Spouting whale",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/spouting_whale.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Spouting%20whale/3D/spouting_whale_3d.png"
+    },
+    {
+      "name": "Squid",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/squid.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Squid/3D/squid_3d.png"
+    },
+    {
+      "name": "Swan",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/swan.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Swan/3D/swan_3d.png"
+    },
+    {
+      "name": "Tiger",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/tiger.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Tiger/3D/tiger_3d.png"
+    },
+    {
+      "name": "Tiger face",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/tiger_face.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Tiger%20face/3D/tiger_face_3d.png"
+    },
+    {
+      "name": "Tropical fish",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/tropical_fish.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Tropical%20fish/3D/tropical_fish_3d.png"
+    },
+    {
+      "name": "Turkey",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/turkey.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Turkey/3D/turkey_3d.png"
+    },
+    {
+      "name": "Turtle",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/turtle.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Turtle/3D/turtle_3d.png"
+    },
+    {
+      "name": "Two-hump camel",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/two_hump_camel.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Two-hump%20camel/3D/two-hump_camel_3d.png"
+    },
+    {
+      "name": "Unicorn",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/unicorn.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Unicorn/3D/unicorn_3d.png"
+    },
+    {
+      "name": "Water buffalo",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/water_buffalo.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Water%20buffalo/3D/water_buffalo_3d.png"
+    },
+    {
+      "name": "Whale",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/whale.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Whale/3D/whale_3d.png"
+    },
+    {
+      "name": "Wolf",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/wolf.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Wolf/3D/wolf_3d.png"
+    },
+    {
+      "name": "Zebra",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/zebra.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Zebra/3D/zebra_3d.png"
+    },
+    {
+      "name": "Polar bear",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/polar_bear.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Polar%20bear/3D/polar_bear_3d.png"
+    },
+    {
+      "name": "Worm",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/worm.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Worm/3D/worm_3d.png"
+    },
+    {
+      "name": "Front-facing baby chick",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/front_facing_baby_chick.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Front-facing%20baby%20chick/3D/front-facing_baby_chick_3d.png"
+    },
+    {
+      "name": "Paw prints",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/paw_prints.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Paw%20prints/3D/paw_prints_3d.png"
+    },
+    {
+      "name": "Fox",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F98A-fox.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F98A.svg"
+    },
+    {
+      "name": "Bear",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F43B-bear.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F43B.svg"
+    },
+    {
+      "name": "Beaver",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9AB-beaver.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9AB.svg"
+    },
+    {
+      "name": "Otter",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A6-otter.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A6.svg"
+    },
+    {
+      "name": "Mouse face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F42D-mouse-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F42D.svg"
+    },
+    {
+      "name": "Mouse",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F401-mouse.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F401.svg"
+    },
+    {
+      "name": "Rat",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F400-rat.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F400.svg"
+    },
+    {
+      "name": "Hamster",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F439-hamster.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F439.svg"
+    },
+    {
+      "name": "Rabbit face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F430-rabbit-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F430.svg"
+    },
+    {
+      "name": "Rabbit",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F407-rabbit.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F407.svg"
+    },
+    {
+      "name": "Cat face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F431-cat-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F431.svg"
+    },
+    {
+      "name": "Cat",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F408-cat.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F408.svg"
+    },
+    {
+      "name": "Dog face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F436-dog-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F436.svg"
+    },
+    {
+      "name": "Dog",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F415-dog.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F415.svg"
+    },
+    {
+      "name": "Panda",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F43C-panda.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F43C.svg"
+    },
+    {
+      "name": "Koala",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F428-koala.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F428.svg"
+    },
+    {
+      "name": "Tiger face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F42F-tiger-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F42F.svg"
+    },
+    {
+      "name": "Tiger",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F405-tiger.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F405.svg"
+    },
+    {
+      "name": "Lion",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F981-lion.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F981.svg"
+    },
+    {
+      "name": "Cow face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F42E-cow-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F42E.svg"
+    },
+    {
+      "name": "Cow",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F404-cow.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F404.svg"
+    },
+    {
+      "name": "Pig face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F437-pig-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F437.svg"
+    },
+    {
+      "name": "Pig",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F416-pig.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F416.svg"
+    },
+    {
+      "name": "Frog",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F438-frog.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F438.svg"
+    },
+    {
+      "name": "Monkey face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F435-monkey-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F435.svg"
+    },
+    {
+      "name": "Monkey",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F412-monkey.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F412.svg"
+    },
+    {
+      "name": "Chicken",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F414-chicken.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F414.svg"
+    },
+    {
+      "name": "Penguin",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F427-penguin.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F427.svg"
+    },
+    {
+      "name": "Bird",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F426-bird.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F426.svg"
+    },
+    {
+      "name": "Baby chick",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F424-baby-chick.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F424.svg"
+    },
+    {
+      "name": "Front-facing baby chick",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F425-front-facing-baby-chick.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F425.svg"
+    },
+    {
+      "name": "Hatching chick",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F423-hatching-chick.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F423.svg"
+    },
+    {
+      "name": "Duck",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F986-duck.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F986.svg"
+    },
+    {
+      "name": "Eagle",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F985-eagle.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F985.svg"
+    },
+    {
+      "name": "Owl",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F989-owl.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F989.svg"
+    },
+    {
+      "name": "Bat",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F987-bat.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F987.svg"
+    },
+    {
+      "name": "Wolf",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F43A-wolf.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F43A.svg"
+    },
+    {
+      "name": "Boar",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F417-boar.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F417.svg"
+    },
+    {
+      "name": "Horse face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F434-horse-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F434.svg"
+    },
+    {
+      "name": "Horse",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F40E-horse.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F40E.svg"
+    },
+    {
+      "name": "Unicorn",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F984-unicorn.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F984.svg"
+    },
+    {
+      "name": "Honeybee",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F41D-honeybee.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F41D.svg"
+    },
+    {
+      "name": "Bug",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F41B-bug.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F41B.svg"
+    },
+    {
+      "name": "Butterfly",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F98B-butterfly.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F98B.svg"
+    },
+    {
+      "name": "Snail",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F40C-snail.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F40C.svg"
+    },
+    {
+      "name": "Lady beetle",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F41E-lady-beetle.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F41E.svg"
+    },
+    {
+      "name": "Ant",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F41C-ant.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F41C.svg"
+    },
+    {
+      "name": "Turtle",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F422-turtle.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F422.svg"
+    },
+    {
+      "name": "Snake",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F40D-snake.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F40D.svg"
+    },
+    {
+      "name": "Lizard",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F98E-lizard.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F98E.svg"
+    },
+    {
+      "name": "Octopus",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F419-octopus.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F419.svg"
+    },
+    {
+      "name": "Squid",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F991-squid.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F991.svg"
+    },
+    {
+      "name": "Shrimp",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F990-shrimp.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F990.svg"
+    },
+    {
+      "name": "Lobster",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F99E-lobster.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F99E.svg"
+    },
+    {
+      "name": "Crab",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F980-crab.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F980.svg"
+    },
+    {
+      "name": "Blowfish",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F421-blowfish.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F421.svg"
+    },
+    {
+      "name": "Tropical fish",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F420-tropical-fish.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F420.svg"
+    },
+    {
+      "name": "Fish",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F41F-fish.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F41F.svg"
+    },
+    {
+      "name": "Dolphin",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F42C-dolphin.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F42C.svg"
+    },
+    {
+      "name": "Spouting whale",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F433-spouting-whale.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F433.svg"
+    },
+    {
+      "name": "Whale",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F40B-whale.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F40B.svg"
+    },
+    {
+      "name": "Shark",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F988-shark.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F988.svg"
+    },
+    {
+      "name": "Crocodile",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F40A-crocodile.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F40A.svg"
+    },
+    {
+      "name": "Leopard",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F406-leopard.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F406.svg"
+    },
+    {
+      "name": "Zebra",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F993-zebra.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F993.svg"
+    },
+    {
+      "name": "Gorilla",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F98D-gorilla.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F98D.svg"
+    },
+    {
+      "name": "Orangutan",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A7-orangutan.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A7.svg"
+    },
+    {
+      "name": "Elephant",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F418-elephant.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F418.svg"
+    },
+    {
+      "name": "Hippopotamus",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F99B-hippopotamus.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F99B.svg"
+    },
+    {
+      "name": "Rhinoceros",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F98F-rhinoceros.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F98F.svg"
+    },
+    {
+      "name": "Camel",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F42A-camel.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F42A.svg"
+    },
+    {
+      "name": "Two-hump camel",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F42B-two-hump-camel.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F42B.svg"
+    },
+    {
+      "name": "Giraffe",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F992-giraffe.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F992.svg"
+    },
+    {
+      "name": "Kangaroo",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F998-kangaroo.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F998.svg"
+    },
+    {
+      "name": "Bison",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9AC-bison.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9AC.svg"
+    },
+    {
+      "name": "Water buffalo",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F403-water-buffalo.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F403.svg"
+    },
+    {
+      "name": "Ox",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F402-ox.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F402.svg"
+    },
+    {
+      "name": "Ram",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F40F-ram.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F40F.svg"
+    },
+    {
+      "name": "Ewe",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F411-ewe.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F411.svg"
+    },
+    {
+      "name": "Llama",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F999-llama.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F999.svg"
+    },
+    {
+      "name": "Goat",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F410-goat.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F410.svg"
+    },
+    {
+      "name": "Deer",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F98C-deer.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F98C.svg"
+    },
+    {
+      "name": "Poodle",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F429-poodle.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F429.svg"
+    },
+    {
+      "name": "Peacock",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F99A-peacock.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F99A.svg"
+    },
+    {
+      "name": "Parrot",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F99C-parrot.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F99C.svg"
+    },
+    {
+      "name": "Swan",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A2-swan.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A2.svg"
+    },
+    {
+      "name": "Flamingo",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A9-flamingo.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A9.svg"
+    },
+    {
+      "name": "Dove",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F54A-dove.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F54A.svg"
+    },
+    {
+      "name": "Raccoon",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F99D-raccoon.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F99D.svg"
+    },
+    {
+      "name": "Skunk",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A8-skunk.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A8.svg"
+    },
+    {
+      "name": "Badger",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A1-badger.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A1.svg"
+    },
+    {
+      "name": "Sloth",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A5-sloth.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A5.svg"
+    },
+    {
+      "name": "Chipmunk",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F43F-chipmunk.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F43F.svg"
+    },
+    {
+      "name": "Hedgehog",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F994-hedgehog.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F994.svg"
+    },
+    {
+      "name": "Seal",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9AD-seal.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9AD.svg"
+    },
+    {
+      "name": "Mammoth",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F9A3-mammoth.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F9A3.svg"
+    },
+    {
+      "name": "Dragon face",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F432-dragon-face.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F432.svg"
+    },
+    {
+      "name": "Dragon",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F409-dragon.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F409.svg"
+    },
+    {
+      "name": "Sauropod",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F995-sauropod.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F995.svg"
+    },
+    {
+      "name": "T-Rex",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F996-t-rex.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F996.svg"
+    },
+    {
+      "name": "Spider",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F577-spider.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F577.svg"
+    },
+    {
+      "name": "Scorpion",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F982-scorpion.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F982.svg"
+    },
+    {
+      "name": "Mosquito",
+      "source": "OpenMoji",
+      "license": "CC BY-SA 4.0",
+      "file": "images/openmoji/1F99F-mosquito.svg",
+      "style": "flat-kawaii",
+      "url": "https://cdn.jsdelivr.net/npm/openmoji@latest/color/svg/1F99F.svg"
+    },
+    {
+      "name": "Shark",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/shark.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/cS32XNX4Dw2"
+    },
+    {
+      "name": "Rat",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/rat.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/6hsesZHvcPI"
+    },
+    {
+      "name": "Mouse",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/mouse.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/cWxdxmp7yaE"
+    },
+    {
+      "name": "Mouse brown",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/mouse-brown.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/4KKE4D2FV1D"
+    },
+    {
+      "name": "Bat",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/bat.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/5_XBqyrOY7x"
+    },
+    {
+      "name": "Crab",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/crab.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/2DgM36qZW2u"
+    },
+    {
+      "name": "Hen",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/hen.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/8Unya0rw9tR"
+    },
+    {
+      "name": "Rooster",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/rooster.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/6NTegstc5Jy"
+    },
+    {
+      "name": "Mallard duck",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/mallard-duck.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/frSLi6b6Vid"
+    },
+    {
+      "name": "White duck",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/white-duck.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/c1fo7hQgC6J"
+    },
+    {
+      "name": "Duckling",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/duckling.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/cGH2xtNdS4i"
+    },
+    {
+      "name": "Frog",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/frog.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/97NtujixdN7"
+    },
+    {
+      "name": "Sheep",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/sheep.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/dXBMV4AY2DL"
+    },
+    {
+      "name": "Dove",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/dove.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/2jmH3trzPFf"
+    },
+    {
+      "name": "Fish",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/fish.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/aEyLrUMMoUK"
+    },
+    {
+      "name": "Goldfish",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/goldfish.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/3GPUntjwqCa"
+    },
+    {
+      "name": "Pufferfish",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/pufferfish.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/3tgZD06mzCe"
+    },
+    {
+      "name": "Tree frog",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/tree-frog.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/cwyNyIba6WE"
+    },
+    {
+      "name": "Penguin",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/penguin.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/fBXvsC6pe_V"
+    },
+    {
+      "name": "Gerbil",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/gerbil.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/21aV-tPKz5O"
+    },
+    {
+      "name": "Chipmunk",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/chipmunk.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/0GiSxpS79Ao"
+    },
+    {
+      "name": "Pink Slime",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/pink-slime.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/AyP8sQmDLh"
+    },
+    {
+      "name": "Green Blob",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/green-blob.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/y4kJh8EeYS"
+    },
+    {
+      "name": "Slime",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/slime.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/LyjSUKHKnh"
+    },
+    {
+      "name": "Glub",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/glub.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/x59pqJscry"
+    },
+    {
+      "name": "Glub Evolved",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/glub-evolved.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/Z9lddNpM1M"
+    },
+    {
+      "name": "Ghost",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/ghost.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/Iip30bDHmu"
+    },
+    {
+      "name": "Mushnub",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/mushnub.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/LWKmS30Xxl"
+    },
+    {
+      "name": "Cactoro",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/cactoro.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/IGn9lhdama"
+    },
+    {
+      "name": "Birb",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/birb.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/gZ2ExU9OAB"
+    },
+    {
+      "name": "Blobfish",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/blobfish.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/7Jh8vsARfN"
+    },
+    {
+      "name": "Pigeon",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/pigeon.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/9NGlBTpDEr"
+    },
+    {
+      "name": "Manta ray",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/manta-ray.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/yzD8b7ZHZm"
+    },
+    {
+      "name": "Husky",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/husky.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/wcWiuEqwzq"
+    },
+    {
+      "name": "Alpaca",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/alpaca.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/bCVFD48i2l"
+    },
+    {
+      "name": "Pug",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/pug.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/1gXKv15ik8"
+    },
+    {
+      "name": "Koi",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/koi.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/qyGtRmhgzl"
+    },
+    {
+      "name": "Squidle",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/squidle.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/54QyRcsogk"
+    },
+    {
+      "name": "Green Spiky Blob",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/green-spiky-blob.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/IoWG5F9WUc"
+    },
+    {
+      "name": "Armabee",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/armabee.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/42djT5zJnx"
+    },
+    {
+      "name": "Hywirl",
+      "source": "Quaternius via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/hywirl.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/zjr7CmWGER"
+    },
+    {
+      "name": "Ghost",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/ghost.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Ghost/3D/ghost_3d.png"
+    },
+    {
+      "name": "Alien monster",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/alien_monster.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Alien%20monster/3D/alien_monster_3d.png"
+    },
+    {
+      "name": "Jellyfish",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/jellyfish.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Jellyfish/3D/jellyfish_3d.png"
+    },
+    {
+      "name": "Teddy bear",
+      "source": "Microsoft Fluent Emoji 3D",
+      "license": "MIT",
+      "file": "images/fluent-3d/teddy_bear.png",
+      "style": "smooth-chibi-3d",
+      "url": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Teddy%20bear/3D/teddy_bear_3d.png"
+    },
+    {
+      "name": "Mushnub Evolved",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/mushnub-evolved.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/0SZyA6MV51"
+    },
+    {
+      "name": "Yeti",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/yeti.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/S1E7idPFhe"
+    },
+    {
+      "name": "Armabee Evolved",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/armabee-evolved.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/GcttdvsqsQ"
+    },
+    {
+      "name": "Alpaking",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/alpaking.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/AQ8zbFoDln"
+    },
+    {
+      "name": "Alpaking Evolved",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/alpaking-evolved.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/UdJudob66v"
+    },
+    {
+      "name": "Goleling",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/goleling.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/71gomWolax"
+    },
+    {
+      "name": "Goleling Evolved",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/goleling-evolved.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/bundle/Ultimate-Monsters-Bundle-5oyGWAmOB6"
+    },
+    {
+      "name": "Dragon",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/dragon.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/VBvzjFIYws"
+    },
+    {
+      "name": "Dragon Evolved",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/dragon-evolved.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/bundle/Ultimate-Monsters-Bundle-5oyGWAmOB6"
+    },
+    {
+      "name": "Ghost Skull",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/ghost-skull.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/TX8r9WBXpe"
+    },
+    {
+      "name": "Monkroose",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/monkroose.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/j4rVPvxyLg"
+    },
+    {
+      "name": "Dino",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/dino.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/wuerCFCWNR"
+    },
+    {
+      "name": "Mushroom King",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/mushroom-king.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/grnFTziU8u"
+    },
+    {
+      "name": "Blue Demon",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/blue-demon.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/S7jYW6Amye"
+    },
+    {
+      "name": "Slime Enemy",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/slime-enemy.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/eSLKTsbl7F"
+    },
+    {
+      "name": "Alien",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/alien.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/bundle/Ultimate-Monsters-Bundle-5oyGWAmOB6"
+    },
+    {
+      "name": "Fish Monster",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/fish-monster.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/bundle/Ultimate-Monsters-Bundle-5oyGWAmOB6"
+    },
+    {
+      "name": "Cat Monster",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/cat-monster.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/bundle/Ultimate-Monsters-Bundle-5oyGWAmOB6"
+    },
+    {
+      "name": "Yeti Alt",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/yeti-alt.jpg",
+      "style": "monster",
+      "url": "https://poly.pizza/m/S1E7idPFhe"
+    },
+    {
+      "name": "Frog Monster",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/frog-monster.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/9Z2V8fpazF"
+    },
+    {
+      "name": "Sheep Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/sheep-quaternius.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/C39AUXUUes"
+    },
+    {
+      "name": "Rat Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/rat-quaternius.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/iltq5bVNaV"
+    },
+    {
+      "name": "Fish Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/fish-quaternius.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/BEcU9rjiAq"
+    },
+    {
+      "name": "Donkey",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/donkey.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/qmX6nhnvp7"
+    },
+    {
+      "name": "Deer",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/deer.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/T6Cs7tmMHJ"
+    },
+    {
+      "name": "Bull",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/bull.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/a8PIIYwF7r"
+    },
+    {
+      "name": "Fox Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/fox-quaternius.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/Bc97C66HKi"
+    },
+    {
+      "name": "Stag",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/stag.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/tQdzbZ1Cmw"
+    },
+    {
+      "name": "Wolf",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/wolf.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/XU7oNeKShV"
+    },
+    {
+      "name": "White Horse",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/white-horse.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/bEdE4rmZy9"
+    },
+    {
+      "name": "Horse",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/horse.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/qvTrSG9pZF"
+    },
+    {
+      "name": "Cow Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/cow-quaternius.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/26zM1outCr"
+    },
+    {
+      "name": "Pig Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/pig-quaternius.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/u35l6uP5vj"
+    },
+    {
+      "name": "Llama",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/llama.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/JxVJ9rfWGy"
+    },
+    {
+      "name": "Zebra",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/zebra.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/iclPBR6SBZ"
+    },
+    {
+      "name": "Clownfish",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/clownfish.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/769fHo3eEB"
+    },
+    {
+      "name": "Puffer",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/puffer.webp",
+      "style": "blob",
+      "url": "https://poly.pizza/m/UKHtgpxTOk"
+    },
+    {
+      "name": "Goldfish Quaternius",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/goldfish-quaternius.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/qS6CgsWFAh"
+    },
+    {
+      "name": "Piranha",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/piranha.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/F7bCnF1BFf"
+    },
+    {
+      "name": "Cowfish",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/cowfish.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/VMJluStc59"
+    },
+    {
+      "name": "Yellow Tang",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/yellow-tang.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/CrDlkPLon0"
+    },
+    {
+      "name": "Blue Tang",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/blue-tang.webp",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/TQaMo8GTJl"
+    },
+    {
+      "name": "Parasaurolophus",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/parasaurolophus.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/KeeQrrouRK"
+    },
+    {
+      "name": "Velociraptor",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/velociraptor.webp",
+      "style": "monster",
+      "url": "https://poly.pizza/m/cnlGH2UcDd"
+    },
+    {
+      "name": "Jam Character",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/jam-character.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/6H6sdLqP8f"
+    },
+    {
+      "name": "Ghost Character",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/ghost-character.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/CKLHPoYhE9"
+    },
+    {
+      "name": "Simple Green Slime",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/simple-green-slime.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/az-ryr8W44N"
+    },
+    {
+      "name": "Cute Red Slime",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/cute-red-slime.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/ftVfUfAgrBF"
+    },
+    {
+      "name": "Ghoooooost",
+      "source": "Quaternius / community via Poly Pizza",
+      "license": "CC0 1.0",
+      "file": "images/quaternius/ghoooooost.jpg",
+      "style": "blob",
+      "url": "https://poly.pizza/m/112vpcommxv"
+    },
+    {
+      "name": "Seagull",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/seagull.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/0WRzrtCIIRp"
+    },
+    {
+      "name": "Goose",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/goose.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/9wn3If7Qgb4"
+    },
+    {
+      "name": "Sparrow",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/sparrow.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/4uL9XFDcdQK"
+    },
+    {
+      "name": "Hummingbird",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/hummingbird.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/70NyKFt-vLF"
+    },
+    {
+      "name": "Trout",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/trout.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/2W2sKWYvk8k"
+    },
+    {
+      "name": "Sheep alt",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/sheep-alt.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/49Y7E6vhRxL"
+    },
+    {
+      "name": "Duck alt",
+      "source": "Poly by Google",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/duck-alt.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/6HpauUCfIAb"
+    },
+    {
+      "name": "Jeremy Bat",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/jeremy-bat.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/fzJn9xTT-UO"
+    },
+    {
+      "name": "Jeremy Crab",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/jeremy-crab.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/bmZ6-LnPmp0"
+    },
+    {
+      "name": "Jeremy Chicken",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/jeremy-chicken.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/1YE8U35HXsI"
+    },
+    {
+      "name": "Jeremy Frog",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/jeremy-frog.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/07-wJ9bkzul"
+    },
+    {
+      "name": "Jeremy Dove",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/jeremy-dove.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/dGEa6IbVDP_"
+    },
+    {
+      "name": "Jeremy Duck",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/jeremy-duck.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/2KHEgw1ztVI"
+    },
+    {
+      "name": "Eagle ray",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/eagle-ray.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/675H-fzHW3-"
+    },
+    {
+      "name": "Isa Lousberg Bird",
+      "source": "jeremy (Google Poly community)",
+      "license": "CC-BY 3.0",
+      "file": "images/poly-google/isa-lousberg-bird.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://poly.pizza/m/5gurZ5QVlE"
+    },
+    {
+      "name": "Little Slime",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/little-slime.jpg",
+      "style": "blob",
+      "url": "https://opengameart.org/content/little-slime"
+    },
+    {
+      "name": "Nuppensudel Slime",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/nuppensudel-slime.png",
+      "style": "blob",
+      "url": "https://opengameart.org/content/low-poly-slime-monster-animation"
+    },
+    {
+      "name": "Sunglasses Slime",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/sunglasses-slime.png",
+      "style": "blob",
+      "url": "https://opengameart.org/content/very-simple-slime-monster"
+    },
+    {
+      "name": "PINKCANNON Slime",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/pinkcannon-slime.png",
+      "style": "blob",
+      "url": "https://opengameart.org/content/fbx-blend-lowpoly-animated-slime"
+    },
+    {
+      "name": "OGA Ghost",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/oga-ghost.png",
+      "style": "blob",
+      "url": "https://opengameart.org/content/ghost-4"
+    },
+    {
+      "name": "Low Poly Ghost",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/low-poly-ghost.png",
+      "style": "blob",
+      "url": "https://opengameart.org/content/low-poly-ghost-0"
+    },
+    {
+      "name": "Cute Low Poly Ghost",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/cute-low-poly-ghost.PNG",
+      "style": "blob",
+      "url": "https://opengameart.org/content/cute-low-poly-ghost"
+    },
+    {
+      "name": "Bartheinz Slime",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/bartheinz-slime.jpg",
+      "style": "blob",
+      "url": "https://opengameart.org/content/slime"
+    },
+    {
+      "name": "Slime Mold",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/slime-mold.png",
+      "style": "blob",
+      "url": "https://opengameart.org/content/slime-mold"
+    },
+    {
+      "name": "Quaternius Monster Pack GIF",
+      "source": "Quaternius via OpenGameArt",
+      "license": "see page",
+      "file": "images/community/quaternius-monster-pack-gif.gif",
+      "style": "monster",
+      "url": "https://opengameart.org/content/lowpoly-animated-monsters"
+    },
+    {
+      "name": "Ultimate Monsters sheet",
+      "source": "Quaternius via OpenGameArt",
+      "license": "see page",
+      "file": "images/community/ultimate-monsters-sheet.jpg",
+      "style": "monster",
+      "url": "https://opengameart.org/content/textured-cute-monster-pack"
+    },
+    {
+      "name": "Lucky Bunny",
+      "source": "OpenGameArt community",
+      "license": "see page",
+      "file": "images/community/lucky-bunny.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://opengameart.org/content/lucky-bunny"
+    },
+    {
+      "name": "Vertexcat Farm sheet",
+      "source": "Vertexcat (hobbyist, CC0)",
+      "license": "see page",
+      "file": "images/community/vertexcat-farm-sheet.png",
+      "style": "faceted-lowpoly",
+      "url": "https://vertexcat.itch.io/farm-animals-set"
+    },
+    {
+      "name": "Vertexcat Duck",
+      "source": "Vertexcat (hobbyist, CC0)",
+      "license": "see page",
+      "file": "images/community/vertexcat-duck.gif",
+      "style": "faceted-lowpoly",
+      "url": "https://vertexcat.itch.io/farm-animals-set"
+    },
+    {
+      "name": "Gobkit animals sheet",
+      "source": "Gobkit",
+      "license": "see page",
+      "file": "images/community/gobkit-animals-sheet.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://gobkit.itch.io/gobkit-free-animal-pack"
+    },
+    {
+      "name": "Gobkit cover",
+      "source": "Gobkit",
+      "license": "see page",
+      "file": "images/community/gobkit-cover.jpg",
+      "style": "faceted-lowpoly",
+      "url": "https://gobkit.itch.io/gobkit-free-animal-pack"
+    },
+    {
+      "name": "Quaternius animals sheet",
+      "source": "Quaternius",
+      "license": "see page",
+      "file": "images/community/quaternius-animals-sheet.png",
+      "style": "faceted-lowpoly",
+      "url": "https://quaternius.itch.io/lowpoly-animated-animals"
+    },
+    {
+      "name": "Quaternius monsters itch",
+      "source": "Quaternius",
+      "license": "see page",
+      "file": "images/community/quaternius-monsters-itch.png",
+      "style": "monster",
+      "url": "https://quaternius.itch.io/lowpoly-animated-monsters"
+    },
+    {
+      "name": "Ulerinn Slimes",
+      "source": "Ulerinn (hobbyist)",
+      "license": "see page",
+      "file": "images/community/ulerinn-slimes.gif",
+      "style": "blob",
+      "url": "https://ulerinn.itch.io/free-slimes"
+    },
+    {
+      "name": "Happy Ghosts",
+      "source": "JellyLion (hobbyist)",
+      "license": "see page",
+      "file": "images/community/happy-ghosts.png",
+      "style": "blob",
+      "url": "https://jellylion.itch.io/happy-ghosts-free-d"
+    }
+  ]
+}

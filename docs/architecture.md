@@ -271,19 +271,21 @@ stateDiagram-v2
   note right of landmark : height follows mastery; cracked when fragility > 0.25
 ```
 
-## Character on a place
+## Resident on a place
 
 ```mermaid
 stateDiagram-v2
-  [*] --> idle : first evidence on an assignment (appear animation)
-  idle --> evolved : mean visible score >= 0.70
-  idle --> exploded : mean visible score < 0.45
+  [*] --> idle : first evidence on an assignment's items in this place (appear animation)
+  idle --> evolved : mean visible score on this place >= 0.70
+  idle --> exploded : mean visible score on this place < 0.45
   evolved --> exploded : a later weak score pulls the mean under 0.45
   exploded --> recovered : later graded item on the same place >= 0.60
+  exploded --> faded : 14 days with no new evidence on the place
+  faded --> recovered : later graded item on the same place >= 0.60
   recovered --> evolved : mean climbs to 0.70
 ```
 
-Characters never disappear. A weak exam knocks them over; later work stands them back up.
+One resident per assignment and place pair (a place must hold at least 30 percent of the assignment's item relevance). Residents never disappear; a weak exam knocks them over, time shrinks them to a marker, and later work stands them back up. Wisps (one per notes file, on the place it matches most) are always idle and only wander.
 
 ## Visit
 
