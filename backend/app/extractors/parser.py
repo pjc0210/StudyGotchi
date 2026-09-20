@@ -33,9 +33,28 @@ def _extension(filename: str) -> str:
     return filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
 
 
+def _clean(text: str) -> str:
+    """Drop NUL bytes: PDF text layers carry them and Postgres text columns refuse them."""
+
+    return text.replace("\x00", "")
+
+
+def _cleaned(document: ParsedDocument) -> ParsedDocument:
+    document.raw_text = _clean(document.raw_text)
+    for page in document.pages:
+        page.text = _clean(page.text)
+        if page.section_title:
+            page.section_title = _clean(page.section_title)
+    return document
+
+
 async def parse_resource(
     filename: str, content_bytes: bytes, *, provider: LLMProvider
 ) -> ParsedDocument:
+    return _cleaned(await _parse(filename, content_bytes, provider=provider))
+
+
+async def _parse(filename: str, content_bytes: bytes, *, provider: LLMProvider) -> ParsedDocument:
     ext = _extension(filename)
 
     if ext == "pdf":
