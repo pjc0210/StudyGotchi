@@ -1,11 +1,11 @@
 {
-  "verified_at": "2026-09-20T02:45:46.052965+00:00",
+  "verified_at": "2026-09-20T02:51:50.176997+00:00",
   "courses": [
     {
       "code": "6.1400",
       "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
       "resources_processed": 23,
-      "canonical_and_shared_concepts": 449,
+      "canonical_and_shared_concepts": 450,
       "personal_concepts": 17,
       "students": [
         {
@@ -29,7 +29,7 @@
       "code": "8.223",
       "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
       "resources_processed": 24,
-      "canonical_and_shared_concepts": 473,
+      "canonical_and_shared_concepts": 476,
       "personal_concepts": 137,
       "students": [
         {
@@ -51,11 +51,19 @@
     }
   ],
   "unit_and_integration_tests_passed": 70,
-  "http_checks": 1130,
+  "http_checks": 1134,
   "database_integrity": "ok",
   "foreign_key_violations": 0,
   "dedup_repair": {
-    "6.1400": {"clusters_merged": 19, "excluded_as_false_positive": 2},
-    "8.223": {"clusters_merged": 3, "excluded_as_false_positive": 0}
+    "6.1400": {
+      "clusters_merged": 18,
+      "excluded_as_false_positive_by_code": 2,
+      "reviewed_and_reversed_after_execution": 1
+    },
+    "8.223": {
+      "clusters_merged": 2,
+      "excluded_as_false_positive_by_code": 0,
+      "reviewed_and_reversed_after_execution": 1
+    }
   }
 }

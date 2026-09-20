@@ -1,7 +1,7 @@
 {
   "student_id": "82230000-0000-4000-8000-000000000001",
   "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
-  "world_version": "e95348db3f9a5065",
+  "world_version": "9a72eb8295659c9a",
   "regions": [
     {
       "concept_id": "0335b690-d27a-425f-af32-b8a6b2601d9f",
@@ -10,7 +10,7 @@
       "cluster": "Energy Conservation in Lagrangian Mechanics",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.6,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -21,7 +21,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.7485643783,
       "terrain_area": 0.9484777645045727,
-      "fog": 0.06286425234835934,
+      "fog": 0.06286833615683507,
       "semantic_state": "strong",
       "creature_state": "evolved"
     },
@@ -32,7 +32,7 @@
       "cluster": "Euler-Lagrange Equation for Radial Displacement",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.6,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -43,7 +43,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -54,7 +54,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.85,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -65,7 +65,7 @@
       "cluster": "Noether's Theorem",
       "terrain_height": 0.5871159877,
       "terrain_area": 0.4689937846934803,
-      "fog": 0.10322978329140346,
+      "fog": 0.10323648933892976,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -76,7 +76,7 @@
       "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.6,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -98,7 +98,7 @@
       "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -109,7 +109,7 @@
       "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -120,7 +120,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -131,7 +131,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -142,7 +142,7 @@
       "cluster": "Conservation of Torque",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.6,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -153,7 +153,7 @@
       "cluster": "Poisson Bracket Definition",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.9,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -175,7 +175,7 @@
       "cluster": "Angular Momentum Conservation Criterion",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.9,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -197,7 +197,7 @@
       "cluster": "Lagrangian for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -208,7 +208,7 @@
       "cluster": "Noether's Theorem",
       "terrain_height": 0.5791630183,
       "terrain_area": 0.3776392666363074,
-      "fog": 0.1052181947658798,
+      "fog": 0.10522502998525385,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -219,7 +219,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -230,7 +230,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535702706,
       "terrain_area": 1.0,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -252,7 +252,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.5,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -263,7 +263,7 @@
       "cluster": "Orbital Energy and Conic Sections Relationship",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -274,7 +274,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5780579054,
       "terrain_area": 0.42592209776958856,
-      "fog": 0.10550360567531203,
+      "fog": 0.10551045825203623,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -285,7 +285,7 @@
       "cluster": "General Solution of Coupled Pendulum Angles",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.85,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -307,7 +307,7 @@
       "cluster": "Potential Energy of a Pendulum",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.8,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -318,7 +318,7 @@
       "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -340,7 +340,7 @@
       "cluster": "Euler-Lagrange Equation for Radial Displacement",
       "terrain_height": 0.5535705817,
       "terrain_area": 1.0,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -362,7 +362,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -395,7 +395,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -406,7 +406,7 @@
       "cluster": "Noether's Theorem",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.8,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -417,7 +417,7 @@
       "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -428,7 +428,7 @@
       "cluster": "Coupling Frequency Contribution",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -439,7 +439,7 @@
       "cluster": "Centrifugal Force in Rotating Frame",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -450,7 +450,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.6130013307,
       "terrain_area": 0.5835472711604615,
-      "fog": 0.0967578970746708,
+      "fog": 0.09676418269337152,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -461,7 +461,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5967727998,
       "terrain_area": 1.0,
-      "fog": 0.10081797586476901,
+      "fog": 0.10082452489770177,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -472,7 +472,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.85,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -483,7 +483,7 @@
       "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.8,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -494,7 +494,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.6081489566,
       "terrain_area": 0.39414989718702775,
-      "fog": 0.0979736213640623,
+      "fog": 0.0979799856306264,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -505,7 +505,7 @@
       "cluster": "Poisson Bracket Definition",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.9,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -516,7 +516,7 @@
       "cluster": "Conservation of Angular Momentum in Central Force Motion",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.6,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -527,7 +527,7 @@
       "cluster": "Equation of Conic Section Orbit",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.9,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -538,7 +538,7 @@
       "cluster": "Euler-Lagrange Equation for Radial Displacement",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -560,7 +560,7 @@
       "cluster": "Lagrangian of a Two-Mass Rotating System",
       "terrain_height": 0.5535702706,
       "terrain_area": 1.0,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -593,7 +593,7 @@
       "cluster": "Orbital Energy and Conic Sections Relationship",
       "terrain_height": 0.5535702706,
       "terrain_area": 1.0,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -604,7 +604,7 @@
       "cluster": "Angular Momentum Conservation Criterion",
       "terrain_height": 0.5535708904,
       "terrain_area": 1.0,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -615,7 +615,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -626,7 +626,7 @@
       "cluster": "Radial Equation of Motion in Central Force Field",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -637,7 +637,7 @@
       "cluster": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
       "terrain_height": 0.5535705744,
       "terrain_area": 1.0,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -648,7 +648,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -659,7 +659,7 @@
       "cluster": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.6,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -670,7 +670,7 @@
       "cluster": "Orbital Energy and Conic Sections Relationship",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -681,7 +681,7 @@
       "cluster": "Velocity at Contact Point (\\(\\vec{V}_{ct}\\))",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -692,7 +692,7 @@
       "cluster": "Orbital Energy and Conic Sections Relationship",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.9,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -703,7 +703,7 @@
       "cluster": "Normal Modes in Coupled Oscillators",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -714,7 +714,7 @@
       "cluster": "Lagrangian Formalism",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -725,7 +725,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -736,7 +736,7 @@
       "cluster": "Combined Potential Energy for System of Masses",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -747,7 +747,7 @@
       "cluster": "Generalized Momentum for Angular Coordinate",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -769,7 +769,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -780,7 +780,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -802,7 +802,7 @@
       "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -813,7 +813,7 @@
       "cluster": "Velocity Components in Polar Coordinates",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -824,7 +824,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 1.0,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -835,7 +835,7 @@
       "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
       "terrain_height": 0.6323490576,
       "terrain_area": 0.8,
-      "fog": 0.09192292538588218,
+      "fog": 0.09192889660540395,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -846,7 +846,7 @@
       "cluster": "Euler-Lagrange Equation for Radial Displacement",
       "terrain_height": 0.5535705817,
       "terrain_area": 1.0,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -868,7 +868,7 @@
       "cluster": "Normalized Equations of Motion for Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -879,7 +879,7 @@
       "cluster": "Euler-Lagrange Equation for Radial Displacement",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.6,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -890,7 +890,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -901,7 +901,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -912,7 +912,7 @@
       "cluster": "Lagrangian Formalism",
       "terrain_height": 0.5535702706,
       "terrain_area": 1.0,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -923,7 +923,7 @@
       "cluster": "Lagrangian Formalism",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.75,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -934,7 +934,7 @@
       "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -945,7 +945,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5967727998,
       "terrain_area": 0.5132414852906082,
-      "fog": 0.10081797586476901,
+      "fog": 0.10082452489770177,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -956,7 +956,7 @@
       "cluster": "Normalized Equations of Motion for Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.9,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -967,7 +967,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.5,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -978,7 +978,7 @@
       "cluster": "Torque",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.7,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -989,7 +989,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1000,7 +1000,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.9,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1011,7 +1011,7 @@
       "cluster": "Equation of Conic Section Orbit",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1022,7 +1022,7 @@
       "cluster": "Lagrangian for a Central Force Problem",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1033,7 +1033,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.6,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1055,7 +1055,7 @@
       "cluster": "Negligible Assumption in Physics",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.3,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1066,7 +1066,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1077,7 +1077,7 @@
       "cluster": "Small Angle Approximations for Cosine Functions",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1088,7 +1088,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1099,7 +1099,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5967716131,
       "terrain_area": 0.85,
-      "fog": 0.10082179805051049,
+      "fog": 0.10082834687365487,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1110,7 +1110,7 @@
       "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.8,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1121,7 +1121,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1132,7 +1132,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1143,7 +1143,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.9,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1165,7 +1165,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1176,7 +1176,7 @@
       "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1187,7 +1187,7 @@
       "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.5,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1198,7 +1198,7 @@
       "cluster": "Velocity of Center of Mass (\\(\\vec{V}_{cm}\\))",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1220,7 +1220,7 @@
       "cluster": "Energy Conservation in Lagrangian Mechanics",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1231,7 +1231,7 @@
       "cluster": "Orbital Energy and Conic Sections Relationship",
       "terrain_height": 0.5535702706,
       "terrain_area": 1.0,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1253,7 +1253,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.85,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1264,7 +1264,7 @@
       "cluster": "Energy Conservation in Lagrangian Mechanics",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.8,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1275,7 +1275,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1286,7 +1286,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1308,7 +1308,7 @@
       "cluster": "Poisson Bracket Definition",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.8,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1352,7 +1352,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.8,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1374,7 +1374,7 @@
       "cluster": "Kinetic Energy Expression in Spring-Pendulum System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.7,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1385,7 +1385,7 @@
       "cluster": "Lagrangian for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1407,7 +1407,7 @@
       "cluster": "Scattering",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.5,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1418,7 +1418,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1429,7 +1429,7 @@
       "cluster": "Lagrangian for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 1.0,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1440,7 +1440,7 @@
       "cluster": "Potential Energy of Rotating Masses in Gravitational Field",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1451,7 +1451,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5967728118,
       "terrain_area": 0.9,
-      "fog": 0.10082407706144433,
+      "fog": 0.10083062569757187,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1462,7 +1462,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1473,7 +1473,7 @@
       "cluster": "Normalized Equations of Motion for Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1484,7 +1484,7 @@
       "cluster": "Poisson Bracket Definition",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.7,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1506,7 +1506,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1517,7 +1517,7 @@
       "cluster": "Energy Conservation in Mechanical Systems",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.5,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1528,7 +1528,7 @@
       "cluster": "Lagrangian Function for a Mass-Spring-Gravitational System",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.8,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1539,7 +1539,7 @@
       "cluster": "Lagrangian for Constrained Rolling Body on Inclined Plane",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1550,7 +1550,7 @@
       "cluster": "Angular Velocity Vector (\\(\\vec{\\omega}\\))",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1561,7 +1561,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1583,7 +1583,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.6653960675,
       "terrain_area": 0.6957218152557051,
-      "fog": 0.08365809867040566,
+      "fog": 0.08366353329564419,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1594,7 +1594,7 @@
       "cluster": "Equation of Conic Section Orbit",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.9,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1605,7 +1605,7 @@
       "cluster": "Partial Derivatives of Lagrangian Components",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1616,7 +1616,7 @@
       "cluster": "Expanded Kinetic Energy for System with Angular Velocities",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1638,7 +1638,7 @@
       "cluster": "Lagrangian for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1660,7 +1660,7 @@
       "cluster": "Lorentz Force Law",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1671,7 +1671,7 @@
       "cluster": "Lagrangian for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1682,7 +1682,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1693,7 +1693,7 @@
       "cluster": "Energy Conservation in Lagrangian Mechanics",
       "terrain_height": 0.5535705817,
       "terrain_area": 1.0,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1704,7 +1704,7 @@
       "cluster": "Total Potential Energy of Coupled Pendulums",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1715,7 +1715,7 @@
       "cluster": "Angular Momentum Conservation Criterion",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.8,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1737,7 +1737,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1748,7 +1748,7 @@
       "cluster": "Lagrangian for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1759,7 +1759,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 1.0,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1770,7 +1770,7 @@
       "cluster": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1781,7 +1781,7 @@
       "cluster": "Lagrangian Formalism",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1792,7 +1792,7 @@
       "cluster": "Radial Equation of Motion in Central Force Field",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.9,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1803,7 +1803,7 @@
       "cluster": "Normal Modes in Coupled Oscillators",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.8,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1814,7 +1814,7 @@
       "cluster": "Canonical Momentum",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1825,7 +1825,7 @@
       "cluster": "Equation of Conic Section Orbit",
       "terrain_height": 0.5535702706,
       "terrain_area": 1.0,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1836,7 +1836,7 @@
       "cluster": "General Solution for Simple Harmonic Oscillator",
       "terrain_height": 0.5535705817,
       "terrain_area": 0.9,
-      "fog": 0.11162648598697583,
+      "fog": 0.11163373625159743,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1847,7 +1847,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5535705744,
       "terrain_area": 1.0,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1858,7 +1858,7 @@
       "cluster": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.8,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1869,7 +1869,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.6,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1880,7 +1880,7 @@
       "cluster": "Velocity Components in Polar Coordinates",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.7,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1891,7 +1891,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1902,7 +1902,7 @@
       "cluster": "Initial Conditions for Coupled Oscillator Amplitudes",
       "terrain_height": 0.5535702706,
       "terrain_area": 0.6,
-      "fog": 0.11162370875558725,
+      "fog": 0.11163095921076158,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1913,7 +1913,7 @@
       "cluster": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.9,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1924,7 +1924,7 @@
       "cluster": "Lagrange Multipliers",
       "terrain_height": 0.5535708904,
       "terrain_area": 0.9,
-      "fog": 0.11161677097222446,
+      "fog": 0.11162402185803479,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1935,7 +1935,7 @@
       "cluster": "Generalized Coordinates for Rolling Cylinder",
       "terrain_height": 0.5535705744,
       "terrain_area": 0.7,
-      "fog": 0.11161972960440054,
+      "fog": 0.11162698030824433,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -1946,7 +1946,7 @@
       "cluster": "Lagrangian Formalism",
       "terrain_height": 0.7798066096,
       "terrain_area": 0.9779003515317729,
-      "fog": 0.055053030139310614,
+      "fog": 0.05505660651257044,
       "semantic_state": "strong",
       "creature_state": "evolved"
     }
@@ -2863,5 +2863,5 @@
       "confidence": 0.846
     }
   ],
-  "hidden_concept_count": 425
+  "hidden_concept_count": 428
 }

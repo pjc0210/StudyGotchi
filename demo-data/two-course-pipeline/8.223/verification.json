@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-09-20T02:45:46.052965+00:00",
+  "verified_at": "2026-09-20T02:51:50.176997+00:00",
   "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
   "code": "8.223",
   "manifest_resources": 24,
@@ -126,12 +126,12 @@
     }
   ],
   "active_concepts_by_scope": {
-    "course": 447,
+    "course": 450,
     "shared_extension": 26,
     "personal": 137
   },
   "metrics": {
-    "concept_count": 610,
+    "concept_count": 613,
     "prerequisite_edge_count": 230,
     "related_edge_count": 65,
     "cycle_count_after_cleanup": 0,
@@ -151,9 +151,9 @@
       "scored_evidence_events": 69
     }
   ],
-  "concept_details_verified": 610,
+  "concept_details_verified": 613,
   "empty_student_isolation": "passed",
-  "http_checks": 640,
+  "http_checks": 643,
   "requests": [
     {
       "method": "GET",
@@ -302,6 +302,11 @@
     },
     {
       "method": "GET",
+      "path": "/api/courses/2a9366df-b7c1-45df-8666-3f14219b7a2f/concepts/e8eb597d-6956-48a8-87f4-7bad2926d9be/why",
+      "status": 200
+    },
+    {
+      "method": "GET",
       "path": "/api/courses/2a9366df-b7c1-45df-8666-3f14219b7a2f/concepts/16e6eb08-06df-48a7-a22e-3e962093d778/why",
       "status": 200
     },
@@ -393,6 +398,11 @@
     {
       "method": "GET",
       "path": "/api/courses/2a9366df-b7c1-45df-8666-3f14219b7a2f/concepts/59d11112-1426-48ac-b088-4bb928158a83/why",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/courses/2a9366df-b7c1-45df-8666-3f14219b7a2f/concepts/3ea8d2f7-6fe2-4eed-8ff0-f9e31ea31aef/why",
       "status": 200
     },
     {
@@ -548,6 +558,11 @@
     {
       "method": "GET",
       "path": "/api/courses/2a9366df-b7c1-45df-8666-3f14219b7a2f/concepts/ef76863c-8952-407a-bfd1-96e2780e2f6f/why",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/courses/2a9366df-b7c1-45df-8666-3f14219b7a2f/concepts/80cffe8d-e220-41da-a774-c5de00c64c7c/why",
       "status": 200
     },
     {

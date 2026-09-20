@@ -749,6 +749,15 @@
       "scope": "course"
     },
     {
+      "id": "36e2f3c0-2286-4234-b1d0-1cf2700f71a5",
+      "canonical_name": "Reduction",
+      "short_definition": "A proof method that shows undecidability by assuming a decider for one language to build a decider for another language, implying one language is reducible to the other.",
+      "concept_kind": "method",
+      "granularity": "core",
+      "importance": 0.7,
+      "scope": "course"
+    },
+    {
       "id": "e45b0c24-8fa9-4a5f-9a60-4ec736ff79b8",
       "canonical_name": "Languages not in RE or coRE",
       "short_definition": "Languages that are neither recursively enumerable (RE) nor co-recursively enumerable (coRE).",

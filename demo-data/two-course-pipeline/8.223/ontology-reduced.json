@@ -11,6 +11,15 @@
       "scope": "course"
     },
     {
+      "id": "e8eb597d-6956-48a8-87f4-7bad2926d9be",
+      "canonical_name": "Equations of Motion (EoM)",
+      "short_definition": "Mathematical equations that describe how the position, velocity, and acceleration of a particle change over time under the influence of forces.",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "importance": 0.8,
+      "scope": "course"
+    },
+    {
       "id": "16e6eb08-06df-48a7-a22e-3e962093d778",
       "canonical_name": "Newton's Second Law",
       "short_definition": "The law stating that the acceleration of a particle is proportional to the net force acting on it, often stated as F=ma.",
@@ -179,6 +188,15 @@
       "concept_kind": "principle",
       "granularity": "core",
       "importance": 0.8,
+      "scope": "course"
+    },
+    {
+      "id": "3ea8d2f7-6fe2-4eed-8ff0-f9e31ea31aef",
+      "canonical_name": "Lagrangian Function",
+      "short_definition": "A function L(x, x\u0307, t) characterizing a system's state at a given time by depending on position, velocity, and possibly time, used in defining the action in classical mechanics.",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "importance": 1.0,
       "scope": "course"
     },
     {
@@ -458,6 +476,15 @@
       "concept_kind": "model",
       "granularity": "core",
       "importance": 0.85,
+      "scope": "course"
+    },
+    {
+      "id": "80cffe8d-e220-41da-a774-c5de00c64c7c",
+      "canonical_name": "Lagrangian",
+      "short_definition": "A function defined as kinetic energy minus potential energy (L = K - U) that describes the dynamics of a system.",
+      "concept_kind": "definition",
+      "granularity": "core",
+      "importance": 0.9,
       "scope": "course"
     },
     {

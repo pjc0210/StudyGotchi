@@ -48,6 +48,37 @@
     "evidence": [],
     "suppressed_resource_count": 0
   },
+  "e8eb597d-6956-48a8-87f4-7bad2926d9be": {
+    "concept_id": "e8eb597d-6956-48a8-87f4-7bad2926d9be",
+    "name": "Equations of Motion (EoM)",
+    "definition": "Mathematical equations that describe how the position, velocity, and acceleration of a particle change over time under the influence of forces.",
+    "scope": "course",
+    "aliases": [
+      "Equations of Motion (EoM)"
+    ],
+    "resources": [
+      {
+        "resource_id": "aa407710-ab73-4275-bebd-0656133e76f8",
+        "title": "8.223/Lecture Notes/L1-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture",
+        "citations": [
+          {
+            "chunk_id": null,
+            "page_number": null,
+            "snippet": null,
+            "link_type": "APPEARS_IN"
+          }
+        ],
+        "rank_score": 3.5,
+        "novelty": 1.0
+      }
+    ],
+    "relationships": [],
+    "assessments": [],
+    "evidence": [],
+    "suppressed_resource_count": 0
+  },
   "16e6eb08-06df-48a7-a22e-3e962093d778": {
     "concept_id": "16e6eb08-06df-48a7-a22e-3e962093d778",
     "name": "Newton's Second Law",
@@ -1150,6 +1181,37 @@
     "evidence": [],
     "suppressed_resource_count": 0
   },
+  "3ea8d2f7-6fe2-4eed-8ff0-f9e31ea31aef": {
+    "concept_id": "3ea8d2f7-6fe2-4eed-8ff0-f9e31ea31aef",
+    "name": "Lagrangian Function",
+    "definition": "A function L(x, x\u0307, t) characterizing a system's state at a given time by depending on position, velocity, and possibly time, used in defining the action in classical mechanics.",
+    "scope": "course",
+    "aliases": [
+      "Lagrangian Function"
+    ],
+    "resources": [
+      {
+        "resource_id": "aa407710-ab73-4275-bebd-0656133e76f8",
+        "title": "8.223/Lecture Notes/L1-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture",
+        "citations": [
+          {
+            "chunk_id": null,
+            "page_number": null,
+            "snippet": null,
+            "link_type": "APPEARS_IN"
+          }
+        ],
+        "rank_score": 3.7,
+        "novelty": 1.0
+      }
+    ],
+    "relationships": [],
+    "assessments": [],
+    "evidence": [],
+    "suppressed_resource_count": 0
+  },
   "321ec39f-dcd4-42b4-8a68-a457ebbd0249": {
     "concept_id": "321ec39f-dcd4-42b4-8a68-a457ebbd0249",
     "name": "Action Principle in Classical Mechanics",
@@ -2023,9 +2085,7 @@
     "definition": "A differential equation derived from the condition that the first variation of the action is zero, given by \u2202L/\u2202x - d/dt(\u2202L/\u2202\u02d9x) = 0.",
     "scope": "course",
     "aliases": [
-      "Equations of Motion (EoM)",
       "Euler-Lagrange Equation",
-      "EoM",
       "E-L Equation",
       "E-L equations",
       "Euler Lagrange Equations",
@@ -3247,6 +3307,37 @@
     "evidence": [],
     "suppressed_resource_count": 0
   },
+  "80cffe8d-e220-41da-a774-c5de00c64c7c": {
+    "concept_id": "80cffe8d-e220-41da-a774-c5de00c64c7c",
+    "name": "Lagrangian",
+    "definition": "A function defined as kinetic energy minus potential energy (L = K - U) that describes the dynamics of a system.",
+    "scope": "course",
+    "aliases": [
+      "Lagrangian"
+    ],
+    "resources": [
+      {
+        "resource_id": "26b96afd-d59f-454b-94cd-acdfaa6ae40d",
+        "title": "8.223/Lecture Notes/L2-notes.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture",
+        "citations": [
+          {
+            "chunk_id": null,
+            "page_number": null,
+            "snippet": null,
+            "link_type": "APPEARS_IN"
+          }
+        ],
+        "rank_score": 3.6,
+        "novelty": 1.0
+      }
+    ],
+    "relationships": [],
+    "assessments": [],
+    "evidence": [],
+    "suppressed_resource_count": 0
+  },
   "70c7d8cd-fbb7-422e-845a-5f5763dec4f8": {
     "concept_id": "70c7d8cd-fbb7-422e-845a-5f5763dec4f8",
     "name": "Equation of Motion for Mass-Spring System",
@@ -4061,9 +4152,7 @@
       "Lagrangian Method",
       "Lagrangian Mechanics",
       "Lagrange Equations",
-      "Lagrangian",
-      "Lagrangian formulation",
-      "Lagrangian Function"
+      "Lagrangian formulation"
     ],
     "resources": [
       {
