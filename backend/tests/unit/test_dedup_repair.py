@@ -50,6 +50,26 @@ def test_unrelated_concepts_are_never_clustered():
     assert clusters == []
 
 
+def test_local_symbolic_alias_does_not_merge_different_example_languages():
+    a = _profile("Language of balanced strings", aliases=["L3"])
+    b = _profile("Language of repeated strings", aliases=["L 3"])
+    assert cluster_duplicate_concepts([a, b]) == []
+
+
+def test_empty_normalized_alias_does_not_merge_concepts():
+    a = _profile("First concept", aliases=["???"])
+    b = _profile("Second concept", aliases=["!!!"])
+    assert cluster_duplicate_concepts([a, b]) == []
+
+
+def test_reused_theorem_number_does_not_merge_unrelated_theorems():
+    a = _profile("Cook-Levin Theorem", aliases=["Theorem 1.3"])
+    b = _profile(
+        "Equivalence of PDAs and context-free languages", aliases=["Theorem 1.3"]
+    )
+    assert cluster_duplicate_concepts([a, b]) == []
+
+
 def test_transitive_alias_chain_clusters_three_concepts():
     # A and B share alias "X"; B and C share alias "Y" -> all three cluster
     # together even though A and C share no direct lexical form.

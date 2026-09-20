@@ -8,7 +8,11 @@ lives in `scripts/repair_duplicate_concepts.py`.
 from dataclasses import dataclass
 from uuid import UUID
 
-from app.resolution.normalize import normalize_concept_name, plural_variant_candidates
+from app.resolution.normalize import (
+    is_locally_scoped_label,
+    normalize_concept_name,
+    plural_variant_candidates,
+)
 
 
 @dataclass(frozen=True)
@@ -24,6 +28,7 @@ class ConceptLexicalProfile:
 def lexical_forms(name: str, aliases: list[str]) -> set[str]:
     forms = {normalize_concept_name(name)}
     forms.update(normalize_concept_name(alias) for alias in aliases)
+    forms = {form for form in forms if form and not is_locally_scoped_label(form)}
     for form in tuple(forms):  # snapshot: the loop body mutates `forms`
         forms.update(plural_variant_candidates(form))
     return forms

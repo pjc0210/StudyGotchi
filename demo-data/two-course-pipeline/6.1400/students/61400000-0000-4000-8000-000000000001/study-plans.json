@@ -1,0 +1,1329 @@
+[
+  {
+    "target": {
+      "target_concept_id": "dc14faf4-eaf5-4932-a48a-5e236e9b1ee3"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "dc14faf4-eaf5-4932-a48a-5e236e9b1ee3",
+      "target_assessment_id": null,
+      "gaps": [
+        {
+          "concept_id": "633e8dc8-b91c-4898-9830-0398ac800441",
+          "name": "Computability",
+          "understanding": 0.0,
+          "priority": 0.5625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "dc14faf4-eaf5-4932-a48a-5e236e9b1ee3",
+          "name": "Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.5,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e8a08d90-0ad6-4578-9247-1728be0656ff",
+          "name": "Turing Machine Transition Function",
+          "understanding": 0.0,
+          "priority": 0.45,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fe7666d9-d4f8-4dac-b7a2-cd0f73194121",
+          "name": "Head of a Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "b8cc8b35-998b-4b4d-9840-ceeef0c4937f",
+          "name": "States of a Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "811e46c4-a2e9-4a26-9192-61a1df12d3a6",
+          "name": "Tape of a Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "dc14faf4-eaf5-4932-a48a-5e236e9b1ee3",
+      "gaps": [
+        {
+          "concept_id": "633e8dc8-b91c-4898-9830-0398ac800441",
+          "name": "Computability",
+          "understanding": 0.0,
+          "priority": 0.5625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "dc14faf4-eaf5-4932-a48a-5e236e9b1ee3",
+          "name": "Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.5,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e8a08d90-0ad6-4578-9247-1728be0656ff",
+          "name": "Turing Machine Transition Function",
+          "understanding": 0.0,
+          "priority": 0.45,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fe7666d9-d4f8-4dac-b7a2-cd0f73194121",
+          "name": "Head of a Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "b8cc8b35-998b-4b4d-9840-ceeef0c4937f",
+          "name": "States of a Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "811e46c4-a2e9-4a26-9192-61a1df12d3a6",
+          "name": "Tape of a Turing Machine",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "633e8dc8-b91c-4898-9830-0398ac800441",
+        "e8a08d90-0ad6-4578-9247-1728be0656ff",
+        "fe7666d9-d4f8-4dac-b7a2-cd0f73194121",
+        "b8cc8b35-998b-4b4d-9840-ceeef0c4937f",
+        "811e46c4-a2e9-4a26-9192-61a1df12d3a6",
+        "dc14faf4-eaf5-4932-a48a-5e236e9b1ee3"
+      ]
+    }
+  },
+  {
+    "target": {
+      "target_concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+      "target_assessment_id": null,
+      "gaps": [
+        {
+          "concept_id": "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+          "name": "Language of a Grammar",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "3ebf6117-9c0a-435b-b1a6-26998c28e293",
+          "name": "Structure of Pumped Decomposition uvxyz in CFL Pumping Lemma",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "cef8cd56-47c0-4cc4-9589-27bcd02bacd5",
+          "name": "Context-Free Grammar Derivation Trees",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+          "name": "Pumping Lemma for Context Free Languages",
+          "understanding": 0.0,
+          "priority": 0.30000000000000004,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "49e38210-444c-469a-b293-c0c36ccd4666",
+          "name": "Context Free Grammar",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "f9677d5f-0eca-4c79-af61-f82b62c4be84",
+          "name": "Length Bound in Pumping Lemma for CFL",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+          "name": "Context Free Language",
+          "understanding": 0.0,
+          "priority": 0.20249999999999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+      "gaps": [
+        {
+          "concept_id": "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+          "name": "Language of a Grammar",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "3ebf6117-9c0a-435b-b1a6-26998c28e293",
+          "name": "Structure of Pumped Decomposition uvxyz in CFL Pumping Lemma",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "cef8cd56-47c0-4cc4-9589-27bcd02bacd5",
+          "name": "Context-Free Grammar Derivation Trees",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+          "name": "Pumping Lemma for Context Free Languages",
+          "understanding": 0.0,
+          "priority": 0.30000000000000004,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "49e38210-444c-469a-b293-c0c36ccd4666",
+          "name": "Context Free Grammar",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "f9677d5f-0eca-4c79-af61-f82b62c4be84",
+          "name": "Length Bound in Pumping Lemma for CFL",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+          "name": "Context Free Language",
+          "understanding": 0.0,
+          "priority": 0.20249999999999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "3ebf6117-9c0a-435b-b1a6-26998c28e293",
+        "cef8cd56-47c0-4cc4-9589-27bcd02bacd5",
+        "49e38210-444c-469a-b293-c0c36ccd4666",
+        "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+        "f9677d5f-0eca-4c79-af61-f82b62c4be84",
+        "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+        "e6af3966-5f17-45a9-89ff-e91732eb09f6"
+      ]
+    }
+  },
+  {
+    "target": {
+      "target_concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target_assessment_id": null,
+      "gaps": [
+        {
+          "concept_id": "0ceaf3e6-ff8c-418c-ad15-d73b784a6b8d",
+          "name": "Regular Expression",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "29f9d21f-b13d-4a83-b7c4-4889612a70af",
+          "name": "Closure Properties of Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.39375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2c540185-b5a2-4d3b-afd2-3cd46fb18d04",
+          "name": "Inductive Proof for Regular Expressions' Languages Regularity",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+          "name": "Deterministic Finite Automaton (DFA)",
+          "understanding": 0.6489162806,
+          "priority": 0.19748459216250003,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+          "name": "Regular Language",
+          "understanding": 0.6378986585,
+          "priority": 0.18105067074999998,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "gaps": [
+        {
+          "concept_id": "0ceaf3e6-ff8c-418c-ad15-d73b784a6b8d",
+          "name": "Regular Expression",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "29f9d21f-b13d-4a83-b7c4-4889612a70af",
+          "name": "Closure Properties of Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.39375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2c540185-b5a2-4d3b-afd2-3cd46fb18d04",
+          "name": "Inductive Proof for Regular Expressions' Languages Regularity",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+          "name": "Deterministic Finite Automaton (DFA)",
+          "understanding": 0.6489162806,
+          "priority": 0.19748459216250003,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+          "name": "Regular Language",
+          "understanding": 0.6378986585,
+          "priority": 0.18105067074999998,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "0ceaf3e6-ff8c-418c-ad15-d73b784a6b8d",
+        "29f9d21f-b13d-4a83-b7c4-4889612a70af",
+        "2c540185-b5a2-4d3b-afd2-3cd46fb18d04",
+        "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+        "ff4c8515-baa0-4e7c-b725-502e28134325"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "38c41691-5957-4b04-8292-e365c97a4a4c"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": null,
+      "target_assessment_id": "38c41691-5957-4b04-8292-e365c97a4a4c",
+      "gaps": [
+        {
+          "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+          "name": "Computation of a DFA",
+          "understanding": 0.0,
+          "priority": 0.40078125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+          "name": "Language recognized by a DFA",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+          "name": "Deterministic Finite Automaton (DFA)",
+          "understanding": 0.6489162806,
+          "priority": 0.14811344412187502,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "gaps": [
+        {
+          "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+          "name": "Computation of a DFA",
+          "understanding": 0.0,
+          "priority": 0.40078125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+          "name": "Language recognized by a DFA",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+          "name": "Deterministic Finite Automaton (DFA)",
+          "understanding": 0.6489162806,
+          "priority": 0.14811344412187502,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+        "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+        "695f0dfe-2f80-4d72-9bcb-585bed2ce50f"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "dba90881-5f3e-4d75-828d-2ee6abac918b"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": null,
+      "target_assessment_id": "dba90881-5f3e-4d75-828d-2ee6abac918b",
+      "gaps": [
+        {
+          "concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+          "name": "Pumping Lemma for Context Free Languages",
+          "understanding": 0.0,
+          "priority": 0.28125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "3ebf6117-9c0a-435b-b1a6-26998c28e293",
+          "name": "Structure of Pumped Decomposition uvxyz in CFL Pumping Lemma",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "cef8cd56-47c0-4cc4-9589-27bcd02bacd5",
+          "name": "Context-Free Grammar Derivation Trees",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "b2fde4eb-9b74-4a51-9671-e7334a5c5e47",
+          "name": "Language L3 = {a^i b^j c^k | 0 \u2264 i \u2264 j \u2264 k}",
+          "understanding": 0.0,
+          "priority": 0.25,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+          "name": "Language of a Grammar",
+          "understanding": 0.0,
+          "priority": 0.2373046875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "f9677d5f-0eca-4c79-af61-f82b62c4be84",
+          "name": "Length Bound in Pumping Lemma for CFL",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "49e38210-444c-469a-b293-c0c36ccd4666",
+          "name": "Context Free Grammar",
+          "understanding": 0.0,
+          "priority": 0.21357421875000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "a21323a3-a697-47ce-863c-1dde884d1c69",
+          "name": "Context-Free Language (CFL)",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+          "name": "Context Free Language",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "b2fde4eb-9b74-4a51-9671-e7334a5c5e47",
+      "gaps": [
+        {
+          "concept_id": "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+          "name": "Pumping Lemma for Context Free Languages",
+          "understanding": 0.0,
+          "priority": 0.28125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "3ebf6117-9c0a-435b-b1a6-26998c28e293",
+          "name": "Structure of Pumped Decomposition uvxyz in CFL Pumping Lemma",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "cef8cd56-47c0-4cc4-9589-27bcd02bacd5",
+          "name": "Context-Free Grammar Derivation Trees",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "b2fde4eb-9b74-4a51-9671-e7334a5c5e47",
+          "name": "Language L3 = {a^i b^j c^k | 0 \u2264 i \u2264 j \u2264 k}",
+          "understanding": 0.0,
+          "priority": 0.25,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+          "name": "Language of a Grammar",
+          "understanding": 0.0,
+          "priority": 0.2373046875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "f9677d5f-0eca-4c79-af61-f82b62c4be84",
+          "name": "Length Bound in Pumping Lemma for CFL",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "49e38210-444c-469a-b293-c0c36ccd4666",
+          "name": "Context Free Grammar",
+          "understanding": 0.0,
+          "priority": 0.21357421875000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "a21323a3-a697-47ce-863c-1dde884d1c69",
+          "name": "Context-Free Language (CFL)",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+          "name": "Context Free Language",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "3ebf6117-9c0a-435b-b1a6-26998c28e293",
+        "cef8cd56-47c0-4cc4-9589-27bcd02bacd5",
+        "b2fde4eb-9b74-4a51-9671-e7334a5c5e47",
+        "f9677d5f-0eca-4c79-af61-f82b62c4be84",
+        "49e38210-444c-469a-b293-c0c36ccd4666",
+        "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+        "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+        "e6af3966-5f17-45a9-89ff-e91732eb09f6",
+        "a21323a3-a697-47ce-863c-1dde884d1c69"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "d5dda6cf-6ce7-4b76-9a43-5f7b0c58fc44"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": null,
+      "target_assessment_id": "d5dda6cf-6ce7-4b76-9a43-5f7b0c58fc44",
+      "gaps": [
+        {
+          "concept_id": "c483fe84-d421-4076-82f0-237c24650c5a",
+          "name": "Language Recognized by PDA",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "1a991926-44e2-49d9-8fdf-c94af77fbc4c",
+          "name": "Computation of a PDA",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+          "name": "Language of a Grammar",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c903fdb7-172c-4064-a056-a49472f18707",
+          "name": "Accepting run",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e84a44de-c646-4513-9390-afcb36f97d59",
+          "name": "Pushdown Automaton",
+          "understanding": 0.0,
+          "priority": 0.30000000000000004,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "49e38210-444c-469a-b293-c0c36ccd4666",
+          "name": "Context Free Grammar",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+          "name": "Context Free Language",
+          "understanding": 0.0,
+          "priority": 0.20249999999999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "e84a44de-c646-4513-9390-afcb36f97d59",
+      "gaps": [
+        {
+          "concept_id": "c483fe84-d421-4076-82f0-237c24650c5a",
+          "name": "Language Recognized by PDA",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "1a991926-44e2-49d9-8fdf-c94af77fbc4c",
+          "name": "Computation of a PDA",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+          "name": "Language of a Grammar",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c903fdb7-172c-4064-a056-a49472f18707",
+          "name": "Accepting run",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e84a44de-c646-4513-9390-afcb36f97d59",
+          "name": "Pushdown Automaton",
+          "understanding": 0.0,
+          "priority": 0.30000000000000004,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "49e38210-444c-469a-b293-c0c36ccd4666",
+          "name": "Context Free Grammar",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+          "name": "Context Free Language",
+          "understanding": 0.0,
+          "priority": 0.20249999999999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "c483fe84-d421-4076-82f0-237c24650c5a",
+        "1a991926-44e2-49d9-8fdf-c94af77fbc4c",
+        "c903fdb7-172c-4064-a056-a49472f18707",
+        "49e38210-444c-469a-b293-c0c36ccd4666",
+        "d53c4909-4d46-4812-ac8f-bbc1ea37951d",
+        "4ddfdb9d-505c-48c6-aab3-9d238ac9e7fc",
+        "e84a44de-c646-4513-9390-afcb36f97d59"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "96c49263-c70d-48b3-b7cf-b5855808771f"
+    },
+    "gaps": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": null,
+      "target_assessment_id": "96c49263-c70d-48b3-b7cf-b5855808771f",
+      "gaps": [
+        {
+          "concept_id": "0ceaf3e6-ff8c-418c-ad15-d73b784a6b8d",
+          "name": "Regular Expression",
+          "understanding": 0.0,
+          "priority": 0.2761363636363636,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "29f9d21f-b13d-4a83-b7c4-4889612a70af",
+          "name": "Closure Properties of Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.21477272727272725,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+          "name": "Deterministic Finite Automaton (DFA)",
+          "understanding": 0.6489162806,
+          "priority": 0.19748459216250003,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2c540185-b5a2-4d3b-afd2-3cd46fb18d04",
+          "name": "Inductive Proof for Regular Expressions' Languages Regularity",
+          "understanding": 0.0,
+          "priority": 0.18409090909090908,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+          "name": "Computation of a DFA",
+          "understanding": 0.0,
+          "priority": 0.14573863636363632,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19eb75e2-f596-4cfc-b07b-63176d487da4",
+          "name": "Language L5: Strings representing binary numbers divisible by 3",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "6a3586c8-200c-4510-bc66-21408cc5047f",
+          "name": "Language L4: Strings representing binary numbers divisible by 8",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "8209dbd0-4c8e-4e2f-8bcf-83233c596189",
+          "name": "Language L3: Strings where every odd position is 1",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "055fd1a1-2970-4df8-be68-c5e124e3d6e4",
+          "name": "Language L2: Strings beginning with 0 and ending with 1",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "cc15b1e5-c3b4-4615-876a-e1764d9a195c",
+          "name": "Language L1: Strings not containing substring '1001'",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "0f618724-e08a-45da-8921-f84371479ee3",
+          "name": "Existence of Decisive NFA for Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "bb837f95-545a-453b-adf3-0b1e38d97c38",
+          "name": "Existence of Decisive DFA for Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+          "name": "Language Regularity Closure Under Insertion at Positions",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+          "name": "Regular Language",
+          "understanding": 0.6378986585,
+          "priority": 0.1296158211051136,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+          "name": "Language recognized by a DFA",
+          "understanding": 0.0,
+          "priority": 0.12272727272727273,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+          "name": "Language L defined by balancing substrings 01 and 10",
+          "understanding": 0.0,
+          "priority": 0.12272727272727273,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "78e74da6-6c61-419a-9ee8-cff3a37be0f3",
+          "name": "Decisive Deterministic Finite Automaton",
+          "understanding": 0.0,
+          "priority": 0.12272727272727273,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+          "name": "Palindrome",
+          "understanding": 0.0,
+          "priority": 0.10909090909090909,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "f51c5257-a5ee-4846-b0b3-5ee5560d5dba",
+          "name": "Operation concatenation of languages",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "a5adf621-fc6d-4020-bcdf-6d18d279b7a4",
+          "name": "Language with String Length Constraint",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7c6b71ef-57fe-4fd1-b4ca-b6ff08a99daf",
+          "name": "Language Defined by Starting Symbol and Length Parity",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "0932a6f8-be77-4629-8c95-32aaff46af97",
+          "name": "Language Ending with a Specific String",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "d090a865-5ce3-4719-b3af-18f594a36c75",
+          "name": "Language with String Length Congruence Modulo n",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "78416e80-8bdd-4681-a3d5-69f1237950ed",
+          "name": "Language Lr",
+          "understanding": 0.0,
+          "priority": 0.09204545454545453,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "f301c87a-0dd9-4475-9286-4db6d14357c7",
+          "name": "Language Sr",
+          "understanding": 0.0,
+          "priority": 0.09204545454545453,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "74c369c0-893d-4db6-87dd-a6a9ca2a23f1",
+          "name": "Finite Language",
+          "understanding": 0.0,
+          "priority": 0.0818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2664f0bb-0a42-43f2-bbc7-9f7e6a25f4c1",
+          "name": "Infinite Language",
+          "understanding": 0.0,
+          "priority": 0.0818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "1069f22f-aef1-40b4-96e5-561f2a53ed22",
+          "name": "State complexity of NFA",
+          "understanding": 0.0,
+          "priority": 0.06818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "d378f6dc-bdca-442a-965e-114630cfaf56",
+          "name": "State complexity of DFA",
+          "understanding": 0.0,
+          "priority": 0.06818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+          "name": "Pumping Lemma for Regular Languages",
+          "understanding": 0.5661600499,
+          "priority": 0.06655499234488635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+          "name": "Nondeterministic Finite Automaton",
+          "understanding": 0.5701998716,
+          "priority": 0.05860910841818182,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+          "name": "Decisive Nondeterministic Finite Automaton",
+          "understanding": 0.5535710364,
+          "priority": 0.05478900916909091,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "61400000-0000-4000-8000-000000000001",
+      "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+      "target_concept_id": "19eb75e2-f596-4cfc-b07b-63176d487da4",
+      "gaps": [
+        {
+          "concept_id": "0ceaf3e6-ff8c-418c-ad15-d73b784a6b8d",
+          "name": "Regular Expression",
+          "understanding": 0.0,
+          "priority": 0.2761363636363636,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "29f9d21f-b13d-4a83-b7c4-4889612a70af",
+          "name": "Closure Properties of Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.21477272727272725,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+          "name": "Deterministic Finite Automaton (DFA)",
+          "understanding": 0.6489162806,
+          "priority": 0.19748459216250003,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2c540185-b5a2-4d3b-afd2-3cd46fb18d04",
+          "name": "Inductive Proof for Regular Expressions' Languages Regularity",
+          "understanding": 0.0,
+          "priority": 0.18409090909090908,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+          "name": "Computation of a DFA",
+          "understanding": 0.0,
+          "priority": 0.14573863636363632,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19eb75e2-f596-4cfc-b07b-63176d487da4",
+          "name": "Language L5: Strings representing binary numbers divisible by 3",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "6a3586c8-200c-4510-bc66-21408cc5047f",
+          "name": "Language L4: Strings representing binary numbers divisible by 8",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "8209dbd0-4c8e-4e2f-8bcf-83233c596189",
+          "name": "Language L3: Strings where every odd position is 1",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "055fd1a1-2970-4df8-be68-c5e124e3d6e4",
+          "name": "Language L2: Strings beginning with 0 and ending with 1",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "cc15b1e5-c3b4-4615-876a-e1764d9a195c",
+          "name": "Language L1: Strings not containing substring '1001'",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "0f618724-e08a-45da-8921-f84371479ee3",
+          "name": "Existence of Decisive NFA for Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "bb837f95-545a-453b-adf3-0b1e38d97c38",
+          "name": "Existence of Decisive DFA for Regular Languages",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+          "name": "Language Regularity Closure Under Insertion at Positions",
+          "understanding": 0.0,
+          "priority": 0.13636363636363635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+          "name": "Regular Language",
+          "understanding": 0.6378986585,
+          "priority": 0.1296158211051136,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+          "name": "Language recognized by a DFA",
+          "understanding": 0.0,
+          "priority": 0.12272727272727273,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+          "name": "Language L defined by balancing substrings 01 and 10",
+          "understanding": 0.0,
+          "priority": 0.12272727272727273,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "78e74da6-6c61-419a-9ee8-cff3a37be0f3",
+          "name": "Decisive Deterministic Finite Automaton",
+          "understanding": 0.0,
+          "priority": 0.12272727272727273,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+          "name": "Palindrome",
+          "understanding": 0.0,
+          "priority": 0.10909090909090909,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "f51c5257-a5ee-4846-b0b3-5ee5560d5dba",
+          "name": "Operation concatenation of languages",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "a5adf621-fc6d-4020-bcdf-6d18d279b7a4",
+          "name": "Language with String Length Constraint",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7c6b71ef-57fe-4fd1-b4ca-b6ff08a99daf",
+          "name": "Language Defined by Starting Symbol and Length Parity",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "0932a6f8-be77-4629-8c95-32aaff46af97",
+          "name": "Language Ending with a Specific String",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "d090a865-5ce3-4719-b3af-18f594a36c75",
+          "name": "Language with String Length Congruence Modulo n",
+          "understanding": 0.0,
+          "priority": 0.09545454545454544,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "78416e80-8bdd-4681-a3d5-69f1237950ed",
+          "name": "Language Lr",
+          "understanding": 0.0,
+          "priority": 0.09204545454545453,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "f301c87a-0dd9-4475-9286-4db6d14357c7",
+          "name": "Language Sr",
+          "understanding": 0.0,
+          "priority": 0.09204545454545453,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "74c369c0-893d-4db6-87dd-a6a9ca2a23f1",
+          "name": "Finite Language",
+          "understanding": 0.0,
+          "priority": 0.0818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2664f0bb-0a42-43f2-bbc7-9f7e6a25f4c1",
+          "name": "Infinite Language",
+          "understanding": 0.0,
+          "priority": 0.0818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "1069f22f-aef1-40b4-96e5-561f2a53ed22",
+          "name": "State complexity of NFA",
+          "understanding": 0.0,
+          "priority": 0.06818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "d378f6dc-bdca-442a-965e-114630cfaf56",
+          "name": "State complexity of DFA",
+          "understanding": 0.0,
+          "priority": 0.06818181818181818,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+          "name": "Pumping Lemma for Regular Languages",
+          "understanding": 0.5661600499,
+          "priority": 0.06655499234488635,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+          "name": "Nondeterministic Finite Automaton",
+          "understanding": 0.5701998716,
+          "priority": 0.05860910841818182,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+          "name": "Decisive Nondeterministic Finite Automaton",
+          "understanding": 0.5535710364,
+          "priority": 0.05478900916909091,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "0ceaf3e6-ff8c-418c-ad15-d73b784a6b8d",
+        "29f9d21f-b13d-4a83-b7c4-4889612a70af",
+        "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+        "2c540185-b5a2-4d3b-afd2-3cd46fb18d04",
+        "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+        "19eb75e2-f596-4cfc-b07b-63176d487da4",
+        "6a3586c8-200c-4510-bc66-21408cc5047f",
+        "8209dbd0-4c8e-4e2f-8bcf-83233c596189",
+        "055fd1a1-2970-4df8-be68-c5e124e3d6e4",
+        "cc15b1e5-c3b4-4615-876a-e1764d9a195c",
+        "ff4c8515-baa0-4e7c-b725-502e28134325",
+        "bb837f95-545a-453b-adf3-0b1e38d97c38",
+        "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+        "0f618724-e08a-45da-8921-f84371479ee3",
+        "78e74da6-6c61-419a-9ee8-cff3a37be0f3",
+        "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+        "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+        "a5adf621-fc6d-4020-bcdf-6d18d279b7a4",
+        "7c6b71ef-57fe-4fd1-b4ca-b6ff08a99daf",
+        "0932a6f8-be77-4629-8c95-32aaff46af97",
+        "d090a865-5ce3-4719-b3af-18f594a36c75",
+        "78416e80-8bdd-4681-a3d5-69f1237950ed",
+        "f301c87a-0dd9-4475-9286-4db6d14357c7",
+        "f51c5257-a5ee-4846-b0b3-5ee5560d5dba",
+        "74c369c0-893d-4db6-87dd-a6a9ca2a23f1",
+        "2664f0bb-0a42-43f2-bbc7-9f7e6a25f4c1",
+        "1069f22f-aef1-40b4-96e5-561f2a53ed22",
+        "d378f6dc-bdca-442a-965e-114630cfaf56",
+        "416f87d5-10c5-49ea-b58f-af6c3c272750",
+        "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+        "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+        "2a267114-26e2-4a3c-a676-e0e4ea728264"
+      ]
+    }
+  }
+]

@@ -32,13 +32,16 @@ async def metrics(course_id: UUID, session: AsyncSession = Depends(get_db)):
     edges = await get_course_edges(session, course_id)
     graph = build_digraph(edges, edge_types={ConceptEdgeType.PREREQUISITE_FOR})
     concepts = await session.scalar(
-        select(func.count()).select_from(Concept).where(Concept.course_id == course_id)
+        select(func.count())
+        .select_from(Concept)
+        .where(Concept.course_id == course_id, Concept.status == "active")
     )
     without_sources = await session.scalar(
         select(func.count())
         .select_from(Concept)
         .where(
             Concept.course_id == course_id,
+            Concept.status == "active",
             ~select(ConceptResourceLink.id)
             .where(ConceptResourceLink.concept_id == Concept.id)
             .exists(),

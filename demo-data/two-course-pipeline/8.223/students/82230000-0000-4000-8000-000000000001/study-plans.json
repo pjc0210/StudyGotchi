@@ -1,0 +1,4047 @@
+[
+  {
+    "target": {
+      "target_concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "target_assessment_id": null,
+      "gaps": [
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.24107142857142855,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.24107142857142855,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.2290178571428571,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.20340401785714288,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.18306361607142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.18306361607142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.18080357142857145,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.18080357142857145,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.14464285714285713,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.11300223214285715,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.06453075841071428,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.06061394451696429,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.0533935546875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "gaps": [
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.24107142857142855,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.24107142857142855,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.2290178571428571,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.20340401785714288,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.18306361607142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.18306361607142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.18080357142857145,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.18080357142857145,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.14464285714285713,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.11300223214285715,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.06453075841071428,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.06061394451696429,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.0533935546875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+        "66f022b2-984f-49e3-8a63-56b39637910b",
+        "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+        "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+        "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+        "72267327-269a-45ee-8e32-12a790142c28",
+        "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+        "7c81cd65-5519-42db-8752-52ec154a0a8d",
+        "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+        "1689da81-afa5-469f-ac82-55cfb127d457",
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "5411f681-9389-428b-a7f6-5caa977dedbc",
+        "00097785-0514-4e7c-8876-7c6cc5878461",
+        "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+        "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+        "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+        "19c96995-dfb0-4296-af81-ca02d198ca61",
+        "c4597ac7-3b0b-433e-9466-856030cc266a",
+        "085699dc-1387-441b-87ae-78f0951e3757",
+        "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+        "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba"
+      ]
+    }
+  },
+  {
+    "target": {
+      "target_concept_id": "085699dc-1387-441b-87ae-78f0951e3757"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+      "target_assessment_id": null,
+      "gaps": [
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.23624999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.23624999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.094921875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.07543068651000001,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+      "gaps": [
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.23624999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.23624999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.094921875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.07543068651000001,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        }
+      ],
+      "study_order": [
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+        "00097785-0514-4e7c-8876-7c6cc5878461",
+        "5411f681-9389-428b-a7f6-5caa977dedbc",
+        "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+        "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+        "19c96995-dfb0-4296-af81-ca02d198ca61",
+        "c4597ac7-3b0b-433e-9466-856030cc266a",
+        "085699dc-1387-441b-87ae-78f0951e3757"
+      ]
+    }
+  },
+  {
+    "target": {
+      "target_concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+      "target_assessment_id": null,
+      "gaps": [
+        {
+          "concept_id": "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+          "name": "Legendre Transformation",
+          "understanding": 0.0,
+          "priority": 0.421875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d38efbec-a2e5-4104-976d-1c10c41d4641",
+          "name": "Poisson Bracket",
+          "understanding": 0.0,
+          "priority": 0.421875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c066e3c3-d68e-48d6-8f25-18d40328c916",
+          "name": "Generating Function in Canonical Transformations",
+          "understanding": 0.0,
+          "priority": 0.421875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "044c70c0-69ee-46de-ba77-86b792cff852",
+          "name": "Hamiltonian as Generator of Time Translations",
+          "understanding": 0.0,
+          "priority": 0.3796875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2e88b39c-c407-4ad9-97a8-ad207f751781",
+          "name": "Poisson Bracket Transformation under Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+          "name": "Infinitesimal Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+          "name": "Canonical Transformation",
+          "understanding": 0.5535705744,
+          "priority": 0.1674110346,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+      "gaps": [
+        {
+          "concept_id": "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+          "name": "Legendre Transformation",
+          "understanding": 0.0,
+          "priority": 0.421875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d38efbec-a2e5-4104-976d-1c10c41d4641",
+          "name": "Poisson Bracket",
+          "understanding": 0.0,
+          "priority": 0.421875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c066e3c3-d68e-48d6-8f25-18d40328c916",
+          "name": "Generating Function in Canonical Transformations",
+          "understanding": 0.0,
+          "priority": 0.421875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "044c70c0-69ee-46de-ba77-86b792cff852",
+          "name": "Hamiltonian as Generator of Time Translations",
+          "understanding": 0.0,
+          "priority": 0.3796875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2e88b39c-c407-4ad9-97a8-ad207f751781",
+          "name": "Poisson Bracket Transformation under Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+          "name": "Infinitesimal Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+          "name": "Canonical Transformation",
+          "understanding": 0.5535705744,
+          "priority": 0.1674110346,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+        "d38efbec-a2e5-4104-976d-1c10c41d4641",
+        "c066e3c3-d68e-48d6-8f25-18d40328c916",
+        "044c70c0-69ee-46de-ba77-86b792cff852",
+        "2e88b39c-c407-4ad9-97a8-ad207f751781",
+        "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+        "0240617f-dc4b-4c3f-8107-8c9eb5143998"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "84921fff-8d8b-4eb1-9628-31517f964338"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "84921fff-8d8b-4eb1-9628-31517f964338",
+      "gaps": [
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "322b3c44-0f56-4391-95e9-fbcaa45ba02d",
+          "name": "Lagrange Equations of Motion for Spring Pendulum",
+          "understanding": 0.0,
+          "priority": 0.24107142857142855,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "aa28ab0e-05a6-48ac-a413-190d38cd6078",
+          "name": "Conservation of Energy when U depends on position and velocity",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "39a2208a-ef07-433b-a331-5346a0de36a2",
+          "name": "Lagrangian as a function of position, velocity, and acceleration",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "6ed12888-923c-41d8-96e9-d77e8afe052f",
+          "name": "Conservation of Energy when U depends only on position",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+          "name": "Energy in Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.21428571428571427,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "5470ae20-ad22-44e7-b921-205405551331",
+          "name": "Expression for Equilibrium Spring Length r0",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "533ac192-4478-4039-bd6f-d26f903716cb",
+          "name": "Simple Pendulum Equation of Motion",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "9f12db65-19fc-475b-a00a-dfa21a8faa2c",
+          "name": "Rigid Body Pendulum Equation of Motion",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "47e73200-b4e6-4bc8-acbc-79cfcdd7ecdb",
+          "name": "Solution to Linearized Pendulum Equation",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2903906e-9959-4d3b-87ef-3350ab8ef292",
+          "name": "Small Angle and Small Displacement Approximation for Coupled Oscillations",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "8d405220-2462-4b8d-bcd8-bb09499fe289",
+          "name": "Energy Conservation in Velocity-Dependent Electromagnetic Interaction",
+          "understanding": 0.0,
+          "priority": 0.17142857142857143,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2a6d850e-3f27-4efd-a6b1-67e89d42e825",
+          "name": "Extra degrees of freedom from intrinsic properties in Lagrangian systems",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7900bd33-4183-419b-9c2c-e9141adb72af",
+          "name": "Electromagnetic Potentials",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "f890f9fe-05c4-4716-b890-fd004b8cf7df",
+          "name": "Dimensional Analysis of Angular Velocity",
+          "understanding": 0.0,
+          "priority": 0.15,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+          "name": "Lorentz Force Law",
+          "understanding": 0.5780579054,
+          "priority": 0.10171818351964285,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2083cc06-0ec6-443d-a3b4-1a17d00f481b",
+          "name": "Euler-Lagrange equation for higher derivatives",
+          "understanding": 0.5535705817,
+          "priority": 0.09566344677857143,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+      "gaps": [
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "322b3c44-0f56-4391-95e9-fbcaa45ba02d",
+          "name": "Lagrange Equations of Motion for Spring Pendulum",
+          "understanding": 0.0,
+          "priority": 0.24107142857142855,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "aa28ab0e-05a6-48ac-a413-190d38cd6078",
+          "name": "Conservation of Energy when U depends on position and velocity",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "39a2208a-ef07-433b-a331-5346a0de36a2",
+          "name": "Lagrangian as a function of position, velocity, and acceleration",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "6ed12888-923c-41d8-96e9-d77e8afe052f",
+          "name": "Conservation of Energy when U depends only on position",
+          "understanding": 0.0,
+          "priority": 0.2169642857142857,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+          "name": "Energy in Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.21428571428571427,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "5470ae20-ad22-44e7-b921-205405551331",
+          "name": "Expression for Equilibrium Spring Length r0",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "533ac192-4478-4039-bd6f-d26f903716cb",
+          "name": "Simple Pendulum Equation of Motion",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "9f12db65-19fc-475b-a00a-dfa21a8faa2c",
+          "name": "Rigid Body Pendulum Equation of Motion",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "47e73200-b4e6-4bc8-acbc-79cfcdd7ecdb",
+          "name": "Solution to Linearized Pendulum Equation",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2903906e-9959-4d3b-87ef-3350ab8ef292",
+          "name": "Small Angle and Small Displacement Approximation for Coupled Oscillations",
+          "understanding": 0.0,
+          "priority": 0.19285714285714284,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "8d405220-2462-4b8d-bcd8-bb09499fe289",
+          "name": "Energy Conservation in Velocity-Dependent Electromagnetic Interaction",
+          "understanding": 0.0,
+          "priority": 0.17142857142857143,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2a6d850e-3f27-4efd-a6b1-67e89d42e825",
+          "name": "Extra degrees of freedom from intrinsic properties in Lagrangian systems",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7900bd33-4183-419b-9c2c-e9141adb72af",
+          "name": "Electromagnetic Potentials",
+          "understanding": 0.0,
+          "priority": 0.16874999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "f890f9fe-05c4-4716-b890-fd004b8cf7df",
+          "name": "Dimensional Analysis of Angular Velocity",
+          "understanding": 0.0,
+          "priority": 0.15,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+          "name": "Lorentz Force Law",
+          "understanding": 0.5780579054,
+          "priority": 0.10171818351964285,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2083cc06-0ec6-443d-a3b4-1a17d00f481b",
+          "name": "Euler-Lagrange equation for higher derivatives",
+          "understanding": 0.5535705817,
+          "priority": 0.09566344677857143,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "aa28ab0e-05a6-48ac-a413-190d38cd6078",
+        "6ed12888-923c-41d8-96e9-d77e8afe052f",
+        "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+        "533ac192-4478-4039-bd6f-d26f903716cb",
+        "9f12db65-19fc-475b-a00a-dfa21a8faa2c",
+        "5470ae20-ad22-44e7-b921-205405551331",
+        "322b3c44-0f56-4391-95e9-fbcaa45ba02d",
+        "2903906e-9959-4d3b-87ef-3350ab8ef292",
+        "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+        "47e73200-b4e6-4bc8-acbc-79cfcdd7ecdb",
+        "2a6d850e-3f27-4efd-a6b1-67e89d42e825",
+        "39a2208a-ef07-433b-a331-5346a0de36a2",
+        "7900bd33-4183-419b-9c2c-e9141adb72af",
+        "f890f9fe-05c4-4716-b890-fd004b8cf7df",
+        "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+        "8d405220-2462-4b8d-bcd8-bb09499fe289",
+        "2083cc06-0ec6-443d-a3b4-1a17d00f481b"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "c681c53c-4243-4cd3-a97f-e74ef47bb00d"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "c681c53c-4243-4cd3-a97f-e74ef47bb00d",
+      "gaps": [
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.3796875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "501383bb-b02e-4a37-97ad-2fd6698b98df",
+          "name": "Orbit equation in polar coordinates using u=1/r substitution",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b",
+          "name": "Equations of Motion for Small Oscillations",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.17812499999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "53237afe-9f79-4137-bcc0-9fe21faae668",
+          "name": "Normal Modes and Frequencies of Small Oscillations",
+          "understanding": 0.0,
+          "priority": 0.16666666666666666,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "3ed3228a-593e-4451-8a9d-641fccea39d4",
+          "name": "Equation of motion of a particle under central force (Landau Eq. 14.7)",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "20cddefd-3143-4721-ad54-85ae3cfe7fea",
+          "name": "Conic section classification of orbital trajectories based on total energy",
+          "understanding": 0.0,
+          "priority": 0.15000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.1423828125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1423828125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.140625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.140625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "63c07aeb-374a-447d-954c-cf2d17765db8",
+          "name": "Simple Pendulum",
+          "understanding": 0.0,
+          "priority": 0.13333333333333333,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2add81fa-86bb-4d23-ae4b-273920c2f029",
+          "name": "Fictitious Force in Rotating Frames",
+          "understanding": 0.0,
+          "priority": 0.13333333333333333,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "8ea7d5e5-7c71-4b35-ac2e-2b3d5e7342d7",
+          "name": "Lagrangian for a particle in a central gravitational field",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.12304687499999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.12304687499999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "96481f41-2576-4b1d-aa39-3f15c33b5a00",
+          "name": "Relation between semi-major axis, eccentricity, and total energy for elliptical orbits",
+          "understanding": 0.0,
+          "priority": 0.11666666666666665,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.11249999999999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.087890625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.050190589875000004,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.04714417906875,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.0415283203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "gaps": [
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.3796875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "501383bb-b02e-4a37-97ad-2fd6698b98df",
+          "name": "Orbit equation in polar coordinates using u=1/r substitution",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b",
+          "name": "Equations of Motion for Small Oscillations",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.17812499999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "53237afe-9f79-4137-bcc0-9fe21faae668",
+          "name": "Normal Modes and Frequencies of Small Oscillations",
+          "understanding": 0.0,
+          "priority": 0.16666666666666666,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "3ed3228a-593e-4451-8a9d-641fccea39d4",
+          "name": "Equation of motion of a particle under central force (Landau Eq. 14.7)",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "20cddefd-3143-4721-ad54-85ae3cfe7fea",
+          "name": "Conic section classification of orbital trajectories based on total energy",
+          "understanding": 0.0,
+          "priority": 0.15000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.1423828125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1423828125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.140625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.140625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "63c07aeb-374a-447d-954c-cf2d17765db8",
+          "name": "Simple Pendulum",
+          "understanding": 0.0,
+          "priority": 0.13333333333333333,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2add81fa-86bb-4d23-ae4b-273920c2f029",
+          "name": "Fictitious Force in Rotating Frames",
+          "understanding": 0.0,
+          "priority": 0.13333333333333333,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "8ea7d5e5-7c71-4b35-ac2e-2b3d5e7342d7",
+          "name": "Lagrangian for a particle in a central gravitational field",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.12304687499999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.12304687499999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "96481f41-2576-4b1d-aa39-3f15c33b5a00",
+          "name": "Relation between semi-major axis, eccentricity, and total energy for elliptical orbits",
+          "understanding": 0.0,
+          "priority": 0.11666666666666665,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.11249999999999999,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.087890625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.050190589875000004,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.04714417906875,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.0415283203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+        "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+        "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b",
+        "66f022b2-984f-49e3-8a63-56b39637910b",
+        "53237afe-9f79-4137-bcc0-9fe21faae668",
+        "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+        "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+        "72267327-269a-45ee-8e32-12a790142c28",
+        "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+        "63c07aeb-374a-447d-954c-cf2d17765db8",
+        "2add81fa-86bb-4d23-ae4b-273920c2f029",
+        "7c81cd65-5519-42db-8752-52ec154a0a8d",
+        "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+        "1689da81-afa5-469f-ac82-55cfb127d457",
+        "8ea7d5e5-7c71-4b35-ac2e-2b3d5e7342d7",
+        "3ed3228a-593e-4451-8a9d-641fccea39d4",
+        "501383bb-b02e-4a37-97ad-2fd6698b98df",
+        "20cddefd-3143-4721-ad54-85ae3cfe7fea",
+        "5411f681-9389-428b-a7f6-5caa977dedbc",
+        "00097785-0514-4e7c-8876-7c6cc5878461",
+        "96481f41-2576-4b1d-aa39-3f15c33b5a00",
+        "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+        "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+        "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+        "19c96995-dfb0-4296-af81-ca02d198ca61",
+        "c4597ac7-3b0b-433e-9466-856030cc266a",
+        "085699dc-1387-441b-87ae-78f0951e3757",
+        "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+        "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "3f91ae2b-8f6f-4ce3-a0bb-ad5b42e296ba"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "3f91ae2b-8f6f-4ce3-a0bb-ad5b42e296ba",
+      "gaps": [
+        {
+          "concept_id": "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+          "name": "Legendre Transformation",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d38efbec-a2e5-4104-976d-1c10c41d4641",
+          "name": "Poisson Bracket",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c066e3c3-d68e-48d6-8f25-18d40328c916",
+          "name": "Generating Function in Canonical Transformations",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "044c70c0-69ee-46de-ba77-86b792cff852",
+          "name": "Hamiltonian as Generator of Time Translations",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "35056707-7857-4a74-9107-d5a4b5cec9dd",
+          "name": "Solution to equations of motion for rolling and spinning coin",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7289f102-cf6d-4ea1-8f29-670f99183626",
+          "name": "Verification of Canonical Transformation via Poisson Brackets",
+          "understanding": 0.0,
+          "priority": 0.30000000000000004,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "ff29cd16-e61a-40a4-a6e9-64ed28016fee",
+          "name": "Non-holonomic Constraints",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "f40566d9-9b10-4ed9-aef5-1d8ad8ccf4d7",
+          "name": "Lagrangian formulation of rolling with spinning",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "051c3375-f85a-4ecb-b1ea-04279e83e40d",
+          "name": "Energy conservation under non-holonomic constraints",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb",
+          "name": "Equations of Motion for a Rolling Disc on an Inclined Plane",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2e88b39c-c407-4ad9-97a8-ad207f751781",
+          "name": "Poisson Bracket Transformation under Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "932de7b7-88a0-4064-ad0b-e550243ebe9c",
+          "name": "Parameterization of constraint forces as \u03bb_c \u03b3_c_i(q)",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+          "name": "Infinitesimal Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "65d68363-bc95-45d1-b81d-6ae24aced089",
+          "name": "Method of Lagrange Multipliers for Constraints",
+          "understanding": 0.0,
+          "priority": 0.24000000000000005,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d",
+          "name": "Constraint Forces in Rolling Without Slipping",
+          "understanding": 0.0,
+          "priority": 0.24000000000000005,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7e9fef99-9052-45f7-b659-76f99e22000f",
+          "name": "Rolling Without Slipping Constraint",
+          "understanding": 0.5967727998,
+          "priority": 0.2268153001125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c0414f72-ca90-40f1-ba8c-72089799fa86",
+          "name": "Solution to Rolling Motion Differential Equations",
+          "understanding": 0.0,
+          "priority": 0.21000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+          "name": "Canonical Transformation",
+          "understanding": 0.5535705744,
+          "priority": 0.13392882768,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "f40566d9-9b10-4ed9-aef5-1d8ad8ccf4d7",
+      "gaps": [
+        {
+          "concept_id": "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+          "name": "Legendre Transformation",
+          "understanding": 0.0,
+          "priority": 0.3375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d38efbec-a2e5-4104-976d-1c10c41d4641",
+          "name": "Poisson Bracket",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c066e3c3-d68e-48d6-8f25-18d40328c916",
+          "name": "Generating Function in Canonical Transformations",
+          "understanding": 0.0,
+          "priority": 0.33749999999999997,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "044c70c0-69ee-46de-ba77-86b792cff852",
+          "name": "Hamiltonian as Generator of Time Translations",
+          "understanding": 0.0,
+          "priority": 0.30375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "35056707-7857-4a74-9107-d5a4b5cec9dd",
+          "name": "Solution to equations of motion for rolling and spinning coin",
+          "understanding": 0.0,
+          "priority": 0.30374999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7289f102-cf6d-4ea1-8f29-670f99183626",
+          "name": "Verification of Canonical Transformation via Poisson Brackets",
+          "understanding": 0.0,
+          "priority": 0.30000000000000004,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "ff29cd16-e61a-40a4-a6e9-64ed28016fee",
+          "name": "Non-holonomic Constraints",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "f40566d9-9b10-4ed9-aef5-1d8ad8ccf4d7",
+          "name": "Lagrangian formulation of rolling with spinning",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "051c3375-f85a-4ecb-b1ea-04279e83e40d",
+          "name": "Energy conservation under non-holonomic constraints",
+          "understanding": 0.0,
+          "priority": 0.2700000000000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb",
+          "name": "Equations of Motion for a Rolling Disc on an Inclined Plane",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2e88b39c-c407-4ad9-97a8-ad207f751781",
+          "name": "Poisson Bracket Transformation under Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "932de7b7-88a0-4064-ad0b-e550243ebe9c",
+          "name": "Parameterization of constraint forces as \u03bb_c \u03b3_c_i(q)",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+          "name": "Infinitesimal Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.26999999999999996,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "65d68363-bc95-45d1-b81d-6ae24aced089",
+          "name": "Method of Lagrange Multipliers for Constraints",
+          "understanding": 0.0,
+          "priority": 0.24000000000000005,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d",
+          "name": "Constraint Forces in Rolling Without Slipping",
+          "understanding": 0.0,
+          "priority": 0.24000000000000005,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7e9fef99-9052-45f7-b659-76f99e22000f",
+          "name": "Rolling Without Slipping Constraint",
+          "understanding": 0.5967727998,
+          "priority": 0.2268153001125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "c0414f72-ca90-40f1-ba8c-72089799fa86",
+          "name": "Solution to Rolling Motion Differential Equations",
+          "understanding": 0.0,
+          "priority": 0.21000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+          "name": "Canonical Transformation",
+          "understanding": 0.5535705744,
+          "priority": 0.13392882768,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+        "d38efbec-a2e5-4104-976d-1c10c41d4641",
+        "c066e3c3-d68e-48d6-8f25-18d40328c916",
+        "044c70c0-69ee-46de-ba77-86b792cff852",
+        "35056707-7857-4a74-9107-d5a4b5cec9dd",
+        "7289f102-cf6d-4ea1-8f29-670f99183626",
+        "ff29cd16-e61a-40a4-a6e9-64ed28016fee",
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "f40566d9-9b10-4ed9-aef5-1d8ad8ccf4d7",
+        "2e88b39c-c407-4ad9-97a8-ad207f751781",
+        "932de7b7-88a0-4064-ad0b-e550243ebe9c",
+        "051c3375-f85a-4ecb-b1ea-04279e83e40d",
+        "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+        "65d68363-bc95-45d1-b81d-6ae24aced089",
+        "7e9fef99-9052-45f7-b659-76f99e22000f",
+        "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb",
+        "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d",
+        "c0414f72-ca90-40f1-ba8c-72089799fa86",
+        "0240617f-dc4b-4c3f-8107-8c9eb5143998"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "8fccc9c8-1d6e-4f84-b010-f42fc80aff1d"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "8fccc9c8-1d6e-4f84-b010-f42fc80aff1d",
+      "gaps": [
+        {
+          "concept_id": "de5a9a5b-3dd1-4b50-bfa1-f0e9f008dd02",
+          "name": "Spherical Potential Well",
+          "understanding": 0.0,
+          "priority": 0.3796875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "79a6057f-8115-40d3-a407-9985011dbfd6",
+          "name": "Optimization with Lagrange Multipliers",
+          "understanding": 0.0,
+          "priority": 0.28125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7b7ba5ab-e32b-4ed3-ab9c-42e1bce086b1",
+          "name": "Fermat's Principle",
+          "understanding": 0.0,
+          "priority": 0.28125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "a8a8a39b-cec4-49ce-988d-c2b9bb8db237",
+          "name": "Holonomic Constraint",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e980fab6-76dd-4e0f-b616-fee1201faa2c",
+          "name": "Reduced Mass",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "7e7011cc-904a-4461-9f3c-dfbb9569c5b3",
+          "name": "Disguised Holonomic Constraints",
+          "understanding": 0.0,
+          "priority": 0.2373046875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e1b58c1c-2551-4fee-995c-667076a7efd6",
+          "name": "Constraint Equation for Particle on Paraboloid",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "65d68363-bc95-45d1-b81d-6ae24aced089",
+          "name": "Method of Lagrange Multipliers for Constraints",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "75dee34b-ae2f-4458-8e7a-78e16268edd1",
+          "name": "Total Scattering Cross Section",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "49f0e752-8697-40e7-a321-9e15fa798667",
+          "name": "Mean Free Path in Scattering",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "345b86ae-753f-4508-8b0e-ce8c518aebf2",
+          "name": "Constraint Force that Does No Work",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2527d4f6-5d42-4cc3-931a-d6b1fe333c20",
+          "name": "Equation of Motion for a Particle in Potential",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fe9471ef-6c7b-4c1c-83b1-a6fa50d2b03c",
+          "name": "Central Force",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "5935d227-a608-4583-8510-1c6b402634b5",
+          "name": "Normal Modes of a Coupled System",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "eaca599c-8a98-48fc-8ada-9dac4f5d0885",
+          "name": "Integrability Conditions for Velocity-Dependent Constraints",
+          "understanding": 0.0,
+          "priority": 0.21357421875000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "0a29bd61-314e-4821-824c-a6baf77e23f7",
+          "name": "Scattering Angle",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "564fed41-b534-4eec-ab5e-ff0f55d43525",
+          "name": "Newtonian Approach to Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "3f56659b-92b6-4258-8e44-2c4f2a67e3dd",
+          "name": "Constraint Force in Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "fe92670b-fd9c-4be9-ab11-ae3ab6dc3127",
+          "name": "Poisson Brackets in Classical Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2de26976-4b48-4d88-b46d-63c0cb43970f",
+          "name": "Constraint Force for Path P(x,y) = 0",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "265261b3-e001-4a8e-82f2-e2b31fb1e5f4",
+          "name": "Conservation of angular momentum",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "e7e07c50-91ec-4142-a25a-05327f800f23",
+          "name": "Snell's Law",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "bf99f161-0298-4c24-883e-897ababb9bb4",
+          "name": "Noether's Theorem on Conservation Laws",
+          "understanding": 0.0,
+          "priority": 0.196875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1f457700-6a2c-446a-800c-aa11a141491d",
+          "name": "Momentum-Energy Relation for Particle",
+          "understanding": 0.0,
+          "priority": 0.196875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4a5b4da5-93de-4fa7-a994-1eb95d0404d0",
+          "name": "Lagrange Multiplier Method for Velocity-Dependent Constraints",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "4cd672ef-76c9-444f-aec6-5485eb900cf1",
+          "name": "Hamiltonian Conservation",
+          "understanding": 0.0,
+          "priority": 0.175,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+          "name": "Noether's Theorem",
+          "understanding": 0.5535708904,
+          "priority": 0.11160727740000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+          "name": "Hamiltonian Mechanics",
+          "understanding": 0.5791630183,
+          "priority": 0.10060634093765623,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "4cd672ef-76c9-444f-aec6-5485eb900cf1",
+      "gaps": [
+        {
+          "concept_id": "de5a9a5b-3dd1-4b50-bfa1-f0e9f008dd02",
+          "name": "Spherical Potential Well",
+          "understanding": 0.0,
+          "priority": 0.3796875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "79a6057f-8115-40d3-a407-9985011dbfd6",
+          "name": "Optimization with Lagrange Multipliers",
+          "understanding": 0.0,
+          "priority": 0.28125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7b7ba5ab-e32b-4ed3-ab9c-42e1bce086b1",
+          "name": "Fermat's Principle",
+          "understanding": 0.0,
+          "priority": 0.28125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "a8a8a39b-cec4-49ce-988d-c2b9bb8db237",
+          "name": "Holonomic Constraint",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e980fab6-76dd-4e0f-b616-fee1201faa2c",
+          "name": "Reduced Mass",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "7e7011cc-904a-4461-9f3c-dfbb9569c5b3",
+          "name": "Disguised Holonomic Constraints",
+          "understanding": 0.0,
+          "priority": 0.2373046875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e1b58c1c-2551-4fee-995c-667076a7efd6",
+          "name": "Constraint Equation for Particle on Paraboloid",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "65d68363-bc95-45d1-b81d-6ae24aced089",
+          "name": "Method of Lagrange Multipliers for Constraints",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "75dee34b-ae2f-4458-8e7a-78e16268edd1",
+          "name": "Total Scattering Cross Section",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "49f0e752-8697-40e7-a321-9e15fa798667",
+          "name": "Mean Free Path in Scattering",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "345b86ae-753f-4508-8b0e-ce8c518aebf2",
+          "name": "Constraint Force that Does No Work",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2527d4f6-5d42-4cc3-931a-d6b1fe333c20",
+          "name": "Equation of Motion for a Particle in Potential",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fe9471ef-6c7b-4c1c-83b1-a6fa50d2b03c",
+          "name": "Central Force",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "5935d227-a608-4583-8510-1c6b402634b5",
+          "name": "Normal Modes of a Coupled System",
+          "understanding": 0.0,
+          "priority": 0.225,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "eaca599c-8a98-48fc-8ada-9dac4f5d0885",
+          "name": "Integrability Conditions for Velocity-Dependent Constraints",
+          "understanding": 0.0,
+          "priority": 0.21357421875000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "0a29bd61-314e-4821-824c-a6baf77e23f7",
+          "name": "Scattering Angle",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "564fed41-b534-4eec-ab5e-ff0f55d43525",
+          "name": "Newtonian Approach to Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "3f56659b-92b6-4258-8e44-2c4f2a67e3dd",
+          "name": "Constraint Force in Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "fe92670b-fd9c-4be9-ab11-ae3ab6dc3127",
+          "name": "Poisson Brackets in Classical Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2de26976-4b48-4d88-b46d-63c0cb43970f",
+          "name": "Constraint Force for Path P(x,y) = 0",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "265261b3-e001-4a8e-82f2-e2b31fb1e5f4",
+          "name": "Conservation of angular momentum",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "e7e07c50-91ec-4142-a25a-05327f800f23",
+          "name": "Snell's Law",
+          "understanding": 0.0,
+          "priority": 0.2,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "bf99f161-0298-4c24-883e-897ababb9bb4",
+          "name": "Noether's Theorem on Conservation Laws",
+          "understanding": 0.0,
+          "priority": 0.196875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1f457700-6a2c-446a-800c-aa11a141491d",
+          "name": "Momentum-Energy Relation for Particle",
+          "understanding": 0.0,
+          "priority": 0.196875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4a5b4da5-93de-4fa7-a994-1eb95d0404d0",
+          "name": "Lagrange Multiplier Method for Velocity-Dependent Constraints",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "4cd672ef-76c9-444f-aec6-5485eb900cf1",
+          "name": "Hamiltonian Conservation",
+          "understanding": 0.0,
+          "priority": 0.175,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+          "name": "Noether's Theorem",
+          "understanding": 0.5535708904,
+          "priority": 0.11160727740000001,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+          "name": "Hamiltonian Mechanics",
+          "understanding": 0.5791630183,
+          "priority": 0.10060634093765623,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        }
+      ],
+      "study_order": [
+        "de5a9a5b-3dd1-4b50-bfa1-f0e9f008dd02",
+        "7b7ba5ab-e32b-4ed3-ab9c-42e1bce086b1",
+        "e980fab6-76dd-4e0f-b616-fee1201faa2c",
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "e1b58c1c-2551-4fee-995c-667076a7efd6",
+        "65d68363-bc95-45d1-b81d-6ae24aced089",
+        "345b86ae-753f-4508-8b0e-ce8c518aebf2",
+        "75dee34b-ae2f-4458-8e7a-78e16268edd1",
+        "49f0e752-8697-40e7-a321-9e15fa798667",
+        "fe9471ef-6c7b-4c1c-83b1-a6fa50d2b03c",
+        "2527d4f6-5d42-4cc3-931a-d6b1fe333c20",
+        "5935d227-a608-4583-8510-1c6b402634b5",
+        "eaca599c-8a98-48fc-8ada-9dac4f5d0885",
+        "7e7011cc-904a-4461-9f3c-dfbb9569c5b3",
+        "a8a8a39b-cec4-49ce-988d-c2b9bb8db237",
+        "79a6057f-8115-40d3-a407-9985011dbfd6",
+        "564fed41-b534-4eec-ab5e-ff0f55d43525",
+        "fe92670b-fd9c-4be9-ab11-ae3ab6dc3127",
+        "2de26976-4b48-4d88-b46d-63c0cb43970f",
+        "0a29bd61-314e-4821-824c-a6baf77e23f7",
+        "3f56659b-92b6-4258-8e44-2c4f2a67e3dd",
+        "bf99f161-0298-4c24-883e-897ababb9bb4",
+        "265261b3-e001-4a8e-82f2-e2b31fb1e5f4",
+        "1f457700-6a2c-446a-800c-aa11a141491d",
+        "e7e07c50-91ec-4142-a25a-05327f800f23",
+        "4a5b4da5-93de-4fa7-a994-1eb95d0404d0",
+        "ae88dc79-7547-4131-893e-902e4dec69e9",
+        "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+        "4cd672ef-76c9-444f-aec6-5485eb900cf1"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "85518e32-02cf-4ceb-a654-ee933699a72f"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "85518e32-02cf-4ceb-a654-ee933699a72f",
+      "gaps": [
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2a6b8f31-0a39-4f23-9255-22564236deef",
+          "name": "Lagrangian for 2-D Systems in Polar Coordinates",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.200390625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50857db7-1de4-4f3b-93f8-ab71e01b7a1b",
+          "name": "Power-law Potential",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "ee311f3b-982f-4434-86d4-98bc97c6ba16",
+          "name": "Lagrangian in a Rotating Frame",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4aa063de-0d3b-40ab-a653-1b871d9da89a",
+          "name": "Virial Theorem",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "4e4036e7-6f7b-4b86-9b03-93b87d822de2",
+          "name": "Double Pendulum",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "1cd9df01-5c51-4e0a-bd97-6247e0e59350",
+          "name": "Closed Orbits Condition in Central Potential Systems",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c5df8b66-6a72-4006-aea5-329edba11d50",
+          "name": "Expression of Energy as Sum of Kinetic and Potential Energy",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c9076d06-07b8-4062-9fb6-de9ab24c5b93",
+          "name": "Conserved Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.177978515625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "bf7270ca-3a96-4ff3-9fa5-e03f0a4db0b7",
+          "name": "Double Pendulum Dynamics in 2D",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "6797bb41-a63c-4633-a293-02a0fce60658",
+          "name": "Center-of-mass frame",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "63c07aeb-374a-447d-954c-cf2d17765db8",
+          "name": "Simple Pendulum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4bce33c5-88f3-4196-b88c-4a294a6b567f",
+          "name": "Equation of motion in a rotating frame",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "8c6e8664-e84b-4ed2-b280-00c4d64a5a65",
+          "name": "Newton's Second Law in Virial Theorem",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.098876953125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7ab0d75b-4ed9-494c-9858-05ff49c200cc",
+          "name": "Equations of Motion",
+          "understanding": 0.5417025057,
+          "priority": 0.08593078018125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+          "name": "Conserved Energy in Lagrangian Systems",
+          "understanding": 0.5871159877,
+          "priority": 0.07741575230625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.05646441360937501,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.05303720145234375,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.046719360351562496,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "gaps": [
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "2a6b8f31-0a39-4f23-9255-22564236deef",
+          "name": "Lagrangian for 2-D Systems in Polar Coordinates",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.200390625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50857db7-1de4-4f3b-93f8-ab71e01b7a1b",
+          "name": "Power-law Potential",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "ee311f3b-982f-4434-86d4-98bc97c6ba16",
+          "name": "Lagrangian in a Rotating Frame",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4aa063de-0d3b-40ab-a653-1b871d9da89a",
+          "name": "Virial Theorem",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "4e4036e7-6f7b-4b86-9b03-93b87d822de2",
+          "name": "Double Pendulum",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "1cd9df01-5c51-4e0a-bd97-6247e0e59350",
+          "name": "Closed Orbits Condition in Central Potential Systems",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c5df8b66-6a72-4006-aea5-329edba11d50",
+          "name": "Expression of Energy as Sum of Kinetic and Potential Energy",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c9076d06-07b8-4062-9fb6-de9ab24c5b93",
+          "name": "Conserved Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.1875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.177978515625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "bf7270ca-3a96-4ff3-9fa5-e03f0a4db0b7",
+          "name": "Double Pendulum Dynamics in 2D",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "6797bb41-a63c-4633-a293-02a0fce60658",
+          "name": "Center-of-mass frame",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "63c07aeb-374a-447d-954c-cf2d17765db8",
+          "name": "Simple Pendulum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4bce33c5-88f3-4196-b88c-4a294a6b567f",
+          "name": "Equation of motion in a rotating frame",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "8c6e8664-e84b-4ed2-b280-00c4d64a5a65",
+          "name": "Newton's Second Law in Virial Theorem",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.098876953125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "7ab0d75b-4ed9-494c-9858-05ff49c200cc",
+          "name": "Equations of Motion",
+          "understanding": 0.5417025057,
+          "priority": 0.08593078018125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+          "name": "Conserved Energy in Lagrangian Systems",
+          "understanding": 0.5871159877,
+          "priority": 0.07741575230625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.05646441360937501,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.05303720145234375,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.046719360351562496,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "2a6b8f31-0a39-4f23-9255-22564236deef",
+        "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+        "50857db7-1de4-4f3b-93f8-ab71e01b7a1b",
+        "66f022b2-984f-49e3-8a63-56b39637910b",
+        "ee311f3b-982f-4434-86d4-98bc97c6ba16",
+        "1cd9df01-5c51-4e0a-bd97-6247e0e59350",
+        "c5df8b66-6a72-4006-aea5-329edba11d50",
+        "c9076d06-07b8-4062-9fb6-de9ab24c5b93",
+        "bf7270ca-3a96-4ff3-9fa5-e03f0a4db0b7",
+        "4bce33c5-88f3-4196-b88c-4a294a6b567f",
+        "6797bb41-a63c-4633-a293-02a0fce60658",
+        "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+        "63c07aeb-374a-447d-954c-cf2d17765db8",
+        "4e4036e7-6f7b-4b86-9b03-93b87d822de2",
+        "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+        "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+        "72267327-269a-45ee-8e32-12a790142c28",
+        "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+        "7c81cd65-5519-42db-8752-52ec154a0a8d",
+        "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+        "1689da81-afa5-469f-ac82-55cfb127d457",
+        "5411f681-9389-428b-a7f6-5caa977dedbc",
+        "00097785-0514-4e7c-8876-7c6cc5878461",
+        "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+        "8c6e8664-e84b-4ed2-b280-00c4d64a5a65",
+        "4aa063de-0d3b-40ab-a653-1b871d9da89a",
+        "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+        "7ab0d75b-4ed9-494c-9858-05ff49c200cc",
+        "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+        "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+        "19c96995-dfb0-4296-af81-ca02d198ca61",
+        "c4597ac7-3b0b-433e-9466-856030cc266a",
+        "085699dc-1387-441b-87ae-78f0951e3757",
+        "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+        "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "0a62c607-8671-4625-92a1-80b0a1b9afe8"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "0a62c607-8671-4625-92a1-80b0a1b9afe8",
+      "gaps": [
+        {
+          "concept_id": "79a6057f-8115-40d3-a407-9985011dbfd6",
+          "name": "Optimization with Lagrange Multipliers",
+          "understanding": 0.0,
+          "priority": 0.3515625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "a8a8a39b-cec4-49ce-988d-c2b9bb8db237",
+          "name": "Holonomic Constraint",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e1b58c1c-2551-4fee-995c-667076a7efd6",
+          "name": "Constraint Equation for Particle on Paraboloid",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "7e7011cc-904a-4461-9f3c-dfbb9569c5b3",
+          "name": "Disguised Holonomic Constraints",
+          "understanding": 0.0,
+          "priority": 0.249169921875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "eaca599c-8a98-48fc-8ada-9dac4f5d0885",
+          "name": "Integrability Conditions for Velocity-Dependent Constraints",
+          "understanding": 0.0,
+          "priority": 0.21357421875000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d38efbec-a2e5-4104-976d-1c10c41d4641",
+          "name": "Poisson Bracket",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+          "name": "Legendre Transformation",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "3e75c01a-891a-49a3-90ab-a87c546cdda9",
+          "name": "Expressions for Constants of Motion from Initial Conditions",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "cdf42ea2-0800-436f-aa19-b643183794b1",
+          "name": "Hamiltonian Formulation and Canonical Momenta",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c066e3c3-d68e-48d6-8f25-18d40328c916",
+          "name": "Generating Function in Canonical Transformations",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.200390625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "044c70c0-69ee-46de-ba77-86b792cff852",
+          "name": "Hamiltonian as Generator of Time Translations",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2165bf0e-4d36-4c21-b8f0-a9700fdf973e",
+          "name": "Scattering Problem Setup in Inverse-Square Potential",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "8c7b881b-bf3a-427f-99f5-e885b1617b69",
+          "name": "Lagrangian for a Particle on Paraboloid in Coordinates \u03c1, \u03c6, z",
+          "understanding": 0.0,
+          "priority": 0.179296875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.177978515625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "65d68363-bc95-45d1-b81d-6ae24aced089",
+          "name": "Method of Lagrange Multipliers for Constraints",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "97958ea9-ca33-4a26-ab32-2af5c32220d7",
+          "name": "Conservation of Energy and Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2e88b39c-c407-4ad9-97a8-ad207f751781",
+          "name": "Poisson Bracket Transformation under Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+          "name": "Infinitesimal Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e511f03b-6f1a-497d-b82b-b29ed3e7bddb",
+          "name": "Equations of Motion for Particle Constrained on Paraboloid",
+          "understanding": 0.0,
+          "priority": 0.159375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "a21ff8be-ef15-4fb8-b0e3-7e85fac8603b",
+          "name": "Stability of Rotation about Principal Axes",
+          "understanding": 0.0,
+          "priority": 0.159375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "11b95f14-b439-41ba-bf20-457338e21f66",
+          "name": "Liouville's Theorem",
+          "understanding": 0.0,
+          "priority": 0.159375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c9a457ce-1fd9-4d10-bf74-1175fabfd8d3",
+          "name": "Change of Variables for Orbital Problems (u = 1/r)",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "3f56659b-92b6-4258-8e44-2c4f2a67e3dd",
+          "name": "Constraint Force in Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.15000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7d140b47-4180-4d65-a2d8-df925e72c5ee",
+          "name": "Closest Approach Distance r0 in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.15000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2b387e0f-9f35-4d8e-9227-b03217e5b66c",
+          "name": "Relation Between Scattering Angle \u03b8 and \u03c9",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "854d295b-9fbb-4593-bfa8-29836f039309",
+          "name": "Euler-Lagrange Equations of Motion for Central Force",
+          "understanding": 0.0,
+          "priority": 0.1423828125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fff0d025-9ab8-4ce4-9761-52b6f077364c",
+          "name": "Differential Scattering Cross Section Formula",
+          "understanding": 0.0,
+          "priority": 0.140625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "f0f5576f-79c7-4874-9410-8ff9d8a10a22",
+          "name": "Lagrangian for Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1401580810546875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.1401580810546875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1250a797-21a5-4658-9839-9a0d8e72345d",
+          "name": "Canonical Generating Functions for Translations and Rotations",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4caff441-5c1b-42ad-9cb2-70e7f31f3ef8",
+          "name": "Central Force and Conservation of Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.120135498046875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.098876953125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+          "name": "Canonical Transformation",
+          "understanding": 0.5535705744,
+          "priority": 0.0837055173,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "f3d0a8c8-3afc-488c-a773-3b19ed1efc36",
+          "name": "Differential Equation for Orbit Shape",
+          "understanding": 0.5661591309,
+          "priority": 0.073210646660625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.05646441360937501,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.05303720145234375,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.046719360351562496,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "e511f03b-6f1a-497d-b82b-b29ed3e7bddb",
+      "gaps": [
+        {
+          "concept_id": "79a6057f-8115-40d3-a407-9985011dbfd6",
+          "name": "Optimization with Lagrange Multipliers",
+          "understanding": 0.0,
+          "priority": 0.3515625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "a8a8a39b-cec4-49ce-988d-c2b9bb8db237",
+          "name": "Holonomic Constraint",
+          "understanding": 0.0,
+          "priority": 0.284765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e1b58c1c-2551-4fee-995c-667076a7efd6",
+          "name": "Constraint Equation for Particle on Paraboloid",
+          "understanding": 0.0,
+          "priority": 0.253125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "7e7011cc-904a-4461-9f3c-dfbb9569c5b3",
+          "name": "Disguised Holonomic Constraints",
+          "understanding": 0.0,
+          "priority": 0.249169921875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "eaca599c-8a98-48fc-8ada-9dac4f5d0885",
+          "name": "Integrability Conditions for Velocity-Dependent Constraints",
+          "understanding": 0.0,
+          "priority": 0.21357421875000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d38efbec-a2e5-4104-976d-1c10c41d4641",
+          "name": "Poisson Bracket",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+          "name": "Coupled Oscillators",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+          "name": "Legendre Transformation",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "3e75c01a-891a-49a3-90ab-a87c546cdda9",
+          "name": "Expressions for Constants of Motion from Initial Conditions",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "cdf42ea2-0800-436f-aa19-b643183794b1",
+          "name": "Hamiltonian Formulation and Canonical Momenta",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+          "name": "Polar Coordinates and Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c066e3c3-d68e-48d6-8f25-18d40328c916",
+          "name": "Generating Function in Canonical Transformations",
+          "understanding": 0.0,
+          "priority": 0.2109375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+          "name": "Equations of Motion from Lagrangian",
+          "understanding": 0.0,
+          "priority": 0.200390625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "66f022b2-984f-49e3-8a63-56b39637910b",
+          "name": "Degrees of Freedom",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "044c70c0-69ee-46de-ba77-86b792cff852",
+          "name": "Hamiltonian as Generator of Time Translations",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2165bf0e-4d36-4c21-b8f0-a9700fdf973e",
+          "name": "Scattering Problem Setup in Inverse-Square Potential",
+          "understanding": 0.0,
+          "priority": 0.18984375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "8c7b881b-bf3a-427f-99f5-e885b1617b69",
+          "name": "Lagrangian for a Particle on Paraboloid in Coordinates \u03c1, \u03c6, z",
+          "understanding": 0.0,
+          "priority": 0.179296875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c4597ac7-3b0b-433e-9466-856030cc266a",
+          "name": "Variation of the Action (\u03b4S)",
+          "understanding": 0.0,
+          "priority": 0.177978515625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+          "name": "Small-Angle Approximation for Pendulum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "65d68363-bc95-45d1-b81d-6ae24aced089",
+          "name": "Method of Lagrange Multipliers for Constraints",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "97958ea9-ca33-4a26-ab32-2af5c32220d7",
+          "name": "Conservation of Energy and Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "2e88b39c-c407-4ad9-97a8-ad207f751781",
+          "name": "Poisson Bracket Transformation under Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+          "name": "Infinitesimal Canonical Transformation",
+          "understanding": 0.0,
+          "priority": 0.16875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+          "name": "Action Functional",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+          "name": "Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1601806640625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e511f03b-6f1a-497d-b82b-b29ed3e7bddb",
+          "name": "Equations of Motion for Particle Constrained on Paraboloid",
+          "understanding": 0.0,
+          "priority": 0.159375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "a21ff8be-ef15-4fb8-b0e3-7e85fac8603b",
+          "name": "Stability of Rotation about Principal Axes",
+          "understanding": 0.0,
+          "priority": 0.159375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "11b95f14-b439-41ba-bf20-457338e21f66",
+          "name": "Liouville's Theorem",
+          "understanding": 0.0,
+          "priority": 0.159375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "c9a457ce-1fd9-4d10-bf74-1175fabfd8d3",
+          "name": "Change of Variables for Orbital Problems (u = 1/r)",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+          "name": "Lagrangian as function of coordinates and velocities",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "72267327-269a-45ee-8e32-12a790142c28",
+          "name": "Motion Confined to a Plane in Central Force",
+          "understanding": 0.0,
+          "priority": 0.158203125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "3f56659b-92b6-4258-8e44-2c4f2a67e3dd",
+          "name": "Constraint Force in Lagrangian Mechanics",
+          "understanding": 0.0,
+          "priority": 0.15000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7d140b47-4180-4d65-a2d8-df925e72c5ee",
+          "name": "Closest Approach Distance r0 in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.15000000000000002,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "7c81cd65-5519-42db-8752-52ec154a0a8d",
+          "name": "Natural Frequency (Resonant Frequency)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+          "name": "Superposition of Normal Modes",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1689da81-afa5-469f-ac82-55cfb127d457",
+          "name": "Simple Harmonic Motion (SHM)",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "2b387e0f-9f35-4d8e-9227-b03217e5b66c",
+          "name": "Relation Between Scattering Angle \u03b8 and \u03c9",
+          "understanding": 0.0,
+          "priority": 0.14765625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "854d295b-9fbb-4593-bfa8-29836f039309",
+          "name": "Euler-Lagrange Equations of Motion for Central Force",
+          "understanding": 0.0,
+          "priority": 0.1423828125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "fff0d025-9ab8-4ce4-9761-52b6f077364c",
+          "name": "Differential Scattering Cross Section Formula",
+          "understanding": 0.0,
+          "priority": 0.140625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "f0f5576f-79c7-4874-9410-8ff9d8a10a22",
+          "name": "Lagrangian for Particle in Central Potential",
+          "understanding": 0.0,
+          "priority": 0.1401580810546875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "826d957d-6bc2-4813-be7b-dde678dbbdab",
+          "name": "Pendulum with Massless Spring",
+          "understanding": 0.0,
+          "priority": 0.1401580810546875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "5411f681-9389-428b-a7f6-5caa977dedbc",
+          "name": "Newtonian Mechanics for a Single Particle",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "00097785-0514-4e7c-8876-7c6cc5878461",
+          "name": "Physical interpretation of action variation in Lagrangian mechanics",
+          "understanding": 0.0,
+          "priority": 0.138427734375,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "1250a797-21a5-4658-9839-9a0d8e72345d",
+          "name": "Canonical Generating Functions for Translations and Rotations",
+          "understanding": 0.0,
+          "priority": 0.13124999999999998,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+          "name": "Normal Coordinates",
+          "understanding": 0.0,
+          "priority": 0.1265625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "4caff441-5c1b-42ad-9cb2-70e7f31f3ef8",
+          "name": "Central Force and Conservation of Angular Momentum",
+          "understanding": 0.0,
+          "priority": 0.120135498046875,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+          "name": "Initial Conditions in Oscillatory Systems",
+          "understanding": 0.0,
+          "priority": 0.098876953125,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+          "name": "Canonical Transformation",
+          "understanding": 0.5535705744,
+          "priority": 0.0837055173,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target."
+        },
+        {
+          "concept_id": "f3d0a8c8-3afc-488c-a773-3b19ed1efc36",
+          "name": "Differential Equation for Orbit Shape",
+          "understanding": 0.5661591309,
+          "priority": 0.073210646660625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target."
+        },
+        {
+          "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+          "name": "Normal Mode",
+          "understanding": 0.6653960675,
+          "priority": 0.05646441360937501,
+          "action": "optional",
+          "reason": "Not currently a priority for this target. Its own prerequisites are also weak."
+        },
+        {
+          "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+          "name": "Euler-Lagrange Equation",
+          "understanding": 0.7485643783,
+          "priority": 0.05303720145234375,
+          "action": "optional",
+          "reason": "Not currently a priority for this target."
+        },
+        {
+          "concept_id": "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+          "name": "Scalar Functional",
+          "understanding": 0.0,
+          "priority": 0.046719360351562496,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "e1b58c1c-2551-4fee-995c-667076a7efd6",
+        "eaca599c-8a98-48fc-8ada-9dac4f5d0885",
+        "7e7011cc-904a-4461-9f3c-dfbb9569c5b3",
+        "a8a8a39b-cec4-49ce-988d-c2b9bb8db237",
+        "79a6057f-8115-40d3-a407-9985011dbfd6",
+        "d38efbec-a2e5-4104-976d-1c10c41d4641",
+        "78eca0b7-be79-4f67-b072-f6ea69c4fb51",
+        "e70efa75-c0c9-4890-b26d-67fbcdff28fc",
+        "cdf42ea2-0800-436f-aa19-b643183794b1",
+        "c066e3c3-d68e-48d6-8f25-18d40328c916",
+        "66f022b2-984f-49e3-8a63-56b39637910b",
+        "044c70c0-69ee-46de-ba77-86b792cff852",
+        "2165bf0e-4d36-4c21-b8f0-a9700fdf973e",
+        "3e75c01a-891a-49a3-90ab-a87c546cdda9",
+        "8c7b881b-bf3a-427f-99f5-e885b1617b69",
+        "97958ea9-ca33-4a26-ab32-2af5c32220d7",
+        "9ff4b444-1295-4e6e-9309-aa18e08ce580",
+        "65d68363-bc95-45d1-b81d-6ae24aced089",
+        "2e88b39c-c407-4ad9-97a8-ad207f751781",
+        "b5fe371a-cd15-4da1-bb7e-36596eda0940",
+        "07dab876-02d2-4e2c-9e0b-32e7d29efffe",
+        "a21ff8be-ef15-4fb8-b0e3-7e85fac8603b",
+        "11b95f14-b439-41ba-bf20-457338e21f66",
+        "e511f03b-6f1a-497d-b82b-b29ed3e7bddb",
+        "fd4d57fd-07d8-4e0e-bdfb-a47bdc5bf9ef",
+        "72267327-269a-45ee-8e32-12a790142c28",
+        "56d09eef-3127-4103-b5a8-e6cfa9aefe2f",
+        "7d140b47-4180-4d65-a2d8-df925e72c5ee",
+        "3f56659b-92b6-4258-8e44-2c4f2a67e3dd",
+        "7c81cd65-5519-42db-8752-52ec154a0a8d",
+        "fd20b1aa-b93b-4562-96fb-fa17abe861fa",
+        "1689da81-afa5-469f-ac82-55cfb127d457",
+        "826d957d-6bc2-4813-be7b-dde678dbbdab",
+        "5411f681-9389-428b-a7f6-5caa977dedbc",
+        "00097785-0514-4e7c-8876-7c6cc5878461",
+        "1250a797-21a5-4658-9839-9a0d8e72345d",
+        "45623a65-75e0-4c89-8c5e-b7bebf8eabb2",
+        "4caff441-5c1b-42ad-9cb2-70e7f31f3ef8",
+        "f0f5576f-79c7-4874-9410-8ff9d8a10a22",
+        "854d295b-9fbb-4593-bfa8-29836f039309",
+        "c9a457ce-1fd9-4d10-bf74-1175fabfd8d3",
+        "e1d8de1d-18f3-4f03-b54a-9926c55fbc19",
+        "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+        "f3d0a8c8-3afc-488c-a773-3b19ed1efc36",
+        "2b387e0f-9f35-4d8e-9227-b03217e5b66c",
+        "fff0d025-9ab8-4ce4-9761-52b6f077364c",
+        "e6207934-c0fb-4df8-a64c-0e298174e8d9",
+        "19c96995-dfb0-4296-af81-ca02d198ca61",
+        "c4597ac7-3b0b-433e-9466-856030cc266a",
+        "085699dc-1387-441b-87ae-78f0951e3757",
+        "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+        "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba"
+      ]
+    }
+  },
+  {
+    "target": {
+      "assessment_id": "9369b4d3-d070-474b-97a1-3cab1927748e"
+    },
+    "gaps": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": null,
+      "target_assessment_id": "9369b4d3-d070-474b-97a1-3cab1927748e",
+      "gaps": [
+        {
+          "concept_id": "8ed9e889-e483-4313-a770-abcb4c2b520e",
+          "name": "Linear Regression",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d37f7d02-d204-4f94-912e-b0d8d91e963c",
+          "name": "Gradient Descent",
+          "understanding": 0.0,
+          "priority": 0.45,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "6f5b8222-eb8a-40c5-9583-303305eb66fd",
+          "name": "Bias-Variance Tradeoff",
+          "understanding": 0.0,
+          "priority": 0.3,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "aba75475-0188-479b-b1fc-396f0c2fff1e",
+          "name": "Overfitting",
+          "understanding": 0.0,
+          "priority": 0.25,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ]
+    },
+    "study_plan": {
+      "student_id": "82230000-0000-4000-8000-000000000001",
+      "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+      "target_concept_id": "d37f7d02-d204-4f94-912e-b0d8d91e963c",
+      "gaps": [
+        {
+          "concept_id": "8ed9e889-e483-4313-a770-abcb4c2b520e",
+          "name": "Linear Regression",
+          "understanding": 0.0,
+          "priority": 0.50625,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; an upstream prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "d37f7d02-d204-4f94-912e-b0d8d91e963c",
+          "name": "Gradient Descent",
+          "understanding": 0.0,
+          "priority": 0.45,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "6f5b8222-eb8a-40c5-9583-303305eb66fd",
+          "name": "Bias-Variance Tradeoff",
+          "understanding": 0.0,
+          "priority": 0.3,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        },
+        {
+          "concept_id": "aba75475-0188-479b-b1fc-396f0c2fff1e",
+          "name": "Overfitting",
+          "understanding": 0.0,
+          "priority": 0.25,
+          "action": "diagnose",
+          "reason": "Possibly weak but under-evidenced; a direct prerequisite of the target. Multiple target-relevant concepts depend on it."
+        }
+      ],
+      "study_order": [
+        "8ed9e889-e483-4313-a770-abcb4c2b520e",
+        "d37f7d02-d204-4f94-912e-b0d8d91e963c",
+        "6f5b8222-eb8a-40c5-9583-303305eb66fd",
+        "aba75475-0188-479b-b1fc-396f0c2fff1e"
+      ]
+    }
+  }
+]

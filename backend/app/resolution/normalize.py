@@ -14,6 +14,9 @@ _DASH_VARIANTS = re.compile(r"[‐-―−]")  # hyphen/en/em dash, minus sign
 _NON_WORD = re.compile(r"[^\w\s-]", re.UNICODE)
 _WHITESPACE = re.compile(r"\s+")
 _SYMBOLIC_LABEL = re.compile(r"^[a-z]{1,2}\d{1,2}$")
+_NUMBERED_LABEL = re.compile(
+    r"^(?:theorem|lemma|proposition|corollary|definition|example|equation)\s*\d+$"
+)
 
 
 def normalize_concept_name(name: str) -> str:
@@ -59,4 +62,7 @@ def is_locally_scoped_label(normalized_form: str) -> bool:
     it as a merge key risks collapsing genuinely distinct concepts.
     """
 
-    return bool(_SYMBOLIC_LABEL.match(normalized_form.replace(" ", "")))
+    return bool(
+        _SYMBOLIC_LABEL.fullmatch(normalized_form.replace(" ", ""))
+        or _NUMBERED_LABEL.fullmatch(normalized_form)
+    )

@@ -1,0 +1,630 @@
+{
+  "student_id": "61400000-0000-4000-8000-000000000001",
+  "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
+  "nodes": [
+    {
+      "concept_id": "060b38e0-222b-4a6a-a1d6-e93501d548b5",
+      "name": "Intersection of a Context Free Language and a Regular Language",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 1.0,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "cluster": "Deterministic Finite Automaton (DFA)"
+    },
+    {
+      "concept_id": "0f618724-e08a-45da-8921-f84371479ee3",
+      "name": "Existence of Decisive NFA for Regular Languages",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 1.0,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    },
+    {
+      "concept_id": "16ffe22f-f150-44aa-b8e4-1faad287ea7a",
+      "name": "Language of Strings Whose First and Last Bit are Equal",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.7,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "cluster": "Characterization of Strings with Equal #01 and #10"
+    },
+    {
+      "concept_id": "18241402-0a9c-4901-a346-6d40e8986775",
+      "name": "\u03b5-transition",
+      "scope": "course",
+      "discovery_state": "unseen",
+      "importance": 0.8,
+      "personal_relevance": 0.30232075449627427,
+      "understanding": 0.5535708726,
+      "cluster_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "cluster": "Nondeterministic Finite Automaton"
+    },
+    {
+      "concept_id": "1bfaf617-474b-41fc-92a6-879df8f4c683",
+      "name": "Empty Language",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.6,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "1bfaf617-474b-41fc-92a6-879df8f4c683",
+      "cluster": "Empty Language"
+    },
+    {
+      "concept_id": "1f26a96a-4c26-4f36-8cd3-a807aefd2362",
+      "name": "Concatenation of Regular Languages",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.6,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "cluster": "Nondeterministic Finite Automaton"
+    },
+    {
+      "concept_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "name": "Nondeterministic Finite Automaton",
+      "scope": "course",
+      "discovery_state": "unseen",
+      "importance": 1.0,
+      "personal_relevance": 0.38737011659201936,
+      "understanding": 0.5701998716,
+      "cluster_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "cluster": "Nondeterministic Finite Automaton"
+    },
+    {
+      "concept_id": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+      "name": "Decisive Nondeterministic Finite Automaton",
+      "scope": "course",
+      "discovery_state": "unseen",
+      "importance": 0.9,
+      "personal_relevance": 0.30232161459471807,
+      "understanding": 0.5535710364,
+      "cluster_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "cluster": "Nondeterministic Finite Automaton"
+    },
+    {
+      "concept_id": "2b5bad4e-670a-40d5-b6dd-c103d5f5bc88",
+      "name": "Independently and identically distributed (i.i.d.) sample",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "2b5bad4e-670a-40d5-b6dd-c103d5f5bc88",
+      "cluster": "Independently and identically distributed (i.i.d.) sample"
+    },
+    {
+      "concept_id": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+      "name": "Pumping Lemma for Regular Languages",
+      "scope": "course",
+      "discovery_state": "unseen",
+      "importance": 1.0,
+      "personal_relevance": 0.36713379703295723,
+      "understanding": 0.5661600499,
+      "cluster_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "cluster": "Non-Regularity of the Language of Binary Palindromes"
+    },
+    {
+      "concept_id": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+      "name": "Computation of a DFA",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.95,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "cluster": "Deterministic Finite Automaton (DFA)"
+    },
+    {
+      "concept_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "name": "Deterministic Finite Automaton (DFA)",
+      "scope": "course",
+      "discovery_state": "encountered",
+      "importance": 1.0,
+      "personal_relevance": 0.7198654382010368,
+      "understanding": 0.6489162806,
+      "cluster_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "cluster": "Deterministic Finite Automaton (DFA)"
+    },
+    {
+      "concept_id": "52b0842b-ab88-40f3-a69b-deb7f4ad9133",
+      "name": "Distinguishability of prefixes in L\u2193",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states"
+    },
+    {
+      "concept_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "name": "Non-Regularity of the Language of Binary Palindromes",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 1.0,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "cluster": "Non-Regularity of the Language of Binary Palindromes"
+    },
+    {
+      "concept_id": "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+      "name": "Palindrome",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.8,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    },
+    {
+      "concept_id": "580d7939-a4c0-40d2-a38c-07c401b8633d",
+      "name": "Moment integrability condition",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.8,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "580d7939-a4c0-40d2-a38c-07c401b8633d",
+      "cluster": "Moment integrability condition"
+    },
+    {
+      "concept_id": "63a3d522-6d48-4012-949c-fc155bbd18f0",
+      "name": "Language with Equal Number of 01 and 10 Substrings",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.8,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "cluster": "Characterization of Strings with Equal #01 and #10"
+    },
+    {
+      "concept_id": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+      "name": "Language L defined by balancing substrings 01 and 10",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.9,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "cluster": "Non-Regularity of the Language of Binary Palindromes"
+    },
+    {
+      "concept_id": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+      "name": "Language recognized by a DFA",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.9,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "cluster": "Deterministic Finite Automaton (DFA)"
+    },
+    {
+      "concept_id": "6cdce0e6-3f16-4cf9-ba04-c5f1474cca3b",
+      "name": "Alphabet in Formal Languages",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.5,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "cluster": "Deterministic Finite Automaton (DFA)"
+    },
+    {
+      "concept_id": "793c2134-9857-4073-bb26-35bd82d1fbbf",
+      "name": "Basic Regular Language",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.8,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    },
+    {
+      "concept_id": "85824d5b-504c-4978-b443-ee4208e34847",
+      "name": "Acceptance of Input by DFA",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.85,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "cluster": "Deterministic Finite Automaton (DFA)"
+    },
+    {
+      "concept_id": "9fe41000-1225-436e-903e-cc0040d0b2b3",
+      "name": "Finite Language Size Upper Bound for DFA",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "cluster": "Regular Languages Closed Under Insertion"
+    },
+    {
+      "concept_id": "b30001f8-8fe0-4d53-ac5e-422ccac59386",
+      "name": "Language L\u2193 construction",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states"
+    },
+    {
+      "concept_id": "b30f0dee-73c2-48f8-a4b9-ff8ba8e1380a",
+      "name": "Construction of NFA for L\u2193",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states"
+    },
+    {
+      "concept_id": "bb837f95-545a-453b-adf3-0b1e38d97c38",
+      "name": "Existence of Decisive DFA for Regular Languages",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 1.0,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    },
+    {
+      "concept_id": "c46aa1b9-20ee-4c50-96ba-364a650e29cb",
+      "name": "DFA with Exactly One Accepting State",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.7,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    },
+    {
+      "concept_id": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "name": "Characterization of Strings with Equal #01 and #10",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "cluster": "Characterization of Strings with Equal #01 and #10"
+    },
+    {
+      "concept_id": "d18f86eb-d414-424a-8630-029732ecfa22",
+      "name": "Run of an NFA",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 0.9,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "cluster": "Nondeterministic Finite Automaton"
+    },
+    {
+      "concept_id": "d4d7048f-49a1-45a0-b84b-1b43d6f23302",
+      "name": "Regular Language Because It Matches First and Last Bit Equality",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.6,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "d4d7048f-49a1-45a0-b84b-1b43d6f23302",
+      "cluster": "Regular Language Because It Matches First and Last Bit Equality"
+    },
+    {
+      "concept_id": "d74309df-cceb-401e-9cbb-8496b71a22d8",
+      "name": "Language of Binary Palindromes",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "cluster": "Non-Regularity of the Language of Binary Palindromes"
+    },
+    {
+      "concept_id": "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+      "name": "Language Regularity Closure Under Insertion at Positions",
+      "scope": "course",
+      "discovery_state": "frontier",
+      "importance": 1.0,
+      "personal_relevance": 0.0,
+      "understanding": null,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    },
+    {
+      "concept_id": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "name": "Regular Languages Closed Under Insertion",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 1.0,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "cluster": "Regular Languages Closed Under Insertion"
+    },
+    {
+      "concept_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "name": "Myhill-Nerode Theorem application for lower bound on DFA states",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 1.0,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states"
+    },
+    {
+      "concept_id": "f77a35b7-e306-4bb1-862c-bf3f0d580b6e",
+      "name": "DFA Accepts Infinite Language If Loop Exists",
+      "scope": "personal",
+      "discovery_state": "encountered",
+      "importance": 0.9,
+      "personal_relevance": 1.0,
+      "understanding": 0.5535710364,
+      "cluster_id": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "cluster": "Regular Languages Closed Under Insertion"
+    },
+    {
+      "concept_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "name": "Regular Language",
+      "scope": "course",
+      "discovery_state": "encountered",
+      "importance": 1.0,
+      "personal_relevance": 0.6809752917922236,
+      "understanding": 0.6378986585,
+      "cluster_id": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "cluster": "Regular Language"
+    }
+  ],
+  "edges": [
+    {
+      "source": "18241402-0a9c-4901-a346-6d40e8986775",
+      "target": "1f26a96a-4c26-4f36-8cd3-a807aefd2362",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "target": "18241402-0a9c-4901-a346-6d40e8986775",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "target": "d18f86eb-d414-424a-8630-029732ecfa22",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+      "target": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.752
+    },
+    {
+      "source": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+      "target": "695f0dfe-2f80-4d72-9bcb-585bed2ce50f",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "060b38e0-222b-4a6a-a1d6-e93501d548b5",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "edge_type": "RELATED_TO",
+      "origin": "course",
+      "confidence": 0.6
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "41d20c09-4a29-4ce4-8716-44e68c1808c8",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "6cdce0e6-3f16-4cf9-ba04-c5f1474cca3b",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "85824d5b-504c-4978-b443-ee4208e34847",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "0f618724-e08a-45da-8921-f84371479ee3",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "55ad2e97-24c4-4d61-9819-9622eb99fb13",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "64468699-9e75-46a4-b62a-1c3cdcaafa1c",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.752
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "793c2134-9857-4073-bb26-35bd82d1fbbf",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.882
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "bb837f95-545a-453b-adf3-0b1e38d97c38",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "e3350bae-8fb8-41b0-a094-b0b2456adfa9",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.846
+    },
+    {
+      "source": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "target": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "18241402-0a9c-4901-a346-6d40e8986775",
+      "target": "2a267114-26e2-4a3c-a676-e0e4ea728264",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "4e5de8db-33a1-4cbd-9fb2-8aa55debae35",
+      "target": "224f5bb7-b668-4925-aa1a-32f37d4b7d28",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "c46aa1b9-20ee-4c50-96ba-364a650e29cb",
+      "target": "ff4c8515-baa0-4e7c-b725-502e28134325",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "d74309df-cceb-401e-9cbb-8496b71a22d8",
+      "target": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "416f87d5-10c5-49ea-b58f-af6c3c272750",
+      "target": "541ccf94-0a99-4086-b1a5-4d64084b1cca",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "d0b5c940-651f-4af2-9d79-41900dfcda65",
+      "target": "63a3d522-6d48-4012-949c-fc155bbd18f0",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "16ffe22f-f150-44aa-b8e4-1faad287ea7a",
+      "target": "63a3d522-6d48-4012-949c-fc155bbd18f0",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "f77a35b7-e306-4bb1-862c-bf3f0d580b6e",
+      "target": "9fe41000-1225-436e-903e-cc0040d0b2b3",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "f1c50754-a68a-454f-bc6d-8c496c78ac1f",
+      "target": "f77a35b7-e306-4bb1-862c-bf3f0d580b6e",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "b30001f8-8fe0-4d53-ac5e-422ccac59386",
+      "target": "b30f0dee-73c2-48f8-a4b9-ff8ba8e1380a",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "f34a891e-226a-416e-9e8d-ee04c9eb2219",
+      "target": "52b0842b-ab88-40f3-a69b-deb7f4ad9133",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    },
+    {
+      "source": "52b0842b-ab88-40f3-a69b-deb7f4ad9133",
+      "target": "b30001f8-8fe0-4d53-ac5e-422ccac59386",
+      "edge_type": "ASSOCIATES_WITH",
+      "origin": "personal",
+      "confidence": 0.6
+    }
+  ],
+  "hidden_concept_count": 430,
+  "graph_version": "bb2181d0d39eacf2"
+}

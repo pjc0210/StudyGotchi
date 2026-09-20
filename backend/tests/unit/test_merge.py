@@ -153,3 +153,15 @@ def test_no_existing_concepts_creates():
         adjudicate_threshold=ADJUDICATE_THRESHOLD,
     )
     assert resolution.action == ResolutionAction.CREATE
+
+
+def test_reused_symbolic_alias_does_not_trigger_exact_merge():
+    resolution = resolve_concept_candidate(
+        _candidate("A different example language", aliases=["L3"]),
+        alias_index={"l3": uuid4(), "l3s": uuid4()},
+        existing_concept_embeddings={},
+        candidate_embedding=None,
+        merge_threshold=MERGE_THRESHOLD,
+        adjudicate_threshold=ADJUDICATE_THRESHOLD,
+    )
+    assert resolution.action == ResolutionAction.CREATE

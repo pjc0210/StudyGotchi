@@ -17,7 +17,11 @@ from uuid import UUID
 
 from app.domain.ontology.concepts import ConceptCandidate
 from app.resolution.aliases import lookup_alias
-from app.resolution.normalize import normalize_concept_name, plural_variant_candidates
+from app.resolution.normalize import (
+    is_locally_scoped_label,
+    normalize_concept_name,
+    plural_variant_candidates,
+)
 from app.resolution.semantic_match import (
     EmbeddingMatch,
     SimilarityBucket,
@@ -62,6 +66,9 @@ def resolve_concept_candidate(
     # only — never a fuzzy merge on their own).
     candidate_forms = [normalized_name]
     candidate_forms.extend(normalize_concept_name(alias) for alias in candidate.aliases)
+    candidate_forms = [
+        form for form in candidate_forms if form and not is_locally_scoped_label(form)
+    ]
     candidate_forms = list(dict.fromkeys(candidate_forms))
     for form in list(candidate_forms):
         candidate_forms.extend(plural_variant_candidates(form))

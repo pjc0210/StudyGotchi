@@ -1,0 +1,1956 @@
+{
+  "student_id": "82230000-0000-4000-8000-000000000001",
+  "course_id": "2a9366df-b7c1-45df-8666-3f14219b7a2f",
+  "concepts": [
+    {
+      "concept_id": "2719d7d1-7774-4cbe-a0e8-c823f4c04786",
+      "name": "Potential Energy of a Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5d7a924d-d7ab-4807-983e-081fffa89130",
+      "name": "Generalized Momentum for Angular Coordinate",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9838159a-c2a0-4be6-a7d7-1263d402e62c",
+      "name": "Coordinate Transformation in Polar Coordinates",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "907799f8-44a9-450e-8c17-bd91c9aa4a70",
+      "name": "Static Equilibrium Condition for Radial Coordinate",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "58406be5-da3c-471b-a5a2-fff33383ba98",
+      "name": "Canonical Momentum in Electromagnetic Field",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8f26ed6e-a493-4090-b7cd-7e7612214363",
+      "name": "Simple Harmonic Motion Frequency of a Pendulum",
+      "discovery_state": "encountered",
+      "understanding": 0.5967716131,
+      "positive_evidence": 0.7199761936,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "54ec1a61-e1c1-4c5e-81d6-ece7848fc306",
+      "name": "Lagrangian of a Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2083cc06-0ec6-443d-a3b4-1a17d00f481b",
+      "name": "Euler-Lagrange equation for higher derivatives",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d41f044b-ecb5-4b9c-bd2e-410a21f78275",
+      "name": "Energy Conservation in Lagrangian Mechanics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "440a0bab-1b7f-4466-9474-615733f741cd",
+      "name": "Energy Function from Lagrangian (Hamiltonian) in Electromagnetic Field",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e5f80fd1-28c4-4564-8c9f-2e56699d09b7",
+      "name": "Small Angle Approximation for Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8d405220-2462-4b8d-bcd8-bb09499fe289",
+      "name": "Energy Conservation in Velocity-Dependent Electromagnetic Interaction",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0335b690-d27a-425f-af32-b8a6b2601d9f",
+      "name": "Euler-Lagrange Equation Derived Frequencies \\(\\omega_p\\) and \\(\\omega_s\\)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9953f723-14f2-40c6-b5c8-d54c8e1c3cc3",
+      "name": "Hamilton's Equations",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6a3d8246-2f95-46fa-8082-91147908f732",
+      "name": "Euler-Lagrange Equation for Radial Displacement",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "97a338a8-7d72-47b3-a4a0-2de2c363e45e",
+      "name": "Lagrangian of a Simple Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9d71d668-cef2-4320-9cb1-dde3f6a33378",
+      "name": "Kinetic Energy of a Simple Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "50b54fae-9e85-4fcc-9082-5a0d01e0b332",
+      "name": "Equations of Motion from Lagrangian",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "533ac192-4478-4039-bd6f-d26f903716cb",
+      "name": "Simple Pendulum Equation of Motion",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "cb7e73f6-bd49-4ee1-bda7-f3ce20cfc86f",
+      "name": "Determinant Condition for Normal Mode Frequencies",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9f12db65-19fc-475b-a00a-dfa21a8faa2c",
+      "name": "Rigid Body Pendulum Equation of Motion",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "47e73200-b4e6-4bc8-acbc-79cfcdd7ecdb",
+      "name": "Solution to Linearized Pendulum Equation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "45eb811e-cc6b-4ee4-a55b-d2f81bcc58fd",
+      "name": "Kinetic Energy Expression in Spring-Pendulum System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "085699dc-1387-441b-87ae-78f0951e3757",
+      "name": "Euler-Lagrange Equation",
+      "discovery_state": "active",
+      "understanding": 0.7485643783,
+      "positive_evidence": 2.9657418073,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:37:42.455682"
+    },
+    {
+      "concept_id": "0ab944ce-1cd0-4899-b152-ca69d59d9ee6",
+      "name": "Angular Frequency of Spring-Mass System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "702daa5c-fe09-4464-adbe-0999bb5883f6",
+      "name": "Angular Frequency of Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "36019b68-0b16-4199-8ea6-f287aabaa260",
+      "name": "Dimensionless Radial Displacement",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c463b84a-dc82-4edd-b5ca-bbdbe943281f",
+      "name": "Euler-Lagrange Equation Applied to a Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9ccb394f-07a1-4236-a2f9-6b0a4aa7d0e1",
+      "name": "Lagrangian Function with Velocity-dependent Potential",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c07304ba-aed5-4577-ae46-5d6628dc8452",
+      "name": "Lagrangian Function for a Mass-Spring-Gravitational System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a4b7412e-e5fc-4767-9c8f-28fb41bde25a",
+      "name": "Electric and Magnetic Fields from Potentials",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2c91aa67-5e11-46e0-91f6-8a33e8052c32",
+      "name": "Lagrangian of Radially Displaced Spring-Pendulum System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9a46d64c-b8be-4ace-a92f-cf7cf481a72a",
+      "name": "Expression for Energy in Standard Lagrangian Mechanics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0fd49a99-4b7f-476f-828e-6f9cd7b5e046",
+      "name": "Kinetic Energy in Polar Coordinates",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2527d4f6-5d42-4cc3-931a-d6b1fe333c20",
+      "name": "Equation of Motion for a Particle in Potential",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6634b32f-46fb-4325-a447-f43d08eb0c02",
+      "name": "Kinetic Energy of a Rotating Body",
+      "discovery_state": "encountered",
+      "understanding": 0.6323490576,
+      "positive_evidence": 1.0799569025,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1b958cf7-d68b-489c-89da-061da0e96bde",
+      "name": "Variational Principle in Hamiltonian Mechanics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "322b3c44-0f56-4391-95e9-fbcaa45ba02d",
+      "name": "Lagrange Equations of Motion for Spring Pendulum",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7ab0d75b-4ed9-494c-9858-05ff49c200cc",
+      "name": "Equations of Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5417025057,
+      "positive_evidence": 0.272983201,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:37:42.455682"
+    },
+    {
+      "concept_id": "b29e4901-4aa9-4bca-9b5b-87aeb487e6cf",
+      "name": "Equation of Motion for a Simple Pendulum",
+      "discovery_state": "encountered",
+      "understanding": 0.5967728118,
+      "positive_evidence": 0.7199872523,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1595a327-9415-475e-9c96-36f19e6bf95f",
+      "name": "Potential Energy from Spring Displacement",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a677a078-6084-4c83-886f-12022763a815",
+      "name": "Potential Energy from Gravity in Spring-Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4ad9d823-5d43-4a9f-895b-15c123c9be4c",
+      "name": "Euler-Lagrange Equation for Angular Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1853b2bf-4039-4ed7-8e80-6c640f169397",
+      "name": "Non-standard Splitting of Energy in Electromagnetic Lagrangian",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0de9a099-0808-4367-a744-b5db6843f09e",
+      "name": "Euler-Lagrange Equation with Electromagnetic Potential",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e774f1ba-d4a6-4244-9bec-febb7a22cd01",
+      "name": "General Solution for Simple Harmonic Oscillator",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b961f44c-2d48-4323-908b-11f0c2fed41b",
+      "name": "Integration by Parts in Variational Calculus",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8e4f1793-3b6a-4b87-ad2e-ed9588784706",
+      "name": "Potential Energy of a Simple Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "cc7acffa-d3bc-48c6-8938-ec8aae42a202",
+      "name": "Electromagnetic Lagrangian",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c5a9e86f-0dce-4aeb-bd26-dc46fbd7555b",
+      "name": "Equations of Motion for Small Oscillations",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9ca1768a-14f6-4b5d-82fd-d14cd30851d8",
+      "name": "General Solution to Linearized Pendulum Equation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1fecf000-d07f-4d59-9996-a568df1b3e17",
+      "name": "Fourth-order differential equations in mechanics",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "28b6983b-9781-4ccd-a493-6faa003a8b81",
+      "name": "Potential Energy of a Spring Mass System in Polar Coordinates",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705817,
+      "positive_evidence": 0.3599936262,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "22cabc68-31a8-465e-8f37-bcbabeb61ffd",
+      "name": "Lorentz Force Law",
+      "discovery_state": "encountered",
+      "understanding": 0.5780579054,
+      "positive_evidence": 0.5549901737,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:29:38.012237",
+      "last_practiced_at": "2026-09-20T02:29:38.012237"
+    },
+    {
+      "concept_id": "a4499e18-70f1-40ec-b661-1e3e02a8e5ee",
+      "name": "Equation of Motion for a Damped Oscillator",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "551029d9-fbe1-4c8f-bf3c-6f5aee129470",
+      "name": "Substitution u = 1/r in Orbital Mechanics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "10f5a29c-f7ac-4b0f-9b2a-619545689b8c",
+      "name": "Kepler's Second Law",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8d72af22-2a52-4240-b7b4-488a8dc537ea",
+      "name": "Two-body orbital problem",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "769405d3-194b-4638-bb85-048a02ca5433",
+      "name": "Moment of Inertia for a Point Mass on a Radius",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c5fe56dc-d3e6-4866-b2d6-99b89a7ffdba",
+      "name": "Normal Mode",
+      "discovery_state": "encountered",
+      "understanding": 0.6653960675,
+      "positive_evidence": 1.4829120477,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:37:42.455682"
+    },
+    {
+      "concept_id": "54052acf-3640-47d3-914b-a62a8b53f674",
+      "name": "Final Formula for Orbital Energy in Terms of \\alpha",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "88c7aa27-5b6a-4483-b12c-0a945157d0ec",
+      "name": "Lagrangian for a Central Force Problem",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7f162dfc-c480-4c66-a378-da21e0a312db",
+      "name": "Normalized Equations of Motion for Coupled Pendulums",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "32d6edc8-3b83-4aad-91d0-5e96d0f869b7",
+      "name": "Generalized Coordinates in Dynamics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b237c8cd-a2da-41cc-8334-c35c6eeabca1",
+      "name": "Potential Energy of Rotating Masses in Gravitational Field",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b675ae73-d5ba-4f38-aaaa-852c99a81648",
+      "name": "Coupling Frequency of Oscillators (\u03c9\u2096)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "594658ff-0393-479f-b9fc-87c135f16228",
+      "name": "Parameter \\alpha in Orbital Mechanics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f4fb8a97-1a2e-421f-aaf0-276d95d55a0c",
+      "name": "Kinetic Energy of a Body in Cartesian Coordinates",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "adcc80bd-14da-49f6-a029-c4b9ef29c267",
+      "name": "Harmonic Oscillator Ansatz for Angular Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e10bfbc2-a129-4a1d-b7ca-18f35ba48e21",
+      "name": "Radial Equation of Motion in Central Force Field",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9aa261d6-c6a3-41fc-8aa3-3fb89e4ab142",
+      "name": "Orbital Energy and Conic Sections Relationship",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "711a351f-bb26-4823-af6b-4d3de5e95014",
+      "name": "Simplification of Equations for Equal Masses",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "317fe1ea-2df6-47d9-bb05-9426d5f1a474",
+      "name": "Small Angle Approximation for Sine Function",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3b8862d8-2ce3-4b54-ab49-7a35179cb19c",
+      "name": "Centrifugal Force in Rotating Frame",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e5ffb6d3-168c-432d-8f1b-a1c8b765dfb6",
+      "name": "Frequency of Small Oscillations around Circular Orbit",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "955f4773-38a1-4d33-950d-ed6594fc6e9d",
+      "name": "Potential Energy of Pendulum under Gravity",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "842dd63a-33cc-4322-807c-d2a51881422c",
+      "name": "Coupled Differential Equations for Mechanical System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c667d542-984e-4f30-85a4-4d890fa1a7ae",
+      "name": "Energy condition for elliptical orbit",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8f0692ad-dc93-4075-af7f-2c6f56ba1097",
+      "name": "Equation of Motion for a Pendulum in a Rotating Reference Frame",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1fb35d8d-8921-4f3f-8d2e-a0282052886d",
+      "name": "Equations of Motion for Coupled Oscillators",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "74551b8b-ed34-4c95-bd0f-d775243b12bc",
+      "name": "Potential Energy of a Rotating Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1642f502-f226-460d-8c3e-0b619f7b3317",
+      "name": "Potential Energy from Spring Coupling Between Pendulums",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2223e82d-e0e1-4c10-af26-46a246ea3ffd",
+      "name": "Orbit Equation in Polar Coordinates",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5016d0e3-a037-40d1-8ca2-ff0613fed1ec",
+      "name": "Lagrangian of a Two-Mass Rotating System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "fffbe263-f438-422e-aa58-f99c5e8ca3dd",
+      "name": "Lagrangian Formalism",
+      "discovery_state": "active",
+      "understanding": 0.7798066096,
+      "positive_evidence": 3.812193577,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:37:42.455682"
+    },
+    {
+      "concept_id": "634c1d57-c52c-438f-b8a0-c9c36e2152fe",
+      "name": "Velocity Components in Polar Coordinates",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6f5b918a-663c-4c95-bc74-7bdd1adc64ce",
+      "name": "Natural Frequency of Single Pendulum (\u03c9\u2080)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "375f72b9-f90f-4789-8a5a-fbc6c5907a40",
+      "name": "Coupling Frequency Contribution",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "729382a7-c110-4cca-a6a1-e7b415b04039",
+      "name": "Equation of Motion for a Rotating Pendulum with Fixed Length",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "490d901a-ebdf-4adc-8699-277b7eac6ab6",
+      "name": "Conservation of Angular Momentum in Central Force Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8488e5fa-934e-4bba-a71b-8479c21db3b6",
+      "name": "Orbital Parameters alpha and eccentricity epsilon",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e0a61b63-6927-462a-9331-0c6c8b260823",
+      "name": "Angular Coordinates Parametrization of a Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4a29bb78-6be4-48aa-ac36-f25f2aed4d4e",
+      "name": "Energy Expression for Orbital Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c174cb48-a41e-4db9-8f99-385f7d1cdbbc",
+      "name": "Relationship Between Normal Mode Parameters and Angular Displacements",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e658c8ae-3c98-4b15-8412-293f4d5a7fde",
+      "name": "Equation of Conic Section Orbit",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b3ef9331-83b2-4cf4-a86a-0c134afd71fa",
+      "name": "Kinetic Energy of a Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "dba33af5-547f-4ed0-8354-bfbc2a948f16",
+      "name": "Total Potential Energy of Coupled Pendulums",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5ae26457-9194-49d8-aa92-e8f60237a7f7",
+      "name": "Energy Expression in Terms of \\varepsilon and Constants",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1fff1bcf-ed3a-4e1d-b544-871b6d4ba9df",
+      "name": "Coriolis Force",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f3d0a8c8-3afc-488c-a773-3b19ed1efc36",
+      "name": "Differential Equation for Orbit Shape",
+      "discovery_state": "unseen",
+      "understanding": 0.5661591309,
+      "positive_evidence": 0.4574889247,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": "2026-09-20T02:32:01.523401"
+    },
+    {
+      "concept_id": "c79b6401-14c6-438a-aef5-865e46a99953",
+      "name": "Expanded Kinetic Energy for System with Angular Velocities",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5c49d17a-6662-45b0-bc83-b01427aa5741",
+      "name": "Determinant Condition for Eigenvalue Problems",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5d2e498e-01b3-4556-acd0-ca052ea1d412",
+      "name": "Combined Potential Energy for System of Masses",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5c5c1e31-5e05-4419-8e8b-efce24af2205",
+      "name": "Kinetic Energy of a Rotating Pendulum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "22e498f3-2ba8-4679-b9e9-0c10af834113",
+      "name": "General Solution of Coupled Pendulum Angles",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f82be75e-7578-47fb-8967-b7422733b1d1",
+      "name": "Initial Conditions for Coupled Oscillator Amplitudes",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e3517221-f35c-459e-8fe3-cf62c12a8bbe",
+      "name": "Normal Modes in Coupled Oscillators",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2b387e0f-9f35-4d8e-9227-b03217e5b66c",
+      "name": "Relation Between Scattering Angle \u03b8 and \u03c9",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "47c9179c-91b3-47f6-afce-dc657ab9ba22",
+      "name": "Radial Velocity Equation in Terms of Energy and Effective Potential",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8eb04c46-8be4-4998-b1b8-6d1c4f0eda0e",
+      "name": "Small Angle Approximations for Cosine Functions",
+      "discovery_state": "unseen",
+      "understanding": 0.5535702706,
+      "positive_evidence": 0.359991285,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:32:01.523401",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "63e5a383-71be-4382-b480-adec6e1bc2d0",
+      "name": "Frequency of Oscillations About Circular Orbit (\u03c9)",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "92488b38-c3ea-437c-a726-285534020479",
+      "name": "Generalized coordinate",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1d54b657-2d36-4903-ab9f-0f035d45fbe2",
+      "name": "Symmetry of Second Derivatives",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "dd6ac4b6-00ab-4c32-a434-94e6cd4b02bb",
+      "name": "Equations of Motion for a Rolling Disc on an Inclined Plane",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f4f57774-ade5-4b74-a715-9a2b6ddcb0a8",
+      "name": "Expression for Angular Displacement from Linear Displacement",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "15a36609-4fde-4d7f-8282-2e6083d11309",
+      "name": "Potential Energy in Gravitational Field on Inclined Plane",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "97ca537b-0744-4d85-a242-343699941837",
+      "name": "Holonomic Constraints in Rolling Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6583abe0-dc79-49ea-b696-760d1a3ab6a3",
+      "name": "Euler-Lagrange Equation for \\( \\theta \\)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a9550eaa-3761-4dfb-a36a-b69718c3d48d",
+      "name": "Kinetic Energy of Rotating Cylinder",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0240617f-dc4b-4c3f-8107-8c9eb5143998",
+      "name": "Canonical Transformation",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "61932dbf-3a89-4fd6-ba5a-b0608946b049",
+      "name": "Kinetic Energy of Translational Motion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "2f95366b-8a19-4527-9428-5220826149d5",
+      "name": "Conservative System",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "df66203f-8ddf-4be0-a503-1690c6b7f361",
+      "name": "Moment of Inertia of a Solid Cylinder",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f8d41df6-8259-4095-bc40-ba411c909ab6",
+      "name": "Time Dependence of Angular Velocity \\( \\dot{\\theta}(t) \\)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c78dd90d-2078-4454-bc31-8b32028c32cd",
+      "name": "Partial Derivatives of Lagrangian Components",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f0cf22e6-752d-4192-a437-c046871603df",
+      "name": "Total Time Derivative of a Constraint",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "71f01caf-875b-4516-aa33-bdf2821f4760",
+      "name": "Lagrangian Energy Function",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "600452e5-d2b2-4182-94dd-e163cba30b84",
+      "name": "Energy Conservation under Constraints",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "fef03cf4-e4dd-4f57-96db-80aa748f0bb8",
+      "name": "Generalized Coordinates for Rolling Cylinder",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5c9fb2a1-519a-4f65-937f-b4ff058a377d",
+      "name": "Equation of Motion for Rolling Object on Inclined Plane",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9dc13e98-8308-4872-9bfd-5a113b753c05",
+      "name": "Partial Derivative of Lagrangian with respect to Generalized Velocity",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "d4122a9a-4f8c-468e-ad01-447c2f637e96",
+      "name": "Time Dependence of Angular Coordinate \\( \\theta(t) \\)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "98bf8a23-d933-4063-b2b8-169012493a81",
+      "name": "Velocity of Center of Mass (\\(\\vec{V}_{cm}\\))",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "c19a2a51-2ad2-4747-8d79-14ad5d1de95c",
+      "name": "Angular Velocity Vector (\\(\\vec{\\omega}\\))",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8b00bb9b-535a-45be-b3f4-09fb962722b2",
+      "name": "Relationship Between Constraint Force and Acceleration",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "3fa76df3-5bdb-4f06-94cb-1649ca7c3287",
+      "name": "Lagrange Multipliers",
+      "discovery_state": "encountered",
+      "understanding": 0.6130013307,
+      "positive_evidence": 0.87598232,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:37:42.455682"
+    },
+    {
+      "concept_id": "de5a83f4-3c07-4a8d-815f-9d54e80b8fa7",
+      "name": "Constraint Equation Function \\(f(\\vec{q}_t, t) = 0\\)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5fd21f6f-4c70-46bb-9d76-a7fe13581958",
+      "name": "Total Time Derivative of Partial Derivative of Lagrangian",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "f7aefdee-0410-4cc1-b45c-e2b6e36e2d04",
+      "name": "Partial Derivative of Lagrangian with respect to Generalized Coordinate",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1b207606-aec4-46ab-9bd3-82b273969a6d",
+      "name": "Potential Energy on Inclined Plane",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9c1bc4b1-6117-42ba-87ed-f340ac3d2bd8",
+      "name": "Lagrangian for a Rolling Sphere on an Inclined Surface",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "cb45fc4a-2690-4381-a5d2-6105b8dba215",
+      "name": "Kinetic Energy of Translating Mass",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "46f19b7b-a02d-4c64-8846-2f1cb8a5eb21",
+      "name": "Nonholonomic Constraints",
+      "discovery_state": "encountered",
+      "understanding": 0.6081489566,
+      "positive_evidence": 0.8279852132,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": "2026-09-20T02:35:17.716363"
+    },
+    {
+      "concept_id": "c0864f1d-d1f9-4bba-9d09-a555de747050",
+      "name": "Lagrangian for Constrained Rolling Body on Inclined Plane",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ab8838e9-c76d-45fe-a22f-124dd8644836",
+      "name": "Elimination of Angular Velocity in Normal Force Expression",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "cdbe9395-74d5-44d1-8732-635bf7c4061b",
+      "name": "Total Kinetic Energy of Rolling Cylinder",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a59d3891-4d62-4880-ab86-fd230a382d37",
+      "name": "Transformation to Time-Independent Hamiltonian",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "417e7904-a9e2-47dc-a9f1-a0ffb1962a73",
+      "name": "Equation of Motion for Translational Coordinate with Constraint Force",
+      "discovery_state": "encountered",
+      "understanding": 0.5967727998,
+      "positive_evidence": 0.7199871419,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7e9fef99-9052-45f7-b659-76f99e22000f",
+      "name": "Rolling Without Slipping Constraint",
+      "discovery_state": "encountered",
+      "understanding": 0.5967727998,
+      "positive_evidence": 0.7199871419,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ed9dbc9e-2087-4bca-bb57-99e994142ddb",
+      "name": "Euler-Lagrange Equation with Holonomic Constraint and Lagrange Multiplier",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0b8722b2-54f6-4b15-a5c3-cc2c8b74083c",
+      "name": "Integration of Acceleration to Obtain Velocity and Position",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "82a34364-b337-4eab-9843-92de87df9370",
+      "name": "Calculation of Friction Force on Rolling Object",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e07b98c2-a443-472c-bcbc-1e9d98a5634f",
+      "name": "Time Dependence of Angular Coordinate \\( \\phi(t) \\) with Constant Angular Velocity",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "10905de6-3ad4-4b8d-b94b-e10ca9bdad7d",
+      "name": "Constraint Forces in Rolling Without Slipping",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "56dee4da-2ded-45b9-8522-1ede11732716",
+      "name": "Zero Angular Acceleration of \\( \\phi \\) Based on Euler-Lagrange Equations",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "593cd940-5114-4dc8-b170-90ef1b0a601f",
+      "name": "Partial Derivative of Lagrangian with respect to \\( \\dot{\\phi} \\)",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "dfaa3d6f-9a1a-44d5-9b69-99371207ce18",
+      "name": "Angular Acceleration of \\( \\theta \\) in Terms of System Parameters",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b0cabb6c-737c-4958-8cc6-eab87b5d0d8d",
+      "name": "Lagrangian for Rolling Cylinder",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5a559cd7-a8da-4136-96c2-ce1304dbf4b3",
+      "name": "Velocity at Contact Point (\\(\\vec{V}_{ct}\\))",
+      "discovery_state": "unseen",
+      "understanding": 0.5535705744,
+      "positive_evidence": 0.359993571,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:35:17.716363",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "a4456686-2ef7-4284-b25a-9787c5f4d5b7",
+      "name": "Conserved Quantity from Time Translation Symmetry",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b67b909e-9274-4457-8fa8-13fe1990e01c",
+      "name": "Angular Momentum as a Phase Space Function",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8e47d0c9-0501-463b-85a9-488936d12d10",
+      "name": "Negligible Assumption in Physics",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "e34c84db-3b89-4526-a44a-68bcb8e2caa8",
+      "name": "Canonical Momentum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "5f57ccb5-acaf-4c18-8113-b1c5330ae043",
+      "name": "Hamiltonian",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "bbd4c1dc-f561-48d2-bce6-20f0075fcf7a",
+      "name": "Energy Conservation in Mechanical Systems",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "33ef7d3e-65a6-4280-af54-e6a6d5cd5639",
+      "name": "Conservation Law from Symmetry",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "547579f9-7a7c-4243-a087-eef28263ce20",
+      "name": "Angular Momentum Conservation Criterion",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6068a5ef-fb29-4c0d-b2d7-5266178033cd",
+      "name": "Reducing Coordinates by Solving Constraints",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "cd9d6a4e-0266-43db-a0fc-94742c79b347",
+      "name": "Conjugate Momentum",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "0e9c4b2a-faa1-422a-bdcd-be2511de74fe",
+      "name": "Conserved Energy in Lagrangian Systems",
+      "discovery_state": "encountered",
+      "understanding": 0.5871159877,
+      "positive_evidence": 0.6329815529,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:35:17.716363"
+    },
+    {
+      "concept_id": "1d47e643-f2c4-44e0-969f-1cf94cbe7752",
+      "name": "Hamiltonian Mechanics",
+      "discovery_state": "encountered",
+      "understanding": 0.5791630183,
+      "positive_evidence": 0.5777434999,
+      "negative_evidence": 0.0097498903,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": "2026-09-20T02:37:42.455682"
+    },
+    {
+      "concept_id": "c99b9e30-0b1e-47ba-972d-df0f9e8a3858",
+      "name": "Constrained Optimization in Lagrangian Mechanics",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ad338b07-b4b0-411b-9ec4-7f0fbf6c955b",
+      "name": "Scattering",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "970d8069-e9c2-434c-baeb-0f1b870f5cef",
+      "name": "Hamiltonian of Coupled Pendulums",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "4cd672ef-76c9-444f-aec6-5485eb900cf1",
+      "name": "Hamiltonian Conservation",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "fa72e23c-3758-4ff1-9f60-3c67332502bc",
+      "name": "Generalized Force from Constraint",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "6f4bffe5-863a-4b99-893e-86568318c7a9",
+      "name": "Conservation of Angular Momentum from Cyclic Coordinate",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "ae88dc79-7547-4131-893e-902e4dec69e9",
+      "name": "Noether's Theorem",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959497,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "18cd1e56-3175-416a-987f-3c4919a3c465",
+      "name": "Hamiltonian Function with Coupling Term",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959497,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "18bbcf17-6f53-4d21-b51a-93ce31585aad",
+      "name": "Conservation of Torque",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959497,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1a8846b8-10c5-4319-bc3c-ede7229575ef",
+      "name": "Angular Momentum in Two Dimensions",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "47ebd6b3-b10f-4580-a9cd-be55bcff81b9",
+      "name": "Poisson Bracket Definition",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959497,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "1b1dbac8-48f8-491e-97a5-f0e381dd25d5",
+      "name": "Spatial Translational Invariance and Conservation of Momentum",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "262b7ef6-3f7d-4832-981b-f5ef152db137",
+      "name": "Total Time Derivative via Poisson Bracket",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "7fe9797e-66b5-466b-9cc3-299be28b245c",
+      "name": "Symmetric Normal Mode Condition",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959497,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "dd69a394-f4db-4a14-ad2c-acb8cf501a00",
+      "name": "Torque in Two Dimensions",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9f29a0d0-af3f-4c97-be52-741d7dee0df9",
+      "name": "Partial Derivatives of Angular Momentum and Hamiltonian",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "957e453f-811f-4200-90bd-23cbff3680be",
+      "name": "Coupled Oscillator System",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "75767dc6-f390-4e30-9262-aedda161184e",
+      "name": "Hamilton's Equations in Poisson Bracket Form",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "81ee2d95-a981-475a-a7e8-956a5aee8805",
+      "name": "Torque",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959498,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "8e644dc9-0e4b-4b55-a968-f6c565c22f2e",
+      "name": "Constraint Equation in Mechanical Systems",
+      "discovery_state": "unseen",
+      "understanding": 0.5535708904,
+      "positive_evidence": 0.3599959497,
+      "negative_evidence": 0.0,
+      "last_evidence_at": "2026-09-20T02:37:42.455682",
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "9fcf57cd-d09e-45b7-95c9-d463b73df32b",
+      "name": "Linear Oscillatory System",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "b909a90c-e0d2-4524-a4bf-2410f9e237ad",
+      "name": "Energy in Lagrangian Mechanics",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "19c96995-dfb0-4296-af81-ca02d198ca61",
+      "name": "Action Functional",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    },
+    {
+      "concept_id": "321ec39f-dcd4-42b4-8a68-a457ebbd0249",
+      "name": "Action Principle in Classical Mechanics",
+      "discovery_state": "frontier",
+      "understanding": null,
+      "positive_evidence": 0.0,
+      "negative_evidence": 0.0,
+      "last_evidence_at": null,
+      "last_practiced_at": null
+    }
+  ]
+}

@@ -130,6 +130,19 @@
       "member": "6.1400/spring-2026/lectures/Lecture 9.pdf",
       "origin": "instructor",
       "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/exercises/61400_Pset1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/local-coursework/Pset 1 CCT.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "61400000-0000-4000-8000-000000000001"
     }
   ]
 }

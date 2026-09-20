@@ -46,6 +46,7 @@ from app.domain.ontology.dedup_repair import (
     choose_survivor,
     cluster_duplicate_concepts,
 )
+from app.pipelines.course_ingestion import _clean_up_prerequisite_graph
 from app.pipelines.incremental_update import recompute_student_state
 
 
@@ -53,14 +54,18 @@ async def _load_profiles(
     session: AsyncSession, course_id: UUID
 ) -> list[ConceptLexicalProfile]:
     concepts = (
-        await session.execute(
-            select(Concept).where(
-                Concept.course_id == course_id,
-                Concept.status == "active",
-                Concept.scope == "course",
+        (
+            await session.execute(
+                select(Concept).where(
+                    Concept.course_id == course_id,
+                    Concept.status == "active",
+                    Concept.scope == "course",
+                )
             )
         )
-    ).scalars().all()
+        .scalars()
+        .all()
+    )
     concept_ids = [c.id for c in concepts]
     if not concept_ids:
         return []
@@ -103,19 +108,31 @@ async def _load_profiles(
     ]
 
 
-async def _merge_aliases(session: AsyncSession, old_id: UUID, survivor_id: UUID) -> None:
+async def _merge_aliases(
+    session: AsyncSession, old_id: UUID, survivor_id: UUID
+) -> None:
     rows = (
-        await session.execute(select(ConceptAlias).where(ConceptAlias.concept_id == old_id))
-    ).scalars().all()
+        (
+            await session.execute(
+                select(ConceptAlias).where(ConceptAlias.concept_id == old_id)
+            )
+        )
+        .scalars()
+        .all()
+    )
     for row in rows:
         existing = (
-            await session.execute(
-                select(ConceptAlias).where(
-                    ConceptAlias.concept_id == survivor_id,
-                    ConceptAlias.normalized_alias == row.normalized_alias,
+            (
+                await session.execute(
+                    select(ConceptAlias).where(
+                        ConceptAlias.concept_id == survivor_id,
+                        ConceptAlias.normalized_alias == row.normalized_alias,
+                    )
                 )
             )
-        ).scalars().first()
+            .scalars()
+            .first()
+        )
         if existing is not None:
             await session.delete(row)
         else:
@@ -131,13 +148,17 @@ async def _merge_course_edges(
         ("target_concept_id", "source_concept_id"),
     ):
         rows = (
-            await session.execute(
-                select(ConceptEdge).where(
-                    ConceptEdge.course_id == course_id,
-                    getattr(ConceptEdge, own_attr) == old_id,
+            (
+                await session.execute(
+                    select(ConceptEdge).where(
+                        ConceptEdge.course_id == course_id,
+                        getattr(ConceptEdge, own_attr) == old_id,
+                    )
                 )
             )
-        ).scalars().all()
+            .scalars()
+            .all()
+        )
         for row in rows:
             other_id = getattr(row, other_attr)
             new_source = survivor_id if own_attr == "source_concept_id" else other_id
@@ -152,15 +173,19 @@ async def _merge_course_edges(
                 await session.delete(row)
                 continue
             existing = (
-                await session.execute(
-                    select(ConceptEdge).where(
-                        ConceptEdge.course_id == course_id,
-                        ConceptEdge.source_concept_id == new_source,
-                        ConceptEdge.target_concept_id == new_target,
-                        ConceptEdge.edge_type == row.edge_type,
+                (
+                    await session.execute(
+                        select(ConceptEdge).where(
+                            ConceptEdge.course_id == course_id,
+                            ConceptEdge.source_concept_id == new_source,
+                            ConceptEdge.target_concept_id == new_target,
+                            ConceptEdge.edge_type == row.edge_type,
+                        )
                     )
                 )
-            ).scalars().first()
+                .scalars()
+                .first()
+            )
             if existing is not None and existing.id != row.id:
                 existing.confidence = max(existing.confidence, row.confidence)
                 existing.authority_weight = max(
@@ -186,12 +211,16 @@ async def _merge_student_concept_edges(
         ("target_concept_id", "source_concept_id"),
     ):
         rows = (
-            await session.execute(
-                select(StudentConceptEdge).where(
-                    getattr(StudentConceptEdge, own_attr) == old_id
+            (
+                await session.execute(
+                    select(StudentConceptEdge).where(
+                        getattr(StudentConceptEdge, own_attr) == old_id
+                    )
                 )
             )
-        ).scalars().all()
+            .scalars()
+            .all()
+        )
         for row in rows:
             other_id = getattr(row, other_attr)
             new_source = survivor_id if own_attr == "source_concept_id" else other_id
@@ -200,15 +229,19 @@ async def _merge_student_concept_edges(
                 await session.delete(row)
                 continue
             existing = (
-                await session.execute(
-                    select(StudentConceptEdge).where(
-                        StudentConceptEdge.student_id == row.student_id,
-                        StudentConceptEdge.source_concept_id == new_source,
-                        StudentConceptEdge.target_concept_id == new_target,
-                        StudentConceptEdge.edge_type == row.edge_type,
+                (
+                    await session.execute(
+                        select(StudentConceptEdge).where(
+                            StudentConceptEdge.student_id == row.student_id,
+                            StudentConceptEdge.source_concept_id == new_source,
+                            StudentConceptEdge.target_concept_id == new_target,
+                            StudentConceptEdge.edge_type == row.edge_type,
+                        )
                     )
                 )
-            ).scalars().first()
+                .scalars()
+                .first()
+            )
             if existing is not None and existing.id != row.id:
                 existing.confidence = max(existing.confidence, row.confidence)
                 await session.delete(row)
@@ -222,21 +255,30 @@ async def _merge_assessment_links(
     session: AsyncSession, old_id: UUID, survivor_id: UUID
 ) -> None:
     rows = (
-        await session.execute(
-            select(AssessmentItemConcept).where(
-                AssessmentItemConcept.concept_id == old_id
-            )
-        )
-    ).scalars().all()
-    for row in rows:
-        existing = (
+        (
             await session.execute(
                 select(AssessmentItemConcept).where(
-                    AssessmentItemConcept.assessment_item_id == row.assessment_item_id,
-                    AssessmentItemConcept.concept_id == survivor_id,
+                    AssessmentItemConcept.concept_id == old_id
                 )
             )
-        ).scalars().first()
+        )
+        .scalars()
+        .all()
+    )
+    for row in rows:
+        existing = (
+            (
+                await session.execute(
+                    select(AssessmentItemConcept).where(
+                        AssessmentItemConcept.assessment_item_id
+                        == row.assessment_item_id,
+                        AssessmentItemConcept.concept_id == survivor_id,
+                    )
+                )
+            )
+            .scalars()
+            .first()
+        )
         if existing is not None:
             existing.relevance_weight = max(
                 existing.relevance_weight, row.relevance_weight
@@ -263,19 +305,29 @@ async def _merge_student_states(
     session: AsyncSession, old_id: UUID, survivor_id: UUID
 ) -> None:
     rows = (
-        await session.execute(
-            select(StudentConceptState).where(StudentConceptState.concept_id == old_id)
-        )
-    ).scalars().all()
-    for row in rows:
-        existing = (
+        (
             await session.execute(
                 select(StudentConceptState).where(
-                    StudentConceptState.student_id == row.student_id,
-                    StudentConceptState.concept_id == survivor_id,
+                    StudentConceptState.concept_id == old_id
                 )
             )
-        ).scalars().first()
+        )
+        .scalars()
+        .all()
+    )
+    for row in rows:
+        existing = (
+            (
+                await session.execute(
+                    select(StudentConceptState).where(
+                        StudentConceptState.student_id == row.student_id,
+                        StudentConceptState.concept_id == survivor_id,
+                    )
+                )
+            )
+            .scalars()
+            .first()
+        )
         if existing is not None:
             # Both concepts already have state for this student (rare: the
             # student was matched inconsistently across resources before the
@@ -324,10 +376,22 @@ async def _merge_student_states(
     await session.flush()
 
 
-async def repair_course(session: AsyncSession, course_id: UUID, *, dry_run: bool) -> dict:
+async def repair_course(
+    session: AsyncSession,
+    course_id: UUID,
+    *,
+    dry_run: bool,
+    approved_survivors: set[UUID] | None = None,
+) -> dict:
     profiles = await _load_profiles(session, course_id)
     profiles_by_id = {p.concept_id: p for p in profiles}
     clusters = cluster_duplicate_concepts(profiles)
+    if approved_survivors is not None:
+        clusters = [
+            cluster
+            for cluster in clusters
+            if choose_survivor(cluster, profiles_by_id) in approved_survivors
+        ]
 
     report = []
     for cluster in clusters:
@@ -388,6 +452,10 @@ async def repair_course(session: AsyncSession, course_id: UUID, *, dry_run: bool
             "clusters": report,
         }
 
+    # Collapsing vertices can introduce cycles and change transitive paths.
+    if clusters:
+        await _clean_up_prerequisite_graph(session, course_id)
+
     # Raw evidence events for every loser now live under their survivor
     # (see the StudentEvidenceEvent repoint above), but each survivor's
     # *stored* understanding/discovery_state was computed from only one
@@ -396,12 +464,16 @@ async def repair_course(session: AsyncSession, course_id: UUID, *, dry_run: bool
     survivor_ids = {choose_survivor(c, profiles_by_id) for c in clusters}
     for survivor_id in survivor_ids:
         student_ids = (
-            await session.execute(
-                select(StudentEvidenceEvent.student_id)
-                .where(StudentEvidenceEvent.concept_id == survivor_id)
-                .distinct()
+            (
+                await session.execute(
+                    select(StudentEvidenceEvent.student_id)
+                    .where(StudentEvidenceEvent.concept_id == survivor_id)
+                    .distinct()
+                )
             )
-        ).scalars().all()
+            .scalars()
+            .all()
+        )
         for student_id in student_ids:
             await recompute_student_state(
                 session,
@@ -411,12 +483,18 @@ async def repair_course(session: AsyncSession, course_id: UUID, *, dry_run: bool
             )
 
     await session.commit()
-    return {"course_id": str(course_id), "clusters_merged": len(clusters), "clusters": report}
+    return {
+        "course_id": str(course_id),
+        "clusters_merged": len(clusters),
+        "clusters": report,
+    }
 
 
-async def main(course_id: UUID, *, dry_run: bool) -> None:
+async def main(course_id: UUID, *, dry_run: bool, approved_survivors=None) -> None:
     async with async_session_factory() as session:
-        result = await repair_course(session, course_id, dry_run=dry_run)
+        result = await repair_course(
+            session, course_id, dry_run=dry_run, approved_survivors=approved_survivors
+        )
     import json
 
     print(json.dumps(result, indent=2))
@@ -427,5 +505,17 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("course_id", type=UUID)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--survivor",
+        type=UUID,
+        action="append",
+        help="Repair only a reviewed cluster with this survivor; repeat for multiple clusters.",
+    )
     args = parser.parse_args()
-    asyncio.run(main(args.course_id, dry_run=args.dry_run))
+    asyncio.run(
+        main(
+            args.course_id,
+            dry_run=args.dry_run,
+            approved_survivors=set(args.survivor) if args.survivor else None,
+        )
+    )
