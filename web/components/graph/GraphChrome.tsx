@@ -1,6 +1,5 @@
 'use client'
 
-import { Maximize2, Minus, Plus } from 'lucide-react'
 import { LENSES, type Lens, type GraphModelNode } from '@/lib/kg/graphModel'
 import {
   ARTIFACT_LABEL,
@@ -34,6 +33,24 @@ export function GraphLenses({
   )
 }
 
+function Icon({ children }: { children: React.ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="13"
+      height="13"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      {children}
+    </svg>
+  )
+}
+
 export function GraphControls({
   onFit,
   onZoomIn,
@@ -46,15 +63,25 @@ export function GraphControls({
   return (
     <div className="kg-controls">
       <button type="button" onClick={onZoomOut} aria-label="Zoom out">
-        <Minus size={13} aria-hidden />
+        <Icon>
+          <path d="M5 12h14" />
+        </Icon>
       </button>
       <span aria-hidden />
       <button type="button" onClick={onZoomIn} aria-label="Zoom in">
-        <Plus size={13} aria-hidden />
+        <Icon>
+          <path d="M12 5v14" />
+          <path d="M5 12h14" />
+        </Icon>
       </button>
       <span aria-hidden />
       <button type="button" onClick={onFit} aria-label="Fit graph to view">
-        <Maximize2 size={12} aria-hidden />
+        <Icon>
+          <path d="M15 3h6v6" />
+          <path d="M9 21H3v-6" />
+          <path d="M21 3l-7 7" />
+          <path d="M3 21l7-7" />
+        </Icon>
       </button>
     </div>
   )
