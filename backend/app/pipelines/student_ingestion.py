@@ -26,7 +26,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import get_settings
 from app.domain.mastery.evidence import EvidenceEvent, EvidenceType
-from app.domain.ontology.concepts import ConceptCandidate, ConceptScope
+from app.domain.ontology.concepts import ConceptScope
 from app.domain.ontology.edges import StudentConceptEdgeType
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
 from app.domain.resources.matching import exposure_events_for_matches, match_chunks_to_concepts
@@ -36,6 +36,7 @@ from app.extractors.chunker import chunk_document
 from app.extractors.concepts import extract_resource_structured, grounded
 from app.extractors.parser import parse_resource
 from app.extractors.student_work import extract_handwritten_work, extract_student_text_work
+from app.pipelines.apply_resolution import ResolutionContext, ResolutionPolicy, apply_candidate, name_resolver
 from app.pipelines.batching import gather_bounded
 from app.pipelines.incremental_update import recompute_student_state
 from app.providers.llm.base import LLMProvider
@@ -45,9 +46,6 @@ from app.repositories.assessments import (
     link_item_to_concept,
 )
 from app.repositories.concepts import (
-    add_alias,
-    create_concept,
-    create_resource_link,
     get_alias_index,
     get_visible_embeddings,
 )
@@ -65,7 +63,6 @@ from app.repositories.resources import (
 )
 from app.repositories.student_states import create_evidence_event
 from app.repositories.world import add_world_event
-from app.resolution.merge import ResolutionAction, resolve_concept_candidate
 from app.resolution.normalize import normalize_concept_name
 from app.schemas.extraction import ConceptCandidateOut, ResourceExtractionResult
 
@@ -301,8 +298,18 @@ async def analyze_student_resource(
         row.chunk_metadata = {"extraction": extraction.model_dump(mode="json")}
 
     # Every lookup the per-chunk loop used to repeat is loaded once and kept current in memory.
-    alias_index = await get_alias_index(session, course_id, student_id)
-    existing_embeddings = await get_visible_embeddings(session, course_id, student_id)
+    context = ResolutionContext(
+        alias_index=await get_alias_index(session, course_id, student_id),
+        embeddings=await get_visible_embeddings(session, course_id, student_id),
+    )
+    # Student files never create or adjudicate into CANONICAL concepts. Sure matches merge;
+    # everything else (including the ambiguous band) becomes a PERSONAL concept.
+    policy = ResolutionPolicy(
+        scope=ConceptScope.PERSONAL,
+        owner_student_id=student_id,
+        link_type="ASSESSED_IN" if is_assessment else "APPEARS_IN",
+        adjudicate=None,
+    )
 
     candidates: list[tuple[int, ConceptCandidateOut]] = [
         (chunk_index, candidate)
@@ -318,64 +325,20 @@ async def analyze_student_resource(
     names_by_chunk: dict[int, dict[str, UUID]] = {i: {} for i in range(len(chunk_rows))}
 
     for (chunk_index, candidate_out), candidate_embedding in zip(candidates, candidate_embeddings, strict=True):
-        candidate = ConceptCandidate(
-            name=candidate_out.name,
-            normalized_name=normalize_concept_name(candidate_out.name),
-            definition=candidate_out.definition,
-            concept_kind=candidate_out.concept_kind,
-            granularity=candidate_out.granularity,
-            importance_in_resource=candidate_out.importance_in_resource,
-            aliases=candidate_out.aliases,
-        )
-        resolution = resolve_concept_candidate(
-            candidate,
-            alias_index=alias_index,
-            existing_concept_embeddings=existing_embeddings,
-            candidate_embedding=candidate_embedding,
-            merge_threshold=settings.concept_merge_threshold,
-            adjudicate_threshold=settings.concept_adjudicate_threshold,
-        )
-
-        # Student files never create or adjudicate into CANONICAL concepts. Sure matches merge;
-        # everything else (including the ambiguous band) becomes a PERSONAL concept.
-        if resolution.action in (ResolutionAction.MERGE_EXACT_ALIAS, ResolutionAction.MERGE_HIGH_SIMILARITY):
-            concept_id = resolution.matched_concept_id
-            assert concept_id is not None
-        else:
-            node = await create_concept(
-                session,
-                course_id=course_id,
-                canonical_name=candidate.name,
-                short_definition=candidate.definition,
-                concept_kind=candidate.concept_kind,
-                granularity=candidate.granularity,
-                importance=candidate.importance_in_resource,
-                embedding=candidate_embedding,
-                scope=ConceptScope.PERSONAL,
-                owner_student_id=student_id,
-                created_from_resource_id=resource_id,
-            )
-            concept_id = node.id
-            outcome.personal_concepts_created += 1
-            existing_embeddings[concept_id] = candidate_embedding
-            alias_index[candidate.normalized_name] = concept_id
-
-        for alias in candidate.aliases:
-            await add_alias(session, concept_id=concept_id, alias=alias, source_resource_id=resource_id)
-            alias_index[normalize_concept_name(alias)] = concept_id
-
-        await create_resource_link(
+        applied = await apply_candidate(
             session,
-            concept_id=concept_id,
+            course_id=course_id,
             resource_id=resource_id,
             chunk_id=chunk_rows[chunk_index].id,
-            link_type="ASSESSED_IN" if is_assessment else "APPEARS_IN",
-            depth_score=candidate.importance_in_resource,
-            confidence=0.7,
+            candidate_out=candidate_out,
+            embedding=candidate_embedding,
+            context=context,
+            policy=policy,
+            name_map=names_by_chunk[chunk_index],
         )
-
-        names_by_chunk[chunk_index][candidate_out.name] = concept_id
-        names_by_chunk[chunk_index][candidate.normalized_name] = concept_id
+        concept_id = applied.concept_id
+        if applied.created:
+            outcome.personal_concepts_created += 1
         touched.add(concept_id)
 
         if not is_assessment:
@@ -399,10 +362,7 @@ async def analyze_student_resource(
     graded_type = _GRADED_EVIDENCE_TYPE_BY_ARTIFACT.get(artifact_type, EvidenceType.GRADED_HOMEWORK)
 
     for chunk_index, extraction in enumerate(extractions):
-        names = names_by_chunk[chunk_index]
-
-        def resolve_name(name: str, *, _names: dict[str, UUID] = names) -> UUID | None:
-            return _names.get(name) or _names.get(normalize_concept_name(name)) or alias_index.get(normalize_concept_name(name))
+        resolve_name = name_resolver(names_by_chunk[chunk_index], context)
 
         for rel in extraction.concept_relationships:
             source_id = resolve_name(rel.source_concept_name)
