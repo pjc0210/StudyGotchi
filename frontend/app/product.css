@@ -1694,11 +1694,22 @@ h3 {
   background: var(--mark, var(--a-ink));
 }
 
-.sg-legend i.is-file {
-  width: 5px;
-  height: 5px;
-  background: transparent;
-  box-shadow: inset 0 0 0 1px var(--mark, var(--a-ink));
+/* Course stamp at the top left of the Information sky: a code, not a title. */
+.sg-course-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--a-sheet);
+  box-shadow: var(--a-shadow-hairline);
+  font-family: var(--a-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--a-ink-75);
+  white-space: nowrap;
 }
 
 .sg-tooltip {

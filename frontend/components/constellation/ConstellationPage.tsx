@@ -10,6 +10,7 @@ import { UploadDialog } from "@/components/upload/UploadDropzone";
 import { emit } from "@/lib/audio/events";
 import type { Lens } from "@/lib/graphModel";
 import { useIdentity } from "@/lib/identity";
+import { courseChipLabel, INFORMATION_UNDERSTANDING_MARKS } from "@/lib/world/earth-nav";
 import { ConstellationSearch } from "./ConstellationSearch";
 
 type Dock = "files" | "weak";
@@ -65,6 +66,7 @@ export function ConstellationPage() {
   }, [dock]);
 
   const course = identity.courses.find((c) => c.id === identity.courseId);
+  const courseChip = courseChipLabel(course);
 
   return (
     <div className="sg-constellation">
@@ -76,6 +78,11 @@ export function ConstellationPage() {
       />
 
       <div className="sg-toolbar">
+        {courseChip ? (
+          <span className="sg-course-chip" title={course?.name ?? undefined}>
+            {courseChip}
+          </span>
+        ) : null}
         <GraphLenses
           lens={lens}
           onChange={handleLens}
@@ -131,19 +138,11 @@ export function ConstellationPage() {
       ) : null}
 
       <div className="sg-legend" aria-hidden>
-        <span>
-          <i /> idea
-        </span>
-        <span>
-          <i className="is-file" /> file
-        </span>
-        <span>
-          <i style={{ ["--mark" as string]: "var(--a-lamp)" }} /> mastered
-        </span>
-        <span>
-          <i style={{ ["--mark" as string]: "var(--a-live)" }} /> needs work
-        </span>
-        {course ? <span>{course.code ?? course.name}</span> : null}
+        {INFORMATION_UNDERSTANDING_MARKS.map((mark) => (
+          <span key={mark.id}>
+            <i style={{ ["--mark" as string]: mark.mark }} /> {mark.label}
+          </span>
+        ))}
       </div>
 
       <UploadDialog open={uploadOpen} onClose={() => setUploadOpen(false)} />

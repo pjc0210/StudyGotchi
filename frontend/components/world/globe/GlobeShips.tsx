@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, type ReactNode } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { containerShipHull } from "@/lib/world/container-ship";
 import { WATER_RADIUS } from "./globe-materials";
 
 const UP = new THREE.Vector3(0, 1, 0);
@@ -48,6 +49,40 @@ function WedgeHull({
     next.computeVertexNormals();
     return next;
   }, [height, length, width]);
+
+  useEffect(() => () => geometry.dispose(), [geometry]);
+
+  return (
+    <mesh geometry={geometry} castShadow>
+      <meshStandardMaterial color={color} flatShading />
+    </mesh>
+  );
+}
+
+/** Box midbody with a single triangular bow toward +z (the MovingShip heading). */
+function ContainerHull({
+  length,
+  width,
+  height,
+  bowLength,
+  color,
+}: {
+  length: number;
+  width: number;
+  height: number;
+  bowLength: number;
+  color: string;
+}) {
+  const geometry = useMemo(() => {
+    const hull = containerShipHull({ length, width, height, bowLength });
+    const indexed = new THREE.BufferGeometry();
+    indexed.setAttribute("position", new THREE.Float32BufferAttribute(hull.positions, 3));
+    indexed.setIndex(hull.indices);
+    const next = indexed.toNonIndexed();
+    indexed.dispose();
+    next.computeVertexNormals();
+    return next;
+  }, [bowLength, height, length, width]);
 
   useEffect(() => () => geometry.dispose(), [geometry]);
 
@@ -163,38 +198,68 @@ export function HarborTug() {
   );
 }
 
+/* Hull 0.9 long: stern at z -0.45, midbody to the bow shoulder at z 0.15, tip at 0.45. */
+const FERRY_CONTAINERS: Array<{ pos: [number, number, number]; color: string }> = [
+  { pos: [-0.075, 0.255, -0.2], color: "#d17a59" },
+  { pos: [0.075, 0.255, -0.2], color: "#5f8f6a" },
+  { pos: [-0.075, 0.255, -0.05], color: "#e2b44e" },
+  { pos: [0.075, 0.255, -0.05], color: "#c65e53" },
+  { pos: [-0.075, 0.255, 0.1], color: "#6d84b4" },
+  { pos: [0.075, 0.255, 0.1], color: "#d17a59" },
+  { pos: [-0.075, 0.345, -0.2], color: "#e8e0cc" },
+  { pos: [0.075, 0.345, -0.05], color: "#e2b44e" },
+  { pos: [-0.075, 0.345, -0.05], color: "#c65e53" },
+];
+
 export function CargoFerry() {
   return (
     <group>
       <group position={[0, 0.1, 0]}>
-        <WedgeHull length={0.9} width={0.34} height={0.2} color="#56788b" />
+        <ContainerHull length={0.9} width={0.34} height={0.2} bowLength={0.3} color="#56788b" />
       </group>
-      <mesh position={[0, 0.03, -0.025]}>
-        <boxGeometry args={[0.345, 0.06, 0.76]} />
-        <meshStandardMaterial color="#343b49" flatShading />
+      <group position={[0, 0.03, 0]}>
+        <ContainerHull length={0.92} width={0.35} height={0.06} bowLength={0.31} color="#343b49" />
+      </group>
+      <mesh position={[0, 0.21, -0.15]}>
+        <boxGeometry args={[0.3, 0.02, 0.56]} />
+        <meshStandardMaterial color="#465a6a" flatShading />
       </mesh>
-      <mesh position={[0, 0.27, -0.27]} castShadow>
-        <boxGeometry args={[0.27, 0.26, 0.24]} />
-        <meshStandardMaterial color="#e8e0cc" flatShading />
-      </mesh>
-      <mesh position={[0, 0.42, -0.27]} castShadow>
-        <boxGeometry args={[0.31, 0.05, 0.28]} />
-        <meshStandardMaterial color="#65717f" flatShading />
-      </mesh>
-      <mesh position={[-0.085, 0.25, 0.12]} castShadow>
-        <boxGeometry args={[0.13, 0.2, 0.25]} />
-        <meshStandardMaterial color="#d17a59" flatShading />
-      </mesh>
-      <mesh position={[0.085, 0.23, 0.13]} castShadow>
-        <boxGeometry args={[0.13, 0.16, 0.23]} />
-        <meshStandardMaterial color="#e2b44e" flatShading />
-      </mesh>
-      {[-0.185, 0.185].map((x) => (
-        <mesh key={x} position={[x, 0.28, 0.04]}>
-          <boxGeometry args={[0.018, 0.14, 0.58]} />
+      {[-0.163, 0.163].map((x) => (
+        <mesh key={x} position={[x, 0.215, -0.15]}>
+          <boxGeometry args={[0.012, 0.03, 0.58]} />
           <meshStandardMaterial color="#d9d1ba" flatShading />
         </mesh>
       ))}
+      {FERRY_CONTAINERS.map((box, index) => (
+        <mesh key={index} position={box.pos} castShadow>
+          <boxGeometry args={[0.13, 0.09, 0.13]} />
+          <meshStandardMaterial color={box.color} flatShading />
+        </mesh>
+      ))}
+      <mesh position={[0, 0.31, -0.36]} castShadow>
+        <boxGeometry args={[0.28, 0.22, 0.14]} />
+        <meshStandardMaterial color="#e8e0cc" flatShading />
+      </mesh>
+      <mesh position={[0, 0.44, -0.36]} castShadow>
+        <boxGeometry args={[0.32, 0.04, 0.16]} />
+        <meshStandardMaterial color="#65717f" flatShading />
+      </mesh>
+      <mesh position={[0, 0.39, -0.29]}>
+        <boxGeometry args={[0.22, 0.05, 0.01]} />
+        <meshBasicMaterial color="#65b5c7" toneMapped={false} />
+      </mesh>
+      <mesh position={[0, 0.51, -0.4]} castShadow>
+        <cylinderGeometry args={[0.028, 0.034, 0.1, 8]} />
+        <meshStandardMaterial color="#c65e53" flatShading />
+      </mesh>
+      <mesh position={[0, 0.565, -0.4]}>
+        <cylinderGeometry args={[0.03, 0.03, 0.012, 8]} />
+        <meshStandardMaterial color="#343b49" flatShading />
+      </mesh>
+      <mesh position={[0, 0.28, 0.3]}>
+        <cylinderGeometry args={[0.007, 0.007, 0.14, 6]} />
+        <meshStandardMaterial color="#d9d1ba" flatShading />
+      </mesh>
     </group>
   );
 }

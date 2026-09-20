@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { ICE_TOWN_PALETTE as P, type BuildingKind } from '../layout/biome-layout'
 import type { PropKind } from '../layout/terrain'
 import { Glow, Surf } from '../render/materials'
+import { containerShipHull, type ContainerShipHullSpec } from '@/lib/world/container-ship'
 
 /* Every object here is primitive geometry with the shared toon material: two or three flat
  * colours plus one accent. Sizes are metres at scale 1 (houses 4.5–6 m, per the pass-3 scale
@@ -655,6 +656,29 @@ export function Sled() {
   )
 }
 
+const hullCache = new Map<string, THREE.BufferGeometry>()
+
+/** Container-ship hull (box midbody, flat transom, triangular bow toward +z), centred on the origin. */
+function hullGeometry(spec: ContainerShipHullSpec): THREE.BufferGeometry {
+  const key = `${spec.length}:${spec.width}:${spec.height}:${spec.bowLength}`
+  const cached = hullCache.get(key)
+  if (cached) return cached
+  const hull = containerShipHull(spec)
+  const indexed = new THREE.BufferGeometry()
+  indexed.setAttribute('position', new THREE.Float32BufferAttribute(hull.positions, 3))
+  indexed.setIndex(hull.indices)
+  // Non-indexed so the toon ramp shades each hull plate flat instead of smearing across the chine.
+  const geo = indexed.toNonIndexed()
+  indexed.dispose()
+  geo.computeVertexNormals()
+  hullCache.set(key, geo)
+  return geo
+}
+
+/* Hull 5.2 m: transom at z -2.3, midbody to the bow shoulder at z 1.6, bow tip at z 2.9. */
+const SHIP_HULL: ContainerShipHullSpec = { length: 5.2, width: 2.15, height: 0.72, bowLength: 1.3 }
+const SHIP_WATERLINE: ContainerShipHullSpec = { length: 5.3, width: 2.22, height: 0.18, bowLength: 1.34 }
+
 /**
  * Harbour cargo ship: hull, waterline, deck, stacked containers, bridge,
  * funnel, and a deck crane. Modelled in metres; Structures scales it 1.8×.
@@ -662,30 +686,25 @@ export function Sled() {
  */
 export function Boat() {
   const crates: Array<{ pos: [number, number, number]; color: string }> = [
-    { pos: [-0.55, 0.86, 0.55], color: P.timberRed },
-    { pos: [0.55, 0.86, 0.55], color: P.peach },
-    { pos: [-0.55, 0.86, 1.45], color: P.coral },
-    { pos: [0.55, 0.86, 1.45], color: P.timberTeal },
-    { pos: [-0.55, 1.36, 1.0], color: P.lilac },
-    { pos: [0.55, 1.36, 1.0], color: P.timberRed },
-    { pos: [0, 0.86, 2.2], color: P.peach },
+    { pos: [-0.55, 0.86, -0.15], color: P.timberRed },
+    { pos: [0.55, 0.86, -0.15], color: P.peach },
+    { pos: [-0.55, 0.86, 0.75], color: P.coral },
+    { pos: [0.55, 0.86, 0.75], color: P.timberTeal },
+    { pos: [-0.55, 1.36, 0.3], color: P.lilac },
+    { pos: [0.55, 1.36, 0.3], color: P.timberRed },
   ];
+  const hull = useMemo(() => hullGeometry(SHIP_HULL), [])
+  const waterline = useMemo(() => hullGeometry(SHIP_WATERLINE), [])
   return (
     <group name="ice-cargo-ship" position={[0, 0.08, 0]}>
-      <mesh position={[0, 0.42, 0.15]} castShadow>
-        <boxGeometry args={[2.15, 0.72, 4.4]} />
+      <mesh geometry={hull} position={[0, 0.42, 0.3]} castShadow>
         <Surf color={P.timberTeal} />
       </mesh>
-      <mesh position={[0, 0.42, 2.55]} rotation={[-Math.PI / 2, 0, 0]} scale={[1, 1, 0.72]} castShadow>
-        <coneGeometry args={[1.075, 1.35, 5]} />
-        <Surf color={P.timberTeal} />
-      </mesh>
-      <mesh position={[0, 0.08, 0.1]}>
-        <boxGeometry args={[2.22, 0.18, 4.55]} />
+      <mesh geometry={waterline} position={[0, 0.08, 0.3]}>
         <Surf color={P.ink} />
       </mesh>
-      <mesh position={[0, 0.8, 0.1]} receiveShadow>
-        <boxGeometry args={[2.05, 0.1, 4.2]} />
+      <mesh position={[0, 0.8, -0.35]} receiveShadow>
+        <boxGeometry args={[2.05, 0.1, 3.85]} />
         <Surf color={P.planks} />
       </mesh>
       {crates.map((crate, i) => (
@@ -716,21 +735,21 @@ export function Boat() {
         <cylinderGeometry args={[0.24, 0.24, 0.12, 8]} />
         <Surf color={P.timberRed} />
       </mesh>
-      <mesh position={[0.72, 1.55, 0.2]} castShadow>
+      <mesh position={[0.6, 1.55, 1.45]} castShadow>
         <boxGeometry args={[0.12, 1.35, 0.12]} />
         <Surf color={P.peach} />
       </mesh>
-      <mesh position={[0.72, 2.15, 0.75]} rotation={[0.85, 0, 0]}>
+      <mesh position={[0.6, 2.15, 2.0]} rotation={[0.85, 0, 0]}>
         <boxGeometry args={[0.08, 0.08, 1.15]} />
         <Surf color={P.peach} />
       </mesh>
       {[-1.0, 1.0].map((x) => (
-        <mesh key={x} position={[x, 1.02, 0.1]}>
-          <boxGeometry args={[0.04, 0.28, 4.05]} />
+        <mesh key={x} position={[x, 1.02, -0.35]}>
+          <boxGeometry args={[0.04, 0.28, 3.8]} />
           <Surf color={P.cream} />
         </mesh>
       ))}
-      <mesh position={[0, 1.15, -2.28]} castShadow>
+      <mesh position={[0, 1.15, -2.33]} castShadow>
         <boxGeometry args={[1.9, 0.55, 0.18]} />
         <Surf color={P.ink} />
       </mesh>
