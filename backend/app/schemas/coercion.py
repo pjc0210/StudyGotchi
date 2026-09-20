@@ -6,14 +6,12 @@ unit-interval floats that overshoot 0/1 by a hair.
 """
 
 from enum import StrEnum
-from typing import Annotated, Any, TypeVar
+from typing import Annotated, Any
 
 from pydantic import BeforeValidator, Field
 
 from app.domain.ontology.concepts import ConceptKind, Granularity
 from app.domain.ontology.edges import ConceptEdgeType
-
-E = TypeVar("E", bound=StrEnum)
 
 _RESOURCE_LINK_TYPES = frozenset({"EXPLAINED_IN", "APPEARS_IN", "WORKED_EXAMPLE_IN"})
 
@@ -49,7 +47,7 @@ def none_to_empty_list(value: Any) -> Any:
     return [] if value is None else value
 
 
-def coerce_str_enum(enum_cls: type[E]):
+def coerce_str_enum[E: StrEnum](enum_cls: type[E]):
     def _coerce(value: Any) -> Any:
         if value is None or isinstance(value, enum_cls):
             return value

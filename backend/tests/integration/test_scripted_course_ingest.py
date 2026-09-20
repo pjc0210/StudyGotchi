@@ -9,6 +9,7 @@ from uuid import uuid4
 
 import pytest
 from sqlalchemy import select, text
+from sqlalchemy.exc import SQLAlchemyError
 
 from app.db.models import AssessmentItem, Concept, ConceptEdge, EdgeEvidence
 from app.db.session import async_session_factory, engine
@@ -196,7 +197,7 @@ async def _db_available() -> bool:
         async with engine.connect() as conn:
             await conn.execute(text("SELECT 1"))
         return True
-    except Exception:
+    except (SQLAlchemyError, OSError):
         return False
 
 

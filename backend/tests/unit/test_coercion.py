@@ -1,11 +1,15 @@
 from app.domain.ontology.concepts import ConceptKind, Granularity
 from app.domain.ontology.edges import ConceptEdgeType
+from app.schemas.coercion import (
+    clamp_unit_interval,
+    coerce_resource_link_type,
+    coerce_str_enum,
+)
 from app.schemas.extraction import (
     ConceptCandidateOut,
     ResourceConceptLinkOut,
     ResourceExtractionResult,
 )
-from app.schemas.coercion import clamp_unit_interval, coerce_resource_link_type, coerce_str_enum
 
 
 def test_clamp_unit_interval_clips_and_parses_strings():

@@ -121,9 +121,10 @@ def _strictify(node: Any, *, original_required: set[str] | None = None) -> Any:
         new_props: dict[str, Any] = {}
         for name, subschema in props.items():
             strict_sub = _strictify(subschema)
-            if name not in orig_required:
-                if not (isinstance(strict_sub, dict) and "anyOf" in strict_sub):
-                    strict_sub = _nullable(strict_sub)
+            if name not in orig_required and not (
+                isinstance(strict_sub, dict) and "anyOf" in strict_sub
+            ):
+                strict_sub = _nullable(strict_sub)
             new_props[name] = strict_sub
         result["type"] = "object"
         result["properties"] = new_props

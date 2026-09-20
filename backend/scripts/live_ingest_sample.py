@@ -18,7 +18,13 @@ from uuid import uuid4
 from sqlalchemy import func, select
 
 from app.config import get_settings
-from app.db.models import AssessmentItem, Concept, ConceptAlias, ConceptEdge, EdgeEvidence
+from app.db.models import (
+    AssessmentItem,
+    Concept,
+    ConceptAlias,
+    ConceptEdge,
+    EdgeEvidence,
+)
 from app.db.session import async_session_factory
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
 from app.pipelines.course_ingestion import ingest_course_resource

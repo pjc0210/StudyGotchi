@@ -10,8 +10,12 @@ def test_strict_tool_schema_inlines_defs_and_requires_every_property():
     assert schema["additionalProperties"] is False
     assert set(schema["required"]) == set(schema["properties"])
     candidates = schema["properties"]["concept_candidates"]
-    assert candidates["type"] == "array"
-    item = candidates["items"]
+    if "anyOf" in candidates:
+        array_schema = next(opt for opt in candidates["anyOf"] if opt.get("type") == "array")
+    else:
+        array_schema = candidates
+    assert array_schema["type"] == "array"
+    item = array_schema["items"]
     assert item["additionalProperties"] is False
     assert "concept_kind" in item["required"]
     kind = item["properties"]["concept_kind"]
