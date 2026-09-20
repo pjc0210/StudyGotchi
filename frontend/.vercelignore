@@ -3,7 +3,17 @@
 # generated React spiral; the build script can rematerialize a slim
 # public/assets if a local assets source exists.
 public/assets
+public/assets/**
+
+# Local Next verify/output trees are hundreds of MB and are not the app source.
+.next
+.next/**
 .next-verify
-.next-demo-verify
 .next-verify/**
+.next-demo-verify
 .next-demo-verify/**
+.next-nav-verify
+.next-nav-verify/**
+.next-*
+.next-*/**
+tsconfig.tsbuildinfo
