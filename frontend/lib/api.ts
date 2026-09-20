@@ -29,6 +29,79 @@ export const COURSE_ID = process.env.NEXT_PUBLIC_COURSE_ID ?? MOCK_COURSE.id;
 export const COURSE_NAME = process.env.NEXT_PUBLIC_COURSE_NAME ?? MOCK_COURSE.name;
 export const STUDENT_ID = process.env.NEXT_PUBLIC_STUDENT_ID ?? MOCK_STUDENT_ID;
 
+export interface Identity {
+  studentId: string;
+  courseId: string;
+  courseName: string;
+}
+
+export interface MeResponse {
+  student_id: string;
+  courses: { id: string; name: string; code: string | null; term: string | null }[];
+}
+
+type TokenGetter = () => Promise<string | null>;
+
+let tokenGetter: TokenGetter | null = null;
+let identity: Identity = {
+  studentId: STUDENT_ID,
+  courseId: COURSE_ID,
+  courseName: COURSE_NAME,
+};
+let identityReady = USE_MOCK;
+const identityListeners = new Set<() => void>();
+
+export function setApiTokenGetter(getter: TokenGetter | null) {
+  tokenGetter = getter;
+}
+
+export function getIdentity(): Identity {
+  return identity;
+}
+
+export function isIdentityReady(): boolean {
+  return identityReady;
+}
+
+export function setIdentity(next: Partial<Identity>) {
+  identity = { ...identity, ...next };
+  identityReady = true;
+  identityListeners.forEach((fn) => fn());
+}
+
+export function onIdentityChange(fn: () => void): () => void {
+  identityListeners.add(fn);
+  return () => {
+    identityListeners.delete(fn);
+  };
+}
+
+export async function resolveLiveIdentity(): Promise<Identity> {
+  const me = await getMe();
+  const preferred = process.env.NEXT_PUBLIC_COURSE_ID;
+  const course = me.courses.find((c) => c.id === preferred) ?? me.courses[0];
+  const next: Identity = {
+    studentId: me.student_id,
+    courseId: course?.id ?? COURSE_ID,
+    courseName: course?.name ?? COURSE_NAME,
+  };
+  setIdentity(next);
+  return next;
+}
+
+export async function getMe(): Promise<MeResponse> {
+  return request<MeResponse>("/api/me");
+}
+
+export async function getWorld() {
+  const { studentId, courseId } = identity;
+  return request<unknown>(`/api/courses/${courseId}/students/${studentId}/world`);
+}
+
+export async function getSharedWorld(token: string) {
+  return request<unknown>(`/api/w/${encodeURIComponent(token)}`);
+}
+
 export class ApiError extends Error {
   constructor(message: string, readonly status?: number) {
     super(message);
@@ -123,12 +196,16 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
 // ---------------------------------------------------------------------------
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const headers = new Headers(init?.headers);
+  headers.set("Accept", "application/json");
+  if (tokenGetter) {
+    const token = await tokenGetter();
+    if (token) headers.set("Authorization", `Bearer ${token}`);
+  }
+
   let res: Response;
   try {
-    res = await fetch(`${API_URL}${path}`, {
-      ...init,
-      headers: { Accept: "application/json", ...(init?.headers ?? {}) },
-    });
+    res = await fetch(`${API_URL}${path}`, { ...init, headers });
   } catch {
     throw new ApiError(`Could not reach the knowledge engine at ${API_URL}.`);
   }
@@ -139,19 +216,24 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return (await res.json()) as T;
 }
 
-const base = `/api/courses/${COURSE_ID}`;
-const studentBase = `${base}/students/${STUDENT_ID}`;
+function coursePath(suffix: string) {
+  return `/api/courses/${identity.courseId}${suffix}`;
+}
+
+function studentPath(suffix: string) {
+  return `${coursePath("")}/students/${identity.studentId}${suffix}`;
+}
 
 const httpApi: KnowledgeApi = {
   async getKnowledgeGraph() {
-    return normalizeGraph(await request<unknown>(`${studentBase}/knowledge-graph`));
+    return normalizeGraph(await request<unknown>(studentPath("/knowledge-graph")));
   },
   async getConceptDetail(conceptId) {
-    return request<ConceptDetail>(`${studentBase}/concepts/${conceptId}`);
+    return request<ConceptDetail>(studentPath(`/concepts/${conceptId}`));
   },
   async getWhy(conceptId) {
     try {
-      return await request<WhyExplanation>(`${studentBase}/concepts/${conceptId}/why`);
+      return await request<WhyExplanation>(studentPath(`/concepts/${conceptId}/why`));
     } catch (err) {
       // Explainability is optional - a 404 is not a failure of the page.
       if (err instanceof ApiError && err.status === 404) return null;
@@ -159,17 +241,17 @@ const httpApi: KnowledgeApi = {
     }
   },
   async getGaps(target) {
-    return request<GapsResponse>(`${studentBase}/gaps?target=${encodeURIComponent(target)}`);
+    return request<GapsResponse>(studentPath(`/gaps?target=${encodeURIComponent(target)}`));
   },
   async createStudyPlan(target) {
-    return request<StudyPlan>(`${studentBase}/study-plan`, {
+    return request<StudyPlan>(studentPath("/study-plan"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ target }),
     });
   },
   async listResources() {
-    return request<CourseResource[]>(`${base}/resources`);
+    return request<CourseResource[]>(coursePath("/resources"));
   },
   async ingest({ file, origin, artifactType, studentScoped }) {
     const form = new FormData();
@@ -177,8 +259,8 @@ const httpApi: KnowledgeApi = {
     form.append("source_origin", origin);
     form.append("artifact_type", artifactType);
     const path = studentScoped
-      ? `${studentBase}/resources/ingest`
-      : `${base}/resources/ingest`;
+      ? studentPath("/resources/ingest")
+      : coursePath("/resources/ingest");
     return request<IngestResponse>(path, { method: "POST", body: form });
   },
 };

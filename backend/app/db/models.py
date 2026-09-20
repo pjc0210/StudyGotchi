@@ -36,6 +36,24 @@ class Course(Base, UUIDPKMixin, TimestampMixin):
     term: Mapped[str | None] = mapped_column(Text, nullable=True)
 
 
+class Student(Base, UUIDPKMixin, TimestampMixin):
+    __tablename__ = "students"
+
+    clerk_user_id: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
+    display_name: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class WorldShare(Base, UUIDPKMixin, TimestampMixin):
+    __tablename__ = "world_shares"
+
+    token: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
+    student_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), nullable=False)
+    course_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("courses.id"), nullable=False
+    )
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
 class Resource(Base, UUIDPKMixin, TimestampMixin):
     __tablename__ = "resources"
 

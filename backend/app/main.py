@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import courses, mastery, ontology, personal_graph, resources, study
+from app.api.routes import courses, mastery, me, ontology, personal_graph, resources, study
 from app.config import get_settings
 
 app = FastAPI(
@@ -18,6 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(me.router)
 app.include_router(courses.router)
 app.include_router(resources.router)
 app.include_router(ontology.router)

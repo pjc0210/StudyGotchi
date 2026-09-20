@@ -6,6 +6,7 @@ import { rankConceptMatches, stateStyle } from "@/lib/graph";
 import { useStore } from "@/lib/store";
 import { COURSE_NAME, USE_MOCK } from "@/lib/api";
 import { StateBadge } from "@/components/common/StatusBadge";
+import { AuthControls } from "@/components/auth/AuthControls";
 
 export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
   const { graph, focusConcept } = useStore();
@@ -134,6 +135,7 @@ export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
         <Upload size={13} strokeWidth={2.25} aria-hidden />
         Upload Files
       </button>
+      <AuthControls />
     </header>
   );
 }

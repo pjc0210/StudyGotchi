@@ -7,11 +7,19 @@ from app.providers.llm.base import LLMProvider
 @lru_cache
 def get_llm_provider() -> LLMProvider:
     settings = get_settings()
-    if settings.llm_provider == "fake":
+    provider = settings.llm_provider.strip().lower()
+    if provider == "fake":
         from app.providers.llm.fake_provider import FakeLLMProvider
 
         return FakeLLMProvider()
+    if provider == "openai":
+        from app.providers.llm.openai_provider import OpenAILLMProvider
 
-    from app.providers.llm.anthropic_provider import AnthropicLLMProvider
+        return OpenAILLMProvider()
+    if provider == "anthropic":
+        from app.providers.llm.anthropic_provider import AnthropicLLMProvider
 
-    return AnthropicLLMProvider()
+        return AnthropicLLMProvider()
+    raise RuntimeError(
+        f"Unknown LLM_PROVIDER={settings.llm_provider!r}. Expected one of: openai, anthropic, fake."
+    )

@@ -10,7 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { api, ApiError, USE_MOCK } from "./api";
+import { api, ApiError, isIdentityReady, onIdentityChange, USE_MOCK } from "./api";
 import { DEFAULT_FILTERS, type GraphFilters } from "./graph";
 import type {
   ArtifactType,
@@ -93,7 +93,8 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    reloadGraph();
+    if (USE_MOCK || isIdentityReady()) reloadGraph();
+    return onIdentityChange(reloadGraph);
   }, [reloadGraph]);
 
   useEffect(

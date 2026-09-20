@@ -12,7 +12,7 @@ from uuid import UUID
 from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.dependencies import get_db, get_provider
+from app.api.dependencies import current_student, get_db, get_provider, require_student
 from app.config import get_settings
 from app.db.models import Resource
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
@@ -51,6 +51,7 @@ async def ingest_course_resource_endpoint(
     file: UploadFile = File(...),
     session: AsyncSession = Depends(get_db),
     provider: LLMProvider = Depends(get_provider),
+    _: UUID = Depends(current_student),
 ) -> ResourceIngestResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
@@ -86,6 +87,7 @@ async def ingest_student_resource_endpoint(
     file: UploadFile = File(...),
     session: AsyncSession = Depends(get_db),
     provider: LLMProvider = Depends(get_provider),
+    _: UUID = Depends(require_student),
 ) -> StudentResourceIngestResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
@@ -120,7 +122,10 @@ async def ingest_student_resource_endpoint(
 
 @router.get("/students/{student_id}/resources", response_model=list[ResourceStatusOut])
 async def list_student_resources_endpoint(
-    course_id: UUID, student_id: UUID, session: AsyncSession = Depends(get_db)
+    course_id: UUID,
+    student_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
 ) -> list[ResourceStatusOut]:
     rows = await list_student_resources(session, course_id=course_id, student_id=student_id)
     return [_status_out(r) for r in rows]
@@ -128,7 +133,11 @@ async def list_student_resources_endpoint(
 
 @router.get("/students/{student_id}/resources/{resource_id}", response_model=ResourceStatusOut)
 async def get_student_resource_endpoint(
-    course_id: UUID, student_id: UUID, resource_id: UUID, session: AsyncSession = Depends(get_db)
+    course_id: UUID,
+    student_id: UUID,
+    resource_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
 ) -> ResourceStatusOut:
     resource = await get_resource(session, resource_id)
     if resource is None or resource.course_id != course_id or resource.owner_user_id != student_id:

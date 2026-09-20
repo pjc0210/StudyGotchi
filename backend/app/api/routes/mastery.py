@@ -5,7 +5,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.dependencies import get_db
+from app.api.dependencies import get_db, require_student
 from app.domain.personal_graph.discovery import DiscoveryState
 from app.repositories.concepts import get_course_concepts, get_personal_concepts
 from app.repositories.courses import get_course
@@ -16,7 +16,12 @@ router = APIRouter(prefix="/api/courses/{course_id}/students/{student_id}", tags
 
 
 @router.get("/mastery", response_model=MasteryResponse)
-async def get_mastery_endpoint(course_id: UUID, student_id: UUID, session: AsyncSession = Depends(get_db)) -> MasteryResponse:
+async def get_mastery_endpoint(
+    course_id: UUID,
+    student_id: UUID,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
+) -> MasteryResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 

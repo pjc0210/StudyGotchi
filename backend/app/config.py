@@ -8,9 +8,17 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+asyncpg://studygotchi:studygotchi@localhost:5432/studygotchi"
 
-    llm_provider: str = "anthropic"
+    llm_provider: str = "openai"
+
+    openai_api_key: str | None = None
+    openai_model: str = "gpt-4.1"
+    openai_fast_model: str = "gpt-4.1-mini"
+    openai_vision_model: str = "gpt-4.1"
+    openai_embed_model: str = "text-embedding-3-large"
+    # Must match Vector(EMBEDDING_DIM) in app.db.models (1024).
+    openai_embed_dimensions: int = 1024
+
     anthropic_api_key: str | None = None
-    # Strong model reads course material once; the fast model reads every student file.
     anthropic_model: str = "claude-sonnet-5"
     anthropic_fast_model: str = "claude-haiku-4-5"
     anthropic_vision_model: str = "claude-sonnet-5"

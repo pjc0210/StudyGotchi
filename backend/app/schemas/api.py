@@ -21,6 +21,11 @@ class CourseOut(BaseModel):
     term: str | None
 
 
+class MeOut(BaseModel):
+    student_id: UUID
+    courses: list[CourseOut]
+
+
 class ResourceIngestResponse(BaseModel):
     resource_id: UUID
     status: str

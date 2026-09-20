@@ -2,15 +2,17 @@
 
 import {
   FileText,
+  Globe,
   Network,
   Route,
   TriangleAlert,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-export type Section = "knowledge" | "files" | "gaps" | "study";
+export type Section = "world" | "knowledge" | "files" | "gaps" | "study";
 
 const ITEMS: { id: Section; label: string; icon: LucideIcon }[] = [
+  { id: "world", label: "World", icon: Globe },
   { id: "knowledge", label: "Knowledge", icon: Network },
   { id: "files", label: "Files", icon: FileText },
   { id: "gaps", label: "Gaps", icon: TriangleAlert },

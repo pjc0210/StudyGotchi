@@ -7,20 +7,22 @@ import { FileList } from "@/components/files/FileList";
 import { GapPanel } from "@/components/gaps/GapPanel";
 import { StudyPlanPanel } from "@/components/study/StudyPlan";
 import { UploadDialog } from "@/components/upload/UploadDropzone";
+import { WorldPage } from "@/components/world/WorldPage";
 import { useStore } from "@/lib/store";
 import { Sidebar, type Section } from "./Sidebar";
 import { TopBar } from "./TopBar";
 
 const TITLES: Record<Section, string> = {
+  world: "World",
   knowledge: "Knowledge",
   files: "Files",
   gaps: "Knowledge Gaps",
   study: "Study Plan",
 };
 
-export function AppShell() {
+export function AppShell({ initial = "world" }: { initial?: Section }) {
   const { target } = useStore();
-  const [section, setSection] = useState<Section>("knowledge");
+  const [section, setSection] = useState<Section>(initial);
   const [uploadOpen, setUploadOpen] = useState(false);
   const [highlightIds, setHighlightIds] = useState<string[]>([]);
   const [gapCount, setGapCount] = useState<number | undefined>(undefined);
@@ -37,7 +39,7 @@ export function AppShell() {
   const selectSection = useCallback((next: Section) => {
     setSection(next);
     // Highlighting only makes sense while a gap or plan view is driving it.
-    if (next === "knowledge" || next === "files") setHighlightIds([]);
+    if (next === "knowledge" || next === "files" || next === "world") setHighlightIds([]);
   }, []);
 
   return (
@@ -47,7 +49,7 @@ export function AppShell() {
       <div className="flex min-h-0 flex-1">
         <Sidebar active={section} onSelect={selectSection} gapCount={gapCount} />
 
-        {section !== "knowledge" ? (
+        {section !== "knowledge" && section !== "world" ? (
           <section
             aria-label={TITLES[section]}
             className="flex w-[368px] shrink-0 flex-col overflow-hidden border-r border-line bg-surface"
@@ -75,7 +77,11 @@ export function AppShell() {
         {/* The graph owns the full remaining canvas; the inspector overlays it
             so selecting a concept never resizes or re-fits the viewport. */}
         <main className="relative min-w-0 flex-1">
-          <KnowledgeGraph highlightIds={highlightIds} />
+          {section === "world" ? (
+            <WorldPage />
+          ) : (
+            <KnowledgeGraph highlightIds={highlightIds} />
+          )}
           <ConceptPanel />
         </main>
       </div>
