@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
-import { api, ApiError } from "@/lib/api";
+import { api } from "@/lib/api";
 import { formatScore } from "@/lib/graph";
 import { analyzeConcept } from "@/lib/conceptAnalysis";
 import { useStore } from "@/lib/store";
@@ -13,7 +13,6 @@ import type {
 } from "@/lib/types";
 import { StateBadge } from "@/components/common/StatusBadge";
 import { UnderstandingBreakdown } from "./UnderstandingBreakdown";
-import { EvidenceList } from "./EvidenceList";
 import { ResourceList } from "./ResourceList";
 
 function Section({
@@ -40,7 +39,6 @@ export function ConceptPanel() {
     null,
   );
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const concept: ConceptNode | undefined = graph.data?.nodes.find(
     (n) => n.id === selectedId,
@@ -50,12 +48,10 @@ export function ConceptPanel() {
     if (!selectedId) {
       setDetail(null);
       setUnderstanding(null);
-      setError(null);
       return;
     }
     let cancelled = false;
     setLoading(true);
-    setError(null);
 
     Promise.all([api.getConceptDetail(selectedId), api.listUnderstanding()])
       .then(([d, entries]) => {
@@ -65,14 +61,7 @@ export function ConceptPanel() {
           entries.find((entry) => entry.concept_id === selectedId) ?? null,
         );
       })
-      .catch((err: unknown) => {
-        if (cancelled) return;
-        setError(
-          err instanceof ApiError
-            ? err.message
-            : "Could not load this concept.",
-        );
-      })
+      .catch(() => {})
       .finally(() => {
         if (!cancelled) setLoading(false);
       });
@@ -130,7 +119,11 @@ export function ConceptPanel() {
       </div>
 
       <Section
-        title={`Why is my understanding ${formatScore(concept.understanding)}?`}
+        title={
+          concept.understanding === null
+            ? "Why isn't my understanding estimated yet?"
+            : `Why is my understanding ${formatScore(concept.understanding)}?`
+        }
       >
         <p className="text-[13px] leading-relaxed text-ink-dim">
           {analysis.understandingSummary}
@@ -138,7 +131,12 @@ export function ConceptPanel() {
       </Section>
 
       <Section title="Why this matters">
-        <p className="text-[13px] text-ink-dim">{analysis.importanceLabel}</p>
+        <p className="text-[13px] leading-relaxed text-ink-dim">
+          {analysis.whyItMatters}
+        </p>
+        <p className="mt-2 text-[12px] text-ink-faint">
+          {analysis.importanceLabel}
+        </p>
         {analysis.graphFacts.length > 0 ? (
           <ul className="mt-2 space-y-1 text-[12px] leading-relaxed text-ink-dim">
             {analysis.graphFacts.map((fact) => (
@@ -149,16 +147,6 @@ export function ConceptPanel() {
           <p className="mt-2 text-[12px] text-ink-faint">
             No additional relationships are recorded for this concept yet.
           </p>
-        )}
-      </Section>
-
-      <Section title="Evidence">
-        {error ? (
-          <p className="text-[13px] text-state-fragile">{error}</p>
-        ) : loading ? (
-          <p className="text-[13px] text-ink-faint">Loading evidence…</p>
-        ) : (
-          <EvidenceList evidence={detail?.evidence ?? []} />
         )}
       </Section>
 

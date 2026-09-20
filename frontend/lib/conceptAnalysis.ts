@@ -1,10 +1,14 @@
 import type { ConceptEdge, ConceptNode, UnderstandingEntry } from "./types";
+import { DEMO_CONCEPT_ANALYSIS } from "./demoConceptAnalysis";
 
 export interface ConceptAnalysis {
   understandingSummary: string;
+  whyItMatters: string;
   importanceLabel: string;
   graphFacts: string[];
 }
+
+const warnedMissingAuthoredAnalysis = new Set<string>();
 
 export function relativeDate(value: string | null, empty: string): string {
   if (!value) return empty;
@@ -26,6 +30,18 @@ export function analyzeConcept(
   understanding: UnderstandingEntry | null,
   edges: ConceptEdge[],
 ): ConceptAnalysis {
+  const authoredAnalysis = DEMO_CONCEPT_ANALYSIS[concept.id];
+  if (
+    !authoredAnalysis &&
+    process.env.NODE_ENV !== "production" &&
+    !warnedMissingAuthoredAnalysis.has(concept.id)
+  ) {
+    warnedMissingAuthoredAnalysis.add(concept.id);
+    console.warn(
+      `Missing authored concept analysis for stable concept ID: ${concept.id}`,
+    );
+  }
+
   const positive = understanding?.positive_evidence ?? 0;
   const negative = understanding?.negative_evidence ?? 0;
   const total = positive + negative;
@@ -82,7 +98,11 @@ export function analyzeConcept(
     graphFacts.push(`Part of the ${concept.cluster} cluster.`);
 
   return {
-    understandingSummary,
+    understandingSummary:
+      authoredAnalysis?.understandingAnalysis ?? understandingSummary,
+    whyItMatters:
+      authoredAnalysis?.whyItMatters ??
+      "This concept's role in the course is reflected in the relationships recorded below.",
     importanceLabel:
       concept.importance >= 0.75
         ? "High course importance"
