@@ -20,12 +20,18 @@ export function proxy(request: NextRequest) {
   if (loggedIn && (pathname === '/' || pathname === '/login')) {
     return NextResponse.redirect(new URL('/earth', request.url))
   }
-  if (!loggedIn && (pathname === '/earth' || pathname === '/graph')) {
+  if (
+    !loggedIn &&
+    (pathname === '/earth' ||
+      pathname === '/graph' ||
+      pathname === '/friends' ||
+      pathname.startsWith('/friends/'))
+  ) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/', '/login', '/earth', '/graph'],
+  matcher: ['/', '/login', '/earth', '/graph', '/friends', '/friends/:path*'],
 }

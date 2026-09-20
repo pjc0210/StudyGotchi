@@ -1,44 +1,61 @@
 'use client'
 
-import { useLayoutEffect, useState } from 'react'
+import { useLayoutEffect, useState, type ReactNode } from 'react'
 
 function sizeFromWindow() {
   return (window.innerWidth * 4) / 7
 }
 
 /** Square globe: width and height are 4/7 of the window width. Scales on resize. */
-export function EarthGlobe() {
+export function EarthGlobe({
+  variant = 'corner',
+  children,
+}: {
+  variant?: 'corner' | 'friends'
+  children?: ReactNode
+}) {
   const [size, setSize] = useState(0)
 
   useLayoutEffect(() => {
     const apply = () => {
-      const next = sizeFromWindow()
+      const next =
+        variant === 'friends' ? sizeFromWindow() * 1.3 : sizeFromWindow()
       setSize(next)
       document.documentElement.style.setProperty('--globe-size', `${next}px`)
     }
     apply()
     window.addEventListener('resize', apply)
     return () => window.removeEventListener('resize', apply)
-  }, [])
+  }, [variant])
 
   const shift = size / 4
+  const style =
+    variant === 'friends'
+      ? {
+          width: size,
+          height: size,
+          left: '50%',
+          right: 'auto',
+          bottom: -size / 2,
+          transform: 'translateX(-50%)',
+          pointerEvents: 'none' as const,
+        }
+      : size
+        ? {
+            width: size,
+            height: size,
+            right: -shift,
+            bottom: -shift,
+          }
+        : undefined
 
   return (
-    <div
-      className="earth-globe"
-      aria-hidden="true"
-      style={
-        size
-          ? {
-              width: size,
-              height: size,
-              right: -shift,
-              bottom: -shift,
-            }
-          : undefined
-      }
-    >
-      <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+    <div className={`earth-globe${variant === 'friends' ? ' is-friends' : ''}`} style={style}>
+      <svg
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="xMidYMid meet"
+        aria-hidden="true"
+      >
         <circle cx="500" cy="500" r="500" fill="var(--ocean)" />
         <path
           fill="var(--land)"
@@ -67,6 +84,7 @@ export function EarthGlobe() {
         <ellipse cx="500" cy="68" rx="216" ry="72" fill="var(--ice)" />
         <ellipse cx="500" cy="932" rx="186" ry="60" fill="var(--ice)" />
       </svg>
+      {children}
     </div>
   )
 }
