@@ -37,7 +37,9 @@ def dedupe_student_edges(
     `student_concept_edges`.
     """
 
-    best: dict[tuple[UUID, UUID, UUID, StudentConceptEdgeType], StudentConceptEdgeCandidate] = {}
+    best: dict[
+        tuple[UUID, UUID, UUID, StudentConceptEdgeType], StudentConceptEdgeCandidate
+    ] = {}
     for candidate in candidates:
         if not is_valid_student_edge(candidate):
             continue

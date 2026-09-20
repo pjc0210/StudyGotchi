@@ -13,11 +13,16 @@ from app.domain.ontology.edges import ConceptEdgeType
 
 class EvidenceSnippetOut(BaseModel):
     page_number: int | None = None
-    snippet: str = Field(..., description="Verbatim source text supporting this extraction.")
+    snippet: str = Field(
+        ..., description="Verbatim source text supporting this extraction."
+    )
 
 
 class ConceptCandidateOut(BaseModel):
-    name: str = Field(..., description="Canonical-style concept name, e.g. 'Positive Semidefinite Matrix'.")
+    name: str = Field(
+        ...,
+        description="Canonical-style concept name, e.g. 'Positive Semidefinite Matrix'.",
+    )
     definition: str = Field(..., description="Concise, course-context definition.")
     concept_kind: ConceptKind
     granularity: Granularity
@@ -65,7 +70,9 @@ class AssessmentItemOut(BaseModel):
 
 class ResourceConceptLinkOut(BaseModel):
     concept_name: str
-    link_type: str = Field(..., description="EXPLAINED_IN | APPEARS_IN | WORKED_EXAMPLE_IN")
+    link_type: str = Field(
+        ..., description="EXPLAINED_IN | APPEARS_IN | WORKED_EXAMPLE_IN"
+    )
     depth_score: float = Field(..., ge=0.0, le=1.0)
     confidence: float = Field(default=0.7, ge=0.0, le=1.0)
     snippet: str | None = None
@@ -89,7 +96,8 @@ class ConceptAdjudicationOut(BaseModel):
 
     same_concept: bool
     matched_candidate_index: int | None = Field(
-        default=None, description="Index into the candidate list this matches, if same_concept is true."
+        default=None,
+        description="Index into the candidate list this matches, if same_concept is true.",
     )
     reasoning: str
 
@@ -104,6 +112,9 @@ class StudentWorkExtractionOut(BaseModel):
     attempted_steps_summary: str | None = None
     final_answer: str | None = None
     correctness: float | None = Field(
-        default=None, ge=0.0, le=1.0, description="null if correctness can't be established from the image."
+        default=None,
+        ge=0.0,
+        le=1.0,
+        description="null if correctness can't be established from the image.",
     )
     uncertainty_notes: str | None = None

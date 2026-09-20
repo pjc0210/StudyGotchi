@@ -9,7 +9,9 @@ import networkx as nx
 from app.domain.graph.algorithms import get_prerequisite_ancestors
 
 
-def compute_frontier_neighbors(graph: nx.DiGraph, known_concept_ids: set[UUID]) -> set[UUID]:
+def compute_frontier_neighbors(
+    graph: nx.DiGraph, known_concept_ids: set[UUID]
+) -> set[UUID]:
     """A concept is on the frontier if it is not yet known but is directly
     adjacent to the known set: either all of its direct prerequisites are
     already known (it's ready to be learned next), or it is a direct

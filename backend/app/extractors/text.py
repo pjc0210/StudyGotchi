@@ -13,14 +13,20 @@ _MARKDOWN_HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$", re.MULTILINE)
 def parse_text(content: str) -> ParsedDocument:
     headings = list(_MARKDOWN_HEADING_RE.finditer(content))
     if not headings:
-        return ParsedDocument(pages=[ParsedPage(page_number=None, text=content)], raw_text=content)
+        return ParsedDocument(
+            pages=[ParsedPage(page_number=None, text=content)], raw_text=content
+        )
 
     pages: list[ParsedPage] = []
     for index, match in enumerate(headings):
         start = match.start()
         end = headings[index + 1].start() if index + 1 < len(headings) else len(content)
         pages.append(
-            ParsedPage(page_number=None, text=content[start:end].strip(), section_title=match.group(2).strip())
+            ParsedPage(
+                page_number=None,
+                text=content[start:end].strip(),
+                section_title=match.group(2).strip(),
+            )
         )
     return ParsedDocument(pages=pages, raw_text=content)
 
@@ -36,7 +42,11 @@ def parse_docx(content_bytes: bytes) -> ParsedDocument:
     def flush() -> None:
         if current_lines:
             pages.append(
-                ParsedPage(page_number=None, text="\n".join(current_lines).strip(), section_title=current_section)
+                ParsedPage(
+                    page_number=None,
+                    text="\n".join(current_lines).strip(),
+                    section_title=current_section,
+                )
             )
 
     for paragraph in document.paragraphs:

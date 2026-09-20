@@ -27,7 +27,9 @@ class RankedResource:
     marginal_novelty: float
 
 
-def score_resource(relevance: float, authority: float, depth: float, novelty: float) -> float:
+def score_resource(
+    relevance: float, authority: float, depth: float, novelty: float
+) -> float:
     """`resource_score = relevance + authority + depth + marginal_novelty`"""
 
     return relevance + authority + depth + novelty
@@ -53,7 +55,9 @@ def select_representative_resources(
 
         for candidate in remaining:
             novelty = marginal_novelty(candidate.embedding, selected_embeddings)
-            score = score_resource(candidate.relevance, candidate.authority, candidate.depth_score, novelty)
+            score = score_resource(
+                candidate.relevance, candidate.authority, candidate.depth_score, novelty
+            )
             if score > best_score:
                 best_score = score
                 best_candidate = candidate
@@ -62,7 +66,9 @@ def select_representative_resources(
         assert best_candidate is not None  # remaining is non-empty in this loop
         selected.append(
             RankedResource(
-                resource_id=best_candidate.resource_id, score=best_score, marginal_novelty=best_novelty
+                resource_id=best_candidate.resource_id,
+                score=best_score,
+                marginal_novelty=best_novelty,
             )
         )
         if best_candidate.embedding is not None:

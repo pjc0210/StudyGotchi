@@ -3,6 +3,7 @@ debug/admin view of the canonical course graph — the world/frontend
 equivalent consumes `.../knowledge-graph` instead, never this directly.
 """
 
+from typing import Literal
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -18,7 +19,11 @@ router = APIRouter(prefix="/api/courses/{course_id}", tags=["ontology"])
 
 
 @router.get("/ontology", response_model=OntologyResponse)
-async def get_ontology_endpoint(course_id: UUID, session: AsyncSession = Depends(get_db)) -> OntologyResponse:
+async def get_ontology_endpoint(
+    course_id: UUID,
+    view: Literal["canonical", "reduced"] = "canonical",
+    session: AsyncSession = Depends(get_db),
+) -> OntologyResponse:
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
@@ -48,8 +53,15 @@ async def get_ontology_endpoint(course_id: UUID, session: AsyncSession = Depends
                 confidence=e.confidence,
                 authority_weight=e.authority_weight,
                 status=e.status,
-                is_redundant_in_display_graph=bool(e.metadata.get("is_redundant_in_display_graph", False)),
+                is_redundant_in_display_graph=bool(
+                    e.metadata.get("is_redundant_in_display_graph", False)
+                ),
             )
             for e in edges
+            if view == "canonical"
+            or (
+                e.status == "active"
+                and not e.metadata.get("is_redundant_in_display_graph")
+            )
         ],
     )

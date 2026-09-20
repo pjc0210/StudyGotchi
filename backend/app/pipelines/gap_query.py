@@ -11,7 +11,7 @@ they cover a single concept target.
 """
 
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from uuid import UUID, uuid4
 
 import networkx as nx
@@ -22,7 +22,7 @@ from app.domain.gaps.study_plan import GapEntry, build_study_plan
 from app.domain.graph.algorithms import build_digraph, get_prerequisite_ancestors
 from app.domain.ontology.edges import ConceptEdgeType
 from app.repositories.assessments import get_assessment_items, get_item_concept_links
-from app.repositories.concepts import get_course_concepts
+from app.repositories.concepts import get_course_concepts, get_personal_concepts
 from app.repositories.edges import get_course_edges
 from app.repositories.student_states import get_student_concept_states
 
@@ -62,11 +62,18 @@ async def compute_target_gaps(
     target_ids = await _resolve_target_concept_ids(
         session, target_concept_id=target_concept_id, assessment_id=assessment_id
     )
+    visible_concepts = {
+        **await get_course_concepts(session, course_id),
+        **await get_personal_concepts(session, course_id, student_id),
+    }
+    target_ids &= visible_concepts.keys()
     if not target_ids:
         return TargetGapResult(target_concept_ids=set(), gaps=[], study_order=[])
 
     course_edges = await get_course_edges(session, course_id)
-    prereq_graph = build_digraph(course_edges, edge_types={ConceptEdgeType.PREREQUISITE_FOR})
+    prereq_graph = build_digraph(
+        course_edges, edge_types={ConceptEdgeType.PREREQUISITE_FOR}
+    )
 
     goal_node = uuid4()
     ancestor_ids: set[UUID] = set()
@@ -81,31 +88,49 @@ async def compute_target_gaps(
     subgraph: nx.DiGraph = working_graph.subgraph(ancestor_ids | {goal_node}).copy()
 
     course_concepts = await get_course_concepts(session, course_id)
-    states = await get_student_concept_states(session, student_id=student_id, course_id=course_id)
+    states = await get_student_concept_states(
+        session, student_id=student_id, course_id=course_id
+    )
 
-    mastery_by_concept = {cid: float(state.mastery) for cid, state in states.items()}
-    confidence_by_concept = {cid: float(state.mastery_confidence) for cid, state in states.items()}
-    importance_by_concept = {cid: float(concept.importance) for cid, concept in course_concepts.items()}
+    understanding_by_concept = {
+        cid: float(state.understanding) if state.understanding is not None else 0.0
+        for cid, state in states.items()
+    }
+    effective_evidence_by_concept = {
+        cid: float(state.positive_evidence) + float(state.negative_evidence)
+        for cid, state in states.items()
+    }
+    importance_by_concept = {
+        cid: float(concept.importance) for cid, concept in course_concepts.items()
+    }
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     staleness_cutoff_days = settings.staleness_days
     is_stale_by_concept = {}
     for cid, state in states.items():
         if state.last_practiced_at is None:
             is_stale_by_concept[cid] = False
             continue
-        age_days = (now - state.last_practiced_at).total_seconds() / 86400.0
+        last_practiced_at = state.last_practiced_at
+        if last_practiced_at.tzinfo is None:
+            # SQLite does not round-trip tzinfo on DateTime(timezone=True)
+            # columns; values written here are always UTC (see
+            # app.pipelines.incremental_update).
+            last_practiced_at = last_practiced_at.replace(tzinfo=UTC)
+        age_days = (now - last_practiced_at).total_seconds() / 86400.0
         is_stale_by_concept[cid] = age_days > staleness_cutoff_days
 
     result = build_study_plan(
         subgraph,
         goal_node,
-        mastery_by_concept=mastery_by_concept,
-        confidence_by_concept=confidence_by_concept,
+        understanding_by_concept=understanding_by_concept,
+        effective_evidence_by_concept=effective_evidence_by_concept,
         course_importance_by_concept=importance_by_concept,
         is_stale_by_concept=is_stale_by_concept,
         relevance_alpha=settings.gap_relevance_alpha,
-        mastered_threshold=settings.gap_mastered_threshold,
+        understood_threshold=settings.gap_understood_threshold,
     )
 
-    return TargetGapResult(target_concept_ids=target_ids, gaps=result.gaps, study_order=result.study_order)
+    return TargetGapResult(
+        target_concept_ids=target_ids, gaps=result.gaps, study_order=result.study_order
+    )

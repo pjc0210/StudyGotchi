@@ -20,7 +20,12 @@ class ParsedDocument:
     raw_text: str = ""
 
 
-_IMAGE_EXTENSIONS = {"png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg", "webp": "image/webp"}
+_IMAGE_EXTENSIONS = {
+    "png": "image/png",
+    "jpg": "image/jpeg",
+    "jpeg": "image/jpeg",
+    "webp": "image/webp",
+}
 _TEXT_EXTENSIONS = {"md", "markdown", "txt"}
 
 
@@ -34,9 +39,9 @@ async def parse_resource(
     ext = _extension(filename)
 
     if ext == "pdf":
-        from app.extractors.pdf import parse_pdf
+        from app.extractors.pdf import parse_pdf_with_vision
 
-        return parse_pdf(content_bytes)
+        return await parse_pdf_with_vision(content_bytes, provider=provider)
 
     if ext in _TEXT_EXTENSIONS:
         from app.extractors.text import parse_text
@@ -51,6 +56,8 @@ async def parse_resource(
     if ext in _IMAGE_EXTENSIONS:
         from app.extractors.image import parse_image
 
-        return await parse_image(content_bytes, provider=provider, media_type=_IMAGE_EXTENSIONS[ext])
+        return await parse_image(
+            content_bytes, provider=provider, media_type=_IMAGE_EXTENSIONS[ext]
+        )
 
     raise ValueError(f"Unsupported file type: .{ext or '(none)'}")

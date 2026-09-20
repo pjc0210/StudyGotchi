@@ -10,8 +10,7 @@ dependencies = [
     "pydantic-settings>=2.6",
     "sqlalchemy[asyncio]>=2.0.36",
     "alembic>=1.14",
-    "asyncpg>=0.30",
-    "pgvector>=0.3.6",
+    "aiosqlite>=0.20",
     "networkx>=3.4",
     "anthropic>=0.40",
     "voyageai>=0.3.1",
@@ -20,6 +19,7 @@ dependencies = [
     "python-multipart>=0.0.17",
     "httpx>=0.27",
     "pymupdf>=1.28.2",
+    "openai>=1.66",
 ]
 
 [dependency-groups]
@@ -40,3 +40,6 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["app"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.File", "fastapi.Form", "fastapi.Query"]

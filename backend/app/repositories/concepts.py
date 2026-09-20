@@ -1,7 +1,7 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from uuid import UUID
 
-from sqlalchemy import select
+from sqlalchemy import and_, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models import Concept, ConceptAlias, ConceptResourceLink
@@ -12,6 +12,21 @@ from app.domain.ontology.concepts import (
     Granularity,
 )
 from app.resolution.normalize import normalize_concept_name
+
+
+def _visible_scope(student_id: UUID | None):
+    public = Concept.scope.in_(
+        [ConceptScope.COURSE.value, ConceptScope.SHARED_EXTENSION.value]
+    )
+    if student_id is None:
+        return public
+    return or_(
+        public,
+        and_(
+            Concept.scope == ConceptScope.PERSONAL.value,
+            Concept.owner_student_id == student_id,
+        ),
+    )
 
 
 def _to_domain(row: Concept) -> ConceptNode:
@@ -31,17 +46,28 @@ def _to_domain(row: Concept) -> ConceptNode:
     )
 
 
-async def get_course_concepts(session: AsyncSession, course_id: UUID) -> dict[UUID, ConceptNode]:
+async def get_course_concepts(
+    session: AsyncSession, course_id: UUID
+) -> dict[UUID, ConceptNode]:
     result = await session.execute(
-        select(Concept).where(Concept.course_id == course_id, Concept.scope == ConceptScope.COURSE.value)
+        select(Concept).where(
+            Concept.course_id == course_id,
+            Concept.status == "active",
+            Concept.scope.in_(
+                [ConceptScope.COURSE.value, ConceptScope.SHARED_EXTENSION.value]
+            ),
+        )
     )
     return {row.id: _to_domain(row) for row in result.scalars().all()}
 
 
-async def get_personal_concepts(session: AsyncSession, course_id: UUID, student_id: UUID) -> dict[UUID, ConceptNode]:
+async def get_personal_concepts(
+    session: AsyncSession, course_id: UUID, student_id: UUID
+) -> dict[UUID, ConceptNode]:
     result = await session.execute(
         select(Concept).where(
             Concept.course_id == course_id,
+            Concept.status == "active",
             Concept.scope == ConceptScope.PERSONAL.value,
             Concept.owner_student_id == student_id,
         )
@@ -54,20 +80,32 @@ async def get_concept(session: AsyncSession, concept_id: UUID) -> ConceptNode | 
     return _to_domain(row) if row is not None else None
 
 
-async def get_concept_embeddings(session: AsyncSession, course_id: UUID) -> dict[UUID, list[float]]:
+async def get_concept_embeddings(
+    session: AsyncSession, course_id: UUID, student_id: UUID | None = None
+) -> dict[UUID, list[float]]:
     result = await session.execute(
         select(Concept.id, Concept.embedding).where(
-            Concept.course_id == course_id, Concept.embedding.is_not(None)
+            Concept.course_id == course_id,
+            Concept.status == "active",
+            Concept.embedding.is_not(None),
+            _visible_scope(student_id),
         )
     )
     return {row.id: list(row.embedding) for row in result.all()}
 
 
-async def get_alias_index(session: AsyncSession, course_id: UUID) -> dict[str, UUID]:
+async def get_alias_index(
+    session: AsyncSession, course_id: UUID, student_id: UUID | None = None
+) -> dict[str, UUID]:
     result = await session.execute(
         select(ConceptAlias.normalized_alias, ConceptAlias.concept_id)
         .join(Concept, Concept.id == ConceptAlias.concept_id)
-        .where(Concept.course_id == course_id)
+        .where(
+            Concept.course_id == course_id,
+            Concept.status == "active",
+            _visible_scope(student_id),
+        )
+        .order_by(Concept.scope.desc())
     )
     return {row.normalized_alias: row.concept_id for row in result.all()}
 
@@ -108,7 +146,7 @@ async def create_concept(
         alias=canonical_name,
         normalized_alias=normalized_name,
         confidence=1.0,
-        created_at=datetime.now(timezone.utc),
+        created_at=datetime.now(UTC),
     )
     session.add(alias_row)
     await session.flush()
@@ -126,7 +164,10 @@ async def add_alias(
 ) -> None:
     normalized_alias = normalize_concept_name(alias)
     existing = await session.execute(
-        select(ConceptAlias).where(ConceptAlias.normalized_alias == normalized_alias)
+        select(ConceptAlias).where(
+            ConceptAlias.normalized_alias == normalized_alias,
+            ConceptAlias.concept_id == concept_id,
+        )
     )
     if existing.scalars().first() is not None:
         return
@@ -137,7 +178,7 @@ async def add_alias(
             normalized_alias=normalized_alias,
             source_resource_id=source_resource_id,
             confidence=confidence,
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
     )
     await session.flush()
@@ -161,7 +202,7 @@ async def create_resource_link(
             link_type=link_type,
             depth_score=depth_score,
             confidence=confidence,
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
     )
     await session.flush()

@@ -21,12 +21,18 @@ from app.repositories.student_states import get_student_concept_states
 
 
 async def build_student_personal_graph(
-    session: AsyncSession, *, course_id: UUID, student_id: UUID, goal_concept_ids: set[UUID] = frozenset()
+    session: AsyncSession,
+    *,
+    course_id: UUID,
+    student_id: UUID,
+    goal_concept_ids: set[UUID] = frozenset(),
 ) -> PersonalGraphResult:
     course_concepts = await get_course_concepts(session, course_id)
     personal_concepts = await get_personal_concepts(session, course_id, student_id)
     course_edges = await get_course_edges(session, course_id)
-    prereq_graph = build_digraph(course_edges, edge_types={ConceptEdgeType.PREREQUISITE_FOR})
+    prereq_graph = build_digraph(
+        course_edges, edge_types={ConceptEdgeType.PREREQUISITE_FOR}
+    )
 
     raw_student_edges = await get_student_edges(session, course_id, student_id)
     student_edges = [
@@ -41,14 +47,14 @@ async def build_student_personal_graph(
         for e in raw_student_edges
     ]
 
-    states = await get_student_concept_states(session, student_id=student_id, course_id=course_id)
+    states = await get_student_concept_states(
+        session, student_id=student_id, course_id=course_id
+    )
     stats_by_concept = {
         cid: PersonalConceptStats(
-            mastery=float(state.mastery),
-            familiarity=float(state.familiarity),
-            confidence=float(state.mastery_confidence),
-            readiness=float(state.readiness),
-            fragility=float(state.fragility),
+            understanding=float(state.understanding)
+            if state.understanding is not None
+            else None,
             positive_evidence=float(state.positive_evidence),
             negative_evidence=float(state.negative_evidence),
         )

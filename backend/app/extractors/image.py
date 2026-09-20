@@ -16,5 +16,9 @@ _TRANSCRIPTION_PROMPT = (
 async def parse_image(
     content_bytes: bytes, *, provider: LLMProvider, media_type: str = "image/png"
 ) -> ParsedDocument:
-    transcription = await provider.analyze_image(content_bytes, _TRANSCRIPTION_PROMPT, media_type=media_type)
-    return ParsedDocument(pages=[ParsedPage(page_number=None, text=transcription)], raw_text=transcription)
+    transcription = await provider.analyze_image(
+        content_bytes, _TRANSCRIPTION_PROMPT, media_type=media_type
+    )
+    return ParsedDocument(
+        pages=[ParsedPage(page_number=None, text=transcription)], raw_text=transcription
+    )

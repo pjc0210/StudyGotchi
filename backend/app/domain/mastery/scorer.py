@@ -1,13 +1,17 @@
-"""Weighted Bayesian mastery scoring (spec: "Mastery scoring").
+"""Weighted Bayesian understanding scoring (spec: "Understanding scoring").
 
-`mastery = alpha / (alpha + beta)` where alpha/beta accumulate weighted
+`understanding = alpha / (alpha + beta)` where alpha/beta accumulate weighted
 positive/negative evidence on top of a symmetric prior. Passive exposure
 (student notes, resource views) has such low `evidence_strength` that it can
-barely move mastery, by construction of the weight formula, not by special
-casing here.
+barely move understanding, by construction of the weight formula, not by
+special casing here.
+
+`positive_evidence`/`negative_evidence` are kept on the result because the
+incremental-update pipeline needs the running totals to recompute future
+updates cheaply — they are internal accumulator state, not a second
+semantic measurement alongside `understanding`.
 """
 
-import math
 from dataclasses import dataclass
 from datetime import datetime
 from uuid import UUID
@@ -16,9 +20,8 @@ from app.domain.mastery.evidence import EvidenceEvent, compute_evidence_weight
 
 
 @dataclass(frozen=True)
-class MasteryResult:
-    mastery: float
-    confidence: float
+class UnderstandingResult:
+    understanding: float
     positive_evidence: float
     negative_evidence: float
 
@@ -26,24 +29,26 @@ class MasteryResult:
 def accumulate_evidence(
     events: list[EvidenceEvent], *, now: datetime | None = None
 ) -> tuple[float, float]:
-    """Sum weighted positive/negative evidence across events that carry an
-    `outcome` (pure-exposure events with `outcome=None` don't participate in
-    mastery — they only feed familiarity, see `domain.mastery.familiarity`).
+    """Sum weighted positive/negative evidence across all events.
+
+    Events with `outcome=None` (pure exposure: notes, resource views) are
+    treated as a mild positive signal rather than ignored — the student
+    engaged and showed no sign of struggle — but their already-tiny
+    `evidence_strength` (see evidence.py) keeps that nudge small by
+    construction, never enough to manufacture high understanding on its own.
     """
 
     positive = 0.0
     negative = 0.0
     for event in events:
-        if event.outcome is None:
-            continue
         weight = compute_evidence_weight(event, now=now)
-        outcome = max(0.0, min(1.0, event.outcome))
+        outcome = 1.0 if event.outcome is None else max(0.0, min(1.0, event.outcome))
         positive += weight * outcome
         negative += weight * (1.0 - outcome)
     return positive, negative
 
 
-def compute_mastery(
+def compute_understanding(
     positive_evidence: float,
     negative_evidence: float,
     *,
@@ -55,54 +60,36 @@ def compute_mastery(
     return alpha / (alpha + beta)
 
 
-def compute_mastery_confidence(
-    positive_evidence: float,
-    negative_evidence: float,
-    *,
-    k: float,
-) -> float:
-    """`confidence = 1 - exp(-k * effective_evidence)`. More evidence (of
-    either sign) increases confidence; it says nothing about *how good* the
-    evidence is, only how much of it there is.
-    """
-
-    effective_evidence = positive_evidence + negative_evidence
-    return 1.0 - math.exp(-k * effective_evidence)
-
-
-def score_concept_mastery(
+def score_concept_understanding(
     events: list[EvidenceEvent],
     *,
     alpha_prior: float,
     beta_prior: float,
-    confidence_k: float,
     now: datetime | None = None,
-) -> MasteryResult:
+) -> UnderstandingResult:
     positive, negative = accumulate_evidence(events, now=now)
-    mastery = compute_mastery(positive, negative, alpha_prior=alpha_prior, beta_prior=beta_prior)
-    confidence = compute_mastery_confidence(positive, negative, k=confidence_k)
-    return MasteryResult(
-        mastery=mastery,
-        confidence=confidence,
+    understanding = compute_understanding(
+        positive, negative, alpha_prior=alpha_prior, beta_prior=beta_prior
+    )
+    return UnderstandingResult(
+        understanding=understanding,
         positive_evidence=positive,
         negative_evidence=negative,
     )
 
 
-def score_mastery_by_concept(
+def score_understanding_by_concept(
     events_by_concept: dict[UUID, list[EvidenceEvent]],
     *,
     alpha_prior: float,
     beta_prior: float,
-    confidence_k: float,
     now: datetime | None = None,
-) -> dict[UUID, MasteryResult]:
+) -> dict[UUID, UnderstandingResult]:
     return {
-        concept_id: score_concept_mastery(
+        concept_id: score_concept_understanding(
             events,
             alpha_prior=alpha_prior,
             beta_prior=beta_prior,
-            confidence_k=confidence_k,
             now=now,
         )
         for concept_id, events in events_by_concept.items()

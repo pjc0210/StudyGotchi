@@ -1,8 +1,8 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from uuid import UUID
 
 from sqlalchemy import select, update
-from sqlalchemy.dialects.postgresql import insert as pg_insert
+from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models import ConceptEdge, EdgeEvidence, StudentConceptEdge
@@ -45,7 +45,7 @@ async def upsert_concept_edge(
     """
 
     stmt = (
-        pg_insert(ConceptEdge)
+        sqlite_insert(ConceptEdge)
         .values(
             course_id=course_id,
             source_concept_id=source_concept_id,
@@ -56,10 +56,12 @@ async def upsert_concept_edge(
             status="active",
         )
         .on_conflict_do_update(
-            constraint="uq_concept_edges_triple",
+            index_elements=["course_id", "source_concept_id", "target_concept_id", "edge_type"],
             set_={
-                "confidence": pg_insert(ConceptEdge).excluded.confidence,
-                "authority_weight": pg_insert(ConceptEdge).excluded.authority_weight,
+                "confidence": sqlite_insert(ConceptEdge).excluded.confidence,
+                "authority_weight": sqlite_insert(
+                    ConceptEdge
+                ).excluded.authority_weight,
             },
             where=ConceptEdge.confidence < confidence,
         )
@@ -103,14 +105,18 @@ async def add_edge_evidence(
             evidence_kind=evidence_kind,
             snippet=snippet,
             confidence=confidence,
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
     )
     await session.flush()
 
 
-async def get_course_edges(session: AsyncSession, course_id: UUID) -> list[ConceptEdgeData]:
-    result = await session.execute(select(ConceptEdge).where(ConceptEdge.course_id == course_id))
+async def get_course_edges(
+    session: AsyncSession, course_id: UUID
+) -> list[ConceptEdgeData]:
+    result = await session.execute(
+        select(ConceptEdge).where(ConceptEdge.course_id == course_id)
+    )
     return [_to_domain(row) for row in result.scalars().all()]
 
 
@@ -123,7 +129,7 @@ async def downgrade_edge_to_related(session: AsyncSession, edge_id: UUID) -> Non
     await session.execute(
         update(ConceptEdge)
         .where(ConceptEdge.id == edge_id)
-        .values(edge_type=ConceptEdgeType.RELATED_TO.value, status="cycle_downgraded")
+        .values(status="cycle_downgraded")
     )
     await session.flush()
 
@@ -136,7 +142,10 @@ async def mark_edges_redundant(session: AsyncSession, edge_ids: set[UUID]) -> No
     for edge_id in edge_ids:
         row = await session.get(ConceptEdge, edge_id)
         if row is not None:
-            row.edge_metadata = {**row.edge_metadata, "is_redundant_in_display_graph": True}
+            row.edge_metadata = {
+                **row.edge_metadata,
+                "is_redundant_in_display_graph": True,
+            }
     await session.flush()
 
 
@@ -164,7 +173,7 @@ async def upsert_student_concept_edge(
     origin_resource_id: UUID | None,
 ) -> None:
     stmt = (
-        pg_insert(StudentConceptEdge)
+        sqlite_insert(StudentConceptEdge)
         .values(
             student_id=student_id,
             course_id=course_id,
@@ -175,7 +184,12 @@ async def upsert_student_concept_edge(
             origin_resource_id=origin_resource_id,
         )
         .on_conflict_do_update(
-            constraint="uq_student_concept_edges_triple",
+            index_elements=[
+                "student_id",
+                "source_concept_id",
+                "target_concept_id",
+                "edge_type",
+            ],
             set_={"confidence": confidence, "origin_resource_id": origin_resource_id},
             where=StudentConceptEdge.confidence < confidence,
         )
@@ -184,10 +198,13 @@ async def upsert_student_concept_edge(
     await session.flush()
 
 
-async def get_student_edges(session: AsyncSession, course_id: UUID, student_id: UUID) -> list[dict]:
+async def get_student_edges(
+    session: AsyncSession, course_id: UUID, student_id: UUID
+) -> list[dict]:
     result = await session.execute(
         select(StudentConceptEdge).where(
-            StudentConceptEdge.course_id == course_id, StudentConceptEdge.student_id == student_id
+            StudentConceptEdge.course_id == course_id,
+            StudentConceptEdge.student_id == student_id,
         )
     )
     return [_to_student_domain(row) for row in result.scalars().all()]

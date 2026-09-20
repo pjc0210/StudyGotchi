@@ -9,7 +9,33 @@ from app.domain.ontology.concepts import (
     Granularity,
 )
 from app.domain.ontology.edges import ConceptEdgeData, ConceptEdgeType
-from app.domain.personal_graph.builder import PersonalConceptStats, build_personal_graph
+from app.domain.personal_graph.builder import (
+    PersonalConceptStats,
+    PersonalGraphNode,
+    build_personal_graph,
+)
+from app.schemas.personal_graph import PersonalGraphNodeOut
+
+
+def test_node_carries_only_understanding_as_learning_state():
+    # Spec: "a single quantitative learning-state measurement" — no
+    # familiarity/confidence/mastery_confidence/evidence_strength/fragility/
+    # readiness fields anywhere on the node or its API schema.
+    removed = {
+        "mastery",
+        "familiarity",
+        "confidence",
+        "mastery_confidence",
+        "evidence_strength",
+        "fragility",
+        "readiness",
+    }
+    node_fields = set(PersonalGraphNode.__dataclass_fields__)
+    schema_fields = set(PersonalGraphNodeOut.model_fields)
+    assert not (removed & node_fields)
+    assert not (removed & schema_fields)
+    assert "understanding" in node_fields
+    assert "understanding" in schema_fields
 
 
 def _concept(course_id, name, scope=ConceptScope.COURSE, owner=None) -> ConceptNode:
@@ -29,7 +55,12 @@ def _concept(course_id, name, scope=ConceptScope.COURSE, owner=None) -> ConceptN
 def test_personal_concept_from_student_notes_is_included():
     course_id = uuid4()
     student_id = uuid4()
-    personal_concept = _concept(course_id, "Random Fourier Features", scope=ConceptScope.PERSONAL, owner=student_id)
+    personal_concept = _concept(
+        course_id,
+        "Random Fourier Features",
+        scope=ConceptScope.PERSONAL,
+        owner=student_id,
+    )
 
     result = build_personal_graph(
         course_concepts={},
@@ -51,7 +82,12 @@ def test_personal_concept_does_not_appear_in_course_concepts():
     # `course_concepts` map — they stay a separate, student-owned scope.
     course_id = uuid4()
     student_id = uuid4()
-    personal_concept = _concept(course_id, "Random Fourier Features", scope=ConceptScope.PERSONAL, owner=student_id)
+    personal_concept = _concept(
+        course_id,
+        "Random Fourier Features",
+        scope=ConceptScope.PERSONAL,
+        owner=student_id,
+    )
 
     course_concepts: dict = {}
     build_personal_graph(
@@ -72,11 +108,7 @@ def test_unseen_irrelevant_course_concept_is_excluded_by_default():
 
     stats = {
         encountered.id: PersonalConceptStats(
-            mastery=0.6,
-            familiarity=0.7,
-            confidence=0.6,
-            readiness=0.6,
-            fragility=0.0,
+            understanding=0.6,
             positive_evidence=2.0,
             negative_evidence=0.5,
         )
@@ -103,11 +135,7 @@ def test_two_students_produce_different_personal_graphs():
 
     student_a_stats = {
         shared_concept.id: PersonalConceptStats(
-            mastery=0.8,
-            familiarity=0.8,
-            confidence=0.8,
-            readiness=0.8,
-            fragility=0.0,
+            understanding=0.8,
             positive_evidence=3.0,
             negative_evidence=0.2,
         )
@@ -131,7 +159,9 @@ def test_two_students_produce_different_personal_graphs():
         stats_by_concept=student_b_stats,
     )
 
-    assert {n.concept_id for n in result_a.nodes} != {n.concept_id for n in result_b.nodes}
+    assert {n.concept_id for n in result_a.nodes} != {
+        n.concept_id for n in result_b.nodes
+    }
 
 
 def test_course_edges_only_included_when_both_endpoints_present():
@@ -151,11 +181,7 @@ def test_course_edges_only_included_when_both_endpoints_present():
 
     stats = {
         a.id: PersonalConceptStats(
-            mastery=0.6,
-            familiarity=0.6,
-            confidence=0.6,
-            readiness=0.6,
-            fragility=0.0,
+            understanding=0.6,
             positive_evidence=2.0,
             negative_evidence=0.1,
         )

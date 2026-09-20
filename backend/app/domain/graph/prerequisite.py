@@ -89,7 +89,9 @@ def score_and_classify(
     weak_threshold: float,
     independent_source_count: int = 1,
 ) -> PrerequisiteEdgeScore:
-    confidence = score_prerequisite_confidence(level, source_authority, independent_source_count)
+    confidence = score_prerequisite_confidence(
+        level, source_authority, independent_source_count
+    )
     return PrerequisiteEdgeScore(
         confidence=confidence,
         classification=classify_edge(confidence, active_threshold, weak_threshold),

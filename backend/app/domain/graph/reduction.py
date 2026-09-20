@@ -47,7 +47,11 @@ def clean_prerequisite_edges(edges: list[ConceptEdgeData]) -> PrerequisiteCleanu
         and (e.source_concept_id, e.target_concept_id) in removed_pair_set
     }
 
-    reduced_graph = transitive_reduce(acyclic_graph) if acyclic_graph.number_of_nodes() else acyclic_graph
+    reduced_graph = (
+        transitive_reduce(acyclic_graph)
+        if acyclic_graph.number_of_nodes()
+        else acyclic_graph
+    )
 
     surviving_edge_ids_by_pair = {
         (e.source_concept_id, e.target_concept_id): e.id

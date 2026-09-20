@@ -14,6 +14,9 @@ def normalize_concept_links(
     if total <= 0:
         return links
     return [
-        AssessmentItemConceptLinkOut(concept_name=link.concept_name, relevance_weight=link.relevance_weight / total)
+        AssessmentItemConceptLinkOut(
+            concept_name=link.concept_name,
+            relevance_weight=link.relevance_weight / total,
+        )
         for link in links
     ]

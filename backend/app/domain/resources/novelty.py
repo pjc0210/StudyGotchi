@@ -27,5 +27,7 @@ def marginal_novelty(
 
     if candidate_embedding is None or not selected_embeddings:
         return 1.0
-    max_similarity = max(cosine_similarity(candidate_embedding, e) for e in selected_embeddings)
+    max_similarity = max(
+        cosine_similarity(candidate_embedding, e) for e in selected_embeddings
+    )
     return max(0.0, 1.0 - max_similarity)

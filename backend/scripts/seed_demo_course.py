@@ -11,16 +11,15 @@ Mercer's Theorem, developing on Kernel Functions, and *apparently* strong on
 Kernel Regression despite the shaky foundation underneath it — which is
 exactly the "fragile" case the mastery/readiness model exists to catch.
 
-Requires a running Postgres+pgvector instance (`docker compose up` from
-`backend/`) and the schema migrated (`alembic upgrade head`). Does not call
-any LLM provider — concepts/edges/evidence are inserted directly via the
-repository layer.
+Requires the local SQLite schema migrated (`alembic upgrade head` from
+`backend/`). Does not call any LLM provider — concepts/edges/evidence are
+inserted directly via the repository layer.
 
 Usage: `uv run python -m scripts.seed_demo_course`
 """
 
 import asyncio
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from uuid import UUID, uuid4
 
 from app.db.session import async_session_factory
@@ -35,7 +34,7 @@ from app.repositories.courses import create_course
 from app.repositories.edges import upsert_concept_edge
 from app.repositories.student_states import create_evidence_event
 
-NOW = datetime.now(timezone.utc)
+NOW = datetime.now(UTC)
 
 
 def days_ago(n: int) -> datetime:
@@ -46,12 +45,22 @@ async def seed() -> tuple[UUID, UUID, dict[str, UUID]]:
     student_id = uuid4()
 
     async with async_session_factory() as session:
-        course = await create_course(session, name="Intermediate Machine Learning", code="CS-4780", term="Fall 2026")
+        course = await create_course(
+            session,
+            name="Intermediate Machine Learning",
+            code="CS-4780",
+            term="Fall 2026",
+        )
         course_id = course.id
 
         names = [
             ("Linear Algebra", ConceptKind.TOPIC_CLUSTER, Granularity.CLUSTER, 0.6),
-            ("Positive Semidefinite Matrices", ConceptKind.DEFINITION, Granularity.CORE, 0.75),
+            (
+                "Positive Semidefinite Matrices",
+                ConceptKind.DEFINITION,
+                Granularity.CORE,
+                0.75,
+            ),
             ("Mercer's Theorem", ConceptKind.THEOREM, Granularity.CORE, 0.85),
             ("Kernel Functions", ConceptKind.DEFINITION, Granularity.CORE, 0.8),
             ("Kernel Regression", ConceptKind.METHOD, Granularity.CORE, 0.9),
@@ -76,7 +85,9 @@ async def seed() -> tuple[UUID, UUID, dict[str, UUID]]:
             "Kernel Functions",
             "Kernel Regression",
         ]
-        for source_name, target_name in zip(backbone, backbone[1:], strict=False):  # pairwise, intentionally unequal length
+        for source_name, target_name in zip(
+            backbone, backbone[1:], strict=False
+        ):  # pairwise, intentionally unequal length
             await upsert_concept_edge(
                 session,
                 course_id=course_id,
@@ -173,35 +184,54 @@ async def seed() -> tuple[UUID, UUID, dict[str, UUID]]:
             await create_evidence_event(session, course_id=course_id, event=event)
 
         await recompute_student_state(
-            session, course_id=course_id, student_id=student_id, touched_concept_ids=set(concept_ids.values())
+            session,
+            course_id=course_id,
+            student_id=student_id,
+            touched_concept_ids=set(concept_ids.values()),
         )
         await session.commit()
 
     return course_id, student_id, concept_ids
 
 
-async def report(course_id: UUID, student_id: UUID, concept_ids: dict[str, UUID]) -> None:
+async def report(
+    course_id: UUID, student_id: UUID, concept_ids: dict[str, UUID]
+) -> None:
     async with async_session_factory() as session:
-        graph = await build_student_personal_graph(session, course_id=course_id, student_id=student_id)
+        graph = await build_student_personal_graph(
+            session, course_id=course_id, student_id=student_id
+        )
         print("\n=== Personal knowledge graph ===")
         for node in sorted(graph.nodes, key=lambda n: -n.importance):
-            mastery = f"{node.mastery:.2f}" if node.mastery is not None else "—"
+            understanding = (
+                f"{node.understanding:.2f}" if node.understanding is not None else "—"
+            )
             print(
-                f"  {node.name:32s} state={node.discovery_state.value:12s} mastery={mastery:>5s} "
-                f"familiarity={node.familiarity:.2f} confidence={node.confidence:.2f} "
-                f"readiness={node.readiness:.2f} fragility={node.fragility:.2f}"
+                f"  {node.name:32s} state={node.discovery_state.value:12s} "
+                f"understanding={understanding:>5s} "
+                f"personal_relevance={node.personal_relevance:.2f}"
             )
         print(f"  hidden_concept_count={graph.hidden_concept_count}")
 
         gap_result = await compute_target_gaps(
-            session, course_id=course_id, student_id=student_id, target_concept_id=concept_ids["Kernel Regression"]
+            session,
+            course_id=course_id,
+            student_id=student_id,
+            target_concept_id=concept_ids["Kernel Regression"],
         )
         print("\n=== Gaps toward 'Kernel Regression' ===")
         for gap in gap_result.gaps:
-            print(f"  priority={gap.priority:.3f}  action={gap.action.value:8s}  {gap.reason}")
+            print(
+                f"  priority={gap.priority:.3f}  action={gap.action.value:8s}  {gap.reason}"
+            )
         print("\n=== Minimal study order ===")
         name_by_id = {v: k for k, v in concept_ids.items()}
-        print("  " + " -> ".join(name_by_id.get(cid, str(cid)) for cid in gap_result.study_order))
+        print(
+            "  "
+            + " -> ".join(
+                name_by_id.get(cid, str(cid)) for cid in gap_result.study_order
+            )
+        )
 
 
 async def main() -> None:

@@ -32,7 +32,10 @@ def rank_embedding_candidates(
     top_k: int = 5,
 ) -> list[EmbeddingMatch]:
     scored = [
-        EmbeddingMatch(concept_id=concept_id, similarity=cosine_similarity(candidate_embedding, embedding))
+        EmbeddingMatch(
+            concept_id=concept_id,
+            similarity=cosine_similarity(candidate_embedding, embedding),
+        )
         for concept_id, embedding in existing_concept_embeddings.items()
     ]
     scored.sort(key=lambda m: -m.similarity)

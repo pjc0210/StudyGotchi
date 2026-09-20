@@ -15,11 +15,9 @@ class PersonalGraphNodeOut(BaseModel):
     discovery_state: DiscoveryState
     importance: float
     personal_relevance: float
-    mastery: float | None
-    familiarity: float
-    confidence: float
-    readiness: float
-    fragility: float
+    understanding: float | None
+    cluster_id: str | None = None
+    cluster: str | None = None
 
 
 class PersonalGraphEdgeOut(BaseModel):
@@ -36,3 +34,4 @@ class PersonalGraphResponse(BaseModel):
     nodes: list[PersonalGraphNodeOut]
     edges: list[PersonalGraphEdgeOut]
     hidden_concept_count: int
+    graph_version: str = ""

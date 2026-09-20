@@ -25,7 +25,7 @@ class ConceptEdgeType(StrEnum):
 
 
 # Only PREREQUISITE_FOR is treated as directionally load-bearing for
-# readiness/fragility/gap computations; the others are descriptive.
+# gap/prerequisite-support computations; the others are descriptive.
 STRONG_DIRECTIONAL_EDGE_TYPES = frozenset({ConceptEdgeType.PREREQUISITE_FOR})
 
 

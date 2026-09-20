@@ -1,15 +1,17 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from uuid import UUID
 
 from sqlalchemy import select
-from sqlalchemy.dialects.postgresql import insert as pg_insert
+from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.models import StudentConceptState, StudentEvidenceEvent
 from app.domain.mastery.evidence import EvidenceEvent, EvidenceType, evidence_strength
 
 
-async def create_evidence_event(session: AsyncSession, *, course_id: UUID, event: EvidenceEvent) -> None:
+async def create_evidence_event(
+    session: AsyncSession, *, course_id: UUID, event: EvidenceEvent
+) -> None:
     """Persists the event's *resolved* strength (the event's own
     `strength` override if set, else `DEFAULT_EVIDENCE_STRENGTH[evidence_type]`)
     so a later config change to the defaults table never silently
@@ -29,8 +31,10 @@ async def create_evidence_event(session: AsyncSession, *, course_id: UUID, event
             certainty=event.certainty,
             difficulty=event.difficulty,
             occurred_at=event.occurred_at,
-            event_metadata={"concept_relevance": event.concept_relevance} if event.concept_relevance != 1.0 else {},
-            created_at=datetime.now(timezone.utc),
+            event_metadata={"concept_relevance": event.concept_relevance}
+            if event.concept_relevance != 1.0
+            else {},
+            created_at=datetime.now(UTC),
         )
     )
     await session.flush()
@@ -53,10 +57,15 @@ def _to_domain_event(row: StudentEvidenceEvent) -> EvidenceEvent:
 
 
 async def get_evidence_events(
-    session: AsyncSession, *, student_id: UUID, course_id: UUID, concept_ids: set[UUID] | None = None
+    session: AsyncSession,
+    *,
+    student_id: UUID,
+    course_id: UUID,
+    concept_ids: set[UUID] | None = None,
 ) -> list[EvidenceEvent]:
     stmt = select(StudentEvidenceEvent).where(
-        StudentEvidenceEvent.student_id == student_id, StudentEvidenceEvent.course_id == course_id
+        StudentEvidenceEvent.student_id == student_id,
+        StudentEvidenceEvent.course_id == course_id,
     )
     if concept_ids is not None:
         stmt = stmt.where(StudentEvidenceEvent.concept_id.in_(concept_ids))
@@ -71,37 +80,33 @@ async def upsert_student_concept_state(
     course_id: UUID,
     concept_id: UUID,
     discovery_state: str,
-    mastery: float,
-    familiarity: float,
-    mastery_confidence: float,
-    readiness: float,
-    fragility: float,
-    personal_relevance: float,
+    understanding: float | None,
+    personal_relevance: float | None,
     positive_evidence: float,
     negative_evidence: float,
     last_evidence_at: datetime | None,
     last_practiced_at: datetime | None,
 ) -> None:
-    now = datetime.now(timezone.utc)
-    values = dict(
-        student_id=student_id,
-        course_id=course_id,
-        concept_id=concept_id,
-        discovery_state=discovery_state,
-        mastery=mastery,
-        familiarity=familiarity,
-        mastery_confidence=mastery_confidence,
-        readiness=readiness,
-        fragility=fragility,
-        personal_relevance=personal_relevance,
-        positive_evidence=positive_evidence,
-        negative_evidence=negative_evidence,
-        last_evidence_at=last_evidence_at,
-        last_practiced_at=last_practiced_at,
-        updated_at=now,
-    )
-    stmt = pg_insert(StudentConceptState).values(**values)
-    update_cols = {k: v for k, v in values.items() if k not in ("student_id", "concept_id", "course_id")}
+    now = datetime.now(UTC)
+    values = {
+        "student_id": student_id,
+        "course_id": course_id,
+        "concept_id": concept_id,
+        "discovery_state": discovery_state,
+        "understanding": understanding,
+        "personal_relevance": personal_relevance,
+        "positive_evidence": positive_evidence,
+        "negative_evidence": negative_evidence,
+        "last_evidence_at": last_evidence_at,
+        "last_practiced_at": last_practiced_at,
+        "updated_at": now,
+    }
+    stmt = sqlite_insert(StudentConceptState).values(**values)
+    update_cols = {
+        k: v
+        for k, v in values.items()
+        if k not in ("student_id", "concept_id", "course_id")
+    }
     stmt = stmt.on_conflict_do_update(
         index_elements=["student_id", "concept_id"],
         set_=update_cols,
@@ -115,7 +120,8 @@ async def get_student_concept_states(
 ) -> dict[UUID, StudentConceptState]:
     result = await session.execute(
         select(StudentConceptState).where(
-            StudentConceptState.student_id == student_id, StudentConceptState.course_id == course_id
+            StudentConceptState.student_id == student_id,
+            StudentConceptState.course_id == course_id,
         )
     )
     return {row.concept_id: row for row in result.scalars().all()}

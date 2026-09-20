@@ -1,0 +1,33 @@
+{
+  "course": {
+    "name": "Classical Mechanics II",
+    "code": "8.223",
+    "term": "Spring 2026"
+  },
+  "resources": [
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L1-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L2-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L3-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L4-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L5-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L6-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L7-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L8-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L9-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L10-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/Lecture Notes/L11-notes.pdf", "origin": "instructor", "artifact_type": "lecture"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/pset1.pdf", "origin": "instructor", "artifact_type": "homework"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/pset2.pdf", "origin": "instructor", "artifact_type": "homework"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/pset3.pdf", "origin": "instructor", "artifact_type": "homework"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/pset4.pdf", "origin": "instructor", "artifact_type": "homework"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/course_files_export/midterm_2025.pdf", "origin": "instructor", "artifact_type": "exam"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/course_files_export/midterm_sol_2025.pdf", "origin": "instructor", "artifact_type": "solution_key"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/final_2025.pdf", "origin": "instructor", "artifact_type": "exam"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/final_sol_2025.pdf", "origin": "instructor", "artifact_type": "solution_key"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/Legendre Transforms for Dummies.pdf", "origin": "external", "artifact_type": "reading"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/Pset 1 CM2.pdf", "origin": "student_self", "artifact_type": "handwritten_work", "student_id": "82230000-0000-4000-8000-000000000001"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/Pset 2 CM2.pdf", "origin": "student_self", "artifact_type": "handwritten_work", "student_id": "82230000-0000-4000-8000-000000000001"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/Pset 3 CM2.pdf", "origin": "student_self", "artifact_type": "handwritten_work", "student_id": "82230000-0000-4000-8000-000000000001"},
+    {"path": "8.223.zip", "member": "8.223/local-coursework/Pset 4 CM2.pdf", "origin": "student_self", "artifact_type": "handwritten_work", "student_id": "82230000-0000-4000-8000-000000000001"}
+  ]
+}

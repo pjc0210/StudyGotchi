@@ -17,7 +17,7 @@ from uuid import UUID
 
 from app.domain.ontology.concepts import ConceptCandidate
 from app.resolution.aliases import lookup_alias
-from app.resolution.normalize import normalize_concept_name
+from app.resolution.normalize import normalize_concept_name, plural_variant_candidates
 from app.resolution.semantic_match import (
     EmbeddingMatch,
     SimilarityBucket,
@@ -54,15 +54,29 @@ def resolve_concept_candidate(
 ) -> ConceptResolution:
     normalized_name = normalize_concept_name(candidate.name)
 
-    exact_match = lookup_alias(normalized_name, alias_index)
-    if exact_match is not None:
-        return ConceptResolution(
-            action=ResolutionAction.MERGE_EXACT_ALIAS,
-            normalized_name=normalized_name,
-            matched_concept_id=exact_match,
-            similarity=1.0,
-            reason=f'"{candidate.name}" exactly matches a known alias of an existing concept.',
-        )
+    # Check the candidate's own name AND every alias it was extracted with —
+    # a candidate named "Deterministic Finite Automata" whose aliases
+    # include "DFA" must still match an existing concept aliased "DFA", even
+    # though its own chosen name doesn't lexically match anything yet.
+    # Regular-plural variants of each form are checked too (exact-match
+    # only — never a fuzzy merge on their own).
+    candidate_forms = [normalized_name]
+    candidate_forms.extend(normalize_concept_name(alias) for alias in candidate.aliases)
+    candidate_forms = list(dict.fromkeys(candidate_forms))
+    for form in list(candidate_forms):
+        candidate_forms.extend(plural_variant_candidates(form))
+    candidate_forms = list(dict.fromkeys(candidate_forms))
+
+    for form in candidate_forms:
+        exact_match = lookup_alias(form, alias_index)
+        if exact_match is not None:
+            return ConceptResolution(
+                action=ResolutionAction.MERGE_EXACT_ALIAS,
+                normalized_name=normalized_name,
+                matched_concept_id=exact_match,
+                similarity=1.0,
+                reason=f'"{candidate.name}" exactly matches a known alias ("{form}") of an existing concept.',
+            )
 
     if candidate_embedding is None or not existing_concept_embeddings:
         return ConceptResolution(
@@ -81,7 +95,9 @@ def resolve_concept_candidate(
 
     best = ranked[0]
     bucket = classify_similarity(
-        best.similarity, merge_threshold=merge_threshold, adjudicate_threshold=adjudicate_threshold
+        best.similarity,
+        merge_threshold=merge_threshold,
+        adjudicate_threshold=adjudicate_threshold,
     )
 
     if bucket is SimilarityBucket.MERGE:
@@ -120,7 +136,10 @@ def resolve_concept_candidate(
 
 
 def finalize_adjudication(
-    resolution: ConceptResolution, *, llm_says_same_concept: bool, matched_concept_id: UUID | None
+    resolution: ConceptResolution,
+    *,
+    llm_says_same_concept: bool,
+    matched_concept_id: UUID | None,
 ) -> ConceptResolution:
     """Turn an LLM adjudication answer into a final MERGE/CREATE decision."""
 
@@ -130,11 +149,13 @@ def finalize_adjudication(
             normalized_name=resolution.normalized_name,
             matched_concept_id=matched_concept_id,
             similarity=resolution.similarity,
-            reason=resolution.reason + " Confirmed as the same concept by semantic adjudication.",
+            reason=resolution.reason
+            + " Confirmed as the same concept by semantic adjudication.",
         )
     return ConceptResolution(
         action=ResolutionAction.CREATE,
         normalized_name=resolution.normalized_name,
         similarity=resolution.similarity,
-        reason=resolution.reason + " Semantic adjudication determined this is a distinct concept.",
+        reason=resolution.reason
+        + " Semantic adjudication determined this is a distinct concept.",
     )

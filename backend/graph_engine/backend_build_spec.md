@@ -2351,6 +2351,7 @@ class ConceptState:
     readiness: float
     fragility: float
 
+
 @dataclass
 class EvidenceEvent:
     concept_id: UUID
@@ -2377,18 +2378,15 @@ class LLMProvider(Protocol):
         system: str,
         prompt: str,
         schema: type[BaseModel],
-    ) -> BaseModel:
-        ...
+    ) -> BaseModel: ...
 
-    async def embed(self, texts: list[str]) -> list[list[float]]:
-        ...
+    async def embed(self, texts: list[str]) -> list[list[float]]: ...
 
     async def analyze_image(
         self,
         image_bytes: bytes,
         prompt: str,
-    ) -> str:
-        ...
+    ) -> str: ...
 ```
 
 Domain code should never import provider SDKs directly.

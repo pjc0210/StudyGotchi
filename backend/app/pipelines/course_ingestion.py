@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import get_settings
 from app.domain.graph.prerequisite import classify_edge, score_prerequisite_confidence
 from app.domain.graph.reduction import clean_prerequisite_edges
-from app.domain.ontology.concepts import ConceptCandidate
+from app.domain.ontology.concepts import ConceptCandidate, ConceptScope
 from app.domain.ontology.edges import ConceptEdgeType
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin, get_authority
 from app.extractors.assessments import normalize_concept_links
@@ -33,6 +33,7 @@ from app.repositories.concepts import (
     create_resource_link,
     get_alias_index,
     get_concept_embeddings,
+    get_course_concepts,
 )
 from app.repositories.edges import (
     add_edge_evidence,
@@ -45,6 +46,7 @@ from app.repositories.resources import (
     compute_content_hash,
     create_resource,
     get_resource_by_hash,
+    lock_course_ingestion,
     save_chunks,
     update_resource_status,
 )
@@ -57,7 +59,12 @@ from app.resolution.normalize import normalize_concept_name
 from app.schemas.extraction import ConceptAdjudicationOut
 
 _ASSESSMENT_ARTIFACT_TYPES = frozenset(
-    {ArtifactType.HOMEWORK, ArtifactType.QUIZ, ArtifactType.EXAM, ArtifactType.SOLUTION_KEY}
+    {
+        ArtifactType.HOMEWORK,
+        ArtifactType.QUIZ,
+        ArtifactType.EXAM,
+        ArtifactType.SOLUTION_KEY,
+    }
 )
 _MERGE_ADJUDICATION_PROMPT = load_prompt("merge_adjudication.txt")
 
@@ -87,7 +94,9 @@ async def _adjudicate_concept_merge(
     ]
     for i, match in enumerate(candidate_matches):
         name = concept_names_by_id.get(match.concept_id, "?")
-        definition = concept_definitions_by_id.get(match.concept_id) or "(no definition on file)"
+        definition = (
+            concept_definitions_by_id.get(match.concept_id) or "(no definition on file)"
+        )
         lines.append(f"[{i}] {name} (similarity {match.similarity:.2f}): {definition}")
     prompt = "\n".join(lines)
     return await provider.structured_generate(
@@ -106,10 +115,20 @@ async def ingest_course_resource(
     content_bytes: bytes,
     owner_user_id: UUID | None = None,
 ) -> ResourceIngestOutcome:
+    if origin == SourceOrigin.STUDENT_SELF:
+        raise ValueError("Student work must use the student ingestion endpoint")
     settings = get_settings()
+    await lock_course_ingestion(session, course_id)
     content_hash = compute_content_hash(content_bytes)
 
-    existing = await get_resource_by_hash(session, course_id, content_hash)
+    existing = await get_resource_by_hash(
+        session,
+        course_id,
+        content_hash,
+        owner_user_id=owner_user_id,
+        origin=origin.value,
+        artifact_type=artifact_type.value,
+    )
     if existing is not None:
         return ResourceIngestOutcome(resource_id=existing.id, status="unchanged")
 
@@ -134,7 +153,11 @@ async def ingest_course_resource(
 
     chunk_embeddings = await provider.embed([c.text for c in chunks])
     chunk_rows = await save_chunks(
-        session, resource_id=resource.id, course_id=course_id, chunks=chunks, embeddings=chunk_embeddings
+        session,
+        resource_id=resource.id,
+        course_id=course_id,
+        chunks=chunks,
+        embeddings=chunk_embeddings,
     )
 
     authority = get_authority(origin, artifact_type)
@@ -144,13 +167,21 @@ async def ingest_course_resource(
     # relationship/assessment link can reference a concept extracted from an
     # earlier chunk of the same resource.
     name_to_concept_id: dict[str, UUID] = {}
-    concept_names_by_id: dict[UUID, str] = {}
-    concept_definitions_by_id: dict[UUID, str | None] = {}
+    existing_concepts = await get_course_concepts(session, course_id)
+    concept_names_by_id = {
+        cid: c.canonical_name for cid, c in existing_concepts.items()
+    }
+    concept_definitions_by_id = {
+        cid: c.short_definition for cid, c in existing_concepts.items()
+    }
 
+    seen_item_labels: set[str] = set()
     for chunk, chunk_row in zip(chunks, chunk_rows, strict=True):
         extraction = await extract_resource_structured(
             provider, document_type=artifact_type.value, chunk_text=chunk.text
         )
+
+        chunk_row.chunk_metadata = {"extraction": extraction.model_dump(mode="json")}
 
         alias_index = await get_alias_index(session, course_id)
         existing_embeddings = await get_concept_embeddings(session, course_id)
@@ -165,7 +196,9 @@ async def ingest_course_resource(
                 importance_in_resource=candidate_out.importance_in_resource,
                 aliases=candidate_out.aliases,
             )
-            candidate_embedding = (await provider.embed([f"{candidate.name}: {candidate.definition}"]))[0]
+            candidate_embedding = (
+                await provider.embed([f"{candidate.name}: {candidate.definition}"])
+            )[0]
 
             resolution = resolve_concept_candidate(
                 candidate,
@@ -185,15 +218,23 @@ async def ingest_course_resource(
                     concept_definitions_by_id,
                 )
                 matched_id = None
-                if adjudication.same_concept and adjudication.matched_candidate_index is not None:
+                if (
+                    adjudication.same_concept
+                    and adjudication.matched_candidate_index is not None
+                ):
                     idx = adjudication.matched_candidate_index
                     if 0 <= idx < len(resolution.adjudication_candidates):
                         matched_id = resolution.adjudication_candidates[idx].concept_id
                 resolution = finalize_adjudication(
-                    resolution, llm_says_same_concept=matched_id is not None, matched_concept_id=matched_id
+                    resolution,
+                    llm_says_same_concept=matched_id is not None,
+                    matched_concept_id=matched_id,
                 )
 
-            if resolution.action in (ResolutionAction.MERGE_EXACT_ALIAS, ResolutionAction.MERGE_HIGH_SIMILARITY):
+            if resolution.action in (
+                ResolutionAction.MERGE_EXACT_ALIAS,
+                ResolutionAction.MERGE_HIGH_SIMILARITY,
+            ):
                 concept_id = resolution.matched_concept_id
                 assert concept_id is not None
                 outcome.concepts_merged += 1
@@ -207,6 +248,10 @@ async def ingest_course_resource(
                     granularity=candidate.granularity,
                     importance=candidate.importance_in_resource,
                     embedding=candidate_embedding,
+                    scope=ConceptScope.COURSE
+                    if origin in (SourceOrigin.INSTRUCTOR, SourceOrigin.TA)
+                    else ConceptScope.SHARED_EXTENSION,
+                    created_from_resource_id=resource.id,
                 )
                 concept_id = concept_node.id
                 outcome.concepts_created += 1
@@ -214,16 +259,34 @@ async def ingest_course_resource(
                 alias_index[normalize_concept_name(candidate.name)] = concept_id
 
             for alias in candidate.aliases:
-                await add_alias(session, concept_id=concept_id, alias=alias, source_resource_id=resource.id)
+                await add_alias(
+                    session,
+                    concept_id=concept_id,
+                    alias=alias,
+                    source_resource_id=resource.id,
+                )
                 alias_index[normalize_concept_name(alias)] = concept_id
 
             name_to_concept_id[candidate_out.name] = concept_id
             name_to_concept_id[normalize_concept_name(candidate_out.name)] = concept_id
+            await create_resource_link(
+                session,
+                concept_id=concept_id,
+                resource_id=resource.id,
+                chunk_id=chunk_row.id,
+                link_type="APPEARS_IN",
+                depth_score=candidate.importance_in_resource,
+                confidence=0.7,
+            )
             concept_names_by_id[concept_id] = candidate.name
             concept_definitions_by_id[concept_id] = candidate.definition
 
-        def resolve_name(name: str) -> UUID | None:
-            return name_to_concept_id.get(name) or name_to_concept_id.get(normalize_concept_name(name))
+        def resolve_name(name: str, *, alias_index=alias_index) -> UUID | None:
+            return (
+                name_to_concept_id.get(name)
+                or name_to_concept_id.get(normalize_concept_name(name))
+                or alias_index.get(normalize_concept_name(name))
+            )
 
         for link_out in extraction.resource_concept_links:
             concept_id = resolve_name(link_out.concept_name)
@@ -248,15 +311,21 @@ async def ingest_course_resource(
             edge_type = rel.edge_type
             if edge_type == ConceptEdgeType.PREREQUISITE_FOR:
                 level = map_evidence_level(rel.prerequisite_evidence_level)
-                confidence = score_prerequisite_confidence(level, authority.prerequisite_authority)
-                classification = classify_edge(
-                    confidence, settings.prereq_active_threshold, settings.prereq_weak_threshold
+                confidence = score_prerequisite_confidence(
+                    level, authority.prerequisite_authority
                 )
-                if classification == "reject":
+                classification = classify_edge(
+                    confidence,
+                    settings.prereq_active_threshold,
+                    settings.prereq_weak_threshold,
+                )
+                if classification != "active":
                     edge_type = ConceptEdgeType.RELATED_TO
                 authority_weight = authority.prerequisite_authority
             else:
-                confidence = min(1.0, 0.6 * (0.6 + 0.4 * authority.curriculum_authority))
+                confidence = min(
+                    1.0, 0.6 * (0.6 + 0.4 * authority.curriculum_authority)
+                )
                 authority_weight = authority.curriculum_authority
 
             edge = await upsert_concept_edge(
@@ -274,6 +343,7 @@ async def ingest_course_resource(
                 edge_id=edge.id,
                 resource_id=resource.id,
                 chunk_id=chunk_row.id,
+                page_number=chunk.page_number,
                 evidence_kind=rel.prerequisite_evidence_level or "relationship",
                 confidence=confidence,
                 snippet=rel.evidence_snippet,
@@ -281,9 +351,16 @@ async def ingest_course_resource(
 
         if extraction.assessment_items:
             assessment = await get_or_create_assessment(
-                session, course_id=course_id, resource_id=resource.id, title=resource.title, assessment_type=artifact_type.value
+                session,
+                course_id=course_id,
+                resource_id=resource.id,
+                title=resource.title,
+                assessment_type=artifact_type.value,
             )
             for item_out in extraction.assessment_items:
+                if item_out.label in seen_item_labels:
+                    continue
+                seen_item_labels.add(item_out.label)
                 item = await create_assessment_item(
                     session,
                     assessment_id=assessment.id,
@@ -298,7 +375,10 @@ async def ingest_course_resource(
                     if concept_id is None:
                         continue
                     await link_item_to_concept(
-                        session, assessment_item_id=item.id, concept_id=concept_id, relevance_weight=link.relevance_weight
+                        session,
+                        assessment_item_id=item.id,
+                        concept_id=concept_id,
+                        relevance_weight=link.relevance_weight,
                     )
 
     await _clean_up_prerequisite_graph(session, course_id)
@@ -313,6 +393,14 @@ async def _clean_up_prerequisite_graph(session: AsyncSession, course_id: UUID) -
     """
 
     all_edges = await get_course_edges(session, course_id)
+    from app.db.models import ConceptEdge
+
+    for edge in all_edges:
+        row = await session.get(ConceptEdge, edge.id)
+        row.edge_metadata = {
+            **row.edge_metadata,
+            "is_redundant_in_display_graph": False,
+        }
     cleanup = clean_prerequisite_edges(all_edges)
     for edge_id in cleanup.cycle_broken_edge_ids:
         await downgrade_edge_to_related(session, edge_id)

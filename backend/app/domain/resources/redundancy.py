@@ -13,7 +13,9 @@ DEFAULT_DUPLICATE_THRESHOLD = 0.92
 
 
 def detect_near_duplicate_clusters(
-    embeddings: dict[UUID, list[float]], *, threshold: float = DEFAULT_DUPLICATE_THRESHOLD
+    embeddings: dict[UUID, list[float]],
+    *,
+    threshold: float = DEFAULT_DUPLICATE_THRESHOLD,
 ) -> list[set[UUID]]:
     """Union-find clustering of resource/explanation embeddings by cosine
     similarity. Returns disjoint clusters; a resource with no near-duplicates

@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_db, get_provider
+from app.config import get_settings
 from app.domain.ontology.source_types import ArtifactType, SourceOrigin
 from app.pipelines.course_ingestion import ingest_course_resource
 from app.pipelines.student_ingestion import ingest_student_resource
@@ -30,7 +31,11 @@ async def ingest_course_resource_endpoint(
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
-    content_bytes = await file.read()
+    content_bytes = await file.read(get_settings().max_upload_bytes + 1)
+    if len(content_bytes) > get_settings().max_upload_bytes:
+        raise HTTPException(413, "File exceeds upload size limit")
+    if not content_bytes:
+        raise HTTPException(422, "File is empty")
     outcome = await ingest_course_resource(
         session,
         provider,
@@ -51,7 +56,10 @@ async def ingest_course_resource_endpoint(
     )
 
 
-@router.post("/students/{student_id}/resources/ingest", response_model=StudentResourceIngestResponse)
+@router.post(
+    "/students/{student_id}/resources/ingest",
+    response_model=StudentResourceIngestResponse,
+)
 async def ingest_student_resource_endpoint(
     course_id: UUID,
     student_id: UUID,
@@ -64,7 +72,11 @@ async def ingest_student_resource_endpoint(
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
-    content_bytes = await file.read()
+    content_bytes = await file.read(get_settings().max_upload_bytes + 1)
+    if len(content_bytes) > get_settings().max_upload_bytes:
+        raise HTTPException(413, "File exceeds upload size limit")
+    if not content_bytes:
+        raise HTTPException(422, "File is empty")
     outcome = await ingest_student_resource(
         session,
         provider,

@@ -20,8 +20,7 @@ def test_weak_relevant_prerequisite_outranks_weak_irrelevant_concept():
     relevant_priority = compute_gap_priority(
         GapPriorityInputs(
             concept_id=relevant,
-            mastery=0.2,
-            confidence=0.8,
+            understanding=0.2,
             course_importance=0.7,
             shortest_path_distance=1,
             bottleneck_weight=0.8,
@@ -31,8 +30,7 @@ def test_weak_relevant_prerequisite_outranks_weak_irrelevant_concept():
     irrelevant_priority = compute_gap_priority(
         GapPriorityInputs(
             concept_id=irrelevant,
-            mastery=0.2,
-            confidence=0.8,
+            understanding=0.2,
             course_importance=0.7,
             shortest_path_distance=None,  # no path to target
             bottleneck_weight=0.8,
@@ -43,24 +41,48 @@ def test_weak_relevant_prerequisite_outranks_weak_irrelevant_concept():
     assert irrelevant_priority == 0.0
 
 
-def test_low_confidence_weak_concept_returns_diagnose():
-    assert recommend_action(mastery=0.4, confidence=0.3, is_stale=False) == GapAction.DIAGNOSE
+def test_sparse_evidence_weak_concept_returns_diagnose():
+    assert (
+        recommend_action(understanding=0.4, effective_evidence=0.2, is_stale=False)
+        == GapAction.DIAGNOSE
+    )
 
 
-def test_high_confidence_weak_concept_returns_study():
-    assert recommend_action(mastery=0.3, confidence=0.9, is_stale=False) == GapAction.STUDY
+def test_well_evidenced_weak_concept_returns_study():
+    assert (
+        recommend_action(understanding=0.3, effective_evidence=3.0, is_stale=False)
+        == GapAction.STUDY
+    )
 
 
-def test_mastered_and_stale_returns_review():
-    assert recommend_action(mastery=0.85, confidence=0.9, is_stale=True) == GapAction.REVIEW
+def test_understood_and_stale_returns_review():
+    assert (
+        recommend_action(understanding=0.85, effective_evidence=3.0, is_stale=True)
+        == GapAction.REVIEW
+    )
 
 
-def test_mastered_and_fresh_returns_optional():
-    assert recommend_action(mastery=0.85, confidence=0.9, is_stale=False) == GapAction.OPTIONAL
+def test_understood_and_fresh_returns_optional():
+    assert (
+        recommend_action(understanding=0.85, effective_evidence=3.0, is_stale=False)
+        == GapAction.OPTIONAL
+    )
 
 
-def test_study_plan_omits_mastered_prerequisites_and_respects_ordering():
-    # A -> B -> C -> D (D is the target); A is already mastered.
+def test_gap_priority_needs_no_confidence_or_evidence_strength_input():
+    # GapPriorityInputs only accepts understanding + graph structure +
+    # importance — there is no confidence/evidence_strength field to pass.
+    assert set(GapPriorityInputs.__dataclass_fields__) == {
+        "concept_id",
+        "understanding",
+        "course_importance",
+        "shortest_path_distance",
+        "bottleneck_weight",
+    }
+
+
+def test_study_plan_omits_understood_prerequisites_and_respects_ordering():
+    # A -> B -> C -> D (D is the target); A is already understood.
     a, b, c, d = uuid4(), uuid4(), uuid4(), uuid4()
     graph = nx.DiGraph()
     graph.add_edges_from([(a, b), (b, c), (c, d)])
@@ -68,12 +90,12 @@ def test_study_plan_omits_mastered_prerequisites_and_respects_ordering():
     result = build_study_plan(
         graph,
         target_concept_id=d,
-        mastery_by_concept={a: 0.95, b: 0.2, c: 0.3, d: 0.0},
-        confidence_by_concept={a: 0.9, b: 0.8, c: 0.8, d: 0.0},
+        understanding_by_concept={a: 0.95, b: 0.2, c: 0.3, d: 0.0},
+        effective_evidence_by_concept={a: 3.0, b: 2.0, c: 2.0, d: 0.0},
         course_importance_by_concept={a: 0.5, b: 0.5, c: 0.5, d: 0.5},
         is_stale_by_concept={},
         relevance_alpha=ALPHA,
-        mastered_threshold=0.75,
+        understood_threshold=0.75,
     )
 
     assert a not in result.study_order

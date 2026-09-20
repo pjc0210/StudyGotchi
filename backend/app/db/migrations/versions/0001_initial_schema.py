@@ -2,14 +2,11 @@
 
 Creates every table in app.db.models from the live SQLAlchemy metadata
 (`Base.metadata.create_all`) rather than hand-transcribed `op.create_table`
-calls. There is no live Postgres+pgvector instance available in this
-environment to autogenerate/verify a hand-written migration against, and a
-transcription bug in ~14 hand-written tables is a real risk with no way to
-catch it here; metadata-driven creation is guaranteed to match
-`app/db/models.py` by construction. Run `alembic upgrade head` against a
-real database to verify, then consider generating a conventional
-`op.create_table`-based revision (`alembic revision --autogenerate`) from a
-clean DB for finer-grained downgrade support if that's ever needed.
+calls. Metadata-driven creation is guaranteed to match `app/db/models.py`
+by construction, avoiding a hand-transcription bug across ~14 tables.
+Consider generating a conventional `op.create_table`-based revision
+(`alembic revision --autogenerate`) from a clean DB for finer-grained
+downgrade support if that's ever needed.
 
 Revision ID: 0001_initial_schema
 Revises:
@@ -28,7 +25,6 @@ depends_on = None
 
 
 def upgrade() -> None:
-    op.execute("CREATE EXTENSION IF NOT EXISTS vector")
     bind = op.get_bind()
     Base.metadata.create_all(bind=bind)
 
@@ -36,4 +32,3 @@ def upgrade() -> None:
 def downgrade() -> None:
     bind = op.get_bind()
     Base.metadata.drop_all(bind=bind)
-    op.execute("DROP EXTENSION IF EXISTS vector")

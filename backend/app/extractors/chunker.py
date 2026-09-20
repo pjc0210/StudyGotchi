@@ -13,7 +13,7 @@ TARGET_TOKENS_MAX = 900
 OVERLAP_RATIO = 0.12
 
 _QUESTION_BOUNDARY_RE = re.compile(
-    r"(?m)^\s*(?:Q(?:uestion)?\.?\s*\d+[a-zA-Z]?|Problem\s*\d+[a-zA-Z]?|\d{1,2}[a-zA-Z]?)\s*[\.\):]"
+    r"(?m)^[ \t]*(?:Q(?:uestion)?\.?\s*\d+[a-zA-Z]?|Problem\s*\d+[a-zA-Z]?|\d{1,2}[a-zA-Z]?)\s*[\.\):]"
 )
 
 
@@ -37,12 +37,23 @@ def chunk_by_question(document: ParsedDocument) -> list[Chunk]:
     if len(boundaries) < 2:
         return []
 
+    if text[: boundaries[0]].strip():
+        boundaries.insert(0, 0)
     boundaries.append(len(text))
     chunks: list[Chunk] = []
     for i in range(len(boundaries) - 1):
         segment = text[boundaries[i] : boundaries[i + 1]].strip()
         if segment:
-            chunks.append(Chunk(chunk_index=len(chunks), text=segment))
+            offset = 0
+            page_number = None
+            for page in document.pages:
+                if offset <= boundaries[i] < offset + len(page.text) + 2:
+                    page_number = page.page_number
+                    break
+                offset += len(page.text) + 2
+            chunks.append(
+                Chunk(chunk_index=len(chunks), text=segment, page_number=page_number)
+            )
     return chunks
 
 
@@ -76,7 +87,11 @@ def chunk_by_structure(
                     )
                 )
                 overlap_chars = int(len(buffer) * overlap_ratio)
-                buffer = (buffer[-overlap_chars:] + "\n\n" + paragraph) if overlap_chars else paragraph
+                buffer = (
+                    (buffer[-overlap_chars:] + "\n\n" + paragraph)
+                    if overlap_chars
+                    else paragraph
+                )
             else:
                 buffer = candidate
 
@@ -93,9 +108,38 @@ def chunk_by_structure(
     return chunks
 
 
-def chunk_document(document: ParsedDocument, *, is_assessment: bool = False) -> list[Chunk]:
+def _unbounded_chunks(
+    document: ParsedDocument, *, is_assessment: bool = False
+) -> list[Chunk]:
     if is_assessment:
         question_chunks = chunk_by_question(document)
         if question_chunks:
             return question_chunks
     return chunk_by_structure(document)
+
+
+def chunk_document(
+    document: ParsedDocument, *, is_assessment: bool = False
+) -> list[Chunk]:
+    chunks = _unbounded_chunks(document, is_assessment=is_assessment)
+    bounded = []
+    limit = TARGET_TOKENS_MAX * 4
+    for chunk in chunks:
+        text = chunk.text
+        while len(text) > limit:
+            cut = text.rfind(" ", limit // 2, limit)
+            if cut < 0:
+                cut = limit
+            bounded.append(
+                Chunk(len(bounded), text[:cut], chunk.page_number, chunk.section_title)
+            )
+            # Do not repeat assessed answers across overlapping windows.
+            overlap = 0 if is_assessment else int(limit * OVERLAP_RATIO)
+            text = text[cut - overlap :]
+        if text.strip():
+            bounded.append(
+                Chunk(
+                    len(bounded), text.strip(), chunk.page_number, chunk.section_title
+                )
+            )
+    return bounded

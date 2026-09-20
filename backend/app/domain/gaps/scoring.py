@@ -1,9 +1,14 @@
 """Knowledge-gap scoring (spec: "Knowledge-gap engine"). A gap is
-contextual — it is never just `mastery < threshold`. Priority combines how
-far the student is from mastering a concept, how relevant it is to the
-current goal, how many other target-relevant concepts bottleneck on it, how
-important the concept is to the course, and how much we should trust the
-mastery estimate at all.
+contextual — it is never just `understanding < threshold`. Priority combines
+how far the student is from understanding a concept, how relevant it is to
+the current goal, how many other target-relevant concepts bottleneck on it,
+and how important the concept is to the course.
+
+Deliberately does not depend on familiarity, confidence, evidence_strength,
+readiness, or fragility — only `understanding` + graph structure + target +
+importance. Where "how much evidence exists" matters (to decide STUDY vs.
+DIAGNOSE), it is read directly off the raw evidence totals rather than a
+derived confidence score.
 """
 
 from dataclasses import dataclass
@@ -18,8 +23,8 @@ class GapAction(StrEnum):
     OPTIONAL = "optional"
 
 
-def mastery_deficit(mastery: float) -> float:
-    return 1.0 - mastery
+def understanding_deficit(understanding: float) -> float:
+    return 1.0 - understanding
 
 
 def goal_relevance(shortest_path_distance: int | None, *, alpha: float) -> float:
@@ -33,59 +38,54 @@ def goal_relevance(shortest_path_distance: int | None, *, alpha: float) -> float
     return alpha**shortest_path_distance
 
 
-def confidence_adjustment(confidence: float) -> float:
-    """Dampen (never zero out) priority when mastery is poorly evidenced, so
-    a barely-tested concept still surfaces but doesn't dominate over a
-    well-evidenced weakness. Pairs with `recommend_action`, which routes
-    low-confidence weaknesses to DIAGNOSE instead of STUDY.
-    """
-
-    return 0.4 + 0.6 * confidence
-
-
 @dataclass(frozen=True)
 class GapPriorityInputs:
     concept_id: UUID
-    mastery: float
-    confidence: float
+    understanding: float
     course_importance: float
     shortest_path_distance: int | None
-    bottleneck_weight: float  # normalized downstream reach within the target subgraph, [0,1]
+    bottleneck_weight: (
+        float  # normalized downstream reach within the target subgraph, [0,1]
+    )
 
 
 def compute_gap_priority(inputs: GapPriorityInputs, *, relevance_alpha: float) -> float:
     relevance = goal_relevance(inputs.shortest_path_distance, alpha=relevance_alpha)
     return (
-        mastery_deficit(inputs.mastery)
+        understanding_deficit(inputs.understanding)
         * relevance
         * inputs.bottleneck_weight
         * inputs.course_importance
-        * confidence_adjustment(inputs.confidence)
     )
 
 
 def recommend_action(
-    mastery: float,
-    confidence: float,
+    understanding: float,
+    effective_evidence: float,
     *,
     is_stale: bool,
-    study_mastery_threshold: float = 0.50,
-    diagnose_mastery_threshold: float = 0.60,
-    confidence_threshold: float = 0.60,
-    review_mastery_threshold: float = 0.75,
+    study_understanding_threshold: float = 0.50,
+    diagnose_understanding_threshold: float = 0.60,
+    min_evidence_for_confident_action: float = 1.0,
+    review_understanding_threshold: float = 0.75,
 ) -> GapAction:
-    """Confidence-aware action per the build spec's rule table:
+    """Evidence-amount-aware action, read directly off the raw evidence
+    totals rather than a derived confidence score (spec: "if later logic
+    needs to know how much evidence exists, inspect/count the evidence
+    events dynamically rather than maintaining another concept-state
+    measurement"):
 
-        mastery < 0.50 and confidence > 0.60         -> STUDY
-        mastery < 0.60 and confidence <= 0.60         -> DIAGNOSE
-        mastery >= 0.75 and evidence is stale         -> REVIEW
-        else                                          -> OPTIONAL
+    understanding < 0.50 and enough evidence exists   -> STUDY
+    understanding < 0.60 and evidence is sparse        -> DIAGNOSE
+    understanding >= 0.75 and evidence is stale        -> REVIEW
+    else                                                -> OPTIONAL
     """
 
-    if mastery < study_mastery_threshold and confidence > confidence_threshold:
+    has_enough_evidence = effective_evidence > min_evidence_for_confident_action
+    if understanding < study_understanding_threshold and has_enough_evidence:
         return GapAction.STUDY
-    if mastery < diagnose_mastery_threshold and confidence <= confidence_threshold:
+    if understanding < diagnose_understanding_threshold and not has_enough_evidence:
         return GapAction.DIAGNOSE
-    if mastery >= review_mastery_threshold and is_stale:
+    if understanding >= review_understanding_threshold and is_stale:
         return GapAction.REVIEW
     return GapAction.OPTIONAL

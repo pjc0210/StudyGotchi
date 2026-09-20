@@ -36,14 +36,15 @@ def test_goal_frontier_includes_unmet_ancestors_of_target():
     graph.add_edge(a, b)
     graph.add_edge(b, target)
 
-    goal_frontier = compute_goal_frontier(graph, known_concept_ids=set(), goal_concept_ids={target})
+    goal_frontier = compute_goal_frontier(
+        graph, known_concept_ids=set(), goal_concept_ids={target}
+    )
     assert {a, b, target} == goal_frontier
 
 
 def test_discovery_state_active_with_sufficient_evidence():
     state = classify_discovery_state(
         effective_evidence=3.0,
-        familiarity=0.5,
         is_frontier_neighbor=False,
         is_learning_goal_ancestor=False,
     )
@@ -53,7 +54,6 @@ def test_discovery_state_active_with_sufficient_evidence():
 def test_discovery_state_unseen_without_any_signal():
     state = classify_discovery_state(
         effective_evidence=0.0,
-        familiarity=0.0,
         is_frontier_neighbor=False,
         is_learning_goal_ancestor=False,
     )
@@ -63,7 +63,6 @@ def test_discovery_state_unseen_without_any_signal():
 def test_discovery_state_frontier_when_adjacent_but_untouched():
     state = classify_discovery_state(
         effective_evidence=0.0,
-        familiarity=0.0,
         is_frontier_neighbor=True,
         is_learning_goal_ancestor=False,
     )

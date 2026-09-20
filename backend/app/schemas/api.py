@@ -40,8 +40,7 @@ class StudentResourceIngestResponse(BaseModel):
 class GapOut(BaseModel):
     concept_id: UUID
     name: str
-    mastery: float
-    confidence: float
+    understanding: float
     priority: float
     action: GapAction
     reason: str
@@ -62,7 +61,9 @@ class StudyPlanRequest(BaseModel):
     @model_validator(mode="after")
     def _exactly_one_target(self) -> "StudyPlanRequest":
         if bool(self.target_concept_id) == bool(self.assessment_id):
-            raise ValueError("Provide exactly one of target_concept_id or assessment_id.")
+            raise ValueError(
+                "Provide exactly one of target_concept_id or assessment_id."
+            )
         return self
 
 
@@ -71,4 +72,6 @@ class StudyPlanResponse(BaseModel):
     course_id: UUID
     target_concept_id: UUID
     gaps: list[GapOut]
-    study_order: list[UUID] = Field(..., description="Concept IDs in recommended study order.")
+    study_order: list[UUID] = Field(
+        ..., description="Concept IDs in recommended study order."
+    )

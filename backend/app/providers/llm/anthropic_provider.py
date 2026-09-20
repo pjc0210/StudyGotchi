@@ -53,12 +53,16 @@ class AnthropicLLMProvider:
         for block in response.content:
             if block.type == "tool_use" and block.name == _STRUCTURED_OUTPUT_TOOL_NAME:
                 return schema.model_validate(block.input)
-        raise RuntimeError("Anthropic response did not include the expected structured tool_use block.")
+        raise RuntimeError(
+            "Anthropic response did not include the expected structured tool_use block."
+        )
 
     async def embed(self, texts: list[str]) -> list[list[float]]:
         if self._voyage is None:
             raise RuntimeError("VOYAGE_API_KEY is not set; embeddings are unavailable.")
-        result = await self._voyage.embed(texts, model=self._voyage_model, input_type="document")
+        result = await self._voyage.embed(
+            texts, model=self._voyage_model, input_type="document"
+        )
         return result.embeddings
 
     async def analyze_image(
@@ -74,11 +78,17 @@ class AnthropicLLMProvider:
                     "content": [
                         {
                             "type": "image",
-                            "source": {"type": "base64", "media_type": media_type, "data": encoded},
+                            "source": {
+                                "type": "base64",
+                                "media_type": media_type,
+                                "data": encoded,
+                            },
                         },
                         {"type": "text", "text": prompt},
                     ],
                 }
             ],
         )
-        return "\n".join(block.text for block in response.content if block.type == "text")
+        return "\n".join(
+            block.text for block in response.content if block.type == "text"
+        )

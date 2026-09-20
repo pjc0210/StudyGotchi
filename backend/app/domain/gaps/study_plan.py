@@ -1,7 +1,7 @@
 """Minimal study path construction (spec: "Minimal study path").
 
 Given a target concept/assessment, walk its prerequisite ancestors, drop
-what's already mastered, rank what's left by gap priority, and return a
+what's already understood, rank what's left by gap priority, and return a
 topologically valid study sequence — the smallest useful path, not the
 entire prerequisite tree.
 """
@@ -11,6 +11,7 @@ from uuid import UUID
 
 import networkx as nx
 
+from app.domain.gaps.prerequisite_support import PrerequisiteLink, weak_prerequisites
 from app.domain.gaps.scoring import (
     GapAction,
     GapPriorityInputs,
@@ -28,8 +29,7 @@ from app.domain.graph.algorithms import (
 @dataclass(frozen=True)
 class GapEntry:
     concept_id: UUID
-    mastery: float
-    confidence: float
+    understanding: float
     priority: float
     action: GapAction
     reason: str
@@ -45,12 +45,12 @@ class StudyPlanResult:
 def build_minimal_study_subgraph(
     ancestor_subgraph: nx.DiGraph,
     target_concept_id: UUID,
-    mastery_by_concept: dict[UUID, float],
+    understanding_by_concept: dict[UUID, float],
     *,
-    mastered_threshold: float,
+    understood_threshold: float,
 ) -> nx.DiGraph:
     """Step 1-4 of the spec's minimal-study-path recipe: the ancestor
-    subgraph, with already-mastered concepts removed and transitively
+    subgraph, with already-understood concepts removed and transitively
     reduced. `ancestor_subgraph` should already be restricted to the target's
     prerequisite ancestors (+ the target itself as the sink).
     """
@@ -58,12 +58,13 @@ def build_minimal_study_subgraph(
     to_remove = [
         node
         for node in ancestor_subgraph.nodes
-        if node != target_concept_id and mastery_by_concept.get(node, 0.0) >= mastered_threshold
+        if node != target_concept_id
+        and understanding_by_concept.get(node, 0.0) >= understood_threshold
     ]
     trimmed = ancestor_subgraph.copy()
     for node in to_remove:
-        # Reconnect predecessors -> successors so removing a mastered middle
-        # node doesn't sever the prerequisite chain around it.
+        # Reconnect predecessors -> successors so removing an understood
+        # middle node doesn't sever the prerequisite chain around it.
         preds = list(trimmed.predecessors(node))
         succs = list(trimmed.successors(node))
         trimmed.remove_node(node)
@@ -79,24 +80,26 @@ def build_study_plan(
     ancestor_subgraph: nx.DiGraph,
     target_concept_id: UUID,
     *,
-    mastery_by_concept: dict[UUID, float],
-    confidence_by_concept: dict[UUID, float],
+    understanding_by_concept: dict[UUID, float],
+    effective_evidence_by_concept: dict[UUID, float],
     course_importance_by_concept: dict[UUID, float],
     is_stale_by_concept: dict[UUID, bool],
     relevance_alpha: float,
-    mastered_threshold: float = 0.75,
+    understood_threshold: float = 0.75,
+    weak_prerequisite_threshold: float = 0.5,
 ) -> StudyPlanResult:
-    """Full pipeline: trim mastered concepts, rank gaps, topologically order
-    the remainder. `ancestor_subgraph` is the target's prerequisite ancestor
-    subgraph (edges pointing toward the target); the target node itself may
-    or may not be present — it is always excluded from the returned gaps.
+    """Full pipeline: trim understood concepts, rank gaps, topologically
+    order the remainder. `ancestor_subgraph` is the target's prerequisite
+    ancestor subgraph (edges pointing toward the target); the target node
+    itself may or may not be present — it is always excluded from the
+    returned gaps.
     """
 
     study_subgraph = build_minimal_study_subgraph(
         ancestor_subgraph,
         target_concept_id,
-        mastery_by_concept,
-        mastered_threshold=mastered_threshold,
+        understanding_by_concept,
+        understood_threshold=understood_threshold,
     )
 
     bottleneck_weight_by_concept = normalized_downstream_reach(study_subgraph)
@@ -106,15 +109,14 @@ def build_study_plan(
         if concept_id == target_concept_id:
             continue
 
-        mastery = mastery_by_concept.get(concept_id, 0.0)
-        confidence = confidence_by_concept.get(concept_id, 0.0)
+        understanding = understanding_by_concept.get(concept_id, 0.0)
+        effective_evidence = effective_evidence_by_concept.get(concept_id, 0.0)
         distance = shortest_path_length(study_subgraph, concept_id, target_concept_id)
 
         priority = compute_gap_priority(
             GapPriorityInputs(
                 concept_id=concept_id,
-                mastery=mastery,
-                confidence=confidence,
+                understanding=understanding,
                 course_importance=course_importance_by_concept.get(concept_id, 0.5),
                 shortest_path_distance=distance,
                 bottleneck_weight=bottleneck_weight_by_concept.get(concept_id, 0.0),
@@ -122,16 +124,32 @@ def build_study_plan(
             relevance_alpha=relevance_alpha,
         )
         action = recommend_action(
-            mastery, confidence, is_stale=is_stale_by_concept.get(concept_id, False)
+            understanding,
+            effective_evidence,
+            is_stale=is_stale_by_concept.get(concept_id, False),
+        )
+
+        prereq_links = [
+            PrerequisiteLink(prerequisite_concept_id=p, edge_confidence=1.0)
+            for p in study_subgraph.predecessors(concept_id)
+        ]
+        own_weak_prereqs = weak_prerequisites(
+            prereq_links,
+            understanding_by_concept,
+            threshold=weak_prerequisite_threshold,
         )
 
         gaps[concept_id] = GapEntry(
             concept_id=concept_id,
-            mastery=mastery,
-            confidence=confidence,
+            understanding=understanding,
             priority=priority,
             action=action,
-            reason=_explain_gap(action, distance, bottleneck_weight_by_concept.get(concept_id, 0.0)),
+            reason=_explain_gap(
+                action,
+                distance,
+                bottleneck_weight_by_concept.get(concept_id, 0.0),
+                has_weak_prerequisites=bool(own_weak_prereqs),
+            ),
         )
 
     order_subgraph = study_subgraph.copy()
@@ -143,7 +161,11 @@ def build_study_plan(
         importance = course_importance_by_concept.get(concept_id, 0.0)
         if entry is None:
             return (0.0, -importance, 0.0)
-        return (-entry.priority, -importance, -mastery_by_concept.get(concept_id, 0.0))
+        return (
+            -entry.priority,
+            -importance,
+            -understanding_by_concept.get(concept_id, 0.0),
+        )
 
     study_order = topological_order_with_priority(order_subgraph, priority_key)
 
@@ -153,16 +175,26 @@ def build_study_plan(
     )
 
 
-def _explain_gap(action: GapAction, distance: int | None, bottleneck_weight: float) -> str:
-    proximity = "a direct prerequisite of" if distance == 1 else "an upstream prerequisite of"
+def _explain_gap(
+    action: GapAction,
+    distance: int | None,
+    bottleneck_weight: float,
+    *,
+    has_weak_prerequisites: bool,
+) -> str:
+    proximity = (
+        "a direct prerequisite of" if distance == 1 else "an upstream prerequisite of"
+    )
     if action is GapAction.STUDY:
         base = f"Weak and well-evidenced; {proximity} the target."
     elif action is GapAction.DIAGNOSE:
         base = f"Possibly weak but under-evidenced; {proximity} the target."
     elif action is GapAction.REVIEW:
-        base = "Previously mastered but evidence is stale."
+        base = "Previously understood but evidence is stale."
     else:
         base = "Not currently a priority for this target."
     if bottleneck_weight > 0.66:
         base += " Multiple target-relevant concepts depend on it."
+    if has_weak_prerequisites:
+        base += " Its own prerequisites are also weak."
     return base

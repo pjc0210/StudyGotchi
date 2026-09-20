@@ -107,7 +107,9 @@ def transitive_reduce(graph: nx.DiGraph) -> nx.DiGraph:
     """
 
     if not nx.is_directed_acyclic_graph(graph):
-        raise ValueError("transitive_reduce requires an acyclic graph; break cycles first")
+        raise ValueError(
+            "transitive_reduce requires an acyclic graph; break cycles first"
+        )
     return nx.transitive_reduction(graph)
 
 

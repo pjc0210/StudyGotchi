@@ -1,0 +1,135 @@
+{
+  "course": {
+    "name": "Computability and Complexity Theory",
+    "code": "6.1400",
+    "term": "Spring 2026"
+  },
+  "resources": [
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 1.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 10.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 11.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 12.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 13.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 14.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 15.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 16.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 17.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 18.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 19.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 2.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 20.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 21.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 3.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 4.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 5.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 6.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 7.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 8.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1400.zip",
+      "member": "6.1400/spring-2026/lectures/Lecture 9.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    }
+  ]
+}
