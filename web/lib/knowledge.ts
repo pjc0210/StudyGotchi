@@ -291,7 +291,7 @@ export function conceptWhy(conceptId: string): WhyExplanation | null {
   return WHY[conceptId] ?? null
 }
 
-export function layoutGraph(width: number, height: number) {
+export function layoutGraph() {
   const incoming = new Map<string, string[]>()
   for (const node of GRAPH_NODES) incoming.set(node.id, [])
   for (const edge of GRAPH_EDGES) incoming.get(edge.target)?.push(edge.source)
@@ -316,14 +316,12 @@ export function layoutGraph(width: number, height: number) {
   }
 
   const maxLevel = Math.max(...level.values(), 1)
-  const padX = width * 0.08
-  const padY = height * 0.16
   const positions = new Map<string, { x: number; y: number }>()
 
   for (const [col, nodes] of columns) {
-    const x = padX + (col / maxLevel) * (width - padX * 2)
+    const x = maxLevel === 0 ? 0.5 : col / maxLevel
     nodes.forEach((node, i) => {
-      const y = padY + ((i + 0.5) / nodes.length) * (height - padY * 2)
+      const y = nodes.length <= 1 ? 0.5 : i / (nodes.length - 1)
       positions.set(node.id, { x, y })
     })
   }

@@ -8,11 +8,32 @@ import {
 } from '@/lib/knowledge'
 import { useTheme } from '@/lib/theme'
 
-const VIEW_W = 1400
-const VIEW_H = 780
 const MIN_ZOOM = 0.22
 const MAX_ZOOM = 2.8
+const FILL = 0.8
 const NIGHT_BOX = '#4f4a43'
+
+function spanX(w: number, k: number) {
+  return k * w * FILL
+}
+
+function spanY(h: number, k: number) {
+  return k * h * FILL
+}
+
+function toScreen(wx: number, wy: number, cam: Camera, w: number, h: number) {
+  return {
+    x: w / 2 + (wx - cam.x) * spanX(w, cam.k),
+    y: h / 2 + (wy - cam.y) * spanY(h, cam.k),
+  }
+}
+
+function toWorld(px: number, py: number, cam: Camera, w: number, h: number) {
+  return {
+    x: cam.x + (px - w / 2) / spanX(w, cam.k),
+    y: cam.y + (py - h / 2) / spanY(h, cam.k),
+  }
+}
 
 type Camera = { x: number; y: number; k: number }
 
@@ -101,7 +122,7 @@ export function NeuralMap({
   const night = theme === 'night'
   const wrapRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const camRef = useRef<Camera>({ x: VIEW_W / 2, y: VIEW_H / 2, k: 1 })
+  const camRef = useRef<Camera>({ x: 0.5, y: 0.5, k: 1 })
   const sizeRef = useRef({ w: 0, h: 0 })
   const dirtyRef = useRef(true)
   const hoverRef = useRef<string | null>(null)
@@ -117,7 +138,7 @@ export function NeuralMap({
   nightRef.current = night
   selectedRef.current = selectedId
 
-  const { positions } = useMemo(() => layoutGraph(VIEW_W, VIEW_H), [])
+  const { positions } = useMemo(() => layoutGraph(), [])
   const nodeById = useMemo(() => {
     const next = new Map(GRAPH_NODES.map((node) => [node.id, node]))
     return next
@@ -126,28 +147,6 @@ export function NeuralMap({
   const markDirty = useCallback(() => {
     dirtyRef.current = true
   }, [])
-
-  const fit = useCallback(() => {
-    const { w, h } = sizeRef.current
-    if (w === 0 || h === 0) return
-    let minX = Infinity
-    let minY = Infinity
-    let maxX = -Infinity
-    let maxY = -Infinity
-    for (const pos of positions.values()) {
-      minX = Math.min(minX, pos.x)
-      minY = Math.min(minY, pos.y)
-      maxX = Math.max(maxX, pos.x)
-      maxY = Math.max(maxY, pos.y)
-    }
-    const pad = 80
-    const k = Math.max(
-      MIN_ZOOM,
-      Math.min(MAX_ZOOM, Math.min(w / (maxX - minX + pad * 2), h / (maxY - minY + pad * 2)) * 0.92),
-    )
-    camRef.current = { x: (minX + maxX) / 2, y: (minY + maxY) / 2, k }
-    markDirty()
-  }, [positions, markDirty])
 
   const pick = useCallback(
     (clientX: number, clientY: number) => {
@@ -163,8 +162,7 @@ export function NeuralMap({
       for (const node of GRAPH_NODES) {
         const pos = positions.get(node.id)
         if (!pos) continue
-        const x = (pos.x - cam.x) * cam.k + w / 2
-        const y = (pos.y - cam.y) * cam.k + h / 2
+        const { x, y } = toScreen(pos.x, pos.y, cam, w, h)
         const profile = starProfile(node.id, node.mastery, cam.k)
         const r = profile.glow * 0.55 + 8
         const d = (px - x) ** 2 + (py - y) ** 2
@@ -194,13 +192,13 @@ export function NeuralMap({
       canvas.height = Math.round(rect.height * dpr)
       canvas.style.width = `${rect.width}px`
       canvas.style.height = `${rect.height}px`
-      fit()
+      markDirty()
     }
     resize()
     const ro = new ResizeObserver(resize)
     ro.observe(wrap)
     return () => ro.disconnect()
-  }, [fit])
+  }, [markDirty])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -225,9 +223,6 @@ export function NeuralMap({
       ctx.scale(dpr, dpr)
       ctx.clearRect(0, 0, w, h)
 
-      const sx = (wx: number) => (wx - cam.x) * cam.k + w / 2
-      const sy = (wy: number) => (wy - cam.y) * cam.k + h / 2
-
       ctx.lineCap = 'round'
       for (const edge of GRAPH_EDGES) {
         const from = positions.get(edge.source)
@@ -236,11 +231,13 @@ export function NeuralMap({
         const lit = selected === edge.source || selected === edge.target
         const a = starProfile(edge.source, nodeById.get(edge.source)?.mastery ?? 0, cam.k)
         const b = starProfile(edge.target, nodeById.get(edge.target)?.mastery ?? 0, cam.k)
-        const angle = Math.atan2(to.y - from.y, to.x - from.x)
-        const ax = sx(from.x) + Math.cos(angle) * (a.core + 1)
-        const ay = sy(from.y) + Math.sin(angle) * (a.core + 1)
-        const bx = sx(to.x) - Math.cos(angle) * (b.core + 1)
-        const by = sy(to.y) - Math.sin(angle) * (b.core + 1)
+        const start = toScreen(from.x, from.y, cam, w, h)
+        const end = toScreen(to.x, to.y, cam, w, h)
+        const angle = Math.atan2(end.y - start.y, end.x - start.x)
+        const ax = start.x + Math.cos(angle) * (a.core + 1)
+        const ay = start.y + Math.sin(angle) * (a.core + 1)
+        const bx = end.x - Math.cos(angle) * (b.core + 1)
+        const by = end.y - Math.sin(angle) * (b.core + 1)
         const curve =
           ((hash(`${edge.source}|${edge.target}`, 7) % 1000) / 1000 - 0.5) * 32 * Math.min(1, cam.k)
         ctx.globalAlpha = lit ? 0.72 : 0.45
@@ -267,8 +264,7 @@ export function NeuralMap({
       for (const node of GRAPH_NODES) {
         const pos = positions.get(node.id)
         if (!pos) continue
-        const x = sx(pos.x)
-        const y = sy(pos.y)
+        const { x, y } = toScreen(pos.x, pos.y, cam, w, h)
         const profile = starProfile(node.id, node.mastery, cam.k)
         const active = selected === node.id || hover === node.id
         drawStar(ctx, x, y, profile, 1, active, node.id, rgb)
@@ -280,8 +276,7 @@ export function NeuralMap({
       for (const node of GRAPH_NODES) {
         const pos = positions.get(node.id)
         if (!pos) continue
-        const x = sx(pos.x)
-        const y = sy(pos.y)
+        const { x, y } = toScreen(pos.x, pos.y, cam, w, h)
         const profile = starProfile(node.id, node.mastery, cam.k)
         const labelX = x + profile.glow * 0.56 + 5
         const labelY = y + 1
@@ -317,14 +312,13 @@ export function NeuralMap({
       const { w, h } = sizeRef.current
       const px = e.clientX - rect.left
       const py = e.clientY - rect.top
-      const wx = (px - w / 2) / cam.k + cam.x
-      const wy = (py - h / 2) / cam.k + cam.y
+      const world = toWorld(px, py, cam, w, h)
       const factor = Math.exp(-e.deltaY * 0.0016)
       const k = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, cam.k * factor))
       camRef.current = {
         k,
-        x: wx - (px - w / 2) / k,
-        y: wy - (py - h / 2) / k,
+        x: world.x - (px - w / 2) / spanX(w, k),
+        y: world.y - (py - h / 2) / spanY(h, k),
       }
       markDirty()
     }
@@ -360,7 +354,12 @@ export function NeuralMap({
     const dy = e.clientY - drag.startY
     if (Math.abs(dx) > 3 || Math.abs(dy) > 3) drag.moved = true
     const cam = camRef.current
-    camRef.current = { ...cam, x: cam.x - dx / cam.k, y: cam.y - dy / cam.k }
+    const { w, h } = sizeRef.current
+    camRef.current = {
+      ...cam,
+      x: cam.x - dx / spanX(w, cam.k),
+      y: cam.y - dy / spanY(h, cam.k),
+    }
     drag.startX = e.clientX
     drag.startY = e.clientY
     markDirty()
