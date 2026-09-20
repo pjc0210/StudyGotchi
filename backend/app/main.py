@@ -1,10 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import courses, mastery, ontology, personal_graph, resources, study
+from app.config import get_settings
 
 app = FastAPI(
     title="StudyGotchi Knowledge Engine",
     description="Canonical course ontology, personal knowledge graph, and mastery engine backend.",
+)
+
+# The site runs on a different origin (Vercel) and uploads straight to this API.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=get_settings().cors_origins_list,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(courses.router)

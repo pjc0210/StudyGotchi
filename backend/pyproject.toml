@@ -34,6 +34,14 @@ dev = [
 asyncio_mode = "auto"
 testpaths = ["tests"]
 
+[tool.ruff]
+# Matches the longest lines already on main so the check is about new drift, not a reformat.
+line-length = 132
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

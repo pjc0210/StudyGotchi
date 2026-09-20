@@ -10,13 +10,35 @@ class Settings(BaseSettings):
 
     llm_provider: str = "anthropic"
     anthropic_api_key: str | None = None
+    # Strong model reads course material once; the fast model reads every student file.
     anthropic_model: str = "claude-sonnet-5"
+    anthropic_fast_model: str = "claude-haiku-4-5"
     anthropic_vision_model: str = "claude-sonnet-5"
 
     voyage_api_key: str | None = None
     voyage_embed_model: str = "voyage-3"
 
     environment: str = "development"
+
+    # Comma-separated in the environment; see the *_list properties.
+    cors_origins: str = "http://localhost:3000"
+
+    # "clerk" verifies bearer JWTs; "dev" trusts an X-Student-Id header (local only).
+    auth_mode: str = "clerk"
+    clerk_issuer: str | None = None
+    clerk_authorized_parties: str = "http://localhost:3000"
+
+    # Ingest: parallel model calls per file, and the cosine floor for phase A matches.
+    ingest_concurrency: int = 6
+    match_threshold: float = 0.80
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return _split_csv(self.cors_origins)
+
+    @property
+    def clerk_authorized_parties_list(self) -> list[str]:
+        return _split_csv(self.clerk_authorized_parties)
 
     # Mastery model priors (spec: "Mastery scoring")
     mastery_alpha_prior: float = 1.5
@@ -35,6 +57,10 @@ class Settings(BaseSettings):
     gap_relevance_alpha: float = 0.75
     gap_mastered_threshold: float = 0.75
     staleness_days: float = 45.0
+
+
+def _split_csv(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
 
 
 @lru_cache
