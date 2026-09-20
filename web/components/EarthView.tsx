@@ -1,28 +1,39 @@
 'use client'
 
-import { EarthGlobe } from '@/components/EarthGlobe'
+import { useState } from 'react'
+import { ConceptOverlay } from '@/components/ConceptOverlay'
+import { NeuralMap } from '@/components/NeuralMap'
 import { SiteHeader } from '@/components/SiteHeader'
+import { GRAPH_NODES } from '@/lib/knowledge'
 import { useStore } from '@/lib/store'
 
 export function EarthView() {
   const { courses } = useStore()
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const selected = GRAPH_NODES.find((node) => node.id === selectedId) ?? null
 
   return (
     <div className="earth-page is-earth">
       <SiteHeader />
-      <aside className="course-overlay">
-        <h1>Your courses</h1>
-        <p>Courses you submitted materials for.</p>
-        <ul className="course-list">
-          {courses.map((course) => (
-            <li key={course.code}>
-              <span className="course-code">{course.code}</span>
-              <span className="course-name">{course.name}</span>
-            </li>
-          ))}
-        </ul>
+      <NeuralMap selectedId={selectedId} onSelect={setSelectedId} />
+      <aside className="course-overlay" aria-label={selected ? 'Concept inspector' : 'Your courses'}>
+        {selected ? (
+          <ConceptOverlay concept={selected} onClose={() => setSelectedId(null)} />
+        ) : (
+          <>
+            <h1>Your courses</h1>
+            <p>Courses you submitted materials for.</p>
+            <ul className="course-list">
+              {courses.map((course) => (
+                <li key={course.code}>
+                  <span className="course-code">{course.code}</span>
+                  <span className="course-name">{course.name}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </aside>
-      <EarthGlobe />
     </div>
   )
 }
