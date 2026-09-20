@@ -1,0 +1,558 @@
+{
+  "course": {
+    "name": "Differential Equations",
+    "code": "18.03",
+    "term": "Spring 2026"
+  },
+  "resources": [
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/final1.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/final1s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/midterm1.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/midterm1s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/midterm2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/midterm2s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/midterm3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Exams/midterm3s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 1/practice1a.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 1/practice1as.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 1/practice1b.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 1/practice1bs.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 2/oldmidterm2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 2/oldmidterm2s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 2/practice2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 2/practice2s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 3/extra3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 3/extra3s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 3/oldmidterm3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 3/oldmidterm3s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 3/practice3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Exam 3/practice3s.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Final/extrafinal.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Final/extrafinals.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Final/oldfinal.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Final/oldfinals.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Final/practicefinal.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/18.03 Exams/Practice exams/Final/practicefinals.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/RS11.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/RS11s.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/notes.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/pset8.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/pset8sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs10.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs10s.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs12.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs12sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs13.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs13sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs14.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs14sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs15.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs15s.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs16.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs16sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs17.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs17sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs18sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs19.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs8.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs8sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs9.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Canvas downloads/rs9sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Finals Review/Extra-Final-solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 1 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 2 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 3 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 4 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 5 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 6 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 7 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Pset 9 DE.pdf",
+      "origin": "student_self",
+      "artifact_type": "handwritten_work",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/Yes.pdf",
+      "origin": "student_self",
+      "artifact_type": "other",
+      "student_id": "18030000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/midtermpractice.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/mt1review.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/mt2review-sols.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/mt2review.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/mt3review-sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/mt3review.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset1-soln.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset2.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset2sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset3.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset4.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset5.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset6.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset6sols.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset7.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/pset9.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs1.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs18.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs1sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs2.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs2sol.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs3.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs4.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs5.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs6.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "18.03.zip",
+      "member": "18.03/rs7.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    }
+  ]
+}

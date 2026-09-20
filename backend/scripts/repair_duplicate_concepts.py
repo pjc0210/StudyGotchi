@@ -10,8 +10,8 @@ the name/alias — see `app.domain.ontology.dedup_repair`), every non-survivor
 concept in the cluster is merged into one survivor:
 
 - its own name and aliases become aliases of the survivor
-- every edge / resource link / assessment link / evidence event / world
-  event / student state referencing it is repointed at the survivor,
+- every edge / resource link / assessment link / evidence event /
+  student state referencing it is repointed at the survivor,
   merging on conflict (keeping the higher-confidence / more-evidenced row)
   rather than raising a unique-constraint error or silently overwriting
 - the non-survivor concept row itself is kept, marked
@@ -38,7 +38,6 @@ from app.db.models import (
     StudentConceptEdge,
     StudentConceptState,
     StudentEvidenceEvent,
-    WorldEvent,
 )
 from app.db.session import async_session_factory, engine
 from app.domain.ontology.dedup_repair import (
@@ -425,11 +424,6 @@ async def repair_course(
             await session.execute(
                 update(StudentEvidenceEvent)
                 .where(StudentEvidenceEvent.concept_id == old_id)
-                .values(concept_id=survivor_id)
-            )
-            await session.execute(
-                update(WorldEvent)
-                .where(WorldEvent.concept_id == old_id)
                 .values(concept_id=survivor_id)
             )
             await session.execute(

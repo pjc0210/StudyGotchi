@@ -1,13 +1,12 @@
 import {
   MOCK_COURSE,
-  MOCK_GAPS,
-  MOCK_GRAPH,
-  MOCK_RESOURCES,
+  MOCK_COURSES,
   MOCK_STUDENT_ID,
-  MOCK_STUDY_PLAN,
-  MOCK_TARGETS,
+  getMockCourseData,
+  mockGaps,
+  mockStudyPlan,
+  mockTargets,
   mockConceptDetail,
-  mockWhy,
 } from "./mock";
 import type {
   ArtifactType,
@@ -15,6 +14,7 @@ import type {
   ConceptEdge,
   ConceptNode,
   CourseResource,
+  CourseSummary,
   Evidence,
   GapAction,
   GapsResponse,
@@ -24,22 +24,52 @@ import type {
   SourceOrigin,
   StudyPlan,
   StudyTarget,
-  WhyExplanation,
+  UnderstandingEntry,
 } from "./types";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 export const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
 
 // Demo identifiers live here only. The backend addresses courses and students
-// by UUID; mock mode keeps its own readable ids.
-export const COURSE_ID =
+// by UUID; mock mode keeps its own readable ids. Mutable (not `const`) so a
+// real-mode course switch can repoint every subsequent request without a
+// page reload - mirrors `setMockCourseId` below.
+export let COURSE_ID =
   process.env.NEXT_PUBLIC_DEMO_COURSE_ID ?? (USE_MOCK ? MOCK_COURSE.id : "");
-export const COURSE_NAME = process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
-export const STUDENT_ID =
+export let COURSE_NAME =
+  process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
+export let STUDENT_ID =
   process.env.NEXT_PUBLIC_DEMO_STUDENT_ID ?? (USE_MOCK ? MOCK_STUDENT_ID : "");
 
+export function setRealCourse(courseId: string, studentId: string, name: string) {
+  COURSE_ID = courseId;
+  STUDENT_ID = studentId;
+  COURSE_NAME = name;
+}
+
+/**
+ * Real-mode courses this demo has a seeded student for. Ingestion so far has
+ * only produced a demo student for these three; the others in the backend's
+ * course list are either mid-ingestion or not started, so they are left out
+ * of the switcher rather than shown broken.
+ */
+export const REAL_DEMO_STUDENTS: Record<string, string> = {
+  "6.1210": "61210000-0000-4000-8000-000000000001",
+  "8.223": "82230000-0000-4000-8000-000000000001",
+  "6.1400": "61400000-0000-4000-8000-000000000001",
+};
+
+let selectedMockCourseId = MOCK_COURSE.id;
+export function setMockCourseId(courseId: string) {
+  selectedMockCourseId = courseId;
+}
+
 export class ApiError extends Error {
-  constructor(message: string, readonly status?: number) {
+  constructor(
+    message: string,
+    readonly status?: number,
+  ) {
     super(message);
     this.name = "ApiError";
   }
@@ -54,9 +84,10 @@ export interface IngestInput {
 }
 
 export interface KnowledgeApi {
+  listCourses(): Promise<CourseSummary[]>;
   getKnowledgeGraph(): Promise<KnowledgeGraphResponse>;
   getConceptDetail(conceptId: string): Promise<ConceptDetail>;
-  getWhy(conceptId: string): Promise<WhyExplanation | null>;
+  listUnderstanding(): Promise<UnderstandingEntry[]>;
   listStudyTargets(): Promise<StudyTarget[]>;
   getGaps(target: StudyTarget): Promise<GapsResponse>;
   createStudyPlan(target: StudyTarget): Promise<StudyPlan>;
@@ -70,7 +101,7 @@ export interface KnowledgeApi {
  * Instructor and TA material defines the curriculum, so it shapes the canonical
  * course ontology. Anything the student produced is evidence about *them*.
  * Classmate notes are shared study material rather than evidence of this
- * student's mastery, so they go to the course side too.
+ * student's understanding, so it goes to the course side too.
  */
 export function isStudentScoped(origin: SourceOrigin): boolean {
   return origin === "student_self";
@@ -83,25 +114,31 @@ export function isStudentScoped(origin: SourceOrigin): boolean {
 const num = (v: unknown, fallback = 0): number =>
   typeof v === "number" && Number.isFinite(v) ? v : fallback;
 
-const str = (v: unknown, fallback = ""): string => (typeof v === "string" ? v : fallback);
+const str = (v: unknown, fallback = ""): string =>
+  typeof v === "string" ? v : fallback;
 
 /** Backend node uses `concept_id`; the UI has always used `id`. */
-function normalizeNode(raw: Record<string, unknown>, index: number): ConceptNode {
-  const mastery = raw.mastery;
+function normalizeNode(
+  raw: Record<string, unknown>,
+  index: number,
+): ConceptNode {
+  const understanding = raw.understanding;
   return {
     id: str(raw.concept_id ?? raw.id, `concept_${index}`),
     name: str(raw.name, "Untitled concept"),
     scope: (str(raw.scope, "course") as ConceptNode["scope"]) ?? "course",
     discovery_state:
-      (str(raw.discovery_state, "encountered") as ConceptNode["discovery_state"]) ?? "encountered",
+      (str(
+        raw.discovery_state,
+        "encountered",
+      ) as ConceptNode["discovery_state"]) ?? "encountered",
     cluster: typeof raw.cluster === "string" ? raw.cluster : undefined,
     importance: num(raw.importance, 0.5),
     personal_relevance: num(raw.personal_relevance, 0.5),
-    mastery: typeof mastery === "number" && Number.isFinite(mastery) ? mastery : null,
-    familiarity: num(raw.familiarity),
-    confidence: num(raw.confidence),
-    readiness: num(raw.readiness),
-    fragility: num(raw.fragility),
+    understanding:
+      typeof understanding === "number" && Number.isFinite(understanding)
+        ? understanding
+        : null,
     // The engine owns this label; never re-derive it here.
     state: (str(raw.state, "exposed") as ConceptNode["state"]) ?? "exposed",
   };
@@ -123,13 +160,17 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
   const rawNodes = Array.isArray(obj.nodes) ? obj.nodes : [];
   const rawEdges = Array.isArray(obj.edges) ? obj.edges : [];
 
-  const nodes = rawNodes.map((n, i) => normalizeNode(n as Record<string, unknown>, i));
+  const nodes = rawNodes.map((n, i) =>
+    normalizeNode(n as Record<string, unknown>, i),
+  );
   const ids = new Set(nodes.map((n) => n.id));
 
   // Drop dangling edges rather than letting React Flow throw on them.
   const edges = rawEdges
     .map((e) => normalizeEdge(e as Record<string, unknown>))
-    .filter((e) => e.source && e.target && ids.has(e.source) && ids.has(e.target));
+    .filter(
+      (e) => e.source && e.target && ids.has(e.source) && ids.has(e.target),
+    );
 
   return {
     student_id: str(obj.student_id, STUDENT_ID),
@@ -207,27 +248,6 @@ function toResource(r: BackendResource, role?: string): Resource {
   };
 }
 
-const LINK_ROLE: Record<string, string> = {
-  EXPLAINED_IN: "Primary explanation",
-  WORKED_EXAMPLE_IN: "Worked example",
-  ASSESSED_IN: "Assessed here",
-  APPEARS_IN: "Mentioned in",
-};
-
-/** Which score an evidence type feeds. Mirrors the backend taxonomy. */
-const EVIDENCE_KIND: Record<string, Evidence["kind"]> = {
-  graded_exam: "mastery",
-  graded_quiz: "mastery",
-  graded_homework: "mastery",
-  diagnostic: "mastery",
-  verified_practice: "mastery",
-  worked_solution: "mastery",
-  student_notes: "familiarity",
-  resource_view: "familiarity",
-  self_explanation: "confidence",
-  self_rating: "confidence",
-};
-
 function humanize(value: string): string {
   return value
     .split("_")
@@ -236,38 +256,71 @@ function humanize(value: string): string {
 }
 
 const httpApi: KnowledgeApi = {
+  async listCourses() {
+    const raw = await request<{ id: string; name: string; code: string | null }[]>(
+      "/api/courses",
+    );
+    return raw
+      .filter((c) => c.code && c.code in REAL_DEMO_STUDENTS)
+      .map((c) => ({ id: c.id, code: c.code!, name: c.name }));
+  },
+
   async getKnowledgeGraph() {
-    return normalizeGraph(await request<unknown>(`${studentBase()}/knowledge-graph`));
+    return normalizeGraph(
+      await request<unknown>(`${studentBase()}/knowledge-graph`),
+    );
   },
 
   async getConceptDetail(conceptId) {
     const raw = await request<{
       concept_id: string;
       name: string;
+      definition?: string | null;
       evidence: {
-        evidence_type: string;
+        id: string;
+        type: string;
         outcome: number | null;
         strength: number;
         certainty: number;
         occurred_at: string;
-        resource: BackendResource | null;
+        resource_id: string | null;
       }[];
-      resources: { resource: BackendResource; link_type: string; depth_score: number }[];
+      resources: {
+        resource_id: string;
+        title: string;
+        origin: string;
+        artifact_type: string;
+      }[];
     }>(`${studentBase()}/concepts/${conceptId}`);
 
+    const resources = raw.resources.map((resource) =>
+      toResource({
+        id: resource.resource_id,
+        title: resource.title,
+        origin: resource.origin,
+        artifact_type: resource.artifact_type,
+        status: "complete",
+        concept_count: 0,
+      }),
+    );
+    const resourceById = new Map(
+      resources.map((resource) => [resource.id, resource]),
+    );
     return {
       concept_id: raw.concept_id,
+      definition: raw.definition ?? "",
       evidence: raw.evidence.map((e, i) => {
         return {
-          id: `${conceptId}_${i}`,
-          label: e.resource?.title ?? humanize(e.evidence_type),
+          id: e.id || `${conceptId}_${i}`,
+          label:
+            resourceById.get(e.resource_id ?? "")?.title ?? humanize(e.type),
           // Outcome is the backend's graded result; only formatted here.
           // No outcome means no score to show - not a score of zero.
           detail:
             e.outcome === null || e.outcome === undefined
               ? ""
               : `${Math.round(e.outcome * 100)}%`,
-          kind: EVIDENCE_KIND[e.evidence_type] ?? "familiarity",
+          kind: "understanding",
           // Presentation cue only - a direction read off the backend's own
           // outcome, not a recomputed score.
           polarity:
@@ -276,19 +329,34 @@ const httpApi: KnowledgeApi = {
               : e.outcome >= 0.5
                 ? "positive"
                 : "negative",
-          source: e.resource ? toResource(e.resource) : undefined,
+          source: resourceById.get(e.resource_id ?? ""),
         } satisfies Evidence;
       }),
-      resources: raw.resources.map((r) =>
-        toResource(r.resource, LINK_ROLE[r.link_type] ?? humanize(r.link_type)),
-      ),
+      resources: resources.map((resource) => ({
+        ...resource,
+        role: "Course material",
+      })),
     };
   },
 
-  async getWhy() {
-    // The engine exposes no explainability endpoint yet. Returning null makes
-    // the inspector hide the section rather than invent a narrative.
-    return null;
+  async listUnderstanding() {
+    const raw = await request<{
+      concepts: {
+        concept_id: string;
+        name: string;
+        discovery_state: string;
+        understanding: number | null;
+        positive_evidence: number;
+        negative_evidence: number;
+        last_evidence_at: string | null;
+        last_practiced_at: string | null;
+      }[];
+    }>(`${studentBase()}/understanding`);
+    return raw.concepts.map((concept) => ({
+      ...concept,
+      discovery_state:
+        concept.discovery_state as UnderstandingEntry["discovery_state"],
+    }));
   },
 
   async listStudyTargets() {
@@ -306,21 +374,21 @@ const httpApi: KnowledgeApi = {
       gaps: {
         concept_id: string;
         name: string;
-        mastery: number;
-        confidence: number;
+        understanding: number;
         priority: number;
         action: string;
         reason: string;
       }[];
-    }>(`${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`);
+    }>(
+      `${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`,
+    );
 
     return {
       target,
       gaps: raw.gaps.map((g) => ({
         concept_id: g.concept_id,
         concept_name: g.name,
-        mastery: g.mastery,
-        confidence: g.confidence,
+        understanding: g.understanding,
         priority: g.priority,
         // Backend enum is lowercase; the UI labels are uppercase.
         action: g.action.toUpperCase() as GapAction,
@@ -335,8 +403,7 @@ const httpApi: KnowledgeApi = {
       gaps: {
         concept_id: string;
         name: string;
-        mastery: number;
-        confidence: number;
+        understanding: number;
         priority: number;
         action: string;
         reason: string;
@@ -358,7 +425,7 @@ const httpApi: KnowledgeApi = {
         concept_id: conceptId,
         concept_name: gap?.name ?? "(unknown concept)",
         reason: gap?.reason ?? "Required on the path to your target.",
-        mastery: gap ? gap.mastery : null,
+        understanding: gap ? gap.understanding : null,
         resources: [] as Resource[],
       };
     });
@@ -375,7 +442,9 @@ const httpApi: KnowledgeApi = {
       artifact_type: r.artifact_type as ArtifactType,
       concept_count: r.concept_count,
       concept_ids: r.concept_ids ?? [],
-      status: (r.status === "complete" ? "complete" : r.status) as CourseResource["status"],
+      status: (r.status === "complete"
+        ? "complete"
+        : r.status) as CourseResource["status"],
       uploaded_at: r.created_at ?? "",
     }));
   },
@@ -414,33 +483,56 @@ const httpApi: KnowledgeApi = {
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 const mockApi: KnowledgeApi = {
+  async listCourses() {
+    await delay(60);
+    return MOCK_COURSES.map((c) => ({ id: c.id, code: c.code, name: c.name }));
+  },
   async getKnowledgeGraph() {
     await delay(320);
-    return normalizeGraph(MOCK_GRAPH);
+    return normalizeGraph(getMockCourseData(selectedMockCourseId).graph);
   },
   async getConceptDetail(conceptId) {
     await delay(160);
-    return mockConceptDetail(conceptId);
+    return mockConceptDetail(selectedMockCourseId, conceptId);
   },
-  async getWhy(conceptId) {
-    await delay(200);
-    return mockWhy(conceptId);
+  async listUnderstanding() {
+    await delay(120);
+    return getMockCourseData(selectedMockCourseId).graph.nodes.map(
+      (node, index) => ({
+        concept_id: node.id,
+        name: node.name,
+        discovery_state: node.discovery_state,
+        understanding: node.understanding,
+        positive_evidence:
+          node.understanding === null ? 0 : 1.5 + ((index * 7) % 6) / 2,
+        negative_evidence:
+          node.understanding === null ? 0 : ((index * 5) % 5) / 2,
+        last_evidence_at:
+          node.understanding === null
+            ? null
+            : `2026-09-${String(20 - (index % 8)).padStart(2, "0")}T00:00:00Z`,
+        last_practiced_at:
+          node.understanding === null
+            ? null
+            : `2026-09-${String(19 - (index % 7)).padStart(2, "0")}T00:00:00Z`,
+      }),
+    );
   },
   async listStudyTargets() {
     await delay(80);
-    return MOCK_TARGETS.map((label, i) => ({ id: `mock_target_${i}`, label }));
+    return mockTargets(selectedMockCourseId);
   },
   async getGaps(target) {
     await delay(280);
-    return { ...MOCK_GAPS, target };
+    return mockGaps(selectedMockCourseId, target);
   },
   async createStudyPlan(target) {
     await delay(500);
-    return { ...MOCK_STUDY_PLAN, target };
+    return mockStudyPlan(selectedMockCourseId, target);
   },
   async listResources() {
     await delay(220);
-    return MOCK_RESOURCES;
+    return getMockCourseData(selectedMockCourseId).resources;
   },
   async ingest({ file }) {
     await delay(400);

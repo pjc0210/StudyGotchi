@@ -6304,6 +6304,37 @@
     "evidence": [],
     "suppressed_resource_count": 0
   },
+  "36e2f3c0-2286-4234-b1d0-1cf2700f71a5": {
+    "concept_id": "36e2f3c0-2286-4234-b1d0-1cf2700f71a5",
+    "name": "Reduction",
+    "definition": "A proof method that shows undecidability by assuming a decider for one language to build a decider for another language, implying one language is reducible to the other.",
+    "scope": "course",
+    "aliases": [
+      "Reduction"
+    ],
+    "resources": [
+      {
+        "resource_id": "7d2a3962-da29-463b-a296-f3f7ec37468f",
+        "title": "6.1400/spring-2026/lectures/Lecture 12.pdf",
+        "origin": "instructor",
+        "artifact_type": "lecture",
+        "citations": [
+          {
+            "chunk_id": null,
+            "page_number": null,
+            "snippet": null,
+            "link_type": "APPEARS_IN"
+          }
+        ],
+        "rank_score": 3.4,
+        "novelty": 1.0
+      }
+    ],
+    "relationships": [],
+    "assessments": [],
+    "evidence": [],
+    "suppressed_resource_count": 0
+  },
   "e45b0c24-8fa9-4a5f-9a60-4ec736ff79b8": {
     "concept_id": "e45b0c24-8fa9-4a5f-9a60-4ec736ff79b8",
     "name": "Languages not in RE or coRE",
@@ -13387,7 +13418,6 @@
     "aliases": [
       "Polynomial-Time Reduction (Polytime Reducibility)",
       "Polytime Reduction",
-      "Reduction",
       "Polynomial-Time Reduction",
       "polynomial time reduction"
     ],

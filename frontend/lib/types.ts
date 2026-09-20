@@ -1,5 +1,5 @@
 // Contracts mirrored from the backend knowledge engine.
-// The frontend NEVER computes any of these scores - it only renders them.
+// Understanding is the single student learning-state measurement.
 
 export type ConceptScope = "course" | "personal" | "shared_extension";
 
@@ -24,12 +24,8 @@ export interface ConceptNode {
   cluster?: string;
   importance: number;
   personal_relevance: number;
-  /** null = no evidence yet (frontier). 0 = evidence says they don't know it. */
-  mastery: number | null;
-  familiarity: number;
-  confidence: number;
-  readiness: number;
-  fragility: number;
+  /** null = not enough evidence; 0 = evidence supports very low understanding. */
+  understanding: number | null;
   state: ConceptState;
 }
 
@@ -50,13 +46,18 @@ export interface KnowledgeGraphResponse {
   hidden_concept_count: number;
 }
 
+export interface CourseSummary {
+  id: string;
+  code: string;
+  name: string;
+}
+
 export type GapAction = "STUDY" | "DIAGNOSE" | "REVIEW" | "OPTIONAL";
 
 export interface Gap {
   concept_id: string;
   concept_name: string;
-  mastery: number;
-  confidence: number;
+  understanding: number;
   priority: number;
   action: GapAction;
   reason: string;
@@ -78,7 +79,7 @@ export interface StudyStep {
   concept_id: string;
   concept_name: string;
   reason: string;
-  mastery: number | null;
+  understanding: number | null;
   resources: Resource[];
 }
 
@@ -92,11 +93,7 @@ export interface StudyPlan {
 // ---------------------------------------------------------------------------
 
 export type SourceOrigin =
-  | "instructor"
-  | "ta"
-  | "student_self"
-  | "classmate"
-  | "external";
+  "instructor" | "ta" | "student_self" | "classmate" | "external";
 
 export type ArtifactType =
   | "lecture"
@@ -124,7 +121,7 @@ export interface Resource {
   role?: string;
 }
 
-export type EvidenceKind = "mastery" | "familiarity" | "confidence";
+export type EvidenceKind = "understanding";
 export type EvidencePolarity = "positive" | "negative" | "neutral";
 
 export interface Evidence {
@@ -141,16 +138,23 @@ export interface Evidence {
 
 export interface ConceptDetail {
   concept_id: string;
+  /** Real, per-concept description extracted from course material - empty
+   *  when the backend has none recorded yet. */
+  definition: string;
   evidence: Evidence[];
   resources: Resource[];
 }
 
-export interface WhyExplanation {
+/** Entry from the canonical `/understanding` endpoint. */
+export interface UnderstandingEntry {
   concept_id: string;
-  summary: string;
-  strongest_evidence?: string;
-  weakest_evidence?: string;
-  prerequisite_reason?: string;
+  name: string;
+  discovery_state: DiscoveryState;
+  understanding: number | null;
+  positive_evidence: number;
+  negative_evidence: number;
+  last_evidence_at: string | null;
+  last_practiced_at: string | null;
 }
 
 // ---------------------------------------------------------------------------
@@ -158,11 +162,7 @@ export interface WhyExplanation {
 // ---------------------------------------------------------------------------
 
 export type UploadStatus =
-  | "queued"
-  | "uploading"
-  | "processing"
-  | "complete"
-  | "failed";
+  "queued" | "uploading" | "processing" | "complete" | "failed";
 
 export interface UploadItem {
   id: string;

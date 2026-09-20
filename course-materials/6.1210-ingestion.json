@@ -1,0 +1,968 @@
+{
+  "course": {
+    "name": "Introduction to Algorithms",
+    "code": "6.1210",
+    "term": "Spring 2026"
+  },
+  "resources": [
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/final_review.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/final_review_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/final_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/review1.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/review1_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/review2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/review2_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/review3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/final/review3_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/mid1-table.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/midterm1_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/practice1.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/practice1_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/practice2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/practice2_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/practice3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/practice3_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/review.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm1/review_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/mid2-table.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/midterm2_review_reupload.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/midterm2_review_solutions_reupload.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/midterm2_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/practice1.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/practice1_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/practice2.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/practice2_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/practice3.pdf",
+      "origin": "instructor",
+      "artifact_type": "exam"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/exams/midterm2/practice3_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/handouts/course_information.pdf",
+      "origin": "instructor",
+      "artifact_type": "syllabus"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L01-karatsuba.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L02-efficient-algorithms.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L03-seqs.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L04-sets-and-sorting.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L05-linear-sort.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L06-hashing.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L07-BSTs.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L08-avl-trees.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L09-Augmentation.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L10-graph-search.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L11-SCC.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L12-reduction.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L13-heaps-and-pqs.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L14-Dijkstra.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L15-Bellman-Ford.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L16-APSP.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L17-greedy.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L18-huffman.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L19-DP.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L20-DPII.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L21-DP-SP.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L22-DP-Subset-Sum.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L23-Complexity.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/lectures/L24-Computability.pdf",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps10.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps10_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps11.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps11_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps1_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps2.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps2_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps3.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps3_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps4.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps4_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps5.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps5_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps6.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps6_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps7.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps7_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps8.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps8_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps9.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/pests/ps9_solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R00.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R00_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R01.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R01_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R02.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R02_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R03.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R03_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R04.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R04_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R05-06.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R05-06_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R07.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R07_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R08.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R08_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R09.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R09_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R10.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R10_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R11.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R11_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R12.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R12_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R13.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R13_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R14.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R14_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R15.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R15_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R16.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R16_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R17.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R17_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R18.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R18_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R19.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R19_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R20.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R20_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R21.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R21_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R22.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R22_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R23.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R23_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R24.pdf",
+      "origin": "ta",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/recitations/R24_solutions.pdf",
+      "origin": "ta",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps1.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps10.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps10Sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps1_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps2.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps2_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps3.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps3_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps4.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps4_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps5.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps5_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps6.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps6_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps7.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps7_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps8.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps8_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps9.pdf",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/sps/sps9_sol.pdf",
+      "origin": "instructor",
+      "artifact_type": "solution_key"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/unfiled/Computability-Terminology.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/unfiled/Tips on Writing Solutions.pdf",
+      "origin": "instructor",
+      "artifact_type": "study_guide"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/unfiled/rec20.py",
+      "origin": "instructor",
+      "artifact_type": "other"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset10-count-paths.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset10-tests.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset2.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset3.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset4.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset5.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset6.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset7.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset7b.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset8.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    },
+    {
+      "path": "6.1210.zip",
+      "member": "6.1210/local-coursework/python/pset9.py",
+      "origin": "student_self",
+      "artifact_type": "worked_solution",
+      "student_id": "61210000-0000-4000-8000-000000000001"
+    }
+  ]
+}

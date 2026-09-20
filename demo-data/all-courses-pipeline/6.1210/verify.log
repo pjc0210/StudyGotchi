@@ -1,0 +1,33 @@
+{
+  "verified_at": "2026-09-20T10:55:48.380265+00:00",
+  "course_id": "1cb0b349-0ed1-4925-968d-2f703e0f9d42",
+  "code": "6.1210",
+  "manifest_resources": 158,
+  "active_concepts_by_scope": {
+    "course": 3251,
+    "personal": 62
+  },
+  "metrics": {
+    "concept_count": 3313,
+    "prerequisite_edge_count": 1591,
+    "related_edge_count": 386,
+    "cycle_count_after_cleanup": 0,
+    "concepts_without_sources": 0,
+    "display_redundant_edge_count": 112
+  },
+  "active_prerequisite_edges": 1591,
+  "students": [
+    {
+      "student_id": "61210000-0000-4000-8000-000000000001",
+      "graph_nodes": 209,
+      "graph_edges": 285,
+      "understanding_entries": 222,
+      "study_plans": 124,
+      "evidence_events": 124,
+      "scored_evidence_events": 22
+    }
+  ],
+  "concept_details_verified": 3313,
+  "empty_student_isolation": "passed",
+  "http_checks": 3570
+}

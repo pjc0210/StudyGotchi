@@ -5,17 +5,15 @@ from openai import APIError
 
 from app.config import get_settings
 from app.api.routes import (
+    concept_detail,
     concepts,
     courses,
     debug,
-    concept_detail,
-    mastery,
     ontology,
     personal_graph,
     resources,
     study,
     understanding,
-    world,
 )
 
 app = FastAPI(
@@ -39,8 +37,6 @@ app.include_router(ontology.router)
 app.include_router(personal_graph.router)
 app.include_router(understanding.router)
 app.include_router(study.router)
-app.include_router(world.router)
-app.include_router(mastery.router)
 app.include_router(concept_detail.router)
 
 

@@ -1,7 +1,7 @@
 {
   "student_id": "61400000-0000-4000-8000-000000000001",
   "course_id": "6fb9c56e-0a47-479f-a80c-588ad07ff85e",
-  "world_version": "9f3488ef4ae1979e",
+  "world_version": "d2fa266bf1f49ebd",
   "regions": [
     {
       "concept_id": "060b38e0-222b-4a6a-a1d6-e93501d548b5",
@@ -32,7 +32,7 @@
       "cluster": "Characterization of Strings with Equal #01 and #10",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.7,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -43,7 +43,7 @@
       "cluster": "Empty Language",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.6,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -65,7 +65,7 @@
       "cluster": "Independently and identically distributed (i.i.d.) sample",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -87,7 +87,7 @@
       "cluster": "Deterministic Finite Automaton (DFA)",
       "terrain_height": 0.6489162806,
       "terrain_area": 0.7198654382010368,
-      "fog": 0.08777468365642452,
+      "fog": 0.08778038917479392,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -98,7 +98,7 @@
       "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -109,7 +109,7 @@
       "cluster": "Non-Regularity of the Language of Binary Palindromes",
       "terrain_height": 0.5535710364,
       "terrain_area": 1.0,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -131,7 +131,7 @@
       "cluster": "Moment integrability condition",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.8,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -142,7 +142,7 @@
       "cluster": "Characterization of Strings with Equal #01 and #10",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.8,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -208,7 +208,7 @@
       "cluster": "Regular Languages Closed Under Insertion",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -219,7 +219,7 @@
       "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -230,7 +230,7 @@
       "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -252,7 +252,7 @@
       "cluster": "Regular Language",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.7,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -263,7 +263,7 @@
       "cluster": "Characterization of Strings with Equal #01 and #10",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -285,7 +285,7 @@
       "cluster": "Regular Language Because It Matches First and Last Bit Equality",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.6,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -296,7 +296,7 @@
       "cluster": "Non-Regularity of the Language of Binary Palindromes",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -318,7 +318,7 @@
       "cluster": "Regular Languages Closed Under Insertion",
       "terrain_height": 0.5535710364,
       "terrain_area": 1.0,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -329,7 +329,7 @@
       "cluster": "Myhill-Nerode Theorem application for lower bound on DFA states",
       "terrain_height": 0.5535710364,
       "terrain_area": 1.0,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -340,7 +340,7 @@
       "cluster": "Regular Languages Closed Under Insertion",
       "terrain_height": 0.5535710364,
       "terrain_area": 0.9,
-      "fog": 0.11161201414301596,
+      "fog": 0.1116192691323866,
       "semantic_state": "developing",
       "creature_state": "normal"
     },
@@ -351,7 +351,7 @@
       "cluster": "Regular Language",
       "terrain_height": 0.6378986585,
       "terrain_area": 0.6809752917922236,
-      "fog": 0.09052920698244554,
+      "fog": 0.0905350915499756,
       "semantic_state": "developing",
       "creature_state": "normal"
     }
@@ -512,5 +512,5 @@
       "confidence": 0.846
     }
   ],
-  "hidden_concept_count": 430
+  "hidden_concept_count": 431
 }

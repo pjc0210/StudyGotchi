@@ -1,0 +1,255 @@
+{
+  "course": {
+    "name": "Numerical Methods and Computation",
+    "code": "16.C20",
+    "term": null
+  },
+  "resources": [
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/IVPlib_rev0/IVPlib_rev0.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/IVPlib_rev0/coffee_model_rev0.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/Lec15Code/can_opt.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/Lec15Code/can_opt_con.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/Lec15Code/can_opt_scipy.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/Lec15Code/gd1.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/np_demos/np_creation.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/np_demos/np_ops.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/np_demos/np_timings.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/np_demos/np_viewcopy.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource/startercode/IVP_scenarios.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource/startercode/IVPlib_pset1.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource/startercode/hail.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource/startercode/lander.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/HVACIVP.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/IVPlib_pset2.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/LinSysIVP.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/mylinsolver.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/mynonlinsolver.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/slimmons.csv",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/solve_robertson.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-2/startercode/solve_slimmons.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/HVACIVP.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/IVPlib_pset2.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/LinSysIVP.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/mylinsolver.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/mynonlinsolver.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/slimmons.csv",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/solve_robertson.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-3/startercode/solve_slimmons.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-4/startercode/cellopt.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-4/startercode/gd.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-4/startercode/gd_tests.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-5/startercode/cellopt.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-5/startercode/gd.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-5/startercode/gd_tests.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-6/startercode/IVPlib_pset4.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-6/startercode/neuron_Ifunctors.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-6/startercode/neuron_main.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/resource-6/startercode/neuron_model.py",
+      "origin": "instructor",
+      "artifact_type": "homework"
+    },
+    {
+      "path": "16.C20.zip",
+      "member": "16.C20/smooter.py",
+      "origin": "instructor",
+      "artifact_type": "lecture"
+    }
+  ]
+}

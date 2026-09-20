@@ -47,7 +47,6 @@ from app.repositories.resources import (
     update_resource_status,
 )
 from app.repositories.student_states import create_evidence_event
-from app.repositories.world import add_world_event
 from app.resolution.merge import ResolutionAction, resolve_concept_candidate
 from app.resolution.normalize import normalize_concept_name
 
@@ -391,14 +390,6 @@ async def ingest_student_resource(
     for event in events:
         await create_evidence_event(session, course_id=course_id, event=event)
 
-    await add_world_event(
-        session,
-        student_id=student_id,
-        course_id=course_id,
-        resource_id=resource.id,
-        event="RESOURCE_ADDED",
-        explanation=f"Ingested {artifact_type.value} from {origin.value}.",
-    )
     await update_resource_status(session, resource.id, "processed")
     await recompute_student_state(
         session,
