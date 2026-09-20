@@ -83,3 +83,17 @@ async def save_chunks(
 
 async def get_resource(session: AsyncSession, resource_id: UUID) -> Resource | None:
     return await session.get(Resource, resource_id)
+
+
+async def list_resources(session: AsyncSession, course_id: UUID) -> list[Resource]:
+    result = await session.execute(
+        select(Resource).where(Resource.course_id == course_id).order_by(Resource.created_at.desc())
+    )
+    return list(result.scalars().all())
+
+
+async def get_resources_by_ids(session: AsyncSession, resource_ids: set[UUID]) -> dict[UUID, Resource]:
+    if not resource_ids:
+        return {}
+    result = await session.execute(select(Resource).where(Resource.id.in_(resource_ids)))
+    return {r.id: r for r in result.scalars().all()}

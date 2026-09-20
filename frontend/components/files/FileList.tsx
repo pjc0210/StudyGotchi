@@ -1,44 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
 import { FileArchive, FileText, FolderOpen } from "lucide-react";
-import { api, ApiError } from "@/lib/api";
 import { useStore } from "@/lib/store";
-import type { CourseResource } from "@/lib/types";
 import { EmptyState } from "@/components/common/EmptyState";
-import { ErrorState, SkeletonRows } from "@/components/common/LoadingState";
+import { SkeletonRows } from "@/components/common/LoadingState";
 import { OriginChip, artifactLabel } from "@/components/common/StatusBadge";
 import { UploadRow } from "@/components/upload/UploadItem";
 
 export function FileList({ onUploadClick }: { onUploadClick: () => void }) {
-  const { uploads } = useStore();
-  const [resources, setResources] = useState<CourseResource[] | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  const load = useCallback(() => {
-    setLoading(true);
-    setError(null);
-    api
-      .listResources()
-      .then(setResources)
-      .catch((err: unknown) =>
-        setError(err instanceof ApiError ? err.message : "Could not load your files."),
-      )
-      .finally(() => setLoading(false));
-  }, []);
-
-  useEffect(load, [load]);
-
+  const { uploads, resources, resourcesLoading } = useStore();
   // Anything not yet settled into the resource list - still processing, or
   // rejected - shows above it, rendered by the same row as the upload queue so
   // the two views can never disagree about what a status looks like.
   const inFlight = uploads.filter((u) => u.status !== "complete");
 
-  if (loading) return <SkeletonRows rows={5} />;
-  if (error) return <ErrorState message={error} onRetry={load} />;
+  if (resourcesLoading) return <SkeletonRows rows={5} />;
 
-  if ((resources?.length ?? 0) === 0 && inFlight.length === 0) {
+  if (resources.length === 0 && inFlight.length === 0) {
     return (
       <EmptyState
         icon={<FolderOpen size={24} strokeWidth={1.5} />}
@@ -68,7 +46,7 @@ export function FileList({ onUploadClick }: { onUploadClick: () => void }) {
       ) : null}
 
       <ul className="space-y-1.5">
-        {(resources ?? []).map((r) => {
+        {resources.map((r) => {
           const Icon = r.artifact_type === "course_bundle" ? FileArchive : FileText;
           return (
             <li

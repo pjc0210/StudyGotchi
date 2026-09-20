@@ -4,6 +4,7 @@ import {
   FileText,
   Network,
   Route,
+  Sparkles,
   TriangleAlert,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -29,8 +30,12 @@ export function Sidebar({
   return (
     <nav
       aria-label="Sections"
-      className="flex w-[196px] shrink-0 flex-col gap-0.5 border-r border-line bg-surface px-2.5 py-3"
+      className="flex w-[184px] shrink-0 flex-col gap-0.5 border-r border-line bg-[#0c1018] px-2.5 py-3 2xl:w-[190px]"
     >
+      <div className="mb-5 flex items-center gap-2 px-2.5 pt-1 text-[13px] font-semibold tracking-tight text-ink">
+        <Sparkles size={16} strokeWidth={1.7} className="text-white" aria-hidden />
+        StudyGotchi
+      </div>
       {ITEMS.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
         return (
@@ -41,14 +46,14 @@ export function Sidebar({
             aria-current={isActive ? "page" : undefined}
             className={`group flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[13px] transition-colors ${
               isActive
-                ? "bg-raised text-ink"
+                ? "bg-white/[0.075] text-ink"
                 : "text-ink-dim hover:bg-raised/60 hover:text-ink"
             }`}
           >
             <Icon
               size={15}
               strokeWidth={1.75}
-              className={isActive ? "text-brand" : "text-ink-faint group-hover:text-ink-dim"}
+              className={isActive ? "text-white" : "text-ink-faint group-hover:text-ink-dim"}
               aria-hidden
             />
             <span className="flex-1 text-left">{label}</span>

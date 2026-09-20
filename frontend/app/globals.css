@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "@xyflow/react/dist/style.css";
 
 @theme {
   --color-canvas: #0a0b0d;
@@ -68,40 +67,6 @@ body {
 }
 ::-webkit-scrollbar-track {
   background: transparent;
-}
-
-/* --- React Flow theming ------------------------------------------------- */
-
-.react-flow {
-  --xy-background-color: var(--color-canvas);
-  --xy-edge-stroke-default: #39414a;
-  --xy-edge-stroke-selected-default: var(--color-focus);
-}
-
-.react-flow__attribution {
-  display: none;
-}
-
-.react-flow__handle {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.react-flow__node {
-  cursor: pointer;
-}
-
-.react-flow__edge-path {
-  transition: stroke 140ms ease, stroke-opacity 140ms ease;
-}
-
-.react-flow__controls-button {
-  background: var(--color-raised);
-  border-bottom: 1px solid var(--color-line);
-  fill: var(--color-ink-dim);
-}
-.react-flow__controls-button:hover {
-  background: var(--color-line);
 }
 
 @keyframes sg-fade-in {

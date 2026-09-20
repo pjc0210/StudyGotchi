@@ -21,6 +21,10 @@ export function GapPanel({
   const [nonce, setNonce] = useState(0);
 
   useEffect(() => {
+    if (!target) {
+      setLoading(false);
+      return;
+    }
     let cancelled = false;
     setLoading(true);
     setError(null);
@@ -47,6 +51,14 @@ export function GapPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target, nonce]);
 
+  if (!target) {
+    return (
+      <EmptyState
+        title="No target available"
+        body="Upload course material so the engine has concepts to aim at."
+      />
+    );
+  }
   if (loading) return <SkeletonRows rows={3} />;
   if (error) return <ErrorState message={error} onRetry={() => setNonce((n) => n + 1)} />;
   if (!data || data.gaps.length === 0) {
@@ -62,7 +74,7 @@ export function GapPanel({
   return (
     <div className="p-4">
       <p className="mb-3 text-[12px] text-ink-dim">
-        Ranked by the engine for <span className="text-ink">{data.target}</span>.
+        Ranked by the engine for <span className="text-ink">{data.target.label}</span>.
       </p>
       <ul className="space-y-2">
         {data.gaps.map((gap, i) => (

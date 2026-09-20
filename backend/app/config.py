@@ -18,6 +18,10 @@ class Settings(BaseSettings):
 
     environment: str = "development"
 
+    # Browser clients allowed to call this API. Explicit origins only - the
+    # frontend sends no credentials today, but "*" would foreclose that.
+    cors_origins: list[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+
     # Mastery model priors (spec: "Mastery scoring")
     mastery_alpha_prior: float = 1.5
     mastery_beta_prior: float = 1.5
