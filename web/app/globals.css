@@ -16,21 +16,22 @@
   --overlay: #efe6d8;
   --raised: rgba(255, 253, 248, 0.72);
   --input: #fffdf8;
-  --star-hot: #8ec4e4;
-  --star-mid: #4f8ec8;
-  --star-edge: #3a74ab;
-  --star-core: #3a74ab;
-  --star-ray: #4f8ec8;
-  --star-label: #2f6496;
+  --graph-box: #4f4a43;
+  --brand: #c98b2f;
+  --state-mastered: #4a8a62;
+  --state-strong: #56906a;
+  --state-developing: #3f7bb5;
+  --state-uncertain: #7a7168;
+  --state-exposed: #8b8279;
+  --state-struggling: #c07f2a;
+  --state-fragile: #b86a62;
+  --state-stale: #86807a;
+  --state-frontier: #6f7a85;
   font-family: var(--font-outfit), system-ui, sans-serif;
   color: var(--ink);
   background: var(--paper);
   line-height: 1.45;
   font-weight: 380;
-}
-
-html.night {
-  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -119,15 +120,6 @@ h1, h2 {
   font-size: 14px;
 }
 
-.theme-toggle {
-  border: 0;
-  background: var(--sky);
-  color: var(--title);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 14px;
-}
-
 .earth-globe {
   position: absolute;
   width: calc(100vw * 5 / 7);
@@ -203,19 +195,113 @@ h1, h2 {
   margin: 1rem 2.25rem 3rem 1.25rem;
   border-radius: 22px;
   overflow: hidden;
-  background: #efe8dc;
+  background: var(--graph-box);
   touch-action: none;
-  cursor: grab;
 }
 
-.neural-map.is-night {
-  background: #4f4a43;
+.kg-canvas-wrap {
+  position: absolute;
+  inset: 0;
 }
 
-.neural-map canvas {
+.kg-canvas {
   display: block;
   width: 100%;
   height: 100%;
+  touch-action: none;
+}
+
+.kg-chrome {
+  position: absolute;
+  z-index: 1;
+}
+
+.kg-chrome-top {
+  left: 18px;
+  top: 18px;
+}
+
+.kg-chrome-bottom {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.kg-lenses,
+.kg-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.14);
+  border: 1px solid rgba(255, 253, 248, 0.18);
+  backdrop-filter: blur(4px);
+}
+
+.kg-lenses button {
+  border: 0;
+  background: none;
+  color: rgba(255, 253, 248, 0.68);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.kg-lenses button:hover,
+.kg-controls button:hover {
+  color: #fffdf8;
+}
+
+.kg-lenses button.is-active {
+  background: rgba(255, 253, 248, 0.2);
+  color: #fffdf8;
+}
+
+.kg-controls button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: none;
+  border-radius: 999px;
+  color: rgba(255, 253, 248, 0.68);
+}
+
+.kg-controls > span {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 253, 248, 0.18);
+}
+
+.kg-tooltip {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #3c3832;
+  border: 1px solid rgba(255, 253, 248, 0.16);
+  color: rgba(255, 253, 248, 0.78);
+  font-size: 11px;
+}
+
+.kg-tooltip p {
+  margin: 0;
+}
+
+.kg-tooltip p + p {
+  margin-top: 3px;
+}
+
+.kg-tooltip-title {
+  font-size: 12px;
+  color: #fffdf8;
+}
+
+.kg-tooltip-state {
+  color: rgba(255, 253, 248, 0.6);
 }
 
 .course-overlay {
@@ -295,18 +381,65 @@ h1, h2 {
 .state-badge {
   display: inline-flex;
   align-items: center;
-  margin-right: 8px;
-  margin-bottom: 4px;
   border-radius: 999px;
   padding: 3px 10px;
   font-size: 12px;
   background: var(--sky);
   color: var(--title);
+  white-space: nowrap;
 }
 
-.state-personal { background: var(--mint); }
+.state-personal { background: var(--mint); color: var(--title); }
+
+.overlay-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
 .cluster-label {
   font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.concept-ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.concept-ref-list button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border: 0;
+  background: none;
+  border-radius: 10px;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.concept-ref-list button:hover {
+  background: var(--raised);
+}
+
+.concept-ref-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.concept-ref-score {
+  font-size: 12px;
   color: var(--ink-soft);
 }
 
