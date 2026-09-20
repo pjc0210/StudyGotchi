@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArrowLeft,
   FileText,
   Network,
   Route,
@@ -38,6 +39,14 @@ export function Sidebar({
         <Sparkles size={16} strokeWidth={1.7} className="text-white" aria-hidden />
         StudyGotchi
       </div>
+
+      <Link
+        href="/"
+        className="mb-3 flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[13px] text-ink-dim transition-colors hover:bg-raised/60 hover:text-ink"
+      >
+        <ArrowLeft size={15} strokeWidth={1.75} className="text-ink-faint" aria-hidden />
+        <span className="flex-1 text-left">Dashboard</span>
+      </Link>
       {ITEMS.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
         return (
@@ -70,7 +79,9 @@ export function Sidebar({
 
       <div className="mt-auto flex flex-col gap-2 px-2.5 pb-1 pt-4">
         <Link
-          href="/friends"
+          // Friends lives in the separate frontend app, not this dashboard -
+          // a plain route wouldn't resolve here. Dev-only absolute link.
+          href="http://localhost:3000/friends"
           className="group flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[13px] text-ink-dim transition-colors hover:bg-raised/60 hover:text-ink"
         >
           <Users

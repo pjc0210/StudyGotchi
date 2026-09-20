@@ -36,7 +36,14 @@ class Settings(BaseSettings):
 
     # Browser clients allowed to call this API. Explicit origins only - the
     # frontend sends no credentials today, but "*" would foreclose that.
-    cors_origins: list[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    cors_origins: list[str] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        # The web/ dashboard's Graph tab (a separate app hosting the same
+        # knowledge-graph frontend) runs on 3001 alongside it in dev.
+        "http://localhost:3001",
+        "http://127.0.0.1:3001",
+    ]
 
     # Concept canonicalization thresholds (spec: "Concept canonicalization")
     concept_merge_threshold: float = 0.94

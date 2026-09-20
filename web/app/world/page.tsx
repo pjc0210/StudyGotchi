@@ -1,9 +1,9 @@
 import { redirect } from 'next/navigation'
-import { GraphApp } from '@/components/GraphApp'
+import { WorldView } from '@/components/WorldView'
 import { readSession } from '@/lib/session'
 
-export default async function GraphPage() {
+export default async function WorldPage() {
   const user = await readSession()
   if (!user) redirect('/login')
-  return <GraphApp />
+  return <WorldView />
 }

@@ -24,6 +24,9 @@ export function SiteHeader() {
         <Link href="/graph" className={pathname === '/graph' ? 'active' : undefined}>
           Graph
         </Link>
+        <Link href="/world" className={pathname === '/world' ? 'active' : undefined}>
+          World
+        </Link>
       </nav>
       <div className="account-bar">
         {user ? (
