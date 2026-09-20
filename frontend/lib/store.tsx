@@ -10,7 +10,16 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { api, ApiError, isStudentScoped, USE_MOCK } from "./api";
+import {
+  api,
+  ApiError,
+  COURSE_ID,
+  COURSE_NAME,
+  isStudentScoped,
+  setMockCourseId,
+  USE_MOCK,
+} from "./api";
+import { MOCK_COURSE, MOCK_COURSES, type MockCourse } from "./mock";
 import type {
   ArtifactType,
   CourseResource,
@@ -36,6 +45,9 @@ interface Async<T> {
 interface StoreValue {
   graph: Async<KnowledgeGraphResponse>;
   reloadGraph: () => void;
+  courses: MockCourse[];
+  selectedCourse: MockCourse;
+  selectCourse: (id: string) => void;
 
   /** Ingested files. Shared by the graph and the Files view. */
   resources: CourseResource[];
@@ -79,6 +91,17 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [target, setTarget] = useState<StudyTarget | null>(null);
   const [targets, setTargets] = useState<StudyTarget[]>([]);
   const [uploads, setUploads] = useState<UploadItem[]>([]);
+  const [selectedCourseId, setSelectedCourseId] = useState(MOCK_COURSE.id);
+  const selectedCourse = USE_MOCK
+    ? (MOCK_COURSES.find((course) => course.id === selectedCourseId) ??
+      MOCK_COURSE)
+    : {
+        id: COURSE_ID,
+        code: COURSE_ID,
+        name: COURSE_NAME,
+        archive: "",
+        sourceFiles: [],
+      };
   // Bumped after every successful real ingestion so dependent views refetch.
   const [ingestVersion, setIngestVersion] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -102,7 +125,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     reloadGraph();
-  }, [reloadGraph]);
+  }, [reloadGraph, selectedCourse.id]);
 
   const reloadResources = useCallback(() => {
     setResourcesLoading(true);
@@ -117,7 +140,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     reloadResources();
-  }, [reloadResources, ingestVersion]);
+  }, [reloadResources, ingestVersion, selectedCourse.id]);
 
   useEffect(() => {
     let cancelled = false;
@@ -136,7 +159,19 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [selectedCourse.id]);
+
+  const selectCourse = useCallback(
+    (id: string) => {
+      if (!USE_MOCK || id === selectedCourseId) return;
+      setMockCourseId(id);
+      setSelectedCourseId(id);
+      setSelectedId(null);
+      setTarget(null);
+      setFocusNonce((n) => n + 1);
+    },
+    [selectedCourseId],
+  );
 
   useEffect(
     () => () => {
@@ -146,7 +181,9 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   );
 
   const patchUpload = useCallback((id: string, patch: Partial<UploadItem>) => {
-    setUploads((prev) => prev.map((u) => (u.id === id ? { ...u, ...patch } : u)));
+    setUploads((prev) =>
+      prev.map((u) => (u.id === id ? { ...u, ...patch } : u)),
+    );
   }, []);
 
   const later = useCallback((fn: () => void, ms: number) => {
@@ -195,7 +232,12 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           if (!USE_MOCK) patchUpload(item.id, { status: "processing" });
 
           api
-            .ingest({ file, origin, artifactType: item.artifact_type, studentScoped })
+            .ingest({
+              file,
+              origin,
+              artifactType: item.artifact_type,
+              studentScoped,
+            })
             .then((res) => {
               patchUpload(item.id, {
                 status: res.status ?? "processing",
@@ -205,13 +247,18 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
               if (USE_MOCK) {
                 // Mock mode only: walk the remaining states so the demo reads
                 // end-to-end without a backend.
-                later(() => {
-                  patchUpload(item.id, {
-                    status: "complete",
-                    concepts_extracted: res.child_count ? res.child_count * 3 : 7,
-                  });
-                  reloadGraph();
-                }, 2200 + i * 400);
+                later(
+                  () => {
+                    patchUpload(item.id, {
+                      status: "complete",
+                      concepts_extracted: res.child_count
+                        ? res.child_count * 3
+                        : 7,
+                    });
+                    reloadGraph();
+                  },
+                  2200 + i * 400,
+                );
               } else {
                 // The engine has already rebuilt this student's state, so pull
                 // the new graph rather than making the user reload the page.
@@ -232,7 +279,9 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   );
 
   const clearFinishedUploads = useCallback(() => {
-    setUploads((prev) => prev.filter((u) => u.status !== "complete" && u.status !== "failed"));
+    setUploads((prev) =>
+      prev.filter((u) => u.status !== "complete" && u.status !== "failed"),
+    );
   }, []);
 
   const focusConcept = useCallback((id: string) => {
@@ -244,6 +293,9 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     () => ({
       graph,
       reloadGraph,
+      courses: USE_MOCK ? MOCK_COURSES : [selectedCourse],
+      selectedCourse,
+      selectCourse,
       selectedId,
       select: setSelectedId,
       focusNonce,
@@ -261,6 +313,8 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     [
       graph,
       reloadGraph,
+      selectedCourse,
+      selectCourse,
       selectedId,
       focusNonce,
       focusConcept,
@@ -275,7 +329,9 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     ],
   );
 
-  return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
+  return (
+    <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
+  );
 }
 
 export function useStore(): StoreValue {

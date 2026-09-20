@@ -3,7 +3,12 @@
 import { FileText, X } from "lucide-react";
 import type { ResourceGraphNode } from "@/lib/graphModel";
 import type { GraphModel } from "@/lib/graphModel";
-import { ARTIFACT_LABEL, ORIGIN_LABEL, STATE_COLOR, STATE_LABEL } from "@/lib/graphTheme";
+import {
+  ARTIFACT_LABEL,
+  ORIGIN_LABEL,
+  STATE_COLOR,
+  STATE_LABEL,
+} from "@/lib/graphTheme";
 import { formatScore } from "@/lib/graph";
 
 /** Lightweight counterpart to the concept inspector - not a file viewer. */
@@ -29,7 +34,11 @@ export function ResourcePanel({
     >
       <header className="sticky top-0 z-10 border-b border-white/[0.08] bg-[#0c1018] px-5 py-5">
         <div className="flex items-start gap-2">
-          <FileText size={14} className="mt-[3px] shrink-0 text-ink-faint" aria-hidden />
+          <FileText
+            size={14}
+            className="mt-[3px] shrink-0 text-ink-faint"
+            aria-hidden
+          />
           <h2 className="flex-1 text-[14px] font-semibold leading-tight tracking-tight text-ink">
             {node.label}
           </h2>
@@ -87,13 +96,17 @@ export function ResourcePanel({
                     className="h-2 w-2 shrink-0 rounded-full"
                     style={{
                       background:
-                        c.kind === "concept" ? STATE_COLOR[c.state] : "transparent",
+                        c.kind === "concept"
+                          ? STATE_COLOR[c.state]
+                          : "transparent",
                     }}
                   />
-                  <span className="flex-1 truncate text-[13px] text-ink">{c.label}</span>
+                  <span className="flex-1 truncate text-[13px] text-ink">
+                    {c.label}
+                  </span>
                   {c.kind === "concept" ? (
                     <span className="font-mono text-[11px] tabular-nums text-ink-faint">
-                      {formatScore(c.concept.mastery)}
+                      {formatScore(c.concept.understanding)}
                     </span>
                   ) : null}
                 </button>
@@ -109,7 +122,11 @@ export function ResourcePanel({
             States covered
           </h3>
           <ul className="flex flex-wrap gap-1.5">
-            {[...new Set(connected.map((c) => (c.kind === "concept" ? c.state : null)))]
+            {[
+              ...new Set(
+                connected.map((c) => (c.kind === "concept" ? c.state : null)),
+              ),
+            ]
               .filter((s): s is NonNullable<typeof s> => s !== null)
               .map((s) => (
                 <li

@@ -1,7 +1,12 @@
 "use client";
 
 import type { GraphModelNode } from "@/lib/graphModel";
-import { ARTIFACT_LABEL, ORIGIN_LABEL, STATE_COLOR, STATE_LABEL } from "@/lib/graphTheme";
+import {
+  ARTIFACT_LABEL,
+  ORIGIN_LABEL,
+  STATE_COLOR,
+  STATE_LABEL,
+} from "@/lib/graphTheme";
 import { formatScore } from "@/lib/graph";
 
 /** Compact by design - the inspector is where detail belongs. */
@@ -22,7 +27,8 @@ export function GraphTooltip({
   // Clear the node's own label below the cursor, and flip near the edges so
   // the tooltip never leaves the viewport.
   const flipX = typeof window !== "undefined" && x + 18 + W > window.innerWidth;
-  const flipY = typeof window !== "undefined" && y + 26 + H > window.innerHeight;
+  const flipY =
+    typeof window !== "undefined" && y + 26 + H > window.innerHeight;
 
   return (
     <div
@@ -39,8 +45,7 @@ export function GraphTooltip({
       {node.kind === "concept" ? (
         <>
           <p className="mt-1 flex gap-2.5 font-mono text-[11px] tabular-nums text-ink-dim">
-            <span>M {formatScore(node.concept.mastery)}</span>
-            <span>C {formatScore(node.concept.confidence)}</span>
+            <span>Understanding {formatScore(node.concept.understanding)}</span>
           </p>
           <p
             className="mt-1 text-[11px]"

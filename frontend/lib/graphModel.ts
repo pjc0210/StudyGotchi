@@ -23,7 +23,7 @@ interface BaseGraphNode {
   id: string;
   kind: GraphNodeKind;
   label: string;
-  /** Drawn radius in graph units. Concepts are sized only by backend familiarity. */
+  /** Drawn radius in graph units. Concepts are sized only by academic importance. */
   radius: number;
   /** Drives label level-of-detail when zoomed out. Higher shows sooner. */
   weight: number;
@@ -68,16 +68,18 @@ export interface GraphModel {
   incident: Map<string, Set<string>>;
 }
 
-const DIRECTED_TYPES = new Set(["PREREQUISITE_FOR", "BUILDS_ON", "prerequisite"]);
+const DIRECTED_TYPES = new Set([
+  "PREREQUISITE_FOR",
+  "BUILDS_ON",
+  "prerequisite",
+]);
 
 /**
- * Familiarity becomes visual territory. The square-root curve makes early
- * exposure noticeable without allowing established concepts to take over the
- * entire map. This deliberately maps a backend metric to pixels; it does not
- * infer or recalculate that metric in the client.
+ * Importance becomes visual territory. The bounded scale keeps highly central
+ * course concepts prominent without letting them consume the constellation.
  */
-function conceptRadius(familiarity: number): number {
-  const clamped = Math.max(0, Math.min(1, familiarity));
+function conceptRadius(importance: number): number {
+  const clamped = Math.max(0, Math.min(1, importance));
   return 18 + Math.sqrt(clamped) * 25;
 }
 
@@ -103,7 +105,7 @@ export function buildGraphModel(
       id: concept.id,
       kind: "concept",
       label: concept.name,
-      radius: conceptRadius(concept.familiarity),
+      radius: conceptRadius(concept.importance),
       weight: concept.importance,
       concept,
       state: concept.state,
@@ -184,19 +186,31 @@ export type Lens = "all" | "mine" | "weak" | "frontier";
 
 export const LENSES: { id: Lens; label: string; hint: string }[] = [
   { id: "all", label: "All", hint: "Concepts and connected material" },
-  { id: "mine", label: "My Knowledge", hint: "What you have actually worked with" },
+  {
+    id: "mine",
+    label: "My Knowledge",
+    hint: "What you have actually worked with",
+  },
   { id: "weak", label: "Weak Areas", hint: "Where the engine sees trouble" },
   { id: "frontier", label: "Frontier", hint: "What becomes reachable next" },
 ];
 
 /** Backend states the engine considers unstable or under-evidenced. */
-const WEAK_STATES = new Set<ConceptState>(["struggling", "fragile", "uncertain", "stale"]);
+const WEAK_STATES = new Set<ConceptState>([
+  "struggling",
+  "fragile",
+  "uncertain",
+  "stale",
+]);
 
 /**
  * Which nodes a lens emphasises. Returns null when the lens emphasises
  * everything, so the renderer can skip dimming entirely.
  */
-export function lensEmphasis(model: GraphModel, lens: Lens): Set<string> | null {
+export function lensEmphasis(
+  model: GraphModel,
+  lens: Lens,
+): Set<string> | null {
   if (lens === "all") return null;
 
   const emphasised = new Set<string>();
@@ -205,7 +219,8 @@ export function lensEmphasis(model: GraphModel, lens: Lens): Set<string> | null 
     if (node.kind === "concept") {
       const hit =
         lens === "mine"
-          ? node.discoveryState === "active" || node.discoveryState === "encountered"
+          ? node.discoveryState === "active" ||
+            node.discoveryState === "encountered"
           : lens === "weak"
             ? WEAK_STATES.has(node.state)
             : node.discoveryState === "frontier";
@@ -234,7 +249,10 @@ export function lensEmphasis(model: GraphModel, lens: Lens): Set<string> | null 
   return emphasised.size > 0 ? emphasised : null;
 }
 
-export function neighbourhood(model: GraphModel, id: string | null): Set<string> | null {
+export function neighbourhood(
+  model: GraphModel,
+  id: string | null,
+): Set<string> | null {
   if (!id) return null;
   const set = new Set<string>([id]);
   for (const n of model.adjacency.get(id) ?? []) set.add(n);
