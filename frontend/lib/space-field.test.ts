@@ -1,13 +1,32 @@
 import { describe, expect, it } from "vitest";
-import { edgeBackboneScore, fieldStarCount, keepBackboneEdge, spiralPlacement, weakTraceCurve } from "./space-field";
+import {
+  edgeBackboneScore,
+  fieldStarCount,
+  keepBackboneEdge,
+  SPIRAL_SPIN_PERIOD_MS,
+  spiralPlacement,
+  spiralSpinAngle,
+  weakTraceCurve,
+} from "./space-field";
 
 describe("shared space backdrop", () => {
-  it("keeps the generated spiral a tiny faded sky object", () => {
+  it("keeps the generated spiral a modest but clearly visible sky object", () => {
     const { cx, cy, size, fade } = spiralPlacement(1200, 800);
-    expect(size).toBeLessThan(64);
-    expect(fade).toBeLessThan(0.28);
+    expect(size).toBeGreaterThanOrEqual(96);
+    expect(size).toBeLessThanOrEqual(128);
+    expect(fade).toBeGreaterThanOrEqual(0.55);
+    expect(fade).toBeLessThanOrEqual(0.8);
     expect(cx).toBeGreaterThan(800);
     expect(cy).toBeLessThan(200);
+    // A phone-sized sky shrinks it rather than letting it dominate.
+    expect(spiralPlacement(390, 700).size).toBeLessThan(60);
+  });
+
+  it("spins slowly but perceptibly", () => {
+    expect(SPIRAL_SPIN_PERIOD_MS).toBeGreaterThanOrEqual(30_000);
+    expect(SPIRAL_SPIN_PERIOD_MS).toBeLessThanOrEqual(60_000);
+    // Quarter turn after a quarter period.
+    expect(spiralSpinAngle(SPIRAL_SPIN_PERIOD_MS / 4)).toBeCloseTo(Math.PI / 2, 6);
     expect(fieldStarCount(1200, 800)).toBeGreaterThan(Math.round((1200 * 800) / 5200));
   });
 

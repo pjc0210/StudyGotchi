@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { SPIRAL_SPIN_PERIOD_MS } from "@/lib/space-field";
 import {
   SPIRAL_GALAXY_DEFAULTS,
   spiralGalaxyPaths,
@@ -10,12 +11,12 @@ import "./generated-pixel-spiral.css";
 export interface GeneratedPixelSpiralProps extends SpiralGalaxyOptions {
   /** Rendered width/height in CSS pixels. */
   size?: number;
-  /** Final opacity; keep it low so the disc reads as sky, not a spinner. */
+  /** Final opacity. Below ~0.5 the arms vanish against either sky. */
   opacity?: number;
   /**
-   * Slow CSS rotation. `true` uses one revolution per 180 s; a number sets the
-   * period in milliseconds; `false` renders static. Honours
-   * `prefers-reduced-motion: reduce` automatically.
+   * Slow CSS rotation. `true` uses one revolution per `SPIRAL_SPIN_PERIOD_MS`
+   * (48 s); a number sets the period in milliseconds; `false` renders static.
+   * Honours `prefers-reduced-motion: reduce` automatically.
    */
   spin?: boolean | number;
   /**
@@ -27,7 +28,7 @@ export interface GeneratedPixelSpiralProps extends SpiralGalaxyOptions {
   style?: CSSProperties;
 }
 
-const DEFAULT_PERIOD_MS = 180_000;
+const DEFAULT_PERIOD_MS = SPIRAL_SPIN_PERIOD_MS;
 
 /* Paths are pure functions of their options; memoise per option set so
    repeated renders (and SSR + hydration) do not repaint the grid. */
@@ -48,8 +49,8 @@ function pathsFor(options: Required<SpiralGalaxyOptions>): SpiralGalaxyPath[] {
  * output is deterministic so there is no hydration mismatch.
  */
 export function GeneratedPixelSpiral({
-  size = 72,
-  opacity = 0.38,
+  size = 112,
+  opacity = 0.68,
   spin = true,
   label,
   className,

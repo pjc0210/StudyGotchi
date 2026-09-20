@@ -1,7 +1,16 @@
 /** Shared sky behind /earth (globe) and /knowledge. */
 
-/** One slow revolution so the disc reads as weather, not a spinner. */
-export const SPIRAL_SPIN_PERIOD_MS = 180_000;
+/**
+ * One revolution every 48 s: slow enough to read as a sky object, fast enough
+ * that the turn is visible within a few seconds of looking at it.
+ */
+export const SPIRAL_SPIN_PERIOD_MS = 48_000;
+
+/** Rendered width in CSS px; the CSS slot clamps this against the viewport. */
+export const SPIRAL_SKY_SIZE_PX = 112;
+
+/** Final opacity per sky theme. Light sky also darkens the arms (see product.css). */
+export const SPIRAL_SKY_OPACITY = { dark: 0.68, light: 0.8 } as const;
 
 export function spiralPlacement(width: number, height: number): {
   cx: number;
@@ -12,8 +21,8 @@ export function spiralPlacement(width: number, height: number): {
   return {
     cx: width * 0.82,
     cy: height * 0.16,
-    size: Math.min(width, height) * 0.065,
-    fade: 0.22,
+    size: Math.min(SPIRAL_SKY_SIZE_PX, Math.min(width, height) * 0.14),
+    fade: SPIRAL_SKY_OPACITY.dark,
   };
 }
 

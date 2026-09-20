@@ -777,15 +777,34 @@ h3 {
   pointer-events: none;
 }
 
-/* Original generated spiral — tiny, faint, behind constellation edges. */
+/* Original generated spiral — a small sky object above the star canvas and
+   below constellation edges. Square slot so the rotation never clips. The
+   spiral's own pixels are pale, so on the light sky the arms are darkened
+   with a filter (no background plate). */
 .sg-sky-spiral {
+  --sg-sky-spiral-opacity: 0.8;
+  --sg-sky-spiral-filter: brightness(0.56) saturate(1.45) contrast(1.08);
   position: absolute;
   top: 9%;
   right: 7%;
   z-index: 1;
-  width: min(6vw, 64px);
-  height: min(6vw, 64px);
+  width: clamp(56px, 14vmin, 112px);
+  height: clamp(56px, 14vmin, 112px);
   pointer-events: none;
+  opacity: var(--sg-sky-spiral-opacity);
+  filter: var(--sg-sky-spiral-filter);
+}
+
+:root[data-space-theme="dark"] .sg-sky-spiral {
+  --sg-sky-spiral-opacity: 0.68;
+  --sg-sky-spiral-filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-space-theme]) .sg-sky-spiral {
+    --sg-sky-spiral-opacity: 0.68;
+    --sg-sky-spiral-filter: none;
+  }
 }
 
 .sg-sky-spiral .sg-pixel-spiral {

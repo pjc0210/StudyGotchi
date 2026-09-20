@@ -1,21 +1,25 @@
-/* Small, faded sky object. Size/opacity/period are driven by CSS variables
-   so a host can override them without touching the component. */
+/* Small sky object. Size/opacity/period are driven by CSS variables so a host
+   can override them without touching the component. */
 .sg-pixel-spiral {
   display: block;
-  width: var(--sg-spiral-size, 72px);
-  height: var(--sg-spiral-size, 72px);
-  opacity: var(--sg-spiral-opacity, 0.38);
+  width: var(--sg-spiral-size, 112px);
+  height: var(--sg-spiral-size, 112px);
+  opacity: var(--sg-spiral-opacity, 0.68);
   pointer-events: none;
   user-select: none;
   transform-origin: 50% 50%;
 }
 
 .sg-pixel-spiral--spin {
-  animation: sg-pixel-spiral-spin var(--sg-spiral-period, 180s) linear infinite;
+  animation: sg-pixel-spiral-spin var(--sg-spiral-period, 48s) linear infinite;
   will-change: transform;
 }
 
 @keyframes sg-pixel-spiral-spin {
+  from {
+    transform: rotate(0turn);
+  }
+
   to {
     transform: rotate(1turn);
   }
