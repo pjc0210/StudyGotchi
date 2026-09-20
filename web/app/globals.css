@@ -90,6 +90,11 @@ h1, h2 {
   font-size: 14px;
 }
 
+.account-email {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
 .earth-globe {
   position: absolute;
   width: calc(100vw * 5 / 7);
