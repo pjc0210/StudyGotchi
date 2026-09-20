@@ -2,9 +2,11 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { ForgotPage, LoginPage, RegisterPage, TwoFactorPage } from './pages/Auth'
 import { ClassroomsPage } from './pages/Classrooms'
+import { EarthPage } from './pages/Earth'
 import { FriendWorldPage, FriendsPage } from './pages/Friends'
 import { GraphPage } from './pages/Graph'
 import { HomePage } from './pages/Home'
+import { MainPage } from './pages/Main'
 import { SettingsPage } from './pages/Settings'
 import { UploadPage } from './pages/Upload'
 import { WorldPage } from './pages/World'
@@ -23,6 +25,8 @@ export default function App() {
     <StoreProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/earth" element={<EarthPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/forgot" element={<ForgotPage />} />
@@ -34,7 +38,7 @@ export default function App() {
               </Gate>
             }
           >
-            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/graph" element={<GraphPage />} />
             <Route path="/world" element={<WorldPage />} />
             <Route path="/friends" element={<FriendsPage />} />

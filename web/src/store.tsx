@@ -11,9 +11,11 @@ import {
   initialFiles,
   initialFriends,
   initialNotices,
+  submittedCourses,
 } from './mock'
 import type {
   Classroom,
+  Course,
   Friend,
   MaterialKind,
   Notice,
@@ -32,6 +34,7 @@ type Store = {
   notices: Notice[]
   toasts: Toast[]
   graphQuery: string
+  courses: Course[]
   creature: { name: string; hunger: number; study: number; mood: string }
   login: (email: string, password: string) => 'ok' | '2fa' | string
   verifyTwoFactor: (code: string) => boolean
@@ -260,6 +263,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       notices,
       toasts,
       graphQuery,
+      courses: submittedCourses,
       creature,
       login,
       verifyTwoFactor,

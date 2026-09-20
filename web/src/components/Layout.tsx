@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useStore } from '../store'
 
 const links = [
-  ['/', 'Home'],
+  ['/earth', 'Earth'],
+  ['/home', 'Home'],
   ['/graph', 'Graph'],
   ['/world', 'World'],
   ['/friends', 'Friends'],
@@ -35,7 +36,7 @@ export function Layout() {
         </NavLink>
         <nav className="nav">
           {links.map(([to, label]) => (
-            <NavLink key={to} to={to} end={to === '/'}>
+            <NavLink key={to} to={to} end={to !== '/friends'}>
               {label}
             </NavLink>
           ))}

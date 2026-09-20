@@ -11,12 +11,12 @@ export function LoginPage() {
   const navigate = useNavigate()
 
   if (pendingTwoFactor) return <Navigate to="/2fa" replace />
-  if (user) return <Navigate to="/" replace />
+  if (user) return <Navigate to="/earth" replace />
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
     const result = login(email, password)
-    if (result === 'ok') navigate('/')
+    if (result === 'ok') navigate('/earth')
     else if (result === '2fa') navigate('/2fa')
     else setError(result)
   }
@@ -55,13 +55,13 @@ export function RegisterPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
-  if (user) return <Navigate to="/" replace />
+  if (user) return <Navigate to="/earth" replace />
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
     const err = register(name, email, password)
     if (err) setError(err)
-    else navigate('/')
+    else navigate('/earth')
   }
 
   return (
@@ -132,7 +132,7 @@ export function TwoFactorPage() {
   const [error, setError] = useState<string | null>(null)
   const navigate = useNavigate()
 
-  if (user) return <Navigate to="/" replace />
+  if (user) return <Navigate to="/earth" replace />
   if (!pendingTwoFactor) return <Navigate to="/login" replace />
 
   return (
@@ -141,7 +141,7 @@ export function TwoFactorPage() {
         className="auth-card"
         onSubmit={(e) => {
           e.preventDefault()
-          if (verifyTwoFactor(code)) navigate('/')
+          if (verifyTwoFactor(code)) navigate('/earth')
           else setError('Use mock code 123456.')
         }}
       >

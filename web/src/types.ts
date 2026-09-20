@@ -62,3 +62,8 @@ export type User = {
   handle: string
   twoFactor: boolean
 }
+
+export type Course = {
+  code: string
+  name: string
+}
