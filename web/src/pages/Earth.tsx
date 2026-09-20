@@ -6,7 +6,7 @@ export function EarthPage() {
   const { courses } = useStore()
 
   return (
-    <div className="earth-page">
+    <div className="earth-page is-earth">
       <SiteHeader />
       <aside className="course-overlay">
         <h1>Your courses</h1>

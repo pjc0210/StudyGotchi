@@ -1,8 +1,8 @@
-/** 1000px pastel globe. Right 1/4 and bottom 1/4 sit off-screen via CSS. */
+/** Pastel globe. Size and clip are set in CSS per page. */
 export function EarthGlobe() {
   return (
     <div className="earth-globe" aria-hidden="true">
-      <svg viewBox="0 0 1000 1000" width="1000" height="1000">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
         <circle cx="500" cy="500" r="500" fill="#b9d4e8" />
         <path
           fill="#cfe0bc"

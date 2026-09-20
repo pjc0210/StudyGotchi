@@ -4,7 +4,7 @@ import { SiteHeader } from '../components/SiteHeader'
 
 export function MainPage() {
   return (
-    <div className="earth-page">
+    <div className="earth-page is-main">
       <SiteHeader />
       <section className="hero-copy">
         <h1>StudyGotchi</h1>
