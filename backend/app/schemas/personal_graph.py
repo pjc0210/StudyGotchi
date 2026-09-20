@@ -5,6 +5,7 @@ from uuid import UUID
 from pydantic import BaseModel
 
 from app.domain.ontology.concepts import ConceptScope
+from app.domain.personal_graph.concept_state import ConceptState
 from app.domain.personal_graph.discovery import DiscoveryState
 
 
@@ -16,6 +17,12 @@ class PersonalGraphNodeOut(BaseModel):
     importance: float
     personal_relevance: float
     understanding: float | None
+    mastery: float | None
+    familiarity: float
+    confidence: float
+    readiness: float
+    fragility: float
+    state: ConceptState
     cluster_id: str | None = None
     cluster: str | None = None
 

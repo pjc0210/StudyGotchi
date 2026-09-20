@@ -3,9 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { Flag, Route } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
-import { MOCK_TARGETS } from "@/lib/mock";
 import { useStore } from "@/lib/store";
-import type { StudyPlan as Plan } from "@/lib/types";
+import type { StudyPlan as Plan, StudyTarget } from "@/lib/types";
 import { EmptyState } from "@/components/common/EmptyState";
 import { ErrorState, LoadingState } from "@/components/common/LoadingState";
 import { StudyStepCard } from "./StudyStep";
@@ -15,13 +14,13 @@ export function StudyPlanPanel({
 }: {
   onPlanLoaded?: (conceptIds: string[]) => void;
 }) {
-  const { target, setTarget, selectedId, focusConcept } = useStore();
+  const { target, setTarget, targets, selectedId, focusConcept } = useStore();
   const [plan, setPlan] = useState<Plan | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const generate = useCallback(
-    (nextTarget: string) => {
+    (nextTarget: StudyTarget) => {
       setLoading(true);
       setError(null);
       api
@@ -43,7 +42,7 @@ export function StudyPlanPanel({
   );
 
   useEffect(() => {
-    generate(target);
+    if (target) generate(target);
   }, [target, generate]);
 
   return (
@@ -58,15 +57,23 @@ export function StudyPlanPanel({
         </label>
         <select
           id="study-target"
-          value={target}
-          onChange={(e) => setTarget(e.target.value)}
+          value={target?.id ?? ""}
+          onChange={(e) => {
+            const next = targets.find((t) => t.id === e.target.value);
+            if (next) setTarget(next);
+          }}
+          disabled={targets.length === 0}
           className="h-8 w-full rounded-md border border-line-strong bg-raised px-2 text-[13px] text-ink"
         >
-          {MOCK_TARGETS.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
+          {targets.length === 0 ? (
+            <option value="">No targets available</option>
+          ) : (
+            targets.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.label}
+              </option>
+            ))
+          )}
         </select>
       </div>
 
@@ -74,7 +81,7 @@ export function StudyPlanPanel({
         {loading ? (
           <LoadingState label="Planning your route" />
         ) : error ? (
-          <ErrorState message={error} onRetry={() => generate(target)} />
+          <ErrorState message={error} onRetry={() => target && generate(target)} />
         ) : !plan || plan.steps.length === 0 ? (
           <EmptyState
             icon={<Route size={22} strokeWidth={1.5} />}
@@ -94,7 +101,7 @@ export function StudyPlanPanel({
             ))}
             <li className="pt-1">
               <div className="rounded-lg border border-dashed border-line-strong px-3 py-2.5 text-center">
-                <span className="text-[12px] font-medium text-brand">{plan.target}</span>
+                <span className="text-[12px] font-medium text-brand">{plan.target.label}</span>
               </div>
             </li>
           </ol>

@@ -10,12 +10,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { api, ApiError, USE_MOCK } from "./api";
-import { DEFAULT_FILTERS, type GraphFilters } from "./graph";
+import { api, ApiError, isStudentScoped, USE_MOCK } from "./api";
 import type {
   ArtifactType,
+  CourseResource,
   KnowledgeGraphResponse,
   SourceOrigin,
+  StudyTarget,
   UploadItem,
 } from "./types";
 
@@ -36,6 +37,10 @@ interface StoreValue {
   graph: Async<KnowledgeGraphResponse>;
   reloadGraph: () => void;
 
+  /** Ingested files. Shared by the graph and the Files view. */
+  resources: CourseResource[];
+  resourcesLoading: boolean;
+
   selectedId: string | null;
   select: (id: string | null) => void;
 
@@ -43,13 +48,12 @@ interface StoreValue {
   focusNonce: number;
   focusConcept: (id: string) => void;
 
-  filters: GraphFilters;
-  setFilters: (f: GraphFilters) => void;
-
-  target: string;
-  setTarget: (t: string) => void;
+  target: StudyTarget | null;
+  setTarget: (t: StudyTarget) => void;
+  targets: StudyTarget[];
 
   uploads: UploadItem[];
+  ingestVersion: number;
   addUploads: (
     files: File[],
     origin: SourceOrigin,
@@ -68,11 +72,15 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     loading: true,
     error: null,
   });
+  const [resources, setResources] = useState<CourseResource[]>([]);
+  const [resourcesLoading, setResourcesLoading] = useState(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [focusNonce, setFocusNonce] = useState(0);
-  const [filters, setFilters] = useState<GraphFilters>(DEFAULT_FILTERS);
-  const [target, setTarget] = useState("Prepare for HW3");
+  const [target, setTarget] = useState<StudyTarget | null>(null);
+  const [targets, setTargets] = useState<StudyTarget[]>([]);
   const [uploads, setUploads] = useState<UploadItem[]>([]);
+  // Bumped after every successful real ingestion so dependent views refetch.
+  const [ingestVersion, setIngestVersion] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const reloadGraph = useCallback(() => {
@@ -95,6 +103,40 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     reloadGraph();
   }, [reloadGraph]);
+
+  const reloadResources = useCallback(() => {
+    setResourcesLoading(true);
+    api
+      .listResources()
+      .then(setResources)
+      // A missing resource list must not take the graph down with it; the
+      // graph simply renders concepts alone.
+      .catch(() => setResources([]))
+      .finally(() => setResourcesLoading(false));
+  }, []);
+
+  useEffect(() => {
+    reloadResources();
+  }, [reloadResources, ingestVersion]);
+
+  useEffect(() => {
+    let cancelled = false;
+    api
+      .listStudyTargets()
+      .then((list) => {
+        if (cancelled) return;
+        setTargets(list);
+        setTarget((current) => current ?? list[0] ?? null);
+      })
+      .catch(() => {
+        // A missing target list must not blank the graph; the Study Plan and
+        // Gaps panels render their own unavailable state.
+        if (!cancelled) setTargets([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(
     () => () => {
@@ -142,10 +184,15 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
       accepted.forEach((file, i) => {
         const item = items[i];
-        const studentScoped = origin === "student_self";
+        const studentScoped = isStudentScoped(origin);
 
         later(() => {
           patchUpload(item.id, { status: "uploading" });
+
+          // Real ingestion is synchronous and can take a while, so the row sits
+          // in "processing" for as long as the request is actually in flight.
+          // No fabricated percentage - the label is the real state.
+          if (!USE_MOCK) patchUpload(item.id, { status: "processing" });
 
           api
             .ingest({ file, origin, artifactType: item.artifact_type, studentScoped })
@@ -157,7 +204,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
               if (USE_MOCK) {
                 // Mock mode only: walk the remaining states so the demo reads
-                // end-to-end without a backend. Never fabricates a percentage.
+                // end-to-end without a backend.
                 later(() => {
                   patchUpload(item.id, {
                     status: "complete",
@@ -165,6 +212,11 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
                   });
                   reloadGraph();
                 }, 2200 + i * 400);
+              } else {
+                // The engine has already rebuilt this student's state, so pull
+                // the new graph rather than making the user reload the page.
+                setIngestVersion((v) => v + 1);
+                reloadGraph();
               }
             })
             .catch((err: unknown) =>
@@ -196,11 +248,13 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       select: setSelectedId,
       focusNonce,
       focusConcept,
-      filters,
-      setFilters,
       target,
       setTarget,
+      targets,
+      resources,
+      resourcesLoading,
       uploads,
+      ingestVersion,
       addUploads,
       clearFinishedUploads,
     }),
@@ -210,9 +264,12 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       selectedId,
       focusNonce,
       focusConcept,
-      filters,
       target,
+      targets,
+      resources,
+      resourcesLoading,
       uploads,
+      ingestVersion,
       addUploads,
       clearFinishedUploads,
     ],
