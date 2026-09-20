@@ -1,54 +1,74 @@
+import type { components } from "@/lib/api/schema";
+
+/** The engine's world payload, exactly as `GET .../world` returns it. */
+export type WorldResponse = components["schemas"]["WorldResponse"];
+export type WorldRegion = components["schemas"]["WorldRegionOut"];
+export type SemanticState = WorldRegion["semantic_state"];
+export type CreatureState = WorldRegion["creature_state"];
+
 export type BiomeId = "forest" | "meadow" | "ice" | "city" | "sand";
 
+/** 0 hidden (frontier), 1 sprout (touched), 2 landmark (demonstrated). */
 export type SpotState = 0 | 1 | 2;
-
-export type CharacterKind = "resident" | "wisp";
 
 export type CharacterState = "idle" | "evolved" | "exploded" | "recovered" | "faded";
 
-export interface PlaceOut {
+export interface CanvasPlace {
   id: string;
   label: string;
   biome: BiomeId;
   concept_ids: string[];
 }
 
-export interface SpotOut {
+export interface CanvasSpot {
   concept_id: string;
   place_id: string;
   name: string;
   state: SpotState;
+  /** Terrain rise, 0..1, straight from the engine. */
   height: number;
+  fog: number;
   cracked: boolean;
-  discovery_state: string;
-  citation: string | null;
+  semantic_state: SemanticState;
+  cluster: string | null;
 }
 
-export interface CharacterOut {
+export interface CanvasCharacter {
   id: string;
-  kind: CharacterKind;
   place_id: string;
+  concept_id: string;
   label: string;
   state: CharacterState;
-  mean_outcome: number | null;
-  concept_ids: string[];
-  occurred_at: string;
+  creature_state: CreatureState;
 }
 
-export interface WorldOut {
+export interface CanvasWorld {
   course_id: string;
   student_id: string;
   version: string;
   seed: string;
   hidden_concept_count: number;
-  places: PlaceOut[];
-  spots: SpotOut[];
-  characters: CharacterOut[];
+  places: CanvasPlace[];
+  spots: CanvasSpot[];
+  characters: CanvasCharacter[];
+}
+
+export interface HoverInfo {
+  concept_id: string;
+  name: string;
+  semantic_state: SemanticState;
+  height: number;
+  cluster: string | null;
+  resident: CreatureState | null;
 }
 
 export interface WorldCanvasProps {
-  world: WorldOut;
+  world: CanvasWorld;
   readOnly?: boolean;
   selectedId: string | null;
   onSelect: (conceptId: string | null) => void;
+  hoveredId?: string | null;
+  onHover?: (conceptId: string | null) => void;
+  /** Concepts to pulse because they just changed. */
+  changedIds?: ReadonlySet<string>;
 }

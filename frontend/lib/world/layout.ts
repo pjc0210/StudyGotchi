@@ -1,5 +1,5 @@
 import { hashString, makeRng } from "../seed";
-import type { BiomeId, PlaceOut, SpotOut } from "./types";
+import type { BiomeId, CanvasPlace, CanvasSpot } from "./types";
 
 export const ISLAND_RADIUS = 8;
 
@@ -20,7 +20,7 @@ export interface Vec2 {
 }
 
 /** Place centres sit on a ring. Index keeps them evenly spaced; the id only jitters. */
-export function placeCenter(place: PlaceOut, index: number, count: number): Vec2 {
+export function placeCenter(place: CanvasPlace, index: number, count: number): Vec2 {
   const angle = (index / Math.max(count, 1)) * Math.PI * 2 - Math.PI / 2;
   const rng = makeRng(hashString(place.id));
   const radius = 0.42 + rng() * 0.1;
@@ -68,7 +68,7 @@ export function nearestPlace(
   return best;
 }
 
-export function landmarkHeight(spots: SpotOut[], x: number, z: number, centers: Map<string, Vec2>): number {
+export function landmarkHeight(spots: CanvasSpot[], x: number, z: number, centers: Map<string, Vec2>): number {
   let bump = 0;
   for (const spot of spots) {
     if (spot.state !== 2) continue;

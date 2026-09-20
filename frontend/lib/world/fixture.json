@@ -1,205 +1,205 @@
 {
-  "course_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-  "student_id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
-  "version": "2026-09-19T22:00:00Z",
-  "seed": "8.223-demo",
-  "hidden_concept_count": 3,
-  "places": [
+  "student_id": "b4349ecb-65f7-24aa-9e2e-c55412c73179",
+  "course_id": "ffc67e78-ffe0-1cb0-e340-09f29f6f16cd",
+  "world_version": "fixture-1",
+  "regions": [
     {
-      "id": "p8f3a1c0",
-      "label": "Oscillations",
-      "biome": "forest",
-      "concept_ids": [
-        "11111111-1111-4111-8111-111111111111",
-        "11111111-1111-4111-8111-111111111112",
-        "11111111-1111-4111-8111-111111111113"
-      ]
+      "concept_id": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "name": "Turing machine",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.91,
+      "terrain_area": 0.4,
+      "fog": 0.045,
+      "semantic_state": "mastered",
+      "creature_state": "ascended"
     },
     {
-      "id": "p2b7e44d",
-      "label": "Energy and work",
-      "biome": "meadow",
-      "concept_ids": [
-        "22222222-2222-4222-8222-222222222221",
-        "22222222-2222-4222-8222-222222222222"
-      ]
+      "concept_id": "8085ccc7-2a9b-c322-0f9c-4a64283237d1",
+      "name": "Configurations",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.76,
+      "terrain_area": 0.4,
+      "fog": 0.12,
+      "semantic_state": "strong",
+      "creature_state": "evolved"
     },
     {
-      "id": "p9c01aa2",
-      "label": "Waves",
-      "biome": "ice",
-      "concept_ids": [
-        "33333333-3333-4333-8333-333333333331",
-        "33333333-3333-4333-8333-333333333332",
-        "33333333-3333-4333-8333-333333333333"
-      ]
+      "concept_id": "a89a076e-63c5-57c8-0974-876a8099d66c",
+      "name": "Church-Turing thesis",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.58,
+      "terrain_area": 0.4,
+      "fog": 0.21,
+      "semantic_state": "developing",
+      "creature_state": "normal"
     },
     {
-      "id": "p4d55e18",
-      "label": "Rotation",
-      "biome": "city",
-      "concept_ids": [
-        "44444444-4444-4444-8444-444444444441",
-        "44444444-4444-4444-8444-444444444442"
-      ]
+      "concept_id": "d67b0957-6850-c92f-4b7f-85a91eb0f773",
+      "name": "Multitape machines",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.475,
+      "semantic_state": "exposed",
+      "creature_state": "normal"
     },
     {
-      "id": "p0e6bb7f",
-      "label": "Fluids",
-      "biome": "sand",
-      "concept_ids": [
-        "55555555-5555-4555-8555-555555555551"
-      ]
+      "concept_id": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "name": "Halting problem",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.36,
+      "terrain_area": 0.4,
+      "fog": 0.32,
+      "semantic_state": "struggling",
+      "creature_state": "weak"
+    },
+    {
+      "concept_id": "f27b12d5-b898-3eb1-7129-42779bce0e05",
+      "name": "Diagonalization",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.55,
+      "terrain_area": 0.4,
+      "fog": 0.225,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8005a6cf-378a-1f86-0422-d4c5fc090e31",
+      "name": "Reductions",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.74,
+      "terrain_area": 0.4,
+      "fog": 0.13,
+      "semantic_state": "strong",
+      "creature_state": "evolved"
+    },
+    {
+      "concept_id": "f920b5c0-f99a-9417-2540-f5036cf416fa",
+      "name": "Rice's theorem",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "e1cb36dc-8abd-7709-ee3d-9b1a93000db1",
+      "name": "P and NP",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.52,
+      "terrain_area": 0.4,
+      "fog": 0.24,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "name": "NP-completeness",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.3,
+      "terrain_area": 0.4,
+      "fog": 0.35,
+      "semantic_state": "struggling",
+      "creature_state": "weak"
+    },
+    {
+      "concept_id": "3939fa20-a58f-445e-47c1-59d484b8b849",
+      "name": "Cook-Levin theorem",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "b604a710-a907-7b11-1eac-9cd29bd2d8a4",
+      "name": "Polynomial reductions",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.475,
+      "semantic_state": "exposed",
+      "creature_state": "normal"
     }
   ],
-  "spots": [
+  "edges": [
     {
-      "concept_id": "11111111-1111-4111-8111-111111111111",
-      "place_id": "p8f3a1c0",
-      "name": "Simple harmonic motion",
-      "state": 2,
-      "height": 0.82,
-      "cracked": false,
-      "discovery_state": "active",
-      "citation": "Lecture 3, p. 2"
+      "source": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "target": "8085ccc7-2a9b-c322-0f9c-4a64283237d1",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "11111111-1111-4111-8111-111111111112",
-      "place_id": "p8f3a1c0",
-      "name": "Damped oscillators",
-      "state": 2,
-      "height": 0.71,
-      "cracked": false,
-      "discovery_state": "active",
-      "citation": "Lecture 4, p. 1"
+      "source": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "target": "a89a076e-63c5-57c8-0974-876a8099d66c",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "11111111-1111-4111-8111-111111111113",
-      "place_id": "p8f3a1c0",
-      "name": "Driven resonance",
-      "state": 1,
-      "height": 0,
-      "cracked": false,
-      "discovery_state": "encountered",
-      "citation": "Lecture 5, p. 4"
+      "source": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "target": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "22222222-2222-4222-8222-222222222221",
-      "place_id": "p2b7e44d",
-      "name": "Work-energy theorem",
-      "state": 2,
-      "height": 0.64,
-      "cracked": false,
-      "discovery_state": "active",
-      "citation": "Lecture 7, p. 3"
+      "source": "f27b12d5-b898-3eb1-7129-42779bce0e05",
+      "target": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "22222222-2222-4222-8222-222222222222",
-      "place_id": "p2b7e44d",
-      "name": "Conservative forces",
-      "state": 1,
-      "height": 0,
-      "cracked": false,
-      "discovery_state": "encountered",
-      "citation": "Lecture 8, p. 1"
+      "source": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "target": "8005a6cf-378a-1f86-0422-d4c5fc090e31",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "33333333-3333-4333-8333-333333333331",
-      "place_id": "p9c01aa2",
-      "name": "Wave equation",
-      "state": 2,
-      "height": 0.58,
-      "cracked": true,
-      "discovery_state": "active",
-      "citation": "Lecture 12, p. 3"
+      "source": "8005a6cf-378a-1f86-0422-d4c5fc090e31",
+      "target": "f920b5c0-f99a-9417-2540-f5036cf416fa",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "33333333-3333-4333-8333-333333333332",
-      "place_id": "p9c01aa2",
-      "name": "Standing waves",
-      "state": 1,
-      "height": 0,
-      "cracked": true,
-      "discovery_state": "encountered",
-      "citation": "Lecture 13, p. 2"
+      "source": "e1cb36dc-8abd-7709-ee3d-9b1a93000db1",
+      "target": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "33333333-3333-4333-8333-333333333333",
-      "place_id": "p9c01aa2",
-      "name": "Doppler effect",
-      "state": 0,
-      "height": 0,
-      "cracked": false,
-      "discovery_state": "frontier",
-      "citation": null
+      "source": "b604a710-a907-7b11-1eac-9cd29bd2d8a4",
+      "target": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     },
     {
-      "concept_id": "44444444-4444-4444-8444-444444444441",
-      "place_id": "p4d55e18",
-      "name": "Moment of inertia",
-      "state": 1,
-      "height": 0,
-      "cracked": false,
-      "discovery_state": "encountered",
-      "citation": "Lecture 9, p. 5"
-    },
-    {
-      "concept_id": "44444444-4444-4444-8444-444444444442",
-      "place_id": "p4d55e18",
-      "name": "Torque",
-      "state": 0,
-      "height": 0,
-      "cracked": false,
-      "discovery_state": "frontier",
-      "citation": null
-    },
-    {
-      "concept_id": "55555555-5555-4555-8555-555555555551",
-      "place_id": "p0e6bb7f",
-      "name": "Bernoulli",
-      "state": 0,
-      "height": 0,
-      "cracked": false,
-      "discovery_state": "frontier",
-      "citation": null
+      "source": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "target": "3939fa20-a58f-445e-47c1-59d484b8b849",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
     }
   ],
-  "characters": [
-    {
-      "id": "hw2:p8f3a1c0",
-      "kind": "resident",
-      "place_id": "p8f3a1c0",
-      "label": "Homework 2",
-      "state": "evolved",
-      "mean_outcome": 0.86,
-      "concept_ids": [
-        "11111111-1111-4111-8111-111111111111",
-        "11111111-1111-4111-8111-111111111112"
-      ],
-      "occurred_at": "2026-09-12T18:00:00Z"
-    },
-    {
-      "id": "midterm:p9c01aa2",
-      "kind": "resident",
-      "place_id": "p9c01aa2",
-      "label": "Midterm",
-      "state": "exploded",
-      "mean_outcome": 0.38,
-      "concept_ids": [
-        "33333333-3333-4333-8333-333333333331",
-        "33333333-3333-4333-8333-333333333332"
-      ],
-      "occurred_at": "2026-09-16T15:00:00Z"
-    },
-    {
-      "id": "notes-waves",
-      "kind": "wisp",
-      "place_id": "p9c01aa2",
-      "label": "Lecture notes",
-      "state": "idle",
-      "mean_outcome": null,
-      "concept_ids": ["33333333-3333-4333-8333-333333333331"],
-      "occurred_at": "2026-09-10T11:00:00Z"
-    }
-  ]
+  "hidden_concept_count": 9
 }

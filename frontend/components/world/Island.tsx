@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { CameraControls, ContactShadows, Html } from "@react-three/drei";
 import * as THREE from "three";
@@ -9,18 +9,22 @@ import { hashString, makeRng } from "@/lib/seed";
 import {
   BIOMES,
   ISLAND_RADIUS,
+  characterOffset,
   landmarkHeight,
   placeCenter,
   spotOffset,
   worldPosition,
   type Vec2,
 } from "@/lib/world/layout";
-import type { PlaceOut, SpotOut, WorldCanvasProps } from "@/lib/world/types";
+import { RESIDENT_LABEL, STATE_COLOR, STATE_LABEL } from "@/lib/world/adapter";
+import type { CanvasPlace, CanvasSpot, HoverInfo, WorldCanvasProps } from "@/lib/world/types";
 import { Character } from "./Character";
 
 const CLIFF = 3;
+const PAPER = "#f6efe4";
+const OCEAN = "#b9d4e8";
 
-function usePlaceLayout(places: PlaceOut[]) {
+function usePlaceLayout(places: CanvasPlace[]) {
   return useMemo(() => {
     const centers = new Map<string, Vec2>();
     const list = places.map((place, index) => {
@@ -39,8 +43,8 @@ function IslandTerrain({
   centers,
 }: {
   seed: string;
-  places: PlaceOut[];
-  spots: SpotOut[];
+  places: CanvasPlace[];
+  spots: CanvasSpot[];
   centers: Map<string, Vec2>;
 }) {
   const geometry = useMemo(() => {
@@ -66,8 +70,8 @@ function IslandTerrain({
     const colors: number[] = [];
     const indices: number[] = [];
     const col = new THREE.Color();
-    const rock = new THREE.Color("#8d6e57");
-    const deepRock = new THREE.Color("#5e4636");
+    const rock = new THREE.Color("#a58c74");
+    const deepRock = new THREE.Color("#6f5947");
 
     for (let i = 0; i <= totalRings; i++) {
       for (let j = 0; j <= segs; j++) {
@@ -89,7 +93,7 @@ function IslandTerrain({
               nearest = p;
             }
           }
-          col.set(nearest?.biome.ground ?? "#8fc48a");
+          col.set(nearest?.biome.ground ?? "#cfe0bc");
           col.lerp(rock, THREE.MathUtils.clamp(y / 1.6 - 0.45, 0, 0.55) * 2);
         } else {
           const t = (i - rings) / cliffRings;
@@ -129,28 +133,59 @@ function IslandTerrain({
   return <mesh geometry={geometry} material={material} />;
 }
 
+/** A short-lived scale pulse for anything that just changed. */
+function usePulse(active: boolean) {
+  const ref = useRef<THREE.Group>(null);
+  const t = useRef(0);
+  useEffect(() => {
+    if (active) t.current = 0;
+  }, [active]);
+  useFrame((_, dt) => {
+    const g = ref.current;
+    if (!g) return;
+    if (!active) {
+      g.scale.setScalar(1);
+      return;
+    }
+    t.current += dt;
+    const s = 1 + Math.max(0, Math.sin(t.current * 5)) * 0.25 * Math.max(0, 1 - t.current / 4);
+    g.scale.setScalar(s);
+  });
+  return ref;
+}
+
 function SpotMarker({
   spot,
   center,
+  biomeAccent,
   selected,
+  hovered,
+  changed,
   onSelect,
+  onHover,
   heightAt,
 }: {
-  spot: SpotOut;
+  spot: CanvasSpot;
   center: Vec2;
+  biomeAccent: string;
   selected: boolean;
+  hovered: boolean;
+  changed: boolean;
   onSelect: (id: string | null) => void;
+  onHover: (id: string | null) => void;
   heightAt: (x: number, z: number) => number;
 }) {
   const pos = worldPosition(center, spotOffset(spot.concept_id));
   const y = heightAt(pos.x, pos.z);
-  const biomeGround = "#4f8a4a";
-  const cracked = spot.cracked;
+  const pulse = usePulse(changed);
 
   if (spot.state === 0) return null;
 
+  const stateColor = STATE_COLOR[spot.semantic_state];
+
   return (
     <group
+      ref={pulse}
       position={[pos.x, y, pos.z]}
       onClick={(e) => {
         e.stopPropagation();
@@ -159,31 +194,46 @@ function SpotMarker({
       onPointerOver={(e) => {
         e.stopPropagation();
         document.body.style.cursor = "pointer";
+        onHover(spot.concept_id);
       }}
       onPointerOut={() => {
         document.body.style.cursor = "auto";
+        onHover(null);
       }}
     >
       {spot.state === 1 ? (
-        <mesh position={[0, 0.18, 0]} material={toonMaterial(cracked ? "#c47a4a" : "#6f9d4f")}>
+        <mesh position={[0, 0.18, 0]} material={toonMaterial(spot.cracked ? "#d98b7e" : "#8fbf6a")}>
           <coneGeometry args={[0.12, 0.36, 6]} />
         </mesh>
       ) : (
-        <mesh position={[0, 0.28, 0]} material={toonMaterial(cracked ? "#8a4a3f" : biomeGround)}>
-          <cylinderGeometry args={[0.22, 0.28, 0.5, 8]} />
-        </mesh>
+        <group>
+          <mesh position={[0, 0.28, 0]} material={toonMaterial(spot.cracked ? "#c47a4a" : biomeAccent)}>
+            <cylinderGeometry args={[0.22, 0.28, 0.5, 8]} />
+          </mesh>
+          <mesh position={[0, 0.62, 0]} material={toonMaterial(stateColor)}>
+            <coneGeometry args={[0.24, 0.3, 8]} />
+          </mesh>
+        </group>
       )}
-      {selected && (
+      {(selected || hovered) && (
         <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[0.34, 0.42, 24]} />
-          <meshBasicMaterial color="#fffaf3" transparent opacity={0.9} />
+          <ringGeometry args={[0.34, selected ? 0.44 : 0.4, 24]} />
+          <meshBasicMaterial color={selected ? "#3a342e" : "#fbf6ee"} transparent opacity={0.9} />
         </mesh>
       )}
     </group>
   );
 }
 
-function PlaceSign({ place, center, heightAt }: { place: PlaceOut; center: Vec2; heightAt: (x: number, z: number) => number }) {
+function PlaceSign({
+  place,
+  center,
+  heightAt,
+}: {
+  place: CanvasPlace;
+  center: Vec2;
+  heightAt: (x: number, z: number) => number;
+}) {
   const x = center.x * ISLAND_RADIUS;
   const z = center.z * ISLAND_RADIUS;
   const y = heightAt(x, z);
@@ -193,8 +243,19 @@ function PlaceSign({ place, center, heightAt }: { place: PlaceOut; center: Vec2;
       <mesh position={[0, 0.16, 0]} material={toonMaterial(biome.accent)}>
         <cylinderGeometry args={[0.42, 0.5, 0.28, 16]} />
       </mesh>
-      <Html position={[0, 0.85, 0]} center distanceFactor={18} style={{ pointerEvents: "none" }}>
-        <span className="rounded-full bg-[#fffaf3]/90 px-2 py-0.5 text-[11px] font-extrabold tracking-wide text-[#3a2f45] shadow-[0_3px_0_#3a2f45] whitespace-nowrap">
+      <Html position={[0, 0.9, 0]} center distanceFactor={18} style={{ pointerEvents: "none" }} zIndexRange={[5, 0]}>
+        <span
+          style={{
+            whiteSpace: "nowrap",
+            background: "rgba(251, 246, 238, 0.92)",
+            border: "1px solid #e4d8c8",
+            borderRadius: 999,
+            padding: "3px 10px",
+            fontSize: 12,
+            color: "#3a342e",
+            fontFamily: "var(--font-fraunces), Georgia, serif",
+          }}
+        >
           {place.label}
         </span>
       </Html>
@@ -202,28 +263,92 @@ function PlaceSign({ place, center, heightAt }: { place: PlaceOut; center: Vec2;
   );
 }
 
-export function Island({ world, selectedId, onSelect }: WorldCanvasProps) {
+function HoverMarker({ info, position }: { info: HoverInfo; position: [number, number, number] }) {
+  return (
+    <Html position={position} center style={{ pointerEvents: "none" }} zIndexRange={[20, 10]}>
+      <div className="world-marker">
+        <div className="card">
+          <strong>{info.name}</strong>
+          <div className="meta">
+            <span style={{ color: STATE_COLOR[info.semantic_state] }}>{STATE_LABEL[info.semantic_state]}</span>
+            <span>{Math.round(info.height * 100)}%</span>
+          </div>
+          {info.resident ? <div className="meta">{RESIDENT_LABEL[info.resident]}</div> : null}
+          {info.cluster ? <div className="meta">{info.cluster}</div> : null}
+        </div>
+        <span className="stem" />
+        <span className="dot" />
+      </div>
+    </Html>
+  );
+}
+
+export function Island({ world, selectedId, onSelect, hoveredId, onHover, changedIds }: WorldCanvasProps) {
   const { list, centers } = usePlaceLayout(world.places);
   const controls = useRef<CameraControls>(null);
+  const [localHover, setLocalHover] = useState<string | null>(null);
+  const hover = hoveredId ?? localHover;
+  const setHover = (id: string | null) => {
+    setLocalHover(id);
+    onHover?.(id);
+  };
+
   const heightAt = useMemo(() => {
     return (x: number, z: number) => landmarkHeight(world.spots, x / ISLAND_RADIUS, z / ISLAND_RADIUS, centers);
   }, [world.spots, centers]);
+
+  const spotById = useMemo(() => new Map(world.spots.map((s) => [s.concept_id, s])), [world.spots]);
+  const residentById = useMemo(
+    () => new Map(world.characters.map((c) => [c.concept_id, c.creature_state])),
+    [world.characters],
+  );
 
   useEffect(() => {
     controls.current?.setLookAt(0, 19, 27, 0, -0.5, 0, false);
   }, []);
 
-  useFrame(() => {
-    if (typeof document !== "undefined" && document.hidden) return;
-  });
+  // Selecting a spot eases the camera toward it; deselecting returns to the overview.
+  useEffect(() => {
+    const c = controls.current;
+    if (!c) return;
+    const spot = selectedId ? spotById.get(selectedId) : undefined;
+    const center = spot ? centers.get(spot.place_id) : undefined;
+    if (spot && center) {
+      const pos = worldPosition(center, spotOffset(spot.concept_id));
+      const y = heightAt(pos.x, pos.z);
+      void c.setLookAt(pos.x + 5, y + 8, pos.z + 12, pos.x, y, pos.z, true);
+    } else {
+      void c.setLookAt(0, 19, 27, 0, -0.5, 0, true);
+    }
+  }, [selectedId, spotById, centers, heightAt]);
+
+  const hoverInfo = useMemo<{ info: HoverInfo; position: [number, number, number] } | null>(() => {
+    if (!hover) return null;
+    const spot = spotById.get(hover);
+    const center = spot ? centers.get(spot.place_id) : undefined;
+    if (!spot || !center) return null;
+    const pos = worldPosition(center, spotOffset(spot.concept_id));
+    const y = heightAt(pos.x, pos.z);
+    return {
+      info: {
+        concept_id: spot.concept_id,
+        name: spot.name,
+        semantic_state: spot.semantic_state,
+        height: spot.height,
+        cluster: spot.cluster,
+        resident: residentById.get(spot.concept_id) ?? null,
+      },
+      position: [pos.x, y + 0.9, pos.z],
+    };
+  }, [hover, spotById, centers, heightAt, residentById]);
 
   return (
     <>
-      <color attach="background" args={["#f3e4ee"]} />
-      <fog attach="fog" args={["#f3e4ee", 28, 52]} />
-      <hemisphereLight args={["#fff4e6", "#b9a7c9", 0.9]} />
-      <directionalLight position={[10, 14, 8]} intensity={1.6} color="#fff1dc" />
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -CLIFF - 0.2, 0]} material={toonMaterial("#9fd3e0")}>
+      <color attach="background" args={[PAPER]} />
+      <fog attach="fog" args={[PAPER, 30, 56]} />
+      <hemisphereLight args={["#fff8ee", "#c9bfae", 0.9]} />
+      <directionalLight position={[10, 14, 8]} intensity={1.5} color="#fff3e0" />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -CLIFF - 0.2, 0]} material={toonMaterial(OCEAN)}>
         <circleGeometry args={[48, 48]} />
       </mesh>
       <group onPointerMissed={() => onSelect(null)}>
@@ -232,15 +357,19 @@ export function Island({ world, selectedId, onSelect }: WorldCanvasProps) {
           <PlaceSign key={place.id} place={place} center={center} heightAt={heightAt} />
         ))}
         {world.spots.map((spot) => {
-          const center = centers.get(spot.place_id);
-          if (!center) return null;
+          const entry = list.find((item) => item.place.id === spot.place_id);
+          if (!entry) return null;
           return (
             <SpotMarker
               key={spot.concept_id}
               spot={spot}
-              center={center}
+              center={entry.center}
+              biomeAccent={BIOMES[entry.place.biome].accent}
               selected={selectedId === spot.concept_id}
+              hovered={hover === spot.concept_id}
+              changed={changedIds?.has(spot.concept_id) ?? false}
               onSelect={onSelect}
+              onHover={setHover}
               heightAt={heightAt}
             />
           );
@@ -248,20 +377,24 @@ export function Island({ world, selectedId, onSelect }: WorldCanvasProps) {
         {world.characters.map((character) => {
           const entry = list.find((item) => item.place.id === character.place_id);
           if (!entry) return null;
+          const home = worldPosition(entry.center, spotOffset(character.concept_id));
+          const drift = characterOffset(character.id);
           return (
             <Character
               key={character.id}
               character={character}
               place={entry.place}
-              center={entry.center}
+              home={{ x: home.x + drift.x * ISLAND_RADIUS * 0.5, z: home.z + drift.z * ISLAND_RADIUS * 0.5 }}
               heightAt={heightAt}
-              selected={character.concept_ids.includes(selectedId ?? "")}
+              selected={selectedId === character.concept_id}
               onSelect={onSelect}
+              onHover={setHover}
             />
           );
         })}
+        {hoverInfo ? <HoverMarker info={hoverInfo.info} position={hoverInfo.position} /> : null}
       </group>
-      <ContactShadows position={[0, -CLIFF - 0.5, 0]} opacity={0.35} scale={40} blur={2.5} far={12} frames={1} color="#5a3f6b" />
+      <ContactShadows position={[0, -CLIFF - 0.5, 0]} opacity={0.3} scale={40} blur={2.5} far={12} frames={1} color="#5a4a3f" />
       <CameraControls ref={controls} minPolarAngle={0.35} maxPolarAngle={1.25} minDistance={6} maxDistance={34} makeDefault />
     </>
   );

@@ -49,7 +49,7 @@ export function AppShell({ initial = "knowledge" }: { initial?: Section }) {
   }, []);
 
   return (
-    <div className="flex h-dvh overflow-hidden bg-canvas text-ink">
+    <div className="sg-dark flex h-dvh overflow-hidden bg-canvas text-ink">
         <Sidebar active={section} onSelect={selectSection} gapCount={gapCount} />
 
         {section !== "knowledge" ? (
