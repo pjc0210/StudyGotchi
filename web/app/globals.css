@@ -5,17 +5,55 @@
   --title: #3a342e;
   --ocean: #b9d4e8;
   --land: #cfe0bc;
+  --land-2: #c4d8b0;
+  --ice: #e9f2f6;
   --rose: #ecc9c2;
   --sage: #c9ddb4;
   --peach: #f0e2d4;
   --mint: #dcead0;
   --sky: #d5e4ef;
   --line: #e4d8c8;
+  --overlay: #efe6d8;
+  --raised: rgba(255, 253, 248, 0.72);
+  --input: #fffdf8;
+  --star-hot: #8ec4e4;
+  --star-mid: #4f8ec8;
+  --star-edge: #3a74ab;
+  --star-core: #3a74ab;
+  --star-ray: #4f8ec8;
+  --star-label: #2f6496;
   font-family: var(--font-outfit), system-ui, sans-serif;
   color: var(--ink);
   background: var(--paper);
   line-height: 1.45;
   font-weight: 380;
+}
+
+html.night {
+  --paper: #0c1218;
+  --ink: #d8d4cc;
+  --ink-soft: #9a938a;
+  --title: #f3eee6;
+  --ocean: #3a5570;
+  --land: #4a5c3e;
+  --land-2: #3e5236;
+  --ice: #6d8294;
+  --rose: #8a5e58;
+  --sage: #5d7350;
+  --peach: #3a322c;
+  --mint: #2f3a2c;
+  --sky: #2a3640;
+  --line: #2a313a;
+  --overlay: #161c24;
+  --raised: rgba(22, 28, 36, 0.72);
+  --input: #12181f;
+  --star-hot: #d6eef9;
+  --star-mid: #9fd0ee;
+  --star-edge: #6aaee0;
+  --star-core: #c5e4f7;
+  --star-ray: #b7dbf2;
+  --star-label: #b7dbf2;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -99,6 +137,15 @@ h1, h2 {
 
 .account-email {
   color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.theme-toggle {
+  border: 0;
+  background: var(--sky);
+  color: var(--title);
+  border-radius: 999px;
+  padding: 8px 16px;
   font-size: 14px;
 }
 
@@ -188,16 +235,16 @@ h1, h2 {
 
 .map-edge {
   fill: none;
-  stroke: #9fd0ee;
-  stroke-width: 0.7;
-  stroke-opacity: 0.55;
+  stroke: var(--star-mid);
+  stroke-width: 0.85;
+  stroke-opacity: 0.62;
   stroke-linecap: round;
 }
 
 .map-edge.is-active {
-  stroke: #7ebce6;
-  stroke-width: 1.05;
-  stroke-opacity: 0.9;
+  stroke: var(--star-edge);
+  stroke-width: 1.2;
+  stroke-opacity: 0.95;
 }
 
 .map-node {
@@ -219,23 +266,23 @@ h1, h2 {
 }
 
 .map-node .map-node-ray {
-  stroke: #c5e4f7;
-  stroke-width: 0.55;
-  stroke-opacity: 0.38;
+  stroke: var(--star-ray);
+  stroke-width: 0.65;
+  stroke-opacity: 0.55;
 }
 
 .map-node .map-node-core {
-  fill: #d7eef9;
+  fill: var(--star-core);
   stroke: none;
 }
 
 .map-node.is-selected .map-node-core {
-  fill: #f4fbff;
+  fill: var(--star-hot);
 }
 
 .map-node text {
   font-size: 12px;
-  fill: #6aaee0;
+  fill: var(--star-label);
   pointer-events: none;
   dominant-baseline: middle;
 }
@@ -247,7 +294,7 @@ h1, h2 {
   height: calc(100vh - 72px - 4rem);
   margin: 1rem 2.25rem 3rem;
   padding: 36px 28px 32px;
-  background: #efe6d8;
+  background: var(--overlay);
   border-radius: 22px;
   overflow: auto;
 }
@@ -361,7 +408,7 @@ h1, h2 {
 .score-bar span {
   display: block;
   height: 100%;
-  background: #4f8ec8;
+  background: var(--star-mid);
   border-radius: 999px;
 }
 
@@ -418,7 +465,7 @@ h1, h2 {
 }
 
 .detail-list li {
-  background: rgba(255, 253, 248, 0.72);
+  background: var(--raised);
   border-radius: 12px;
   padding: 10px 12px;
 }
@@ -472,7 +519,8 @@ h1, h2 {
 .login-input {
   width: 100%;
   border: 1px solid var(--line);
-  background: #fffdf8;
+  background: var(--input);
+  color: var(--ink);
   border-radius: 12px;
   padding: 12px 14px;
   text-align: left;
@@ -522,7 +570,7 @@ h1, h2 {
 
 .auth-card {
   width: min(420px, 100%);
-  background: #fbf6ee;
+  background: var(--overlay);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 28px;
@@ -548,7 +596,8 @@ h1, h2 {
 .field span { font-size: 13px; color: var(--ink-soft); }
 .field input {
   border: 1px solid var(--line);
-  background: #fffdf8;
+  background: var(--input);
+  color: var(--ink);
   border-radius: 10px;
   padding: 10px 12px;
 }

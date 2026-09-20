@@ -19,13 +19,14 @@ function hash(id: string, salt = 0): number {
   return value >>> 0
 }
 
-function starProfile(id: string, importance: number) {
-  const variation = 0.76 + (hash(id, 19) % 250) / 1000
-  const core = Math.max(1.6, (1.85 + importance * 3.1) * variation)
+function starProfile(id: string, mastery: number | null) {
+  const variation = 0.92 + (hash(id, 19) % 160) / 1000
+  const scale = 1 + (mastery ?? 0) * 1.5
+  const core = 2.15 * variation * scale
   return {
     core,
     glow: core * 6.2,
-    rays: core > 3.6,
+    rays: scale >= 1.45,
   }
 }
 
@@ -40,7 +41,7 @@ export function NeuralMap({
   const profiles = useMemo(() => {
     const next = new Map<string, ReturnType<typeof starProfile>>()
     for (const node of GRAPH_NODES) {
-      next.set(node.id, starProfile(node.id, node.importance))
+      next.set(node.id, starProfile(node.id, node.mastery))
     }
     return next
   }, [])
@@ -54,16 +55,16 @@ export function NeuralMap({
       >
         <defs>
           <radialGradient id="star-glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#e7f5fc" stopOpacity="0.95" />
-            <stop offset="12%" stopColor="#b5daf2" stopOpacity="0.7" />
-            <stop offset="42%" stopColor="#7ebce6" stopOpacity="0.16" />
-            <stop offset="100%" stopColor="#7ebce6" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--star-hot)" stopOpacity="0.95" />
+            <stop offset="12%" stopColor="var(--star-mid)" stopOpacity="0.72" />
+            <stop offset="42%" stopColor="var(--star-edge)" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="var(--star-edge)" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="star-glow-active" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#f4fbff" stopOpacity="1" />
-            <stop offset="12%" stopColor="#c5e6f6" stopOpacity="0.82" />
-            <stop offset="42%" stopColor="#6aaee0" stopOpacity="0.22" />
-            <stop offset="100%" stopColor="#6aaee0" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--star-hot)" stopOpacity="1" />
+            <stop offset="12%" stopColor="var(--star-mid)" stopOpacity="0.86" />
+            <stop offset="42%" stopColor="var(--star-edge)" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="var(--star-edge)" stopOpacity="0" />
           </radialGradient>
         </defs>
         {GRAPH_EDGES.map((edge) => {

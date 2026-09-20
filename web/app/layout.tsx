@@ -24,6 +24,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en" className={`${outfit.variable} ${fraunces.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('studygotchi.theme')==='night')document.documentElement.classList.add('night')}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         <Providers initialUser={user}>{children}</Providers>
       </body>

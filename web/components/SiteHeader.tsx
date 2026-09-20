@@ -3,11 +3,13 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useStore } from '@/lib/store'
+import { useTheme } from '@/lib/theme'
 
 export function SiteHeader() {
   const pathname = usePathname()
   const router = useRouter()
   const { user, logout } = useStore()
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <header className="site-header">
@@ -25,26 +27,36 @@ export function SiteHeader() {
           Graph
         </Link>
       </nav>
-      {user ? (
-        <div className="account-bar">
-          <span className="account-email">{user.email}</span>
-          <button
-            className="login-btn"
-            type="button"
-            onClick={async () => {
-              await logout()
-              router.push('/')
-              router.refresh()
-            }}
-          >
-            Log out
-          </button>
-        </div>
-      ) : (
-        <Link className="login-btn" href="/login">
-          Login
-        </Link>
-      )}
+      <div className="account-bar">
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === 'night' ? 'Switch to day' : 'Switch to night'}
+        >
+          {theme === 'night' ? 'Day' : 'Night'}
+        </button>
+        {user ? (
+          <>
+            <span className="account-email">{user.email}</span>
+            <button
+              className="login-btn"
+              type="button"
+              onClick={async () => {
+                await logout()
+                router.push('/')
+                router.refresh()
+              }}
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <Link className="login-btn" href="/login">
+            Login
+          </Link>
+        )}
+      </div>
     </header>
   )
 }
