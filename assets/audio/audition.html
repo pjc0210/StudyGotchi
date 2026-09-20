@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyGotchi sound kit: audition</title>
+<script src="manifest.js"></script>
+<script src="music/manifest.js"></script>
+<style>
+  :root {
+    --sky: #f3e4ee; --ink: #3a2f45; --card: #fffaf7; --line: #e5d3de;
+    --peach: #f2a86f; --coral: #e88a8a; --mint: #8fc9d8; --olive: #b9c96f; --lilac: #c9a2e6;
+    --accent: #4f8fb0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--sky); color: var(--ink); font: 15px/1.45 ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif; }
+  body { padding: 24px clamp(12px, 4vw, 48px) 80px; }
+  h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.12em; margin: 28px 0 10px; opacity: 0.7; }
+  .sub { opacity: 0.75; margin: 0 0 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 14px 16px; box-shadow: 0 6px 0 -3px rgba(58,47,69,0.06); }
+  button { font: inherit; font-weight: 700; color: var(--ink); background: #fff; border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; cursor: pointer; box-shadow: 0 3px 0 var(--ink); transition: transform .06s ease, box-shadow .06s ease; }
+  button:hover { transform: translateY(-1px); }
+  button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+  button.ghost { background: transparent; border-color: var(--line); box-shadow: 0 3px 0 var(--line); font-weight: 600; }
+  button.small { padding: 4px 10px; font-size: 13px; }
+  select, input[type=text] { font: inherit; padding: 8px 12px; border-radius: 12px; border: 2px solid var(--line); background: #fff; color: var(--ink); }
+  input[type=text] { flex: 1 1 320px; min-width: 200px; }
+  input[type=range] { accent-color: var(--accent); width: 130px; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+  .sfx { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; align-items: start; }
+  .sfx .name { font-weight: 800; font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; }
+  .sfx .desc { grid-column: 1 / -1; font-size: 13px; opacity: 0.8; }
+  .sfx .meta { grid-column: 1 / -1; font-size: 12px; opacity: 0.6; font-family: ui-monospace, Menlo, monospace; }
+  .sfx .btns { display: flex; gap: 6px; }
+  .chip { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; border: 1px solid rgba(58,47,69,0.25); }
+  #gate { position: fixed; inset: 0; background: rgba(243,228,238,0.96); display: grid; place-items: center; z-index: 10; }
+  #gate .card { text-align: center; padding: 36px 40px; }
+  #gate p { margin: 8px 0 18px; opacity: 0.75; }
+  #status { font-size: 13px; padding: 8px 12px; border-radius: 12px; background: rgba(255,255,255,0.6); border: 1px dashed var(--line); }
+  #status.warn { border-color: var(--peach); background: #fff3e6; }
+  .bus { display: grid; grid-template-columns: 70px 1fr 48px; align-items: center; gap: 8px; }
+  .bus label { font-weight: 700; font-size: 13px; }
+  .bus output { font-family: ui-monospace, Menlo, monospace; font-size: 12px; text-align: right; }
+  #transcript { min-height: 28px; font-size: 20px; letter-spacing: 0.02em; font-weight: 700; }
+  #transcript span { opacity: 0.25; transition: opacity .08s; }
+  #transcript span.on { opacity: 1; }
+  .species-btn { border-color: var(--line); box-shadow: 0 3px 0 var(--line); }
+  footer { margin-top: 36px; font-size: 12.5px; opacity: 0.65; }
+  code { font-family: ui-monospace, Menlo, monospace; background: rgba(58,47,69,0.06); padding: 1px 5px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<div id="gate">
+  <div class="card">
+    <h1>StudyGotchi sound kit</h1>
+    <p>Browsers keep audio muted until you interact. Nothing plays before this click.</p>
+    <button id="unlock">Tap to enable sound</button>
+  </div>
+</div>
+
+<h1>Sound kit audition</h1>
+<p class="sub" id="summary">Loading manifest…</p>
+<div id="status">Waiting for the first click.</div>
+
+<h2>Buses</h2>
+<div class="card grid" id="buses"></div>
+
+<h2>Speak</h2>
+<div class="card">
+  <div class="row">
+    <input type="text" id="text" value="hello i live in the ice biome now" maxlength="160" spellcheck="false">
+    <select id="species"></select>
+    <select id="mood">
+      <option value="neutral">neutral</option>
+      <option value="happy">happy (+15% pitch, faster)</option>
+      <option value="sad">sad (−12% pitch, slower)</option>
+    </select>
+    <button id="speak">Speak</button>
+  </div>
+  <div id="transcript" style="margin-top:12px"></div>
+  <div class="row" style="margin-top:10px" id="demos"></div>
+</div>
+
+<h2>Music</h2>
+<p class="sub">Open-licensed BGM, grouped by use and biome. Credits in <code>music/CREDITS.md</code>. Play routes to the music bus.</p>
+<div class="card" style="margin-bottom:12px">
+  <div class="row" id="music-filters"></div>
+  <div class="row" style="margin-top:10px">
+    <button class="ghost small" id="music-stop">Stop music</button>
+    <label class="row" style="gap:6px;font-size:13px"><input type="checkbox" id="music-loop" checked> loop</label>
+    <span id="music-now" style="opacity:0.7;font-size:13px">nothing playing</span>
+  </div>
+</div>
+<div class="grid" id="music"></div>
+
+<h2>Sound effects</h2>
+<div class="grid" id="sfx"></div>
+
+<footer>
+  SFX and voices are generated by <code>tools/sound-factory</code>. ZzFX synthesis © Frank Force, MIT (<code>zzfx@1.3.2</code>); the inline <code>zzfxG</code> port below is the same MIT code.
+  Music is third-party CC0 / CC-BY / CC-BY-SA — see <code>music/CREDITS.md</code>.
+</footer>
+
+<script>
+// ---------- ZzFX sample generator (zzfxG), ported verbatim from zzfx@1.3.2 ZZFX.buildSamples ----------
+// ZzFX - Zuper Zmall Zound Zynth v1.3.2 by Frank Force, https://github.com/KilledByAPixel/ZzFX  (MIT License)
+function zzfxG(volume = 1, randomness = .05, frequency = 220, attack = 0, sustain = 0, release = .1, shape = 0, shapeCurve = 1, slide = 0, deltaSlide = 0, pitchJump = 0, pitchJumpTime = 0, repeatTime = 0, noise = 0, modulation = 0, bitCrush = 0, delay = 0, sustainVolume = 1, decay = 0, tremolo = 0, filter = 0) {
+  let sampleRate = 44100, PI2 = Math.PI * 2, abs = Math.abs, sign = v => v < 0 ? -1 : 1,
+    startSlide = slide *= 500 * PI2 / sampleRate / sampleRate,
+    startFrequency = frequency *= (1 + randomness * 2 * Math.random() - randomness) * PI2 / sampleRate,
+    modOffset = 0, repeat = 0, crush = 0, jump = 1, length, b = [], t = 0, i = 0, s = 0, f,
+    quality = 2, w = PI2 * abs(filter) * 2 / sampleRate, cos = Math.cos(w), alpha = Math.sin(w) / 2 / quality,
+    a0 = 1 + alpha, a1 = -2 * cos / a0, a2 = (1 - alpha) / a0, b0 = (1 + sign(filter) * cos) / 2 / a0,
+    b1 = -(sign(filter) + cos) / a0, b2 = b0, x2 = 0, x1 = 0, y2 = 0, y1 = 0;
+  const minAttack = 9;
+  attack = attack * sampleRate || minAttack; decay *= sampleRate; sustain *= sampleRate; release *= sampleRate; delay *= sampleRate;
+  deltaSlide *= 500 * PI2 / sampleRate ** 3; modulation *= PI2 / sampleRate; pitchJump *= PI2 / sampleRate; pitchJumpTime *= sampleRate;
+  repeatTime = repeatTime * sampleRate | 0;
+  for (length = attack + decay + sustain + release + delay | 0; i < length; b[i++] = s * volume) {
+    if (!(++crush % (bitCrush * 100 | 0))) {
+      s = shape ? shape > 1 ? shape > 2 ? shape > 3 ? shape > 4 ? (t / PI2 % 1 < shapeCurve / 2) * 2 - 1 : Math.sin(t ** 3) : Math.max(Math.min(Math.tan(t), 1), -1) : 1 - (2 * t / PI2 % 2 + 2) % 2 : 1 - 4 * abs(Math.round(t / PI2) - t / PI2) : Math.sin(t);
+      s = (repeatTime ? 1 - tremolo + tremolo * Math.sin(PI2 * i / repeatTime) : 1) * (shape > 4 ? s : sign(s) * abs(s) ** shapeCurve) *
+        (i < attack ? i / attack : i < attack + decay ? 1 - ((i - attack) / decay) * (1 - sustainVolume) : i < attack + decay + sustain ? sustainVolume : i < length - delay ? (length - i - delay) / release * sustainVolume : 0);
+      s = delay ? s / 2 + (delay > i ? 0 : (i < length - delay ? 1 : (length - i) / delay) * b[i - delay | 0] / 2 / volume) : s;
+      if (filter) s = y1 = b2 * x2 + b1 * (x2 = x1) + b0 * (x1 = s) - a2 * y2 - a1 * (y2 = y1);
+    }
+    f = (frequency += slide += deltaSlide) * Math.cos(modulation * modOffset++);
+    t += f + f * noise * Math.sin(i ** 5);
+    if (jump && ++jump > pitchJumpTime) { frequency += pitchJump; startFrequency += pitchJump; jump = 0; }
+    if (repeatTime && !(++repeat % repeatTime)) { frequency = startFrequency; slide = startSlide; jump ||= 1; }
+  }
+  return b;
+}
+
+// ---------- speak() scheduler: same rules as tools/sound-factory/speak.mjs ----------
+const MOODS = { neutral: { pitch: 1, tempo: 1 }, happy: { pitch: 1.15, tempo: 0.85 }, sad: { pitch: 0.88, tempo: 1.2 } };
+const SPEAK = { spacingMs: 75, wordGapMs: 55, pauses: { ',': 120, '.': 240, '!': 240, '?': 200 }, jitter: 0.03, declination: 0.04, questionRise: 1.08 };
+const VOWELS = new Set('aeiouy'), FRICATIVES = new Set('szfvxjh');
+function makeRng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function hashString(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function schedule(text, species, mood = 'neutral') {
+  const m = MOODS[mood] || MOODS.neutral, rng = makeRng(hashString(`${species}|${mood}|${text}`));
+  const clean = text.toLowerCase(), events = [], total = (clean.match(/[a-z]/g) || []).length || 1;
+  let cursor = 0, li = 0, wordStart = true, word = [];
+  const closeWord = (rising) => { if (rising) for (const ev of word.slice(-2)) ev.rate *= SPEAK.questionRise; if (word.length) word[word.length - 1].rate *= 0.98; word = []; wordStart = true; };
+  for (let idx = 0; idx < clean.length; idx++) {
+    const ch = clean[idx];
+    if (ch >= 'a' && ch <= 'z') {
+      const decl = 1 - SPEAK.declination * (li / total) * (mood === 'happy' ? 0.5 : 1);
+      const ev = { char: ch, index: idx, at: cursor / 1000, rate: m.pitch * decl * (1 + (rng() * 2 - 1) * SPEAK.jitter) * (wordStart ? 1.03 : 1), gain: (wordStart ? 1 : 0.9) * (VOWELS.has(ch) ? 1 : FRICATIVES.has(ch) ? 0.8 : 0.92), kind: 'letter' };
+      events.push(ev); word.push(ev); cursor += SPEAK.spacingMs * m.tempo + (VOWELS.has(ch) ? 8 : 0); li++; wordStart = false;
+    } else if (ch === ' ') { closeWord(false); cursor += SPEAK.wordGapMs * m.tempo; }
+    else if (SPEAK.pauses[ch] !== undefined) { closeWord(ch === '?'); events.push({ char: ch, index: idx, at: cursor / 1000, kind: 'pause' }); cursor += SPEAK.pauses[ch] * m.tempo; }
+  }
+  closeWord(false);
+  return { events, duration: cursor / 1000 };
+}
+
+// ---------- audio engine: one context, three buses, WAV-or-element playback ----------
+const DATA = window.STUDYGOTCHI_AUDIO || {};
+const MUSIC = window.STUDYGOTCHI_MUSIC || {};
+const state = { ctx: null, buses: {}, mode: 'unknown', buffers: new Map(), gains: { music: 0.8, sfx: 0.9, voice: 0.9 }, musicHandle: null, musicFilter: 'all' };
+const $ = (s) => document.querySelector(s);
+const status = (msg, warn = false) => { const el = $('#status'); el.textContent = msg; el.classList.toggle('warn', warn); };
+
+async function unlock() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  await ctx.resume(); // inside the click handler: required on iOS/Safari
+  state.ctx = ctx;
+  const master = ctx.createGain(); master.connect(ctx.destination);
+  for (const name of ['music', 'sfx', 'voice']) { const g = ctx.createGain(); g.gain.value = state.gains[name]; g.connect(master); state.buses[name] = g; }
+  // Probe: can we read WAV bytes? (fetch is refused for file:// on Chrome and Firefox.)
+  const probe = DATA.sfx?.sounds?.[0]?.file;
+  try { if (!probe) throw new Error('no manifest'); await loadBuffer(probe); state.mode = 'webaudio'; }
+  catch (e) { state.mode = 'element'; }
+  $('#gate').remove();
+  if (state.mode === 'webaudio') status(`Web Audio ready (${location.protocol}). WAVs decode into AudioBuffers; letters are scheduled on ctx.currentTime.`);
+  else status(`Web Audio is running, but this browser refuses fetch() of local WAV bytes over ${location.protocol}. Falling back to <audio> elements for WAV playback (timing jitters by ~10-30 ms; buses become element.volume). "Synth live" still uses precise Web Audio. For the full path: cd assets/audio && python3 -m http.server 8765, then open http://localhost:8765/audition.html`, true);
+}
+
+async function loadBuffer(file) {
+  if (state.buffers.has(file)) return state.buffers.get(file);
+  const p = fetch(file).then((r) => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); }).then((ab) => state.ctx.decodeAudioData(ab));
+  state.buffers.set(file, p);
+  try { return await p; } catch (e) { state.buffers.delete(file); throw e; }
+}
+
+function playBuffer(buffer, bus, { at = 0, rate = 1, gain = 1 } = {}) {
+  const src = state.ctx.createBufferSource();
+  src.buffer = buffer; src.playbackRate.value = rate;
+  const g = state.ctx.createGain(); g.gain.value = gain;
+  src.connect(g).connect(state.buses[bus]);
+  src.start(state.ctx.currentTime + at);
+  return src;
+}
+
+function playElement(file, bus, { at = 0, rate = 1, gain = 1 } = {}) {
+  const a = new Audio(file);
+  a.preservesPitch = false; a.mozPreservesPitch = false;
+  a.playbackRate = rate; a.volume = Math.min(1, gain * state.gains[bus]);
+  a.preload = 'auto';
+  setTimeout(() => a.play().catch(() => {}), Math.max(0, at * 1000));
+  return a;
+}
+
+async function playFile(file, bus, opts) {
+  if (state.mode === 'webaudio') { try { return playBuffer(await loadBuffer(file), bus, opts); } catch (e) { /* fall through */ } }
+  return playElement(file, bus, opts);
+}
+
+function synthLive(sound) {
+  const layers = sound.layers || [{ zzfx: sound.zzfx, at: 0, gain: 1 }];
+  const rendered = layers.map((l) => ({ ...l, samples: zzfxG(...l.zzfx) }));
+  const len = Math.max(...rendered.map((l) => Math.round((l.at || 0) * 44100) + l.samples.length));
+  const buf = state.ctx.createBuffer(1, len, 44100), ch = buf.getChannelData(0);
+  for (const l of rendered) { const off = Math.round((l.at || 0) * 44100); for (let i = 0; i < l.samples.length; i++) ch[off + i] += l.samples[i] * (l.gain ?? 1); }
+  let pk = 0; for (let i = 0; i < len; i++) pk = Math.max(pk, Math.abs(ch[i]));
+  const ceil = Math.pow(10, -1 / 20); if (pk > ceil) for (let i = 0; i < len; i++) ch[i] *= ceil / pk;
+  playBuffer(buf, sound.bus === 'ambient' ? 'sfx' : 'sfx');
+}
+
+// ---------- speak ----------
+let speaking = [];
+async function speak(text, species, mood) {
+  for (const t of speaking) clearTimeout(t); speaking = [];
+  const voice = DATA.voices?.species?.[species]; if (!voice) return;
+  const sched = schedule(text, species, mood);
+  const tr = $('#transcript'); tr.innerHTML = '';
+  const spans = [...text.toLowerCase()].map((c) => { const s = document.createElement('span'); s.textContent = c; tr.appendChild(s); return s; });
+  const letters = sched.events.filter((e) => e.kind === 'letter');
+  if (state.mode === 'webaudio') {
+    const buffers = await Promise.all(letters.map((e) => loadBuffer(voice.letters[e.char].file).catch(() => null)));
+    const t0 = state.ctx.currentTime + 0.05; // lookahead so the first letter is not late
+    letters.forEach((e, i) => { if (buffers[i]) playBuffer(buffers[i], 'voice', { at: t0 - state.ctx.currentTime + e.at, rate: e.rate, gain: e.gain }); });
+    const startMs = performance.now() + 50;
+    letters.forEach((e) => speaking.push(setTimeout(() => spans[e.index]?.classList.add('on'), startMs + e.at * 1000 - performance.now())));
+  } else {
+    letters.forEach((e) => playElement(voice.letters[e.char].file, 'voice', { at: e.at, rate: e.rate, gain: e.gain }));
+    letters.forEach((e) => speaking.push(setTimeout(() => spans[e.index]?.classList.add('on'), e.at * 1000)));
+  }
+  speaking.push(setTimeout(() => spans.forEach((s) => s.classList.add('on')), sched.duration * 1000 + 200));
+}
+
+// ---------- UI ----------
+function build() {
+  const sfx = DATA.sfx?.sounds || [], voices = DATA.voices?.species || {}, music = MUSIC.tracks || [];
+  const totalDur = sfx.reduce((a, s) => a + s.duration, 0);
+  $('#summary').textContent = `${music.length} music tracks · ${sfx.length} sound effects (${totalDur.toFixed(1)} s total, peaks ≤ ${DATA.sfx?.peakCeilingDbfs ?? -1} dBFS) · ${Object.keys(voices).length} blip voices × ${Object.keys(Object.values(voices)[0]?.letters || {}).length} letters · generated ${DATA.generatedAt?.slice(0, 16).replace('T', ' ') || '?'}`;
+
+  const buses = $('#buses');
+  for (const name of ['music', 'sfx', 'voice']) {
+    const wrap = document.createElement('div'); wrap.className = 'bus';
+    wrap.innerHTML = `<label>${name}</label><input type="range" min="0" max="1" step="0.01" value="${state.gains[name]}"><output>${state.gains[name].toFixed(2)}</output>`;
+    const input = wrap.querySelector('input'), out = wrap.querySelector('output');
+    input.addEventListener('input', () => { state.gains[name] = +input.value; out.textContent = (+input.value).toFixed(2); if (state.buses[name]) state.buses[name].gain.setTargetAtTime(+input.value, state.ctx.currentTime, 0.02); });
+    buses.appendChild(wrap);
+  }
+  const duck = document.createElement('div'); duck.className = 'row';
+  duck.innerHTML = `<button class="ghost small" id="duck">Demo ducking (music → 0.35 over 150 ms, back over 600 ms)</button>`;
+  buses.appendChild(duck);
+  duck.querySelector('button').addEventListener('click', () => {
+    const g = state.buses.music.gain, t = state.ctx.currentTime, base = state.gains.music;
+    g.cancelScheduledValues(t); g.setTargetAtTime(base * 0.35, t, 0.05); g.setTargetAtTime(base, t + 1.2, 0.2);
+    status('Ducked the music bus (the same ramp the runtime should use when a creature speaks).');
+  });
+
+  const speciesSel = $('#species');
+  for (const [name, v] of Object.entries(voices)) { const o = document.createElement('option'); o.value = name; o.textContent = `${name} · ${v.basePitch} Hz · ${v.colour}`; speciesSel.appendChild(o); }
+  $('#speak').addEventListener('click', () => speak($('#text').value, speciesSel.value, $('#mood').value));
+  $('#text').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('#speak').click(); });
+
+  const demos = $('#demos');
+  for (const d of DATA.voices?.demos || []) {
+    const b = document.createElement('button'); b.className = 'ghost small species-btn';
+    b.innerHTML = `<span class="chip" style="background:${voices[d.species]?.accent || '#ccc'}"></span>demo ${d.species}${d.mood !== 'neutral' ? ' · ' + d.mood : ''} (${d.duration.toFixed(1)} s)`;
+    b.title = d.text; b.addEventListener('click', () => playFile(d.file, 'voice'));
+    demos.appendChild(b);
+  }
+
+  const musicBox = $('#music');
+  const filters = $('#music-filters');
+  const filterKeys = ['all', 'loved', ...Object.keys(MUSIC.uses || {}), ...(MUSIC.biomes || [])];
+  const labels = { all: 'all', loved: 'first batch', ...MUSIC.uses };
+  for (const key of filterKeys) {
+    const b = document.createElement('button');
+    b.className = 'ghost small';
+    b.dataset.filter = key;
+    b.textContent = labels[key] ? (key === 'all' || key === 'loved' ? labels[key] : key) : key;
+    b.addEventListener('click', () => { state.musicFilter = key; paintMusic(); });
+    filters.appendChild(b);
+  }
+  function matchTrack(t) {
+    const f = state.musicFilter;
+    if (f === 'all') return true;
+    if (f === 'loved') return t.batch === 'loved';
+    return (t.uses || []).includes(f) || (t.biomes || []).includes(f);
+  }
+  function stopMusic() {
+    const h = state.musicHandle;
+    if (!h) return;
+    try { h.stop?.(); } catch {}
+    try { h.pause?.(); h.src = ''; } catch {}
+    state.musicHandle = null;
+    $('#music-now').textContent = 'nothing playing';
+  }
+  async function playMusic(t) {
+    stopMusic();
+    const file = 'music/' + t.file;
+    const loop = $('#music-loop').checked;
+    if (state.mode === 'webaudio') {
+      try {
+        const buf = await loadBuffer(file);
+        const src = playBuffer(buf, 'music');
+        src.loop = loop;
+        state.musicHandle = src;
+        $('#music-now').textContent = `playing ${t.title} — ${t.artist}`;
+        return;
+      } catch (e) { /* fall through */ }
+    }
+    const a = playElement(file, 'music');
+    a.loop = loop;
+    state.musicHandle = a;
+    $('#music-now').textContent = `playing ${t.title} — ${t.artist}`;
+  }
+  function paintMusic() {
+    musicBox.innerHTML = '';
+    for (const t of music.filter(matchTrack)) {
+      const card = document.createElement('div'); card.className = 'card sfx';
+      const dur = t.durationSec ? `${Math.floor(t.durationSec / 60)}:${String(Math.round(t.durationSec % 60)).padStart(2, '0')}` : '';
+      const tags = [...(t.uses || []), ...(t.biomes || [])].join(' · ');
+      card.innerHTML = `<div class="name">${t.title}</div><div class="btns"><button class="small" data-act="play">Play</button></div><div class="desc">${t.note || ''}</div><div class="meta">${t.artist} · ${t.license} · ${dur} · ${tags}</div>`;
+      card.querySelector('[data-act=play]').addEventListener('click', () => playMusic(t));
+      musicBox.appendChild(card);
+    }
+  }
+  $('#music-stop').addEventListener('click', stopMusic);
+  paintMusic();
+
+  const list = $('#sfx');
+  const groups = [...new Set(sfx.map((s) => s.group))];
+  for (const group of groups) {
+    for (const s of sfx.filter((x) => x.group === group)) {
+      const card = document.createElement('div'); card.className = 'card sfx';
+      card.innerHTML = `<div class="name">${s.name}</div><div class="btns"><button class="small" data-act="wav">WAV</button><button class="ghost small" data-act="live">Synth live</button></div><div class="desc">${s.description}</div><div class="meta">${group} · ${Math.round(s.duration * 1000)} ms · peak ${s.peakDbfs} dBFS${s.layers ? ' · ' + s.layers.length + ' layers' : ''}</div>`;
+      card.querySelector('[data-act=wav]').addEventListener('click', () => playFile(s.file, 'sfx'));
+      card.querySelector('[data-act=live]').addEventListener('click', () => synthLive(s));
+      list.appendChild(card);
+    }
+  }
+}
+
+if (!DATA.sfx) status('manifest.js is missing: run node tools/sound-factory/render.mjs first.', true);
+build();
+$('#unlock').addEventListener('click', () => unlock().catch((e) => status('Audio failed to start: ' + e.message, true)));
+</script>
+</body>
+</html>

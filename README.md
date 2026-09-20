@@ -4,9 +4,9 @@ HackMIT 2026. A hosted study world: your knowledge is the map, topics are places
 
 ## Repo
 
-- `frontend/`: Next.js site (graph UI is already here; the 3D world goes next)
-- `web/`: Next.js landing, earth, and login mock
-- `backend/`: knowledge engine (ingest, personal graph, mastery)
+- `frontend/`: the site. Next.js on Vercel: landing, Clerk sign-in, `/earth` (the world), `/knowledge` (the graph)
+- `backend/`: the knowledge engine on Railway. FastAPI: ingest, personal graph, understanding, world projection
+- `development/web/`: PJ's landing, earth, and login mock. The site's look comes from here; it is not deployed
 - `build_spec.md`: what we are building and where files live
 - `docs/prd.md`: product requirements and the demo arc
 - `docs/architecture.md`: system, ingest, data model and state diagrams
@@ -19,30 +19,32 @@ HackMIT 2026. A hosted study world: your knowledge is the map, topics are places
 
 ## Run
 
-Backend (from `backend/`): follow `.env.example`, then the usual uv/docker flow in that folder.
-
-Frontend (graph UI):
+Backend (from `backend/`):
 
 ```bash
-cd frontend
+cp .env.example .env   # add OPENAI_API_KEY; AUTH_MODE=dev for local work
+uv sync
+uv run alembic upgrade head
+uv run uvicorn app.main:app --reload --port 8000
+```
+
+Frontend (from `frontend/`):
+
+```bash
+cp .env.example .env.local   # Clerk keys; NEXT_PUBLIC_API_URL=http://localhost:8000
 npm install
 npm run dev
 ```
 
-Set `NEXT_PUBLIC_API_URL` to the backend. Mock data is on by default until you point the client at a live API.
+Open http://localhost:3000. `NEXT_PUBLIC_USE_MOCK_DATA=true` runs the site without a backend or keys.
 
-Landing / earth / login mock:
+## Checks
 
 ```bash
-cd web
-npm install
-npm run dev
+cd backend && uv run ruff check app tests scripts && LLM_PROVIDER=fake AUTH_MODE=dev uv run pytest -q
+cd frontend && npx tsc --noEmit && npm run build
 ```
-
-Open http://localhost:3000. Any email/password logs in. Email containing `2fa` plus code `123456` demos two-factor. Logged-in visits to `/` and `/login` go to `/earth`.
 
 ## Product rules
 
 The world and the graph use the same records. Worlds start private. A visit link is read only and must not leak files or grades. Instructor solutions are not student evidence.
-
-Frank owns the Vercel deploy.

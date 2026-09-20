@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 262" width="1850" height="1310" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="hazeFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3e4ee" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f3e4ee" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="hazeLeft" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#f3e4ee" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f3e4ee" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="hazeRight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f3e4ee" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f3e4ee" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="hazeBack" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#f3e4ee" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f3e4ee" stop-opacity="0.9"/>
+    </linearGradient>
+    <pattern id="crop" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(20)">
+      <rect width="2" height="2" fill="#c9b070"/>
+      <rect width="0.8" height="2" fill="#7f9a4a"/>
+    </pattern>
+    <pattern id="hatch" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="0.5" height="2" fill="#a0522d" opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="370" height="262" fill="#fbf7f0"/>
+
+  <!-- map panel: 1 svg unit = 1 m; origin (0,0) at (140,136); x east right, z toward camera down -->
+  <clipPath id="mapClip"><rect x="8" y="8" width="264" height="246"/></clipPath>
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(140,136)">
+      <!-- sand basin -->
+      <rect x="-132" y="-128" width="264" height="246" fill="#d9b07a"/>
+
+      <!-- metre grid every 20 m -->
+      <g stroke="#c2925a" stroke-width="0.15" opacity="0.7">
+        <path d="M-120,-128V118 M-100,-128V118 M-80,-128V118 M-60,-128V118 M-40,-128V118 M-20,-128V118 M0,-128V118 M20,-128V118 M40,-128V118 M60,-128V118 M80,-128V118 M100,-128V118 M120,-128V118"/>
+        <path d="M-132,-120H132 M-132,-100H132 M-132,-80H132 M-132,-60H132 M-132,-40H132 M-132,-20H132 M-132,0H132 M-132,20H132 M-132,40H132 M-132,60H132 M-132,80H132 M-132,100H132"/>
+      </g>
+
+      <!-- salt flat (east negative space) -->
+      <ellipse cx="78" cy="20" rx="22" ry="16" fill="#efe6d2" stroke="#e2d6bc" stroke-width="0.6"/>
+      <text x="78" y="21" font-size="3.2" text-anchor="middle" fill="#8a7a55">salt flat 44 × 32 m</text>
+
+      <!-- mesa wall: cap, face, strata/talus foot -->
+      <path d="M-140,-140 L140,-140 L140,-62 C110,-66 90,-70 70,-80 C50,-88 30,-86 10,-84 C-10,-86 -30,-90 -50,-78 C-70,-74 -90,-76 -110,-72 L-140,-64 Z" fill="#c9a06a"/>
+      <path d="M-140,-64 L-110,-72 C-90,-76 -70,-74 -50,-78 C-30,-90 -10,-86 10,-84 C30,-86 50,-88 70,-80 C90,-70 110,-66 140,-62 L140,-52 C110,-56 90,-60 70,-68 C50,-74 30,-73 10,-72 C-10,-74 -30,-78 -50,-68 C-70,-64 -90,-66 -110,-62 L-140,-54 Z" fill="#a0522d"/>
+      <path d="M-140,-54 L-110,-62 C-90,-66 -70,-64 -50,-68 C-30,-78 -10,-74 10,-72 C30,-73 50,-74 70,-68 C90,-60 110,-56 140,-52 L140,-46 C110,-50 90,-54 70,-62 C50,-68 30,-67 10,-66 C-10,-68 -30,-72 -50,-62 C-70,-58 -90,-60 -110,-56 L-140,-48 Z" fill="#c2925a"/>
+      <!-- 0 % buttes (the only skyline at course start) -->
+      <ellipse cx="-30" cy="-84" rx="9" ry="5" fill="url(#hatch)" stroke="#5a2f1a" stroke-width="0.4"/>
+      <ellipse cx="36" cy="-88" rx="9" ry="5" fill="url(#hatch)" stroke="#5a2f1a" stroke-width="0.4"/>
+      <!-- 100 % spire -->
+      <polygon points="4,-104 6.5,-99 1.5,-99" fill="#5a2f1a"/>
+      <text x="0" y="-118" font-size="4.2" text-anchor="middle" fill="#fff4e6" font-weight="bold">MESA WALL · skyline element · grows with course fraction</text>
+      <text x="0" y="-112.5" font-size="3" text-anchor="middle" fill="#fff4e6">0 %: two 6 m buttes (hatched) · 100 %: 14 m wall + second row + one 20 m spire (▲) · dissolves into fog behind</text>
+      <text x="-30" y="-92" font-size="2.6" text-anchor="middle" fill="#fff4e6">0 % butte</text>
+      <text x="36" y="-96" font-size="2.6" text-anchor="middle" fill="#fff4e6">0 % butte</text>
+      <text x="-90" y="-59" font-size="2.6" fill="#3a2f45">strata / talus foot band</text>
+
+      <!-- arroyo (dry riverbed) -->
+      <polyline points="-45,-62 -36,-40 -28,-18 -30,4 -40,28 -54,54 -70,85 -82,118" fill="none" stroke="#e9dcbc" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline points="-45,-62 -36,-40 -28,-18 -30,4 -40,28 -54,54 -70,85 -82,118" fill="none" stroke="#d8c8a2" stroke-width="0.4" stroke-dasharray="1 1.5"/>
+      <!-- cream boulders along the arroyo only -->
+      <g fill="#efe6d2" stroke="#c9b892" stroke-width="0.3">
+        <circle cx="-42" cy="-52" r="1.4"/><circle cx="-31" cy="-30" r="1.1"/><circle cx="-25" cy="-8" r="1.6"/><circle cx="-36" cy="18" r="1.2"/><circle cx="-47" cy="42" r="1.5"/><circle cx="-62" cy="70" r="1.3"/><circle cx="-58" cy="62" r="0.9"/>
+      </g>
+      <text x="-48" y="46" font-size="3" fill="#6b5a3a" transform="rotate(-58 -48 46)">arroyo · dry gravel 8 m</text>
+      <!-- waterhole and cottonwoods -->
+      <circle cx="-30" cy="8" r="6" fill="#7fb8d8" stroke="#5f9ec0" stroke-width="0.4"/>
+      <g fill="#7f9a4a"><circle cx="-24" cy="3" r="1.8"/><circle cx="-36" cy="2" r="1.6"/><circle cx="-33" cy="14.5" r="1.7"/></g>
+      <text x="-30" y="9" font-size="2.6" text-anchor="middle" fill="#fff">waterhole 12 m</text>
+
+      <!-- wagon-rut tracks: local, from Main Street, they stop at the cluster -->
+      <g fill="none" stroke="#b58f5a" stroke-width="2.4" stroke-linecap="round" opacity="0.9">
+        <path d="M15,-4 C28,-10 40,-16 50,-20"/>
+        <path d="M-15,4 C-24,8 -34,12 -40,14"/>
+        <path d="M10,-14 C20,-30 30,-42 36,-50"/>
+        <path d="M-12,-8 C-20,-14 -28,-20 -34,-24 C-44,-28 -52,-32 -56,-35"/>
+        <path d="M12,10 C24,22 36,32 44,40"/>
+        <path d="M4,16 C6,32 10,46 12,58"/>
+      </g>
+      <!-- plank bridge over the arroyo -->
+      <rect x="-34" y="-22.5" width="8" height="3" fill="#8b6a4a" transform="rotate(-30 -30 -21)"/>
+      <text x="-22" y="-26" font-size="2.6" fill="#3a2f45">plank bridge</text>
+
+      <!-- telegraph line homestead → depot -->
+      <polyline points="46,40 48,30 50,20 52,10 54,0 56,-10 58,-18" fill="none" stroke="#4a3c36" stroke-width="0.3" stroke-dasharray="0.8 0.6"/>
+      <g fill="#4a3c36"><circle cx="46" cy="40" r="0.6"/><circle cx="48" cy="30" r="0.6"/><circle cx="50" cy="20" r="0.6"/><circle cx="52" cy="10" r="0.6"/><circle cx="54" cy="0" r="0.6"/><circle cx="56" cy="-10" r="0.6"/><circle cx="58" cy="-18" r="0.6"/></g>
+      <text x="56" y="8" font-size="2.6" fill="#3a2f45" transform="rotate(-78 56 8)">telegraph poles every 12 m</text>
+
+      <!-- rails from the east fog to the depot platform -->
+      <g stroke="#5a4a3a" stroke-width="0.45" fill="none">
+        <path d="M140,-25 L52,-22.6"/><path d="M140,-27 L52,-24.6"/>
+      </g>
+      <g stroke="#8b6a4a" stroke-width="0.35">
+        <path d="M60,-22 l0,-4 M68,-22.2 l0,-4 M76,-22.4 l0,-4 M84,-22.6 l0,-4 M92,-22.8 l0,-4 M100,-23 l0,-4 M108,-23.2 l0,-4 M116,-23.4 l0,-4 M124,-23.6 l0,-4"/>
+      </g>
+      <text x="96" y="-29" font-size="2.8" fill="#3a2f45" text-anchor="middle">rails run out of the fog</text>
+
+      <!-- overview frame radius -->
+      <circle cx="0" cy="0" r="84" fill="none" stroke="#3a2f45" stroke-width="0.3" stroke-dasharray="2 2" opacity="0.6"/>
+      <text x="-2" y="-85.5" font-size="2.6" fill="#3a2f45" text-anchor="middle" opacity="0.8">overview frame r = 84 m (island H 70 % of width)</text>
+
+      <!-- ===== clusters: footprint (solid), jitter envelope (dashed), anchor glyphs ===== -->
+
+      <!-- Main Street -->
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+      <circle cx="0" cy="0" r="18" fill="#fff" fill-opacity="0.28" stroke="#3a2f45" stroke-width="0.5"/>
+      <g transform="rotate(-15)">
+        <rect x="-15" y="-3" width="30" height="6" fill="#cfae78" stroke="#8b6a4a" stroke-width="0.3"/>
+        <rect x="-15" y="-4.6" width="30" height="1.6" fill="#8b6a4a"/>
+        <rect x="-15" y="3" width="30" height="1.6" fill="#8b6a4a"/>
+        <!-- false-front pairs (population, shown at 75 % for scale) -->
+        <g fill="#5f8f8a" stroke="#3a2f45" stroke-width="0.25">
+          <rect x="-12" y="-9.6" width="5" height="5"/><rect x="-5" y="-9.6" width="6" height="5" fill="#8fa07a"/><rect x="3" y="-9.6" width="5" height="5" fill="#6b4a3a"/><rect x="10" y="-9.6" width="4.5" height="5" fill="#8fa07a"/>
+          <rect x="-13" y="4.6" width="6" height="5" fill="#6b4a3a"/><rect x="-5" y="4.6" width="7" height="6" fill="#7a3a30"/><rect x="4" y="4.6" width="5" height="5" fill="#5f8f8a"/>
+        </g>
+        <!-- water tower at the street head -->
+        <rect x="-19" y="-2" width="3.4" height="3.4" fill="#4a3c36"/>
+        <circle cx="-17.3" cy="-0.3" r="1.2" fill="#8b6a4a"/>
+      </g>
+      <text x="0" y="-19.5" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">1 MAIN STREET</text>
+      <text x="0" y="14" font-size="2.6" text-anchor="middle" fill="#3a2f45">anchor: water tower 12 m + boardwalk 30 m</text>
+      <text x="0" y="17.4" font-size="2.6" text-anchor="middle" fill="#7a3a30">accent: saloon roof #7a3a30 · r 18 · jitter 6 · yaw ±40°</text>
+
+      <!-- Rail depot -->
+      <circle cx="58" cy="-22" r="18" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+      <circle cx="58" cy="-22" r="12" fill="#fff" fill-opacity="0.28" stroke="#3a2f45" stroke-width="0.5"/>
+      <rect x="53" y="-20.5" width="14" height="3" fill="#8b6a4a"/>
+      <rect x="55" y="-16" width="7" height="5" fill="#8fa07a" stroke="#3a2f45" stroke-width="0.25"/>
+      <rect x="63" y="-16" width="4" height="4" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.25"/>
+      <circle cx="52" cy="-27" r="1.2" fill="#d9a441"/>
+      <text x="58" y="-36" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">2 RAIL DEPOT</text>
+      <text x="58" y="-8" font-size="2.6" text-anchor="middle" fill="#3a2f45">anchor: rails + 14 m platform + water crane</text>
+      <text x="58" y="-4.6" font-size="2.6" text-anchor="middle" fill="#9a6f1a">accent: signal / caboose #d9a441 · r 12 · jitter 6</text>
+
+      <!-- Ranch -->
+      <circle cx="-52" cy="18" r="22" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+      <circle cx="-52" cy="18" r="14" fill="#fff" fill-opacity="0.28" stroke="#3a2f45" stroke-width="0.5"/>
+      <circle cx="-55" cy="21" r="7" fill="none" stroke="#8b6a4a" stroke-width="0.9" stroke-dasharray="1.2 0.8"/>
+      <polygon points="-42,9 -40.5,12.5 -43.5,12.5" fill="#4a3c36"/>
+      <rect x="-50" y="8" width="6" height="4.5" fill="#8fa07a" stroke="#3a2f45" stroke-width="0.25"/>
+      <rect x="-63" y="10" width="5" height="7" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.25"/>
+      <g fill="#e8c96a"><circle cx="-46" cy="26" r="1"/><circle cx="-44" cy="24.5" r="1"/><circle cx="-60" cy="28" r="1"/></g>
+      <text x="-52" y="1.5" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">3 RANCH</text>
+      <text x="-52" y="35" font-size="2.6" text-anchor="middle" fill="#3a2f45">anchor: corral ring 14 m + wind pump 9 m + trough</text>
+      <text x="-52" y="38.4" font-size="2.6" text-anchor="middle" fill="#9a7a1a">accent: hay gold #e8c96a · r 14 · jitter 8</text>
+
+      <!-- Mine -->
+      <circle cx="40" cy="-58" r="17" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+      <circle cx="40" cy="-58" r="11" fill="#fff" fill-opacity="0.28" stroke="#3a2f45" stroke-width="0.5"/>
+      <polygon points="38,-63 41,-56 35,-56" fill="none" stroke="#4a3c36" stroke-width="0.7"/>
+      <path d="M41,-68.5 a3,3 0 0 1 6,0 z" fill="#3a2f45"/>
+      <path d="M44,-66 L40,-56" stroke="#5a4a3a" stroke-width="0.6" fill="none"/>
+      <rect x="44" y="-56" width="5" height="3.5" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.25"/>
+      <rect x="32" y="-52" width="4" height="3.5" fill="#8fa07a" stroke="#3a2f45" stroke-width="0.25"/>
+      <circle cx="46" cy="-61" r="0.9" fill="#b8703f"/>
+      <text x="40" y="-44" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">4 MINE</text>
+      <text x="40" y="-40.6" font-size="2.6" text-anchor="middle" fill="#3a2f45">anchor: headframe 10 m + adit in the cliff + ore spur</text>
+      <text x="40" y="-37.2" font-size="2.6" text-anchor="middle" fill="#8a4a1f">accent: ore-cart copper #b8703f · r 11 · jitter 6</text>
+
+      <!-- Mission -->
+      <circle cx="-62" cy="-38" r="19" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+      <circle cx="-62" cy="-38" r="11" fill="#fff" fill-opacity="0.28" stroke="#3a2f45" stroke-width="0.5"/>
+      <rect x="-65" y="-44" width="6" height="7" fill="#c47a4a" stroke="#3a2f45" stroke-width="0.25"/>
+      <rect x="-63.2" y="-46.5" width="2.4" height="2.4" fill="#4a3c36"/>
+      <g stroke="#4a3c36" stroke-width="0.35">
+        <path d="M-70,-32 v2 M-70.7,-31.2 h1.4 M-67,-31 v2 M-67.7,-30.2 h1.4 M-64,-32 v2 M-64.7,-31.2 h1.4 M-61,-31 v2 M-61.7,-30.2 h1.4 M-58,-32.5 v2 M-58.7,-31.7 h1.4 M-55,-31 v2 M-55.7,-30.2 h1.4"/>
+      </g>
+      <circle cx="-53" cy="-42" r="2" fill="#7f9a4a"/>
+      <text x="-62" y="-52" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">5 MISSION</text>
+      <text x="-62" y="-25" font-size="2.6" text-anchor="middle" fill="#3a2f45">anchor: bell arch 8 m + 6 crosses + lone cottonwood</text>
+      <text x="-62" y="-21.6" font-size="2.6" text-anchor="middle" fill="#8a4a1f">accent: tile roof #c47a4a · r 11 · jitter 8</text>
+
+      <!-- Homestead -->
+      <circle cx="52" cy="48" r="21" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+      <circle cx="52" cy="48" r="13" fill="#fff" fill-opacity="0.28" stroke="#3a2f45" stroke-width="0.5"/>
+      <rect x="50" y="44" width="12" height="12" fill="url(#crop)" stroke="#6b5a3a" stroke-width="0.25" transform="rotate(20 56 50)"/>
+      <rect x="42" y="42" width="5" height="4" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.25"/>
+      <rect x="43" y="50" width="2" height="2" fill="#8fa07a"/>
+      <circle cx="46" cy="46" r="0.9" fill="#f2a86f"/>
+      <text x="52" y="30.5" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">6 HOMESTEAD</text>
+      <text x="52" y="66" font-size="2.6" text-anchor="middle" fill="#3a2f45">anchor: 6 crop rows × 12 m + telegraph line</text>
+      <text x="52" y="69.4" font-size="2.6" text-anchor="middle" fill="#a8602a">accent: door / curtains #f2a86f · r 13 · jitter 8</text>
+
+      <!-- Landmark butte -->
+      <circle cx="14" cy="66" r="7" fill="#a0522d" stroke="#5a2f1a" stroke-width="0.5"/>
+      <circle cx="14" cy="66" r="4.6" fill="#d9b07a"/>
+      <path d="M8.5,70 l3,-1.5 l-2,-2 l3,-1.5 l-1.5,-2.5" fill="none" stroke="#5a2f1a" stroke-width="0.4"/>
+      <rect x="12.6" y="64.6" width="2.8" height="2.8" fill="#4a3c36"/>
+      <text x="14" y="56" font-size="4" text-anchor="middle" font-weight="bold" fill="#3a2f45">L LANDMARK BUTTE</text>
+      <text x="14" y="77" font-size="2.6" text-anchor="middle" fill="#3a2f45">lone butte 14 m across, 6 m tall, switchback stair</text>
+      <text x="14" y="80.4" font-size="2.6" text-anchor="middle" fill="#3a2f45">s1 → s2 → s3 stands here (headland equivalent)</text>
+
+      <!-- guaranteed open regions -->
+      <g fill="none" stroke="#3a2f45" stroke-width="0.3" stroke-dasharray="0.6 1">
+        <circle cx="26" cy="-6" r="10"/><circle cx="-14" cy="46" r="11"/><circle cx="88" cy="70" r="12"/><circle cx="-100" cy="-20" r="12"/>
+      </g>
+      <g font-size="2.4" fill="#3a2f45" text-anchor="middle" opacity="0.85">
+        <text x="26" y="-5">open ≥ 20 m</text><text x="-14" y="47">open ≥ 22 m</text><text x="88" y="71">open ≥ 24 m</text><text x="-100" y="-19">open ≥ 24 m</text>
+      </g>
+
+      <!-- haze / fog edges -->
+      <rect x="-132" y="80" width="264" height="38" fill="url(#hazeFront)"/>
+      <rect x="-132" y="-128" width="30" height="246" fill="url(#hazeLeft)"/>
+      <rect x="102" y="-128" width="30" height="246" fill="url(#hazeRight)"/>
+      <rect x="-132" y="-128" width="264" height="24" fill="url(#hazeBack)"/>
+      <rect x="-110" y="-118" width="220" height="208" fill="none" stroke="#3a2f45" stroke-width="0.4" stroke-dasharray="3 2"/>
+      <text x="0" y="93" font-size="3" text-anchor="middle" fill="#3a2f45">dust-haze boundary (fog from 1.3 d) · the basin has no visible edge</text>
+      <text x="0" y="106" font-size="4.2" text-anchor="middle" fill="#3a2f45" font-weight="bold">FRONT · default camera sits below this edge, pitch 40°, looking toward the mesa</text>
+      <text x="-125" y="0" font-size="3" fill="#3a2f45" transform="rotate(-90 -125 0)" text-anchor="middle">WEST · haze</text>
+      <text x="125" y="0" font-size="3" fill="#3a2f45" transform="rotate(90 125 0)" text-anchor="middle">EAST · haze · rails</text>
+
+      <!-- axes and scale -->
+      <g stroke="#3a2f45" stroke-width="0.5" fill="#3a2f45">
+        <path d="M-126,112 h20" /><polygon points="-106,110.5 -103,112 -106,113.5"/>
+        <path d="M-126,112 v-20"/><polygon points="-127.5,92 -126,89 -124.5,92"/>
+      </g>
+      <text x="-101" y="113" font-size="2.8" fill="#3a2f45">+x east</text>
+      <text x="-124" y="90" font-size="2.8" fill="#3a2f45">−z back (mesa)</text>
+      <g transform="translate(70,110)">
+        <rect x="0" y="0" width="20" height="1.6" fill="#3a2f45"/><rect x="20" y="0" width="20" height="1.6" fill="#fff" stroke="#3a2f45" stroke-width="0.2"/>
+        <text x="0" y="-1" font-size="2.6" fill="#3a2f45">0</text><text x="20" y="-1" font-size="2.6" fill="#3a2f45" text-anchor="middle">20</text><text x="40" y="-1" font-size="2.6" fill="#3a2f45" text-anchor="middle">40 m</text>
+      </g>
+      <!-- grid labels -->
+      <g font-size="2.2" fill="#6b5a3a" opacity="0.9">
+        <text x="-100" y="-124" text-anchor="middle">−100</text><text x="-60" y="-124" text-anchor="middle">−60</text><text x="-20" y="-124" text-anchor="middle">−20</text><text x="20" y="-124" text-anchor="middle">20</text><text x="60" y="-124" text-anchor="middle">60</text><text x="100" y="-124" text-anchor="middle">100</text>
+        <text x="-130" y="-99">−100</text><text x="-130" y="-59">−60</text><text x="-130" y="-19">−20</text><text x="-130" y="21">20</text><text x="-130" y="61">60</text><text x="-130" y="101">100</text>
+      </g>
+    </g>
+  </g>
+  <rect x="8" y="8" width="264" height="246" fill="none" stroke="#3a2f45" stroke-width="0.6"/>
+
+  <!-- ===== legend panel ===== -->
+  <g transform="translate(280,10)" font-size="3" fill="#3a2f45">
+    <text x="0" y="4" font-size="5" font-weight="bold">frontier-town · plan v1</text>
+    <text x="0" y="9">roster `wildwest` · top-down · 1 unit = 1 m</text>
+    <text x="0" y="13">basin drawn 264 × 246 m · worldExtent 170 · frameRadius 84</text>
+
+    <text x="0" y="21" font-weight="bold">Ground</text>
+    <rect x="0" y="23" width="5" height="4" fill="#d9b07a"/><text x="7" y="26.4">sand #d9b07a (ground)</text>
+    <rect x="0" y="28.5" width="5" height="4" fill="#c2925a"/><text x="7" y="31.9">strata / talus #c2925a</text>
+    <rect x="0" y="34" width="5" height="4" fill="#a0522d"/><text x="7" y="37.4">red-rock face #a0522d (cliff / pedestal side)</text>
+    <rect x="0" y="39.5" width="5" height="4" fill="#c9a06a"/><text x="7" y="42.9">mesa cap #c9a06a</text>
+    <rect x="0" y="45" width="5" height="4" fill="#e9dcbc"/><text x="7" y="48.4">arroyo gravel #e9dcbc</text>
+    <rect x="0" y="50.5" width="5" height="4" fill="#efe6d2"/><text x="7" y="53.9">salt flat / cream boulder #efe6d2</text>
+    <rect x="0" y="56" width="5" height="4" fill="#7fb8d8"/><text x="7" y="59.4">water #7fb8d8 (one waterhole only)</text>
+    <rect x="0" y="61.5" width="5" height="4" fill="#b58f5a"/><text x="7" y="64.9">wagon ruts #b58f5a, 2.4 m, local only</text>
+
+    <text x="0" y="73" font-weight="bold">Buildings (siding, 2 flat + 1 accent each)</text>
+    <rect x="0" y="75" width="5" height="4" fill="#5f8f8a"/><text x="7" y="78.4">teal #5f8f8a</text>
+    <rect x="0" y="80.5" width="5" height="4" fill="#8fa07a"/><text x="7" y="83.9">sage #8fa07a</text>
+    <rect x="0" y="86" width="5" height="4" fill="#6b4a3a"/><text x="7" y="89.4">brown #6b4a3a · timber #8b6a4a</text>
+
+    <text x="0" y="97" font-weight="bold">Symbols</text>
+    <circle cx="2.5" cy="101" r="2.5" fill="#fff" fill-opacity="0.4" stroke="#3a2f45" stroke-width="0.4"/><text x="7" y="102">cluster footprint (flat ground, r in metres)</text>
+    <circle cx="2.5" cy="107" r="2.5" fill="none" stroke="#3a2f45" stroke-width="0.35" stroke-dasharray="1 0.8"/><text x="7" y="108">jitter envelope: centre re-sampled per seed</text>
+    <circle cx="2.5" cy="113" r="2.5" fill="none" stroke="#3a2f45" stroke-width="0.3" stroke-dasharray="0.5 0.8"/><text x="7" y="114">guaranteed open sand (no placement)</text>
+    <rect x="0" y="117" width="5" height="3" fill="url(#hatch)" stroke="#5a2f1a" stroke-width="0.3"/><text x="7" y="120">butte present at 0 %</text>
+    <polygon points="0,126 2.5,121.5 5,126" fill="#4a3c36"/><text x="7" y="125.5">vertical anchor (tower, pump, headframe)</text>
+
+    <text x="0" y="134" font-weight="bold">Distances (nominal centres)</text>
+    <text x="0" y="138.5">Main–Depot 62 m (gap 32) · Main–Ranch 55 (gap 23)</text>
+    <text x="0" y="142.5">Main–Mine 70 (gap 41) · Main–Mission 73 (gap 44)</text>
+    <text x="0" y="146.5">Main–Homestead 71 (gap 40) · Main–Landmark 67 (gap 42)</text>
+    <text x="0" y="150.5">Homestead–Landmark 42 (gap 22) · Mine–mesa foot 8</text>
+    <text x="0" y="154.5">min gap after jitter ≥ 18 m (rejection-sampled)</text>
+
+    <text x="0" y="163" font-weight="bold">Skyline growth (course fraction)</text>
+    <text x="0" y="167.5">0 %: 2 buttes 6 m · 25 %: 4 buttes 8 m · 50 %: joined</text>
+    <text x="0" y="171.5">wall 10 m · 75 %: 14 m + second row · 100 %: + spire 20 m</text>
+    <text x="0" y="175.5">Settlement ground never changes height.</text>
+
+    <text x="0" y="184" font-weight="bold">Topic order (drop from the end if fewer)</text>
+    <text x="0" y="188.5">1 Main Street · 2 Rail depot · 3 Ranch</text>
+    <text x="0" y="192.5">4 Mine · 5 Mission · 6 Homestead · L landmark = course</text>
+
+    <text x="0" y="201" font-weight="bold">Seed rules</text>
+    <text x="0" y="205.5">centre jitter 6–10 m · yaw ±25° (Main ±40°)</text>
+    <text x="0" y="209.5">one vertical ≥ 8 m per cluster, rest mixed ≤ 5 m</text>
+    <text x="0" y="213.5">≥ 3 open regions &gt; 20 m per seed · no grid scatter</text>
+    <text x="0" y="217.5">motifs split by region, never one image per cluster</text>
+
+    <text x="0" y="226" font-weight="bold">Not yet decided (step 3)</text>
+    <text x="0" y="230.5">landmark line · mission wall (adobe / timber)</text>
+    <text x="0" y="234.5">night lamps · marker props P1 to P4 · ruin state</text>
+    <text x="0" y="241" fill="#6b5a3a">Drawn 2026-09-20 · docs/design/world/maps/</text>
+  </g>
+</svg>

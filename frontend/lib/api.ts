@@ -1,12 +1,17 @@
+import fixture from "@/lib/world/fixture.json";
+import type { components } from "@/lib/api/schema";
+import { API_URL } from "./config";
+import { credentialHeaders, getIdentity, type CourseSummary } from "./identity";
+import { studentIdForCourse } from "./world/demo-courses";
+import { pipelineGraphForCourse, pipelineWorldForCourse } from "./world/pipeline-assets";
 import {
-  MOCK_COURSE,
-  MOCK_COURSES,
-  MOCK_STUDENT_ID,
-  getMockCourseData,
-  mockGaps,
-  mockStudyPlan,
-  mockTargets,
+  MOCK_GAPS,
+  MOCK_GRAPH,
+  MOCK_RESOURCES,
+  MOCK_STUDY_PLAN,
+  MOCK_TARGETS,
   mockConceptDetail,
+  mockWhy,
 } from "./mock";
 import type {
   ArtifactType,
@@ -14,7 +19,6 @@ import type {
   ConceptEdge,
   ConceptNode,
   CourseResource,
-  CourseSummary,
   Evidence,
   GapAction,
   GapsResponse,
@@ -24,46 +28,15 @@ import type {
   SourceOrigin,
   StudyPlan,
   StudyTarget,
-  UnderstandingEntry,
+  WhyExplanation,
 } from "./types";
 
-export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-export const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
+export { USE_MOCK, API_URL, DEV_STUDENT_ID } from "./config";
 
-// Demo identifiers live here only. The backend addresses courses and students
-// by UUID; mock mode keeps its own readable ids. Mutable (not `const`) so a
-// real-mode course switch can repoint every subsequent request without a
-// page reload - mirrors `setMockCourseId` below.
-export let COURSE_ID =
-  process.env.NEXT_PUBLIC_DEMO_COURSE_ID ?? (USE_MOCK ? MOCK_COURSE.id : "");
-export let COURSE_NAME =
-  process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
-export let STUDENT_ID =
-  process.env.NEXT_PUBLIC_DEMO_STUDENT_ID ?? (USE_MOCK ? MOCK_STUDENT_ID : "");
-
-export function setRealCourse(courseId: string, studentId: string, name: string) {
-  COURSE_ID = courseId;
-  STUDENT_ID = studentId;
-  COURSE_NAME = name;
-}
-
-/**
- * Real-mode courses this demo has a seeded student for. Ingestion so far has
- * only produced a demo student for these three; the others in the backend's
- * course list are either mid-ingestion or not started, so they are left out
- * of the switcher rather than shown broken.
- */
-export const REAL_DEMO_STUDENTS: Record<string, string> = {
-  "6.1210": "61210000-0000-4000-8000-000000000001",
-  "8.223": "82230000-0000-4000-8000-000000000001",
-  "6.1400": "61400000-0000-4000-8000-000000000001",
-};
-
-let selectedMockCourseId = MOCK_COURSE.id;
-export function setMockCourseId(courseId: string) {
-  selectedMockCourseId = courseId;
-}
+export type WorldResponse = components["schemas"]["WorldResponse"];
+export type WorldEvent = components["schemas"]["WorldEventOut"];
+export type WorldEventKind = components["schemas"]["WorldEventKind"];
+export type MeResponse = { student_id: string; courses: CourseSummary[] };
 
 export class ApiError extends Error {
   constructor(
@@ -84,15 +57,32 @@ export interface IngestInput {
 }
 
 export interface KnowledgeApi {
-  listCourses(): Promise<CourseSummary[]>;
   getKnowledgeGraph(): Promise<KnowledgeGraphResponse>;
   getConceptDetail(conceptId: string): Promise<ConceptDetail>;
-  listUnderstanding(): Promise<UnderstandingEntry[]>;
+  getWhy(conceptId: string): Promise<WhyExplanation | null>;
   listStudyTargets(): Promise<StudyTarget[]>;
   getGaps(target: StudyTarget): Promise<GapsResponse>;
   createStudyPlan(target: StudyTarget): Promise<StudyPlan>;
   listResources(): Promise<CourseResource[]>;
+  listResourcesForCourse(courseId: string): Promise<CourseResource[]>;
   ingest(input: IngestInput): Promise<IngestResponse>;
+  getResourceStatus(resourceId: string): Promise<ResourceStatus>;
+  getMe(): Promise<MeResponse>;
+  listCourses(): Promise<CourseSummary[]>;
+  getWorld(): Promise<WorldResponse>;
+  getWorldForCourse(courseId: string): Promise<WorldResponse>;
+  getSharedWorld(token: string): Promise<WorldResponse>;
+  getWorldEvents(since?: string, limit?: number): Promise<WorldEvent[]>;
+}
+
+/** Per-file status the upload queue polls after a 202. */
+export interface ResourceStatus {
+  resource_id: string;
+  title: string;
+  status: string;
+  error: string | null;
+  phase_a_ms: number | null;
+  phase_b_ms: number | null;
 }
 
 /**
@@ -101,7 +91,7 @@ export interface KnowledgeApi {
  * Instructor and TA material defines the curriculum, so it shapes the canonical
  * course ontology. Anything the student produced is evidence about *them*.
  * Classmate notes are shared study material rather than evidence of this
- * student's understanding, so it goes to the course side too.
+ * student's mastery, so they go to the course side too.
  */
 export function isStudentScoped(origin: SourceOrigin): boolean {
   return origin === "student_self";
@@ -114,31 +104,26 @@ export function isStudentScoped(origin: SourceOrigin): boolean {
 const num = (v: unknown, fallback = 0): number =>
   typeof v === "number" && Number.isFinite(v) ? v : fallback;
 
-const str = (v: unknown, fallback = ""): string =>
-  typeof v === "string" ? v : fallback;
+const str = (v: unknown, fallback = ""): string => (typeof v === "string" ? v : fallback);
 
 /** Backend node uses `concept_id`; the UI has always used `id`. */
-function normalizeNode(
-  raw: Record<string, unknown>,
-  index: number,
-): ConceptNode {
-  const understanding = raw.understanding;
+function normalizeNode(raw: Record<string, unknown>, index: number): ConceptNode {
+  const understanding = raw.understanding ?? raw.mastery;
   return {
     id: str(raw.concept_id ?? raw.id, `concept_${index}`),
     name: str(raw.name, "Untitled concept"),
     scope: (str(raw.scope, "course") as ConceptNode["scope"]) ?? "course",
     discovery_state:
-      (str(
-        raw.discovery_state,
-        "encountered",
-      ) as ConceptNode["discovery_state"]) ?? "encountered",
+      (str(raw.discovery_state, "encountered") as ConceptNode["discovery_state"]) ?? "encountered",
     cluster: typeof raw.cluster === "string" ? raw.cluster : undefined,
+    cluster_id: typeof raw.cluster_id === "string" ? raw.cluster_id : undefined,
     importance: num(raw.importance, 0.5),
     personal_relevance: num(raw.personal_relevance, 0.5),
-    understanding:
-      typeof understanding === "number" && Number.isFinite(understanding)
-        ? understanding
-        : null,
+    mastery: typeof understanding === "number" && Number.isFinite(understanding) ? understanding : null,
+    familiarity: num(raw.familiarity),
+    confidence: num(raw.confidence),
+    readiness: num(raw.readiness),
+    fragility: num(raw.fragility),
     // The engine owns this label; never re-derive it here.
     state: (str(raw.state, "exposed") as ConceptNode["state"]) ?? "exposed",
   };
@@ -155,27 +140,50 @@ function normalizeEdge(raw: Record<string, unknown>): ConceptEdge {
   };
 }
 
+/**
+ * Railway 403s ("Not your world") when Clerk's caller is not the pipeline
+ * student. The locked demo still has a sky — use it instead of an empty page.
+ */
+export function liveOrPipeline<T>(fallback: T | null, error: unknown): T {
+  if (fallback) return fallback;
+  throw error;
+}
+
+/** An empty live payload is the same as a failed one: keep the demo sky up. */
+export function populatedOrPipelineGraph(
+  courseId: string,
+  live: KnowledgeGraphResponse,
+): KnowledgeGraphResponse {
+  if (live.nodes.length > 0) return live;
+  const pipeline = pipelineGraphForCourse(courseId);
+  return pipeline ? normalizeGraph(pipeline) : live;
+}
+
+/** Immediate sky, same idea as seeding 8.223 + 6.1400 on /earth. */
+export function seededKnowledgeGraph(
+  courseId: string = getIdentity().courseId,
+): KnowledgeGraphResponse | null {
+  const pipeline = pipelineGraphForCourse(courseId);
+  return pipeline ? normalizeGraph(pipeline) : null;
+}
+
 export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
   const obj = (raw ?? {}) as Record<string, unknown>;
   const rawNodes = Array.isArray(obj.nodes) ? obj.nodes : [];
   const rawEdges = Array.isArray(obj.edges) ? obj.edges : [];
 
-  const nodes = rawNodes.map((n, i) =>
-    normalizeNode(n as Record<string, unknown>, i),
-  );
+  const nodes = rawNodes.map((n, i) => normalizeNode(n as Record<string, unknown>, i));
   const ids = new Set(nodes.map((n) => n.id));
 
-  // Drop dangling edges rather than letting React Flow throw on them.
+  // Drop dangling edges rather than letting the canvas throw on them.
   const edges = rawEdges
     .map((e) => normalizeEdge(e as Record<string, unknown>))
-    .filter(
-      (e) => e.source && e.target && ids.has(e.source) && ids.has(e.target),
-    );
+    .filter((e) => e.source && e.target && ids.has(e.source) && ids.has(e.target));
 
   return {
-    student_id: str(obj.student_id, STUDENT_ID),
-    course_id: str(obj.course_id, COURSE_ID),
-    graph_version: num(obj.graph_version, 0),
+    student_id: str(obj.student_id, getIdentity().studentId),
+    course_id: str(obj.course_id, getIdentity().courseId),
+    graph_version: str(obj.graph_version, String(num(obj.graph_version, 0))),
     nodes,
     edges,
     hidden_concept_count: num(obj.hidden_concept_count, 0),
@@ -186,26 +194,29 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
 // HTTP implementation
 // ---------------------------------------------------------------------------
 
+// GETs remember their ETag so a poll that changed nothing costs a 304, not a body.
+const responseCache = new Map<string, { etag: string; body: unknown }>();
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  if (!COURSE_ID || !STUDENT_ID) {
-    throw new ApiError(
-      "No demo course/student configured. Set NEXT_PUBLIC_DEMO_COURSE_ID and NEXT_PUBLIC_DEMO_STUDENT_ID.",
-    );
-  }
+  const headers = new Headers(init?.headers);
+  headers.set("Accept", "application/json");
+  for (const [key, value] of Object.entries(await credentialHeaders())) headers.set(key, value);
+  const method = (init?.method ?? "GET").toUpperCase();
+  const cached = method === "GET" ? responseCache.get(path) : undefined;
+  if (cached) headers.set("If-None-Match", cached.etag);
 
   let res: Response;
   try {
-    res = await fetch(`${API_URL}${path}`, {
-      ...init,
-      headers: { Accept: "application/json", ...(init?.headers ?? {}) },
-    });
+    res = await fetch(`${API_URL}${path}`, { ...init, headers });
   } catch {
     throw new ApiError(`Could not reach the knowledge engine at ${API_URL}.`);
   }
 
+  if (res.status === 304 && cached) return cached.body as T;
+
   if (!res.ok) {
     // FastAPI puts the useful message in `detail`; surface that, not a stack.
-    let detail = `${init?.method ?? "GET"} ${path} failed (${res.status}).`;
+    let detail = `${method} ${path} failed (${res.status}).`;
     try {
       const body = (await res.json()) as { detail?: unknown };
       if (typeof body.detail === "string") detail = body.detail;
@@ -219,15 +230,44 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   }
 
   if (res.status === 204) return undefined as T;
-  return (await res.json()) as T;
+  const body = (await res.json()) as T;
+  const etag = res.headers.get("ETag");
+  if (method === "GET" && etag) responseCache.set(path, { etag, body });
+  return body;
 }
 
-const base = () => `/api/courses/${COURSE_ID}`;
-const studentBase = () => `${base()}/students/${STUDENT_ID}`;
+function requireIdentity() {
+  if (!getIdentity().ready) {
+    throw new ApiError("Sign in and pick a course first.");
+  }
+}
+
+const base = () => `/api/courses/${getIdentity().courseId}`;
+const studentBase = () => {
+  const { courseId, studentId } = getIdentity();
+  return `${base()}/students/${studentIdForCourse(courseId, studentId)}`;
+};
+const courseBase = (courseId: string) => `/api/courses/${encodeURIComponent(courseId)}`;
+
+export function courseResourcesPath(courseId: string): string {
+  return `${courseBase(courseId)}/resources`;
+}
+
+export function studentCourseWorldPath(
+  studentId: string,
+  courseId: string,
+): string {
+  return `${courseBase(courseId)}/students/${encodeURIComponent(studentId)}/world`;
+}
+
+/** Forget cached GET bodies, e.g. when the course changes or a file lands. */
+export function invalidateApiCache() {
+  responseCache.clear();
+}
 
 // --- adapters -------------------------------------------------------------
 
-interface BackendResource {
+export interface BackendResource {
   id: string;
   title: string;
   origin: string;
@@ -248,6 +288,27 @@ function toResource(r: BackendResource, role?: string): Resource {
   };
 }
 
+const LINK_ROLE: Record<string, string> = {
+  EXPLAINED_IN: "Primary explanation",
+  WORKED_EXAMPLE_IN: "Worked example",
+  ASSESSED_IN: "Assessed here",
+  APPEARS_IN: "Mentioned in",
+};
+
+/** Which score an evidence type feeds. Mirrors the backend taxonomy. */
+const EVIDENCE_KIND: Record<string, Evidence["kind"]> = {
+  graded_exam: "mastery",
+  graded_quiz: "mastery",
+  graded_homework: "mastery",
+  diagnostic: "mastery",
+  verified_practice: "mastery",
+  worked_solution: "mastery",
+  student_notes: "familiarity",
+  resource_view: "familiarity",
+  self_explanation: "confidence",
+  self_rating: "confidence",
+};
+
 function humanize(value: string): string {
   return value
     .split("_")
@@ -255,72 +316,100 @@ function humanize(value: string): string {
     .join(" ");
 }
 
-const httpApi: KnowledgeApi = {
-  async listCourses() {
-    const raw = await request<{ id: string; name: string; code: string | null }[]>(
-      "/api/courses",
-    );
-    return raw
-      .filter((c) => c.code && c.code in REAL_DEMO_STUDENTS)
-      .map((c) => ({ id: c.id, code: c.code!, name: c.name }));
-  },
+interface BackendGap {
+  concept_id: string;
+  name: string;
+  understanding?: number;
+  mastery?: number;
+  confidence?: number;
+  priority: number;
+  action: string;
+  reason: string;
+}
 
+function toGap(g: BackendGap) {
+  return {
+    concept_id: g.concept_id,
+    concept_name: g.name,
+    mastery: g.understanding ?? g.mastery ?? 0,
+    confidence: g.confidence ?? 0,
+    priority: g.priority,
+    // Backend enum is lowercase; the UI labels are uppercase.
+    action: g.action.toUpperCase() as GapAction,
+    reason: g.reason,
+  };
+}
+
+/** The status vocabulary the queue understands, from the engine's per-file states. */
+function toUploadStatus(status: string): IngestResponse["status"] {
+  switch (status) {
+    case "processed":
+    case "complete":
+    case "unchanged":
+    case "empty":
+      return "complete";
+    case "failed":
+      return "failed";
+    default:
+      return "processing";
+  }
+}
+
+export function normalizeCourseResources(raw: BackendResource[]): CourseResource[] {
+  return raw.map((resource) => ({
+    id: resource.id,
+    title: resource.title,
+    origin: resource.origin as SourceOrigin,
+    artifact_type: resource.artifact_type as ArtifactType,
+    concept_count: resource.concept_count,
+    concept_ids: resource.concept_ids ?? [],
+    status: toUploadStatus(resource.status),
+    uploaded_at: resource.created_at ?? "",
+  }));
+}
+
+const httpApi: KnowledgeApi = {
   async getKnowledgeGraph() {
-    return normalizeGraph(
-      await request<unknown>(`${studentBase()}/knowledge-graph`),
-    );
+    requireIdentity();
+    const courseId = getIdentity().courseId;
+    try {
+      const live = normalizeGraph(
+        await request<unknown>(`${studentBase()}/knowledge-graph`, {
+          signal: AbortSignal.timeout(2500),
+        }),
+      );
+      return populatedOrPipelineGraph(courseId, live);
+    } catch (error) {
+      return normalizeGraph(liveOrPipeline(pipelineGraphForCourse(courseId), error));
+    }
   },
 
   async getConceptDetail(conceptId) {
+    requireIdentity();
     const raw = await request<{
       concept_id: string;
       name: string;
-      definition?: string | null;
       evidence: {
-        id: string;
-        type: string;
+        evidence_type: string;
         outcome: number | null;
         strength: number;
         certainty: number;
         occurred_at: string;
-        resource_id: string | null;
+        resource: BackendResource | null;
       }[];
-      resources: {
-        resource_id: string;
-        title: string;
-        origin: string;
-        artifact_type: string;
-      }[];
+      resources: { resource: BackendResource; link_type: string; depth_score: number }[];
     }>(`${studentBase()}/concepts/${conceptId}`);
 
-    const resources = raw.resources.map((resource) =>
-      toResource({
-        id: resource.resource_id,
-        title: resource.title,
-        origin: resource.origin,
-        artifact_type: resource.artifact_type,
-        status: "complete",
-        concept_count: 0,
-      }),
-    );
-    const resourceById = new Map(
-      resources.map((resource) => [resource.id, resource]),
-    );
     return {
       concept_id: raw.concept_id,
-      definition: raw.definition ?? "",
       evidence: raw.evidence.map((e, i) => {
         return {
-          id: e.id || `${conceptId}_${i}`,
-          label:
-            resourceById.get(e.resource_id ?? "")?.title ?? humanize(e.type),
+          id: `${conceptId}_${i}`,
+          label: e.resource?.title ?? humanize(e.evidence_type),
           // Outcome is the backend's graded result; only formatted here.
           // No outcome means no score to show - not a score of zero.
-          detail:
-            e.outcome === null || e.outcome === undefined
-              ? ""
-              : `${Math.round(e.outcome * 100)}%`,
-          kind: "understanding",
+          detail: e.outcome === null || e.outcome === undefined ? "" : `${Math.round(e.outcome * 100)}%`,
+          kind: EVIDENCE_KIND[e.evidence_type] ?? "familiarity",
           // Presentation cue only - a direction read off the backend's own
           // outcome, not a recomputed score.
           polarity:
@@ -329,34 +418,17 @@ const httpApi: KnowledgeApi = {
               : e.outcome >= 0.5
                 ? "positive"
                 : "negative",
-          source: resourceById.get(e.resource_id ?? ""),
+          source: e.resource ? toResource(e.resource) : undefined,
         } satisfies Evidence;
       }),
-      resources: resources.map((resource) => ({
-        ...resource,
-        role: "Course material",
-      })),
+      resources: raw.resources.map((r) => toResource(r.resource, LINK_ROLE[r.link_type] ?? humanize(r.link_type))),
     };
   },
 
-  async listUnderstanding() {
-    const raw = await request<{
-      concepts: {
-        concept_id: string;
-        name: string;
-        discovery_state: string;
-        understanding: number | null;
-        positive_evidence: number;
-        negative_evidence: number;
-        last_evidence_at: string | null;
-        last_practiced_at: string | null;
-      }[];
-    }>(`${studentBase()}/understanding`);
-    return raw.concepts.map((concept) => ({
-      ...concept,
-      discovery_state:
-        concept.discovery_state as UnderstandingEntry["discovery_state"],
-    }));
+  async getWhy() {
+    // The engine exposes no explainability endpoint yet. Returning null makes
+    // the inspector hide the section rather than invent a narrative.
+    return null;
   },
 
   async listStudyTargets() {
@@ -370,44 +442,18 @@ const httpApi: KnowledgeApi = {
   },
 
   async getGaps(target) {
-    const raw = await request<{
-      gaps: {
-        concept_id: string;
-        name: string;
-        understanding: number;
-        priority: number;
-        action: string;
-        reason: string;
-      }[];
-    }>(
+    requireIdentity();
+    const raw = await request<{ gaps: BackendGap[] }>(
       `${studentBase()}/gaps?target_concept_id=${encodeURIComponent(target.id)}`,
     );
-
-    return {
-      target,
-      gaps: raw.gaps.map((g) => ({
-        concept_id: g.concept_id,
-        concept_name: g.name,
-        understanding: g.understanding,
-        priority: g.priority,
-        // Backend enum is lowercase; the UI labels are uppercase.
-        action: g.action.toUpperCase() as GapAction,
-        reason: g.reason,
-      })),
-    };
+    return { target, gaps: raw.gaps.map(toGap) };
   },
 
   async createStudyPlan(target) {
+    requireIdentity();
     const raw = await request<{
       target_concept_id: string;
-      gaps: {
-        concept_id: string;
-        name: string;
-        understanding: number;
-        priority: number;
-        action: string;
-        reason: string;
-      }[];
+      gaps: BackendGap[];
       study_order: string[];
     }>(`${studentBase()}/study-plan`, {
       method: "POST",
@@ -415,7 +461,7 @@ const httpApi: KnowledgeApi = {
       body: JSON.stringify({ target_concept_id: target.id }),
     });
 
-    const byConcept = new Map(raw.gaps.map((g) => [g.concept_id, g]));
+    const byConcept = new Map(raw.gaps.map((g) => [g.concept_id, toGap(g)]));
 
     // Order comes from the backend's traversal. Never re-sorted here.
     const steps = raw.study_order.map((conceptId, i) => {
@@ -423,9 +469,9 @@ const httpApi: KnowledgeApi = {
       return {
         order: i + 1,
         concept_id: conceptId,
-        concept_name: gap?.name ?? "(unknown concept)",
+        concept_name: gap?.concept_name ?? "(unknown concept)",
         reason: gap?.reason ?? "Required on the path to your target.",
-        understanding: gap ? gap.understanding : null,
+        mastery: gap ? gap.mastery : null,
         resources: [] as Resource[],
       };
     });
@@ -434,45 +480,93 @@ const httpApi: KnowledgeApi = {
   },
 
   async listResources() {
+    requireIdentity();
     const raw = await request<BackendResource[]>(`${base()}/resources`);
-    return raw.map((r) => ({
-      id: r.id,
-      title: r.title,
-      origin: r.origin as SourceOrigin,
-      artifact_type: r.artifact_type as ArtifactType,
-      concept_count: r.concept_count,
-      concept_ids: r.concept_ids ?? [],
-      status: (r.status === "complete"
-        ? "complete"
-        : r.status) as CourseResource["status"],
-      uploaded_at: r.created_at ?? "",
-    }));
+    return normalizeCourseResources(raw);
+  },
+
+  async listResourcesForCourse(courseId) {
+    requireIdentity();
+    const raw = await request<BackendResource[]>(courseResourcesPath(courseId));
+    return normalizeCourseResources(raw);
   },
 
   async ingest({ file, origin, artifactType, studentScoped }) {
+    requireIdentity();
     const form = new FormData();
     form.append("file", file);
     // Backend field is `origin`, not `source_origin`.
     form.append("origin", origin);
     form.append("artifact_type", artifactType);
 
-    const path = studentScoped
-      ? `${studentBase()}/resources/ingest`
-      : `${base()}/resources/ingest`;
+    const path = studentScoped ? `${studentBase()}/resources/ingest` : `${base()}/resources/ingest`;
 
     const raw = await request<{
       resource_id: string;
       status: string;
+      analysis?: string;
+      concepts_touched?: string[];
       child_count?: number | null;
       child_failures?: string[];
     }>(path, { method: "POST", body: form });
 
+    invalidateApiCache();
+    // Course files finish on the request. Student files answer after the fast
+    // phase; the queue keeps polling while the analysis runs in the background.
+    const analysisPending = studentScoped && raw.analysis === "queued";
     return {
       resource_id: raw.resource_id,
-      // Ingestion is synchronous, so a 200 means processing already finished.
-      status: "complete",
+      status: analysisPending ? "processing" : toUploadStatus(raw.status),
       child_count: raw.child_count ?? undefined,
+      concepts_touched: raw.concepts_touched ?? [],
+      analysis_pending: analysisPending,
     };
+  },
+
+  async getResourceStatus(resourceId) {
+    requireIdentity();
+    return request<ResourceStatus>(`${studentBase()}/resources/${resourceId}`);
+  },
+
+  async getMe() {
+    return request<MeResponse>("/api/me");
+  },
+
+  async listCourses() {
+    return request<CourseSummary[]>("/api/courses");
+  },
+
+  async getWorld() {
+    requireIdentity();
+    try {
+      return await request<WorldResponse>(`${studentBase()}/world`);
+    } catch (error) {
+      return liveOrPipeline(pipelineWorldForCourse(getIdentity().courseId), error);
+    }
+  },
+
+  async getWorldForCourse(courseId) {
+    requireIdentity();
+    const { studentId } = getIdentity();
+    try {
+      return await request<WorldResponse>(
+        studentCourseWorldPath(studentIdForCourse(courseId, studentId), courseId),
+      );
+    } catch (error) {
+      return liveOrPipeline(pipelineWorldForCourse(courseId), error);
+    }
+  },
+
+  async getSharedWorld(token) {
+    return request<WorldResponse>(`/api/w/${encodeURIComponent(token)}`);
+  },
+
+  async getWorldEvents(since, limit = 100) {
+    requireIdentity();
+    const params = new URLSearchParams({ limit: String(limit) });
+    if (since) params.set("since", since);
+    const raw = await request<{ events: WorldEvent[] }>(`${studentBase()}/world-events?${params}`);
+    return raw.events ?? [];
   },
 };
 
@@ -482,66 +576,123 @@ const httpApi: KnowledgeApi = {
 
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+export function mockWorldForCourse(courseId: string): WorldResponse {
+  const pipeline = pipelineWorldForCourse(courseId);
+  if (pipeline) return pipeline;
+  const world = fixture as WorldResponse;
+  return {
+    ...world,
+    course_id: courseId,
+    regions: world.regions.map((region) => ({ ...region })),
+    edges: world.edges.map((edge) => ({ ...edge })),
+  };
+}
+
+export function cloneMockResources(): CourseResource[] {
+  return MOCK_RESOURCES.map((resource) => ({
+    ...resource,
+    concept_ids: [...resource.concept_ids],
+  }));
+}
+
 const mockApi: KnowledgeApi = {
-  async listCourses() {
-    await delay(60);
-    return MOCK_COURSES.map((c) => ({ id: c.id, code: c.code, name: c.name }));
-  },
   async getKnowledgeGraph() {
     await delay(320);
-    return normalizeGraph(getMockCourseData(selectedMockCourseId).graph);
+    const pipeline = pipelineGraphForCourse(getIdentity().courseId);
+    return normalizeGraph(pipeline ?? MOCK_GRAPH);
   },
   async getConceptDetail(conceptId) {
     await delay(160);
-    return mockConceptDetail(selectedMockCourseId, conceptId);
+    return mockConceptDetail(conceptId);
   },
-  async listUnderstanding() {
-    await delay(120);
-    return getMockCourseData(selectedMockCourseId).graph.nodes.map(
-      (node, index) => ({
-        concept_id: node.id,
-        name: node.name,
-        discovery_state: node.discovery_state,
-        understanding: node.understanding,
-        positive_evidence:
-          node.understanding === null ? 0 : 1.5 + ((index * 7) % 6) / 2,
-        negative_evidence:
-          node.understanding === null ? 0 : ((index * 5) % 5) / 2,
-        last_evidence_at:
-          node.understanding === null
-            ? null
-            : `2026-09-${String(20 - (index % 8)).padStart(2, "0")}T00:00:00Z`,
-        last_practiced_at:
-          node.understanding === null
-            ? null
-            : `2026-09-${String(19 - (index % 7)).padStart(2, "0")}T00:00:00Z`,
-      }),
-    );
+  async getWhy(conceptId) {
+    await delay(200);
+    return mockWhy(conceptId);
   },
   async listStudyTargets() {
     await delay(80);
-    return mockTargets(selectedMockCourseId);
+    return MOCK_TARGETS.map((label, i) => ({ id: `mock_target_${i}`, label }));
   },
   async getGaps(target) {
     await delay(280);
-    return mockGaps(selectedMockCourseId, target);
+    return { ...MOCK_GAPS, target };
   },
   async createStudyPlan(target) {
     await delay(500);
-    return mockStudyPlan(selectedMockCourseId, target);
+    return { ...MOCK_STUDY_PLAN, target };
   },
   async listResources() {
     await delay(220);
-    return getMockCourseData(selectedMockCourseId).resources;
+    return MOCK_RESOURCES;
+  },
+  async listResourcesForCourse() {
+    await delay(220);
+    return cloneMockResources();
   },
   async ingest({ file }) {
     await delay(400);
+    const id = `mock_${file.name}_${Date.now()}`;
+    mockPolls.set(id, 0);
+    const world = fixture as WorldResponse;
     return {
-      resource_id: `mock_${file.name}`,
+      resource_id: id,
       status: "processing",
       child_count: file.name.toLowerCase().endsWith(".zip") ? 8 : undefined,
+      concepts_touched: world.regions.slice(0, 3).map((r) => r.concept_id),
+      analysis_pending: true,
     };
+  },
+  async getResourceStatus(resourceId) {
+    await delay(100);
+    // Phase B "finishes" on the second poll, so the queue and the island behave as in live mode.
+    const polls = (mockPolls.get(resourceId) ?? 0) + 1;
+    mockPolls.set(resourceId, polls);
+    return {
+      resource_id: resourceId,
+      title: resourceId,
+      status: polls >= 2 ? "processed" : "analyzing",
+      error: null,
+      phase_a_ms: 400,
+      phase_b_ms: polls >= 2 ? 3000 : null,
+    };
+  },
+  async getMe() {
+    await delay(60);
+    const id = getIdentity();
+    return { student_id: id.studentId, courses: id.courses };
+  },
+  async listCourses() {
+    await delay(40);
+    return getIdentity().courses;
+  },
+  async getWorld() {
+    await delay(200);
+    return mockWorldForCourse(getIdentity().courseId);
+  },
+  async getWorldForCourse(courseId) {
+    await delay(200);
+    return mockWorldForCourse(courseId);
+  },
+  async getSharedWorld() {
+    await delay(200);
+    return fixture as WorldResponse;
+  },
+  async getWorldEvents() {
+    await delay(120);
+    const world = fixture as WorldResponse;
+    const now = new Date().toISOString();
+    return world.regions.slice(0, 4).map((r, i) => ({
+      id: `mock_event_${i}`,
+      event: (i % 2 === 0 ? "UNDERSTANDING_GAIN" : "CONCEPT_DISCOVERED") as WorldEventKind,
+      concept_id: r.concept_id,
+      resource_id: null,
+      delta: i % 2 === 0 ? 0.04 : null,
+      explanation: i % 2 === 0 ? `${r.name} grew after your last problem set.` : `You reached ${r.name} for the first time.`,
+      created_at: now,
+    }));
   },
 };
 
-export const api: KnowledgeApi = USE_MOCK ? mockApi : httpApi;
+const mockPolls = new Map<string, number>();
+
+export const api: KnowledgeApi = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false" ? mockApi : httpApi;

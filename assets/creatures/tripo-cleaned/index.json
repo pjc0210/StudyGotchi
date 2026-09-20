@@ -1,0 +1,386 @@
+{
+  "tripo-creature-01": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-01.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-01.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-01.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-02": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-02.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-02.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-02.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-03": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-03.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-03.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-03.glb"
+    },
+    "triangles": 1398
+  },
+  "tripo-creature-04": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-04.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-04.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-04.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-05": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-05.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-05.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-05.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-06": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-06.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-06.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-06.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-07": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-07.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-07.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-07.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-08": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-08.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-08.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-08.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-09": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-09.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-09.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-09.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-10": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-10.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-10.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-10.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-11": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-11.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-11.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-11.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-12": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-12.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-12.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-12.glb"
+    },
+    "triangles": 1398
+  },
+  "tripo-creature-13": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-13.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-13.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-13.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-14": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-14.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-14.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-14.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-15": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-15.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-15.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-15.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-16": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-16.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-16.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-16.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-17": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-17.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-17.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-17.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-18": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-18.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-18.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-18.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-19": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-19.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-19.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-19.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-20": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-20.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-20.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-20.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-21": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-21.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-21.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-21.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-22": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-22.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-22.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-22.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-23": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-23.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-23.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-23.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-24": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-24.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-24.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-24.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-25": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-25.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-25.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-25.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-26": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-26.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-26.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-26.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-27": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-27.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-27.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-27.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-28": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-28.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-28.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-28.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-29": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-29.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-29.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-29.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-30": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-30.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-30.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-30.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-31": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-31.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-31.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-31.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-32": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-32.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-32.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-32.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-33": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-33.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-33.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-33.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-34": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-34.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-34.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-34.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-35": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-35.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-35.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-35.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-36": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-36.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-36.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-36.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-37": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-37.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-37.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-37.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-38": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-38.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-38.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-38.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-39": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-39.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-39.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-39.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-40": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-40.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-40.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-40.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-41": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-41.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-41.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-41.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-42": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-42.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-42.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-42.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-43": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-43.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-43.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-43.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-44": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-44.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-44.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-44.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-45": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-45.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-45.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-45.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-46": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-46.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-46.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-46.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-creature-47": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/pokemon-collection/individual/Creature-47.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-creature-47.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-creature-47.glb"
+    },
+    "triangles": 1400
+  },
+  "tripo-mouse": {
+    "source_blend": "/Users/philote/Documents/Codex/2026-09-18/files-mentioned-by-the-user-codex/outputs/mouse-face-refined.blend",
+    "files": {
+      "toon": "assets/creatures/tripo-cleaned/toon/tripo-mouse.glb",
+      "textured": "assets/creatures/tripo-cleaned/textured/tripo-mouse.glb"
+    },
+    "triangles": 1400
+  }
+}

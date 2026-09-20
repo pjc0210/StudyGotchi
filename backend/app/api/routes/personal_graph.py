@@ -8,11 +8,13 @@ import json
 from dataclasses import asdict
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.dependencies import get_db
-from app.domain.personal_graph.concept_state import classify_concept_state
+from app.api.dependencies import get_db, require_student
+from app.api.etag import etag_matches, not_modified, set_etag
+from app.config import get_settings
+from app.domain.personal_graph.projection import project_graph
 from app.pipelines.personal_graph_query import build_student_personal_graph
 from app.repositories.courses import get_course
 from app.repositories.student_states import get_student_concept_states
@@ -29,8 +31,13 @@ router = APIRouter(
 
 @router.get("/knowledge-graph", response_model=PersonalGraphResponse)
 async def get_knowledge_graph_endpoint(
-    course_id: UUID, student_id: UUID, session: AsyncSession = Depends(get_db)
-) -> PersonalGraphResponse:
+    course_id: UUID,
+    student_id: UUID,
+    request: Request,
+    response: Response,
+    session: AsyncSession = Depends(get_db),
+    _: UUID = Depends(require_student),
+):
     if await get_course(session, course_id) is None:
         raise HTTPException(status_code=404, detail="Course not found")
 
@@ -41,8 +48,11 @@ async def get_knowledge_graph_endpoint(
     version = hashlib.sha256(
         json.dumps(asdict(graph), default=str, sort_keys=True).encode()
     ).hexdigest()[:16]
-    # Staleness needs the practice timestamp, which the graph builder does not carry.
+    if etag_matches(request, version):
+        return not_modified(version)
+    set_etag(response, version)
     states = await get_student_concept_states(session, student_id=student_id, course_id=course_id)
+    metrics = project_graph(graph, states, staleness_days=get_settings().staleness_days)
     return PersonalGraphResponse(
         graph_version=version,
         student_id=student_id,
@@ -60,18 +70,10 @@ async def get_knowledge_graph_endpoint(
                 cluster=n.cluster,
                 mastery=n.understanding,
                 familiarity=n.personal_relevance,
-                confidence=_confidence(states.get(n.concept_id)),
-                readiness=_readiness(n.understanding, states.get(n.concept_id)),
-                fragility=_fragility(states.get(n.concept_id)),
-                state=classify_concept_state(
-                    discovery_state=n.discovery_state,
-                    mastery=n.understanding,
-                    confidence=_confidence(states.get(n.concept_id)),
-                    fragility=_fragility(states.get(n.concept_id)),
-                    last_practiced_at=(
-                        states[n.concept_id].last_practiced_at if n.concept_id in states else None
-                    ),
-                ),
+                confidence=metrics[n.concept_id].confidence,
+                readiness=metrics[n.concept_id].readiness,
+                fragility=metrics[n.concept_id].fragility,
+                state=metrics[n.concept_id].state,
             )
             for n in graph.nodes
         ],
@@ -87,23 +89,3 @@ async def get_knowledge_graph_endpoint(
         ],
         hidden_concept_count=graph.hidden_concept_count,
     )
-
-
-def _evidence_total(state: object | None) -> float:
-    if state is None:
-        return 0.0
-    return float(state.positive_evidence) + float(state.negative_evidence)
-
-
-def _confidence(state: object | None) -> float:
-    total = _evidence_total(state)
-    return total / (total + 1.0) if total else 0.0
-
-
-def _fragility(state: object | None) -> float:
-    total = _evidence_total(state)
-    return float(state.negative_evidence) / total if state is not None and total else 0.0
-
-
-def _readiness(mastery: float | None, state: object | None) -> float:
-    return (mastery or 0.0) * (1.0 - _fragility(state))

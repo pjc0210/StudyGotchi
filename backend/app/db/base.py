@@ -42,3 +42,18 @@ class TimestampMixin:
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=utcnow, onupdate=utcnow, nullable=False
     )
+
+
+def upsert_insert(session, table):
+    """`INSERT ... ON CONFLICT` for whichever database the session is bound to.
+
+    SQLite and Postgres share the `on_conflict_do_update(index_elements=, set_=,
+    where=)` and `.excluded` surface, but each lives in its own dialect module.
+    """
+
+    from sqlalchemy.dialects.postgresql import insert as pg_insert
+    from sqlalchemy.dialects.sqlite import insert as sqlite_insert
+
+    if session.bind.dialect.name == "postgresql":
+        return pg_insert(table)
+    return sqlite_insert(table)

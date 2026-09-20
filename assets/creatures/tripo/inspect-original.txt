@@ -1,0 +1,83 @@
+
+ OVERVIEW
+ ────────────────────────────────────────────
+┌────────────────────┬────────────────────────────────────────┐
+│ key                │ value                                  │
+├────────────────────┼────────────────────────────────────────┤
+│ version            │ 2.0                                    │
+├────────────────────┼────────────────────────────────────────┤
+│ generator          │ Tripo                                  │
+├────────────────────┼────────────────────────────────────────┤
+│ extensionsUsed     │ KHR_materials_volume, FB_ngon_encoding │
+├────────────────────┼────────────────────────────────────────┤
+│ extensionsRequired │ none                                   │
+└────────────────────┴────────────────────────────────────────┘
+
+
+warn: Missing optional extension, "FB_ngon_encoding".
+
+ SCENES
+ ────────────────────────────────────────────
+┌───┬──────┬─────────────────────────────────────────────────┬───────────────────────┬───────────────────────────┬────────────────────┬───────────────────┬────────────────────────┐
+│ # │ name │ rootName                                        │ bboxMin               │ bboxMax                   │ renderVertexCount¹ │ uploadVertexCount │ uploadNaiveVertexCount │
+├───┼──────┼─────────────────────────────────────────────────┼───────────────────────┼───────────────────────────┼────────────────────┼───────────────────┼────────────────────────┤
+│ 0 │      │ tripo_node_32a4d067-117b-4613-ace3-3a344da9a375 │ -0.35677, 0, -0.13296 │ 0.35677, 0.98029, 0.13296 │ 5,720,280          │ 1,013,158         │ 1,013,158              │
+└───┴──────┴─────────────────────────────────────────────────┴───────────────────────┴───────────────────────────┴────────────────────┴───────────────────┴────────────────────────┘
+
+¹ Expected number of vertices processed by the vertex shader for one render
+  pass, without considering the vertex cache.
+
+² Expected number of vertices uploaded to GPU, assuming each Accessor
+  is uploaded only once. Actual number uploaded may be higher, 
+  dependent on the implementation and vertex buffer layout.
+
+³ Expected number of vertices uploaded to GPU, assuming each Primitive
+  is uploaded once, duplicating vertex attributes shared among Primitives.
+
+
+
+ MESHES
+ ────────────────────────────────────────────
+┌───┬───────────┬───────────┬────────────────┬──────────────┬───────────┬─────────┬──────────────────────────────────────────┬───────────┬─────────┐
+│ # │ name      │ mode      │ meshPrimitives │ glPrimitives │ vertices  │ indices │ attributes                               │ instances │ size¹   │
+├───┼───────────┼───────────┼────────────────┼──────────────┼───────────┼─────────┼──────────────────────────────────────────┼───────────┼─────────┤
+│ 0 │ meshes[0] │ TRIANGLES │ 1              │ 1,906,760    │ 1,013,158 │ u32     │ NORMAL:f32, POSITION:f32, TEXCOORD_0:f32 │ 1         │ 55.3 MB │
+└───┴───────────┴───────────┴────────────────┴──────────────┴───────────┴─────────┴──────────────────────────────────────────┴───────────┴─────────┘
+
+⁴ size estimates GPU memory required by a mesh, in isolation. If accessors are
+  shared by other mesh primitives, but the meshes themselves are not reused, then
+  the sum of all mesh sizes will overestimate the asset's total size. See "dedup".
+
+
+
+ MATERIALS
+ ────────────────────────────────────────────
+┌───┬─────────────────────────────────────────────────────┬───────────┬───────────────────────────────────────────────────────────┬───────────┬─────────────┐
+│ # │ name                                                │ instances │ textures                                                  │ alphaMode │ doubleSided │
+├───┼─────────────────────────────────────────────────────┼───────────┼───────────────────────────────────────────────────────────┼───────────┼─────────────┤
+│ 0 │ tripo_material_32a4d067-117b-4613-ace3-3a344da9a375 │ 1         │ baseColorTexture, normalTexture, metallicRoughnessTexture │ OPAQUE    │             │
+└───┴─────────────────────────────────────────────────────┴───────────┴───────────────────────────────────────────────────────────┴───────────┴─────────────┘
+
+
+
+ TEXTURES
+ ────────────────────────────────────────────
+┌───┬─────────────────────────────────────┬─────┬──────────────────────────┬───────────┬────────────┬─────────────┬────────────┬─────────┬──────────┐
+│ # │ name                                │ uri │ slots                    │ instances │ mimeType   │ compression │ resolution │ size    │ gpuSize⁵ │
+├───┼─────────────────────────────────────┼─────┼──────────────────────────┼───────────┼────────────┼─────────────┼────────────┼─────────┼──────────┤
+│ 0 │ pokemon-like+3d+model_basecolor.jpg │     │ baseColorTexture         │ 1         │ image/jpeg │             │ 4096x4096  │ 3.37 MB │ 89.48 MB │
+├───┼─────────────────────────────────────┼─────┼──────────────────────────┼───────────┼────────────┼─────────────┼────────────┼─────────┼──────────┤
+│ 1 │ pokemon-like+3d+model_rm.jpg        │     │ metallicRoughnessTexture │ 1         │ image/jpeg │             │ 4096x4096  │ 1.29 MB │ 89.48 MB │
+├───┼─────────────────────────────────────┼─────┼──────────────────────────┼───────────┼────────────┼─────────────┼────────────┼─────────┼──────────┤
+│ 2 │ pokemon-like+3d+model_normal.png    │     │ normalTexture            │ 1         │ image/png  │             │ 4096x4096  │ 3.32 MB │ 89.48 MB │
+└───┴─────────────────────────────────────┴─────┴──────────────────────────┴───────────┴────────────┴─────────────┴────────────┴─────────┴──────────┘
+
+⁵ gpuSize estimates minimum VRAM memory allocation. Older devices may require
+  additional memory for GPU compression formats.
+
+
+
+ ANIMATIONS
+ ────────────────────────────────────────────
+No animations found.
+

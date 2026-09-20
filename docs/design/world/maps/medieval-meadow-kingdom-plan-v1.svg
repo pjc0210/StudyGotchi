@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 276" width="2000" height="1380" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="fogN" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#f4efe2" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f4efe2" stop-opacity="0.94"/>
+    </linearGradient>
+    <linearGradient id="fogS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4efe2" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f4efe2" stop-opacity="0.94"/>
+    </linearGradient>
+    <linearGradient id="fogW" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#f4efe2" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f4efe2" stop-opacity="0.94"/>
+    </linearGradient>
+    <linearGradient id="fogE" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f4efe2" stop-opacity="0"/>
+      <stop offset="1" stop-color="#f4efe2" stop-opacity="0.94"/>
+    </linearGradient>
+    <pattern id="furrow" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+      <rect width="3" height="3" fill="#b9c96f"/>
+      <rect width="0.9" height="3" fill="#8faa58"/>
+    </pattern>
+    <pattern id="orchard" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="#a9c978"/>
+      <circle cx="3" cy="3" r="1.25" fill="#5f8b4e"/>
+    </pattern>
+    <pattern id="cobble" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" fill="#d9d2c4"/>
+      <path d="M0 1.5H3 M1.5 0V1.5 M0.8 1.5V3" stroke="#b8ae9e" stroke-width="0.18"/>
+    </pattern>
+    <clipPath id="mapClip"><rect x="8" y="8" width="278" height="260"/></clipPath>
+  </defs>
+
+  <rect width="400" height="276" fill="#fbf8f0"/>
+
+  <!-- MAP: 1 SVG unit = 1 m; origin is (147,138); +x east, +z toward camera/down -->
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(147,138)">
+      <rect x="-139" y="-130" width="278" height="260" fill="#9fcf75"/>
+
+      <!-- 20 m grid -->
+      <g stroke="#76995d" stroke-width="0.14" opacity="0.52">
+        <path d="M-120,-130V130 M-100,-130V130 M-80,-130V130 M-60,-130V130 M-40,-130V130 M-20,-130V130 M0,-130V130 M20,-130V130 M40,-130V130 M60,-130V130 M80,-130V130 M100,-130V130 M120,-130V130"/>
+        <path d="M-139,-120H139 M-139,-100H139 M-139,-80H139 M-139,-60H139 M-139,-40H139 M-139,-20H139 M-139,0H139 M-139,20H139 M-139,40H139 M-139,60H139 M-139,80H139 M-139,100H139 M-139,120H139"/>
+      </g>
+
+      <!-- continuous camera-safe horizon belt: first row -->
+      <path d="M-139,-130H139V-101 C115,-106 99,-100 79,-105 C58,-111 39,-100 19,-105 C-6,-112 -25,-101 -47,-106 C-74,-112 -95,-100 -116,-105 L-139,-98Z" fill="#6f8055"/>
+      <path d="M139,-130V130H108 C112,103 105,86 111,63 C118,38 106,21 112,-2 C118,-26 109,-49 114,-72 C119,-95 111,-111 116,-130Z" fill="#72885b"/>
+      <path d="M139,130H-139V101 C-112,107 -92,99 -69,105 C-45,111 -25,100 -2,106 C22,112 44,100 68,106 C94,113 113,100 139,105Z" fill="#7e9961"/>
+      <path d="M-139,130V-130H-109 C-114,-108 -106,-86 -112,-63 C-119,-40 -108,-18 -114,5 C-121,30 -108,50 -114,73 C-120,98 -111,113 -116,130Z" fill="#4f7d4a"/>
+
+      <!-- second horizon row, never settlement ground -->
+      <path d="M-116,-106 C-94,-118 -76,-107 -56,-116 C-36,-123 -18,-110 2,-118 C25,-126 43,-110 64,-117 C85,-124 102,-111 118,-119" fill="none" stroke="#486f45" stroke-width="7" stroke-linecap="round" stroke-dasharray="12 5"/>
+      <path d="M114,-112 C124,-88 115,-67 124,-45 C131,-22 118,-3 126,20 C133,44 120,65 128,88 C132,103 126,114 130,124" fill="none" stroke="#5a7148" stroke-width="7" stroke-linecap="round" stroke-dasharray="11 6"/>
+      <path d="M120,111 C96,121 77,112 55,121 C31,128 13,114 -10,122 C-34,129 -54,114 -76,122 C-94,127 -108,118 -124,123" fill="none" stroke="#607d4e" stroke-width="7" stroke-linecap="round" stroke-dasharray="13 5"/>
+      <path d="M-116,116 C-126,94 -116,73 -126,51 C-133,29 -119,9 -127,-14 C-134,-37 -120,-57 -128,-80 C-133,-96 -127,-111 -131,-124" fill="none" stroke="#3f6841" stroke-width="7" stroke-linecap="round" stroke-dasharray="10 5"/>
+
+      <!-- faceted perimeter hill crowns -->
+      <g fill="#869f63" stroke="#5f724c" stroke-width="0.35">
+        <polygon points="-100,-104 -92,-116 -82,-104"/><polygon points="-67,-105 -57,-120 -45,-105"/>
+        <polygon points="-28,-104 -18,-114 -8,-104"/><polygon points="17,-104 28,-119 40,-104"/>
+        <polygon points="56,-103 67,-115 78,-103"/><polygon points="91,-102 101,-113 112,-102"/>
+        <polygon points="109,-80 124,-70 111,-58"/><polygon points="110,-35 126,-24 112,-12"/>
+        <polygon points="111,16 126,29 111,42"/><polygon points="110,63 124,76 109,87"/>
+        <polygon points="88,104 99,117 108,104"/><polygon points="47,105 58,121 70,105"/>
+        <polygon points="6,105 17,118 29,105"/><polygon points="-37,104 -26,120 -14,104"/>
+        <polygon points="-79,105 -68,118 -56,105"/><polygon points="-111,83 -125,72 -112,59"/>
+        <polygon points="-111,38 -127,27 -112,14"/><polygon points="-112,-8 -127,-20 -111,-34"/>
+        <polygon points="-111,-53 -125,-66 -110,-79"/>
+      </g>
+
+      <!-- river wet bank, then water; broad negative-space spine -->
+      <path d="M-22,-132 C-29,-107 -9,-92 -16,-70 C-24,-47 -5,-35 -10,-15 C-15,7 12,14 10,34 C8,55 24,67 17,88 C13,104 24,118 31,132" fill="none" stroke="#6f9c66" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M-22,-132 C-29,-107 -9,-92 -16,-70 C-24,-47 -5,-35 -10,-15 C-15,7 12,14 10,34 C8,55 24,67 17,88 C13,104 24,118 31,132" fill="none" stroke="#5faeb6" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M-22,-132 C-29,-107 -9,-92 -16,-70 C-24,-47 -5,-35 -10,-15 C-15,7 12,14 10,34 C8,55 24,67 17,88 C13,104 24,118 31,132" fill="none" stroke="#8fd0d0" stroke-width="0.55" stroke-dasharray="3 3"/>
+
+      <!-- castle headland tributary/moat: landmark is physically separate -->
+      <path d="M-13,-67 C9,-65 22,-68 34,-61 C43,-55 42,-42 50,-34" fill="none" stroke="#6f9c66" stroke-width="13" stroke-linecap="round"/>
+      <path d="M-13,-67 C9,-65 22,-68 34,-61 C43,-55 42,-42 50,-34" fill="none" stroke="#5faeb6" stroke-width="7" stroke-linecap="round"/>
+      <path d="M37,-61 C49,-73 62,-84 82,-90 L101,-85 L105,-49 C91,-36 76,-31 53,-34 C45,-43 45,-53 37,-61Z" fill="#a9c978" stroke="#7d8b63" stroke-width="1.2"/>
+      <path d="M46,-59 C57,-70 70,-78 87,-80 L96,-74 L96,-52 C85,-42 72,-39 56,-42Z" fill="#c7b98f" stroke="#8f8062" stroke-width="0.8"/>
+
+      <!-- roads: edge underlay then core -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="#a58d68" stroke-width="6.4">
+          <path d="M-82,-50 C-64,-43 -49,-30 -34,-15 C-16,2 7,10 31,17 C14,30 -7,39 -35,48 C-48,55 -56,60 -65,66"/>
+          <path d="M31,17 C38,-4 45,-22 56,-40 C63,-49 69,-54 75,-58"/>
+          <path d="M-34,-15 C-28,-34 -24,-51 -18,-67"/>
+          <path d="M-35,48 C-20,63 -4,73 16,81"/>
+        </g>
+        <g stroke="#d8c49a" stroke-width="4.6">
+          <path d="M-82,-50 C-64,-43 -49,-30 -34,-15 C-16,2 7,10 31,17 C14,30 -7,39 -35,48 C-48,55 -56,60 -65,66"/>
+          <path d="M31,17 C38,-4 45,-22 56,-40 C63,-49 69,-54 75,-58"/>
+          <path d="M-34,-15 C-28,-34 -24,-51 -18,-67"/>
+          <path d="M-35,48 C-20,63 -4,73 16,81"/>
+        </g>
+      </g>
+
+      <!-- bridge crossings -->
+      <g fill="#8b6a4a" stroke="#5d4634" stroke-width="0.4">
+        <rect x="-19" y="-20" width="20" height="5" rx="1" transform="rotate(62 -9 -17.5)"/>
+        <rect x="0" y="13" width="27" height="6" rx="1" transform="rotate(12 13.5 16)"/>
+        <rect x="29" y="-65" width="16" height="5" rx="1" transform="rotate(42 37 -62.5)"/>
+      </g>
+      <g font-size="2.5" fill="#3f4938" font-weight="bold">
+        <text x="-20" y="-8">B1</text>
+        <text x="7" y="10">B2</text>
+        <text x="25" y="-70">B3</text>
+      </g>
+
+      <!-- open preserves -->
+      <g fill="#b9dc83" fill-opacity="0.72" stroke="#55724a" stroke-width="0.45" stroke-dasharray="1 1.5">
+        <path d="M-57,-90 C-44,-100 -26,-98 -16,-88 C-10,-78 -17,-69 -31,-66 C-47,-66 -60,-74 -57,-90Z"/>
+        <path d="M18,-27 C30,-34 47,-32 55,-22 C61,-12 54,-1 40,2 C25,3 15,-8 18,-27Z"/>
+        <path d="M-18,62 C-4,53 15,55 28,66 C34,79 27,91 12,96 C-5,95 -19,82 -18,62Z"/>
+        <path d="M54,52 C68,44 88,46 99,58 C105,71 97,84 80,87 C63,84 51,72 54,52Z"/>
+      </g>
+      <g font-size="2.5" fill="#3f4938" text-anchor="middle">
+        <text x="-35" y="-81">P1 north meadow 44  x  30 m</text>
+        <text x="38" y="-14">P2 water meadow 42  x  34 m</text>
+        <text x="7" y="76">P3 south common 46  x  36 m</text>
+        <text x="79" y="66">P4 east meadow 50  x  38 m</text>
+      </g>
+
+      <!-- DISTRICT 1: forest hamlet; envelope then polygon -->
+      <path d="M-112,-76 C-101,-91 -77,-96 -57,-85 C-44,-75 -43,-55 -53,-40 C-69,-30 -96,-34 -109,-49 C-118,-59 -118,-68 -112,-76Z" fill="none" stroke="#354e36" stroke-width="0.55" stroke-dasharray="2 1.5"/>
+      <path d="M-104,-72 C-92,-84 -76,-87 -62,-79 C-50,-70 -50,-57 -59,-47 C-72,-39 -91,-42 -102,-52 C-110,-60 -109,-66 -104,-72Z" fill="#789b5d" fill-opacity="0.78" stroke="#3f6841" stroke-width="0.8"/>
+      <g fill="#4f7d4a"><circle cx="-98" cy="-69" r="4"/><circle cx="-91" cy="-76" r="5"/><circle cx="-79" cy="-76" r="3.5"/><circle cx="-66" cy="-71" r="4.5"/><circle cx="-101" cy="-55" r="3.5"/></g>
+      <circle cx="-80" cy="-58" r="7" fill="#486f45" stroke="#315234" stroke-width="0.6"/>
+      <circle cx="-64" cy="-55" r="4" fill="none" stroke="#8b6a4a" stroke-width="1.2"/>
+      <rect x="-94" y="-53" width="10" height="7" fill="#6b4a3a" stroke="#3f4938" stroke-width="0.3"/>
+      <text x="-80" y="-88" font-size="4" font-weight="bold" text-anchor="middle" fill="#24372b">1 FOREST HAMLET + TIMBER COMMON</text>
+      <text x="-80" y="-47" font-size="2.6" text-anchor="middle" fill="#7b4f18">14 m oak + 8 m saw wheel</text>
+
+      <!-- DISTRICT 2: river village and mill -->
+      <path d="M-59,-37 C-48,-50 -25,-51 -10,-39 C2,-30 2,-10 -7,3 C-20,13 -45,11 -58,-2 C-67,-12 -67,-27 -59,-37Z" fill="none" stroke="#354e36" stroke-width="0.55" stroke-dasharray="2 1.5"/>
+      <path d="M-52,-33 C-42,-43 -28,-44 -16,-36 C-5,-28 -5,-14 -13,-4 C-24,4 -42,3 -52,-6 C-60,-14 -59,-25 -52,-33Z" fill="#a9c978" fill-opacity="0.82" stroke="#55724a" stroke-width="0.8"/>
+      <g fill="#f0e6cf" stroke="#6b4a3a" stroke-width="0.35">
+        <rect x="-47" y="-31" width="9" height="7" transform="rotate(-18 -42.5 -27.5)"/>
+        <rect x="-33" y="-35" width="10" height="8" transform="rotate(12 -28 -31)"/>
+        <rect x="-50" y="-13" width="8" height="7" transform="rotate(24 -46 -9.5)"/>
+      </g>
+      <g fill="#d9765c"><polygon points="-48,-31 -42.5,-36 -37,-31"/><polygon points="-34,-35 -28,-40 -22,-35"/><polygon points="-51,-13 -46,-18 -41,-13"/></g>
+      <circle cx="-13" cy="-18" r="4.5" fill="none" stroke="#8b6a4a" stroke-width="1.1"/>
+      <text x="-34" y="-47" font-size="4" font-weight="bold" text-anchor="middle" fill="#24372b">2 RIVER VILLAGE + MILL</text>
+      <text x="-35" y="-7" font-size="2.6" text-anchor="middle" fill="#8e4037">9 m wheel + unequal roof pair</text>
+
+      <!-- DISTRICT 3: bridge market and guild court -->
+      <path d="M10,-4 C23,-14 47,-12 58,0 C67,12 64,31 52,41 C37,50 15,44 6,31 C-2,19 0,6 10,-4Z" fill="none" stroke="#354e36" stroke-width="0.55" stroke-dasharray="2 1.5"/>
+      <path d="M15,1 C27,-7 43,-5 52,4 C59,14 56,27 47,35 C35,41 20,37 13,28 C7,18 8,9 15,1Z" fill="url(#cobble)" stroke="#807869" stroke-width="0.8"/>
+      <g fill="#c96f45" stroke="#6b4a3a" stroke-width="0.3">
+        <rect x="30" y="3" width="9" height="6"/><rect x="42" y="10" width="8" height="6"/><rect x="31" y="29" width="10" height="5"/>
+      </g>
+      <circle cx="48" cy="26" r="3.5" fill="#c7b98f" stroke="#8f8062" stroke-width="0.35"/>
+      <text x="33" y="-15" font-size="4" font-weight="bold" text-anchor="middle" fill="#24372b">3 BRIDGE MARKET + GUILD COURT</text>
+      <text x="33" y="34" font-size="2.6" text-anchor="middle" fill="#8b4b28">27 m bridge + 3 canopies</text>
+
+      <!-- DISTRICT 4: farm and common -->
+      <path d="M-101,20 C-82,9 -56,12 -42,25 C-29,39 -31,62 -45,76 C-62,89 -90,84 -103,68 C-115,53 -114,34 -101,20Z" fill="none" stroke="#354e36" stroke-width="0.55" stroke-dasharray="2 1.5"/>
+      <path d="M-94,25 C-78,17 -59,19 -48,30 C-38,42 -40,58 -51,69 C-65,79 -84,75 -95,64 C-105,52 -105,36 -94,25Z" fill="url(#furrow)" stroke="#708348" stroke-width="0.8"/>
+      <path d="M-86,31 L-64,25 L-55,44 L-78,51Z" fill="url(#orchard)" stroke="#708348" stroke-width="0.35"/>
+      <rect x="-94" y="54" width="16" height="9" fill="#6b4a3a" stroke="#3f4938" stroke-width="0.35"/>
+      <path d="M-63,57V43 M-69,49H-57 M-68,45L-58,53 M-58,45L-68,53" stroke="#f0e6cf" stroke-width="0.7"/>
+      <text x="-72" y="15" font-size="4" font-weight="bold" text-anchor="middle" fill="#24372b">4 FARM + VILLAGE COMMON</text>
+      <text x="-72" y="70" font-size="2.6" text-anchor="middle" fill="#806815">13 m windmill + L-barn</text>
+
+      <!-- DISTRICT 5: castle landform/courtyard, with singular landmark -->
+      <path d="M38,-93 C54,-108 83,-112 103,-99 C118,-88 121,-61 108,-42 C95,-25 66,-23 48,-35 C31,-47 25,-77 38,-93Z" fill="none" stroke="#354e36" stroke-width="0.55" stroke-dasharray="2 1.5"/>
+      <path d="M48,-84 C60,-96 81,-99 96,-89 C108,-80 109,-61 99,-48 C88,-36 69,-34 56,-43 C44,-52 39,-72 48,-84Z" fill="#c7b98f" fill-opacity="0.78" stroke="#7d6f55" stroke-width="0.9"/>
+      <rect x="58" y="-80" width="34" height="26" fill="url(#cobble)" stroke="#7d6f55" stroke-width="0.7"/>
+      <rect x="67" y="-88" width="16" height="10" fill="#6b4a3a" stroke="#3f4938" stroke-width="0.4"/>
+      <circle cx="61" cy="-83" r="5" fill="#a99a78" stroke="#6f654f" stroke-width="0.45"/>
+      <circle cx="89" cy="-83" r="5" fill="#a99a78" stroke="#6f654f" stroke-width="0.45"/>
+      <path d="M72,-82V-72 H78V-82" fill="#3f4938"/>
+      <circle cx="75" cy="-65" r="3.3" fill="#5faeb6" stroke="#7d6f55" stroke-width="0.35"/>
+      <text x="75" y="-105" font-size="4" font-weight="bold" text-anchor="middle" fill="#24372b">5 CROWN HEADLAND + CASTLE COURT</text>
+      <text x="75" y="-92" font-size="2.6" text-anchor="middle" fill="#7f3447">LANDMARK: 18 m gate + twin towers</text>
+
+      <!-- overview frame and horizon-safe validation ring -->
+      <ellipse cx="0" cy="0" rx="92" ry="88" fill="none" stroke="#24372b" stroke-width="0.35" stroke-dasharray="2 2"/>
+      <g fill="#24372b" font-size="3" font-weight="bold" text-anchor="middle">
+        <text x="0" y="-119">N OK</text><text x="84" y="-84">NE OK</text><text x="124" y="2">E OK</text><text x="85" y="96">SE OK</text>
+        <text x="0" y="118">S OK</text><text x="-85" y="96">SW OK</text><text x="-124" y="2">W OK</text><text x="-85" y="-84">NW OK</text>
+      </g>
+
+      <!-- fog hides every edge; labels remain inside -->
+      <rect x="-139" y="-130" width="278" height="22" fill="url(#fogN)"/>
+      <rect x="-139" y="108" width="278" height="22" fill="url(#fogS)"/>
+      <rect x="-139" y="-130" width="22" height="260" fill="url(#fogW)"/>
+      <rect x="117" y="-130" width="22" height="260" fill="url(#fogE)"/>
+      <rect x="-117" y="-108" width="234" height="216" fill="none" stroke="#3f4938" stroke-width="0.35" stroke-dasharray="3 2"/>
+
+      <!-- axes and scale -->
+      <g stroke="#24372b" stroke-width="0.5" fill="#24372b">
+        <path d="M-130,120H-108"/><polygon points="-108,118.5 -105,120 -108,121.5"/>
+        <path d="M-130,120V98"/><polygon points="-131.5,98 -130,95 -128.5,98"/>
+      </g>
+      <text x="-103" y="121" font-size="2.7" fill="#24372b">+x east</text>
+      <text x="-128" y="94" font-size="2.7" fill="#24372b">-z north/back</text>
+      <g transform="translate(58,117)">
+        <rect width="20" height="1.8" fill="#24372b"/>
+        <rect x="20" width="20" height="1.8" fill="#fbf8f0" stroke="#24372b" stroke-width="0.2"/>
+        <text x="0" y="-1" font-size="2.5" fill="#24372b">0</text>
+        <text x="20" y="-1" font-size="2.5" text-anchor="middle" fill="#24372b">20</text>
+        <text x="40" y="-1" font-size="2.5" text-anchor="middle" fill="#24372b">40 m</text>
+      </g>
+    </g>
+  </g>
+  <rect x="8" y="8" width="278" height="260" fill="none" stroke="#24372b" stroke-width="0.65"/>
+
+  <!-- LEGEND -->
+  <g transform="translate(294,10)" font-size="2.85" fill="#24372b">
+    <text x="0" y="4" font-size="4.8" font-weight="bold">medieval-meadow-kingdom  |  plan v1</text>
+    <text x="0" y="9">top-down synthesis  |  1 unit = 1 m  |  278  x  260 m shown</text>
+    <text x="0" y="13">origin map centre; x east; z toward camera/down</text>
+
+    <text x="0" y="20" font-weight="bold">Palette</text>
+    <rect x="0" y="22" width="5" height="3.6" fill="#9fcf75"/><text x="7" y="25">meadow ground #9fcf75</text>
+    <rect x="0" y="27" width="5" height="3.6" fill="#6f8055"/><text x="7" y="30">cliff / ridge side #6f8055</text>
+    <rect x="0" y="32" width="5" height="3.6" fill="#4f7d4a"/><text x="7" y="35">forest #4f7d4a</text>
+    <rect x="0" y="37" width="5" height="3.6" fill="#d8c49a"/><text x="7" y="40">road core #d8c49a / edge #a58d68</text>
+    <rect x="0" y="42" width="5" height="3.6" fill="#d9d2c4"/><text x="7" y="45">court/cobble #d9d2c4</text>
+    <rect x="0" y="47" width="5" height="3.6" fill="#6f9c66"/><text x="7" y="50">wet bank #6f9c66</text>
+    <rect x="0" y="52" width="5" height="3.6" fill="#5faeb6"/><text x="7" y="55">water #5faeb6</text>
+    <rect x="0" y="57" width="5" height="3.6" fill="#c7b98f"/><text x="7" y="60">limestone #c7b98f</text>
+    <rect x="0" y="62" width="5" height="3.6" fill="#d9765c"/><text x="7" y="65">roof accent #d9765c</text>
+    <rect x="0" y="67" width="5" height="3.6" fill="#ffe9a8"/><text x="7" y="70">night window #ffe9a8</text>
+
+    <text x="0" y="78" font-weight="bold">District centres / footprint / jitter / yaw</text>
+    <text x="0" y="82.5">1 Forest (-80,-61)  |  54  x  38  |  8 m  |  +/-35 deg</text>
+    <text x="0" y="86.5">2 River village (-34,-19)  |  48  x  39  |  7 m  |  +/-30 deg</text>
+    <text x="0" y="90.5">3 Bridge market (+33,+18)  |  46  x  38  |  6 m  |  +/-25 deg</text>
+    <text x="0" y="94.5">4 Farm/common (-72,+49)  |  62  x  54  |  10 m  |  +/-40 deg</text>
+    <text x="0" y="98.5">5 Castle (+75,-67)  |  62  x  62  |  4 m  |  +/-18 deg</text>
+    <text x="0" y="102.5">rejection: district gap &gt;= 18 m; water edge &gt;= 4 m</text>
+
+    <text x="0" y="110" font-weight="bold">Symbols and open preserves</text>
+    <path d="M0,113 h7 v4 h-7Z" fill="#a9c978" stroke="#55724a" stroke-width="0.35"/><text x="9" y="116.3">solid irregular polygon = district ground</text>
+    <path d="M0,120 h7 v4 h-7Z" fill="none" stroke="#354e36" stroke-width="0.4" stroke-dasharray="1 1"/><text x="9" y="123.3">dashed = seeded centre/yaw envelope</text>
+    <path d="M0,127 h7 v4 h-7Z" fill="#b9dc83" stroke="#55724a" stroke-width="0.35" stroke-dasharray="1 1"/><text x="9" y="130.3">P1-P4 = no-placement preserve</text>
+    <text x="0" y="135">P1 44  x  30  |  P2 42  x  34  |  P3 46  x  36  |  P4 50  x  38 m</text>
+
+    <text x="0" y="143" font-weight="bold">Castle rule: landmark, never skyline duplicate</text>
+    <text x="0" y="147">Castle is the sole course landmark on Crown Headland.</text>
+    <text x="0" y="151">The perimeter Green Crown is the skyline; it has no castle.</text>
+    <text x="0" y="155">Thus towers count once, on the landmark only.</text>
+
+    <text x="0" y="163" font-weight="bold">Skyline growth; settlement ground fixed</text>
+    <text x="0" y="167">0 %: 8 hill/tree crowns, 5-7 m; first row continuous</text>
+    <text x="0" y="171">25 %: 12 crowns, 7-9 m; 50 %: joined ridge 10 m</text>
+    <text x="0" y="175">75 %: second wooded row 12-15 m</text>
+    <text x="0" y="179">100 %: 3 limestone shoulders 16 m + oak crown 18 m</text>
+
+    <text x="0" y="187" font-weight="bold">Seed grammar</text>
+    <text x="0" y="191">Art-directed centres above; re-sample within dashed envelope.</text>
+    <text x="0" y="195">Uneven spacing; 3 silhouette heights per district; no grids.</text>
+    <text x="0" y="199">House yaw local-road +/-18 deg; district yaw as listed.</text>
+    <text x="0" y="203">Keep &gt;= 4 preserves, &gt;= 18 m gaps, &gt;= 39 % open land/water.</text>
+    <text x="0" y="207">Split motifs across regions; no image becomes one district.</text>
+
+    <text x="0" y="215" font-weight="bold">Free-orbit camera and horizon gate</text>
+    <text x="0" y="219">Overview: pitch 38-40 deg, FOV 26 deg, target (0,0), frame 184  x  176.</text>
+    <text x="0" y="223">Fog starts 1.15d; full at 2.2d; second row 8-14 m behind.</text>
+    <text x="0" y="227">Validate N/NE/E/SE/S/SW/W/NW at 45 deg increments.</text>
+    <text x="0" y="231">At each: first ridge overlaps frame edge &gt;= 12 m; second row</text>
+    <text x="0" y="235">covers every saddle; fog hides outer edge. No empty reveal.</text>
+
+    <text x="0" y="243" font-weight="bold">48 px read</text>
+    <text x="0" y="247">Props hidden: green turf lip + blue river slash + dark ridge.</text>
+    <text x="0" y="251">Props shown: one gatehouse pair, wheel, bridge, windmill, oak.</text>
+    <text x="0" y="255">Nearest gates: forest differs by river/castle; alpine differs by</text>
+    <text x="0" y="259">soft round ridge/no cable; city differs by 39 % open meadow.</text>
+
+    <text x="0" y="268" fill="#55724a">Drawn 2026-09-20  |  map/synthesis only  |  no GLB implementation</text>
+  </g>
+</svg>

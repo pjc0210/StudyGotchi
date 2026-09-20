@@ -1,0 +1,177 @@
+{
+  "$comment": "StudyGotchi SFX palette. Each sound is either a single ZzFX parameter array (`zzfx`) or a few `layers` mixed with a start offset `at` (seconds) and `gain`. Arrays are written out in full (21 params, ZzFX 1.3.x order) so agents can edit any slot. Units: frequency Hz; attack/sustain/release/delay seconds; slide = 500 Hz per second; deltaSlide = 500 Hz/s per second; pitchJump Hz after pitchJumpTime s; repeatTime s (also the tremolo period; keep tremolo <= 0.5 for one pulse per repeat); filter Hz, negative = low-pass (cutoff ~2x the value), positive = high-pass. Shapes: 0 sin, 1 triangle, 2 saw, 3 tan, 4 noise, 5 square. Toybox rules: sine/triangle only unless it is air (shape 4 + low-pass), volumes 0.2-0.75, pitches on C/D-major pentatonic notes, everything under ~1.1 s except ambience.",
+  "version": 1,
+  "zzfx": {
+    "package": "zzfx@1.3.2 (MIT, Frank Force)",
+    "params": ["volume", "randomness", "frequency", "attack", "sustain", "release", "shape", "shapeCurve", "slide", "deltaSlide", "pitchJump", "pitchJumpTime", "repeatTime", "noise", "modulation", "bitCrush", "delay", "sustainVolume", "decay", "tremolo", "filter"]
+  },
+  "sounds": {
+    "ui-tap": {
+      "group": "ui",
+      "description": "40 ms sine blip on E5 with a hair of downward slide; the default tap for buttons and cards.",
+      "zzfx": [0.6, 0.03, 659.25, 0.004, 0.02, 0.07, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+    },
+    "ui-confirm": {
+      "group": "ui",
+      "description": "Two-note upward mallet C5 -> G5, soft triangle; primary actions and saves.",
+      "zzfx": [0.6, 0.02, 523.25, 0.006, 0.07, 0.16, 1, 1.2, 0, 0, 260.74, 0.075, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+    },
+    "ui-cancel": {
+      "group": "ui",
+      "description": "Low-passed triangle gliding down D5 -> G4; back, dismiss, close without saving.",
+      "zzfx": [0.55, 0.02, 587.33, 0.006, 0.06, 0.16, 1, 1, -1.6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -900]
+    },
+    "ui-hover": {
+      "group": "ui",
+      "description": "Very quiet 40 ms tick on A5 for hover and focus changes; barely there.",
+      "zzfx": [0.22, 0.03, 880, 0.002, 0.006, 0.035, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+    },
+    "card-open": {
+      "group": "ui",
+      "description": "Rounded swoop up G4 -> D5 that flattens at the top, like a card sliding open.",
+      "zzfx": [0.5, 0.02, 392, 0.015, 0.05, 0.16, 1, 1, 3.2, -14, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1400]
+    },
+    "card-close": {
+      "group": "ui",
+      "description": "Mirror of card-open: swoop down D5 -> G4 with the same soft low-pass.",
+      "zzfx": [0.5, 0.02, 587.33, 0.01, 0.05, 0.15, 1, 1, -3, 12, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1400]
+    },
+    "sprout-appear": {
+      "group": "world",
+      "description": "Little sine 'bloop' rising A4 -> E5 and settling; a sprout or new node pops up.",
+      "zzfx": [0.55, 0.05, 440, 0.004, 0.05, 0.18, 0, 1, 5, -25, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+    },
+    "landmark-build-1": {
+      "group": "world",
+      "description": "Stage 1 build: two soft wooden knocks on G3 (repeat + tremolo), low-passed.",
+      "zzfx": [0.7, 0.03, 196, 0.004, 0.05, 0.22, 1, 1.4, -1.6, 0, 0, 0, 0.11, 0, 0, 0, 0, 1, 0, 0.5, -1200]
+    },
+    "landmark-build-2": {
+      "group": "world",
+      "description": "Stage 2 build: four brighter knocks on C4, same wood but more of it.",
+      "zzfx": [0.7, 0.03, 261.63, 0.004, 0.15, 0.22, 1, 1.4, -1.6, 0, 0, 0, 0.1, 0, 0, 0, 0, 1, 0, 0.5, -1400]
+    },
+    "landmark-build-3": {
+      "group": "world",
+      "description": "Stage 3 build: five knocks climbing D4 -> G4 with a short hall echo; the big one.",
+      "zzfx": [0.85, 0.03, 261.63, 0.004, 0.28, 0.24, 1, 1.4, -1.6, 0, 32.7, 0.001, 0.1, 0, 0, 0, 0.13, 1, 0, 0.5, -1600]
+    },
+    "landmark-upgrade": {
+      "group": "world",
+      "description": "Four-note D-major arpeggio A4 D5 F#5 A5 on a soft mallet with a light echo.",
+      "zzfx": [0.75, 0.02, 294, 0.006, 0.17, 0.16, 1, 1.2, 0, 0, 147, 0.001, 0.085, 0, 0, 0, 0.1, 1, 0, 0.3, 0]
+    },
+    "creature-arrive": {
+      "group": "creature",
+      "description": "Pop + sparkle: a descending sine 'bwop' followed by a rising high sine arpeggio with echo.",
+      "layers": [
+        { "name": "pop", "at": 0, "gain": 1, "zzfx": [0.7, 0.05, 620, 0.002, 0.02, 0.1, 0, 1, -6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0] },
+        { "name": "sparkle", "at": 0.06, "gain": 1, "zzfx": [0.32, 0.05, 1568, 0.01, 0.14, 0.12, 0, 1, 0, 0, 392, 0.001, 0.07, 0, 0, 0, 0.15, 0.7, 0, 0.4, 0] }
+      ]
+    },
+    "creature-tap": {
+      "group": "creature",
+      "description": "Squishy triangle 'boing' E4 up to ~B4 and back down; poking the creature.",
+      "zzfx": [0.6, 0.06, 330, 0.004, 0.06, 0.15, 1, 1.3, 6, -60, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -2000]
+    },
+    "creature-happy": {
+      "group": "creature",
+      "description": "Two cheerful rising chirps D5->A5, G5->B5 (repeat + pitch jump), pure sine.",
+      "zzfx": [0.55, 0.05, 587.33, 0.008, 0.16, 0.14, 0, 1, 3, 0, 196.67, 0.06, 0.12, 0, 0, 0, 0, 1, 0, 0.3, 0]
+    },
+    "creature-sad": {
+      "group": "creature",
+      "description": "Drooping 'awww': A4 sliding down with a drop to D4, low-passed and quiet.",
+      "zzfx": [0.5, 0.04, 440, 0.03, 0.2, 0.3, 1, 1.1, -0.5, 0, -110, 0.15, 0, 0, 0, 0, 0, 0.8, 0.04, 0, -900]
+    },
+    "creature-sleep": {
+      "group": "creature",
+      "description": "Soft two-tone sigh C4 -> G3 with a slow attack and long release; the sleep bubble.",
+      "zzfx": [0.38, 0.02, 261.63, 0.1, 0.25, 0.4, 0, 1, -0.2, 0, -65.4, 0.3, 0, 0, 0, 0, 0, 0.7, 0.12, 0, -600]
+    },
+    "creature-greet": {
+      "group": "creature",
+      "description": "Pikmin-ish 'brrp?': low-passed triangle rising G4 -> ~E5 with an 18 Hz gargle.",
+      "zzfx": [0.5, 0.06, 392, 0.01, 0.12, 0.14, 1, 1.3, 2.2, 0, 0, 0, 0, 0, 18, 0, 0, 1, 0, 0, -1800]
+    },
+    "evidence-ingested": {
+      "group": "world",
+      "description": "Slurp + ding: a rising low-passed sweep E4 -> ~B5, then a C6 bell with echo.",
+      "layers": [
+        { "name": "slurp", "at": 0, "gain": 1, "zzfx": [0.45, 0.03, 330, 0.01, 0.1, 0.1, 1, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1500] },
+        { "name": "ding", "at": 0.18, "gain": 1, "zzfx": [0.4, 0.02, 1046.5, 0.004, 0.06, 0.35, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0.12, 1, 0, 0, 0] }
+      ]
+    },
+    "progress-tick": {
+      "group": "progress",
+      "description": "Tiny coin tick C6 -> E6, 120 ms; one per progress increment.",
+      "zzfx": [0.45, 0.03, 1046.5, 0.002, 0.03, 0.09, 0, 1, 0, 0, 272, 0.03, 0, 0, 0, 0, 0, 1, 0, 0, 0]
+    },
+    "progress-streak": {
+      "group": "progress",
+      "description": "Coin-like B5 -> E6 with a short echo; streak kept.",
+      "zzfx": [0.65, 0.03, 987.77, 0.003, 0.05, 0.2, 0, 1, 0, 0, 330.6, 0.05, 0, 0, 0, 0, 0.06, 1, 0, 0, 0]
+    },
+    "progress-level-up": {
+      "group": "progress",
+      "description": "Rising D-major run A4 D5 F#5 A5 ... F#6 on a soft mallet with echo; level or stage complete.",
+      "zzfx": [0.7, 0.02, 294, 0.006, 0.34, 0.3, 1, 1.2, 0, 0, 147, 0.001, 0.085, 0, 0, 0, 0.12, 1, 0, 0.3, 0]
+    },
+    "camera-dive": {
+      "group": "camera",
+      "description": "Descending sine sweep G5 -> A3 under a soft low-passed air swell; zooming into a world.",
+      "layers": [
+        { "name": "sweep", "at": 0, "gain": 1, "zzfx": [0.4, 0.02, 784, 0.03, 0.25, 0.25, 0, 1, -2.1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1200] },
+        { "name": "air", "at": 0, "gain": 1, "zzfx": [0.22, 0.05, 400, 0.12, 0.15, 0.3, 4, 1, -0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -500] }
+      ]
+    },
+    "camera-rise": {
+      "group": "camera",
+      "description": "Mirror of camera-dive: sine sweep C4 -> G5 with the same air swell; pulling back out.",
+      "layers": [
+        { "name": "sweep", "at": 0, "gain": 1, "zzfx": [0.4, 0.02, 261.63, 0.03, 0.25, 0.25, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1200] },
+        { "name": "air", "at": 0, "gain": 1, "zzfx": [0.22, 0.05, 400, 0.12, 0.15, 0.3, 4, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -500] }
+      ]
+    },
+    "visit-whoosh": {
+      "group": "camera",
+      "description": "One-second airy whoosh (low-passed noise swell) with a sparkle arpeggio tail; visiting a friend's world.",
+      "layers": [
+        { "name": "air", "at": 0, "gain": 1, "zzfx": [0.3, 0.05, 600, 0.3, 0.1, 0.55, 4, 1, 1, -2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -900] },
+        { "name": "sparkle", "at": 0.5, "gain": 1, "zzfx": [0.28, 0.05, 1568, 0.01, 0.2, 0.2, 0, 1, 0, 0, 392, 0.001, 0.07, 0, 0, 0, 0.14, 0.7, 0, 0.4, 0] }
+      ]
+    },
+    "error-soft": {
+      "group": "ui",
+      "description": "Wobbly low 'mmp' on A3 (18 Hz tremolo), low-passed; a gentle no.",
+      "zzfx": [0.5, 0.03, 220, 0.01, 0.12, 0.15, 1, 1.5, -1, 0, 0, 0, 0.055, 0, 0, 0, 0, 1, 0, 0.5, -700]
+    },
+    "explode-comic": {
+      "group": "creature",
+      "description": "Cartoon poof: deep soft thump + low-passed noise puff + a descending 'bwoop' blorp. Comic, not violent.",
+      "layers": [
+        { "name": "thump", "at": 0, "gain": 1, "zzfx": [0.42, 0.05, 160, 0.003, 0.04, 0.28, 0, 1, -0.3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0] },
+        { "name": "puff", "at": 0, "gain": 1, "zzfx": [0.22, 0.1, 500, 0.01, 0.06, 0.32, 4, 1, -0.5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -700] },
+        { "name": "blorp", "at": 0.07, "gain": 1, "zzfx": [0.38, 0.05, 420, 0.005, 0.08, 0.2, 1, 1.2, -3.5, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -1600] }
+      ]
+    },
+    "recover-chime": {
+      "group": "creature",
+      "description": "Bounce back: triangle slide up E4 -> E5, then a C6 E6 G6 C7 sparkle with echo.",
+      "layers": [
+        { "name": "rise", "at": 0, "gain": 1, "zzfx": [0.5, 0.03, 330, 0.006, 0.1, 0.22, 1, 1.2, 5, -20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, -2000] },
+        { "name": "sparkle", "at": 0.2, "gain": 1, "zzfx": [0.3, 0.03, 1046.5, 0.01, 0.12, 0.25, 0, 1, 0, 0, 261.6, 0.001, 0.08, 0, 0, 0, 0.12, 0.7, 0, 0.3, 0] }
+      ]
+    },
+    "ambient-wind-gust": {
+      "group": "ambient",
+      "description": "2 s low-passed noise swell that rises then settles; a wind gust for outdoor biomes.",
+      "zzfx": [0.3, 0.1, 300, 0.6, 0.3, 1.0, 4, 1, 0.5, -0.5, 0, 0, 0, 0, 0, 0, 0, 0.8, 0.3, 0, -350]
+    },
+    "ambient-bird-chirp": {
+      "group": "ambient",
+      "description": "Three quick sine chirps stepping down (~2.1k, 1.85k, 1.6k Hz), each rising; quiet.",
+      "zzfx": [0.28, 0.1, 2350, 0.004, 0.22, 0.06, 0, 1, 8, -60, -250, 0.001, 0.09, 0, 0, 0, 0, 1, 0, 0.5, 0]
+    }
+  }
+}

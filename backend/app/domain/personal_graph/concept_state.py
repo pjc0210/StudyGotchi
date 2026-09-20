@@ -54,7 +54,7 @@ def classify_concept_state(
         return ConceptState.FRAGILE
 
     if last_practiced_at is not None:
-        # SQLite round-trips DateTime(timezone=True) columns as naive UTC.
+        # SQLite hands back naive timestamps; they were stored as UTC.
         if last_practiced_at.tzinfo is None:
             last_practiced_at = last_practiced_at.replace(tzinfo=timezone.utc)
         age_days = (datetime.now(timezone.utc) - last_practiced_at).total_seconds() / 86400.0

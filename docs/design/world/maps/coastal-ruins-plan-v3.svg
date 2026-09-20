@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 262" width="2200" height="1310" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="frontSeaFog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9eef0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#d9eef0" stop-opacity="0.97"/>
+    </linearGradient>
+    <linearGradient id="wingFogL" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d9eef0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#d9eef0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wingFogR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#d9eef0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#d9eef0" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="ruinHatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="0.65" height="3" fill="#9d9078" opacity="0.65"/>
+    </pattern>
+    <pattern id="jitterHatch" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+      <rect width="0.35" height="2" fill="#273e49" opacity="0.22"/>
+    </pattern>
+    <clipPath id="mapClip"><rect x="8" y="8" width="278" height="246"/></clipPath>
+  </defs>
+
+  <rect width="440" height="262" fill="#fbf8ef"/>
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(147,132)">
+      <rect x="-139" y="-124" width="278" height="246" fill="#2f7f99"/>
+      <g stroke="#85c7d2" stroke-width="0.16" opacity="0.48">
+        <path d="M-120,-124V122 M-100,-124V122 M-80,-124V122 M-60,-124V122 M-40,-124V122 M-20,-124V122 M0,-124V122 M20,-124V122 M40,-124V122 M60,-124V122 M80,-124V122 M100,-124V122 M120,-124V122"/>
+        <path d="M-139,-120H139 M-139,-100H139 M-139,-80H139 M-139,-60H139 M-139,-40H139 M-139,-20H139 M-139,0H139 M-139,20H139 M-139,40H139 M-139,60H139 M-139,80H139 M-139,100H139 M-139,120H139"/>
+      </g>
+
+      <!-- fixed north-connected mainland; foreground remains open sea -->
+      <path d="M-148,-134 L148,-134 L148,-73 L130,-64 L111,-61 L98,-49 L91,-31 L103,-17 L98,2 L82,16 L66,22 L54,38 L39,49 L24,46 L12,31 L0,24 L-12,31 L-25,49 L-44,64 L-67,75 L-91,72 L-114,60 L-132,44 L-148,37 Z" fill="#e8dfc6" stroke="#f8f2df" stroke-width="1"/>
+      <path d="M-148,37 L-132,44 L-114,60 L-91,72 L-67,75 L-44,64 L-25,49 L-12,31 L0,24 L12,31 L24,46 L39,49 L54,38 L66,22 L82,16 L98,2 L103,-17 L98,-49 L111,-61 L130,-64 L148,-73 L148,-62 L132,-54 L117,-51 L109,-41 L114,-15 L107,10 L90,25 L75,31 L63,48 L45,61 L20,58 L7,44 L1,39 L-2,40 L-14,58 L-34,74 L-64,88 L-94,84 L-121,70 L-140,51 L-148,48 Z" fill="#b98762"/>
+      <path d="M-126,51 C-102,65 -83,74 -63,76 C-40,72 -25,57 -11,38 C-3,27 6,22 17,31 C26,38 28,51 42,51 C57,51 65,34 79,27 C92,20 99,12 104,0 L111,10 C99,31 82,37 70,53 C55,70 33,72 17,57 C6,47 0,48 -8,60 C-30,86 -58,96 -91,91 C-113,88 -132,75 -143,62 Z" fill="#63bec6" opacity="0.84"/>
+
+      <!-- north/back skyline only -->
+      <polygon points="-148,-124 -132,-118 -119,-124 -104,-114 -90,-123 -74,-116 -58,-124 -42,-113 -27,-122 -11,-115 5,-124 21,-114 38,-123 55,-116 73,-124 91,-114 109,-123 127,-115 148,-124 148,-108 -148,-108" fill="#9aa99f" opacity="0.62"/>
+      <path d="M-148,-106 L-129,-101 L-112,-106 L-95,-96 L-78,-104 L-60,-94 L-42,-103 L-25,-91 L-7,-101 L11,-93 L29,-104 L47,-92 L65,-101 L84,-94 L102,-104 L121,-93 L139,-101 L148,-98 L148,-83 C119,-79 97,-82 75,-77 C53,-74 31,-78 9,-75 C-13,-79 -36,-75 -58,-79 C-82,-76 -104,-80 -126,-78 L-148,-84 Z" fill="#b7a981" stroke="#766f5d" stroke-width="0.5"/>
+      <g fill="#fff7e5"><polygon points="-96,-96 -91,-110 -86,-96"/><polygon points="-29,-92 -23,-111 -17,-92"/><polygon points="43,-93 49,-112 55,-93"/><polygon points="103,-104 109,-116 115,-103"/></g>
+      <text x="0" y="-91" font-size="3.8" text-anchor="middle" fill="#fffaf0" font-weight="bold">NORTH / BACK LIMESTONE ESCARPMENT - SKYLINE GROWTH ONLY</text>
+      <text x="0" y="-116" font-size="2.7" text-anchor="middle" fill="#334d58">ROW 2 - FIXED z -108 TO -124 m - DISSOLVES INTO BACK FOG</text>
+
+      <!-- side cliff/islet wings taper toward the camera and vanish in fog -->
+      <path d="M-148,-104 L-138,-99 L-132,-88 L-137,-76 L-128,-65 L-135,-51 L-126,-39 L-132,-27 L-124,-16 L-130,-5 L-123,6 L-129,17 L-121,28 L-128,38 L-120,48 L-127,57 L-118,66 L-124,73 L-148,65 Z" fill="#b7a981" opacity="0.78" stroke="#766f5d" stroke-width="0.45"/>
+      <path d="M148,-104 L138,-99 L132,-88 L137,-76 L128,-65 L135,-51 L126,-39 L132,-27 L124,-16 L130,-5 L123,6 L129,17 L121,28 L128,38 L120,48 L127,57 L118,66 L124,73 L148,65 Z" fill="#b7a981" opacity="0.78" stroke="#766f5d" stroke-width="0.45"/>
+      <g fill="#9aa99f" opacity="0.55">
+        <path d="M-139,-69 l8,-10 7,9 -3,9 z M-135,-42 l7,-8 6,8 -2,8 z M-132,-14 l6,-7 6,7 -2,7 z M-128,13 l5,-6 5,6 -2,6 z M-125,39 l4,-5 4,5 -2,5 z"/>
+        <path d="M139,-69 l-8,-10 -7,9 3,9 z M135,-42 l-7,-8 -6,8 2,8 z M132,-14 l-6,-7 -6,7 2,7 z M128,13 l-5,-6 -5,6 2,6 z M125,39 l-4,-5 -4,5 2,5 z"/>
+      </g>
+      <rect x="-139" y="-124" width="25" height="198" fill="url(#wingFogL)"/>
+      <rect x="114" y="-124" width="25" height="198" fill="url(#wingFogR)"/>
+
+      <!-- fixed catchments; unchanged from v2, minimum clearance 21.7 m -->
+      <path d="M-53,-73 L-39,-80 L-19,-78 L1,-68 L2,-48 L-9,-34 L-31,-32 L-50,-41 L-55,-58 Z" fill="#f5efdc" fill-opacity="0.76" stroke="#273e49" stroke-width="0.55"/>
+      <path d="M-135,-39 L-125,-47 L-105,-46 L-90,-35 L-89,-14 L-101,-3 L-121,-5 L-135,-17 Z" fill="url(#ruinHatch)" stroke="#273e49" stroke-width="0.55"/>
+      <path d="M46,-75 L63,-80 L85,-78 L98,-64 L97,-45 L83,-36 L60,-37 L47,-49 Z" fill="#d9d0aa" fill-opacity="0.84" stroke="#273e49" stroke-width="0.55"/>
+      <path d="M-39,18 L-25,13 L-4,17 L13,30 L14,48 L0,60 L-20,61 L-38,50 L-43,34 Z" fill="#8ed6cf" fill-opacity="0.58" stroke="#f8f2df" stroke-width="0.8"/>
+      <path d="M62,11 L76,7 L99,11 L111,24 L108,42 L94,51 L73,48 L60,35 Z" fill="#f5efdc" fill-opacity="0.78" stroke="#273e49" stroke-width="0.55"/>
+      <g fill="url(#jitterHatch)" stroke="#273e49" stroke-width="0.45" stroke-dasharray="2 1.4">
+        <ellipse cx="-26" cy="-55" rx="8" ry="6" transform="rotate(-12 -26 -55)"/>
+        <ellipse cx="-112" cy="-24" rx="7" ry="6" transform="rotate(16 -112 -24)"/>
+        <ellipse cx="72" cy="-58" rx="8" ry="5" transform="rotate(-8 72 -58)"/>
+        <ellipse cx="-12" cy="38" rx="7" ry="6" transform="rotate(12 -12 38)"/>
+        <ellipse cx="86" cy="30" rx="8" ry="6" transform="rotate(-14 86 30)"/>
+      </g>
+
+      <!-- Salt-White Working Coast district content, unchanged -->
+      <g fill="none" stroke="#5279a5" stroke-width="1.7"><path d="M-46,-66 L-35,-60 L-24,-64 L-13,-54 L-2,-57"/><path d="M-43,-49 L-32,-55 L-20,-46 L-9,-50"/></g>
+      <path d="M-30,-73 l5,5 -5,5 5,5 -5,5 5,5 -5,5" fill="none" stroke="#766f5d" stroke-width="2.6"/>
+      <circle cx="-44" cy="-42" r="3.1" fill="#c64b92"/>
+      <text x="-26" y="-77" font-size="4" text-anchor="middle" font-weight="bold" fill="#273e49">1 CLIFF VILLAGE</text>
+      <text x="-26" y="-28" font-size="2.6" text-anchor="middle" fill="#273e49">civic stair + white/cyan lanes + vine court</text>
+      <text x="-26" y="-24.5" font-size="2.5" text-anchor="middle" fill="#5279a5">(-26,-55); 54 x 48 m; jitter 8 x 6; yaw +/-16</text>
+
+      <g stroke="#85785f" stroke-width="1.5" fill="#f5efdc"><path d="M-128,-36 v17 M-121,-38 v19 M-114,-35 v15 M-107,-38 v18 M-100,-34 v14 M-93,-35 v15"/><path d="M-131,-19 H-90"/></g>
+      <ellipse cx="-115" cy="-10" rx="8" ry="4" fill="#63bec6" stroke="#527b82" stroke-width="0.5"/>
+      <text x="-112" y="-50" font-size="4" text-anchor="middle" font-weight="bold" fill="#273e49">2 ARCHAEOLOGY RIDGE</text>
+      <text x="-112" y="1" font-size="2.6" text-anchor="middle" fill="#273e49">survey yard + cistern + 41 m column comb</text>
+      <text x="-112" y="4.5" font-size="2.5" text-anchor="middle" fill="#85785f">(-112,-24); 46 x 44 m; jitter 7 x 6; yaw +/-18</text>
+
+      <g fill="none" stroke="#b98762" stroke-width="2.2"><path d="M51,-66 Q71,-77 93,-64"/><path d="M52,-57 Q72,-68 94,-56"/><path d="M56,-48 Q73,-58 91,-48"/></g>
+      <g fill="#c88955" stroke="#f5efdc" stroke-width="0.5"><rect x="54" y="-71" width="7" height="6"/><rect x="82" y="-55" width="8" height="6"/></g>
+      <circle cx="76" cy="-66" r="4" fill="#5279a5" stroke="#f5efdc" stroke-width="0.8"/>
+      <text x="72" y="-82" font-size="4" text-anchor="middle" font-weight="bold" fill="#273e49">3 DRY TERRACES</text>
+      <text x="72" y="-32" font-size="2.6" text-anchor="middle" fill="#273e49">ochre yards + kiln + blue cistern; 3 crescents</text>
+      <text x="72" y="-28.5" font-size="2.5" text-anchor="middle" fill="#85785f">(+72,-58); 52 x 44 m; jitter 8 x 5; yaw +/-14</text>
+
+      <circle cx="-12" cy="38" r="14" fill="none" stroke="#766f5d" stroke-width="3.2" stroke-dasharray="15 4 7 5"/>
+      <circle cx="-12" cy="38" r="9" fill="#2f7f99" opacity="0.55" stroke="#f5efdc" stroke-width="1"/>
+      <g stroke="#b7a981" stroke-width="1.5"><path d="M-33,43 v-13 M-25,53 l2,-15 M8,48 l-1,-14 M15,38 l3,-12"/></g>
+      <text x="-12" y="14" font-size="4" text-anchor="middle" font-weight="bold" fill="#fffaf0">4 DROWNED FORUM</text>
+      <text x="-12" y="65" font-size="2.6" text-anchor="middle" fill="#fffaf0">mosaic quay + dive steps + 28 m broken ring</text>
+      <text x="-12" y="68.5" font-size="2.5" text-anchor="middle" fill="#d9eef0">(-12,+38); 54 x 48 m; jitter 7 x 6; yaw +/-18</text>
+
+      <g fill="none" stroke="#766f5d" stroke-width="3.4" stroke-linecap="square"><path d="M68,29 H96 V45"/><path d="M77,18 V39 H105"/></g>
+      <g fill="#fffaf0" stroke="#5279a5" stroke-width="0.5"><rect x="65" y="15" width="10" height="8"/><rect x="92" y="17" width="10" height="8"/><rect x="96" y="39" width="8" height="6"/></g>
+      <path d="M65,15 h10 v3 h-10 z M92,17 h10 v3 h-10 z" fill="#5e466f"/>
+      <text x="86" y="5" font-size="4" text-anchor="middle" font-weight="bold" fill="#273e49">5 WORKING QUAY + COVE TOWN</text>
+      <text x="86" y="55" font-size="2.6" text-anchor="middle" fill="#273e49">shuttered sheds + violet awnings + 32 m L-quay</text>
+      <text x="86" y="58.5" font-size="2.5" text-anchor="middle" fill="#85785f">(+86,+30); 50 x 44 m; jitter 8 x 6; yaw +/-16</text>
+
+      <g fill="none" stroke-linecap="round"><path d="M-52,-39 C-48,-31 -46,-24 -45,-17" stroke="#c7b894" stroke-width="4"/><path d="M48,-38 C52,-30 56,-24 60,-19" stroke="#c7b894" stroke-width="4"/><path d="M-131,-8 C-125,-3 -119,0 -111,3" stroke="#c7b894" stroke-width="3"/><path d="M-38,20 l5,4 -5,4 5,4 -5,4" stroke="#f5efdc" stroke-width="2"/></g>
+
+      <path d="M84,83 L93,77 L111,78 L123,88 L122,104 L112,113 L95,113 L84,103 Z" fill="#b98762" stroke="#f8f2df" stroke-width="0.9"/>
+      <path d="M90,88 L98,83 L109,84 L116,91 L115,101 L108,107 L98,107 L91,101 Z" fill="#e8dfc6"/>
+      <path d="M98,103 h11 v-9 h-11 z M101,91 h5 v-5 h-5 z" fill="#fffaf0" stroke="#536a75" stroke-width="0.4"/>
+      <path d="M104,86 v-7" stroke="#c64b92" stroke-width="1.2"/>
+      <text x="104" y="74" font-size="4" text-anchor="middle" font-weight="bold" fill="#fffaf0">L ARCHIVE-BEACON HEADLAND</text>
+
+      <!-- local boat routes and protected negative space -->
+      <g fill="none" stroke="#fffaf0" stroke-width="0.75" stroke-dasharray="3 2"><path d="M101,54 C108,64 108,72 105,79"/><path d="M66,58 C42,76 18,83 -7,79 C-26,76 -42,69 -54,58"/><path d="M-63,78 C-22,104 35,109 85,94"/></g>
+      <g fill="none" stroke="#fffaf0" stroke-width="0.35" stroke-dasharray="1 1.2"><ellipse cx="-68" cy="29" rx="15" ry="12"/><ellipse cx="27" cy="-7" rx="14" ry="11"/><ellipse cx="-36" cy="98" rx="17" ry="12"/><ellipse cx="38" cy="89" rx="14" ry="11"/></g>
+      <g font-size="2.4" fill="#fffaf0" text-anchor="middle"><text x="-68" y="30">open 30 x 24</text><text x="27" y="-6">open 28 x 22</text><text x="-36" y="99">open sea 34 x 24</text><text x="38" y="90">open sea 28 x 22</text></g>
+
+      <!-- corrected camera model: fixed south station, north target, yaw only -->
+      <g fill="none" stroke="#273e49" stroke-width="0.65" stroke-dasharray="3 2">
+        <path d="M0,109 L-82,-25"/><path d="M0,109 L0,-42"/><path d="M0,109 L82,-25"/>
+      </g>
+      <g fill="#273e49">
+        <path d="M0,109 l-5,8 h10 z"/><circle cx="0" cy="109" r="2.2"/>
+      </g>
+      <g font-size="2.55" fill="#273e49" font-weight="bold">
+        <text x="-72" y="-22">YAW -35</text><text x="3" y="-38">YAW 0</text><text x="67" y="-22">YAW +35</text>
+      </g>
+      <text x="0" y="105" font-size="2.8" text-anchor="middle" fill="#273e49" font-weight="bold">CAMERA SOUTH / FRONT - LOOKS NORTH / BACK</text>
+
+      <!-- foreground sea continues beyond camera and crop; no front world-edge object -->
+      <rect x="-139" y="94" width="278" height="28" fill="url(#frontSeaFog)"/>
+      <text x="0" y="116" font-size="2.85" text-anchor="middle" fill="#273e49" font-weight="bold">OPEN SEA CONTINUES BELOW CAMERA - CROPPED + FOGGED - NO FRONT EDGE</text>
+
+      <g stroke="#273e49" stroke-width="0.5" fill="#273e49"><path d="M-129,116 h20"/><polygon points="-109,114.5 -106,116 -109,117.5"/><path d="M-129,116 v-20"/><polygon points="-130.5,96 -129,93 -127.5,96"/></g>
+      <text x="-104" y="117" font-size="2.7" fill="#273e49">+x east</text><text x="-127" y="94" font-size="2.7" fill="#273e49">-z north</text>
+      <g transform="translate(50,118)"><rect width="20" height="1.6" fill="#273e49"/><rect x="20" width="20" height="1.6" fill="#fffaf0" stroke="#273e49" stroke-width="0.2"/><text x="0" y="-1" font-size="2.4" fill="#273e49">0</text><text x="20" y="-1" font-size="2.4" fill="#273e49" text-anchor="middle">20</text><text x="40" y="-1" font-size="2.4" fill="#273e49" text-anchor="middle">40 m</text></g>
+    </g>
+  </g>
+  <rect x="8" y="8" width="278" height="246" fill="none" stroke="#273e49" stroke-width="0.65"/>
+
+  <!-- plan legend -->
+  <g transform="translate(294,9)" font-size="2.68" fill="#273e49">
+    <text x="0" y="5" font-size="5.1" font-weight="bold">coastal-ruins - plan v3</text>
+    <text x="0" y="10">camera-model correction; 1 unit = 1 m; 2026-09-20</text>
+    <text x="0" y="14">278 x 246 m crop; world sea continues south beyond crop</text>
+
+    <text x="0" y="22" font-size="3.3" font-weight="bold">V3 correction</text>
+    <text x="0" y="26.5">camera is south/front and always looks north/back</text>
+    <text x="0" y="30.5">pitch 34-40 deg; yaw only -35 / 0 / +35 deg</text>
+    <text x="0" y="34.5">north escarpment is the only skyline horizon</text>
+    <text x="0" y="38.5">side wings taper into fog; no front/south stacks</text>
+    <text x="0" y="42.5">foreground sea crosses camera and crop; no visible edge</text>
+
+    <text x="0" y="50" font-size="3.3" font-weight="bold">Salt-White palette preserved</text>
+    <rect x="0" y="52" width="5" height="3.5" fill="#e8dfc6"/><text x="7" y="55">ground #e8dfc6</text>
+    <rect x="0" y="57" width="5" height="3.5" fill="#b98762"/><text x="7" y="60">cliff / pedestal side #b98762</text>
+    <rect x="0" y="62" width="5" height="3.5" fill="#f5efdc"/><text x="7" y="65">road core / plaster #f5efdc</text>
+    <rect x="0" y="67" width="5" height="3.5" fill="#c7b894"/><text x="7" y="70">road edge / ruins #c7b894</text>
+    <rect x="0" y="72" width="5" height="3.5" fill="#63bec6"/><text x="7" y="75">wet #63bec6; water #2f7f99</text>
+    <rect x="0" y="77" width="5" height="3.5" fill="#5279a5"/><text x="7" y="80">cobalt #5279a5; vine #c64b92</text>
+
+    <text x="0" y="88" font-size="3.3" font-weight="bold">Fixed districts preserved</text>
+    <text x="0" y="92.5">D1 (-26,-55) 54 x 48; D2 (-112,-24) 46 x 44</text>
+    <text x="0" y="96.5">D3 (+72,-58) 52 x 44; D4 (-12,+38) 54 x 48</text>
+    <text x="0" y="100.5">D5 (+86,+30) 50 x 44; L (+104,+96) 38 x 34</text>
+    <text x="0" y="104.5">minimum conservative district clearance: 21.7 m</text>
+
+    <text x="0" y="112" font-size="3.3" font-weight="bold">Camera tests</text>
+    <text x="0" y="116.5">default dolly r 86 m; max dolly r 133 m</text>
+    <text x="0" y="120.5">target (0,0); FOV 27 deg; pitch test 34 and 40 deg</text>
+    <text x="0" y="124.5">yaw -35: north escarpment + west tapered wing</text>
+    <text x="0" y="128.5">yaw 0: central escarpment + fixed second row</text>
+    <text x="0" y="132.5">yaw +35: north escarpment + east tapered wing</text>
+    <text x="0" y="136.5">run all 3 at r 86 and r 133 = 6 required views</text>
+    <text x="0" y="140.5">fog starts 210 m from camera; opaque at 310 m</text>
+
+    <text x="0" y="148" font-size="3.3" font-weight="bold">Acceptance per 6 views</text>
+    <text x="0" y="152.5">back skyline spans frame behind districts</text>
+    <text x="0" y="156.5">near side wing overlaps back row before fog</text>
+    <text x="0" y="160.5">far side dissolves; no hard lateral cut appears</text>
+    <text x="0" y="164.5">foreground is only sea + fog + crop, never stacks/cliff</text>
+    <text x="0" y="168.5">no circular ring, front wall, or south horizon element</text>
+
+    <text x="0" y="176" font-size="3.3" font-weight="bold">Seed and growth unchanged</text>
+    <text x="0" y="180.5">fixed catchments / coast / headland / skyline foot</text>
+    <text x="0" y="184.5">anchors and population slots jitter inside envelopes</text>
+    <text x="0" y="188.5">0% 3 shoulders / 8 m; 25% 4 / 10; 50% 6 / 13</text>
+    <text x="0" y="192.5">75% 8 / 16 + row 2; 100% 9 / 18 + four 22 m slits</text>
+
+    <text x="0" y="200" font-size="3.3" font-weight="bold">48 px anchors unchanged</text>
+    <text x="0" y="204.5">D1 stair zigzag; D2 6-tooth comb; D3 3 crescents</text>
+    <text x="0" y="208.5">D4 dark broken ring; D5 L-quay; L isolated block</text>
+
+    <text x="0" y="216" font-size="3.3" font-weight="bold">Motifs unchanged</text>
+    <text x="0" y="220.5">01 stair/vine D1; 02 ochre blocks D3</text>
+    <text x="0" y="224.5">03 columns/ring D2+D4; 04 shutters/awnings D5</text>
+    <text x="0" y="228.5">05 channel/faceted cliff/foam across whole coast</text>
+
+    <text x="0" y="236" font-size="3.3" font-weight="bold">Open-front rule</text>
+    <text x="0" y="240.5">camera may dolly south over sea; land never follows it</text>
+    <text x="0" y="244.5">render crop hides near sea extent; fog hides far extent</text>
+    <text x="0" y="250" fill="#766f5d">V3 replaces all free-orbit / 8-azimuth requirements.</text>
+  </g>
+</svg>

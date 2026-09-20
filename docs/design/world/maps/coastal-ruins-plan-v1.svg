@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 262" width="2200" height="1310" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="seaFog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9eef0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#d9eef0" stop-opacity="0.96"/>
+    </linearGradient>
+    <linearGradient id="sideFog" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d9eef0" stop-opacity="0.9"/>
+      <stop offset="0.2" stop-color="#d9eef0" stop-opacity="0"/>
+      <stop offset="0.8" stop-color="#d9eef0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#d9eef0" stop-opacity="0.9"/>
+    </linearGradient>
+    <pattern id="ruinHatch" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <rect width="0.65" height="3" fill="#c7b894" opacity="0.7"/>
+    </pattern>
+    <pattern id="jitterHatch" width="2" height="2" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+      <rect width="0.35" height="2" fill="#3d5360" opacity="0.2"/>
+    </pattern>
+    <clipPath id="mapClip"><rect x="8" y="8" width="278" height="246"/></clipPath>
+  </defs>
+
+  <rect width="440" height="262" fill="#fbf8ef"/>
+  <!-- map: one SVG unit is one metre; origin is at 147,132 -->
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(147,132)">
+      <rect x="-139" y="-124" width="278" height="246" fill="#2f7f99"/>
+
+      <g stroke="#85c7d2" stroke-width="0.16" opacity="0.5">
+        <path d="M-120,-124V122 M-100,-124V122 M-80,-124V122 M-60,-124V122 M-40,-124V122 M-20,-124V122 M0,-124V122 M20,-124V122 M40,-124V122 M60,-124V122 M80,-124V122 M100,-124V122 M120,-124V122"/>
+        <path d="M-139,-120H139 M-139,-100H139 M-139,-80H139 M-139,-60H139 M-139,-40H139 M-139,-20H139 M-139,0H139 M-139,20H139 M-139,40H139 M-139,60H139 M-139,80H139 M-139,100H139 M-139,120H139"/>
+      </g>
+
+      <!-- non-circular fixed mainland -->
+      <path d="M-148,-134 L148,-134 L148,-70 L128,-61 L110,-58 L98,-46 L88,-29 L101,-15 L97,1 L82,14 L65,20 L54,35 L43,45 L29,42 L19,29 L7,19 L-7,22 L-19,38 L-34,55 L-51,65 L-72,73 L-92,69 L-112,57 L-129,42 L-148,34 Z" fill="#e8dfc6" stroke="#f8f2df" stroke-width="1.1"/>
+      <path d="M-148,34 L-129,42 L-112,57 L-92,69 L-72,73 L-51,65 L-34,55 L-19,38 L-7,22 L7,19 L19,29 L29,42 L43,45 L54,35 L65,20 L82,14 L97,1 L101,-15 L98,-46 L110,-58 L128,-61 L148,-70 L148,-61 L130,-51 L116,-48 L109,-38 L112,-14 L107,8 L90,23 L74,28 L62,44 L46,56 L26,54 L14,42 L3,32 L-1,34 L-12,49 L-29,66 L-49,77 L-73,85 L-96,80 L-118,67 L-137,49 L-148,44 Z" fill="#b98762"/>
+
+      <!-- shallows and central cove -->
+      <path d="M-121,47 C-103,56 -90,63 -72,66 C-49,63 -33,52 -18,34 C-9,23 0,15 11,18 C22,22 25,38 39,42 C53,46 62,28 73,22 C86,15 94,12 99,1 L107,8 C94,29 77,33 66,48 C52,65 30,67 13,51 C3,42 -2,45 -10,55 C-31,79 -57,91 -88,88 C-108,85 -128,73 -141,60 Z" fill="#63bec6" opacity="0.82"/>
+      <path d="M-51,65 C-32,55 -20,38 -7,22 C4,13 17,19 23,33 C28,43 37,48 48,44 C37,58 23,63 10,54 C-1,46 -7,47 -15,57 C-27,70 -39,78 -55,82 Z" fill="#8ed6cf" opacity="0.9"/>
+
+      <!-- fixed second silhouette row -->
+      <g fill="#9aa99f" opacity="0.62" stroke="#607a7b" stroke-width="0.35" stroke-dasharray="1 1">
+        <polygon points="-142,-121 -129,-132 -115,-120 -101,-136 -87,-119 -72,-130 -58,-118 -43,-132 -26,-119 -9,-134 8,-120 25,-130 43,-117 61,-133 79,-119 98,-129 117,-116 139,-130 148,-118 148,-103 -142,-103"/>
+      </g>
+      <text x="0" y="-115" font-size="3" text-anchor="middle" fill="#334d58">SECOND SILHOUETTE ROW - fixed 7-10 m stacks - starts 146 m - fogged</text>
+
+      <!-- growing skyline row; its foot is fixed -->
+      <path d="M-148,-105 L-130,-111 L-115,-104 L-100,-114 L-85,-106 L-69,-116 L-53,-108 L-37,-119 L-21,-107 L-4,-116 L12,-106 L29,-120 L45,-108 L62,-114 L79,-104 L98,-115 L116,-102 L134,-110 L148,-104 L148,-88 C124,-83 103,-86 82,-80 C62,-76 44,-79 24,-76 C4,-79 -16,-77 -36,-80 C-57,-76 -76,-80 -96,-79 C-115,-84 -131,-81 -148,-86 Z" fill="#b7a981" stroke="#766f5d" stroke-width="0.5"/>
+      <g fill="#fff7e5"><polygon points="-85,-106 -80,-116 -75,-106"/><polygon points="-37,-108 -31,-123 -25,-107"/><polygon points="24,-106 31,-125 38,-107"/><polygon points="88,-104 95,-118 102,-103"/></g>
+      <text x="0" y="-92" font-size="4" text-anchor="middle" fill="#fffaf0" font-weight="bold">LIMESTONE ESCARPMENT - SKYLINE GROWTH ONLY</text>
+      <text x="0" y="-87.5" font-size="2.7" text-anchor="middle" fill="#fffaf0">0%: 3 shoulders / 8 m; 100%: 9 shoulders / 18 m + four 22 m watch-slits</text>
+
+      <!-- sea-stack closure -->
+      <g fill="#b7a981" stroke="#766f5d" stroke-width="0.4">
+        <path d="M-139,-18 l12,-8 10,7 -3,13 -13,3 z"/><path d="M-137,80 l11,-12 13,5 1,12 -15,7 z"/>
+        <path d="M-79,112 l9,-13 13,2 4,12 -10,9 z"/><path d="M4,112 l10,-10 12,4 2,12 -16,5 z"/>
+        <path d="M64,111 l11,-15 13,5 1,13 -14,7 z"/><path d="M126,77 l-4,-12 11,-8 12,7 3,15 -12,7 z"/>
+        <path d="M131,14 l-5,-12 11,-10 11,5 2,15 -10,8 z"/>
+      </g>
+
+      <!-- five fixed land-shaped district catchments -->
+      <path d="M-57,-73 L-40,-84 L-12,-80 L11,-68 L18,-50 L8,-34 L-17,-29 L-43,-37 L-61,-53 Z" fill="#f5efdc" fill-opacity="0.73" stroke="#3d5360" stroke-width="0.55"/>
+      <path d="M-122,-43 L-108,-61 L-84,-66 L-63,-54 L-60,-31 L-73,-11 L-99,-7 L-120,-21 Z" fill="url(#ruinHatch)" stroke="#3d5360" stroke-width="0.55"/>
+      <path d="M34,-75 L58,-82 L86,-74 L105,-58 L98,-37 L76,-27 L50,-32 L33,-50 Z" fill="#d9d0aa" fill-opacity="0.82" stroke="#3d5360" stroke-width="0.55"/>
+      <path d="M-35,5 L-15,-2 L9,2 L27,17 L24,40 L8,55 L-17,51 L-39,35 L-45,18 Z" fill="#8ed6cf" fill-opacity="0.55" stroke="#f8f2df" stroke-width="0.7"/>
+      <path d="M48,-12 L70,-23 L96,-16 L110,2 L101,24 L81,37 L57,31 L43,15 Z" fill="#f5efdc" fill-opacity="0.74" stroke="#3d5360" stroke-width="0.55"/>
+
+      <!-- centre and yaw jitter envelopes -->
+      <g fill="url(#jitterHatch)" stroke="#3d5360" stroke-width="0.45" stroke-dasharray="2 1.4">
+        <ellipse cx="-22" cy="-55" rx="11" ry="8" transform="rotate(-12 -22 -55)"/>
+        <ellipse cx="-91" cy="-37" rx="10" ry="8" transform="rotate(18 -91 -37)"/>
+        <ellipse cx="68" cy="-55" rx="12" ry="7" transform="rotate(-8 68 -55)"/>
+        <ellipse cx="-8" cy="24" rx="10" ry="8" transform="rotate(12 -8 24)"/>
+        <ellipse cx="77" cy="7" rx="11" ry="8" transform="rotate(-18 77 7)"/>
+      </g>
+
+      <!-- 1: cliff village -->
+      <g fill="none" stroke="#5279a5" stroke-width="1.5" stroke-linecap="round"><path d="M-44,-65 L-31,-58 L-18,-62 L-5,-51 L8,-55"/><path d="M-37,-48 L-24,-55 L-12,-45 L2,-49"/></g>
+      <path d="M-30,-70 l5,5 -5,5 5,5 -5,5 5,5" fill="none" stroke="#9a8d75" stroke-width="2.2"/>
+      <g fill="#fffaf0" stroke="#536a75" stroke-width="0.25"><rect x="-49" y="-55" width="8" height="7"/><rect x="-15" y="-72" width="10" height="7"/><rect x="-2" y="-43" width="8" height="6"/></g>
+      <circle cx="-41" cy="-41" r="3" fill="#c64b92"/>
+      <text x="-22" y="-77" font-size="4.2" text-anchor="middle" font-weight="bold" fill="#273e49">1 CLIFF VILLAGE TERRACES</text>
+      <text x="-22" y="-19" font-size="2.7" text-anchor="middle" fill="#273e49">homes + civic stair + vine court; anchor: 34 m stair spine</text>
+      <text x="-22" y="-15.4" font-size="2.6" text-anchor="middle" fill="#5279a5">centre (-22,-55); 62 x 55 m; jitter 11 x 8; yaw +/-18 deg</text>
+
+      <!-- 2: archaeology ridge -->
+      <g stroke="#85785f" stroke-width="1.2" fill="#f5efdc"><path d="M-111,-48 v16 M-103,-51 v17 M-95,-49 v14 M-87,-53 v18 M-79,-49 v13"/><path d="M-114,-32 H-76"/></g>
+      <ellipse cx="-97" cy="-23" rx="10" ry="5" fill="#63bec6" stroke="#527b82" stroke-width="0.45"/>
+      <text x="-91" y="-63" font-size="4.2" text-anchor="middle" font-weight="bold" fill="#273e49">2 ARCHAEOLOGY RIDGE</text>
+      <text x="-91" y="-4" font-size="2.7" text-anchor="middle" fill="#273e49">survey + cistern + colonnade; anchor: 38 m column comb</text>
+      <text x="-91" y="-0.4" font-size="2.6" text-anchor="middle" fill="#85785f">centre (-91,-37); 62 x 59 m; jitter 10 x 8; yaw +/-22 deg</text>
+
+      <!-- 3: dry terraces -->
+      <g fill="none" stroke="#b98762" stroke-width="2"><path d="M43,-61 Q67,-76 94,-60"/><path d="M45,-52 Q68,-66 96,-52"/><path d="M49,-43 Q70,-56 91,-44"/></g>
+      <circle cx="78" cy="-59" r="4" fill="#5279a5" stroke="#f5efdc" stroke-width="0.8"/>
+      <g fill="#8d9f63"><circle cx="48" cy="-66" r="2.2"/><circle cx="89" cy="-39" r="2.4"/><circle cx="60" cy="-42" r="1.9"/></g>
+      <text x="76" y="-79" font-size="3.8" text-anchor="middle" font-weight="bold" fill="#273e49">3 DRY TERRACES</text>
+      <text x="69" y="-28" font-size="2.7" text-anchor="middle" fill="#273e49">olive yard + kiln + cistern; anchor: 3 crescent walls</text>
+      <text x="69" y="-24.4" font-size="2.6" text-anchor="middle" fill="#85785f">centre (+68,-55); 72 x 55 m; jitter 12 x 7; yaw +/-16 deg</text>
+
+      <!-- 4: drowned forum -->
+      <g fill="none" stroke="#e8dfc6" stroke-width="1.4"><path d="M-27,27 Q-8,8 14,24 Q0,45 -22,37 Z"/><circle cx="-7" cy="27" r="9" stroke-dasharray="3 2"/><path d="M-32,15 l8,5 M12,13 l7,7 M8,42 l8,5"/></g>
+      <g stroke="#b7a981" stroke-width="1.1"><path d="M-26,30 v-9 M-18,37 l2,-12 M2,39 l-1,-13 M14,31 l3,-10"/></g>
+      <text x="-8" y="5" font-size="4.2" text-anchor="middle" font-weight="bold" fill="#fffaf0">4 DROWNED FORUM COVE</text>
+      <text x="-8" y="58" font-size="2.7" text-anchor="middle" fill="#fffaf0">mosaic quay + dive steps + ruins; anchor: 24 m broken ring</text>
+      <text x="-8" y="61.6" font-size="2.6" text-anchor="middle" fill="#d9eef0">centre (-8,+24); 72 x 60 m; jitter 10 x 8; yaw +/-20 deg</text>
+
+      <!-- 5: working quay -->
+      <g fill="none" stroke="#9a8d75" stroke-width="3.2" stroke-linecap="square"><path d="M57,7 H91 V24"/><path d="M68,-3 V16 H101"/></g>
+      <g fill="#fffaf0" stroke="#536a75" stroke-width="0.25"><rect x="55" y="-6" width="11" height="7"/><rect x="83" y="-8" width="12" height="8"/><rect x="88" y="16" width="8" height="6"/></g>
+      <path d="M98,26 q6,4 0,8 q-6,-4 0,-8" fill="#5279a5"/>
+      <text x="77" y="-11.5" font-size="4.0" text-anchor="middle" font-weight="bold" fill="#273e49">5 WORKING QUAY + COVE TOWN</text>
+      <text x="77" y="34" font-size="2.7" text-anchor="middle" fill="#273e49">market + sheds + ramp; anchor: 34 m L-quay</text>
+      <text x="77" y="37.6" font-size="2.6" text-anchor="middle" fill="#85785f">centre (+77,+7); 67 x 60 m; jitter 11 x 8; yaw +/-20 deg</text>
+
+      <!-- local roads and submerged steps -->
+      <g fill="none" stroke-linecap="round"><path d="M-57,-44 C-47,-35 -43,-25 -42,-14" stroke="#c7b894" stroke-width="4"/><path d="M45,-26 C52,-20 57,-15 60,-9" stroke="#c7b894" stroke-width="4"/><path d="M-101,-16 C-94,-10 -84,-5 -75,-4" stroke="#c7b894" stroke-width="4"/><path d="M-33,7 l5,4 -5,4 5,4 -5,4" stroke="#f5efdc" stroke-width="2"/></g>
+
+      <!-- landmark on separate fixed headland -->
+      <path d="M74,69 L85,58 L103,56 L116,65 L118,81 L108,93 L91,95 L77,86 Z" fill="#b98762" stroke="#f8f2df" stroke-width="0.9"/>
+      <path d="M79,68 L88,62 L102,61 L111,68 L111,78 L104,87 L92,89 L82,82 Z" fill="#e8dfc6"/>
+      <path d="M91,81 h12 v-10 h-12 z M94,68 h6 v-5 h-6 z" fill="#fffaf0" stroke="#536a75" stroke-width="0.35"/>
+      <path d="M97,63 v-7" stroke="#c64b92" stroke-width="1.2"/>
+      <text x="96" y="53" font-size="4.2" text-anchor="middle" font-weight="bold" fill="#fffaf0">L LANDMARK HEADLAND</text>
+      <text x="96" y="100" font-size="2.7" text-anchor="middle" fill="#fffaf0">fixed (+96,+75); 44 x 39 m; 9 m channel; ground h 2.0 m</text>
+      <text x="96" y="104" font-size="2.6" text-anchor="middle" fill="#d9eef0">standalone archive-beacon socket; headland never grows</text>
+
+      <!-- boat routes -->
+      <g fill="none" stroke="#fffaf0" stroke-width="0.65" stroke-dasharray="3 2"><path d="M93,31 C101,43 101,52 98,57"/><path d="M65,39 C47,54 27,65 9,70 C-8,75 -25,71 -39,60"/><path d="M-52,71 C-20,94 31,100 76,83"/></g>
+      <g font-size="2.5" fill="#fffaf0"><text x="105" y="45" transform="rotate(74 105 45)">headland skiff</text><text x="26" y="67" transform="rotate(-18 26 67)">ruin-view loop</text><text x="5" y="99">outer boat route - no bridge</text></g>
+
+      <!-- protected negative space -->
+      <g fill="none" stroke="#fffaf0" stroke-width="0.35" stroke-dasharray="1 1.2"><ellipse cx="-78" cy="26" rx="15" ry="12"/><ellipse cx="37" cy="-4" rx="14" ry="11"/><ellipse cx="-40" cy="94" rx="17" ry="13"/><ellipse cx="39" cy="83" rx="14" ry="12"/></g>
+      <g font-size="2.5" fill="#fffaf0" text-anchor="middle"><text x="-78" y="27">open 30 x 24 m</text><text x="37" y="-3">open 28 x 22 m</text><text x="-40" y="95">open sea 34 x 26 m</text><text x="39" y="84">open sea 28 x 24 m</text></g>
+
+      <circle cx="0" cy="0" r="86" fill="none" stroke="#273e49" stroke-width="0.35" stroke-dasharray="3 2" opacity="0.7"/>
+      <text x="-2" y="88" font-size="2.6" text-anchor="middle" fill="#273e49">overview frame r 86 m; max dolly 1.55x; target (0,0)</text>
+
+      <!-- fog and safe frame -->
+      <rect x="-139" y="95" width="278" height="27" fill="url(#seaFog)"/>
+      <rect x="-139" y="-124" width="278" height="246" fill="url(#sideFog)" opacity="0.55"/>
+      <path d="M-128,-112 H128 V104 H-128 Z" fill="none" stroke="#273e49" stroke-width="0.45" stroke-dasharray="4 2"/>
+      <text x="0" y="110" font-size="3.1" text-anchor="middle" fill="#273e49" font-weight="bold">FRONT / SOUTH - SEA FOG + STACK CHAIN HIDE WORLD EDGE</text>
+
+      <!-- axes and scale -->
+      <g stroke="#273e49" stroke-width="0.5" fill="#273e49"><path d="M-129,116 h20"/><polygon points="-109,114.5 -106,116 -109,117.5"/><path d="M-129,116 v-20"/><polygon points="-130.5,96 -129,93 -127.5,96"/></g>
+      <text x="-104" y="117" font-size="2.7" fill="#273e49">+x east</text><text x="-127" y="94" font-size="2.7" fill="#273e49">-z north</text>
+      <g transform="translate(74,114)"><rect width="20" height="1.6" fill="#273e49"/><rect x="20" width="20" height="1.6" fill="#fffaf0" stroke="#273e49" stroke-width="0.2"/><text x="0" y="-1" font-size="2.5" fill="#273e49">0</text><text x="20" y="-1" font-size="2.5" fill="#273e49" text-anchor="middle">20</text><text x="40" y="-1" font-size="2.5" fill="#273e49" text-anchor="middle">40 m</text></g>
+    </g>
+  </g>
+  <rect x="8" y="8" width="278" height="246" fill="none" stroke="#273e49" stroke-width="0.65"/>
+
+  <!-- right legend -->
+  <g transform="translate(294,9)" font-size="2.75" fill="#273e49">
+    <text x="0" y="5" font-size="5.2" font-weight="bold">coastal-ruins - plan v1</text>
+    <text x="0" y="10">top-down synthesis; 1 unit = 1 m; drawn 2026-09-20</text>
+    <text x="0" y="14">world 278 x 246 m; frame r 86 m; no implementation / GLBs</text>
+
+    <text x="0" y="22" font-size="3.4" font-weight="bold">Palette</text>
+    <rect x="0" y="24" width="5" height="3.6" fill="#e8dfc6"/><text x="7" y="27">limestone ground #e8dfc6</text>
+    <rect x="0" y="29" width="5" height="3.6" fill="#b98762"/><text x="7" y="32">cliff / pedestal side #b98762</text>
+    <rect x="0" y="34" width="5" height="3.6" fill="#f5efdc"/><text x="7" y="37">plaster / road core #f5efdc</text>
+    <rect x="0" y="39" width="5" height="3.6" fill="#c7b894"/><text x="7" y="42">road edge / ruin stone #c7b894</text>
+    <rect x="0" y="44" width="5" height="3.6" fill="#63bec6"/><text x="7" y="47">wet / shallows #63bec6</text>
+    <rect x="0" y="49" width="5" height="3.6" fill="#2f7f99"/><text x="7" y="52">open water #2f7f99</text>
+    <rect x="0" y="54" width="5" height="3.6" fill="#5279a5"/><text x="7" y="57">cobalt accent #5279a5</text>
+    <rect x="0" y="59" width="5" height="3.6" fill="#c64b92"/><text x="7" y="62">vine #c64b92; night window #ffe9a8</text>
+
+    <text x="0" y="70" font-size="3.4" font-weight="bold">Plan legend</text>
+    <path d="M0,73 h6 v4 h-6 z" fill="#f5efdc" fill-opacity="0.75" stroke="#3d5360" stroke-width="0.35"/><text x="8" y="76.2">fixed land-shaped district catchment</text>
+    <ellipse cx="3" cy="82" rx="3" ry="2.2" fill="url(#jitterHatch)" stroke="#3d5360" stroke-width="0.35" stroke-dasharray="1 1"/><text x="8" y="83">centre and yaw jitter envelope</text>
+    <ellipse cx="3" cy="88" rx="3" ry="2.2" fill="none" stroke="#273e49" stroke-width="0.3" stroke-dasharray="1 1"/><text x="8" y="89">reserved open space; reject placement</text>
+    <path d="M0,94 h7" stroke="#c7b894" stroke-width="2"/><text x="9" y="95">local lane / stair; no global spiral</text>
+    <path d="M0,100 h7" stroke="#2f7f99" stroke-width="0.8" stroke-dasharray="2 1"/><text x="9" y="101">boat route; water remains open</text>
+
+    <text x="0" y="109" font-size="3.4" font-weight="bold">Seed contract</text>
+    <text x="0" y="113.5">terrain, coast, headland, skyline foot are fixed</text>
+    <text x="0" y="117.5">sample centres in ellipses; yaw +/-16-22 deg</text>
+    <text x="0" y="121.5">nearest pairs 63 / 71 / 80 / 87 m; others 90-174 m</text>
+    <text x="0" y="125.5">reject overlap or any open width under 20 m</text>
+    <text x="0" y="129.5">one 8-12 m anchor; support masses 3-7 m</text>
+    <text x="0" y="133.5">use at least 3 refs across at least 3 districts</text>
+    <text x="0" y="137.5">no repeated kit islands; no copied hero composition</text>
+
+    <text x="0" y="145" font-size="3.4" font-weight="bold">Skyline growth; ground never grows</text>
+    <text x="0" y="149.5">0% 3 shoulders, 8 m; 25% 4, 10 m; 50% 6, 13 m</text>
+    <text x="0" y="153.5">75% 8, 16 m + row 2; 100% 9, 18 m + four 22 m slits</text>
+    <text x="0" y="157.5">row 2 fixed 7-10 m at 146-168 m; opacity rises at 75%</text>
+
+    <text x="0" y="165" font-size="3.4" font-weight="bold">Camera-safe horizon - 8 azimuths</text>
+    <text x="0" y="169.5">N: south stacks + fog; NE: SW cape + stacks</text>
+    <text x="0" y="173.5">E: west cape wall; SE: NW escarpment + row 2</text>
+    <text x="0" y="177.5">S: north escarpment + row 2; SW: NE escarpment</text>
+    <text x="0" y="181.5">W: east cape + stacks; NW: SE headland + stacks</text>
+    <text x="0" y="185.5">pitch 39 deg; FOV 27 deg; dolly 0.72-1.55x</text>
+    <text x="0" y="189.5">max camera radius 133 m; fog 118-176 m</text>
+    <text x="0" y="193.5">blocker at least 8 m or 3-stack overlap each view</text>
+
+    <text x="0" y="201" font-size="3.4" font-weight="bold">48 px anchor check</text>
+    <text x="0" y="205.5">1 stair zigzag; 2 column comb; 3 triple crescents</text>
+    <text x="0" y="209.5">4 broken ring; 5 L-quay; L isolated beacon block</text>
+    <text x="0" y="213.5">hidden: tan coast + turquoise cove + escarpment</text>
+    <text x="0" y="217.5">shown: anchors separate; no church / temple read</text>
+
+    <text x="0" y="225" font-size="3.4" font-weight="bold">Topic mapping</text>
+    <text x="0" y="229.5">topics map several-to-one; 1-5 are districts, not slots</text>
+    <text x="0" y="233.5">subareas hold 2-4 pads; population uses fixed pads</text>
+    <text x="0" y="237.5">L is the whole-course landmark socket on its own headland</text>
+    <text x="0" y="246" fill="#766f5d">Motifs are distributed; no reference is traced wholesale.</text>
+    <text x="0" y="250" fill="#766f5d">Fog and stacks close views without a circular land boundary.</text>
+  </g>
+</svg>

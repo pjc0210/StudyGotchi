@@ -8,6 +8,8 @@ A concept must represent a learnable idea, not a keyword. Use this test: "Could 
 Good concepts: Positive Semidefinite Matrix, Mercer's Theorem, Kernel Trick, Kernel Regression, Bias-Variance Decomposition, Gradient Descent.
 Bad "concepts": lecture, equation, algorithm, example, homework, page 5, Tuesday, Machine Learning (too broad on its own; use topic_cluster granularity for broad umbrella topics, not as a substitute for specific concepts).
 
+Extract only what this text actually says. Every concept must be named or clearly explained in the passage in front of you. If the passage is a title, a header, a score line, or otherwise carries no teachable content, return empty lists for every field rather than plausible concepts from the wider subject. Never borrow the example names in these instructions.
+
 Prefer canonical terminology. Note obvious aliases (e.g. "PSD Matrix" as an alias of "Positive Semidefinite Matrix") in the `aliases` field rather than emitting both as separate concepts.
 
 Granularity test: "cluster" for broad umbrella topics, "core" for the main independently-testable idea, "atomic" for a small specific fact/definition/instance of a core concept.

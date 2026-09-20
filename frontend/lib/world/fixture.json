@@ -1,0 +1,205 @@
+{
+  "student_id": "b4349ecb-65f7-24aa-9e2e-c55412c73179",
+  "course_id": "ffc67e78-ffe0-1cb0-e340-09f29f6f16cd",
+  "world_version": "fixture-1",
+  "regions": [
+    {
+      "concept_id": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "name": "Turing machine",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.91,
+      "terrain_area": 0.4,
+      "fog": 0.045,
+      "semantic_state": "mastered",
+      "creature_state": "ascended"
+    },
+    {
+      "concept_id": "8085ccc7-2a9b-c322-0f9c-4a64283237d1",
+      "name": "Configurations",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.76,
+      "terrain_area": 0.4,
+      "fog": 0.12,
+      "semantic_state": "strong",
+      "creature_state": "evolved"
+    },
+    {
+      "concept_id": "a89a076e-63c5-57c8-0974-876a8099d66c",
+      "name": "Church-Turing thesis",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.58,
+      "terrain_area": 0.4,
+      "fog": 0.21,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "d67b0957-6850-c92f-4b7f-85a91eb0f773",
+      "name": "Multitape machines",
+      "cluster_id": "c1",
+      "cluster": "Turing machines",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.475,
+      "semantic_state": "exposed",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "name": "Halting problem",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.36,
+      "terrain_area": 0.4,
+      "fog": 0.32,
+      "semantic_state": "struggling",
+      "creature_state": "weak"
+    },
+    {
+      "concept_id": "f27b12d5-b898-3eb1-7129-42779bce0e05",
+      "name": "Diagonalization",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.55,
+      "terrain_area": 0.4,
+      "fog": 0.225,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "8005a6cf-378a-1f86-0422-d4c5fc090e31",
+      "name": "Reductions",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.74,
+      "terrain_area": 0.4,
+      "fog": 0.13,
+      "semantic_state": "strong",
+      "creature_state": "evolved"
+    },
+    {
+      "concept_id": "f920b5c0-f99a-9417-2540-f5036cf416fa",
+      "name": "Rice's theorem",
+      "cluster_id": "c2",
+      "cluster": "Decidability",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "e1cb36dc-8abd-7709-ee3d-9b1a93000db1",
+      "name": "P and NP",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.52,
+      "terrain_area": 0.4,
+      "fog": 0.24,
+      "semantic_state": "developing",
+      "creature_state": "normal"
+    },
+    {
+      "concept_id": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "name": "NP-completeness",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.3,
+      "terrain_area": 0.4,
+      "fog": 0.35,
+      "semantic_state": "struggling",
+      "creature_state": "weak"
+    },
+    {
+      "concept_id": "3939fa20-a58f-445e-47c1-59d484b8b849",
+      "name": "Cook-Levin theorem",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.9,
+      "semantic_state": "frontier",
+      "creature_state": "unhatched"
+    },
+    {
+      "concept_id": "b604a710-a907-7b11-1eac-9cd29bd2d8a4",
+      "name": "Polynomial reductions",
+      "cluster_id": "c3",
+      "cluster": "Complexity classes",
+      "terrain_height": 0.05,
+      "terrain_area": 0.4,
+      "fog": 0.475,
+      "semantic_state": "exposed",
+      "creature_state": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "source": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "target": "8085ccc7-2a9b-c322-0f9c-4a64283237d1",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "target": "a89a076e-63c5-57c8-0974-876a8099d66c",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "25c0edf2-d9c1-a7b6-cfca-6658e91119b9",
+      "target": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "f27b12d5-b898-3eb1-7129-42779bce0e05",
+      "target": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "5f915aa4-f1b3-e444-75ce-3a762215a3fb",
+      "target": "8005a6cf-378a-1f86-0422-d4c5fc090e31",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "8005a6cf-378a-1f86-0422-d4c5fc090e31",
+      "target": "f920b5c0-f99a-9417-2540-f5036cf416fa",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "e1cb36dc-8abd-7709-ee3d-9b1a93000db1",
+      "target": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "b604a710-a907-7b11-1eac-9cd29bd2d8a4",
+      "target": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    },
+    {
+      "source": "9c9e0bde-5353-bd92-edd3-cf0547779b91",
+      "target": "3939fa20-a58f-445e-47c1-59d484b8b849",
+      "edge_type": "PREREQUISITE_FOR",
+      "origin": "course",
+      "confidence": 0.8
+    }
+  ],
+  "hidden_concept_count": 9
+}

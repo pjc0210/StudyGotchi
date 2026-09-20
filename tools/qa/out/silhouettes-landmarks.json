@@ -1,0 +1,7573 @@
+{
+ "tool": "silhouette_test.py",
+ "version": 1,
+ "set": "landmarks",
+ "generated_at": "2026-09-19T22:25:32-0400",
+ "blender": "5.2.0 LTS",
+ "thresholds": {
+  "fill": [
+   0.25,
+   0.75
+  ],
+  "components": 1,
+  "min_distinct": 0.05
+ },
+ "view": {
+  "projection": "orthographic",
+  "azimuth_deg": 34.0,
+  "elevation_deg": 22.0,
+  "sizes": [
+   96,
+   48
+  ]
+ },
+ "family_mode": "folder",
+ "grid": {
+  "png": "tools/qa/out/silhouettes-landmarks.png",
+  "rows_cols": [
+   47,
+   6
+  ],
+  "cell": "96 px silhouette | 48 px silhouette x2 | label | f=fill c=components96/48 d=distinctness"
+ },
+ "files": [
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-landmark-s1.glb",
+   "rel": "assets/landmarks/cave/cave-landmark-s1.glb",
+   "label": "cave-landmark-s1",
+   "family": "cave",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5263,
+   "frame_fill96": 0.2238,
+   "components96": 1,
+   "component_areas96": [
+    2063
+   ],
+   "fill48": 0.5556,
+   "frame_fill48": 0.2214,
+   "components48": 1,
+   "component_areas48": [
+    510
+   ],
+   "distinctness": 0.1692,
+   "nearest": "cave-ruin",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-landmark-s2.glb",
+   "rel": "assets/landmarks/cave/cave-landmark-s2.glb",
+   "label": "cave-landmark-s2",
+   "family": "cave",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7032,
+   "frame_fill96": 0.2877,
+   "components96": 1,
+   "component_areas96": [
+    2651
+   ],
+   "fill48": 0.7155,
+   "frame_fill48": 0.2882,
+   "components48": 1,
+   "component_areas48": [
+    664
+   ],
+   "distinctness": 0.1585,
+   "nearest": "cave-landmark-s2b",
+   "nearest_score": 0.0964
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-landmark-s2b.glb",
+   "rel": "assets/landmarks/cave/cave-landmark-s2b.glb",
+   "label": "cave-landmark-s2b",
+   "family": "cave",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6091,
+   "frame_fill96": 0.2835,
+   "components96": 1,
+   "component_areas96": [
+    2613
+   ],
+   "fill48": 0.6257,
+   "frame_fill48": 0.2786,
+   "components48": 1,
+   "component_areas48": [
+    642
+   ],
+   "distinctness": 0.1867,
+   "nearest": "cave-landmark-s2",
+   "nearest_score": 0.0964
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-landmark-s2c.glb",
+   "rel": "assets/landmarks/cave/cave-landmark-s2c.glb",
+   "label": "cave-landmark-s2c",
+   "family": "cave",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4859,
+   "frame_fill96": 0.2983,
+   "components96": 1,
+   "component_areas96": [
+    2749
+   ],
+   "fill48": 0.5029,
+   "frame_fill48": 0.3043,
+   "components48": 1,
+   "component_areas48": [
+    701
+   ],
+   "distinctness": 0.205,
+   "nearest": "cave-landmark-s1",
+   "nearest_score": 0.1523
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-landmark-s3.glb",
+   "rel": "assets/landmarks/cave/cave-landmark-s3.glb",
+   "label": "cave-landmark-s3",
+   "family": "cave",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5791,
+   "frame_fill96": 0.3209,
+   "components96": 1,
+   "component_areas96": [
+    2957
+   ],
+   "fill48": 0.6062,
+   "frame_fill48": 0.322,
+   "components48": 1,
+   "component_areas48": [
+    742
+   ],
+   "distinctness": 0.1712,
+   "nearest": "cave-landmark-s2",
+   "nearest_score": 0.1137
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-ruin.glb",
+   "rel": "assets/landmarks/cave/cave-ruin.glb",
+   "label": "cave-ruin",
+   "family": "cave",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6017,
+   "frame_fill96": 0.224,
+   "components96": 1,
+   "component_areas96": [
+    2064
+   ],
+   "fill48": 0.6324,
+   "frame_fill48": 0.224,
+   "components48": 1,
+   "component_areas48": [
+    516
+   ],
+   "distinctness": 0.1719,
+   "nearest": "cave-landmark-s1",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/cave-scaffold.glb",
+   "rel": "assets/landmarks/cave/cave-scaffold.glb",
+   "label": "cave-scaffold",
+   "family": "cave",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4308,
+   "frame_fill96": 0.3403,
+   "components96": 1,
+   "component_areas96": [
+    3136
+   ],
+   "fill48": 0.416,
+   "frame_fill48": 0.3168,
+   "components48": 1,
+   "component_areas48": [
+    730
+   ],
+   "distinctness": 0.2786,
+   "nearest": "cave-landmark-s2b",
+   "nearest_score": 0.2439
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/hero/cave-g0.glb",
+   "rel": "assets/landmarks/cave/hero/cave-g0.glb",
+   "label": "cave-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5263,
+   "frame_fill96": 0.2238,
+   "components96": 1,
+   "component_areas96": [
+    2063
+   ],
+   "fill48": 0.5556,
+   "frame_fill48": 0.2214,
+   "components48": 1,
+   "component_areas48": [
+    510
+   ],
+   "distinctness": 0.1703,
+   "nearest": "park-g1",
+   "nearest_score": 0.0638
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/hero/cave-g1.glb",
+   "rel": "assets/landmarks/cave/hero/cave-g1.glb",
+   "label": "cave-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7227,
+   "frame_fill96": 0.4053,
+   "components96": 1,
+   "component_areas96": [
+    3735
+   ],
+   "fill48": 0.7237,
+   "frame_fill48": 0.4058,
+   "components48": 1,
+   "component_areas48": [
+    935
+   ],
+   "distinctness": 0.1948,
+   "nearest": "cave-g2",
+   "nearest_score": 0.0977
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/hero/cave-g2.glb",
+   "rel": "assets/landmarks/cave/hero/cave-g2.glb",
+   "label": "cave-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7081,
+   "frame_fill96": 0.3153,
+   "components96": 1,
+   "component_areas96": [
+    2906
+   ],
+   "fill48": 0.7388,
+   "frame_fill48": 0.3142,
+   "components48": 1,
+   "component_areas48": [
+    724
+   ],
+   "distinctness": 0.1622,
+   "nearest": "cave-g3",
+   "nearest_score": 0.069
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/hero/cave-g3.glb",
+   "rel": "assets/landmarks/cave/hero/cave-g3.glb",
+   "label": "cave-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6346,
+   "frame_fill96": 0.2471,
+   "components96": 1,
+   "component_areas96": [
+    2277
+   ],
+   "fill48": 0.6437,
+   "frame_fill48": 0.247,
+   "components48": 1,
+   "component_areas48": [
+    569
+   ],
+   "distinctness": 0.1571,
+   "nearest": "cave-g2",
+   "nearest_score": 0.069
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/bat.glb",
+   "rel": "assets/landmarks/cave/props/bat.glb",
+   "label": "bat",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4369,
+   "frame_fill96": 0.1832,
+   "components96": 1,
+   "component_areas96": [
+    1688
+   ],
+   "fill48": 0.4379,
+   "frame_fill48": 0.1836,
+   "components48": 1,
+   "component_areas48": [
+    423
+   ],
+   "distinctness": 0.2502,
+   "nearest": "shell",
+   "nearest_score": 0.112
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/boulder.glb",
+   "rel": "assets/landmarks/cave/props/boulder.glb",
+   "label": "boulder",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6958,
+   "frame_fill96": 0.2368,
+   "components96": 1,
+   "component_areas96": [
+    2182
+   ],
+   "fill48": 0.707,
+   "frame_fill48": 0.2357,
+   "components48": 1,
+   "component_areas48": [
+    543
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/crystal-cluster.glb",
+   "rel": "assets/landmarks/cave/props/crystal-cluster.glb",
+   "label": "crystal-cluster",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6203,
+   "frame_fill96": 0.2585,
+   "components96": 1,
+   "component_areas96": [
+    2382
+   ],
+   "fill48": 0.5988,
+   "frame_fill48": 0.2578,
+   "components48": 1,
+   "component_areas48": [
+    594
+   ],
+   "distinctness": 0.2142,
+   "nearest": "ice-crystal-cluster",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/lantern.glb",
+   "rel": "assets/landmarks/cave/props/lantern.glb",
+   "label": "lantern",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4578,
+   "frame_fill96": 0.2247,
+   "components96": 1,
+   "component_areas96": [
+    2071
+   ],
+   "fill48": 0.4747,
+   "frame_fill48": 0.2357,
+   "components48": 1,
+   "component_areas48": [
+    543
+   ],
+   "distinctness": 0.2625,
+   "nearest": "planter-tree",
+   "nearest_score": 0.1406
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/mine-cart.glb",
+   "rel": "assets/landmarks/cave/props/mine-cart.glb",
+   "label": "mine-cart",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6926,
+   "frame_fill96": 0.4718,
+   "components96": 1,
+   "component_areas96": [
+    4348
+   ],
+   "fill48": 0.7216,
+   "frame_fill48": 0.4735,
+   "components48": 1,
+   "component_areas48": [
+    1091
+   ],
+   "distinctness": 0.3025,
+   "nearest": "hay-bale",
+   "nearest_score": 0.1211
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/rail-segment.glb",
+   "rel": "assets/landmarks/cave/props/rail-segment.glb",
+   "label": "rail-segment",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3511,
+   "frame_fill96": 0.144,
+   "components96": 1,
+   "component_areas96": [
+    1327
+   ],
+   "fill48": 0.3647,
+   "frame_fill48": 0.1463,
+   "components48": 1,
+   "component_areas48": [
+    337
+   ],
+   "distinctness": 0.2411,
+   "nearest": "rail-segment",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/props/stalagmite.glb",
+   "rel": "assets/landmarks/cave/props/stalagmite.glb",
+   "label": "stalagmite",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5411,
+   "frame_fill96": 0.1644,
+   "components96": 1,
+   "component_areas96": [
+    1515
+   ],
+   "fill48": 0.5399,
+   "frame_fill48": 0.1645,
+   "components48": 1,
+   "component_areas48": [
+    379
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/cave/terrain/crystal-pillar.glb",
+   "rel": "assets/landmarks/cave/terrain/crystal-pillar.glb",
+   "label": "crystal-pillar",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6849,
+   "frame_fill96": 0.2203,
+   "components96": 1,
+   "component_areas96": [
+    2030
+   ],
+   "fill48": 0.6869,
+   "frame_fill48": 0.2209,
+   "components48": 1,
+   "component_areas48": [
+    509
+   ],
+   "distinctness": 0.1693,
+   "nearest": "sea-stack",
+   "nearest_score": 0.0768
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-landmark-s1.glb",
+   "rel": "assets/landmarks/city/city-landmark-s1.glb",
+   "label": "city-landmark-s1",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7027,
+   "frame_fill96": 0.2931,
+   "components96": 1,
+   "component_areas96": [
+    2701
+   ],
+   "fill48": 0.7052,
+   "frame_fill48": 0.2938,
+   "components48": 1,
+   "component_areas48": [
+    677
+   ],
+   "distinctness": 0.1693,
+   "nearest": "city-landmark-s3",
+   "nearest_score": 0.1107
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-landmark-s2.glb",
+   "rel": "assets/landmarks/city/city-landmark-s2.glb",
+   "label": "city-landmark-s2",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6118,
+   "frame_fill96": 0.2479,
+   "components96": 1,
+   "component_areas96": [
+    2285
+   ],
+   "fill48": 0.6319,
+   "frame_fill48": 0.2474,
+   "components48": 1,
+   "component_areas48": [
+    570
+   ],
+   "distinctness": 0.1858,
+   "nearest": "city-landmark-s2c",
+   "nearest_score": 0.1345
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-landmark-s2b.glb",
+   "rel": "assets/landmarks/city/city-landmark-s2b.glb",
+   "label": "city-landmark-s2b",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7094,
+   "frame_fill96": 0.3661,
+   "components96": 1,
+   "component_areas96": [
+    3374
+   ],
+   "fill48": 0.7413,
+   "frame_fill48": 0.3694,
+   "components48": 1,
+   "component_areas48": [
+    851
+   ],
+   "distinctness": 0.1901,
+   "nearest": "city-landmark-s2c",
+   "nearest_score": 0.1046
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-landmark-s2c.glb",
+   "rel": "assets/landmarks/city/city-landmark-s2c.glb",
+   "label": "city-landmark-s2c",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6197,
+   "frame_fill96": 0.2899,
+   "components96": 1,
+   "component_areas96": [
+    2672
+   ],
+   "fill48": 0.6241,
+   "frame_fill48": 0.2882,
+   "components48": 1,
+   "component_areas48": [
+    664
+   ],
+   "distinctness": 0.1845,
+   "nearest": "city-landmark-s2b",
+   "nearest_score": 0.1046
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-landmark-s3.glb",
+   "rel": "assets/landmarks/city/city-landmark-s3.glb",
+   "label": "city-landmark-s3",
+   "family": "city",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7165,
+   "frame_fill96": 0.3557,
+   "components96": 1,
+   "component_areas96": [
+    3278
+   ],
+   "fill48": 0.7097,
+   "frame_fill48": 0.3533,
+   "components48": 1,
+   "component_areas48": [
+    814
+   ],
+   "distinctness": 0.2023,
+   "nearest": "city-landmark-s1",
+   "nearest_score": 0.1107
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-ruin.glb",
+   "rel": "assets/landmarks/city/city-ruin.glb",
+   "label": "city-ruin",
+   "family": "city",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6534,
+   "frame_fill96": 0.2362,
+   "components96": 1,
+   "component_areas96": [
+    2177
+   ],
+   "fill48": 0.6558,
+   "frame_fill48": 0.2348,
+   "components48": 1,
+   "component_areas48": [
+    541
+   ],
+   "distinctness": 0.2195,
+   "nearest": "city-landmark-s1",
+   "nearest_score": 0.1328
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/city-scaffold.glb",
+   "rel": "assets/landmarks/city/city-scaffold.glb",
+   "label": "city-scaffold",
+   "family": "city",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4389,
+   "frame_fill96": 0.3467,
+   "components96": 1,
+   "component_areas96": [
+    3195
+   ],
+   "fill48": 0.4262,
+   "frame_fill48": 0.3247,
+   "components48": 1,
+   "component_areas48": [
+    748
+   ],
+   "distinctness": 0.2579,
+   "nearest": "city-landmark-s2",
+   "nearest_score": 0.2205
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/props/bench.glb",
+   "rel": "assets/landmarks/city/props/bench.glb",
+   "label": "bench",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.563,
+   "frame_fill96": 0.4503,
+   "components96": 1,
+   "component_areas96": [
+    4150
+   ],
+   "fill48": 0.5822,
+   "frame_fill48": 0.4549,
+   "components48": 1,
+   "component_areas48": [
+    1048
+   ],
+   "distinctness": 0.3859,
+   "nearest": "bench",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/props/fountain.glb",
+   "rel": "assets/landmarks/city/props/fountain.glb",
+   "label": "fountain",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.671,
+   "frame_fill96": 0.2376,
+   "components96": 1,
+   "component_areas96": [
+    2190
+   ],
+   "fill48": 0.6691,
+   "frame_fill48": 0.237,
+   "components48": 1,
+   "component_areas48": [
+    546
+   ],
+   "distinctness": 0.2137,
+   "nearest": "fountain",
+   "nearest_score": 0.0204
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/props/hedge.glb",
+   "rel": "assets/landmarks/city/props/hedge.glb",
+   "label": "hedge",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7024,
+   "frame_fill96": 0.4488,
+   "components96": 1,
+   "component_areas96": [
+    4136
+   ],
+   "fill48": 0.6943,
+   "frame_fill48": 0.4436,
+   "components48": 1,
+   "component_areas48": [
+    1022
+   ],
+   "distinctness": 0.3148,
+   "nearest": "mine-cart",
+   "nearest_score": 0.128
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/props/lamp-post.glb",
+   "rel": "assets/landmarks/city/props/lamp-post.glb",
+   "label": "lamp-post",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4034,
+   "frame_fill96": 0.0956,
+   "components96": 1,
+   "component_areas96": [
+    881
+   ],
+   "fill48": 0.3869,
+   "frame_fill48": 0.0846,
+   "components48": 1,
+   "component_areas48": [
+    195
+   ],
+   "distinctness": 0.238,
+   "nearest": "banner-pole",
+   "nearest_score": 0.0386
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/props/planter-tree.glb",
+   "rel": "assets/landmarks/city/props/planter-tree.glb",
+   "label": "planter-tree",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6854,
+   "frame_fill96": 0.235,
+   "components96": 1,
+   "component_areas96": [
+    2166
+   ],
+   "fill48": 0.6936,
+   "frame_fill48": 0.2348,
+   "components48": 1,
+   "component_areas48": [
+    541
+   ],
+   "distinctness": 0.2102,
+   "nearest": "topiary",
+   "nearest_score": 0.0885
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/props/small-house.glb",
+   "rel": "assets/landmarks/city/props/small-house.glb",
+   "label": "small-house",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.668,
+   "frame_fill96": 0.4462,
+   "components96": 1,
+   "component_areas96": [
+    4112
+   ],
+   "fill48": 0.7014,
+   "frame_fill48": 0.4505,
+   "components48": 1,
+   "component_areas48": [
+    1038
+   ],
+   "distinctness": 0.2698,
+   "nearest": "cottage",
+   "nearest_score": 0.0577
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/city/terrain/plaza-slab-with-fountain.glb",
+   "rel": "assets/landmarks/city/terrain/plaza-slab-with-fountain.glb",
+   "label": "plaza-slab-with-fountain",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6461,
+   "frame_fill96": 0.286,
+   "components96": 1,
+   "component_areas96": [
+    2636
+   ],
+   "fill48": 0.659,
+   "frame_fill48": 0.286,
+   "components48": 1,
+   "component_areas48": [
+    659
+   ],
+   "distinctness": 0.1337,
+   "nearest": "bandstand-hill",
+   "nearest_score": 0.0694
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-landmark-s1.glb",
+   "rel": "assets/landmarks/factory/factory-landmark-s1.glb",
+   "label": "factory-landmark-s1",
+   "family": "factory",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5463,
+   "frame_fill96": 0.3981,
+   "components96": 1,
+   "component_areas96": [
+    3669
+   ],
+   "fill48": 0.5537,
+   "frame_fill48": 0.398,
+   "components48": 1,
+   "component_areas48": [
+    917
+   ],
+   "distinctness": 0.2047,
+   "nearest": "factory-landmark-s2",
+   "nearest_score": 0.1354
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-landmark-s2.glb",
+   "rel": "assets/landmarks/factory/factory-landmark-s2.glb",
+   "label": "factory-landmark-s2",
+   "family": "factory",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5863,
+   "frame_fill96": 0.3317,
+   "components96": 1,
+   "component_areas96": [
+    3057
+   ],
+   "fill48": 0.5581,
+   "frame_fill48": 0.3294,
+   "components48": 1,
+   "component_areas48": [
+    759
+   ],
+   "distinctness": 0.1968,
+   "nearest": "factory-landmark-s3",
+   "nearest_score": 0.1289
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-landmark-s2b.glb",
+   "rel": "assets/landmarks/factory/factory-landmark-s2b.glb",
+   "label": "factory-landmark-s2b",
+   "family": "factory",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5266,
+   "frame_fill96": 0.3432,
+   "components96": 1,
+   "component_areas96": [
+    3163
+   ],
+   "fill48": 0.5212,
+   "frame_fill48": 0.3359,
+   "components48": 1,
+   "component_areas48": [
+    774
+   ],
+   "distinctness": 0.2527,
+   "nearest": "factory-landmark-s2c",
+   "nearest_score": 0.2027
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-landmark-s2c.glb",
+   "rel": "assets/landmarks/factory/factory-landmark-s2c.glb",
+   "label": "factory-landmark-s2c",
+   "family": "factory",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5283,
+   "frame_fill96": 0.3167,
+   "components96": 1,
+   "component_areas96": [
+    2919
+   ],
+   "fill48": 0.5439,
+   "frame_fill48": 0.3173,
+   "components48": 1,
+   "component_areas48": [
+    731
+   ],
+   "distinctness": 0.2041,
+   "nearest": "factory-landmark-s1",
+   "nearest_score": 0.1641
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-landmark-s3.glb",
+   "rel": "assets/landmarks/factory/factory-landmark-s3.glb",
+   "label": "factory-landmark-s3",
+   "family": "factory",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5354,
+   "frame_fill96": 0.2823,
+   "components96": 1,
+   "component_areas96": [
+    2602
+   ],
+   "fill48": 0.535,
+   "frame_fill48": 0.2856,
+   "components48": 1,
+   "component_areas48": [
+    658
+   ],
+   "distinctness": 0.1818,
+   "nearest": "factory-landmark-s2",
+   "nearest_score": 0.1289
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-ruin.glb",
+   "rel": "assets/landmarks/factory/factory-ruin.glb",
+   "label": "factory-ruin",
+   "family": "factory",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6549,
+   "frame_fill96": 0.2263,
+   "components96": 1,
+   "component_areas96": [
+    2086
+   ],
+   "fill48": 0.6578,
+   "frame_fill48": 0.2261,
+   "components48": 1,
+   "component_areas48": [
+    521
+   ],
+   "distinctness": 0.2049,
+   "nearest": "factory-landmark-s3",
+   "nearest_score": 0.1445
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/factory-scaffold.glb",
+   "rel": "assets/landmarks/factory/factory-scaffold.glb",
+   "label": "factory-scaffold",
+   "family": "factory",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4497,
+   "frame_fill96": 0.3553,
+   "components96": 1,
+   "component_areas96": [
+    3274
+   ],
+   "fill48": 0.437,
+   "frame_fill48": 0.3329,
+   "components48": 1,
+   "component_areas48": [
+    767
+   ],
+   "distinctness": 0.2771,
+   "nearest": "factory-landmark-s3",
+   "nearest_score": 0.2296
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/hero/factory-g0.glb",
+   "rel": "assets/landmarks/factory/hero/factory-g0.glb",
+   "label": "factory-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5463,
+   "frame_fill96": 0.3981,
+   "components96": 1,
+   "component_areas96": [
+    3669
+   ],
+   "fill48": 0.5537,
+   "frame_fill48": 0.398,
+   "components48": 1,
+   "component_areas48": [
+    917
+   ],
+   "distinctness": 0.2037,
+   "nearest": "cave-g1",
+   "nearest_score": 0.1233
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/hero/factory-g1.glb",
+   "rel": "assets/landmarks/factory/hero/factory-g1.glb",
+   "label": "factory-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5263,
+   "frame_fill96": 0.3061,
+   "components96": 1,
+   "component_areas96": [
+    2821
+   ],
+   "fill48": 0.5228,
+   "frame_fill48": 0.3086,
+   "components48": 1,
+   "component_areas48": [
+    711
+   ],
+   "distinctness": 0.1974,
+   "nearest": "lab-g1",
+   "nearest_score": 0.1341
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/hero/factory-g2.glb",
+   "rel": "assets/landmarks/factory/hero/factory-g2.glb",
+   "label": "factory-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4997,
+   "frame_fill96": 0.207,
+   "components96": 1,
+   "component_areas96": [
+    1908
+   ],
+   "fill48": 0.492,
+   "frame_fill48": 0.2014,
+   "components48": 1,
+   "component_areas48": [
+    464
+   ],
+   "distinctness": 0.1889,
+   "nearest": "lab-g2",
+   "nearest_score": 0.0924
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/hero/factory-g3.glb",
+   "rel": "assets/landmarks/factory/hero/factory-g3.glb",
+   "label": "factory-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4926,
+   "frame_fill96": 0.1454,
+   "components96": 1,
+   "component_areas96": [
+    1340
+   ],
+   "fill48": 0.495,
+   "frame_fill48": 0.1497,
+   "components48": 1,
+   "component_areas48": [
+    345
+   ],
+   "distinctness": 0.1895,
+   "nearest": "lab-g2",
+   "nearest_score": 0.0651
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/barrel.glb",
+   "rel": "assets/landmarks/factory/props/barrel.glb",
+   "label": "barrel",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.87 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8674,
+   "frame_fill96": 0.4217,
+   "components96": 1,
+   "component_areas96": [
+    3886
+   ],
+   "fill48": 0.8795,
+   "frame_fill48": 0.4275,
+   "components48": 1,
+   "component_areas48": [
+    985
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/chimney-stack.glb",
+   "rel": "assets/landmarks/factory/props/chimney-stack.glb",
+   "label": "chimney-stack",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5568,
+   "frame_fill96": 0.1766,
+   "components96": 1,
+   "component_areas96": [
+    1628
+   ],
+   "fill48": 0.5336,
+   "frame_fill48": 0.1793,
+   "components48": 1,
+   "component_areas48": [
+    413
+   ],
+   "distinctness": 0.2117,
+   "nearest": "beacon-light",
+   "nearest_score": 0.0538
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/conveyor-segment.glb",
+   "rel": "assets/landmarks/factory/props/conveyor-segment.glb",
+   "label": "conveyor-segment",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.503,
+   "frame_fill96": 0.3113,
+   "components96": 1,
+   "component_areas96": [
+    2869
+   ],
+   "fill48": 0.5105,
+   "frame_fill48": 0.316,
+   "components48": 1,
+   "component_areas48": [
+    728
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/crate.glb",
+   "rel": "assets/landmarks/factory/props/crate.glb",
+   "label": "crate",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.80 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8047,
+   "frame_fill96": 0.7069,
+   "components96": 1,
+   "component_areas96": [
+    6515
+   ],
+   "fill48": 0.8068,
+   "frame_fill48": 0.7088,
+   "components48": 1,
+   "component_areas48": [
+    1633
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/forklift.glb",
+   "rel": "assets/landmarks/factory/props/forklift.glb",
+   "label": "forklift",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5463,
+   "frame_fill96": 0.2934,
+   "components96": 1,
+   "component_areas96": [
+    2704
+   ],
+   "fill48": 0.5627,
+   "frame_fill48": 0.2982,
+   "components48": 1,
+   "component_areas48": [
+    687
+   ],
+   "distinctness": 0.2271,
+   "nearest": "buoy-small",
+   "nearest_score": 0.1411
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/pipe-segment.glb",
+   "rel": "assets/landmarks/factory/props/pipe-segment.glb",
+   "label": "pipe-segment",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4524,
+   "frame_fill96": 0.2721,
+   "components96": 1,
+   "component_areas96": [
+    2508
+   ],
+   "fill48": 0.4626,
+   "frame_fill48": 0.2739,
+   "components48": 1,
+   "component_areas48": [
+    631
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/valve.glb",
+   "rel": "assets/landmarks/factory/props/valve.glb",
+   "label": "valve",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5685,
+   "frame_fill96": 0.3332,
+   "components96": 1,
+   "component_areas96": [
+    3071
+   ],
+   "fill48": 0.5621,
+   "frame_fill48": 0.3338,
+   "components48": 1,
+   "component_areas48": [
+    769
+   ],
+   "distinctness": 0.2322,
+   "nearest": "buoy-small",
+   "nearest_score": 0.1289
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/props/warning-light.glb",
+   "rel": "assets/landmarks/factory/props/warning-light.glb",
+   "label": "warning-light",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4677,
+   "frame_fill96": 0.1179,
+   "components96": 1,
+   "component_areas96": [
+    1087
+   ],
+   "fill48": 0.4609,
+   "frame_fill48": 0.1176,
+   "components48": 1,
+   "component_areas48": [
+    271
+   ],
+   "distinctness": 0.2239,
+   "nearest": "lantern",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/factory/terrain/slag-mesa.glb",
+   "rel": "assets/landmarks/factory/terrain/slag-mesa.glb",
+   "label": "slag-mesa",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5141,
+   "frame_fill96": 0.2382,
+   "components96": 1,
+   "component_areas96": [
+    2195
+   ],
+   "fill48": 0.5046,
+   "frame_fill48": 0.2365,
+   "components48": 1,
+   "component_areas48": [
+    545
+   ],
+   "distinctness": 0.1354,
+   "nearest": "castle-mound",
+   "nearest_score": 0.0807
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-landmark-s1.glb",
+   "rel": "assets/landmarks/forest/forest-landmark-s1.glb",
+   "label": "forest-landmark-s1",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.541,
+   "frame_fill96": 0.2594,
+   "components96": 1,
+   "component_areas96": [
+    2391
+   ],
+   "fill48": 0.5515,
+   "frame_fill48": 0.2604,
+   "components48": 1,
+   "component_areas48": [
+    600
+   ],
+   "distinctness": 0.2043,
+   "nearest": "forest-ruin",
+   "nearest_score": 0.1181
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-landmark-s2.glb",
+   "rel": "assets/landmarks/forest/forest-landmark-s2.glb",
+   "label": "forest-landmark-s2",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5503,
+   "frame_fill96": 0.2791,
+   "components96": 1,
+   "component_areas96": [
+    2572
+   ],
+   "fill48": 0.5732,
+   "frame_fill48": 0.2786,
+   "components48": 1,
+   "component_areas48": [
+    642
+   ],
+   "distinctness": 0.1962,
+   "nearest": "forest-landmark-s3",
+   "nearest_score": 0.1172
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-landmark-s2b.glb",
+   "rel": "assets/landmarks/forest/forest-landmark-s2b.glb",
+   "label": "forest-landmark-s2b",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.608,
+   "frame_fill96": 0.2725,
+   "components96": 1,
+   "component_areas96": [
+    2511
+   ],
+   "fill48": 0.6197,
+   "frame_fill48": 0.273,
+   "components48": 1,
+   "component_areas48": [
+    629
+   ],
+   "distinctness": 0.1653,
+   "nearest": "forest-landmark-s2",
+   "nearest_score": 0.1176
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-landmark-s2c.glb",
+   "rel": "assets/landmarks/forest/forest-landmark-s2c.glb",
+   "label": "forest-landmark-s2c",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6647,
+   "frame_fill96": 0.3739,
+   "components96": 1,
+   "component_areas96": [
+    3446
+   ],
+   "fill48": 0.6616,
+   "frame_fill48": 0.3767,
+   "components48": 1,
+   "component_areas48": [
+    868
+   ],
+   "distinctness": 0.1891,
+   "nearest": "forest-landmark-s2b",
+   "nearest_score": 0.1228
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-landmark-s3.glb",
+   "rel": "assets/landmarks/forest/forest-landmark-s3.glb",
+   "label": "forest-landmark-s3",
+   "family": "forest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6143,
+   "frame_fill96": 0.2822,
+   "components96": 1,
+   "component_areas96": [
+    2601
+   ],
+   "fill48": 0.6207,
+   "frame_fill48": 0.2812,
+   "components48": 1,
+   "component_areas48": [
+    648
+   ],
+   "distinctness": 0.184,
+   "nearest": "forest-landmark-s2",
+   "nearest_score": 0.1172
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-ruin.glb",
+   "rel": "assets/landmarks/forest/forest-ruin.glb",
+   "label": "forest-ruin",
+   "family": "forest",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6635,
+   "frame_fill96": 0.2199,
+   "components96": 1,
+   "component_areas96": [
+    2027
+   ],
+   "fill48": 0.6929,
+   "frame_fill48": 0.2214,
+   "components48": 1,
+   "component_areas48": [
+    510
+   ],
+   "distinctness": 0.225,
+   "nearest": "forest-landmark-s1",
+   "nearest_score": 0.1181
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/forest-scaffold.glb",
+   "rel": "assets/landmarks/forest/forest-scaffold.glb",
+   "label": "forest-scaffold",
+   "family": "forest",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4385,
+   "frame_fill96": 0.3464,
+   "components96": 1,
+   "component_areas96": [
+    3192
+   ],
+   "fill48": 0.4234,
+   "frame_fill48": 0.3225,
+   "components48": 1,
+   "component_areas48": [
+    743
+   ],
+   "distinctness": 0.2531,
+   "nearest": "forest-landmark-s2b",
+   "nearest_score": 0.2248
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/props/fern-clump.glb",
+   "rel": "assets/landmarks/forest/props/fern-clump.glb",
+   "label": "fern-clump",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.2712,
+   "frame_fill96": 0.0694,
+   "components96": 1,
+   "component_areas96": [
+    640
+   ],
+   "fill48": 0.3397,
+   "frame_fill48": 0.069,
+   "components48": 1,
+   "component_areas48": [
+    159
+   ],
+   "distinctness": 0.2214,
+   "nearest": "starfish",
+   "nearest_score": 0.0569
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/props/log.glb",
+   "rel": "assets/landmarks/forest/props/log.glb",
+   "label": "log",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4989,
+   "frame_fill96": 0.2933,
+   "components96": 1,
+   "component_areas96": [
+    2703
+   ],
+   "fill48": 0.5049,
+   "frame_fill48": 0.2921,
+   "components48": 1,
+   "component_areas48": [
+    673
+   ],
+   "distinctness": 0.277,
+   "nearest": "rail-segment",
+   "nearest_score": 0.1502
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/props/mushroom.glb",
+   "rel": "assets/landmarks/forest/props/mushroom.glb",
+   "label": "mushroom",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5935,
+   "frame_fill96": 0.2386,
+   "components96": 1,
+   "component_areas96": [
+    2199
+   ],
+   "fill48": 0.5927,
+   "frame_fill48": 0.2387,
+   "components48": 1,
+   "component_areas48": [
+    550
+   ],
+   "distinctness": 0.2036,
+   "nearest": "round-tree-small",
+   "nearest_score": 0.0907
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/props/rock.glb",
+   "rel": "assets/landmarks/forest/props/rock.glb",
+   "label": "rock",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6816,
+   "frame_fill96": 0.2356,
+   "components96": 1,
+   "component_areas96": [
+    2171
+   ],
+   "fill48": 0.7044,
+   "frame_fill48": 0.2348,
+   "components48": 1,
+   "component_areas48": [
+    541
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/props/round-tree-large.glb",
+   "rel": "assets/landmarks/forest/props/round-tree-large.glb",
+   "label": "round-tree-large",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6018,
+   "frame_fill96": 0.2265,
+   "components96": 1,
+   "component_areas96": [
+    2087
+   ],
+   "fill48": 0.5943,
+   "frame_fill48": 0.2257,
+   "components48": 1,
+   "component_areas48": [
+    520
+   ],
+   "distinctness": 0.2075,
+   "nearest": "round-tree-small",
+   "nearest_score": 0.0204
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/props/round-tree-small.glb",
+   "rel": "assets/landmarks/forest/props/round-tree-small.glb",
+   "label": "round-tree-small",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5883,
+   "frame_fill96": 0.2234,
+   "components96": 1,
+   "component_areas96": [
+    2059
+   ],
+   "fill48": 0.5988,
+   "frame_fill48": 0.2209,
+   "components48": 1,
+   "component_areas48": [
+    509
+   ],
+   "distinctness": 0.2034,
+   "nearest": "fruit-tree",
+   "nearest_score": 0.0135
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/forest/terrain/hill-with-trees.glb",
+   "rel": "assets/landmarks/forest/terrain/hill-with-trees.glb",
+   "label": "hill-with-trees",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5821,
+   "frame_fill96": 0.2666,
+   "components96": 1,
+   "component_areas96": [
+    2457
+   ],
+   "fill48": 0.5992,
+   "frame_fill48": 0.2661,
+   "components48": 1,
+   "component_areas48": [
+    613
+   ],
+   "distinctness": 0.112,
+   "nearest": "grassy-knoll",
+   "nearest_score": 0.0395
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-landmark-s1.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-landmark-s1.glb",
+   "label": "graveyard-landmark-s1",
+   "family": "graveyard",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.459,
+   "frame_fill96": 0.2137,
+   "components96": 1,
+   "component_areas96": [
+    1969
+   ],
+   "fill48": 0.465,
+   "frame_fill48": 0.2131,
+   "components48": 1,
+   "component_areas48": [
+    491
+   ],
+   "distinctness": 0.2288,
+   "nearest": "graveyard-landmark-s3",
+   "nearest_score": 0.1706
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-landmark-s2.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-landmark-s2.glb",
+   "label": "graveyard-landmark-s2",
+   "family": "graveyard",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5553,
+   "frame_fill96": 0.3212,
+   "components96": 1,
+   "component_areas96": [
+    2960
+   ],
+   "fill48": 0.5492,
+   "frame_fill48": 0.3225,
+   "components48": 1,
+   "component_areas48": [
+    743
+   ],
+   "distinctness": 0.2576,
+   "nearest": "graveyard-landmark-s3",
+   "nearest_score": 0.1984
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-landmark-s2b.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-landmark-s2b.glb",
+   "label": "graveyard-landmark-s2b",
+   "family": "graveyard",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4955,
+   "frame_fill96": 0.3321,
+   "components96": 1,
+   "component_areas96": [
+    3061
+   ],
+   "fill48": 0.5023,
+   "frame_fill48": 0.3281,
+   "components48": 1,
+   "component_areas48": [
+    756
+   ],
+   "distinctness": 0.2729,
+   "nearest": "graveyard-landmark-s1",
+   "nearest_score": 0.2166
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-landmark-s2c.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-landmark-s2c.glb",
+   "label": "graveyard-landmark-s2c",
+   "family": "graveyard",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.588,
+   "frame_fill96": 0.3049,
+   "components96": 1,
+   "component_areas96": [
+    2810
+   ],
+   "fill48": 0.5997,
+   "frame_fill48": 0.3095,
+   "components48": 1,
+   "component_areas48": [
+    713
+   ],
+   "distinctness": 0.2412,
+   "nearest": "graveyard-landmark-s3",
+   "nearest_score": 0.1862
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-landmark-s3.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-landmark-s3.glb",
+   "label": "graveyard-landmark-s3",
+   "family": "graveyard",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) of [4] px at 96 px (thin feature breaks up)"
+   ],
+   "fill96": 0.6218,
+   "frame_fill96": 0.3024,
+   "components96": 2,
+   "component_areas96": [
+    2783,
+    4
+   ],
+   "fill48": 0.6463,
+   "frame_fill48": 0.303,
+   "components48": 1,
+   "component_areas48": [
+    698
+   ],
+   "distinctness": 0.2002,
+   "nearest": "graveyard-ruin",
+   "nearest_score": 0.1619
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-ruin.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-ruin.glb",
+   "label": "graveyard-ruin",
+   "family": "graveyard",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.618,
+   "frame_fill96": 0.2202,
+   "components96": 1,
+   "component_areas96": [
+    2029
+   ],
+   "fill48": 0.6427,
+   "frame_fill48": 0.2209,
+   "components48": 1,
+   "component_areas48": [
+    509
+   ],
+   "distinctness": 0.2152,
+   "nearest": "graveyard-landmark-s3",
+   "nearest_score": 0.1619
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/graveyard-scaffold.glb",
+   "rel": "assets/landmarks/graveyard/graveyard-scaffold.glb",
+   "label": "graveyard-scaffold",
+   "family": "graveyard",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4326,
+   "frame_fill96": 0.3417,
+   "components96": 1,
+   "component_areas96": [
+    3149
+   ],
+   "fill48": 0.4194,
+   "frame_fill48": 0.3194,
+   "components48": 1,
+   "component_areas48": [
+    736
+   ],
+   "distinctness": 0.2915,
+   "nearest": "graveyard-landmark-s3",
+   "nearest_score": 0.2335
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/hero/graveyard-g0.glb",
+   "rel": "assets/landmarks/graveyard/hero/graveyard-g0.glb",
+   "label": "graveyard-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6162,
+   "frame_fill96": 0.2912,
+   "components96": 1,
+   "component_areas96": [
+    2684
+   ],
+   "fill48": 0.6402,
+   "frame_fill48": 0.2934,
+   "components48": 1,
+   "component_areas48": [
+    676
+   ],
+   "distinctness": 0.1417,
+   "nearest": "lab-g0",
+   "nearest_score": 0.046
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/hero/graveyard-g1.glb",
+   "rel": "assets/landmarks/graveyard/hero/graveyard-g1.glb",
+   "label": "graveyard-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6747,
+   "frame_fill96": 0.3005,
+   "components96": 1,
+   "component_areas96": [
+    2769
+   ],
+   "fill48": 0.6626,
+   "frame_fill48": 0.306,
+   "components48": 1,
+   "component_areas48": [
+    705
+   ],
+   "distinctness": 0.1675,
+   "nearest": "graveyard-g2",
+   "nearest_score": 0.0794
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/hero/graveyard-g2.glb",
+   "rel": "assets/landmarks/graveyard/hero/graveyard-g2.glb",
+   "label": "graveyard-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7326,
+   "frame_fill96": 0.2816,
+   "components96": 1,
+   "component_areas96": [
+    2595
+   ],
+   "fill48": 0.7346,
+   "frame_fill48": 0.2786,
+   "components48": 1,
+   "component_areas48": [
+    642
+   ],
+   "distinctness": 0.1828,
+   "nearest": "graveyard-g3",
+   "nearest_score": 0.0217
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/hero/graveyard-g3.glb",
+   "rel": "assets/landmarks/graveyard/hero/graveyard-g3.glb",
+   "label": "graveyard-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6791,
+   "frame_fill96": 0.2542,
+   "components96": 1,
+   "component_areas96": [
+    2343
+   ],
+   "fill48": 0.6773,
+   "frame_fill48": 0.2569,
+   "components48": 1,
+   "component_areas48": [
+    592
+   ],
+   "distinctness": 0.1917,
+   "nearest": "graveyard-g2",
+   "nearest_score": 0.0217
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/crypt.glb",
+   "rel": "assets/landmarks/graveyard/props/crypt.glb",
+   "label": "crypt",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.747,
+   "frame_fill96": 0.4005,
+   "components96": 1,
+   "component_areas96": [
+    3691
+   ],
+   "fill48": 0.7364,
+   "frame_fill48": 0.4062,
+   "components48": 1,
+   "component_areas48": [
+    936
+   ],
+   "distinctness": 0.2468,
+   "nearest": "cottage",
+   "nearest_score": 0.0621
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/fence-segment.glb",
+   "rel": "assets/landmarks/graveyard/props/fence-segment.glb",
+   "label": "fence-segment",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3151,
+   "frame_fill96": 0.239,
+   "components96": 1,
+   "component_areas96": [
+    2203
+   ],
+   "fill48": 0.3381,
+   "frame_fill48": 0.2565,
+   "components48": 1,
+   "component_areas48": [
+    591
+   ],
+   "distinctness": 0.3491,
+   "nearest": "fence-segment",
+   "nearest_score": 0.1997
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/gate.glb",
+   "rel": "assets/landmarks/graveyard/props/gate.glb",
+   "label": "gate",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5876,
+   "frame_fill96": 0.4264,
+   "components96": 1,
+   "component_areas96": [
+    3930
+   ],
+   "fill48": 0.6071,
+   "frame_fill48": 0.4405,
+   "components48": 1,
+   "component_areas48": [
+    1015
+   ],
+   "distinctness": 0.3833,
+   "nearest": "hedge",
+   "nearest_score": 0.1966
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/ghost.glb",
+   "rel": "assets/landmarks/graveyard/props/ghost.glb",
+   "label": "ghost",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.84 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8401,
+   "frame_fill96": 0.3238,
+   "components96": 1,
+   "component_areas96": [
+    2984
+   ],
+   "fill48": 0.8435,
+   "frame_fill48": 0.3251,
+   "components48": 1,
+   "component_areas48": [
+    749
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/headstone.glb",
+   "rel": "assets/landmarks/graveyard/props/headstone.glb",
+   "label": "headstone",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.88 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8827,
+   "frame_fill96": 0.3707,
+   "components96": 1,
+   "component_areas96": [
+    3416
+   ],
+   "fill48": 0.8667,
+   "frame_fill48": 0.3641,
+   "components48": 1,
+   "component_areas48": [
+    839
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/lantern.glb",
+   "rel": "assets/landmarks/graveyard/props/lantern.glb",
+   "label": "lantern",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4785,
+   "frame_fill96": 0.1207,
+   "components96": 1,
+   "component_areas96": [
+    1112
+   ],
+   "fill48": 0.4813,
+   "frame_fill48": 0.1228,
+   "components48": 1,
+   "component_areas48": [
+    283
+   ],
+   "distinctness": 0.2273,
+   "nearest": "warning-light",
+   "nearest_score": 0.0122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/pumpkin.glb",
+   "rel": "assets/landmarks/graveyard/props/pumpkin.glb",
+   "label": "pumpkin",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.75 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.7509,
+   "frame_fill96": 0.2807,
+   "components96": 1,
+   "component_areas96": [
+    2587
+   ],
+   "fill48": 0.7788,
+   "frame_fill48": 0.2812,
+   "components48": 1,
+   "component_areas48": [
+    648
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/props/willow.glb",
+   "rel": "assets/landmarks/graveyard/props/willow.glb",
+   "label": "willow",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6896,
+   "frame_fill96": 0.2478,
+   "components96": 1,
+   "component_areas96": [
+    2284
+   ],
+   "fill48": 0.6787,
+   "frame_fill48": 0.2439,
+   "components48": 1,
+   "component_areas48": [
+    562
+   ],
+   "distinctness": 0.2108,
+   "nearest": "water-tower",
+   "nearest_score": 0.0929
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/graveyard/terrain/crypt-hill.glb",
+   "rel": "assets/landmarks/graveyard/terrain/crypt-hill.glb",
+   "label": "crypt-hill",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) of [9] px at 96 px (thin feature breaks up)"
+   ],
+   "fill96": 0.5975,
+   "frame_fill96": 0.2433,
+   "components96": 2,
+   "component_areas96": [
+    2233,
+    9
+   ],
+   "fill48": 0.5987,
+   "frame_fill48": 0.2474,
+   "components48": 1,
+   "component_areas48": [
+    570
+   ],
+   "distinctness": 0.1084,
+   "nearest": "bandstand-hill",
+   "nearest_score": 0.0543
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-landmark-s1.glb",
+   "rel": "assets/landmarks/ice/ice-landmark-s1.glb",
+   "label": "ice-landmark-s1",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7414,
+   "frame_fill96": 0.2433,
+   "components96": 1,
+   "component_areas96": [
+    2242
+   ],
+   "fill48": 0.7239,
+   "frame_fill48": 0.2435,
+   "components48": 1,
+   "component_areas48": [
+    561
+   ],
+   "distinctness": 0.1817,
+   "nearest": "ice-ruin",
+   "nearest_score": 0.0512
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-landmark-s2.glb",
+   "rel": "assets/landmarks/ice/ice-landmark-s2.glb",
+   "label": "ice-landmark-s2",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) at 48 px"
+   ],
+   "fill96": 0.7077,
+   "frame_fill96": 0.337,
+   "components96": 1,
+   "component_areas96": [
+    3106
+   ],
+   "fill48": 0.7331,
+   "frame_fill48": 0.3385,
+   "components48": 2,
+   "component_areas48": [
+    778,
+    2
+   ],
+   "distinctness": 0.1511,
+   "nearest": "ice-landmark-s2c",
+   "nearest_score": 0.0477
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-landmark-s2b.glb",
+   "rel": "assets/landmarks/ice/ice-landmark-s2b.glb",
+   "label": "ice-landmark-s2b",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6062,
+   "frame_fill96": 0.2526,
+   "components96": 1,
+   "component_areas96": [
+    2328
+   ],
+   "fill48": 0.6177,
+   "frame_fill48": 0.2574,
+   "components48": 1,
+   "component_areas48": [
+    593
+   ],
+   "distinctness": 0.1573,
+   "nearest": "ice-landmark-s2",
+   "nearest_score": 0.0968
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-landmark-s2c.glb",
+   "rel": "assets/landmarks/ice/ice-landmark-s2c.glb",
+   "label": "ice-landmark-s2c",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) of [15] px at 96 px (thin feature breaks up)"
+   ],
+   "fill96": 0.6749,
+   "frame_fill96": 0.3154,
+   "components96": 2,
+   "component_areas96": [
+    2892,
+    15
+   ],
+   "fill48": 0.6785,
+   "frame_fill48": 0.316,
+   "components48": 1,
+   "component_areas48": [
+    728
+   ],
+   "distinctness": 0.153,
+   "nearest": "ice-landmark-s2",
+   "nearest_score": 0.0477
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-landmark-s3.glb",
+   "rel": "assets/landmarks/ice/ice-landmark-s3.glb",
+   "label": "ice-landmark-s3",
+   "family": "ice",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5221,
+   "frame_fill96": 0.2209,
+   "components96": 1,
+   "component_areas96": [
+    2036
+   ],
+   "fill48": 0.5292,
+   "frame_fill48": 0.224,
+   "components48": 1,
+   "component_areas48": [
+    516
+   ],
+   "distinctness": 0.1756,
+   "nearest": "ice-landmark-s2b",
+   "nearest_score": 0.102
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-ruin.glb",
+   "rel": "assets/landmarks/ice/ice-ruin.glb",
+   "label": "ice-ruin",
+   "family": "ice",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6845,
+   "frame_fill96": 0.2255,
+   "components96": 1,
+   "component_areas96": [
+    2078
+   ],
+   "fill48": 0.6864,
+   "frame_fill48": 0.2261,
+   "components48": 1,
+   "component_areas48": [
+    521
+   ],
+   "distinctness": 0.1897,
+   "nearest": "ice-landmark-s1",
+   "nearest_score": 0.0512
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/ice-scaffold.glb",
+   "rel": "assets/landmarks/ice/ice-scaffold.glb",
+   "label": "ice-scaffold",
+   "family": "ice",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5041,
+   "frame_fill96": 0.3707,
+   "components96": 1,
+   "component_areas96": [
+    3416
+   ],
+   "fill48": 0.4988,
+   "frame_fill48": 0.362,
+   "components48": 1,
+   "component_areas48": [
+    834
+   ],
+   "distinctness": 0.2764,
+   "nearest": "ice-landmark-s2b",
+   "nearest_score": 0.2426
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/props/dock-plank.glb",
+   "rel": "assets/landmarks/ice/props/dock-plank.glb",
+   "label": "dock-plank",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4115,
+   "frame_fill96": 0.2531,
+   "components96": 1,
+   "component_areas96": [
+    2333
+   ],
+   "fill48": 0.4022,
+   "frame_fill48": 0.2569,
+   "components48": 1,
+   "component_areas48": [
+    592
+   ],
+   "distinctness": 0.2772,
+   "nearest": "picnic-table",
+   "nearest_score": 0.1536
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/props/frozen-lake-disc.glb",
+   "rel": "assets/landmarks/ice/props/frozen-lake-disc.glb",
+   "label": "frozen-lake-disc",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5678,
+   "frame_fill96": 0.1464,
+   "components96": 1,
+   "component_areas96": [
+    1349
+   ],
+   "fill48": 0.5799,
+   "frame_fill48": 0.145,
+   "components48": 1,
+   "component_areas48": [
+    334
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/props/ice-block-stack.glb",
+   "rel": "assets/landmarks/ice/props/ice-block-stack.glb",
+   "label": "ice-block-stack",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6339,
+   "frame_fill96": 0.3852,
+   "components96": 1,
+   "component_areas96": [
+    3550
+   ],
+   "fill48": 0.635,
+   "frame_fill48": 0.3859,
+   "components48": 1,
+   "component_areas48": [
+    889
+   ],
+   "distinctness": 0.2516,
+   "nearest": "basalt-column",
+   "nearest_score": 0.1159
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/props/ice-crystal-cluster.glb",
+   "rel": "assets/landmarks/ice/props/ice-crystal-cluster.glb",
+   "label": "ice-crystal-cluster",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5885,
+   "frame_fill96": 0.249,
+   "components96": 1,
+   "component_areas96": [
+    2295
+   ],
+   "fill48": 0.6,
+   "frame_fill48": 0.25,
+   "components48": 1,
+   "component_areas48": [
+    576
+   ],
+   "distinctness": 0.2102,
+   "nearest": "crystal-cluster",
+   "nearest_score": 0.0312
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/props/pine-snow.glb",
+   "rel": "assets/landmarks/ice/props/pine-snow.glb",
+   "label": "pine-snow",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5172,
+   "frame_fill96": 0.1926,
+   "components96": 1,
+   "component_areas96": [
+    1775
+   ],
+   "fill48": 0.5163,
+   "frame_fill48": 0.1923,
+   "components48": 1,
+   "component_areas48": [
+    443
+   ],
+   "distinctness": 0.1855,
+   "nearest": "robot-arm",
+   "nearest_score": 0.0534
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/props/snow-boulder.glb",
+   "rel": "assets/landmarks/ice/props/snow-boulder.glb",
+   "label": "snow-boulder",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6998,
+   "frame_fill96": 0.2919,
+   "components96": 1,
+   "component_areas96": [
+    2690
+   ],
+   "fill48": 0.7258,
+   "frame_fill48": 0.293,
+   "components48": 1,
+   "component_areas48": [
+    675
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ice/terrain/mountain-cone.glb",
+   "rel": "assets/landmarks/ice/terrain/mountain-cone.glb",
+   "label": "mountain-cone",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6153,
+   "frame_fill96": 0.2892,
+   "components96": 1,
+   "component_areas96": [
+    2665
+   ],
+   "fill48": 0.6157,
+   "frame_fill48": 0.2886,
+   "components48": 1,
+   "component_areas48": [
+    665
+   ],
+   "distinctness": 0.124,
+   "nearest": "butte",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/hero/jungle-g0.glb",
+   "rel": "assets/landmarks/jungle/hero/jungle-g0.glb",
+   "label": "jungle-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.474,
+   "frame_fill96": 0.2037,
+   "components96": 1,
+   "component_areas96": [
+    1877
+   ],
+   "fill48": 0.4636,
+   "frame_fill48": 0.1992,
+   "components48": 1,
+   "component_areas48": [
+    459
+   ],
+   "distinctness": 0.1921,
+   "nearest": "park-g0",
+   "nearest_score": 0.0773
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/hero/jungle-g1.glb",
+   "rel": "assets/landmarks/jungle/hero/jungle-g1.glb",
+   "label": "jungle-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7395,
+   "frame_fill96": 0.3129,
+   "components96": 1,
+   "component_areas96": [
+    2884
+   ],
+   "fill48": 0.75,
+   "frame_fill48": 0.3125,
+   "components48": 1,
+   "component_areas48": [
+    720
+   ],
+   "distinctness": 0.1893,
+   "nearest": "jungle-g2",
+   "nearest_score": 0.1102
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/hero/jungle-g2.glb",
+   "rel": "assets/landmarks/jungle/hero/jungle-g2.glb",
+   "label": "jungle-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7374,
+   "frame_fill96": 0.3671,
+   "components96": 1,
+   "component_areas96": [
+    3383
+   ],
+   "fill48": 0.7284,
+   "frame_fill48": 0.3724,
+   "components48": 1,
+   "component_areas48": [
+    858
+   ],
+   "distinctness": 0.1714,
+   "nearest": "jungle-g3",
+   "nearest_score": 0.0981
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/hero/jungle-g3.glb",
+   "rel": "assets/landmarks/jungle/hero/jungle-g3.glb",
+   "label": "jungle-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6795,
+   "frame_fill96": 0.3105,
+   "components96": 1,
+   "component_areas96": [
+    2862
+   ],
+   "fill48": 0.6963,
+   "frame_fill48": 0.3064,
+   "components48": 1,
+   "component_areas48": [
+    706
+   ],
+   "distinctness": 0.146,
+   "nearest": "jungle-g2",
+   "nearest_score": 0.0981
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-landmark-s1.glb",
+   "rel": "assets/landmarks/jungle/jungle-landmark-s1.glb",
+   "label": "jungle-landmark-s1",
+   "family": "jungle",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.474,
+   "frame_fill96": 0.2037,
+   "components96": 1,
+   "component_areas96": [
+    1877
+   ],
+   "fill48": 0.4636,
+   "frame_fill48": 0.1992,
+   "components48": 1,
+   "component_areas48": [
+    459
+   ],
+   "distinctness": 0.2164,
+   "nearest": "jungle-ruin",
+   "nearest_score": 0.1168
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-landmark-s2.glb",
+   "rel": "assets/landmarks/jungle/jungle-landmark-s2.glb",
+   "label": "jungle-landmark-s2",
+   "family": "jungle",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5895,
+   "frame_fill96": 0.2931,
+   "components96": 1,
+   "component_areas96": [
+    2701
+   ],
+   "fill48": 0.6117,
+   "frame_fill48": 0.2899,
+   "components48": 1,
+   "component_areas48": [
+    668
+   ],
+   "distinctness": 0.2383,
+   "nearest": "jungle-landmark-s2b",
+   "nearest_score": 0.1359
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-landmark-s2b.glb",
+   "rel": "assets/landmarks/jungle/jungle-landmark-s2b.glb",
+   "label": "jungle-landmark-s2b",
+   "family": "jungle",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6183,
+   "frame_fill96": 0.3286,
+   "components96": 1,
+   "component_areas96": [
+    3028
+   ],
+   "fill48": 0.6268,
+   "frame_fill48": 0.3346,
+   "components48": 1,
+   "component_areas48": [
+    771
+   ],
+   "distinctness": 0.2329,
+   "nearest": "jungle-landmark-s2",
+   "nearest_score": 0.1359
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-landmark-s2c.glb",
+   "rel": "assets/landmarks/jungle/jungle-landmark-s2c.glb",
+   "label": "jungle-landmark-s2c",
+   "family": "jungle",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3557,
+   "frame_fill96": 0.1396,
+   "components96": 1,
+   "component_areas96": [
+    1287
+   ],
+   "fill48": 0.3625,
+   "frame_fill48": 0.1402,
+   "components48": 1,
+   "component_areas48": [
+    323
+   ],
+   "distinctness": 0.2454,
+   "nearest": "jungle-ruin",
+   "nearest_score": 0.1758
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-landmark-s3.glb",
+   "rel": "assets/landmarks/jungle/jungle-landmark-s3.glb",
+   "label": "jungle-landmark-s3",
+   "family": "jungle",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5898,
+   "frame_fill96": 0.3351,
+   "components96": 1,
+   "component_areas96": [
+    3088
+   ],
+   "fill48": 0.5967,
+   "frame_fill48": 0.3346,
+   "components48": 1,
+   "component_areas48": [
+    771
+   ],
+   "distinctness": 0.2324,
+   "nearest": "jungle-ruin",
+   "nearest_score": 0.1602
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-ruin.glb",
+   "rel": "assets/landmarks/jungle/jungle-ruin.glb",
+   "label": "jungle-ruin",
+   "family": "jungle",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6269,
+   "frame_fill96": 0.2233,
+   "components96": 1,
+   "component_areas96": [
+    2058
+   ],
+   "fill48": 0.6324,
+   "frame_fill48": 0.224,
+   "components48": 1,
+   "component_areas48": [
+    516
+   ],
+   "distinctness": 0.2085,
+   "nearest": "jungle-landmark-s1",
+   "nearest_score": 0.1168
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/jungle-scaffold.glb",
+   "rel": "assets/landmarks/jungle/jungle-scaffold.glb",
+   "label": "jungle-scaffold",
+   "family": "jungle",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4455,
+   "frame_fill96": 0.3519,
+   "components96": 1,
+   "component_areas96": [
+    3243
+   ],
+   "fill48": 0.4319,
+   "frame_fill48": 0.329,
+   "components48": 1,
+   "component_areas48": [
+    758
+   ],
+   "distinctness": 0.2737,
+   "nearest": "jungle-landmark-s2b",
+   "nearest_score": 0.2548
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/broadleaf.glb",
+   "rel": "assets/landmarks/jungle/props/broadleaf.glb",
+   "label": "broadleaf",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3514,
+   "frame_fill96": 0.1012,
+   "components96": 1,
+   "component_areas96": [
+    933
+   ],
+   "fill48": 0.3838,
+   "frame_fill48": 0.099,
+   "components48": 1,
+   "component_areas48": [
+    228
+   ],
+   "distinctness": 0.2129,
+   "nearest": "fern-clump",
+   "nearest_score": 0.0577
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/fruit-tree.glb",
+   "rel": "assets/landmarks/jungle/props/fruit-tree.glb",
+   "label": "fruit-tree",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5828,
+   "frame_fill96": 0.2169,
+   "components96": 1,
+   "component_areas96": [
+    1999
+   ],
+   "fill48": 0.5956,
+   "frame_fill48": 0.2109,
+   "components48": 1,
+   "component_areas48": [
+    486
+   ],
+   "distinctness": 0.2036,
+   "nearest": "round-tree-small",
+   "nearest_score": 0.0135
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/palm.glb",
+   "rel": "assets/landmarks/jungle/props/palm.glb",
+   "label": "palm",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.31,
+   "frame_fill96": 0.1098,
+   "components96": 1,
+   "component_areas96": [
+    1012
+   ],
+   "fill48": 0.3374,
+   "frame_fill48": 0.1089,
+   "components48": 1,
+   "component_areas48": [
+    251
+   ],
+   "distinctness": 0.219,
+   "nearest": "lamp-post",
+   "nearest_score": 0.0998
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/ruin-block.glb",
+   "rel": "assets/landmarks/jungle/props/ruin-block.glb",
+   "label": "ruin-block",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.87 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8701,
+   "frame_fill96": 0.489,
+   "components96": 1,
+   "component_areas96": [
+    4507
+   ],
+   "fill48": 0.8703,
+   "frame_fill48": 0.4891,
+   "components48": 1,
+   "component_areas48": [
+    1127
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/surfboard.glb",
+   "rel": "assets/landmarks/jungle/props/surfboard.glb",
+   "label": "surfboard",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5317,
+   "frame_fill96": 0.1745,
+   "components96": 1,
+   "component_areas96": [
+    1608
+   ],
+   "fill48": 0.5304,
+   "frame_fill48": 0.174,
+   "components48": 1,
+   "component_areas48": [
+    401
+   ],
+   "distinctness": 0.1959,
+   "nearest": "chimney-stack",
+   "nearest_score": 0.092
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/tiki-hut.glb",
+   "rel": "assets/landmarks/jungle/props/tiki-hut.glb",
+   "label": "tiki-hut",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5741,
+   "frame_fill96": 0.307,
+   "components96": 1,
+   "component_areas96": [
+    2829
+   ],
+   "fill48": 0.5823,
+   "frame_fill48": 0.3056,
+   "components48": 1,
+   "component_areas48": [
+    704
+   ],
+   "distinctness": 0.2201,
+   "nearest": "smoke-puff-cluster",
+   "nearest_score": 0.1393
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/torch.glb",
+   "rel": "assets/landmarks/jungle/props/torch.glb",
+   "label": "torch",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4384,
+   "frame_fill96": 0.1026,
+   "components96": 1,
+   "component_areas96": [
+    946
+   ],
+   "fill48": 0.4268,
+   "frame_fill48": 0.0911,
+   "components48": 1,
+   "component_areas48": [
+    210
+   ],
+   "distinctness": 0.2195,
+   "nearest": "warning-light",
+   "nearest_score": 0.0265
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/props/waterfall-slab.glb",
+   "rel": "assets/landmarks/jungle/props/waterfall-slab.glb",
+   "label": "waterfall-slab",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.76 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.7648,
+   "frame_fill96": 0.4907,
+   "components96": 1,
+   "component_areas96": [
+    4522
+   ],
+   "fill48": 0.7694,
+   "frame_fill48": 0.4809,
+   "components48": 1,
+   "component_areas48": [
+    1108
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/jungle/terrain/waterfall-mesa.glb",
+   "rel": "assets/landmarks/jungle/terrain/waterfall-mesa.glb",
+   "label": "waterfall-mesa",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6299,
+   "frame_fill96": 0.3044,
+   "components96": 1,
+   "component_areas96": [
+    2805
+   ],
+   "fill48": 0.6219,
+   "frame_fill48": 0.3012,
+   "components48": 1,
+   "component_areas48": [
+    694
+   ],
+   "distinctness": 0.1446,
+   "nearest": "caldera-rim",
+   "nearest_score": 0.1176
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/hero/lab-g0.glb",
+   "rel": "assets/landmarks/lab/hero/lab-g0.glb",
+   "label": "lab-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5989,
+   "frame_fill96": 0.283,
+   "components96": 1,
+   "component_areas96": [
+    2608
+   ],
+   "fill48": 0.595,
+   "frame_fill48": 0.2812,
+   "components48": 1,
+   "component_areas48": [
+    648
+   ],
+   "distinctness": 0.1409,
+   "nearest": "graveyard-g0",
+   "nearest_score": 0.046
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/hero/lab-g1.glb",
+   "rel": "assets/landmarks/lab/hero/lab-g1.glb",
+   "label": "lab-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5278,
+   "frame_fill96": 0.2373,
+   "components96": 1,
+   "component_areas96": [
+    2187
+   ],
+   "fill48": 0.5309,
+   "frame_fill48": 0.2387,
+   "components48": 1,
+   "component_areas48": [
+    550
+   ],
+   "distinctness": 0.1558,
+   "nearest": "park-g3",
+   "nearest_score": 0.0642
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/hero/lab-g2.glb",
+   "rel": "assets/landmarks/lab/hero/lab-g2.glb",
+   "label": "lab-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5699,
+   "frame_fill96": 0.1929,
+   "components96": 1,
+   "component_areas96": [
+    1778
+   ],
+   "fill48": 0.6059,
+   "frame_fill48": 0.1949,
+   "components48": 1,
+   "component_areas48": [
+    449
+   ],
+   "distinctness": 0.166,
+   "nearest": "factory-g3",
+   "nearest_score": 0.0651
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/hero/lab-g3.glb",
+   "rel": "assets/landmarks/lab/hero/lab-g3.glb",
+   "label": "lab-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5573,
+   "frame_fill96": 0.1355,
+   "components96": 1,
+   "component_areas96": [
+    1249
+   ],
+   "fill48": 0.5383,
+   "frame_fill48": 0.1341,
+   "components48": 1,
+   "component_areas48": [
+    309
+   ],
+   "distinctness": 0.2038,
+   "nearest": "lab-g2",
+   "nearest_score": 0.0799
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-landmark-s1.glb",
+   "rel": "assets/landmarks/lab/lab-landmark-s1.glb",
+   "label": "lab-landmark-s1",
+   "family": "lab",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5989,
+   "frame_fill96": 0.283,
+   "components96": 1,
+   "component_areas96": [
+    2608
+   ],
+   "fill48": 0.595,
+   "frame_fill48": 0.2812,
+   "components48": 1,
+   "component_areas48": [
+    648
+   ],
+   "distinctness": 0.1706,
+   "nearest": "lab-ruin",
+   "nearest_score": 0.1398
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-landmark-s2.glb",
+   "rel": "assets/landmarks/lab/lab-landmark-s2.glb",
+   "label": "lab-landmark-s2",
+   "family": "lab",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5565,
+   "frame_fill96": 0.2624,
+   "components96": 1,
+   "component_areas96": [
+    2418
+   ],
+   "fill48": 0.55,
+   "frame_fill48": 0.2578,
+   "components48": 1,
+   "component_areas48": [
+    594
+   ],
+   "distinctness": 0.1536,
+   "nearest": "lab-landmark-s2c",
+   "nearest_score": 0.056
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-landmark-s2b.glb",
+   "rel": "assets/landmarks/lab/lab-landmark-s2b.glb",
+   "label": "lab-landmark-s2b",
+   "family": "lab",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5514,
+   "frame_fill96": 0.2917,
+   "components96": 1,
+   "component_areas96": [
+    2688
+   ],
+   "fill48": 0.5439,
+   "frame_fill48": 0.296,
+   "components48": 1,
+   "component_areas48": [
+    682
+   ],
+   "distinctness": 0.1789,
+   "nearest": "lab-landmark-s2c",
+   "nearest_score": 0.122
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-landmark-s2c.glb",
+   "rel": "assets/landmarks/lab/lab-landmark-s2c.glb",
+   "label": "lab-landmark-s2c",
+   "family": "lab",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6123,
+   "frame_fill96": 0.287,
+   "components96": 1,
+   "component_areas96": [
+    2645
+   ],
+   "fill48": 0.6176,
+   "frame_fill48": 0.2895,
+   "components48": 1,
+   "component_areas48": [
+    667
+   ],
+   "distinctness": 0.1567,
+   "nearest": "lab-landmark-s2",
+   "nearest_score": 0.056
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-landmark-s3.glb",
+   "rel": "assets/landmarks/lab/lab-landmark-s3.glb",
+   "label": "lab-landmark-s3",
+   "family": "lab",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5115,
+   "frame_fill96": 0.2308,
+   "components96": 1,
+   "component_areas96": [
+    2127
+   ],
+   "fill48": 0.5253,
+   "frame_fill48": 0.2339,
+   "components48": 1,
+   "component_areas48": [
+    539
+   ],
+   "distinctness": 0.1732,
+   "nearest": "lab-landmark-s2",
+   "nearest_score": 0.1298
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-ruin.glb",
+   "rel": "assets/landmarks/lab/lab-ruin.glb",
+   "label": "lab-ruin",
+   "family": "lab",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6386,
+   "frame_fill96": 0.2207,
+   "components96": 1,
+   "component_areas96": [
+    2034
+   ],
+   "fill48": 0.635,
+   "frame_fill48": 0.2205,
+   "components48": 1,
+   "component_areas48": [
+    508
+   ],
+   "distinctness": 0.2104,
+   "nearest": "lab-landmark-s1",
+   "nearest_score": 0.1398
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/lab-scaffold.glb",
+   "rel": "assets/landmarks/lab/lab-scaffold.glb",
+   "label": "lab-scaffold",
+   "family": "lab",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4356,
+   "frame_fill96": 0.3441,
+   "components96": 1,
+   "component_areas96": [
+    3171
+   ],
+   "fill48": 0.4222,
+   "frame_fill48": 0.3216,
+   "components48": 1,
+   "component_areas48": [
+    741
+   ],
+   "distinctness": 0.2488,
+   "nearest": "lab-landmark-s3",
+   "nearest_score": 0.2144
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/drone-pad.glb",
+   "rel": "assets/landmarks/lab/props/drone-pad.glb",
+   "label": "drone-pad",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.77 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.77,
+   "frame_fill96": 0.1544,
+   "components96": 1,
+   "component_areas96": [
+    1423
+   ],
+   "fill48": 0.7879,
+   "frame_fill48": 0.1532,
+   "components48": 1,
+   "component_areas48": [
+    353
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/glass-tower.glb",
+   "rel": "assets/landmarks/lab/props/glass-tower.glb",
+   "label": "glass-tower",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.78 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.78,
+   "frame_fill96": 0.3128,
+   "components96": 1,
+   "component_areas96": [
+    2883
+   ],
+   "fill48": 0.75,
+   "frame_fill48": 0.3008,
+   "components48": 1,
+   "component_areas48": [
+    693
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/hologram-disc.glb",
+   "rel": "assets/landmarks/lab/props/hologram-disc.glb",
+   "label": "hologram-disc",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5505,
+   "frame_fill96": 0.3075,
+   "components96": 1,
+   "component_areas96": [
+    2834
+   ],
+   "fill48": 0.547,
+   "frame_fill48": 0.3056,
+   "components48": 1,
+   "component_areas48": [
+    704
+   ],
+   "distinctness": 0.2793,
+   "nearest": "well",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/neon-ring.glb",
+   "rel": "assets/landmarks/lab/props/neon-ring.glb",
+   "label": "neon-ring",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.2729,
+   "frame_fill96": 0.1494,
+   "components96": 1,
+   "component_areas96": [
+    1377
+   ],
+   "fill48": 0.2782,
+   "frame_fill48": 0.1454,
+   "components48": 1,
+   "component_areas48": [
+    335
+   ],
+   "distinctness": 0.297,
+   "nearest": "starfish",
+   "nearest_score": 0.1801
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/plant-pod.glb",
+   "rel": "assets/landmarks/lab/props/plant-pod.glb",
+   "label": "plant-pod",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.84 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8376,
+   "frame_fill96": 0.4014,
+   "components96": 1,
+   "component_areas96": [
+    3699
+   ],
+   "fill48": 0.8214,
+   "frame_fill48": 0.3993,
+   "components48": 1,
+   "component_areas48": [
+    920
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/robot-arm.glb",
+   "rel": "assets/landmarks/lab/props/robot-arm.glb",
+   "label": "robot-arm",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5826,
+   "frame_fill96": 0.1474,
+   "components96": 1,
+   "component_areas96": [
+    1358
+   ],
+   "fill48": 0.5559,
+   "frame_fill48": 0.1467,
+   "components48": 1,
+   "component_areas48": [
+    338
+   ],
+   "distinctness": 0.1932,
+   "nearest": "pine-snow",
+   "nearest_score": 0.0534
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/server-rack.glb",
+   "rel": "assets/landmarks/lab/props/server-rack.glb",
+   "label": "server-rack",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.91 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.9071,
+   "frame_fill96": 0.4568,
+   "components96": 1,
+   "component_areas96": [
+    4210
+   ],
+   "fill48": 0.9017,
+   "frame_fill48": 0.4501,
+   "components48": 1,
+   "component_areas48": [
+    1037
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/props/tube-pipe.glb",
+   "rel": "assets/landmarks/lab/props/tube-pipe.glb",
+   "label": "tube-pipe",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4194,
+   "frame_fill96": 0.2483,
+   "components96": 1,
+   "component_areas96": [
+    2288
+   ],
+   "fill48": 0.4208,
+   "frame_fill48": 0.2491,
+   "components48": 1,
+   "component_areas48": [
+    574
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/lab/terrain/reactor-plateau.glb",
+   "rel": "assets/landmarks/lab/terrain/reactor-plateau.glb",
+   "label": "reactor-plateau",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5903,
+   "frame_fill96": 0.2156,
+   "components96": 1,
+   "component_areas96": [
+    1987
+   ],
+   "fill48": 0.6262,
+   "frame_fill48": 0.2174,
+   "components48": 1,
+   "component_areas48": [
+    501
+   ],
+   "distinctness": 0.1247,
+   "nearest": "caldera-rim",
+   "nearest_score": 0.0747
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-landmark-s1.glb",
+   "rel": "assets/landmarks/meadow/meadow-landmark-s1.glb",
+   "label": "meadow-landmark-s1",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6317,
+   "frame_fill96": 0.329,
+   "components96": 1,
+   "component_areas96": [
+    3032
+   ],
+   "fill48": 0.6192,
+   "frame_fill48": 0.3268,
+   "components48": 1,
+   "component_areas48": [
+    753
+   ],
+   "distinctness": 0.1745,
+   "nearest": "meadow-landmark-s2c",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-landmark-s2.glb",
+   "rel": "assets/landmarks/meadow/meadow-landmark-s2.glb",
+   "label": "meadow-landmark-s2",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5277,
+   "frame_fill96": 0.2748,
+   "components96": 1,
+   "component_areas96": [
+    2533
+   ],
+   "fill48": 0.523,
+   "frame_fill48": 0.276,
+   "components48": 1,
+   "component_areas48": [
+    636
+   ],
+   "distinctness": 0.196,
+   "nearest": "meadow-landmark-s2c",
+   "nearest_score": 0.1359
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-landmark-s2b.glb",
+   "rel": "assets/landmarks/meadow/meadow-landmark-s2b.glb",
+   "label": "meadow-landmark-s2b",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.695,
+   "frame_fill96": 0.4308,
+   "components96": 1,
+   "component_areas96": [
+    3970
+   ],
+   "fill48": 0.7258,
+   "frame_fill48": 0.4366,
+   "components48": 1,
+   "component_areas48": [
+    1006
+   ],
+   "distinctness": 0.2038,
+   "nearest": "meadow-landmark-s1",
+   "nearest_score": 0.1385
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-landmark-s2c.glb",
+   "rel": "assets/landmarks/meadow/meadow-landmark-s2c.glb",
+   "label": "meadow-landmark-s2c",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5979,
+   "frame_fill96": 0.2751,
+   "components96": 1,
+   "component_areas96": [
+    2535
+   ],
+   "fill48": 0.6125,
+   "frame_fill48": 0.2765,
+   "components48": 1,
+   "component_areas48": [
+    637
+   ],
+   "distinctness": 0.1843,
+   "nearest": "meadow-landmark-s1",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-landmark-s3.glb",
+   "rel": "assets/landmarks/meadow/meadow-landmark-s3.glb",
+   "label": "meadow-landmark-s3",
+   "family": "meadow",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.64,
+   "frame_fill96": 0.2934,
+   "components96": 1,
+   "component_areas96": [
+    2704
+   ],
+   "fill48": 0.6354,
+   "frame_fill48": 0.2912,
+   "components48": 1,
+   "component_areas48": [
+    671
+   ],
+   "distinctness": 0.1855,
+   "nearest": "meadow-ruin",
+   "nearest_score": 0.105
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-ruin.glb",
+   "rel": "assets/landmarks/meadow/meadow-ruin.glb",
+   "label": "meadow-ruin",
+   "family": "meadow",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6885,
+   "frame_fill96": 0.2295,
+   "components96": 1,
+   "component_areas96": [
+    2115
+   ],
+   "fill48": 0.7083,
+   "frame_fill48": 0.2287,
+   "components48": 1,
+   "component_areas48": [
+    527
+   ],
+   "distinctness": 0.2169,
+   "nearest": "meadow-landmark-s3",
+   "nearest_score": 0.105
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/meadow-scaffold.glb",
+   "rel": "assets/landmarks/meadow/meadow-scaffold.glb",
+   "label": "meadow-scaffold",
+   "family": "meadow",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.415,
+   "frame_fill96": 0.3278,
+   "components96": 1,
+   "component_areas96": [
+    3021
+   ],
+   "fill48": 0.4006,
+   "frame_fill48": 0.3051,
+   "components48": 1,
+   "component_areas48": [
+    703
+   ],
+   "distinctness": 0.2541,
+   "nearest": "meadow-landmark-s1",
+   "nearest_score": 0.2318
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/props/bush.glb",
+   "rel": "assets/landmarks/meadow/props/bush.glb",
+   "label": "bush",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.727,
+   "frame_fill96": 0.2982,
+   "components96": 1,
+   "component_areas96": [
+    2748
+   ],
+   "fill48": 0.7135,
+   "frame_fill48": 0.2973,
+   "components48": 1,
+   "component_areas48": [
+    685
+   ],
+   "distinctness": 0.2189,
+   "nearest": "hay-cart",
+   "nearest_score": 0.1194
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/props/fence-segment.glb",
+   "rel": "assets/landmarks/meadow/props/fence-segment.glb",
+   "label": "fence-segment",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.339,
+   "frame_fill96": 0.2715,
+   "components96": 1,
+   "component_areas96": [
+    2502
+   ],
+   "fill48": 0.3245,
+   "frame_fill48": 0.2721,
+   "components48": 1,
+   "component_areas48": [
+    627
+   ],
+   "distinctness": 0.3722,
+   "nearest": "fence-segment",
+   "nearest_score": 0.1997
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/props/flower-clump-coral.glb",
+   "rel": "assets/landmarks/meadow/props/flower-clump-coral.glb",
+   "label": "flower-clump-coral",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5845,
+   "frame_fill96": 0.2507,
+   "components96": 1,
+   "component_areas96": [
+    2310
+   ],
+   "fill48": 0.6032,
+   "frame_fill48": 0.2487,
+   "components48": 1,
+   "component_areas48": [
+    573
+   ],
+   "distinctness": 0.208,
+   "nearest": "flower-clump-peach",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/props/flower-clump-lilac.glb",
+   "rel": "assets/landmarks/meadow/props/flower-clump-lilac.glb",
+   "label": "flower-clump-lilac",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6289,
+   "frame_fill96": 0.2821,
+   "components96": 1,
+   "component_areas96": [
+    2600
+   ],
+   "fill48": 0.6479,
+   "frame_fill48": 0.2852,
+   "components48": 1,
+   "component_areas48": [
+    657
+   ],
+   "distinctness": 0.2117,
+   "nearest": "flower-clump-coral",
+   "nearest_score": 0.0677
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/props/flower-clump-peach.glb",
+   "rel": "assets/landmarks/meadow/props/flower-clump-peach.glb",
+   "label": "flower-clump-peach",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5916,
+   "frame_fill96": 0.2488,
+   "components96": 1,
+   "component_areas96": [
+    2293
+   ],
+   "fill48": 0.6053,
+   "frame_fill48": 0.2496,
+   "components48": 1,
+   "component_areas48": [
+    575
+   ],
+   "distinctness": 0.1983,
+   "nearest": "flower-clump-coral",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/props/hay-bale.glb",
+   "rel": "assets/landmarks/meadow/props/hay-bale.glb",
+   "label": "hay-bale",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6984,
+   "frame_fill96": 0.4953,
+   "components96": 1,
+   "component_areas96": [
+    4565
+   ],
+   "fill48": 0.7143,
+   "frame_fill48": 0.4948,
+   "components48": 1,
+   "component_areas48": [
+    1140
+   ],
+   "distinctness": 0.3141,
+   "nearest": "mine-cart",
+   "nearest_score": 0.1211
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/meadow/terrain/grassy-knoll.glb",
+   "rel": "assets/landmarks/meadow/terrain/grassy-knoll.glb",
+   "label": "grassy-knoll",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6107,
+   "frame_fill96": 0.2753,
+   "components96": 1,
+   "component_areas96": [
+    2537
+   ],
+   "fill48": 0.5939,
+   "frame_fill48": 0.2717,
+   "components48": 1,
+   "component_areas48": [
+    626
+   ],
+   "distinctness": 0.1137,
+   "nearest": "hill-with-trees",
+   "nearest_score": 0.0395
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-landmark-s1.glb",
+   "rel": "assets/landmarks/medieval/medieval-landmark-s1.glb",
+   "label": "medieval-landmark-s1",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4702,
+   "frame_fill96": 0.3064,
+   "components96": 1,
+   "component_areas96": [
+    2824
+   ],
+   "fill48": 0.4744,
+   "frame_fill48": 0.3051,
+   "components48": 1,
+   "component_areas48": [
+    703
+   ],
+   "distinctness": 0.2441,
+   "nearest": "medieval-landmark-s3",
+   "nearest_score": 0.1962
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-landmark-s2.glb",
+   "rel": "assets/landmarks/medieval/medieval-landmark-s2.glb",
+   "label": "medieval-landmark-s2",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6275,
+   "frame_fill96": 0.3322,
+   "components96": 1,
+   "component_areas96": [
+    3062
+   ],
+   "fill48": 0.6261,
+   "frame_fill48": 0.3286,
+   "components48": 1,
+   "component_areas48": [
+    757
+   ],
+   "distinctness": 0.1801,
+   "nearest": "medieval-landmark-s3",
+   "nearest_score": 0.1163
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-landmark-s2b.glb",
+   "rel": "assets/landmarks/medieval/medieval-landmark-s2b.glb",
+   "label": "medieval-landmark-s2b",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5213,
+   "frame_fill96": 0.2612,
+   "components96": 1,
+   "component_areas96": [
+    2407
+   ],
+   "fill48": 0.5384,
+   "frame_fill48": 0.2617,
+   "components48": 1,
+   "component_areas48": [
+    603
+   ],
+   "distinctness": 0.1979,
+   "nearest": "medieval-landmark-s3",
+   "nearest_score": 0.1458
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-landmark-s2c.glb",
+   "rel": "assets/landmarks/medieval/medieval-landmark-s2c.glb",
+   "label": "medieval-landmark-s2c",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.677,
+   "frame_fill96": 0.3685,
+   "components96": 1,
+   "component_areas96": [
+    3396
+   ],
+   "fill48": 0.6875,
+   "frame_fill48": 0.3724,
+   "components48": 1,
+   "component_areas48": [
+    858
+   ],
+   "distinctness": 0.1987,
+   "nearest": "medieval-landmark-s2",
+   "nearest_score": 0.1168
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-landmark-s3.glb",
+   "rel": "assets/landmarks/medieval/medieval-landmark-s3.glb",
+   "label": "medieval-landmark-s3",
+   "family": "medieval",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7033,
+   "frame_fill96": 0.3419,
+   "components96": 1,
+   "component_areas96": [
+    3151
+   ],
+   "fill48": 0.7205,
+   "frame_fill48": 0.3503,
+   "components48": 1,
+   "component_areas48": [
+    807
+   ],
+   "distinctness": 0.1739,
+   "nearest": "medieval-landmark-s2",
+   "nearest_score": 0.1163
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-ruin.glb",
+   "rel": "assets/landmarks/medieval/medieval-ruin.glb",
+   "label": "medieval-ruin",
+   "family": "medieval",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.642,
+   "frame_fill96": 0.2115,
+   "components96": 1,
+   "component_areas96": [
+    1949
+   ],
+   "fill48": 0.6416,
+   "frame_fill48": 0.2114,
+   "components48": 1,
+   "component_areas48": [
+    487
+   ],
+   "distinctness": 0.2159,
+   "nearest": "medieval-landmark-s2",
+   "nearest_score": 0.1615
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/medieval-scaffold.glb",
+   "rel": "assets/landmarks/medieval/medieval-scaffold.glb",
+   "label": "medieval-scaffold",
+   "family": "medieval",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4264,
+   "frame_fill96": 0.3368,
+   "components96": 1,
+   "component_areas96": [
+    3104
+   ],
+   "fill48": 0.4125,
+   "frame_fill48": 0.3142,
+   "components48": 1,
+   "component_areas48": [
+    724
+   ],
+   "distinctness": 0.2666,
+   "nearest": "medieval-landmark-s2c",
+   "nearest_score": 0.2396
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/banner-pole.glb",
+   "rel": "assets/landmarks/medieval/props/banner-pole.glb",
+   "label": "banner-pole",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5019,
+   "frame_fill96": 0.1137,
+   "components96": 1,
+   "component_areas96": [
+    1048
+   ],
+   "fill48": 0.4845,
+   "frame_fill48": 0.1085,
+   "components48": 1,
+   "component_areas48": [
+    250
+   ],
+   "distinctness": 0.2278,
+   "nearest": "lamp-post",
+   "nearest_score": 0.0386
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/cottage.glb",
+   "rel": "assets/landmarks/medieval/props/cottage.glb",
+   "label": "cottage",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6929,
+   "frame_fill96": 0.4158,
+   "components96": 1,
+   "component_areas96": [
+    3832
+   ],
+   "fill48": 0.7293,
+   "frame_fill48": 0.4197,
+   "components48": 1,
+   "component_areas48": [
+    967
+   ],
+   "distinctness": 0.2575,
+   "nearest": "small-house",
+   "nearest_score": 0.0577
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/hay-cart.glb",
+   "rel": "assets/landmarks/medieval/props/hay-cart.glb",
+   "label": "hay-cart",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6866,
+   "frame_fill96": 0.295,
+   "components96": 1,
+   "component_areas96": [
+    2719
+   ],
+   "fill48": 0.7016,
+   "frame_fill48": 0.296,
+   "components48": 1,
+   "component_areas48": [
+    682
+   ],
+   "distinctness": 0.2252,
+   "nearest": "duck",
+   "nearest_score": 0.0977
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/market-tent.glb",
+   "rel": "assets/landmarks/medieval/props/market-tent.glb",
+   "label": "market-tent",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4947,
+   "frame_fill96": 0.3135,
+   "components96": 1,
+   "component_areas96": [
+    2889
+   ],
+   "fill48": 0.4972,
+   "frame_fill48": 0.3108,
+   "components48": 1,
+   "component_areas48": [
+    716
+   ],
+   "distinctness": 0.2451,
+   "nearest": "bush",
+   "nearest_score": 0.1645
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/torch.glb",
+   "rel": "assets/landmarks/medieval/props/torch.glb",
+   "label": "torch",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4548,
+   "frame_fill96": 0.1104,
+   "components96": 1,
+   "component_areas96": [
+    1017
+   ],
+   "fill48": 0.5092,
+   "frame_fill48": 0.1207,
+   "components48": 1,
+   "component_areas48": [
+    278
+   ],
+   "distinctness": 0.2114,
+   "nearest": "torch",
+   "nearest_score": 0.0295
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/wall-segment.glb",
+   "rel": "assets/landmarks/medieval/props/wall-segment.glb",
+   "label": "wall-segment",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.80 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.7959,
+   "frame_fill96": 0.7151,
+   "components96": 1,
+   "component_areas96": [
+    6590
+   ],
+   "fill48": 0.7961,
+   "frame_fill48": 0.7153,
+   "components48": 1,
+   "component_areas48": [
+    1648
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/well.glb",
+   "rel": "assets/landmarks/medieval/props/well.glb",
+   "label": "well",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5373,
+   "frame_fill96": 0.3346,
+   "components96": 1,
+   "component_areas96": [
+    3084
+   ],
+   "fill48": 0.5157,
+   "frame_fill48": 0.3212,
+   "components48": 1,
+   "component_areas48": [
+    740
+   ],
+   "distinctness": 0.255,
+   "nearest": "well",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/props/windmill-small.glb",
+   "rel": "assets/landmarks/medieval/props/windmill-small.glb",
+   "label": "windmill-small",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7099,
+   "frame_fill96": 0.2939,
+   "components96": 1,
+   "component_areas96": [
+    2709
+   ],
+   "fill48": 0.7297,
+   "frame_fill48": 0.2964,
+   "components48": 1,
+   "component_areas48": [
+    683
+   ],
+   "distinctness": 0.2044,
+   "nearest": "flower-clump-peach",
+   "nearest_score": 0.0998
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/medieval/terrain/castle-mound.glb",
+   "rel": "assets/landmarks/medieval/terrain/castle-mound.glb",
+   "label": "castle-mound",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.576,
+   "frame_fill96": 0.2558,
+   "components96": 1,
+   "component_areas96": [
+    2357
+   ],
+   "fill48": 0.5718,
+   "frame_fill48": 0.2539,
+   "components48": 1,
+   "component_areas48": [
+    585
+   ],
+   "distinctness": 0.0979,
+   "nearest": "caldera-rim",
+   "nearest_score": 0.0486
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-landmark-s1.glb",
+   "rel": "assets/landmarks/ocean/ocean-landmark-s1.glb",
+   "label": "ocean-landmark-s1",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6439,
+   "frame_fill96": 0.2772,
+   "components96": 1,
+   "component_areas96": [
+    2555
+   ],
+   "fill48": 0.6431,
+   "frame_fill48": 0.2769,
+   "components48": 1,
+   "component_areas48": [
+    638
+   ],
+   "distinctness": 0.1806,
+   "nearest": "ocean-ruin",
+   "nearest_score": 0.0877
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-landmark-s2.glb",
+   "rel": "assets/landmarks/ocean/ocean-landmark-s2.glb",
+   "label": "ocean-landmark-s2",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3989,
+   "frame_fill96": 0.2686,
+   "components96": 1,
+   "component_areas96": [
+    2475
+   ],
+   "fill48": 0.399,
+   "frame_fill48": 0.2691,
+   "components48": 1,
+   "component_areas48": [
+    620
+   ],
+   "distinctness": 0.2342,
+   "nearest": "ocean-ruin",
+   "nearest_score": 0.1866
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-landmark-s2b.glb",
+   "rel": "assets/landmarks/ocean/ocean-landmark-s2b.glb",
+   "label": "ocean-landmark-s2b",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6243,
+   "frame_fill96": 0.3848,
+   "components96": 1,
+   "component_areas96": [
+    3546
+   ],
+   "fill48": 0.6268,
+   "frame_fill48": 0.3819,
+   "components48": 1,
+   "component_areas48": [
+    880
+   ],
+   "distinctness": 0.2249,
+   "nearest": "ocean-landmark-s1",
+   "nearest_score": 0.1675
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-landmark-s2c.glb",
+   "rel": "assets/landmarks/ocean/ocean-landmark-s2c.glb",
+   "label": "ocean-landmark-s2c",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5135,
+   "frame_fill96": 0.3505,
+   "components96": 1,
+   "component_areas96": [
+    3230
+   ],
+   "fill48": 0.494,
+   "frame_fill48": 0.3411,
+   "components48": 1,
+   "component_areas48": [
+    786
+   ],
+   "distinctness": 0.2278,
+   "nearest": "ocean-landmark-s2",
+   "nearest_score": 0.1875
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-landmark-s3.glb",
+   "rel": "assets/landmarks/ocean/ocean-landmark-s3.glb",
+   "label": "ocean-landmark-s3",
+   "family": "ocean",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4172,
+   "frame_fill96": 0.2241,
+   "components96": 1,
+   "component_areas96": [
+    2065
+   ],
+   "fill48": 0.4226,
+   "frame_fill48": 0.224,
+   "components48": 1,
+   "component_areas48": [
+    516
+   ],
+   "distinctness": 0.2113,
+   "nearest": "ocean-landmark-s1",
+   "nearest_score": 0.1484
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-ruin.glb",
+   "rel": "assets/landmarks/ocean/ocean-ruin.glb",
+   "label": "ocean-ruin",
+   "family": "ocean",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6401,
+   "frame_fill96": 0.23,
+   "components96": 1,
+   "component_areas96": [
+    2120
+   ],
+   "fill48": 0.6422,
+   "frame_fill48": 0.2274,
+   "components48": 1,
+   "component_areas48": [
+    524
+   ],
+   "distinctness": 0.199,
+   "nearest": "ocean-landmark-s1",
+   "nearest_score": 0.0877
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/ocean-scaffold.glb",
+   "rel": "assets/landmarks/ocean/ocean-scaffold.glb",
+   "label": "ocean-scaffold",
+   "family": "ocean",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4286,
+   "frame_fill96": 0.3385,
+   "components96": 1,
+   "component_areas96": [
+    3120
+   ],
+   "fill48": 0.4154,
+   "frame_fill48": 0.3164,
+   "components48": 1,
+   "component_areas48": [
+    729
+   ],
+   "distinctness": 0.2859,
+   "nearest": "ocean-landmark-s3",
+   "nearest_score": 0.2635
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/props/buoy-small.glb",
+   "rel": "assets/landmarks/ocean/props/buoy-small.glb",
+   "label": "buoy-small",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6439,
+   "frame_fill96": 0.2772,
+   "components96": 1,
+   "component_areas96": [
+    2555
+   ],
+   "fill48": 0.6431,
+   "frame_fill48": 0.2769,
+   "components48": 1,
+   "component_areas48": [
+    638
+   ],
+   "distinctness": 0.2045,
+   "nearest": "fountain",
+   "nearest_score": 0.0629
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/props/rock-outcrop.glb",
+   "rel": "assets/landmarks/ocean/props/rock-outcrop.glb",
+   "label": "rock-outcrop",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6039,
+   "frame_fill96": 0.2248,
+   "components96": 1,
+   "component_areas96": [
+    2072
+   ],
+   "fill48": 0.6087,
+   "frame_fill48": 0.2248,
+   "components48": 1,
+   "component_areas48": [
+    518
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/props/seaweed-clump.glb",
+   "rel": "assets/landmarks/ocean/props/seaweed-clump.glb",
+   "label": "seaweed-clump",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "3 speck(s) of [1, 1, 1] px at 96 px (thin feature breaks up)",
+    "1 speck(s) at 48 px"
+   ],
+   "fill96": 0.3297,
+   "frame_fill96": 0.1324,
+   "components96": 4,
+   "component_areas96": [
+    1217,
+    1,
+    1,
+    1
+   ],
+   "fill48": 0.3725,
+   "frame_fill48": 0.1319,
+   "components48": 2,
+   "component_areas48": [
+    303,
+    1
+   ],
+   "distinctness": 0.22,
+   "nearest": "robot-arm",
+   "nearest_score": 0.1155
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/props/shell.glb",
+   "rel": "assets/landmarks/ocean/props/shell.glb",
+   "label": "shell",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7095,
+   "frame_fill96": 0.1701,
+   "components96": 1,
+   "component_areas96": [
+    1568
+   ],
+   "fill48": 0.7224,
+   "frame_fill48": 0.1706,
+   "components48": 1,
+   "component_areas48": [
+    393
+   ],
+   "distinctness": 0.2189,
+   "nearest": "duck",
+   "nearest_score": 0.0946
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/props/starfish.glb",
+   "rel": "assets/landmarks/ocean/props/starfish.glb",
+   "label": "starfish",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3304,
+   "frame_fill96": 0.0495,
+   "components96": 1,
+   "component_areas96": [
+    456
+   ],
+   "fill48": 0.3771,
+   "frame_fill48": 0.0486,
+   "components48": 1,
+   "component_areas48": [
+    112
+   ],
+   "distinctness": 0.2304,
+   "nearest": "fern-clump",
+   "nearest_score": 0.0569
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/props/wave-crest-tile.glb",
+   "rel": "assets/landmarks/ocean/props/wave-crest-tile.glb",
+   "label": "wave-crest-tile",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5334,
+   "frame_fill96": 0.2183,
+   "components96": 1,
+   "component_areas96": [
+    2012
+   ],
+   "fill48": 0.5467,
+   "frame_fill48": 0.2183,
+   "components48": 1,
+   "component_areas48": [
+    503
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/ocean/terrain/sea-stack.glb",
+   "rel": "assets/landmarks/ocean/terrain/sea-stack.glb",
+   "label": "sea-stack",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6128,
+   "frame_fill96": 0.2805,
+   "components96": 1,
+   "component_areas96": [
+    2585
+   ],
+   "fill48": 0.588,
+   "frame_fill48": 0.2812,
+   "components48": 1,
+   "component_areas48": [
+    648
+   ],
+   "distinctness": 0.1612,
+   "nearest": "mountain-cone",
+   "nearest_score": 0.0664
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/hero/park-g0.glb",
+   "rel": "assets/landmarks/park/hero/park-g0.glb",
+   "label": "park-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5179,
+   "frame_fill96": 0.2225,
+   "components96": 1,
+   "component_areas96": [
+    2051
+   ],
+   "fill48": 0.5162,
+   "frame_fill48": 0.2218,
+   "components48": 1,
+   "component_areas48": [
+    511
+   ],
+   "distinctness": 0.1742,
+   "nearest": "cave-g0",
+   "nearest_score": 0.0734
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/hero/park-g1.glb",
+   "rel": "assets/landmarks/park/hero/park-g1.glb",
+   "label": "park-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5954,
+   "frame_fill96": 0.2431,
+   "components96": 1,
+   "component_areas96": [
+    2240
+   ],
+   "fill48": 0.5872,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.1597,
+   "nearest": "lab-g0",
+   "nearest_score": 0.056
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/hero/park-g2.glb",
+   "rel": "assets/landmarks/park/hero/park-g2.glb",
+   "label": "park-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6116,
+   "frame_fill96": 0.2962,
+   "components96": 1,
+   "component_areas96": [
+    2730
+   ],
+   "fill48": 0.6129,
+   "frame_fill48": 0.2969,
+   "components48": 1,
+   "component_areas48": [
+    684
+   ],
+   "distinctness": 0.1509,
+   "nearest": "lab-g1",
+   "nearest_score": 0.0877
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/hero/park-g3.glb",
+   "rel": "assets/landmarks/park/hero/park-g3.glb",
+   "label": "park-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5939,
+   "frame_fill96": 0.2416,
+   "components96": 1,
+   "component_areas96": [
+    2227
+   ],
+   "fill48": 0.6076,
+   "frame_fill48": 0.2439,
+   "components48": 1,
+   "component_areas48": [
+    562
+   ],
+   "distinctness": 0.1521,
+   "nearest": "lab-g1",
+   "nearest_score": 0.0642
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-landmark-s1.glb",
+   "rel": "assets/landmarks/park/park-landmark-s1.glb",
+   "label": "park-landmark-s1",
+   "family": "park",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5179,
+   "frame_fill96": 0.2225,
+   "components96": 1,
+   "component_areas96": [
+    2051
+   ],
+   "fill48": 0.5162,
+   "frame_fill48": 0.2218,
+   "components48": 1,
+   "component_areas48": [
+    511
+   ],
+   "distinctness": 0.1546,
+   "nearest": "park-landmark-s2",
+   "nearest_score": 0.1098
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-landmark-s2.glb",
+   "rel": "assets/landmarks/park/park-landmark-s2.glb",
+   "label": "park-landmark-s2",
+   "family": "park",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4947,
+   "frame_fill96": 0.2222,
+   "components96": 1,
+   "component_areas96": [
+    2048
+   ],
+   "fill48": 0.4933,
+   "frame_fill48": 0.2248,
+   "components48": 1,
+   "component_areas48": [
+    518
+   ],
+   "distinctness": 0.1528,
+   "nearest": "park-landmark-s1",
+   "nearest_score": 0.1098
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-landmark-s2b.glb",
+   "rel": "assets/landmarks/park/park-landmark-s2b.glb",
+   "label": "park-landmark-s2b",
+   "family": "park",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5544,
+   "frame_fill96": 0.2591,
+   "components96": 1,
+   "component_areas96": [
+    2388
+   ],
+   "fill48": 0.5766,
+   "frame_fill48": 0.2613,
+   "components48": 1,
+   "component_areas48": [
+    602
+   ],
+   "distinctness": 0.19,
+   "nearest": "park-landmark-s2",
+   "nearest_score": 0.1189
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-landmark-s2c.glb",
+   "rel": "assets/landmarks/park/park-landmark-s2c.glb",
+   "label": "park-landmark-s2c",
+   "family": "park",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4797,
+   "frame_fill96": 0.2794,
+   "components96": 1,
+   "component_areas96": [
+    2575
+   ],
+   "fill48": 0.4699,
+   "frame_fill48": 0.2782,
+   "components48": 1,
+   "component_areas48": [
+    641
+   ],
+   "distinctness": 0.1908,
+   "nearest": "park-landmark-s1",
+   "nearest_score": 0.1267
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-landmark-s3.glb",
+   "rel": "assets/landmarks/park/park-landmark-s3.glb",
+   "label": "park-landmark-s3",
+   "family": "park",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "2 speck(s) of [3, 1] px at 96 px (thin feature breaks up)"
+   ],
+   "fill96": 0.4556,
+   "frame_fill96": 0.2207,
+   "components96": 3,
+   "component_areas96": [
+    2030,
+    3,
+    1
+   ],
+   "fill48": 0.4636,
+   "frame_fill48": 0.2183,
+   "components48": 1,
+   "component_areas48": [
+    503
+   ],
+   "distinctness": 0.1654,
+   "nearest": "park-landmark-s1",
+   "nearest_score": 0.1102
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-ruin.glb",
+   "rel": "assets/landmarks/park/park-ruin.glb",
+   "label": "park-ruin",
+   "family": "park",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6439,
+   "frame_fill96": 0.2233,
+   "components96": 1,
+   "component_areas96": [
+    2058
+   ],
+   "fill48": 0.6311,
+   "frame_fill48": 0.2235,
+   "components48": 1,
+   "component_areas48": [
+    515
+   ],
+   "distinctness": 0.1786,
+   "nearest": "park-landmark-s2",
+   "nearest_score": 0.1289
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/park-scaffold.glb",
+   "rel": "assets/landmarks/park/park-scaffold.glb",
+   "label": "park-scaffold",
+   "family": "park",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4475,
+   "frame_fill96": 0.3535,
+   "components96": 1,
+   "component_areas96": [
+    3258
+   ],
+   "fill48": 0.4319,
+   "frame_fill48": 0.329,
+   "components48": 1,
+   "component_areas48": [
+    758
+   ],
+   "distinctness": 0.2705,
+   "nearest": "park-landmark-s3",
+   "nearest_score": 0.2496
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/bandstand.glb",
+   "rel": "assets/landmarks/park/props/bandstand.glb",
+   "label": "bandstand",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7275,
+   "frame_fill96": 0.3435,
+   "components96": 1,
+   "component_areas96": [
+    3166
+   ],
+   "fill48": 0.7325,
+   "frame_fill48": 0.3459,
+   "components48": 1,
+   "component_areas48": [
+    797
+   ],
+   "distinctness": 0.2306,
+   "nearest": "crypt",
+   "nearest_score": 0.1133
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/bench.glb",
+   "rel": "assets/landmarks/park/props/bench.glb",
+   "label": "bench",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5708,
+   "frame_fill96": 0.4621,
+   "components96": 1,
+   "component_areas96": [
+    4259
+   ],
+   "fill48": 0.5994,
+   "frame_fill48": 0.4683,
+   "components48": 1,
+   "component_areas48": [
+    1079
+   ],
+   "distinctness": 0.3995,
+   "nearest": "bench",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/duck.glb",
+   "rel": "assets/landmarks/park/props/duck.glb",
+   "label": "duck",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7291,
+   "frame_fill96": 0.2123,
+   "components96": 1,
+   "component_areas96": [
+    1957
+   ],
+   "fill48": 0.717,
+   "frame_fill48": 0.2122,
+   "components48": 1,
+   "component_areas48": [
+    489
+   ],
+   "distinctness": 0.2145,
+   "nearest": "shell",
+   "nearest_score": 0.0946
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/fountain.glb",
+   "rel": "assets/landmarks/park/props/fountain.glb",
+   "label": "fountain",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6739,
+   "frame_fill96": 0.2536,
+   "components96": 1,
+   "component_areas96": [
+    2337
+   ],
+   "fill48": 0.6882,
+   "frame_fill48": 0.2539,
+   "components48": 1,
+   "component_areas48": [
+    585
+   ],
+   "distinctness": 0.2173,
+   "nearest": "fountain",
+   "nearest_score": 0.0204
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/golf-flag.glb",
+   "rel": "assets/landmarks/park/props/golf-flag.glb",
+   "label": "golf-flag",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3721,
+   "frame_fill96": 0.1145,
+   "components96": 1,
+   "component_areas96": [
+    1055
+   ],
+   "fill48": 0.3611,
+   "frame_fill48": 0.1128,
+   "components48": 1,
+   "component_areas48": [
+    260
+   ],
+   "distinctness": 0.2243,
+   "nearest": "banner-pole",
+   "nearest_score": 0.0911
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/hedge-block.glb",
+   "rel": "assets/landmarks/park/props/hedge-block.glb",
+   "label": "hedge-block",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7445,
+   "frame_fill96": 0.602,
+   "components96": 1,
+   "component_areas96": [
+    5548
+   ],
+   "fill48": 0.7413,
+   "frame_fill48": 0.592,
+   "components48": 1,
+   "component_areas48": [
+    1364
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/picnic-table.glb",
+   "rel": "assets/landmarks/park/props/picnic-table.glb",
+   "label": "picnic-table",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4186,
+   "frame_fill96": 0.2131,
+   "components96": 1,
+   "component_areas96": [
+    1964
+   ],
+   "fill48": 0.4147,
+   "frame_fill48": 0.2153,
+   "components48": 1,
+   "component_areas48": [
+    496
+   ],
+   "distinctness": 0.2455,
+   "nearest": "mushroom",
+   "nearest_score": 0.1285
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/props/topiary.glb",
+   "rel": "assets/landmarks/park/props/topiary.glb",
+   "label": "topiary",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5761,
+   "frame_fill96": 0.1897,
+   "components96": 1,
+   "component_areas96": [
+    1748
+   ],
+   "fill48": 0.5986,
+   "frame_fill48": 0.1871,
+   "components48": 1,
+   "component_areas48": [
+    431
+   ],
+   "distinctness": 0.2033,
+   "nearest": "chimney-stack",
+   "nearest_score": 0.0651
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/park/terrain/bandstand-hill.glb",
+   "rel": "assets/landmarks/park/terrain/bandstand-hill.glb",
+   "label": "bandstand-hill",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6391,
+   "frame_fill96": 0.2323,
+   "components96": 1,
+   "component_areas96": [
+    2141
+   ],
+   "fill48": 0.6509,
+   "frame_fill48": 0.2331,
+   "components48": 1,
+   "component_areas48": [
+    537
+   ],
+   "distinctness": 0.1094,
+   "nearest": "crypt-hill",
+   "nearest_score": 0.0543
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/props/cactus-large.glb",
+   "rel": "assets/landmarks/sand/props/cactus-large.glb",
+   "label": "cactus-large",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5112,
+   "frame_fill96": 0.1879,
+   "components96": 1,
+   "component_areas96": [
+    1732
+   ],
+   "fill48": 0.5082,
+   "frame_fill48": 0.1892,
+   "components48": 1,
+   "component_areas48": [
+    436
+   ],
+   "distinctness": 0.1902,
+   "nearest": "cactus-saguaro",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/props/cactus-small.glb",
+   "rel": "assets/landmarks/sand/props/cactus-small.glb",
+   "label": "cactus-small",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6225,
+   "frame_fill96": 0.2156,
+   "components96": 1,
+   "component_areas96": [
+    1987
+   ],
+   "fill48": 0.614,
+   "frame_fill48": 0.2127,
+   "components48": 1,
+   "component_areas48": [
+    490
+   ],
+   "distinctness": 0.1965,
+   "nearest": "smoke-puff-cluster",
+   "nearest_score": 0.0786
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/props/cracked-earth-tile.glb",
+   "rel": "assets/landmarks/sand/props/cracked-earth-tile.glb",
+   "label": "cracked-earth-tile",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.725,
+   "frame_fill96": 0.1402,
+   "components96": 1,
+   "component_areas96": [
+    1292
+   ],
+   "fill48": 0.7764,
+   "frame_fill48": 0.1402,
+   "components48": 1,
+   "component_areas48": [
+    323
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/props/dead-tree.glb",
+   "rel": "assets/landmarks/sand/props/dead-tree.glb",
+   "label": "dead-tree",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4082,
+   "frame_fill96": 0.154,
+   "components96": 1,
+   "component_areas96": [
+    1419
+   ],
+   "fill48": 0.4449,
+   "frame_fill48": 0.1541,
+   "components48": 1,
+   "component_areas48": [
+    355
+   ],
+   "distinctness": 0.2037,
+   "nearest": "dead-tree",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/props/dune-rock.glb",
+   "rel": "assets/landmarks/sand/props/dune-rock.glb",
+   "label": "dune-rock",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6457,
+   "frame_fill96": 0.1928,
+   "components96": 1,
+   "component_areas96": [
+    1777
+   ],
+   "fill48": 0.6293,
+   "frame_fill48": 0.1923,
+   "components48": 1,
+   "component_areas48": [
+    443
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/props/well.glb",
+   "rel": "assets/landmarks/sand/props/well.glb",
+   "label": "well",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5373,
+   "frame_fill96": 0.3346,
+   "components96": 1,
+   "component_areas96": [
+    3084
+   ],
+   "fill48": 0.5157,
+   "frame_fill48": 0.3212,
+   "components48": 1,
+   "component_areas48": [
+    740
+   ],
+   "distinctness": 0.255,
+   "nearest": "well",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-landmark-s1.glb",
+   "rel": "assets/landmarks/sand/sand-landmark-s1.glb",
+   "label": "sand-landmark-s1",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5307,
+   "frame_fill96": 0.3075,
+   "components96": 1,
+   "component_areas96": [
+    2834
+   ],
+   "fill48": 0.5364,
+   "frame_fill48": 0.3073,
+   "components48": 1,
+   "component_areas48": [
+    708
+   ],
+   "distinctness": 0.1882,
+   "nearest": "sand-landmark-s2",
+   "nearest_score": 0.0777
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-landmark-s2.glb",
+   "rel": "assets/landmarks/sand/sand-landmark-s2.glb",
+   "label": "sand-landmark-s2",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5959,
+   "frame_fill96": 0.3381,
+   "components96": 1,
+   "component_areas96": [
+    3116
+   ],
+   "fill48": 0.6098,
+   "frame_fill48": 0.3364,
+   "components48": 1,
+   "component_areas48": [
+    775
+   ],
+   "distinctness": 0.1919,
+   "nearest": "sand-landmark-s1",
+   "nearest_score": 0.0777
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-landmark-s2b.glb",
+   "rel": "assets/landmarks/sand/sand-landmark-s2b.glb",
+   "label": "sand-landmark-s2b",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6435,
+   "frame_fill96": 0.4204,
+   "components96": 1,
+   "component_areas96": [
+    3874
+   ],
+   "fill48": 0.6806,
+   "frame_fill48": 0.4319,
+   "components48": 1,
+   "component_areas48": [
+    995
+   ],
+   "distinctness": 0.2577,
+   "nearest": "sand-landmark-s2c",
+   "nearest_score": 0.1806
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-landmark-s2c.glb",
+   "rel": "assets/landmarks/sand/sand-landmark-s2c.glb",
+   "label": "sand-landmark-s2c",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6015,
+   "frame_fill96": 0.3012,
+   "components96": 1,
+   "component_areas96": [
+    2776
+   ],
+   "fill48": 0.6188,
+   "frame_fill48": 0.3008,
+   "components48": 1,
+   "component_areas48": [
+    693
+   ],
+   "distinctness": 0.1845,
+   "nearest": "sand-landmark-s3",
+   "nearest_score": 0.1076
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-landmark-s3.glb",
+   "rel": "assets/landmarks/sand/sand-landmark-s3.glb",
+   "label": "sand-landmark-s3",
+   "family": "sand",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5402,
+   "frame_fill96": 0.3383,
+   "components96": 1,
+   "component_areas96": [
+    3118
+   ],
+   "fill48": 0.5398,
+   "frame_fill48": 0.3381,
+   "components48": 1,
+   "component_areas48": [
+    779
+   ],
+   "distinctness": 0.1806,
+   "nearest": "sand-landmark-s2c",
+   "nearest_score": 0.1076
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-ruin.glb",
+   "rel": "assets/landmarks/sand/sand-ruin.glb",
+   "label": "sand-ruin",
+   "family": "sand",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6311,
+   "frame_fill96": 0.2189,
+   "components96": 1,
+   "component_areas96": [
+    2017
+   ],
+   "fill48": 0.6419,
+   "frame_fill48": 0.2179,
+   "components48": 1,
+   "component_areas48": [
+    502
+   ],
+   "distinctness": 0.1962,
+   "nearest": "sand-landmark-s1",
+   "nearest_score": 0.0972
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/sand-scaffold.glb",
+   "rel": "assets/landmarks/sand/sand-scaffold.glb",
+   "label": "sand-scaffold",
+   "family": "sand",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5229,
+   "frame_fill96": 0.4079,
+   "components96": 1,
+   "component_areas96": [
+    3759
+   ],
+   "fill48": 0.5251,
+   "frame_fill48": 0.4089,
+   "components48": 1,
+   "component_areas48": [
+    942
+   ],
+   "distinctness": 0.295,
+   "nearest": "sand-landmark-s3",
+   "nearest_score": 0.2704
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/sand/terrain/dune.glb",
+   "rel": "assets/landmarks/sand/terrain/dune.glb",
+   "label": "dune",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5184,
+   "frame_fill96": 0.2257,
+   "components96": 1,
+   "component_areas96": [
+    2080
+   ],
+   "fill48": 0.5465,
+   "frame_fill48": 0.227,
+   "components48": 1,
+   "component_areas48": [
+    523
+   ],
+   "distinctness": 0.1128,
+   "nearest": "bandstand-hill",
+   "nearest_score": 0.0608
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/pedestal-tier-1.glb",
+   "rel": "assets/landmarks/shared/pedestal-tier-1.glb",
+   "label": "pedestal-tier-1",
+   "family": "shared",
+   "tags": [
+    "shared",
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.80 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8015,
+   "frame_fill96": 0.1774,
+   "components96": 1,
+   "component_areas96": [
+    1635
+   ],
+   "fill48": 0.7961,
+   "frame_fill48": 0.1762,
+   "components48": 1,
+   "component_areas48": [
+    406
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/pedestal-tier-2.glb",
+   "rel": "assets/landmarks/shared/pedestal-tier-2.glb",
+   "label": "pedestal-tier-2",
+   "family": "shared",
+   "tags": [
+    "shared",
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.80 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8015,
+   "frame_fill96": 0.1892,
+   "components96": 1,
+   "component_areas96": [
+    1744
+   ],
+   "fill48": 0.807,
+   "frame_fill48": 0.1905,
+   "components48": 1,
+   "component_areas48": [
+    439
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/pedestal-tier-3.glb",
+   "rel": "assets/landmarks/shared/pedestal-tier-3.glb",
+   "label": "pedestal-tier-3",
+   "family": "shared",
+   "tags": [
+    "shared",
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.82 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.816,
+   "frame_fill96": 0.2107,
+   "components96": 1,
+   "component_areas96": [
+    1942
+   ],
+   "fill48": 0.7859,
+   "frame_fill48": 0.2088,
+   "components48": 1,
+   "component_areas48": [
+    481
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/shared-dock.glb",
+   "rel": "assets/landmarks/shared/shared-dock.glb",
+   "label": "shared-dock",
+   "family": "shared",
+   "tags": [
+    "shared"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4207,
+   "frame_fill96": 0.2688,
+   "components96": 1,
+   "component_areas96": [
+    2477
+   ],
+   "fill48": 0.4327,
+   "frame_fill48": 0.2678,
+   "components48": 1,
+   "component_areas48": [
+    617
+   ],
+   "distinctness": 0.1908,
+   "nearest": "signpost",
+   "nearest_score": 0.1862
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/shared-peak.glb",
+   "rel": "assets/landmarks/shared/shared-peak.glb",
+   "label": "shared-peak",
+   "family": "shared",
+   "tags": [
+    "shared",
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5853,
+   "frame_fill96": 0.2152,
+   "components96": 1,
+   "component_areas96": [
+    1983
+   ],
+   "fill48": 0.5933,
+   "frame_fill48": 0.2153,
+   "components48": 1,
+   "component_areas48": [
+    496
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/shared-pillar.glb",
+   "rel": "assets/landmarks/shared/shared-pillar.glb",
+   "label": "shared-pillar",
+   "family": "shared",
+   "tags": [
+    "shared",
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6487,
+   "frame_fill96": 0.3062,
+   "components96": 1,
+   "component_areas96": [
+    2822
+   ],
+   "fill48": 0.6502,
+   "frame_fill48": 0.3034,
+   "components48": 1,
+   "component_areas48": [
+    699
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/shared-rowboat.glb",
+   "rel": "assets/landmarks/shared/shared-rowboat.glb",
+   "label": "shared-rowboat",
+   "family": "shared",
+   "tags": [
+    "shared"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6112,
+   "frame_fill96": 0.2493,
+   "components96": 1,
+   "component_areas96": [
+    2298
+   ],
+   "fill48": 0.6228,
+   "frame_fill48": 0.2487,
+   "components48": 1,
+   "component_areas48": [
+    573
+   ],
+   "distinctness": 0.1977,
+   "nearest": "shared-dock",
+   "nearest_score": 0.1953
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/shared-tower-block.glb",
+   "rel": "assets/landmarks/shared/shared-tower-block.glb",
+   "label": "shared-tower-block",
+   "family": "shared",
+   "tags": [
+    "shared",
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.76 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.7623,
+   "frame_fill96": 0.3484,
+   "components96": 1,
+   "component_areas96": [
+    3211
+   ],
+   "fill48": 0.7721,
+   "frame_fill48": 0.3485,
+   "components48": 1,
+   "component_areas48": [
+    803
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/shared/signpost.glb",
+   "rel": "assets/landmarks/shared/signpost.glb",
+   "label": "signpost",
+   "family": "shared",
+   "tags": [
+    "shared"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4707,
+   "frame_fill96": 0.2123,
+   "components96": 1,
+   "component_areas96": [
+    1957
+   ],
+   "fill48": 0.462,
+   "frame_fill48": 0.2057,
+   "components48": 1,
+   "component_areas48": [
+    474
+   ],
+   "distinctness": 0.1931,
+   "nearest": "shared-dock",
+   "nearest_score": 0.1862
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/antenna-mast.glb",
+   "rel": "assets/landmarks/space/props/antenna-mast.glb",
+   "label": "antenna-mast",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3949,
+   "frame_fill96": 0.0828,
+   "components96": 1,
+   "component_areas96": [
+    763
+   ],
+   "fill48": 0.373,
+   "frame_fill48": 0.0816,
+   "components48": 1,
+   "component_areas48": [
+    188
+   ],
+   "distinctness": 0.2251,
+   "nearest": "torch",
+   "nearest_score": 0.0391
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/beacon-light.glb",
+   "rel": "assets/landmarks/space/props/beacon-light.glb",
+   "label": "beacon-light",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6407,
+   "frame_fill96": 0.171,
+   "components96": 1,
+   "component_areas96": [
+    1576
+   ],
+   "fill48": 0.596,
+   "frame_fill48": 0.1697,
+   "components48": 1,
+   "component_areas48": [
+    391
+   ],
+   "distinctness": 0.2144,
+   "nearest": "torch",
+   "nearest_score": 0.0525
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/crater-rim.glb",
+   "rel": "assets/landmarks/space/props/crater-rim.glb",
+   "label": "crater-rim",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7451,
+   "frame_fill96": 0.1494,
+   "components96": 1,
+   "component_areas96": [
+    1377
+   ],
+   "fill48": 0.7656,
+   "frame_fill48": 0.1489,
+   "components48": 1,
+   "component_areas48": [
+    343
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/flag.glb",
+   "rel": "assets/landmarks/space/props/flag.glb",
+   "label": "flag",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3996,
+   "frame_fill96": 0.1646,
+   "components96": 1,
+   "component_areas96": [
+    1517
+   ],
+   "fill48": 0.4033,
+   "frame_fill48": 0.1684,
+   "components48": 1,
+   "component_areas48": [
+    388
+   ],
+   "distinctness": 0.2178,
+   "nearest": "topiary",
+   "nearest_score": 0.0846
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/habitat-pod.glb",
+   "rel": "assets/landmarks/space/props/habitat-pod.glb",
+   "label": "habitat-pod",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.82 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8197,
+   "frame_fill96": 0.4162,
+   "components96": 1,
+   "component_areas96": [
+    3836
+   ],
+   "fill48": 0.8312,
+   "frame_fill48": 0.4167,
+   "components48": 1,
+   "component_areas48": [
+    960
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/moon-rock.glb",
+   "rel": "assets/landmarks/space/props/moon-rock.glb",
+   "label": "moon-rock",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6804,
+   "frame_fill96": 0.2504,
+   "components96": 1,
+   "component_areas96": [
+    2308
+   ],
+   "fill48": 0.6959,
+   "frame_fill48": 0.2513,
+   "components48": 1,
+   "component_areas48": [
+    579
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/rover.glb",
+   "rel": "assets/landmarks/space/props/rover.glb",
+   "label": "rover",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5228,
+   "frame_fill96": 0.3931,
+   "components96": 1,
+   "component_areas96": [
+    3623
+   ],
+   "fill48": 0.5263,
+   "frame_fill48": 0.3906,
+   "components48": 1,
+   "component_areas48": [
+    900
+   ],
+   "distinctness": 0.2748,
+   "nearest": "wagon",
+   "nearest_score": 0.1493
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/props/solar-panel.glb",
+   "rel": "assets/landmarks/space/props/solar-panel.glb",
+   "label": "solar-panel",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4428,
+   "frame_fill96": 0.314,
+   "components96": 1,
+   "component_areas96": [
+    2894
+   ],
+   "fill48": 0.4524,
+   "frame_fill48": 0.3051,
+   "components48": 1,
+   "component_areas48": [
+    703
+   ],
+   "distinctness": 0.2477,
+   "nearest": "geyser-vent",
+   "nearest_score": 0.1263
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-landmark-s1.glb",
+   "rel": "assets/landmarks/space/space-landmark-s1.glb",
+   "label": "space-landmark-s1",
+   "family": "space",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4628,
+   "frame_fill96": 0.1889,
+   "components96": 1,
+   "component_areas96": [
+    1741
+   ],
+   "fill48": 0.4566,
+   "frame_fill48": 0.1897,
+   "components48": 1,
+   "component_areas48": [
+    437
+   ],
+   "distinctness": 0.181,
+   "nearest": "space-landmark-s2",
+   "nearest_score": 0.1254
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-landmark-s2.glb",
+   "rel": "assets/landmarks/space/space-landmark-s2.glb",
+   "label": "space-landmark-s2",
+   "family": "space",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4791,
+   "frame_fill96": 0.2067,
+   "components96": 1,
+   "component_areas96": [
+    1905
+   ],
+   "fill48": 0.4857,
+   "frame_fill48": 0.2066,
+   "components48": 1,
+   "component_areas48": [
+    476
+   ],
+   "distinctness": 0.1792,
+   "nearest": "space-ruin",
+   "nearest_score": 0.1224
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-landmark-s2b.glb",
+   "rel": "assets/landmarks/space/space-landmark-s2b.glb",
+   "label": "space-landmark-s2b",
+   "family": "space",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3849,
+   "frame_fill96": 0.2285,
+   "components96": 1,
+   "component_areas96": [
+    2106
+   ],
+   "fill48": 0.3977,
+   "frame_fill48": 0.2296,
+   "components48": 1,
+   "component_areas48": [
+    529
+   ],
+   "distinctness": 0.2512,
+   "nearest": "space-landmark-s3",
+   "nearest_score": 0.2114
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-landmark-s2c.glb",
+   "rel": "assets/landmarks/space/space-landmark-s2c.glb",
+   "label": "space-landmark-s2c",
+   "family": "space",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6777,
+   "frame_fill96": 0.3114,
+   "components96": 1,
+   "component_areas96": [
+    2870
+   ],
+   "fill48": 0.693,
+   "frame_fill48": 0.3086,
+   "components48": 1,
+   "component_areas48": [
+    711
+   ],
+   "distinctness": 0.1921,
+   "nearest": "space-landmark-s2",
+   "nearest_score": 0.128
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-landmark-s3.glb",
+   "rel": "assets/landmarks/space/space-landmark-s3.glb",
+   "label": "space-landmark-s3",
+   "family": "space",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "1 speck(s) at 48 px"
+   ],
+   "fill96": 0.5266,
+   "frame_fill96": 0.2432,
+   "components96": 1,
+   "component_areas96": [
+    2241
+   ],
+   "fill48": 0.532,
+   "frame_fill48": 0.2457,
+   "components48": 2,
+   "component_areas48": [
+    565,
+    1
+   ],
+   "distinctness": 0.1983,
+   "nearest": "space-landmark-s1",
+   "nearest_score": 0.1593
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-ruin.glb",
+   "rel": "assets/landmarks/space/space-ruin.glb",
+   "label": "space-ruin",
+   "family": "space",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6087,
+   "frame_fill96": 0.2212,
+   "components96": 1,
+   "component_areas96": [
+    2039
+   ],
+   "fill48": 0.6414,
+   "frame_fill48": 0.2205,
+   "components48": 1,
+   "component_areas48": [
+    508
+   ],
+   "distinctness": 0.187,
+   "nearest": "space-landmark-s2",
+   "nearest_score": 0.1224
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/space-scaffold.glb",
+   "rel": "assets/landmarks/space/space-scaffold.glb",
+   "label": "space-scaffold",
+   "family": "space",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.444,
+   "frame_fill96": 0.3507,
+   "components96": 1,
+   "component_areas96": [
+    3232
+   ],
+   "fill48": 0.4285,
+   "frame_fill48": 0.3264,
+   "components48": 1,
+   "component_areas48": [
+    752
+   ],
+   "distinctness": 0.2858,
+   "nearest": "space-landmark-s2",
+   "nearest_score": 0.2552
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/space/terrain/big-crater.glb",
+   "rel": "assets/landmarks/space/terrain/big-crater.glb",
+   "label": "big-crater",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6499,
+   "frame_fill96": 0.1722,
+   "components96": 1,
+   "component_areas96": [
+    1587
+   ],
+   "fill48": 0.6513,
+   "frame_fill48": 0.1719,
+   "components48": 1,
+   "component_areas48": [
+    396
+   ],
+   "distinctness": 0.1568,
+   "nearest": "bandstand-hill",
+   "nearest_score": 0.0933
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/props/basalt-column.glb",
+   "rel": "assets/landmarks/volcanic/props/basalt-column.glb",
+   "label": "basalt-column",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6899,
+   "frame_fill96": 0.41,
+   "components96": 1,
+   "component_areas96": [
+    3779
+   ],
+   "fill48": 0.6962,
+   "frame_fill48": 0.4089,
+   "components48": 1,
+   "component_areas48": [
+    942
+   ],
+   "distinctness": 0.2591,
+   "nearest": "ice-block-stack",
+   "nearest_score": 0.1159
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/props/dead-tree.glb",
+   "rel": "assets/landmarks/volcanic/props/dead-tree.glb",
+   "label": "dead-tree",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4082,
+   "frame_fill96": 0.154,
+   "components96": 1,
+   "component_areas96": [
+    1419
+   ],
+   "fill48": 0.4449,
+   "frame_fill48": 0.1541,
+   "components48": 1,
+   "component_areas48": [
+    355
+   ],
+   "distinctness": 0.2037,
+   "nearest": "dead-tree",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/props/ember-rock.glb",
+   "rel": "assets/landmarks/volcanic/props/ember-rock.glb",
+   "label": "ember-rock",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7316,
+   "frame_fill96": 0.2969,
+   "components96": 1,
+   "component_areas96": [
+    2736
+   ],
+   "fill48": 0.7654,
+   "frame_fill48": 0.296,
+   "components48": 1,
+   "component_areas48": [
+    682
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/props/geyser-vent.glb",
+   "rel": "assets/landmarks/volcanic/props/geyser-vent.glb",
+   "label": "geyser-vent",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4771,
+   "frame_fill96": 0.2391,
+   "components96": 1,
+   "component_areas96": [
+    2204
+   ],
+   "fill48": 0.4831,
+   "frame_fill48": 0.2422,
+   "components48": 1,
+   "component_areas48": [
+    558
+   ],
+   "distinctness": 0.2177,
+   "nearest": "flower-clump-peach",
+   "nearest_score": 0.0933
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/props/lava-puddle-disc.glb",
+   "rel": "assets/landmarks/volcanic/props/lava-puddle-disc.glb",
+   "label": "lava-puddle-disc",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7121,
+   "frame_fill96": 0.1581,
+   "components96": 1,
+   "component_areas96": [
+    1457
+   ],
+   "fill48": 0.7458,
+   "frame_fill48": 0.1554,
+   "components48": 1,
+   "component_areas48": [
+    358
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/props/smoke-puff-cluster.glb",
+   "rel": "assets/landmarks/volcanic/props/smoke-puff-cluster.glb",
+   "label": "smoke-puff-cluster",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6739,
+   "frame_fill96": 0.2422,
+   "components96": 1,
+   "component_areas96": [
+    2232
+   ],
+   "fill48": 0.6751,
+   "frame_fill48": 0.2426,
+   "components48": 1,
+   "component_areas48": [
+    559
+   ],
+   "distinctness": 0.191,
+   "nearest": "cactus-small",
+   "nearest_score": 0.0786
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/terrain/caldera-rim.glb",
+   "rel": "assets/landmarks/volcanic/terrain/caldera-rim.glb",
+   "label": "caldera-rim",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6511,
+   "frame_fill96": 0.2413,
+   "components96": 1,
+   "component_areas96": [
+    2224
+   ],
+   "fill48": 0.6512,
+   "frame_fill48": 0.2374,
+   "components48": 1,
+   "component_areas48": [
+    547
+   ],
+   "distinctness": 0.0961,
+   "nearest": "castle-mound",
+   "nearest_score": 0.0486
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-landmark-s1.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-landmark-s1.glb",
+   "label": "volcanic-landmark-s1",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5202,
+   "frame_fill96": 0.2072,
+   "components96": 1,
+   "component_areas96": [
+    1910
+   ],
+   "fill48": 0.5407,
+   "frame_fill48": 0.2075,
+   "components48": 1,
+   "component_areas48": [
+    478
+   ],
+   "distinctness": 0.1804,
+   "nearest": "volcanic-ruin",
+   "nearest_score": 0.102
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-landmark-s2.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-landmark-s2.glb",
+   "label": "volcanic-landmark-s2",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.558,
+   "frame_fill96": 0.2881,
+   "components96": 1,
+   "component_areas96": [
+    2655
+   ],
+   "fill48": 0.5476,
+   "frame_fill48": 0.2873,
+   "components48": 1,
+   "component_areas48": [
+    662
+   ],
+   "distinctness": 0.1447,
+   "nearest": "volcanic-landmark-s2c",
+   "nearest_score": 0.0699
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-landmark-s2b.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-landmark-s2b.glb",
+   "label": "volcanic-landmark-s2b",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5728,
+   "frame_fill96": 0.2416,
+   "components96": 1,
+   "component_areas96": [
+    2227
+   ],
+   "fill48": 0.5782,
+   "frame_fill48": 0.2439,
+   "components48": 1,
+   "component_areas48": [
+    562
+   ],
+   "distinctness": 0.1509,
+   "nearest": "volcanic-landmark-s2c",
+   "nearest_score": 0.1089
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-landmark-s2c.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-landmark-s2c.glb",
+   "label": "volcanic-landmark-s2c",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.589,
+   "frame_fill96": 0.324,
+   "components96": 1,
+   "component_areas96": [
+    2986
+   ],
+   "fill48": 0.6082,
+   "frame_fill48": 0.3294,
+   "components48": 1,
+   "component_areas48": [
+    759
+   ],
+   "distinctness": 0.1533,
+   "nearest": "volcanic-landmark-s2",
+   "nearest_score": 0.0699
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-landmark-s3.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-landmark-s3.glb",
+   "label": "volcanic-landmark-s3",
+   "family": "volcanic",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5499,
+   "frame_fill96": 0.2573,
+   "components96": 1,
+   "component_areas96": [
+    2371
+   ],
+   "fill48": 0.5545,
+   "frame_fill48": 0.2561,
+   "components48": 1,
+   "component_areas48": [
+    590
+   ],
+   "distinctness": 0.1617,
+   "nearest": "volcanic-landmark-s2",
+   "nearest_score": 0.1241
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-ruin.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-ruin.glb",
+   "label": "volcanic-ruin",
+   "family": "volcanic",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6276,
+   "frame_fill96": 0.2169,
+   "components96": 1,
+   "component_areas96": [
+    1999
+   ],
+   "fill48": 0.6523,
+   "frame_fill48": 0.2174,
+   "components48": 1,
+   "component_areas48": [
+    501
+   ],
+   "distinctness": 0.1701,
+   "nearest": "volcanic-landmark-s1",
+   "nearest_score": 0.102
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/volcanic/volcanic-scaffold.glb",
+   "rel": "assets/landmarks/volcanic/volcanic-scaffold.glb",
+   "label": "volcanic-scaffold",
+   "family": "volcanic",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4492,
+   "frame_fill96": 0.3548,
+   "components96": 1,
+   "component_areas96": [
+    3270
+   ],
+   "fill48": 0.4376,
+   "frame_fill48": 0.3333,
+   "components48": 1,
+   "component_areas48": [
+    768
+   ],
+   "distinctness": 0.2617,
+   "nearest": "volcanic-landmark-s3",
+   "nearest_score": 0.2144
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/hero/wildwest-g0.glb",
+   "rel": "assets/landmarks/wildwest/hero/wildwest-g0.glb",
+   "label": "wildwest-g0",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g0"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6437,
+   "frame_fill96": 0.4048,
+   "components96": 1,
+   "component_areas96": [
+    3731
+   ],
+   "fill48": 0.6354,
+   "frame_fill48": 0.4054,
+   "components48": 1,
+   "component_areas48": [
+    934
+   ],
+   "distinctness": 0.233,
+   "nearest": "jungle-g2",
+   "nearest_score": 0.1615
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/hero/wildwest-g1.glb",
+   "rel": "assets/landmarks/wildwest/hero/wildwest-g1.glb",
+   "label": "wildwest-g1",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g1"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.681,
+   "frame_fill96": 0.4197,
+   "components96": 1,
+   "component_areas96": [
+    3868
+   ],
+   "fill48": 0.6829,
+   "frame_fill48": 0.4149,
+   "components48": 1,
+   "component_areas48": [
+    956
+   ],
+   "distinctness": 0.2635,
+   "nearest": "jungle-g1",
+   "nearest_score": 0.1545
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/hero/wildwest-g2.glb",
+   "rel": "assets/landmarks/wildwest/hero/wildwest-g2.glb",
+   "label": "wildwest-g2",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g2"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.648,
+   "frame_fill96": 0.2791,
+   "components96": 1,
+   "component_areas96": [
+    2572
+   ],
+   "fill48": 0.6626,
+   "frame_fill48": 0.283,
+   "components48": 1,
+   "component_areas48": [
+    652
+   ],
+   "distinctness": 0.1968,
+   "nearest": "graveyard-g3",
+   "nearest_score": 0.1354
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/hero/wildwest-g3.glb",
+   "rel": "assets/landmarks/wildwest/hero/wildwest-g3.glb",
+   "label": "wildwest-g3",
+   "family": "hero",
+   "tags": [
+    "hero",
+    "g3"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6155,
+   "frame_fill96": 0.194,
+   "components96": 1,
+   "component_areas96": [
+    1788
+   ],
+   "fill48": 0.6355,
+   "frame_fill48": 0.2036,
+   "components48": 1,
+   "component_areas48": [
+    469
+   ],
+   "distinctness": 0.1787,
+   "nearest": "lab-g2",
+   "nearest_score": 0.1102
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/barrel.glb",
+   "rel": "assets/landmarks/wildwest/props/barrel.glb",
+   "label": "barrel",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.87 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8674,
+   "frame_fill96": 0.4217,
+   "components96": 1,
+   "component_areas96": [
+    3886
+   ],
+   "fill48": 0.8795,
+   "frame_fill48": 0.4275,
+   "components48": 1,
+   "component_areas48": [
+    985
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/cactus-saguaro.glb",
+   "rel": "assets/landmarks/wildwest/props/cactus-saguaro.glb",
+   "label": "cactus-saguaro",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5112,
+   "frame_fill96": 0.1879,
+   "components96": 1,
+   "component_areas96": [
+    1732
+   ],
+   "fill48": 0.5082,
+   "frame_fill48": 0.1892,
+   "components48": 1,
+   "component_areas48": [
+    436
+   ],
+   "distinctness": 0.1902,
+   "nearest": "cactus-large",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/rail-segment.glb",
+   "rel": "assets/landmarks/wildwest/props/rail-segment.glb",
+   "label": "rail-segment",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3511,
+   "frame_fill96": 0.144,
+   "components96": 1,
+   "component_areas96": [
+    1327
+   ],
+   "fill48": 0.3647,
+   "frame_fill48": 0.1463,
+   "components48": 1,
+   "component_areas48": [
+    337
+   ],
+   "distinctness": 0.2411,
+   "nearest": "rail-segment",
+   "nearest_score": 0.0
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/storefront.glb",
+   "rel": "assets/landmarks/wildwest/props/storefront.glb",
+   "label": "storefront",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.82 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.8155,
+   "frame_fill96": 0.538,
+   "components96": 1,
+   "component_areas96": [
+    4958
+   ],
+   "fill48": 0.7885,
+   "frame_fill48": 0.5339,
+   "components48": 1,
+   "component_areas48": [
+    1230
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/tumbleweed.glb",
+   "rel": "assets/landmarks/wildwest/props/tumbleweed.glb",
+   "label": "tumbleweed",
+   "family": "props",
+   "tags": [
+    "decor"
+   ],
+   "decor": true,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [
+    "fill 0.75 outside 0.25-0.75 (decor: not gated)"
+   ],
+   "fill96": 0.7528,
+   "frame_fill96": 0.3039,
+   "components96": 1,
+   "component_areas96": [
+    2801
+   ],
+   "fill48": 0.7253,
+   "frame_fill48": 0.3025,
+   "components48": 1,
+   "component_areas48": [
+    697
+   ],
+   "distinctness": null,
+   "nearest": null
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/wagon.glb",
+   "rel": "assets/landmarks/wildwest/props/wagon.glb",
+   "label": "wagon",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6371,
+   "frame_fill96": 0.3318,
+   "components96": 1,
+   "component_areas96": [
+    3058
+   ],
+   "fill48": 0.6257,
+   "frame_fill48": 0.3316,
+   "components48": 1,
+   "component_areas48": [
+    764
+   ],
+   "distinctness": 0.2394,
+   "nearest": "hay-cart",
+   "nearest_score": 0.1233
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/water-tower.glb",
+   "rel": "assets/landmarks/wildwest/props/water-tower.glb",
+   "label": "water-tower",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6278,
+   "frame_fill96": 0.2153,
+   "components96": 1,
+   "component_areas96": [
+    1984
+   ],
+   "fill48": 0.6846,
+   "frame_fill48": 0.2318,
+   "components48": 1,
+   "component_areas48": [
+    534
+   ],
+   "distinctness": 0.2092,
+   "nearest": "willow",
+   "nearest_score": 0.0929
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/props/windpump.glb",
+   "rel": "assets/landmarks/wildwest/props/windpump.glb",
+   "label": "windpump",
+   "family": "props",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3231,
+   "frame_fill96": 0.1458,
+   "components96": 1,
+   "component_areas96": [
+    1344
+   ],
+   "fill48": 0.3212,
+   "frame_fill48": 0.145,
+   "components48": 1,
+   "component_areas48": [
+    334
+   ],
+   "distinctness": 0.2082,
+   "nearest": "torch",
+   "nearest_score": 0.1207
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/terrain/butte.glb",
+   "rel": "assets/landmarks/wildwest/terrain/butte.glb",
+   "label": "butte",
+   "family": "terrain",
+   "tags": [
+    "terrain"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6673,
+   "frame_fill96": 0.325,
+   "components96": 1,
+   "component_areas96": [
+    2995
+   ],
+   "fill48": 0.6676,
+   "frame_fill48": 0.3251,
+   "components48": 1,
+   "component_areas48": [
+    749
+   ],
+   "distinctness": 0.1301,
+   "nearest": "mountain-cone",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-landmark-s1.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-landmark-s1.glb",
+   "label": "wildwest-landmark-s1",
+   "family": "wildwest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5259,
+   "frame_fill96": 0.2441,
+   "components96": 1,
+   "component_areas96": [
+    2250
+   ],
+   "fill48": 0.5332,
+   "frame_fill48": 0.2439,
+   "components48": 1,
+   "component_areas48": [
+    562
+   ],
+   "distinctness": 0.1998,
+   "nearest": "wildwest-landmark-s2c",
+   "nearest_score": 0.1693
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-landmark-s2.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-landmark-s2.glb",
+   "label": "wildwest-landmark-s2",
+   "family": "wildwest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6642,
+   "frame_fill96": 0.3513,
+   "components96": 1,
+   "component_areas96": [
+    3238
+   ],
+   "fill48": 0.6824,
+   "frame_fill48": 0.3507,
+   "components48": 1,
+   "component_areas48": [
+    808
+   ],
+   "distinctness": 0.2225,
+   "nearest": "wildwest-landmark-s2c",
+   "nearest_score": 0.1641
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-landmark-s2b.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-landmark-s2b.glb",
+   "label": "wildwest-landmark-s2b",
+   "family": "wildwest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3121,
+   "frame_fill96": 0.178,
+   "components96": 1,
+   "component_areas96": [
+    1640
+   ],
+   "fill48": 0.3205,
+   "frame_fill48": 0.1801,
+   "components48": 1,
+   "component_areas48": [
+    415
+   ],
+   "distinctness": 0.2456,
+   "nearest": "wildwest-landmark-s1",
+   "nearest_score": 0.1914
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-landmark-s2c.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-landmark-s2c.glb",
+   "label": "wildwest-landmark-s2c",
+   "family": "wildwest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5561,
+   "frame_fill96": 0.2462,
+   "components96": 1,
+   "component_areas96": [
+    2269
+   ],
+   "fill48": 0.5627,
+   "frame_fill48": 0.2491,
+   "components48": 1,
+   "component_areas48": [
+    574
+   ],
+   "distinctness": 0.191,
+   "nearest": "wildwest-ruin",
+   "nearest_score": 0.1319
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-landmark-s3.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-landmark-s3.glb",
+   "label": "wildwest-landmark-s3",
+   "family": "wildwest",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5425,
+   "frame_fill96": 0.2946,
+   "components96": 1,
+   "component_areas96": [
+    2715
+   ],
+   "fill48": 0.5287,
+   "frame_fill48": 0.2878,
+   "components48": 1,
+   "component_areas48": [
+    663
+   ],
+   "distinctness": 0.2155,
+   "nearest": "wildwest-ruin",
+   "nearest_score": 0.1827
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-ruin.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-ruin.glb",
+   "label": "wildwest-ruin",
+   "family": "wildwest",
+   "tags": [
+    "ruin"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6315,
+   "frame_fill96": 0.2317,
+   "components96": 1,
+   "component_areas96": [
+    2135
+   ],
+   "fill48": 0.6569,
+   "frame_fill48": 0.2326,
+   "components48": 1,
+   "component_areas48": [
+    536
+   ],
+   "distinctness": 0.2059,
+   "nearest": "wildwest-landmark-s2c",
+   "nearest_score": 0.1319
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/landmarks/wildwest/wildwest-scaffold.glb",
+   "rel": "assets/landmarks/wildwest/wildwest-scaffold.glb",
+   "label": "wildwest-scaffold",
+   "family": "wildwest",
+   "tags": [
+    "scaffold"
+   ],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4293,
+   "frame_fill96": 0.3391,
+   "components96": 1,
+   "component_areas96": [
+    3125
+   ],
+   "fill48": 0.4148,
+   "frame_fill48": 0.316,
+   "components48": 1,
+   "component_areas48": [
+    728
+   ],
+   "distinctness": 0.2817,
+   "nearest": "wildwest-landmark-s2",
+   "nearest_score": 0.2595
+  }
+ ],
+ "manifest": "assets/landmarks/manifest.json",
+ "summary": {
+  "count": 278,
+  "pass": 278,
+  "fail": 0,
+  "samey": 0,
+  "decor": 39,
+  "fill_range": [
+   0.2712,
+   0.9071
+  ],
+  "seconds": 22.1
+ }
+}

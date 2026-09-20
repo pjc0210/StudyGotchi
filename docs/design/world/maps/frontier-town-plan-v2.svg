@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 330" width="1850" height="1001" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="grid20" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#b88c58" stroke-width="0.22" opacity="0.48"/>
+    </pattern>
+    <pattern id="seedHatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <path d="M0 0V4" stroke="#ffffff" stroke-width="0.55" opacity="0.28"/>
+    </pattern>
+    <pattern id="futureHatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M0 0V5" stroke="#76665c" stroke-width="0.45" opacity="0.55"/>
+    </pattern>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="5.4" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#3a2f45"/>
+    </marker>
+    <marker id="cameraArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4f4560"/>
+    </marker>
+    <clipPath id="mapClip">
+      <rect x="8" y="5" width="400" height="320" rx="1"/>
+    </clipPath>
+  </defs>
+
+  <rect width="610" height="330" fill="#fbf7f0"/>
+
+  <!-- MAP: one SVG unit equals one metre inside this translated group. -->
+  <g clip-path="url(#mapClip)">
+    <g transform="translate(208,165)">
+      <!-- Continuous far silhouette row: outer world edge = 400 x 320 m. -->
+      <path d="M-200,-160 L-151,-158 -116,-153 -71,-159 -26,-154 17,-160 62,-155 104,-158 148,-151 200,-157
+               L197,-111 200,-66 195,-19 200,25 194,68 198,111 193,160
+               L148,156 102,160 59,153 15,158 -29,154 -73,160 -118,154 -157,159 -200,153
+               L-196,110 -200,65 -195,22 -200,-24 -194,-70 -199,-113 Z"
+            fill="#6f3d2d" stroke="#4d2c24" stroke-width="1.1"/>
+
+      <!-- Near canyon/mesa row, continuous and irregular. -->
+      <path d="M-188,-148 L-150,-144 -112,-148 -70,-142 -29,-147 13,-143 55,-148 98,-143 139,-146 187,-140
+               L183,-105 188,-65 181,-22 186,22 180,64 186,104 181,148
+               L140,143 99,148 57,142 13,147 -31,142 -72,148 -114,142 -150,147 -187,141
+               L-182,104 -188,63 -181,21 -186,-23 -180,-66 -186,-106 Z"
+            fill="#a0522d" stroke="#c98b59" stroke-width="1"/>
+
+      <!-- Basin inside the irregular canyon inner edge; nominal clear opening 350 x 290 m. -->
+      <path d="M-174,-137 L-139,-132 -105,-137 -68,-131 -29,-136 8,-132 48,-137 87,-131 126,-136 173,-130
+               L168,-98 174,-61 167,-21 172,18 166,58 173,96 168,137
+               L130,132 91,137 52,131 12,136 -29,131 -68,137 -106,131 -140,136 -173,130
+               L-168,96 -174,58 -167,18 -172,-22 -166,-61 -172,-99 Z"
+            fill="#d9b07a" stroke="#d9a46e" stroke-width="3"/>
+
+      <!-- 20 m grid clipped visually by the basin fill. -->
+      <rect x="-174" y="-137" width="348" height="274" fill="url(#grid20)" opacity="0.7"/>
+
+      <!-- Exact playable basin: 320 x 260 m. -->
+      <rect x="-160" y="-130" width="320" height="260" fill="none" stroke="#584a48" stroke-width="0.75" stroke-dasharray="4 2"/>
+      <text x="-157" y="-124" font-size="3.6" fill="#584a48" font-weight="bold">PLAYABLE BASIN 320  x  260 m</text>
+      <text x="-157" y="-119.5" font-size="2.8" fill="#584a48">x -160...160  /  z -130...130  /  canyon inner edge stays at least 137 m from centre</text>
+
+      <!-- Fixed dry arroyo and ranch waterhole. -->
+      <polyline points="-158,-46 -136,-36 -121,-17 -111,7 -104,35 -99,61 -95,84 -89,108 -83,132"
+                fill="none" stroke="#eee0bd" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="-158,-46 -136,-36 -121,-17 -111,7 -104,35 -99,61 -95,84 -89,108 -83,132"
+                fill="none" stroke="#c9b58b" stroke-width="0.7" stroke-dasharray="2 2"/>
+      <ellipse cx="-95" cy="84" rx="11" ry="8" fill="#76abc2" stroke="#4f849b" stroke-width="0.6"/>
+      <text x="-94" y="85" font-size="2.7" fill="#ffffff" text-anchor="middle">waterhole 22  x  16</text>
+      <text x="-121" y="21" font-size="3" fill="#6f5a3f" transform="rotate(73 -121 21)">fixed dry arroyo  /  9 m</text>
+
+      <!-- Fixed railway: north-south hard boundary, with double main line and freight spur. -->
+      <rect x="52" y="-130" width="14" height="260" fill="#c7aa7b" opacity="0.62"/>
+      <g stroke="#54483f" fill="none">
+        <path d="M56,-132V132 M62,-132V132" stroke-width="0.9"/>
+        <path d="M59,-128V128" stroke="#7e694f" stroke-width="0.45" stroke-dasharray="2 2"/>
+        <path d="M56,-58 C42,-57 34,-51 31,-36" stroke-width="0.65"/>
+        <path d="M62,-51 C49,-49 44,-42 42,-28" stroke-width="0.65"/>
+      </g>
+      <g stroke="#76583d" stroke-width="0.45">
+        <path d="M52,-124H66 M52,-112H66 M52,-100H66 M52,-88H66 M52,-76H66 M52,-64H66 M52,-52H66 M52,-40H66 M52,-28H66 M52,-16H66 M52,-4H66 M52,8H66 M52,20H66 M52,32H66 M52,44H66 M52,56H66 M52,68H66 M52,80H66 M52,92H66 M52,104H66 M52,116H66 M52,128H66"/>
+      </g>
+      <text x="69" y="-92" font-size="3.2" fill="#3a2f45" transform="rotate(90 69 -92)">FIXED RAIL CORRIDOR  /  hard district boundary  /  x 52...66</text>
+
+      <!-- Local wagon roads: connectors, not a ring road. -->
+      <g fill="none" stroke="#b58f5a" stroke-width="3.2" stroke-linecap="round" opacity="0.9">
+        <path d="M-46,2 C-19,-3 3,-18 23,-50"/>
+        <path d="M-63,28 C-78,45 -91,58 -104,72"/>
+        <path d="M-23,30 C-14,48 -8,65 -5,79"/>
+        <path d="M-70,-23 C-84,-39 -96,-52 -107,-67"/>
+        <path d="M35,-5 C44,-1 49,3 53,8"/>
+      </g>
+      <g fill="none" stroke="#dbc69a" stroke-width="1.15" stroke-dasharray="3 2">
+        <path d="M-46,2 C-19,-3 3,-18 23,-50"/>
+        <path d="M-63,28 C-78,45 -91,58 -104,72"/>
+        <path d="M-23,30 C-14,48 -8,65 -5,79"/>
+        <path d="M-70,-23 C-84,-39 -96,-52 -107,-67"/>
+      </g>
+
+      <!-- FUTURE B: fixed blank envelope. -->
+      <path d="M-153,-37 L-127,-46 -109,-30 -108,13 -129,24 -153,11 Z"
+            fill="url(#futureHatch)" stroke="#685f5b" stroke-width="0.75" stroke-dasharray="3 2"/>
+      <text x="-131" y="-10" font-size="3.5" text-anchor="middle" fill="#514b49" font-weight="bold">FUTURE B</text>
+      <text x="-131" y="-5.5" font-size="2.7" text-anchor="middle" fill="#514b49">blank 44  x  70 m</text>
+
+      <!-- MINE district envelope. -->
+      <path d="M-150,-118 L-113,-124 -78,-116 -65,-98 -72,-71 -106,-57 -140,-66 -151,-88 Z"
+            fill="#8d634d" fill-opacity="0.72" stroke="#4b372e" stroke-width="0.85"/>
+      <path d="M-140,-108 L-115,-114 -86,-107 -77,-91 -84,-72 -111,-65 -136,-76 Z"
+            fill="url(#seedHatch)" stroke="#ffffff" stroke-opacity="0.55" stroke-width="0.5"/>
+      <path d="M-131,-88 A7,7 0 0 1 -117,-88" fill="#332a27" stroke="#2d2422" stroke-width="0.5"/>
+      <path d="M-112,-104 L-104,-83 M-104,-104 L-112,-83 M-114,-104H-102 M-113,-96H-103" fill="none" stroke="#3d302b" stroke-width="1.1"/>
+      <path d="M-105,-82 L-88,-75" fill="none" stroke="#5a4638" stroke-width="1"/>
+      <rect x="-92" y="-99" width="13" height="9" fill="#6b4a3a" stroke="#3d302b" stroke-width="0.5"/>
+      <circle cx="-81" cy="-82" r="4" fill="#a66a3f"/>
+      <path d="M-145,-69 L-124,-62 -103,-60" fill="none" stroke="#c2925a" stroke-width="5"/>
+      <g font-size="3" fill="#ffffff" text-anchor="middle">
+        <text x="-110" y="-112" font-size="4.2" font-weight="bold">MINE WORKS</text>
+      </g>
+
+      <!-- FUTURE A: fixed blank envelope. -->
+      <path d="M-55,-124 L-18,-128 3,-118 0,-94 -22,-87 -51,-96 Z"
+            fill="url(#futureHatch)" stroke="#685f5b" stroke-width="0.75" stroke-dasharray="3 2"/>
+      <text x="-27" y="-108" font-size="3.5" text-anchor="middle" fill="#514b49" font-weight="bold">FUTURE A</text>
+      <text x="-27" y="-103.5" font-size="2.7" text-anchor="middle" fill="#514b49">blank 58  x  41 m</text>
+
+      <!-- GRAND RAILWAY STATION district envelope. -->
+      <path d="M-10,-91 L24,-98 47,-86 49,-64 45,-40 26,-32 0,-39 -17,-57 Z"
+            fill="#bd8a58" fill-opacity="0.76" stroke="#533f33" stroke-width="0.85"/>
+      <path d="M-3,-82 L22,-89 40,-80 42,-61 37,-44 18,-40 1,-47 -10,-60 Z"
+            fill="url(#seedHatch)" stroke="#ffffff" stroke-opacity="0.6" stroke-width="0.5"/>
+      <rect x="35" y="-78" width="7" height="36" fill="#7b5b40"/>
+      <rect x="26" y="-73" width="8" height="25" fill="#d9a441"/>
+      <rect x="5" y="-70" width="19" height="12" fill="#5f8f8a" stroke="#3a2f45" stroke-width="0.5"/>
+      <rect x="5" y="-54" width="16" height="10" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.5"/>
+      <path d="M30,-85V-72 M27,-82H33" stroke="#3d302b" stroke-width="1" fill="none"/>
+      <rect x="39" y="-40" width="6" height="6" fill="#4f4560"/>
+      <g font-size="3" fill="#3a2f45" text-anchor="middle">
+        <text x="18" y="-94" font-size="4" font-weight="bold">GRAND RAILWAY STATION</text>
+      </g>
+
+      <!-- MAIN TOWN district envelope. -->
+      <path d="M-92,-11 L-72,-29 -27,-34 10,-22 17,2 7,29 -44,38 -82,29 -96,10 Z"
+            fill="#d6c09d" fill-opacity="0.84" stroke="#4f4560" stroke-width="1"/>
+      <path d="M-82,-8 L-66,-21 -29,-25 3,-16 8,2 0,21 -43,29 -75,21 -85,7 Z"
+            fill="url(#seedHatch)" stroke="#ffffff" stroke-opacity="0.68" stroke-width="0.5"/>
+      <g transform="rotate(-7 -40 1)">
+        <rect x="-79" y="-4" width="75" height="10" fill="#cfae78" stroke="#8a6c4d" stroke-width="0.55"/>
+        <rect x="-76" y="-13" width="15" height="8" fill="#5f8f8a" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-58" y="-15" width="17" height="10" fill="#7a3a30" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-37" y="-13" width="14" height="8" fill="#8fa07a" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-20" y="-14" width="14" height="9" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-76" y="7" width="16" height="8" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-55" y="7" width="15" height="9" fill="#8fa07a" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-35" y="7" width="17" height="9" fill="#5f8f8a" stroke="#3a2f45" stroke-width="0.5"/>
+        <rect x="-13" y="7" width="10" height="8" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.5"/>
+      </g>
+      <circle cx="-84" cy="-18" r="5" fill="#8b6a4a" stroke="#4a3c36" stroke-width="0.65"/>
+      <path d="M-88,-13 L-86,-20 M-80,-13 L-82,-20" stroke="#4a3c36" stroke-width="0.8"/>
+      <g font-size="3" fill="#3a2f45" text-anchor="middle">
+        <text x="-41" y="-31" font-size="4.4" font-weight="bold">MAIN TOWN</text>
+      </g>
+
+      <!-- RANCH district envelope and animal run preserves. -->
+      <path d="M-150,72 L-132,58 -95,61 -66,76 -63,105 -82,124 -119,127 -148,113 Z"
+            fill="#c8b87a" fill-opacity="0.78" stroke="#59623f" stroke-width="0.9"/>
+      <path d="M-140,77 L-126,68 -97,70 -75,81 -74,102 -88,115 -116,117 -139,107 Z"
+            fill="url(#seedHatch)" stroke="#ffffff" stroke-opacity="0.62" stroke-width="0.5"/>
+      <path d="M-138,90 C-130,76 -111,75 -103,89 C-99,102 -111,112 -127,109 C-139,107 -144,99 -138,90 Z"
+            fill="none" stroke="#59623f" stroke-width="0.9" stroke-dasharray="2 1"/>
+      <path d="M-103,73 C-91,66 -76,75 -75,89 C-76,101 -89,108 -101,101 C-110,94 -111,81 -103,73 Z"
+            fill="none" stroke="#59623f" stroke-width="0.9" stroke-dasharray="2 1"/>
+      <rect x="-135" y="66" width="17" height="11" fill="#6b4a3a" stroke="#3a2f45" stroke-width="0.5"/>
+      <rect x="-114" y="65" width="14" height="9" fill="#8fa07a" stroke="#3a2f45" stroke-width="0.5"/>
+      <path d="M-78,80V65 M-84,72H-72" stroke="#4a3c36" stroke-width="1.1"/>
+      <g font-size="3" fill="#3a2f45" text-anchor="middle">
+        <text x="-111" y="61" font-size="4.3" font-weight="bold">BROAD RANCH</text>
+      </g>
+
+      <!-- ARCHAEOLOGY district, deliberately frontier rather than Egyptian. -->
+      <path d="M-32,79 L-8,69 20,74 35,91 29,118 7,127 -21,119 -37,99 Z"
+            fill="#c8a47a" fill-opacity="0.8" stroke="#6a4d3d" stroke-width="0.85"/>
+      <path d="M-24,84 L-7,77 15,81 26,93 21,111 4,118 -16,111 -27,98 Z"
+            fill="url(#seedHatch)" stroke="#ffffff" stroke-opacity="0.6" stroke-width="0.5"/>
+      <g fill="none" stroke="#735641" stroke-width="0.8">
+        <rect x="-19" y="89" width="16" height="9"/>
+        <rect x="5" y="84" width="15" height="12"/>
+        <path d="M-14,104H7V115H-14Z M-10,104V115 M-5,104V115 M0,104V115"/>
+        <path d="M15,101V116 M10,106H23 M10,111H23"/>
+      </g>
+      <path d="M-27,86 L-17,80 -8,86 Z M17,118 L27,112 L31,121 Z" fill="#efe0bd" stroke="#795d47" stroke-width="0.5"/>
+      <g font-size="3" fill="#3a2f45" text-anchor="middle">
+        <text x="0" y="71" font-size="4.1" font-weight="bold">FRONTIER ARCHAEOLOGY DIG</text>
+      </g>
+
+      <!-- OUTSKIRTS / DESERT-NATURE RESERVE beyond the railway. -->
+      <path d="M75,-120 L115,-126 151,-113 157,-73 149,-30 158,12 148,55 157,92 145,122
+               L108,127 79,111 73,70 80,28 72,-11 79,-52 70,-88 Z"
+            fill="#cfaa73" fill-opacity="0.78" stroke="#6b5a3a" stroke-width="0.9"/>
+      <path d="M84,-109 L115,-116 142,-105 146,-72 139,-32 148,8 139,49 148,86 136,111
+               L110,117 88,104 84,68 91,28 82,-10 90,-51 81,-84 Z"
+            fill="url(#seedHatch)" stroke="#ffffff" stroke-opacity="0.55" stroke-width="0.5"/>
+      <!-- sparse reserve motifs -->
+      <g stroke="#4d6d45" stroke-width="1.2" fill="none">
+        <path d="M104,-87V-73 M104,-82L99,-85V-89 M104,-79L109,-82V-86"/>
+        <path d="M134,-45V-29 M134,-39L128,-42V-47 M134,-35L140,-38V-43"/>
+        <path d="M98,34V49 M98,42L93,39V35 M98,45L104,42V38"/>
+        <path d="M136,72V88 M136,78L130,81V86"/>
+      </g>
+      <g fill="#78904d">
+        <ellipse cx="119" cy="-8" rx="5" ry="2.5"/><ellipse cx="126" cy="-3" rx="4" ry="2"/>
+        <ellipse cx="105" cy="85" rx="5" ry="2.5"/><ellipse cx="122" cy="102" rx="4" ry="2"/>
+      </g>
+      <g fill="#90745d">
+        <ellipse cx="94" cy="-48" rx="5" ry="3"/><ellipse cx="126" cy="25" rx="6" ry="3.5"/>
+        <ellipse cx="144" cy="-96" rx="4.5" ry="3"/><ellipse cx="95" cy="105" rx="5" ry="3"/>
+      </g>
+      <g fill="none" stroke="#5e4939" stroke-width="0.8">
+        <path d="M82,-116 L93,-92 L104,-68 L115,-44 L126,-20 L137,4 L148,28"/>
+        <path d="M91,-94V-83 M102,-70V-59 M113,-46V-35 M124,-22V-11 M135,2V13 M146,26V37"/>
+      </g>
+      <circle cx="118" cy="65" r="3.2" fill="#6f5847"/>
+      <circle cx="142" cy="48" r="2.8" fill="#6f5847"/>
+      <circle cx="112" cy="-106" r="6" fill="#8b6a4a" stroke="#4a3c36" stroke-width="0.7"/>
+      <g font-size="3" fill="#3a2f45" text-anchor="middle">
+        <text x="116" y="-117" font-size="4.2" font-weight="bold">OUTSKIRTS / DESERT-NATURE RESERVE</text>
+      </g>
+
+      <!-- Open-space preserves and broad-gap dimensions. -->
+      <g fill="none" stroke="#4f4560" stroke-width="0.55" stroke-dasharray="2 2">
+        <ellipse cx="-39" cy="57" rx="25" ry="11"/>
+        <ellipse cx="-71" cy="-47" rx="18" ry="9"/>
+        <ellipse cx="38" cy="45" rx="13" ry="18"/>
+      </g>
+      <g fill="#4f4560" font-size="2.65" text-anchor="middle" paint-order="stroke" stroke="#d9b07a" stroke-width="1.4">
+        <text x="-39" y="57">OPEN PRESERVE 50  x  22</text>
+        <text x="-71" y="-47">30 m mine to town gap</text>
+        <text x="38" y="45">town to dig gap 40 m</text>
+        <text x="-57" y="53">26 m</text>
+        <text x="-48" y="66">town to ranch</text>
+        <text x="-49" y="100">35 m ranch to dig</text>
+      </g>
+      <g stroke="#4f4560" stroke-width="0.45" marker-start="url(#arrow)" marker-end="url(#arrow)">
+        <path d="M-69,-55V-30"/>
+        <path d="M-59,39V61"/>
+        <path d="M-62,101H-34"/>
+        <path d="M14,39V70"/>
+      </g>
+
+      <!-- Camera guard: camera ground projection never exits r=105 m. -->
+      <circle cx="0" cy="0" r="105" fill="none" stroke="#4f4560" stroke-width="0.75" stroke-dasharray="4 2" opacity="0.58"/>
+
+      <!-- Eight max-dolly azimuth checks, all pointing inward. -->
+      <g fill="#4f4560" stroke="#ffffff" stroke-width="0.35">
+        <path d="M0,-105 l-4,-7 h8 Z"/>
+        <path d="M74.2,-74.2 l2,-8 l6,6 Z"/>
+        <path d="M105,0 l7,-4 v8 Z"/>
+        <path d="M74.2,74.2 l8,2 l-6,6 Z"/>
+        <path d="M0,105 l4,7 h-8 Z"/>
+        <path d="M-74.2,74.2 l-2,8 l-6,-6 Z"/>
+        <path d="M-105,0 l-7,4 v-8 Z"/>
+        <path d="M-74.2,-74.2 l-8,-2 l6,-6 Z"/>
+      </g>
+      <g font-size="2.8" font-weight="bold" fill="#3a2f45" text-anchor="middle">
+        <text x="0" y="-114">N OK</text><text x="83" y="-81">NE OK</text><text x="116" y="1">E OK</text><text x="84" y="85">SE OK</text>
+        <text x="0" y="118">S OK</text><text x="-84" y="85">SW OK</text><text x="-117" y="1">W OK</text><text x="-84" y="-81">NW OK</text>
+      </g>
+
+      <!-- Default camera ground position: azimuth 45 degrees, r 78 m, aimed at basin centre. -->
+      <g transform="translate(55.2,55.2) rotate(-135)">
+        <path d="M-5,-3 H3 L7,0 L3,3 H-5 Z" fill="#f3e4ee" stroke="#3a2f45" stroke-width="0.8"/>
+        <path d="M5,0 H18" stroke="#3a2f45" stroke-width="0.8" marker-end="url(#cameraArrow)"/>
+      </g>
+      <text x="58" y="62" font-size="3.1" fill="#3a2f45" font-weight="bold">DEFAULT CAMERA</text>
+      <text x="58" y="66" font-size="2.7" fill="#3a2f45">az 45 deg  /  elev 40 deg  /  r 78 m</text>
+
+      <!-- Exact axes and 50 m scale bar. -->
+      <g transform="translate(-188,143)" fill="#3a2f45" stroke="#3a2f45">
+        <path d="M0,0 H26" stroke-width="0.75" marker-end="url(#arrow)"/>
+        <path d="M0,0 V-26" stroke-width="0.75" marker-end="url(#arrow)"/>
+        <text x="29" y="1.5" font-size="3.2" stroke="none">+x east</text>
+        <text x="2" y="-28" font-size="3.2" stroke="none">-z north</text>
+      </g>
+      <g transform="translate(89,143)">
+        <rect x="0" y="0" width="25" height="3" fill="#3a2f45"/>
+        <rect x="25" y="0" width="25" height="3" fill="#ffffff" stroke="#3a2f45" stroke-width="0.4"/>
+        <text x="0" y="-1.5" font-size="3" fill="#3a2f45">0</text>
+        <text x="25" y="-1.5" font-size="3" fill="#3a2f45" text-anchor="middle">25</text>
+        <text x="50" y="-1.5" font-size="3" fill="#3a2f45" text-anchor="end">50 m</text>
+      </g>
+
+      <!-- Canyon labels above all map content. -->
+      <g fill="#fff4e6" text-anchor="middle">
+        <text x="0" y="-150" font-size="4.3" font-weight="bold">CONTINUOUS CANYON / MESA RIM  /  OUTER 400  x  320 m</text>
+        <text x="0" y="-144.5" font-size="3">near irregular rim + distant second silhouette row  /  fixed terrain  /  fog begins in rim band</text>
+        <text x="-185" y="0" font-size="3.1" transform="rotate(-90 -185 0)">every view ends in geology</text>
+        <text x="186" y="0" font-size="3.1" transform="rotate(90 186 0)">every view ends in geology</text>
+      </g>
+    </g>
+  </g>
+  <rect x="8" y="5" width="400" height="320" rx="1" fill="none" stroke="#3a2f45" stroke-width="1"/>
+
+  <!-- LEGEND / SPECIFICATION PANEL -->
+  <g transform="translate(416,7)" fill="#3a2f45">
+    <text x="0" y="5" font-size="6.3" font-weight="bold">frontier-town  /  plan v2</text>
+    <text x="0" y="10.5" font-size="3.6">top-down  /  1 SVG unit = 1 m  /  x east  /  z south/toward camera</text>
+    <text x="0" y="15.5" font-size="3.6">world 400  x  320  /  playable 320  x  260  /  canyon opening about 350  x  290</text>
+
+    <text x="0" y="23" font-size="4.2" font-weight="bold">Horizon / camera acceptance</text>
+    <text x="0" y="28" font-size="3.35">Continuous irregular geology closes all 360 deg. Two silhouette rows.</text>
+    <text x="0" y="32.4" font-size="3.35">Camera target [0,0]. Default: az 45 deg, elevation 40 deg, ground r 78 m.</text>
+    <text x="0" y="36.8" font-size="3.35">Free orbit 360 deg; elevation 30-55 deg; max ground r 105 m.</text>
+    <text x="0" y="41.2" font-size="3.35">No camera projection crosses the rim; minimum inner-edge clearance at least 25 m.</text>
+    <text x="0" y="45.6" font-size="3.35">Fog starts in canyon band. N/NE/E/SE/S/SW/W/NW all checked OK.</text>
+
+    <text x="0" y="53.5" font-size="4.2" font-weight="bold">Fixed vs seed-randomised</text>
+    <rect x="0" y="56" width="6" height="4" fill="#a0522d"/><text x="8" y="59.4" font-size="3.25">FIXED: canyon rows, basin, rail x 52...66, arroyo/waterhole, camera guard</text>
+    <rect x="0" y="62" width="6" height="4" fill="url(#seedHatch)" stroke="#76665c" stroke-width="0.4"/><text x="8" y="65.4" font-size="3.25">SEEDED: district centre/yaw within envelope; subarea order stays art-directed</text>
+    <rect x="0" y="68" width="6" height="4" fill="url(#futureHatch)" stroke="#76665c" stroke-width="0.4"/><text x="8" y="71.4" font-size="3.25">BLANK: future envelope; no props or topic assignment in v2</text>
+
+    <text x="0" y="79" font-size="4.2" font-weight="bold">Nominal district transforms (metres)</text>
+    <text x="0" y="84" font-size="3.15" font-weight="bold">district                 centre [x,z]  envelope     jitter [x,z]  yaw</text>
+    <g font-size="3.05">
+      <text x="0" y="88.5">Main town              [-40, 4]      113  x  72     +/-8, +/-6       +/-12 deg</text>
+      <text x="0" y="92.8">Railway station       [18, -65]      66  x  66      +/-4, +/-5       +/-5 deg</text>
+      <text x="0" y="97.1">Outskirts reserve    [114, 1]       88  x  253    +/-7, +/-10     +/-18 deg</text>
+      <text x="0" y="101.4">Broad ranch            [-108, 94]    87  x  69      +/-8, +/-6       +/-15 deg</text>
+      <text x="0" y="105.7">Mine works             [-109, -91]  86  x  67      +/-6, +/-5       +/-12 deg</text>
+      <text x="0" y="110">Archaeology dig       [0, 98]         72  x  58      +/-6, +/-5       +/-14 deg</text>
+      <text x="0" y="114.3">Future A / B           [-27,-108] / [-131,-10]  /  fixed blank</text>
+    </g>
+
+    <text x="0" y="122" font-size="4.2" font-weight="bold">Subareas / local capacity</text>
+    <g font-size="3.15">
+      <text x="0" y="126.5">Town: civic west; saloon/hotel core; storefront east; service alleys south.</text>
+      <text x="0" y="130.8">Rail: 38  x  7 platform; 20  x  12 depot; 16  x  10 freight; signal + crane.</text>
+      <text x="0" y="135.1">Rail operations pad 24  x  22 held clear; roundhouse intentionally omitted.</text>
+      <text x="0" y="139.4">Ranch: house/barn; 3 corrals; pasture; 2 animal runs at least 24  x  18.</text>
+      <text x="0" y="143.7">Mine: adit/headframe; ore spur; boiler/sheds; tailings; worker camp.</text>
+      <text x="0" y="148">Dig: 2 foundation fields; 3 trenches; scaffold; 2 canvas tent pads.</text>
+      <text x="0" y="152.3">Reserve: 3 sparse habitat cells; burrow buffers; poles; abandoned tank.</text>
+    </g>
+
+    <text x="0" y="160" font-size="4.2" font-weight="bold">Separation / negative space</text>
+    <g font-size="3.2">
+      <text x="0" y="164.6">Mine to town 30 m  /  town to ranch 26 m  /  town to dig 40 m</text>
+      <text x="0" y="169">Ranch to dig 35 m  /  central open preserve 50  x  22 m</text>
+      <text x="0" y="173.4">Rail is a hard boundary, not a gap; reserve begins east of corridor.</text>
+      <text x="0" y="177.8">Local roads stop at districts. No circular district, ring road, or kit island.</text>
+    </g>
+
+    <text x="0" y="185.5" font-size="4.2" font-weight="bold">Seed rules</text>
+    <g font-size="3.2">
+      <text x="0" y="190">1. Rejection-sample centres inside each named polygon at listed jitter.</text>
+      <text x="0" y="194.4">2. Preserve shown broad gaps after jitter; reduce jitter before shrinking a gap.</text>
+      <text x="0" y="198.8">3. Buildings inherit district yaw plus +/-6 deg; vary scale 0.82-1.18.</text>
+      <text x="0" y="203.2">4. Uneven spacing; no grids. Mix motifs across subareas; keep anchors stable.</text>
+      <text x="0" y="207.6">5. Rail, terrain, canyon, camera guard, future envelopes never jitter.</text>
+      <text x="0" y="212">6. Topics map several-to-one; district population can express many topics.</text>
+    </g>
+
+    <text x="0" y="220" font-size="4.2" font-weight="bold">Map colour key</text>
+    <g font-size="3.15">
+      <rect x="0" y="223" width="6" height="4" fill="#d9b07a"/><text x="8" y="226.3">basin sand</text>
+      <rect x="45" y="223" width="6" height="4" fill="#a0522d"/><text x="53" y="226.3">near canyon row</text>
+      <rect x="104" y="223" width="6" height="4" fill="#6f3d2d"/><text x="112" y="226.3">far silhouette row</text>
+      <rect x="0" y="229" width="6" height="4" fill="#d6c09d"/><text x="8" y="232.3">town</text>
+      <rect x="45" y="229" width="6" height="4" fill="#bd8a58"/><text x="53" y="232.3">rail district</text>
+      <rect x="104" y="229" width="6" height="4" fill="#cfaa73"/><text x="112" y="232.3">nature reserve</text>
+      <rect x="0" y="235" width="6" height="4" fill="#c8b87a"/><text x="8" y="238.3">ranch</text>
+      <rect x="45" y="235" width="6" height="4" fill="#8d634d"/><text x="53" y="238.3">mine</text>
+      <rect x="104" y="235" width="6" height="4" fill="#c8a47a"/><text x="112" y="238.3">archaeology</text>
+    </g>
+
+    <text x="0" y="247" font-size="4.2" font-weight="bold">Camera test protocol</text>
+    <g font-size="3.15">
+      <text x="0" y="251.5">At r=105 m and elevation 30 deg, capture all eight marked azimuths.</text>
+      <text x="0" y="255.8">Pass if frame top/background contains near rim + second row in fog,</text>
+      <text x="0" y="260.1">with no terrain edge, void, or view beyond the outer canyon silhouette.</text>
+      <text x="0" y="264.4">Repeat at elevation 55 deg and default r=78 m. Orbit target remains [0,0].</text>
+    </g>
+
+    <text x="0" y="272.5" font-size="4.2" font-weight="bold">Design intent</text>
+    <g font-size="3.2">
+      <text x="0" y="277">A large working frontier basin, not six crowded prop islands.</text>
+      <text x="0" y="281.4">Town and station are civic anchors; tracks divide settlement from wild land.</text>
+      <text x="0" y="285.8">Ranch, mine, and dig retain broad work/run areas and future expansion room.</text>
+      <text x="0" y="290.2">Every orbit terminates in layered canyon geology, never an empty edge.</text>
+    </g>
+
+    <text x="0" y="300" font-size="3.2" fill="#6b5a3a">v2  /  2026-09-20  /  approved direction translated to plan geometry</text>
+    <text x="0" y="305" font-size="3.2" fill="#6b5a3a">No implementation or GLB assumptions encoded beyond map constraints.</text>
+  </g>
+</svg>

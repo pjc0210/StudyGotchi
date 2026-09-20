@@ -1,0 +1,6223 @@
+{
+  "$schema": "./catalog.schema.json",
+  "version": 1,
+  "generated_at": "2026-09-19",
+  "notes": [
+    "Single source of truth for biome families. Consumers: tools/landmark-factory (landmarks, props, terrain_piece), tools/creature-factory (palette.creature), prototypes/world-lab galaxy.ts (terrain_kinds, marker, growth_hero, catastrophe, palette.night).",
+    "Derived fields (creature contrast_vs_ground, terrain_kinds[].tint or tint_hsl_offset) are recomputed by assets/biomes/validate_catalog.py; edit either side and run --fix.",
+    "The seven shipped families keep their asset ids and landmark file names from assets/landmarks/manifest.json byte for byte."
+  ],
+  "conventions": {
+    "units": "metres, +Y up, base on y=0",
+    "contrast": "WCAG relative-luminance ratio (L1+0.05)/(L2+0.05); creature body colours must be >= 1.4 against palette.ground",
+    "tint_hsl_offset": "hue in degrees (-180..180), saturation and lightness as absolute deltas in 0..1; tint = ground shifted by the offset",
+    "density": "decor count for a reference topic cell of angular radius 0.24 rad on the 70-unit planet (matches galaxy.ts)",
+    "profiles": {
+      "flat": "no relief",
+      "gentle": "soft slope down to a neighbour (shore)",
+      "hills": "rolling bumps 0.6-1.4",
+      "mountain": "peaks 1.8-3.2 with a cap colour",
+      "recessed_water": "bowl below base; fill = water | lava | ice | none",
+      "terrace": "raised flat plateau with a rim step"
+    },
+    "galaxy_profile_map": {
+      "flat": "flat",
+      "gentle": "slope",
+      "hills": "hills",
+      "mountain": "peaks|volcano",
+      "recessed_water": "water|crater",
+      "terrace": "raised"
+    },
+    "landmark_heights_m": {
+      "s1": [
+        0.55,
+        0.62
+      ],
+      "s2": 1.0,
+      "s3": 1.8
+    },
+    "triangle_budgets": {
+      "landmark_s1": 400,
+      "landmark_s2": 900,
+      "landmark_s3": 1600,
+      "prop": 300,
+      "terrain": 1600
+    },
+    "growth_bands": "percent of course progress: 0, 25, 50, 75, 100; height_m_by_band is the hero's world height (before PROP_SCALE)",
+    "night": "driven by the page colour scheme: prefers-color-scheme dark = night. palette.night overrides sky/fog/lamp/window and adds family extras"
+  },
+  "archetypes": [
+    "blob",
+    "bean",
+    "bird",
+    "biped",
+    "sprite",
+    "flat"
+  ],
+  "shared_props": [
+    {
+      "id": "shared-rowboat",
+      "brief": "flat-bottom rowboat with two seats, coral stripe",
+      "tri_budget": 120,
+      "runtime_recipe": "boat"
+    },
+    {
+      "id": "shared-dock",
+      "brief": "plank dock on four posts, 1.2 m",
+      "tri_budget": 100,
+      "runtime_recipe": "dock"
+    },
+    {
+      "id": "shared-peak",
+      "brief": "faceted mountain peak with a snow or stone cap chosen by the family's terrain kind alt colour",
+      "tri_budget": 120,
+      "runtime_recipe": "mountain"
+    },
+    {
+      "id": "shared-pillar",
+      "brief": "broken stone column with a capital",
+      "tri_budget": 60,
+      "runtime_recipe": "pillar"
+    },
+    {
+      "id": "shared-tower-block",
+      "brief": "box tower with lit window facets, family accent roof",
+      "tri_budget": 90,
+      "runtime_recipe": "tower"
+    }
+  ],
+  "families": [
+    {
+      "id": "forest",
+      "display_name": "Forest",
+      "status": "shipped",
+      "mood": "Soft green hush under round canopies; a place that grows while you are not looking.",
+      "palette": {
+        "ground": "#8fc48a",
+        "ground_alt": "#6fa86a",
+        "accent": "#4f8a4a",
+        "road_core": "#c9b08a",
+        "road_edge": "#8f7a5a",
+        "water": "#5fa8c9",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 1.589
+          },
+          {
+            "name": "cocoa",
+            "hex": "#8b5a3c",
+            "contrast_vs_ground": 2.877
+          },
+          {
+            "name": "brick",
+            "hex": "#d9765c",
+            "contrast_vs_ground": 1.558
+          },
+          {
+            "name": "violet",
+            "hex": "#9b78c9",
+            "contrast_vs_ground": 1.761
+          }
+        ],
+        "night": {
+          "sky": "#1d2a3a",
+          "fog": "#2a3f48",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.5,
+          "moon": true,
+          "fireflies": true,
+          "canopy_emissive": "#3f7a3a"
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "grove",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 0.0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#8fc48a",
+          "alt": "#6fa86a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 16
+            }
+          ]
+        },
+        {
+          "id": "pine forest",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 6.3,
+            "s": -0.074,
+            "l": -0.061
+          },
+          "tint": "#7db27e",
+          "alt": "#5f9660",
+          "decor": [
+            {
+              "prop": "ice-pine-snow",
+              "density": 22
+            }
+          ]
+        },
+        {
+          "id": "clearing",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -9.8,
+            "s": 0.093,
+            "l": 0.067
+          },
+          "tint": "#a9d69a",
+          "alt": "#8fc48a",
+          "decor": [
+            {
+              "prop": "meadow-flower-clump-peach",
+              "density": 14
+            },
+            {
+              "prop": "meadow-bush",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "hills",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -5.8,
+            "s": 0.028,
+            "l": 0.016
+          },
+          "tint": "#98c98d",
+          "alt": "#8b7a70",
+          "decor": [
+            {
+              "prop": "forest-round-tree-large",
+              "density": 5
+            },
+            {
+              "prop": "forest-rock",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "lake",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -4.7,
+            "s": 0.059,
+            "l": 0.037
+          },
+          "tint": "#9ccf92",
+          "alt": "#5fa8c9",
+          "decor": [
+            {
+              "prop": "shared-rowboat",
+              "density": 1
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "swamp",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -4.6,
+            "s": -0.11,
+            "l": -0.092
+          },
+          "tint": "#7fa877",
+          "alt": "#587f5f",
+          "decor": [
+            {
+              "prop": "meadow-bush",
+              "density": 8
+            },
+            {
+              "prop": "forest-log",
+              "density": 3
+            }
+          ],
+          "fill": "water"
+        },
+        {
+          "id": "orchard",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -15.5,
+            "s": 0.07,
+            "l": 0.031
+          },
+          "tint": "#a5cf8f",
+          "alt": "#8fc48a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 14
+            }
+          ]
+        },
+        {
+          "id": "cliffs",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -1.5,
+            "s": -0.108,
+            "l": -0.053
+          },
+          "tint": "#88b083",
+          "alt": "#8b7a70",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 4
+            },
+            {
+              "prop": "ice-pine-snow",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "shore",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": -13.8,
+            "s": 0.043,
+            "l": 0.045
+          },
+          "tint": "#a8cf96",
+          "alt": "#5fa8c9",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 1
+            },
+            {
+              "prop": "forest-rock",
+              "density": 4
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#6fa86a",
+          "#8fc48a",
+          "#a9d69a"
+        ],
+        "signature_props": [
+          "forest-round-tree-small",
+          "forest-mushroom",
+          "forest-log"
+        ],
+        "creature_archetype_preference": "bean",
+        "sign_text_style": "carved wood plank"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "stump with sprout",
+          "brief": "cut stump, one two-leaf sprout in the centre",
+          "height_m": 0.58,
+          "motif_carried": "sprout",
+          "file": "assets/landmarks/forest/forest-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "treehouse",
+          "brief": "round canopy with a plank hut and ladder; sprout leaves become the canopy",
+          "height_m": 1.0,
+          "motif_carried": "sprout -> canopy",
+          "file": "assets/landmarks/forest/forest-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "mushroom cottage",
+          "brief": "coral cap cottage with a stump doorstep",
+          "height_m": 1.0,
+          "motif_carried": "stump -> doorstep",
+          "file": "assets/landmarks/forest/forest-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "hunter's lodge",
+          "brief": "stone-and-log lodge with antler sign and a sapling by the door",
+          "height_m": 1.0,
+          "motif_carried": "sprout -> sapling",
+          "file": "assets/landmarks/forest/forest-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "great tree",
+          "brief": "three-tier canopy with a lit hollow door and a rope bridge",
+          "height_m": 1.8,
+          "motif_carried": "canopy -> great canopy",
+          "file": "assets/landmarks/forest/forest-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "forest-round-tree-small",
+          "brief": "5-sided trunk, ico canopy, one paler highlight cap",
+          "tri_budget": 96,
+          "runtime_recipe": "roundTree",
+          "file": "assets/landmarks/forest/props/round-tree-small.glb"
+        },
+        {
+          "id": "forest-round-tree-large",
+          "brief": "same recipe scaled, second canopy lobe",
+          "tri_budget": 176,
+          "runtime_recipe": "roundTree",
+          "file": "assets/landmarks/forest/props/round-tree-large.glb"
+        },
+        {
+          "id": "forest-mushroom",
+          "brief": "coral cap with white dots on a straw stem",
+          "tri_budget": 154,
+          "runtime_recipe": "shrub",
+          "file": "assets/landmarks/forest/props/mushroom.glb"
+        },
+        {
+          "id": "forest-log",
+          "brief": "fallen 5-sided log, one cut end",
+          "tri_budget": 40,
+          "runtime_recipe": "rock",
+          "file": "assets/landmarks/forest/props/log.glb"
+        },
+        {
+          "id": "forest-fern-clump",
+          "brief": "three flat fronds, leaf over accent",
+          "tri_budget": 48,
+          "runtime_recipe": "shrub",
+          "file": "assets/landmarks/forest/props/fern-clump.glb"
+        },
+        {
+          "id": "forest-rock",
+          "brief": "jittered ico boulder",
+          "tri_budget": 160,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/forest/props/rock.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "forest-hill-with-trees",
+        "brief": "faceted hill with three round trees and a boulder",
+        "height_m": 2.0,
+        "file": "assets/landmarks/forest/terrain/hill-with-trees.glb"
+      },
+      "growth_hero": {
+        "id": "forest-great-tree",
+        "brief": "one great round tree at the course centre; canopy lobes multiply as it grows",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "sapling",
+          "25": "single canopy",
+          "50": "two lobes, rope swing",
+          "75": "three lobes, lanterns",
+          "100": "four lobes, treehouse village, birds circle"
+        }
+      },
+      "catastrophe": {
+        "kind": "storm",
+        "effect_family": "weather",
+        "brief": "grey cloud puff gathers over the topic, lightning zigzag (flat ink), gust bends trees 20 deg",
+        "ruin": {
+          "id": "forest-ruin-blown-roof",
+          "brief": "stage-2 footprint with roof planks scattered, one leaning wall, a sprout poking through"
+        },
+        "recovery": "scaffold of logs pops in, planks fly back one by one, canopy re-inflates with overshoot"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.2,
+        "bean": 0.3,
+        "bird": 0.2,
+        "biped": 0.15,
+        "sprite": 0.1,
+        "flat": 0.05
+      },
+      "subject_affinity": [
+        "biology",
+        "ecology",
+        "computability",
+        "recursion",
+        "data structures",
+        "environmental science"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-bird-chirp",
+          "ambient-wind-gust"
+        ],
+        "one_shots": [
+          "sprout-appear"
+        ],
+        "brief": "birds every 6-12 s, a gust every 20-40 s"
+      }
+    },
+    {
+      "id": "city",
+      "display_name": "City",
+      "status": "shipped",
+      "mood": "Pastel plaster townhouses and a clock that is always a little early.",
+      "palette": {
+        "ground": "#d9c3d6",
+        "ground_alt": "#b98bb0",
+        "accent": "#b98bb0",
+        "road_core": "#f6ecd2",
+        "road_edge": "#6b5f7a",
+        "water": "#6fa9cf",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 1.509
+          },
+          {
+            "name": "teal",
+            "hex": "#5fa8c4",
+            "contrast_vs_ground": 1.614
+          },
+          {
+            "name": "violet",
+            "hex": "#9b78c9",
+            "contrast_vs_ground": 2.149
+          },
+          {
+            "name": "leaf",
+            "hex": "#6fb35b",
+            "contrast_vs_ground": 1.538
+          }
+        ],
+        "night": {
+          "sky": "#1a1a30",
+          "fog": "#2f2a44",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffd27a",
+          "window": "#ffe9a8",
+          "star_density": 0.3,
+          "moon": true,
+          "neon_signs": "#ff7ad9"
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "downtown",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -1.0,
+            "s": 0.039,
+            "l": 0.006
+          },
+          "tint": "#dcc3d9",
+          "alt": "#b98bb0",
+          "decor": [
+            {
+              "prop": "shared-tower-block",
+              "density": 9
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "suburb",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -2.2,
+            "s": 0.046,
+            "l": 0.047
+          },
+          "tint": "#e4d0e2",
+          "alt": "#b98bb0",
+          "decor": [
+            {
+              "prop": "city-small-house",
+              "density": 10
+            },
+            {
+              "prop": "city-planter-tree",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "park",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 151.2,
+            "s": 0.066,
+            "l": -0.024
+          },
+          "tint": "#c3d8b8",
+          "alt": "#8fc48a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 10
+            },
+            {
+              "prop": "meadow-flower-clump-lilac",
+              "density": 6
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "harbour",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": -0.2,
+            "s": -0.079,
+            "l": -0.01
+          },
+          "tint": "#d3c4d1",
+          "alt": "#6fa9cf",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 2
+            },
+            {
+              "prop": "shared-rowboat",
+              "density": 2
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "plaza",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 5.2,
+            "s": 0.076,
+            "l": 0.075
+          },
+          "tint": "#ead8e6",
+          "alt": "#b98bb0",
+          "decor": [
+            {
+              "prop": "shared-pillar",
+              "density": 6
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 4
+            },
+            {
+              "prop": "city-fountain",
+              "density": 1
+            }
+          ]
+        },
+        {
+          "id": "industrial",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 2.3,
+            "s": -0.037,
+            "l": -0.049
+          },
+          "tint": "#cdb6c9",
+          "alt": "#8f7f8c",
+          "decor": [
+            {
+              "prop": "factory-chimney-stack",
+              "density": 5
+            },
+            {
+              "prop": "shared-tower-block",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "hills",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -11.2,
+            "s": -0.028,
+            "l": -0.008
+          },
+          "tint": "#d5c2d6",
+          "alt": "#8b7a70",
+          "decor": [
+            {
+              "prop": "city-small-house",
+              "density": 4
+            },
+            {
+              "prop": "forest-round-tree-small",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "bay",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -1.1,
+            "s": -0.038,
+            "l": 0.014
+          },
+          "tint": "#dac9d8",
+          "alt": "#6fa9cf",
+          "decor": [
+            {
+              "prop": "shared-rowboat",
+              "density": 2
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#b98bb0",
+          "#d9c3d6",
+          "#fffaf3"
+        ],
+        "signature_props": [
+          "city-lamp-post",
+          "city-bench",
+          "city-planter-tree"
+        ],
+        "creature_archetype_preference": "biped",
+        "sign_text_style": "enamel street sign"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "kiosk",
+          "brief": "hexagonal newspaper kiosk with a lilac awning",
+          "height_m": 0.58,
+          "motif_carried": "awning",
+          "file": "assets/landmarks/city/city-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "clock tower",
+          "brief": "slim tower, clock face, kiosk-awning canopy at the base",
+          "height_m": 1.0,
+          "motif_carried": "awning -> canopy",
+          "file": "assets/landmarks/city/city-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "townhouse with awning",
+          "brief": "two-storey cream townhouse, striped awning, slate roof",
+          "height_m": 1.0,
+          "motif_carried": "awning",
+          "file": "assets/landmarks/city/city-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "bell gazebo",
+          "brief": "six-pillar gazebo with a bell, awning-coloured roof",
+          "height_m": 1.0,
+          "motif_carried": "awning -> roof",
+          "file": "assets/landmarks/city/city-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "library",
+          "brief": "colonnaded library with a clock gable and dome; the clock tower motif returns",
+          "height_m": 1.8,
+          "motif_carried": "clock -> gable clock",
+          "file": "assets/landmarks/city/city-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "city-lamp-post",
+          "brief": "slate post, lilac collar, warm lamp facet",
+          "tri_budget": 114,
+          "runtime_recipe": "lamp",
+          "file": "assets/landmarks/city/props/lamp-post.glb"
+        },
+        {
+          "id": "city-bench",
+          "brief": "wood slats on slate legs",
+          "tri_budget": 60,
+          "file": "assets/landmarks/city/props/bench.glb"
+        },
+        {
+          "id": "city-small-house",
+          "brief": "cream box, slate roof, one lit window",
+          "tri_budget": 80,
+          "runtime_recipe": "house",
+          "file": "assets/landmarks/city/props/small-house.glb"
+        },
+        {
+          "id": "city-fountain",
+          "brief": "two-tier basin with a water disc",
+          "tri_budget": 292,
+          "file": "assets/landmarks/city/props/fountain.glb"
+        },
+        {
+          "id": "city-planter-tree",
+          "brief": "cream planter with a small round tree",
+          "tri_budget": 120,
+          "runtime_recipe": "roundTree",
+          "file": "assets/landmarks/city/props/planter-tree.glb"
+        },
+        {
+          "id": "city-hedge",
+          "brief": "trimmed box hedge with cream kerb",
+          "tri_budget": 68,
+          "runtime_recipe": "shrub",
+          "file": "assets/landmarks/city/props/hedge.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "city-plaza-slab-with-fountain",
+        "brief": "raised plaza slab, fountain, four lamps, two planter trees",
+        "height_m": 1.6,
+        "file": "assets/landmarks/city/terrain/plaza-slab-with-fountain.glb"
+      },
+      "growth_hero": {
+        "id": "city-tower",
+        "brief": "a stepped tower at the course centre gains floors and a spire; windows light up floor by floor",
+        "height_m_by_band": {
+          "0": 0.8,
+          "25": 1.8,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "one floor",
+          "25": "three floors",
+          "50": "six floors, clock",
+          "75": "nine floors, spire",
+          "100": "twelve floors, beacon, banners"
+        }
+      },
+      "catastrophe": {
+        "kind": "short_circuit",
+        "effect_family": "mechanical",
+        "brief": "lamps flicker, sparks (star sprites) jump between posts, one comic poof knocks the stage-2 roof askew",
+        "ruin": {
+          "id": "city-ruin-blackout",
+          "brief": "stage-2 shell with a tilted roof, dark windows, one dangling lamp"
+        },
+        "recovery": "scaffold poles wrap the shell, windows relight one per 0.3 s, roof snaps straight"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.15,
+        "bean": 0.15,
+        "bird": 0.15,
+        "biped": 0.35,
+        "sprite": 0.1,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "computer science",
+        "algorithms",
+        "linear algebra",
+        "economics",
+        "urban studies",
+        "networks"
+      ],
+      "sound_ambience": {
+        "loops": [],
+        "one_shots": [
+          "ui-tap"
+        ],
+        "brief": "distant clock chime every 60 s (brief: soft mallet C5, echo); no wind"
+      }
+    },
+    {
+      "id": "ice",
+      "display_name": "Ice",
+      "status": "shipped",
+      "mood": "Bright, crisp, quiet; snow that squeaks and a lighthouse lit at four in the afternoon.",
+      "palette": {
+        "ground": "#e6f2fb",
+        "ground_alt": "#a9cfe8",
+        "accent": "#a9cfe8",
+        "road_core": "#c9d6e2",
+        "road_edge": "#7fb8d8",
+        "water": "#7fb6dd",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "mint",
+            "hex": "#8fc9d8",
+            "contrast_vs_ground": 1.603
+          },
+          {
+            "name": "lilac",
+            "hex": "#c9a2e6",
+            "contrast_vs_ground": 1.885
+          },
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 2.189
+          },
+          {
+            "name": "teal",
+            "hex": "#5fa8c4",
+            "contrast_vs_ground": 2.341
+          }
+        ],
+        "night": {
+          "sky": "#0f1a33",
+          "fog": "#22304a",
+          "ground_lightness_offset": -0.12,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.9,
+          "moon": true,
+          "aurora": [
+            "#8fd0e8",
+            "#c9a2e6"
+          ]
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "mountain",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 4.3,
+            "s": -0.27,
+            "l": -0.029
+          },
+          "tint": "#dfe9f3",
+          "alt": "#a7b7c6",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 5
+            },
+            {
+              "prop": "ice-snow-boulder",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "glacier",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": 0.2,
+            "s": 0.001,
+            "l": -0.043
+          },
+          "tint": "#d3e8f8",
+          "alt": "#eef8ff",
+          "decor": [
+            {
+              "prop": "ice-ice-crystal-cluster",
+              "density": 12
+            }
+          ]
+        },
+        {
+          "id": "frozen lake",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -2.2,
+            "s": -0.255,
+            "l": -0.039
+          },
+          "tint": "#dbe9f2",
+          "alt": "#9ccbee",
+          "decor": [
+            {
+              "prop": "ice-frozen-lake-disc",
+              "density": 5
+            }
+          ],
+          "fill": "ice"
+        },
+        {
+          "id": "snow city",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 1.0,
+            "s": -0.364,
+            "l": 0.008
+          },
+          "tint": "#eef3f7",
+          "alt": "#c9d6e2",
+          "decor": [
+            {
+              "prop": "city-small-house",
+              "density": 9
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "coast",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": -39.0,
+            "s": -0.54,
+            "l": -0.039
+          },
+          "tint": "#e2ebe9",
+          "alt": "#a9d1e6",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 1
+            },
+            {
+              "prop": "ice-snow-boulder",
+              "density": 5
+            },
+            {
+              "prop": "shared-rowboat",
+              "density": 1
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "ocean",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -6.4,
+            "s": -0.257,
+            "l": -0.061
+          },
+          "tint": "#d3e6ef",
+          "alt": "#7fb6dd",
+          "decor": [
+            {
+              "prop": "ice-ice-block-stack",
+              "density": 5
+            },
+            {
+              "prop": "shared-rowboat",
+              "density": 1
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "pine forest",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -69.7,
+            "s": -0.486,
+            "l": -0.067
+          },
+          "tint": "#d8e7dc",
+          "alt": "#c2d6c8",
+          "decor": [
+            {
+              "prop": "ice-pine-snow",
+              "density": 24
+            }
+          ]
+        },
+        {
+          "id": "tundra",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -113.4,
+            "s": -0.469,
+            "l": -0.043
+          },
+          "tint": "#e5ecdf",
+          "alt": "#cfd8c8",
+          "decor": [
+            {
+              "prop": "ice-snow-boulder",
+              "density": 8
+            },
+            {
+              "prop": "meadow-bush",
+              "density": 8
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#a9cfe8",
+          "#e6f2fb",
+          "#ffffff"
+        ],
+        "signature_props": [
+          "ice-pine-snow",
+          "ice-ice-crystal-cluster",
+          "ice-snow-boulder"
+        ],
+        "creature_archetype_preference": "blob",
+        "sign_text_style": "frosted plank"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "igloo",
+          "brief": "snow dome with an ink doorway arch",
+          "height_m": 0.58,
+          "motif_carried": "dome",
+          "file": "assets/landmarks/ice/ice-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "observatory dome",
+          "brief": "dome on a drum with a telescope slit",
+          "height_m": 1.0,
+          "motif_carried": "dome",
+          "file": "assets/landmarks/ice/ice-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "ice tower with flag",
+          "brief": "pale block tower with an igloo porch and a flag",
+          "height_m": 1.0,
+          "motif_carried": "igloo porch",
+          "file": "assets/landmarks/ice/ice-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "snow chapel",
+          "brief": "gabled chapel with a dome-topped belfry",
+          "height_m": 1.0,
+          "motif_carried": "dome -> belfry",
+          "file": "assets/landmarks/ice/ice-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "glacier lighthouse",
+          "brief": "lighthouse on a glacier shelf, domed lamp room",
+          "height_m": 1.8,
+          "motif_carried": "dome -> lamp room",
+          "file": "assets/landmarks/ice/ice-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "ice-pine-snow",
+          "brief": "three-cone pine with snow caps",
+          "tri_budget": 80,
+          "runtime_recipe": "pine",
+          "file": "assets/landmarks/ice/props/pine-snow.glb"
+        },
+        {
+          "id": "ice-ice-crystal-cluster",
+          "brief": "three tilted hexagonal crystals",
+          "tri_budget": 180,
+          "runtime_recipe": "crystal",
+          "file": "assets/landmarks/ice/props/ice-crystal-cluster.glb"
+        },
+        {
+          "id": "ice-snow-boulder",
+          "brief": "ico boulder with a snow cap",
+          "tri_budget": 240,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/ice/props/snow-boulder.glb"
+        },
+        {
+          "id": "ice-frozen-lake-disc",
+          "brief": "flat disc, pale rim, water centre",
+          "tri_budget": 180,
+          "runtime_recipe": "floe",
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/ice/props/frozen-lake-disc.glb"
+        },
+        {
+          "id": "ice-dock-plank",
+          "brief": "short plank dock on ink posts",
+          "tri_budget": 108,
+          "runtime_recipe": "dock",
+          "file": "assets/landmarks/ice/props/dock-plank.glb"
+        },
+        {
+          "id": "ice-ice-block-stack",
+          "brief": "three stacked ice blocks",
+          "tri_budget": 60,
+          "runtime_recipe": "iceberg",
+          "file": "assets/landmarks/ice/props/ice-block-stack.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "ice-mountain-cone",
+        "brief": "faceted snow cone with an accent shadow side",
+        "height_m": 2.1,
+        "file": "assets/landmarks/ice/terrain/mountain-cone.glb"
+      },
+      "growth_hero": {
+        "id": "ice-glacier-peak",
+        "brief": "the mountain-cone grows into a twin-peaked glacier with an ice cave; crystals sprout on its flanks",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.6,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "snow mound",
+          "25": "cone",
+          "50": "cone with crystals",
+          "75": "twin peaks, ice cave",
+          "100": "twin peaks, aurora ribbon, lit cave"
+        }
+      },
+      "catastrophe": {
+        "kind": "blizzard",
+        "effect_family": "weather",
+        "brief": "white cloud puff, snowflake sprites blow sideways, the stage-2 building disappears under a snow drift with a poof",
+        "ruin": {
+          "id": "ice-ruin-snowed-in",
+          "brief": "snow drift dome the size of the stage-2 footprint with a chimney and one window poking out"
+        },
+        "recovery": "creatures dig (snow puffs), drift shrinks in three steps, building pops back"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.35,
+        "bean": 0.15,
+        "bird": 0.2,
+        "biped": 0.1,
+        "sprite": 0.15,
+        "flat": 0.05
+      },
+      "subject_affinity": [
+        "mathematics",
+        "analysis",
+        "algorithms",
+        "statistics",
+        "logic",
+        "geometry"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-wind-gust"
+        ],
+        "one_shots": [],
+        "brief": "wind gusts every 10-20 s, occasional ice creak (brief: low pitched sine slide)"
+      }
+    },
+    {
+      "id": "sand",
+      "display_name": "Desert",
+      "status": "shipped",
+      "mood": "Warm dunes, long shadows, one improbable greenhouse pyramid.",
+      "palette": {
+        "ground": "#efd9a2",
+        "ground_alt": "#d2a95e",
+        "accent": "#d2a95e",
+        "road_core": "#e2b98a",
+        "road_edge": "#b87a50",
+        "water": "#4fb0b8",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 1.792
+          },
+          {
+            "name": "lilac",
+            "hex": "#c9a2e6",
+            "contrast_vs_ground": 1.543
+          },
+          {
+            "name": "navy",
+            "hex": "#4f8fb0",
+            "contrast_vs_ground": 2.567
+          },
+          {
+            "name": "brick",
+            "hex": "#d9765c",
+            "contrast_vs_ground": 2.258
+          }
+        ],
+        "night": {
+          "sky": "#1a1630",
+          "fog": "#3a2a3a",
+          "ground_lightness_offset": -0.2,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 1.0,
+          "moon": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "dunes",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": 0.0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#efd9a2",
+          "alt": "#d2a95e",
+          "decor": [
+            {
+              "prop": "meadow-bush",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "oasis",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -0.1,
+            "s": -0.082,
+            "l": -0.016
+          },
+          "tint": "#e9d4a0",
+          "alt": "#4fb0b8",
+          "decor": [
+            {
+              "prop": "jungle-palm",
+              "density": 6
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "mesa",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": -10.8,
+            "s": -0.104,
+            "l": -0.073
+          },
+          "tint": "#e2b98a",
+          "alt": "#c98a5a",
+          "decor": [
+            {
+              "prop": "sand-dune-rock",
+              "density": 5
+            }
+          ]
+        },
+        {
+          "id": "canyon",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -12.9,
+            "s": -0.127,
+            "l": -0.084
+          },
+          "tint": "#dfb387",
+          "alt": "#b87a50",
+          "decor": [
+            {
+              "prop": "sand-dune-rock",
+              "density": 6
+            }
+          ],
+          "fill": "none"
+        },
+        {
+          "id": "salt flat",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -1.6,
+            "s": -0.066,
+            "l": 0.116
+          },
+          "tint": "#f6ecd6",
+          "alt": "#e6dcc4",
+          "decor": [
+            {
+              "prop": "sand-cracked-earth-tile",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "cactus field",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 1.7,
+            "s": -0.095,
+            "l": 0.002
+          },
+          "tint": "#ead9a8",
+          "alt": "#d2a95e",
+          "decor": [
+            {
+              "prop": "sand-cactus-small",
+              "density": 8
+            },
+            {
+              "prop": "sand-cactus-large",
+              "density": 4
+            },
+            {
+              "prop": "sand-dune-rock",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "ruins",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -1.4,
+            "s": -0.11,
+            "l": -0.01
+          },
+          "tint": "#e8d3a4",
+          "alt": "#d2a95e",
+          "decor": [
+            {
+              "prop": "shared-pillar",
+              "density": 7
+            }
+          ]
+        },
+        {
+          "id": "shore",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 1.9,
+            "s": -0.043,
+            "l": 0.027
+          },
+          "tint": "#efdfb0",
+          "alt": "#4fb0b8",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 1
+            },
+            {
+              "prop": "jungle-palm",
+              "density": 3
+            },
+            {
+              "prop": "shared-rowboat",
+              "density": 1
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#d2a95e",
+          "#efd9a2",
+          "#fff6df"
+        ],
+        "signature_props": [
+          "sand-cactus-large",
+          "sand-dune-rock",
+          "sand-well"
+        ],
+        "creature_archetype_preference": "bean",
+        "sign_text_style": "sun-bleached plank"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "tent",
+          "brief": "low canvas tent with a wood pole",
+          "height_m": 0.58,
+          "motif_carried": "canvas",
+          "file": "assets/landmarks/sand/sand-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "adobe hut",
+          "brief": "rounded adobe hut with a canvas awning",
+          "height_m": 1.0,
+          "motif_carried": "canvas -> awning",
+          "file": "assets/landmarks/sand/sand-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "market stall",
+          "brief": "striped canvas stall with fruit crates",
+          "height_m": 1.0,
+          "motif_carried": "canvas",
+          "file": "assets/landmarks/sand/sand-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "mini ziggurat",
+          "brief": "three-step ziggurat with a canvas shade on top",
+          "height_m": 1.0,
+          "motif_carried": "canvas -> shade",
+          "file": "assets/landmarks/sand/sand-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "pyramid greenhouse",
+          "brief": "frosted glass pyramid with palms inside and a ziggurat base",
+          "height_m": 1.8,
+          "motif_carried": "ziggurat -> base",
+          "file": "assets/landmarks/sand/sand-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "sand-cactus-small",
+          "brief": "two-arm cactus with a coral flower",
+          "tri_budget": 98,
+          "runtime_recipe": "cactus",
+          "file": "assets/landmarks/sand/props/cactus-small.glb"
+        },
+        {
+          "id": "sand-cactus-large",
+          "brief": "tall three-arm cactus, peach flower",
+          "tri_budget": 140,
+          "runtime_recipe": "cactus",
+          "file": "assets/landmarks/sand/props/cactus-large.glb"
+        },
+        {
+          "id": "sand-dune-rock",
+          "brief": "flat accent boulder",
+          "tri_budget": 160,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/sand/props/dune-rock.glb"
+        },
+        {
+          "id": "sand-dead-tree",
+          "brief": "bare forked tree",
+          "tri_budget": 118,
+          "file": "assets/landmarks/sand/props/dead-tree.glb"
+        },
+        {
+          "id": "sand-well",
+          "brief": "stone well with a wood crossbar and water disc",
+          "tri_budget": 152,
+          "file": "assets/landmarks/sand/props/well.glb"
+        },
+        {
+          "id": "sand-cracked-earth-tile",
+          "brief": "flat tile with ink crack grooves",
+          "tri_budget": 120,
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/sand/props/cracked-earth-tile.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "sand-dune",
+        "brief": "long crescent dune with a cactus and a rock",
+        "height_m": 1.6,
+        "file": "assets/landmarks/sand/terrain/dune.glb"
+      },
+      "growth_hero": {
+        "id": "sand-great-pyramid",
+        "brief": "a stepped pyramid at the course centre gains tiers; a golden cap and palms appear at the top bands",
+        "height_m_by_band": {
+          "0": 0.5,
+          "25": 1.4,
+          "50": 2.8,
+          "75": 4.2,
+          "100": 5.6
+        },
+        "extras_by_band": {
+          "0": "sand mound",
+          "25": "two tiers",
+          "50": "four tiers",
+          "75": "six tiers, gold cap",
+          "100": "eight tiers, glass apex, oasis moat"
+        }
+      },
+      "catastrophe": {
+        "kind": "sandstorm",
+        "effect_family": "weather",
+        "brief": "tan cloud puff rolls in, sand-grain sprites stream, the stage-2 building is half-buried with a poof",
+        "ruin": {
+          "id": "sand-ruin-buried",
+          "brief": "stage-2 roofline poking out of a dune, one cactus knocked over"
+        },
+        "recovery": "dune sinks in three steps, creatures sweep (sand puffs), building pops back"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.2,
+        "bean": 0.3,
+        "bird": 0.1,
+        "biped": 0.2,
+        "sprite": 0.1,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "classical mechanics",
+        "archaeology",
+        "history",
+        "geology",
+        "optimisation",
+        "dynamic programming"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-wind-gust"
+        ],
+        "one_shots": [],
+        "brief": "dry gusts, rare insect click (brief: 30 ms noise tick)"
+      }
+    },
+    {
+      "id": "meadow",
+      "display_name": "Meadow",
+      "status": "shipped",
+      "mood": "Flower fields and a windmill that turns faster when you study.",
+      "palette": {
+        "ground": "#bfe0a0",
+        "ground_alt": "#8fbf6a",
+        "accent": "#8fbf6a",
+        "road_core": "#e6dcc4",
+        "road_edge": "#9a7a55",
+        "water": "#6cb6d3",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "lilac",
+            "hex": "#c9a2e6",
+            "contrast_vs_ground": 1.469
+          },
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 1.706
+          },
+          {
+            "name": "lavender",
+            "hex": "#b8a0e8",
+            "contrast_vs_ground": 1.558
+          },
+          {
+            "name": "teal",
+            "hex": "#6fb7cf",
+            "contrast_vs_ground": 1.538
+          }
+        ],
+        "night": {
+          "sky": "#1c2438",
+          "fog": "#2c3a48",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.6,
+          "moon": true,
+          "fireflies": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "flower field",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -3.8,
+            "s": 0.053,
+            "l": 0.024
+          },
+          "tint": "#c9e6a6",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "meadow-flower-clump-peach",
+              "density": 8
+            },
+            {
+              "prop": "meadow-flower-clump-coral",
+              "density": 7
+            },
+            {
+              "prop": "meadow-flower-clump-lilac",
+              "density": 7
+            }
+          ]
+        },
+        {
+          "id": "hills",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 0.8,
+            "s": -0.015,
+            "l": -0.024
+          },
+          "tint": "#b8dc98",
+          "alt": "#8b7a70",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 4
+            },
+            {
+              "prop": "meadow-bush",
+              "density": 5
+            }
+          ]
+        },
+        {
+          "id": "pond",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0.0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#bfe0a0",
+          "alt": "#6cb6d3",
+          "decor": [
+            {
+              "prop": "meadow-flower-clump-lilac",
+              "density": 5
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "farm",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -15.0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#cfe0a0",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "meadow-hay-bale",
+              "density": 5
+            },
+            {
+              "prop": "meadow-fence-segment",
+              "density": 6
+            },
+            {
+              "prop": "city-small-house",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "orchard",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0.9,
+            "s": -0.05,
+            "l": -0.035
+          },
+          "tint": "#b5d896",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 12
+            }
+          ]
+        },
+        {
+          "id": "village",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -5.8,
+            "s": -0.046,
+            "l": 0.014
+          },
+          "tint": "#c8dfa8",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "city-small-house",
+              "density": 7
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "creek",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 0.0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#bfe0a0",
+          "alt": "#6cb6d3",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 1
+            },
+            {
+              "prop": "meadow-bush",
+              "density": 5
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "woods",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 5.8,
+            "s": -0.097,
+            "l": -0.073
+          },
+          "tint": "#a6cf8c",
+          "alt": "#6fa86a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 10
+            },
+            {
+              "prop": "ice-pine-snow",
+              "density": 6
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#8fbf6a",
+          "#bfe0a0",
+          "#eaf5d6"
+        ],
+        "signature_props": [
+          "meadow-flower-clump-peach",
+          "meadow-fence-segment",
+          "meadow-hay-bale"
+        ],
+        "creature_archetype_preference": "blob",
+        "sign_text_style": "painted plank with a flower"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "signpost",
+          "brief": "wood signpost with two arrows and a flower at the foot",
+          "height_m": 0.58,
+          "motif_carried": "signpost",
+          "file": "assets/landmarks/meadow/meadow-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "windmill",
+          "brief": "stone windmill with four sails and a signpost by the door",
+          "height_m": 1.0,
+          "motif_carried": "signpost",
+          "file": "assets/landmarks/meadow/meadow-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "barn",
+          "brief": "coral barn with white trim and a hay loft",
+          "height_m": 1.0,
+          "motif_carried": "signpost -> weathervane",
+          "file": "assets/landmarks/meadow/meadow-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "bell tower",
+          "brief": "stone bell tower with a flower bed",
+          "height_m": 1.0,
+          "motif_carried": "flower",
+          "file": "assets/landmarks/meadow/meadow-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "greenhouse dome",
+          "brief": "frosted glass dome on a stone ring, windmill sails as a rooftop vane",
+          "height_m": 1.8,
+          "motif_carried": "sails -> vane",
+          "file": "assets/landmarks/meadow/meadow-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "meadow-flower-clump-peach",
+          "brief": "five peach blooms on leaf stems",
+          "tri_budget": 258,
+          "runtime_recipe": "flower",
+          "file": "assets/landmarks/meadow/props/flower-clump-peach.glb"
+        },
+        {
+          "id": "meadow-flower-clump-coral",
+          "brief": "five coral blooms",
+          "tri_budget": 258,
+          "runtime_recipe": "flower",
+          "file": "assets/landmarks/meadow/props/flower-clump-coral.glb"
+        },
+        {
+          "id": "meadow-flower-clump-lilac",
+          "brief": "five lilac blooms",
+          "tri_budget": 258,
+          "runtime_recipe": "flower",
+          "file": "assets/landmarks/meadow/props/flower-clump-lilac.glb"
+        },
+        {
+          "id": "meadow-hay-bale",
+          "brief": "round straw bale on a wood pallet",
+          "tri_budget": 84,
+          "runtime_recipe": "crop",
+          "file": "assets/landmarks/meadow/props/hay-bale.glb"
+        },
+        {
+          "id": "meadow-fence-segment",
+          "brief": "two-rail wood fence",
+          "tri_budget": 48,
+          "file": "assets/landmarks/meadow/props/fence-segment.glb"
+        },
+        {
+          "id": "meadow-bush",
+          "brief": "twin-lobe leaf bush",
+          "tri_budget": 240,
+          "runtime_recipe": "shrub",
+          "file": "assets/landmarks/meadow/props/bush.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "meadow-grassy-knoll",
+        "brief": "soft knoll with a tree, flowers and a rock",
+        "height_m": 1.9,
+        "file": "assets/landmarks/meadow/terrain/grassy-knoll.glb"
+      },
+      "growth_hero": {
+        "id": "meadow-bloom-field",
+        "brief": "a flower field around the course centre blooms outward; a giant sunflower rises in the middle",
+        "height_m_by_band": {
+          "0": 0.3,
+          "25": 0.8,
+          "50": 1.8,
+          "75": 3.2,
+          "100": 4.5
+        },
+        "extras_by_band": {
+          "0": "buds",
+          "25": "20 blooms",
+          "50": "60 blooms, sunflower",
+          "75": "120 blooms, butterflies",
+          "100": "200 blooms, sunflower 4.5 m, bees"
+        }
+      },
+      "catastrophe": {
+        "kind": "storm",
+        "effect_family": "weather",
+        "brief": "rain cloud, flowers flatten, windmill sails spin off and land with a poof",
+        "ruin": {
+          "id": "meadow-ruin-sails-off",
+          "brief": "windmill body with no sails, one sail stuck in the ground, flattened flowers"
+        },
+        "recovery": "sails fly back on one by one, flowers spring up with overshoot"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.3,
+        "bean": 0.2,
+        "bird": 0.2,
+        "biped": 0.1,
+        "sprite": 0.15,
+        "flat": 0.05
+      },
+      "subject_affinity": [
+        "differential equations",
+        "calculus",
+        "botany",
+        "agriculture",
+        "music",
+        "probability"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-bird-chirp",
+          "ambient-wind-gust"
+        ],
+        "one_shots": [],
+        "brief": "birds, soft breeze, windmill creak when sails turn"
+      }
+    },
+    {
+      "id": "ocean",
+      "display_name": "Ocean",
+      "status": "shipped",
+      "aliases": [
+        "coast"
+      ],
+      "mood": "Blue water, a coral buoy, and a lighthouse that hums.",
+      "palette": {
+        "ground": "#9fd3e0",
+        "ground_alt": "#efe3c0",
+        "accent": "#4f8fb0",
+        "road_core": "#efe3c0",
+        "road_edge": "#9a7a55",
+        "water": "#5aa9c9",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 1.526
+          },
+          {
+            "name": "navy",
+            "hex": "#4f8fb0",
+            "contrast_vs_ground": 2.185
+          },
+          {
+            "name": "snow",
+            "hex": "#f4fafc",
+            "contrast_vs_ground": 1.549
+          },
+          {
+            "name": "ember",
+            "hex": "#e0876a",
+            "contrast_vs_ground": 1.641
+          }
+        ],
+        "night": {
+          "sky": "#0e1a2e",
+          "fog": "#1f3448",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.8,
+          "moon": true,
+          "water_emissive": "#3f7fa8",
+          "lighthouse_beam": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "ocean",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -16.1,
+            "s": -0.145,
+            "l": 0.094
+          },
+          "tint": "#c9e6e4",
+          "alt": "#5aa9c9",
+          "decor": [
+            {
+              "prop": "shared-rowboat",
+              "density": 2
+            },
+            {
+              "prop": "ocean-buoy-small",
+              "density": 2
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "beach",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": -147.3,
+            "s": 0.083,
+            "l": 0.094
+          },
+          "tint": "#efe3c0",
+          "alt": "#5aa9c9",
+          "decor": [
+            {
+              "prop": "jungle-palm",
+              "density": 4
+            },
+            {
+              "prop": "ocean-rock-outcrop",
+              "density": 3
+            },
+            {
+              "prop": "ocean-shell",
+              "density": 4
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "reef",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -27.0,
+            "s": -0.14,
+            "l": 0.08
+          },
+          "tint": "#c4e4dc",
+          "alt": "#7fd1d6",
+          "decor": [
+            {
+              "prop": "ocean-seaweed-clump",
+              "density": 8
+            },
+            {
+              "prop": "ocean-starfish",
+              "density": 4
+            }
+          ],
+          "fill": "water"
+        },
+        {
+          "id": "harbour",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -30.0,
+            "s": -0.249,
+            "l": 0.1
+          },
+          "tint": "#cfe3dd",
+          "alt": "#3f8fa8",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 2
+            },
+            {
+              "prop": "shared-rowboat",
+              "density": 2
+            },
+            {
+              "prop": "city-small-house",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "cliffs",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -24.0,
+            "s": -0.249,
+            "l": 0.025
+          },
+          "tint": "#b7d5cf",
+          "alt": "#7f8f8c",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 3
+            },
+            {
+              "prop": "meadow-bush",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "islands",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -27.9,
+            "s": -0.15,
+            "l": 0.065
+          },
+          "tint": "#bfe1d8",
+          "alt": "#9fb3a8",
+          "decor": [
+            {
+              "prop": "jungle-palm",
+              "density": 6
+            },
+            {
+              "prop": "ocean-rock-outcrop",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "lagoon",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -31.2,
+            "s": -0.16,
+            "l": 0.11
+          },
+          "tint": "#cfe8e0",
+          "alt": "#6fc9c9",
+          "decor": [
+            {
+              "prop": "ocean-rock-outcrop",
+              "density": 3
+            }
+          ],
+          "fill": "water"
+        },
+        {
+          "id": "dunes",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": -147.9,
+            "s": 0.015,
+            "l": 0.067
+          },
+          "tint": "#e9dcb8",
+          "alt": "#d2b98a",
+          "decor": [
+            {
+              "prop": "meadow-bush",
+              "density": 4
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#4f8fb0",
+          "#9fd3e0",
+          "#efe3c0"
+        ],
+        "signature_props": [
+          "ocean-buoy-small",
+          "ocean-shell",
+          "ocean-starfish"
+        ],
+        "creature_archetype_preference": "blob",
+        "sign_text_style": "driftwood plank with rope"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "buoy",
+          "brief": "coral-and-white buoy with a lamp",
+          "height_m": 0.58,
+          "motif_carried": "buoy lamp",
+          "file": "assets/landmarks/ocean/ocean-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "dock with hut",
+          "brief": "plank dock, blue hut, buoy tied alongside",
+          "height_m": 1.0,
+          "motif_carried": "buoy",
+          "file": "assets/landmarks/ocean/ocean-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "boathouse",
+          "brief": "white boathouse over water with a coral door",
+          "height_m": 1.0,
+          "motif_carried": "coral stripe",
+          "file": "assets/landmarks/ocean/ocean-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "net-drying rack",
+          "brief": "wood rack with olive nets and a buoy",
+          "height_m": 1.0,
+          "motif_carried": "buoy",
+          "file": "assets/landmarks/ocean/ocean-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "lighthouse on rock",
+          "brief": "coral-striped lighthouse on a stone islet with a buoy lamp room",
+          "height_m": 1.8,
+          "motif_carried": "buoy lamp -> lamp room",
+          "file": "assets/landmarks/ocean/ocean-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "ocean-rock-outcrop",
+          "brief": "wet ico boulder",
+          "tri_budget": 240,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/ocean/props/rock-outcrop.glb"
+        },
+        {
+          "id": "ocean-seaweed-clump",
+          "brief": "three flat blades",
+          "tri_budget": 30,
+          "runtime_recipe": "coral",
+          "file": "assets/landmarks/ocean/props/seaweed-clump.glb"
+        },
+        {
+          "id": "ocean-buoy-small",
+          "brief": "small buoy with lamp",
+          "tri_budget": 126,
+          "runtime_recipe": "boat",
+          "file": "assets/landmarks/ocean/props/buoy-small.glb"
+        },
+        {
+          "id": "ocean-wave-crest-tile",
+          "brief": "flat wave tile with a white crest",
+          "tri_budget": 68,
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/ocean/props/wave-crest-tile.glb"
+        },
+        {
+          "id": "ocean-shell",
+          "brief": "peach spiral shell",
+          "tri_budget": 54,
+          "file": "assets/landmarks/ocean/props/shell.glb"
+        },
+        {
+          "id": "ocean-starfish",
+          "brief": "five-arm coral starfish",
+          "tri_budget": 70,
+          "runtime_recipe": "coral",
+          "file": "assets/landmarks/ocean/props/starfish.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "ocean-sea-stack",
+        "brief": "tall stone stack with a grass cap and gull",
+        "height_m": 2.0,
+        "file": "assets/landmarks/ocean/terrain/sea-stack.glb"
+      },
+      "growth_hero": {
+        "id": "ocean-great-lighthouse",
+        "brief": "the lighthouse islet grows: taller stripes, a bigger lamp, a harbour wall and boats gather",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.6,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "buoy",
+          "25": "short lighthouse",
+          "50": "lighthouse, one boat",
+          "75": "tall lighthouse, breakwater",
+          "100": "great lighthouse, beam sweeps, five boats"
+        }
+      },
+      "catastrophe": {
+        "kind": "storm",
+        "effect_family": "weather",
+        "brief": "dark cloud, wave-crest tiles surge, the stage-2 dock is swept: planks float, hut tilts with a poof",
+        "ruin": {
+          "id": "ocean-ruin-washed-out",
+          "brief": "dock posts only, hut roof floating nearby, a buoy on its side"
+        },
+        "recovery": "planks paddle back into place, hut rights itself, buoy bobs upright"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.35,
+        "bean": 0.1,
+        "bird": 0.25,
+        "biped": 0.05,
+        "sprite": 0.15,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "fluid mechanics",
+        "oceanography",
+        "computational thinking",
+        "signals",
+        "climate",
+        "navigation"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-wind-gust"
+        ],
+        "one_shots": [],
+        "brief": "wave wash every 4 s (brief: low-passed noise swell), gull chirp variant of ambient-bird-chirp"
+      }
+    },
+    {
+      "id": "volcanic",
+      "display_name": "Volcanic",
+      "status": "shipped",
+      "mood": "Warm dark rock, coral glow in the cracks, a forge that never cools.",
+      "palette": {
+        "ground": "#c9a08f",
+        "ground_alt": "#8a4a3f",
+        "accent": "#8a4a3f",
+        "road_core": "#6a5c66",
+        "road_edge": "#3a2f45",
+        "water": "#ff7a3a",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 1.861
+          },
+          {
+            "name": "mustard",
+            "hex": "#f8d24a",
+            "contrast_vs_ground": 1.606
+          },
+          {
+            "name": "maroon",
+            "hex": "#8a4a3f",
+            "contrast_vs_ground": 2.844
+          },
+          {
+            "name": "frost",
+            "hex": "#ddf3f0",
+            "contrast_vs_ground": 2.038
+          }
+        ],
+        "night": {
+          "sky": "#1a0f14",
+          "fog": "#2e1a1e",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.5,
+          "moon": true,
+          "lava_emissive": "#ff7a3a",
+          "ember_sprites": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "volcano",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -60.4,
+            "s": -0.279,
+            "l": -0.286
+          },
+          "tint": "#6a5c66",
+          "alt": "#ff7a3a",
+          "decor": [
+            {
+              "prop": "volcanic-ember-rock",
+              "density": 5
+            }
+          ],
+          "fill": "lava"
+        },
+        {
+          "id": "lava lake",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -59.1,
+            "s": -0.272,
+            "l": -0.347
+          },
+          "tint": "#5a4d56",
+          "alt": "#ff6a2a",
+          "decor": [
+            {
+              "prop": "volcanic-basalt-column",
+              "density": 4
+            }
+          ],
+          "role": "water",
+          "fill": "lava"
+        },
+        {
+          "id": "ash plain",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -59.1,
+            "s": -0.293,
+            "l": -0.222
+          },
+          "tint": "#7a6d76",
+          "alt": "#5f5560",
+          "decor": [
+            {
+              "prop": "volcanic-ember-rock",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "basalt columns",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -61.2,
+            "s": -0.292,
+            "l": -0.3
+          },
+          "tint": "#655a62",
+          "alt": "#4a4048",
+          "decor": [
+            {
+              "prop": "volcanic-basalt-column",
+              "density": 14
+            }
+          ]
+        },
+        {
+          "id": "obsidian field",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -65.6,
+            "s": -0.277,
+            "l": -0.404
+          },
+          "tint": "#4a4048",
+          "alt": "#3a3038",
+          "decor": [
+            {
+              "prop": "volcanic-ember-rock",
+              "density": 10
+            }
+          ]
+        },
+        {
+          "id": "hot springs",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -35.2,
+            "s": -0.281,
+            "l": -0.186
+          },
+          "tint": "#857479",
+          "alt": "#8fd0d8",
+          "decor": [
+            {
+              "prop": "volcanic-geyser-vent",
+              "density": 5
+            }
+          ]
+        },
+        {
+          "id": "crater",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -54.5,
+            "s": -0.288,
+            "l": -0.261
+          },
+          "tint": "#70636b",
+          "alt": "#3a3038",
+          "decor": [
+            {
+              "prop": "volcanic-ember-rock",
+              "density": 4
+            }
+          ],
+          "fill": "none"
+        },
+        {
+          "id": "ridge",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -57.6,
+            "s": -0.287,
+            "l": -0.298
+          },
+          "tint": "#665a62",
+          "alt": "#5a4f57",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 4
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#3a2f45",
+          "#8a4a3f",
+          "#e88a8a"
+        ],
+        "signature_props": [
+          "volcanic-basalt-column",
+          "volcanic-ember-rock",
+          "volcanic-smoke-puff-cluster"
+        ],
+        "creature_archetype_preference": "sprite",
+        "sign_text_style": "scorched plank"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "campfire ring",
+          "brief": "stone ring, three logs, a peach-coral flame",
+          "height_m": 0.58,
+          "motif_carried": "flame",
+          "file": "assets/landmarks/volcanic/volcanic-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "forge hut",
+          "brief": "stone hut with a chimney and a glowing forge mouth",
+          "height_m": 1.0,
+          "motif_carried": "flame -> forge",
+          "file": "assets/landmarks/volcanic/volcanic-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "obsidian shrine",
+          "brief": "ink obsidian spikes around a coral brazier",
+          "height_m": 1.0,
+          "motif_carried": "flame -> brazier",
+          "file": "assets/landmarks/volcanic/volcanic-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "steam vent house",
+          "brief": "hut over a vent with pale steam puffs",
+          "height_m": 1.0,
+          "motif_carried": "flame -> steam",
+          "file": "assets/landmarks/volcanic/volcanic-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "observatory on basalt column",
+          "brief": "domed observatory on a tall basalt column with a forge fire at the base",
+          "height_m": 1.8,
+          "motif_carried": "forge -> base fire",
+          "file": "assets/landmarks/volcanic/volcanic-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "volcanic-basalt-column",
+          "brief": "hexagonal prism with a stone cap",
+          "tri_budget": 60,
+          "runtime_recipe": "hexColumn",
+          "file": "assets/landmarks/volcanic/props/basalt-column.glb"
+        },
+        {
+          "id": "volcanic-ember-rock",
+          "brief": "ink boulder with a coral crack facet",
+          "tri_budget": 80,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/volcanic/props/ember-rock.glb"
+        },
+        {
+          "id": "volcanic-lava-puddle-disc",
+          "brief": "flat disc, ink rim, coral-peach centre",
+          "tri_budget": 164,
+          "tags": [
+            "decor"
+          ],
+          "file": "assets/landmarks/volcanic/props/lava-puddle-disc.glb"
+        },
+        {
+          "id": "volcanic-dead-tree",
+          "brief": "charred forked tree",
+          "tri_budget": 118,
+          "file": "assets/landmarks/volcanic/props/dead-tree.glb"
+        },
+        {
+          "id": "volcanic-smoke-puff-cluster",
+          "brief": "three pale ico puffs",
+          "tri_budget": 256,
+          "file": "assets/landmarks/volcanic/props/smoke-puff-cluster.glb"
+        },
+        {
+          "id": "volcanic-geyser-vent",
+          "brief": "cone vent with a pale steam column",
+          "tri_budget": 252,
+          "runtime_recipe": "geyser",
+          "file": "assets/landmarks/volcanic/props/geyser-vent.glb"
+        }
+      ],
+      "terrain_piece": {
+        "id": "volcanic-caldera-rim",
+        "brief": "wide caldera rim with a lava pool and smoke",
+        "height_m": 2.0,
+        "file": "assets/landmarks/volcanic/terrain/caldera-rim.glb"
+      },
+      "growth_hero": {
+        "id": "volcanic-cone",
+        "brief": "the volcano cone at the course centre grows; lava glow widens, smoke puffs stack, a rim path spirals up",
+        "height_m_by_band": {
+          "0": 0.7,
+          "25": 1.6,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "vent mound",
+          "25": "cone, faint glow",
+          "50": "cone, lava streaks",
+          "75": "tall cone, smoke stack, rim path",
+          "100": "great cone, lava lake crown, ember sprites"
+        }
+      },
+      "catastrophe": {
+        "kind": "eruption",
+        "effect_family": "geological",
+        "brief": "cone shakes (3 Hz, 2 s), comic boom, coral star sprites arc out, ash puffs fall on the stage-2 building",
+        "ruin": {
+          "id": "volcanic-ruin-ashed",
+          "brief": "stage-2 shell under grey ash mound, chimney poking out, one ember rock on the roof"
+        },
+        "recovery": "ash puffs lift off one by one, shell shakes clean, forge glow relights"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.2,
+        "bean": 0.15,
+        "bird": 0.1,
+        "biped": 0.15,
+        "sprite": 0.3,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "electricity and magnetism",
+        "thermodynamics",
+        "chemistry",
+        "geology",
+        "materials",
+        "energy"
+      ],
+      "sound_ambience": {
+        "loops": [],
+        "one_shots": [
+          "explode-comic"
+        ],
+        "brief": "low rumble bed (brief: 60 Hz sine tremolo), geyser hiss every 8-15 s"
+      }
+    },
+    {
+      "id": "space",
+      "display_name": "Space",
+      "status": "planned",
+      "mood": "Pale moon dust, a glass dome glowing from inside, and a launch tower counting down.",
+      "palette": {
+        "ground": "#cfd3dd",
+        "ground_alt": "#b4b9c8",
+        "accent": "#6f7fb8",
+        "accent_2": "#f8d24a",
+        "road_core": "#e6e9f0",
+        "road_edge": "#6f7fb8",
+        "water": "#8fd0e8",
+        "window": "#8fe0ff",
+        "ink": "#2a2d4a",
+        "creature": [
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 1.662
+          },
+          {
+            "name": "teal",
+            "hex": "#5fa8c4",
+            "contrast_vs_ground": 1.777
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 4.581
+          },
+          {
+            "name": "navy",
+            "hex": "#3b5f7a",
+            "contrast_vs_ground": 4.515
+          }
+        ],
+        "night": {
+          "sky": "#05060f",
+          "fog": "#10122a",
+          "ground_lightness_offset": -0.1,
+          "lamp": "#8fe0ff",
+          "window": "#8fe0ff",
+          "star_density": 1.0,
+          "moon": false,
+          "earthrise": "#5aa9c9",
+          "dome_emissive": "#8fe0ff",
+          "beacon_blink_hz": 1.0
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "mare",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.02
+          },
+          "tint": "#c9ced9",
+          "alt": "#b4b9c8",
+          "decor": [
+            {
+              "prop": "space-crater-rim",
+              "density": 3
+            },
+            {
+              "prop": "space-moon-rock",
+              "density": 5
+            }
+          ]
+        },
+        {
+          "id": "crater field",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.02,
+            "l": -0.06
+          },
+          "tint": "#bcc2d1",
+          "alt": "#9a9fb0",
+          "decor": [
+            {
+              "prop": "space-crater-rim",
+              "density": 6
+            },
+            {
+              "prop": "space-moon-rock",
+              "density": 4
+            }
+          ],
+          "fill": "none"
+        },
+        {
+          "id": "highlands",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 4,
+            "s": 0.02,
+            "l": 0.05
+          },
+          "tint": "#dde0e8",
+          "alt": "#e6e9f0",
+          "decor": [
+            {
+              "prop": "space-moon-rock",
+              "density": 8
+            },
+            {
+              "prop": "space-antenna-mast",
+              "density": 1
+            }
+          ]
+        },
+        {
+          "id": "dome colony",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -8,
+            "s": 0.05,
+            "l": 0.03
+          },
+          "tint": "#d6dce5",
+          "alt": "#8fe0ff",
+          "decor": [
+            {
+              "prop": "space-habitat-pod",
+              "density": 7
+            },
+            {
+              "prop": "space-solar-panel",
+              "density": 4
+            },
+            {
+              "prop": "space-beacon-light",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "launch pad",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.08
+          },
+          "tint": "#b7bdcc",
+          "alt": "#6f7fb8",
+          "decor": [
+            {
+              "prop": "space-antenna-mast",
+              "density": 2
+            },
+            {
+              "prop": "space-beacon-light",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "solar farm",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 10,
+            "s": 0.04,
+            "l": 0.0
+          },
+          "tint": "#cdcfdf",
+          "alt": "#3b5f7a",
+          "decor": [
+            {
+              "prop": "space-solar-panel",
+              "density": 14
+            }
+          ]
+        },
+        {
+          "id": "ice crater",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 12,
+            "s": 0.1,
+            "l": 0.02
+          },
+          "tint": "#d1d3e5",
+          "alt": "#8fd0e8",
+          "decor": [
+            {
+              "prop": "ice-ice-crystal-cluster",
+              "density": 5
+            }
+          ],
+          "role": "water",
+          "fill": "ice"
+        },
+        {
+          "id": "ridge",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.05
+          },
+          "tint": "#c0c5d2",
+          "alt": "#8a8fa2",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 4
+            },
+            {
+              "prop": "space-moon-rock",
+              "density": 3
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "rover trail",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.02
+          },
+          "tint": "#d5d8e1",
+          "alt": "#b4b9c8",
+          "decor": [
+            {
+              "prop": "space-rover",
+              "density": 1
+            },
+            {
+              "prop": "space-moon-rock",
+              "density": 4
+            },
+            {
+              "prop": "space-flag",
+              "density": 2
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#6f7fb8",
+          "#b4b9c8",
+          "#e6e9f0"
+        ],
+        "signature_props": [
+          "space-flag",
+          "space-moon-rock",
+          "space-beacon-light",
+          "space-habitat-pod"
+        ],
+        "creature_archetype_preference": "sprite",
+        "sign_text_style": "riveted metal plate with a blinking light"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "landing flag",
+          "brief": "small pennant flag on a mast planted in a footprint disc of dust",
+          "height_m": 0.58,
+          "motif_carried": "flag",
+          "file": "assets/landmarks/space/space-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "habitat dome",
+          "brief": "glass hemisphere on a ring base, airlock tube, the flag on top",
+          "height_m": 1.0,
+          "motif_carried": "flag -> dome flag",
+          "file": "assets/landmarks/space/space-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "radio dish",
+          "brief": "tilted dish on a tripod with a control pod and the flag pennant on the boom",
+          "height_m": 1.0,
+          "motif_carried": "flag -> boom pennant",
+          "file": "assets/landmarks/space/space-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "rover garage",
+          "brief": "low hangar with an open bay, rover nose showing, flag over the door",
+          "height_m": 1.0,
+          "motif_carried": "flag",
+          "file": "assets/landmarks/space/space-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "launch tower",
+          "brief": "gantry tower with a rounded rocket, dome control room at the base, pennant at the tip",
+          "height_m": 1.8,
+          "motif_carried": "dome -> control room, flag -> tip",
+          "file": "assets/landmarks/space/space-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "space-moon-rock",
+          "brief": "grey ico boulder with one flat pale facet",
+          "tri_budget": 120,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "space-crater-rim",
+          "brief": "shallow ring ridge, 1.2 m across, 0.15 m tall, darker floor disc",
+          "tri_budget": 160,
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "space-habitat-pod",
+          "brief": "capsule on three legs with one round lit window",
+          "tri_budget": 180,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "space-solar-panel",
+          "brief": "tilted navy panel on a single post",
+          "tri_budget": 40
+        },
+        {
+          "id": "space-antenna-mast",
+          "brief": "thin mast with two cross-arms and a red tip",
+          "tri_budget": 90,
+          "runtime_recipe": "tower"
+        },
+        {
+          "id": "space-rover",
+          "brief": "six-wheel box rover with a dish and dot eyes",
+          "tri_budget": 260
+        },
+        {
+          "id": "space-flag",
+          "brief": "pennant on a mast, accent_2 yellow",
+          "tri_budget": 30
+        },
+        {
+          "id": "space-beacon-light",
+          "brief": "short post with a cyan emissive cap (window slot)",
+          "tri_budget": 48,
+          "runtime_recipe": "lamp"
+        }
+      ],
+      "terrain_piece": {
+        "id": "space-big-crater",
+        "brief": "crater 3 m across with a raised rim, central peak 1.2 m, boulder scatter",
+        "height_m": 1.4
+      },
+      "growth_hero": {
+        "id": "space-launch-tower",
+        "brief": "the launch gantry grows storey by storey; the rocket appears at 50 %, fuel lines and a countdown board at 75 %, engines idle-glow at 100 %",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "flag on a pad",
+          "25": "gantry base, two floors",
+          "50": "gantry, rocket seated",
+          "75": "full gantry, fuel arms, dish",
+          "100": "tower lit, rocket glow, satellites orbit the topic"
+        }
+      },
+      "catastrophe": {
+        "kind": "meteor",
+        "effect_family": "cosmic",
+        "brief": "a streak (flat ink line with yellow head) crosses the sky for 1 s, comic star-burst on impact, dust ring expands, new crater where the stage-2 building stood",
+        "ruin": {
+          "id": "space-ruin-crater-pod",
+          "brief": "fresh crater with the stage-2 dome cracked in half at the rim, a flag bent double, one solar panel spinning"
+        },
+        "recovery": "repair drones (sprites) circle for 3 s, dome halves rejoin with a click, flag straightens with overshoot"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.2,
+        "bean": 0.1,
+        "bird": 0.05,
+        "biped": 0.2,
+        "sprite": 0.35,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "physics",
+        "astronomy",
+        "astrophysics",
+        "aerospace",
+        "orbital mechanics",
+        "relativity",
+        "cosmology"
+      ],
+      "sound_ambience": {
+        "loops": [],
+        "one_shots": [
+          "progress-tick"
+        ],
+        "brief": "near-silence: a slow 0.1 Hz filtered hum bed, beacon blip (progress-tick at -18 dB) every 4 s, radio crackle on landmark build"
+      }
+    },
+    {
+      "id": "lab",
+      "display_name": "Laboratory",
+      "status": "planned",
+      "mood": "White-mint tiles, glass towers, neon rings that hum; the future as a very clean toy.",
+      "palette": {
+        "ground": "#e3f2ec",
+        "ground_alt": "#c7dfd6",
+        "accent": "#3fd1c9",
+        "accent_2": "#ff7ad9",
+        "road_core": "#f4fbf8",
+        "road_edge": "#3fd1c9",
+        "water": "#7fe0e8",
+        "window": "#9ff2ff",
+        "ink": "#2f3a44",
+        "creature": [
+          {
+            "name": "coral",
+            "hex": "#e88a8a",
+            "contrast_vs_ground": 2.155
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 5.942
+          },
+          {
+            "name": "navy",
+            "hex": "#3b5f7a",
+            "contrast_vs_ground": 5.857
+          },
+          {
+            "name": "ember",
+            "hex": "#e0876a",
+            "contrast_vs_ground": 2.318
+          }
+        ],
+        "night": {
+          "sky": "#0a1420",
+          "fog": "#122430",
+          "ground_lightness_offset": -0.3,
+          "lamp": "#3fd1c9",
+          "window": "#9ff2ff",
+          "star_density": 0.4,
+          "moon": true,
+          "neon_rings": "#ff7ad9",
+          "floor_grid_emissive": "#3fd1c9",
+          "hologram_alpha": 0.6
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "clean room",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#edf7f3",
+          "alt": "#c7dfd6",
+          "decor": [
+            {
+              "prop": "lab-glass-tower",
+              "density": 6
+            },
+            {
+              "prop": "lab-neon-ring",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "server farm",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -10,
+            "s": 0.02,
+            "l": -0.04
+          },
+          "tint": "#d4ecdf",
+          "alt": "#3b5f7a",
+          "decor": [
+            {
+              "prop": "lab-server-rack",
+              "density": 12
+            },
+            {
+              "prop": "lab-neon-ring",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "test range",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 6,
+            "s": 0.02,
+            "l": 0.0
+          },
+          "tint": "#e3f2ee",
+          "alt": "#3fd1c9",
+          "decor": [
+            {
+              "prop": "lab-tube-pipe",
+              "density": 5
+            },
+            {
+              "prop": "lab-hologram-disc",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "coolant pool",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 20,
+            "s": 0.15,
+            "l": -0.05
+          },
+          "tint": "#cdefed",
+          "alt": "#7fe0e8",
+          "decor": [
+            {
+              "prop": "lab-tube-pipe",
+              "density": 3
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "greenhouse deck",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -25,
+            "s": 0.1,
+            "l": -0.02
+          },
+          "tint": "#d9f1de",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "lab-plant-pod",
+              "density": 10
+            }
+          ]
+        },
+        {
+          "id": "reactor mesa",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.08
+          },
+          "tint": "#c7e5d9",
+          "alt": "#ff7ad9",
+          "decor": [
+            {
+              "prop": "lab-neon-ring",
+              "density": 4
+            },
+            {
+              "prop": "lab-glass-tower",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "antenna ridge",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": -0.02,
+            "l": -0.06
+          },
+          "tint": "#cfe8de",
+          "alt": "#9aa8b0",
+          "decor": [
+            {
+              "prop": "space-antenna-mast",
+              "density": 4
+            },
+            {
+              "prop": "shared-peak",
+              "density": 2
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "hologram plaza",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.04,
+            "l": 0.05
+          },
+          "tint": "#f4faf8",
+          "alt": "#ff7ad9",
+          "decor": [
+            {
+              "prop": "lab-hologram-disc",
+              "density": 8
+            },
+            {
+              "prop": "lab-drone-pad",
+              "density": 2
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#3fd1c9",
+          "#e3f2ec",
+          "#ffffff"
+        ],
+        "signature_props": [
+          "lab-neon-ring",
+          "lab-hologram-disc",
+          "lab-tube-pipe"
+        ],
+        "creature_archetype_preference": "flat",
+        "sign_text_style": "floating glass plate, cyan edge glow"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "beaker pedestal",
+          "brief": "round pedestal with a chunky flask; the liquid disc glows cyan",
+          "height_m": 0.58,
+          "motif_carried": "flask",
+          "file": "assets/landmarks/lab/lab-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "glass tower",
+          "brief": "hexagonal glass tower with a flask-shaped cap and a neon ring at mid height",
+          "height_m": 1.0,
+          "motif_carried": "flask -> cap",
+          "file": "assets/landmarks/lab/lab-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "tube reactor",
+          "brief": "two upright tubes joined by a pipe loop, flask on the side table",
+          "height_m": 1.0,
+          "motif_carried": "flask",
+          "file": "assets/landmarks/lab/lab-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "hologram kiosk",
+          "brief": "pod with a floating flat disc hologram of the flask above it",
+          "height_m": 1.0,
+          "motif_carried": "flask -> hologram",
+          "file": "assets/landmarks/lab/lab-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "research spire",
+          "brief": "twin glass spires bridged by a tube, three neon rings, a giant flask lantern at the top",
+          "height_m": 1.8,
+          "motif_carried": "cap + rings -> spire",
+          "file": "assets/landmarks/lab/lab-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "lab-glass-tower",
+          "brief": "hex prism in pale glass with a cyan cap facet (window slot)",
+          "tri_budget": 90,
+          "runtime_recipe": "tower"
+        },
+        {
+          "id": "lab-neon-ring",
+          "brief": "thin torus on a stub post, accent_2 magenta emissive",
+          "tri_budget": 160,
+          "runtime_recipe": "lamp"
+        },
+        {
+          "id": "lab-tube-pipe",
+          "brief": "bent pipe segment with two flanges",
+          "tri_budget": 120,
+          "runtime_recipe": "pillar"
+        },
+        {
+          "id": "lab-hologram-disc",
+          "brief": "flat floating disc 0.1 m above a base, 60 % alpha cyan (flat material, no transparency needed: pale cyan)",
+          "tri_budget": 40,
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "lab-server-rack",
+          "brief": "tall box with three lit slot facets",
+          "tri_budget": 60,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "lab-plant-pod",
+          "brief": "glass bell over a leaf bush",
+          "tri_budget": 200,
+          "runtime_recipe": "shrub"
+        },
+        {
+          "id": "lab-drone-pad",
+          "brief": "flat H-pad disc with four corner lights",
+          "tri_budget": 70,
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "lab-robot-arm",
+          "brief": "two-segment arm on a base with a claw",
+          "tri_budget": 220
+        }
+      ],
+      "terrain_piece": {
+        "id": "lab-reactor-plateau",
+        "brief": "stepped white plateau 3 m across with a coolant pool, two glass towers and a ring",
+        "height_m": 1.8
+      },
+      "growth_hero": {
+        "id": "lab-research-spire",
+        "brief": "the spire gains segments and rings; holograms multiply around it; at 100 % a rotating ring halo floats above",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "beaker",
+          "25": "one spire segment, one ring",
+          "50": "two segments, bridge, two rings",
+          "75": "three segments, holograms",
+          "100": "full spire, floating halo ring, drone traffic"
+        }
+      },
+      "catastrophe": {
+        "kind": "short_circuit",
+        "effect_family": "mechanical",
+        "brief": "rings strobe magenta, zigzag sparks jump, a comic poof of pale smoke, the stage-2 building's glass cap pops off",
+        "ruin": {
+          "id": "lab-ruin-popped-cap",
+          "brief": "stage-2 body with the cap lying beside it, dark rings, a bent pipe leaking a cyan puddle disc"
+        },
+        "recovery": "robot arm prop appears, cap lifts back on, rings relight in sequence cyan -> magenta"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.15,
+        "bean": 0.1,
+        "bird": 0.05,
+        "biped": 0.2,
+        "sprite": 0.2,
+        "flat": 0.3
+      },
+      "subject_affinity": [
+        "chemistry",
+        "electrical engineering",
+        "biochemistry",
+        "materials",
+        "machine learning",
+        "robotics",
+        "biotech"
+      ],
+      "sound_ambience": {
+        "loops": [],
+        "one_shots": [
+          "ui-hover",
+          "evidence-ingested"
+        ],
+        "brief": "soft 120 Hz hum bed, ring 'ping' (brief: ui-hover pitched to C6) every 5 s, bubbling tube (brief: random sine blips)"
+      }
+    },
+    {
+      "id": "medieval",
+      "display_name": "Medieval",
+      "status": "planned",
+      "mood": "Olive fields, honey stone walls, crimson banners; a keep that grows a tower per chapter.",
+      "palette": {
+        "ground": "#b8c98a",
+        "ground_alt": "#9fb56f",
+        "accent": "#c9556a",
+        "accent_2": "#d9c39a",
+        "road_core": "#d9c39a",
+        "road_edge": "#8a7a60",
+        "water": "#6fa9cf",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 1.41
+          },
+          {
+            "name": "navy",
+            "hex": "#3b5f7a",
+            "contrast_vs_ground": 3.789
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 3.844
+          },
+          {
+            "name": "brick",
+            "hex": "#d9765c",
+            "contrast_vs_ground": 1.756
+          }
+        ],
+        "night": {
+          "sky": "#161a2e",
+          "fog": "#2a2e3e",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffc46a",
+          "window": "#ffe9a8",
+          "star_density": 0.7,
+          "moon": true,
+          "torch_flicker": true,
+          "banner_desaturate": 0.3
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "farmland",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 6,
+            "s": 0.02,
+            "l": 0.04
+          },
+          "tint": "#bbd196",
+          "alt": "#9fb56f",
+          "decor": [
+            {
+              "prop": "medieval-hay-cart",
+              "density": 3
+            },
+            {
+              "prop": "meadow-fence-segment",
+              "density": 8
+            },
+            {
+              "prop": "meadow-hay-bale",
+              "density": 5
+            }
+          ]
+        },
+        {
+          "id": "village",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.02
+          },
+          "tint": "#bccc91",
+          "alt": "#d9c39a",
+          "decor": [
+            {
+              "prop": "medieval-cottage",
+              "density": 8
+            },
+            {
+              "prop": "medieval-banner-pole",
+              "density": 2
+            },
+            {
+              "prop": "medieval-well",
+              "density": 1
+            }
+          ]
+        },
+        {
+          "id": "castle hill",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -4,
+            "s": -0.02,
+            "l": -0.03
+          },
+          "tint": "#b5c281",
+          "alt": "#9a8f78",
+          "decor": [
+            {
+              "prop": "medieval-wall-segment",
+              "density": 8
+            },
+            {
+              "prop": "medieval-banner-pole",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "moat",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.02
+          },
+          "tint": "#b4c683",
+          "alt": "#6fa9cf",
+          "decor": [
+            {
+              "prop": "shared-rowboat",
+              "density": 1
+            },
+            {
+              "prop": "medieval-wall-segment",
+              "density": 4
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "orchard",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 8,
+            "s": 0.05,
+            "l": 0.0
+          },
+          "tint": "#b0cd86",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-small",
+              "density": 12
+            }
+          ]
+        },
+        {
+          "id": "market",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 10,
+            "s": 0.02,
+            "l": 0.05
+          },
+          "tint": "#bad39a",
+          "alt": "#c9556a",
+          "decor": [
+            {
+              "prop": "medieval-market-tent",
+              "density": 6
+            },
+            {
+              "prop": "medieval-banner-pole",
+              "density": 3
+            },
+            {
+              "prop": "medieval-hay-cart",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "dark wood",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 6,
+            "s": 0.02,
+            "l": -0.1
+          },
+          "tint": "#9bbb65",
+          "alt": "#4f8a4a",
+          "decor": [
+            {
+              "prop": "ice-pine-snow",
+              "density": 14
+            },
+            {
+              "prop": "forest-rock",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "highland pass",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -6,
+            "s": -0.05,
+            "l": -0.05
+          },
+          "tint": "#b1bc7d",
+          "alt": "#8a8578",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 4
+            },
+            {
+              "prop": "medieval-wall-segment",
+              "density": 2
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "windmill ridge",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 4,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#bbce94",
+          "alt": "#d9c39a",
+          "decor": [
+            {
+              "prop": "medieval-windmill-small",
+              "density": 2
+            },
+            {
+              "prop": "meadow-hay-bale",
+              "density": 4
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#8a7a60",
+          "#d9c39a",
+          "#c9556a"
+        ],
+        "signature_props": [
+          "medieval-banner-pole",
+          "medieval-wall-segment",
+          "medieval-well"
+        ],
+        "creature_archetype_preference": "biped",
+        "sign_text_style": "heraldic shield on a post"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "banner post",
+          "brief": "stone plinth with a crimson pennant banner",
+          "height_m": 0.58,
+          "motif_carried": "banner",
+          "file": "assets/landmarks/medieval/medieval-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "gatehouse",
+          "brief": "arched gate between two short towers, banner over the arch",
+          "height_m": 1.0,
+          "motif_carried": "banner",
+          "file": "assets/landmarks/medieval/medieval-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "windmill",
+          "brief": "stone windmill with four cloth sails and a banner on the cap",
+          "height_m": 1.0,
+          "motif_carried": "banner",
+          "file": "assets/landmarks/medieval/medieval-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "market hall",
+          "brief": "open timber hall with a striped roof and banners on the gable",
+          "height_m": 1.0,
+          "motif_carried": "banner -> striped roof",
+          "file": "assets/landmarks/medieval/medieval-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "castle keep",
+          "brief": "square keep with four corner turrets, gatehouse arch at the base, great banner on top",
+          "height_m": 1.8,
+          "motif_carried": "gatehouse -> base arch, banner -> great banner",
+          "file": "assets/landmarks/medieval/medieval-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "medieval-wall-segment",
+          "brief": "crenellated stone wall 1 m long",
+          "tri_budget": 70,
+          "runtime_recipe": "pillar"
+        },
+        {
+          "id": "medieval-banner-pole",
+          "brief": "pole with a crimson pennant",
+          "tri_budget": 36,
+          "runtime_recipe": "lamp"
+        },
+        {
+          "id": "medieval-cottage",
+          "brief": "timber-framed cottage with a straw roof and lit window",
+          "tri_budget": 140,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "medieval-market-tent",
+          "brief": "striped canvas tent on four poles",
+          "tri_budget": 90
+        },
+        {
+          "id": "medieval-hay-cart",
+          "brief": "two-wheel cart with a straw heap",
+          "tri_budget": 160,
+          "runtime_recipe": "crop"
+        },
+        {
+          "id": "medieval-well",
+          "brief": "stone well with a wooden roof",
+          "tri_budget": 150
+        },
+        {
+          "id": "medieval-windmill-small",
+          "brief": "small windmill with sails",
+          "tri_budget": 220,
+          "runtime_recipe": "tower"
+        },
+        {
+          "id": "medieval-torch",
+          "brief": "wall torch with a peach flame (window slot)",
+          "tri_budget": 40,
+          "runtime_recipe": "lamp"
+        }
+      ],
+      "terrain_piece": {
+        "id": "medieval-castle-mound",
+        "brief": "grassy motte 3 m across with a ring wall, a gate and a banner",
+        "height_m": 2.2
+      },
+      "growth_hero": {
+        "id": "medieval-keep",
+        "brief": "the keep gains turrets and a curtain wall; banners multiply; at 100 % a great hall and a drawbridge",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.6,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "banner post",
+          "25": "gatehouse",
+          "50": "keep with two turrets",
+          "75": "keep, four turrets, curtain wall",
+          "100": "keep, great hall, drawbridge, twelve banners, torches lit"
+        }
+      },
+      "catastrophe": {
+        "kind": "storm",
+        "effect_family": "weather",
+        "brief": "thundercloud, lightning zigzag hits the stage-2 tower, comic poof, crenellation blocks tumble like dice",
+        "ruin": {
+          "id": "medieval-ruin-toppled-tower",
+          "brief": "stage-2 base with the tower top lying beside it, banner draped over the rubble"
+        },
+        "recovery": "timber scaffold pops up, blocks fly back into place bottom to top, banner unfurls last"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.15,
+        "bean": 0.2,
+        "bird": 0.15,
+        "biped": 0.3,
+        "sprite": 0.1,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "history",
+        "literature",
+        "philosophy",
+        "political science",
+        "classics",
+        "law",
+        "languages"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-bird-chirp",
+          "ambient-wind-gust"
+        ],
+        "one_shots": [
+          "landmark-build-2"
+        ],
+        "brief": "birds, banner flap (brief: short noise flutter) every 6 s, distant bell at stage completion"
+      }
+    },
+    {
+      "id": "jungle",
+      "display_name": "Jungle",
+      "status": "planned",
+      "mood": "Deep green, lagoon teal, fruit-yellow accents; a waterfall you can hear before you see it.",
+      "palette": {
+        "ground": "#6fae6a",
+        "ground_alt": "#4f8a4a",
+        "accent": "#f2b84f",
+        "accent_2": "#5fc9c9",
+        "road_core": "#efe3c0",
+        "road_edge": "#8b5a3c",
+        "water": "#5fc9c9",
+        "window": "#ffe9a8",
+        "ink": "#2f3a2a",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 2.088
+          },
+          {
+            "name": "mustard",
+            "hex": "#f8d24a",
+            "contrast_vs_ground": 1.802
+          },
+          {
+            "name": "snow",
+            "hex": "#f4fafc",
+            "contrast_vs_ground": 2.51
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 2.595
+          }
+        ],
+        "night": {
+          "sky": "#0f1e22",
+          "fog": "#1a3030",
+          "ground_lightness_offset": -0.2,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.6,
+          "moon": true,
+          "fireflies": true,
+          "lagoon_emissive": "#3fa8a8",
+          "torch_flicker": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "canopy",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#6fae6a",
+          "alt": "#4f8a4a",
+          "decor": [
+            {
+              "prop": "jungle-palm",
+              "density": 10
+            },
+            {
+              "prop": "jungle-broadleaf",
+              "density": 10
+            }
+          ]
+        },
+        {
+          "id": "lagoon",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 5,
+            "s": 0.02,
+            "l": 0.05
+          },
+          "tint": "#78b979",
+          "alt": "#5fc9c9",
+          "decor": [
+            {
+              "prop": "jungle-palm",
+              "density": 3
+            },
+            {
+              "prop": "ocean-rock-outcrop",
+              "density": 2
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "beach edge",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 30,
+            "s": 0.2,
+            "l": 0.28
+          },
+          "tint": "#bee9d0",
+          "alt": "#5fc9c9",
+          "decor": [
+            {
+              "prop": "jungle-palm",
+              "density": 5
+            },
+            {
+              "prop": "ocean-shell",
+              "density": 4
+            },
+            {
+              "prop": "jungle-surfboard",
+              "density": 1
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "ruins",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -6,
+            "s": -0.05,
+            "l": 0.06
+          },
+          "tint": "#8bb483",
+          "alt": "#9a8f78",
+          "decor": [
+            {
+              "prop": "jungle-ruin-block",
+              "density": 8
+            },
+            {
+              "prop": "jungle-broadleaf",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "waterfall cliff",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 2,
+            "s": 0.0,
+            "l": -0.05
+          },
+          "tint": "#5da55a",
+          "alt": "#5fc9c9",
+          "decor": [
+            {
+              "prop": "jungle-waterfall-slab",
+              "density": 1
+            },
+            {
+              "prop": "jungle-broadleaf",
+              "density": 5
+            },
+            {
+              "prop": "shared-peak",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "mangrove",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -4,
+            "s": -0.05,
+            "l": -0.08
+          },
+          "tint": "#62955a",
+          "alt": "#3f8f8f",
+          "decor": [
+            {
+              "prop": "jungle-broadleaf",
+              "density": 8
+            },
+            {
+              "prop": "forest-log",
+              "density": 3
+            }
+          ],
+          "fill": "water"
+        },
+        {
+          "id": "fruit grove",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 8,
+            "s": 0.05,
+            "l": 0.05
+          },
+          "tint": "#75bc7a",
+          "alt": "#f2b84f",
+          "decor": [
+            {
+              "prop": "jungle-fruit-tree",
+              "density": 12
+            }
+          ]
+        },
+        {
+          "id": "tiki village",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#79b374",
+          "alt": "#efe3c0",
+          "decor": [
+            {
+              "prop": "jungle-tiki-hut",
+              "density": 6
+            },
+            {
+              "prop": "jungle-torch",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "volcanic hill",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -10,
+            "s": -0.1,
+            "l": -0.12
+          },
+          "tint": "#628358",
+          "alt": "#6a5c66",
+          "decor": [
+            {
+              "prop": "volcanic-ember-rock",
+              "density": 3
+            },
+            {
+              "prop": "jungle-palm",
+              "density": 4
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#4f8a4a",
+          "#6fae6a",
+          "#efe3c0"
+        ],
+        "signature_props": [
+          "jungle-palm",
+          "jungle-tiki-hut",
+          "jungle-torch",
+          "jungle-ruin-block"
+        ],
+        "creature_archetype_preference": "bird",
+        "sign_text_style": "bamboo plank tied with rope"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "tiki torch pair",
+          "brief": "two bamboo torches with peach flames on a sand disc",
+          "height_m": 0.58,
+          "motif_carried": "torch",
+          "file": "assets/landmarks/jungle/jungle-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "tiki hut",
+          "brief": "stilt hut with a straw roof and two torches at the door",
+          "height_m": 1.0,
+          "motif_carried": "torch",
+          "file": "assets/landmarks/jungle/jungle-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "stone idol",
+          "brief": "moss-covered chunky idol head with torch braziers in its hands",
+          "height_m": 1.0,
+          "motif_carried": "torch -> brazier",
+          "file": "assets/landmarks/jungle/jungle-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "rope bridge platform",
+          "brief": "platform between two palms with a rope bridge and a torch",
+          "height_m": 1.0,
+          "motif_carried": "torch",
+          "file": "assets/landmarks/jungle/jungle-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "temple waterfall",
+          "brief": "stepped temple with a waterfall pouring from the top tier into a lagoon disc, idol face carved in front, four torches",
+          "height_m": 1.8,
+          "motif_carried": "idol -> carved face, torch -> four torches",
+          "file": "assets/landmarks/jungle/jungle-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "jungle-palm",
+          "brief": "curved trunk with five flat fronds and two coconuts",
+          "tri_budget": 150,
+          "runtime_recipe": "palm"
+        },
+        {
+          "id": "jungle-broadleaf",
+          "brief": "big-leaf plant, three leaves",
+          "tri_budget": 60,
+          "runtime_recipe": "shrub"
+        },
+        {
+          "id": "jungle-fruit-tree",
+          "brief": "round tree with yellow fruit dots",
+          "tri_budget": 180,
+          "runtime_recipe": "roundTree"
+        },
+        {
+          "id": "jungle-ruin-block",
+          "brief": "mossy stone block with a carved groove",
+          "tri_budget": 60,
+          "runtime_recipe": "pillar",
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "jungle-tiki-hut",
+          "brief": "small stilt hut with straw roof",
+          "tri_budget": 160,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "jungle-torch",
+          "brief": "bamboo torch with a flame (window slot)",
+          "tri_budget": 40,
+          "runtime_recipe": "lamp"
+        },
+        {
+          "id": "jungle-waterfall-slab",
+          "brief": "cliff slab with a pale water ribbon and a pool disc",
+          "tri_budget": 200
+        },
+        {
+          "id": "jungle-surfboard",
+          "brief": "board leaning on a stick, coral stripe",
+          "tri_budget": 30
+        }
+      ],
+      "terrain_piece": {
+        "id": "jungle-waterfall-mesa",
+        "brief": "green mesa 3 m across with a waterfall ribbon down one face into a lagoon disc, palms on top",
+        "height_m": 2.6
+      },
+      "growth_hero": {
+        "id": "jungle-great-waterfall",
+        "brief": "the waterfall mesa rises; the water ribbon widens, terraces gain fruit trees, mist puffs appear at the base",
+        "height_m_by_band": {
+          "0": 0.5,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "spring puddle",
+          "25": "one fall, two palms",
+          "50": "two-tier fall, temple steps",
+          "75": "three tiers, rope bridge",
+          "100": "great falls, temple crown, rainbow arc, birds"
+        }
+      },
+      "catastrophe": {
+        "kind": "monsoon",
+        "effect_family": "weather",
+        "brief": "big blue cloud, fat raindrop sprites, the lagoon disc swells, the stage-2 hut lifts off its stilts and lands tilted with a splash poof",
+        "ruin": {
+          "id": "jungle-ruin-flooded-hut",
+          "brief": "stilts standing, hut sitting crooked on the ground beside them, a coconut floating in a puddle disc"
+        },
+        "recovery": "creatures push the hut (wobble), it hops back onto the stilts with overshoot, torches relight"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.15,
+        "bean": 0.2,
+        "bird": 0.3,
+        "biped": 0.15,
+        "sprite": 0.15,
+        "flat": 0.05
+      },
+      "subject_affinity": [
+        "biology",
+        "ecology",
+        "anthropology",
+        "evolution",
+        "environmental engineering",
+        "genetics"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-bird-chirp"
+        ],
+        "one_shots": [
+          "creature-greet"
+        ],
+        "brief": "dense birds every 3-6 s (pitched variants), waterfall noise bed (brief: low-passed noise at -20 dB), frog blip at night"
+      }
+    },
+    {
+      "id": "wildwest",
+      "display_name": "Wild West",
+      "status": "planned",
+      "mood": "Dusty orange flats, a saloon with a swinging sign, a windpump that squeaks at noon.",
+      "palette": {
+        "ground": "#d9b07a",
+        "ground_alt": "#c2925a",
+        "accent": "#a0522d",
+        "accent_2": "#4f8a4a",
+        "road_core": "#e6c9a0",
+        "road_edge": "#8b5a3c",
+        "water": "#7fb8d8",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 1.588
+          },
+          {
+            "name": "navy",
+            "hex": "#3b5f7a",
+            "contrast_vs_ground": 3.364
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 3.413
+          },
+          {
+            "name": "cocoa",
+            "hex": "#8b5a3c",
+            "contrast_vs_ground": 2.88
+          }
+        ],
+        "night": {
+          "sky": "#1a1428",
+          "fog": "#3a2a30",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffc46a",
+          "window": "#ffe9a8",
+          "star_density": 0.9,
+          "moon": true,
+          "campfire_glow": true,
+          "coyote_silhouette": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "prairie",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 10,
+            "s": -0.05,
+            "l": 0.05
+          },
+          "tint": "#dbc891",
+          "alt": "#c2925a",
+          "decor": [
+            {
+              "prop": "meadow-bush",
+              "density": 6
+            },
+            {
+              "prop": "wildwest-cactus-saguaro",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "main street",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#dcb786",
+          "alt": "#e6c9a0",
+          "decor": [
+            {
+              "prop": "wildwest-storefront",
+              "density": 8
+            },
+            {
+              "prop": "wildwest-water-tower",
+              "density": 1
+            },
+            {
+              "prop": "wildwest-barrel",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "mesa",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": -6,
+            "s": 0.05,
+            "l": -0.08
+          },
+          "tint": "#d59155",
+          "alt": "#a0522d",
+          "decor": [
+            {
+              "prop": "sand-dune-rock",
+              "density": 5
+            },
+            {
+              "prop": "wildwest-cactus-saguaro",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "canyon",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": -8,
+            "s": 0.05,
+            "l": -0.12
+          },
+          "tint": "#d18245",
+          "alt": "#8b5a3c",
+          "decor": [
+            {
+              "prop": "sand-dune-rock",
+              "density": 6
+            }
+          ],
+          "fill": "none"
+        },
+        {
+          "id": "railway",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": -0.02,
+            "l": 0.0
+          },
+          "tint": "#d7b07c",
+          "alt": "#6b5f7a",
+          "decor": [
+            {
+              "prop": "wildwest-rail-segment",
+              "density": 10
+            },
+            {
+              "prop": "wildwest-barrel",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "ranch",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 8,
+            "s": -0.03,
+            "l": 0.04
+          },
+          "tint": "#dbc48c",
+          "alt": "#9fb56f",
+          "decor": [
+            {
+              "prop": "meadow-fence-segment",
+              "density": 10
+            },
+            {
+              "prop": "meadow-hay-bale",
+              "density": 4
+            },
+            {
+              "prop": "wildwest-windpump",
+              "density": 1
+            }
+          ]
+        },
+        {
+          "id": "cactus flat",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 4,
+            "s": 0.0,
+            "l": 0.02
+          },
+          "tint": "#dbbb82",
+          "alt": "#4f8a4a",
+          "decor": [
+            {
+              "prop": "wildwest-cactus-saguaro",
+              "density": 8
+            },
+            {
+              "prop": "sand-cactus-small",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "river bend",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 10,
+            "s": -0.05,
+            "l": 0.06
+          },
+          "tint": "#dcc995",
+          "alt": "#7fb8d8",
+          "decor": [
+            {
+              "prop": "shared-dock",
+              "density": 1
+            },
+            {
+              "prop": "meadow-bush",
+              "density": 4
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "butte",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": -8,
+            "s": 0.02,
+            "l": -0.1
+          },
+          "tint": "#d08850",
+          "alt": "#a0522d",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 3
+            },
+            {
+              "prop": "sand-dune-rock",
+              "density": 4
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#a0522d",
+          "#d9b07a",
+          "#e6c9a0"
+        ],
+        "signature_props": [
+          "wildwest-cactus-saguaro",
+          "wildwest-barrel",
+          "wildwest-windpump"
+        ],
+        "creature_archetype_preference": "bean",
+        "sign_text_style": "hanging wooden shingle with rope"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "hitching post",
+          "brief": "wood post with a rope loop and a horseshoe, cactus stub beside",
+          "height_m": 0.58,
+          "motif_carried": "horseshoe",
+          "file": "assets/landmarks/wildwest/wildwest-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "saloon",
+          "brief": "false-front saloon with a balcony, swinging horseshoe sign",
+          "height_m": 1.0,
+          "motif_carried": "horseshoe -> sign",
+          "file": "assets/landmarks/wildwest/wildwest-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "windpump",
+          "brief": "lattice tower with a multi-blade wheel and a water trough with a horseshoe on the tank",
+          "height_m": 1.0,
+          "motif_carried": "horseshoe",
+          "file": "assets/landmarks/wildwest/wildwest-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "train depot",
+          "brief": "small depot with a platform, a rail stub and a horseshoe over the door",
+          "height_m": 1.0,
+          "motif_carried": "horseshoe",
+          "file": "assets/landmarks/wildwest/wildwest-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "grand hotel and water tower",
+          "brief": "two-storey hotel with a rooftop water tower, saloon balcony motif, horseshoe on the tank",
+          "height_m": 1.8,
+          "motif_carried": "balcony + horseshoe",
+          "file": "assets/landmarks/wildwest/wildwest-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "wildwest-cactus-saguaro",
+          "brief": "tall saguaro with two arms",
+          "tri_budget": 130,
+          "runtime_recipe": "cactus"
+        },
+        {
+          "id": "wildwest-barrel",
+          "brief": "wood barrel with two ink bands",
+          "tri_budget": 60,
+          "runtime_recipe": "rock"
+        },
+        {
+          "id": "wildwest-storefront",
+          "brief": "false-front shop with a porch and a lit window",
+          "tri_budget": 150,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "wildwest-water-tower",
+          "brief": "tank on four legs with a conical cap",
+          "tri_budget": 120,
+          "runtime_recipe": "tower"
+        },
+        {
+          "id": "wildwest-rail-segment",
+          "brief": "two rails on four sleepers, 1 m",
+          "tri_budget": 40,
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "wildwest-windpump",
+          "brief": "lattice tower with a 12-blade wheel",
+          "tri_budget": 240,
+          "runtime_recipe": "tower"
+        },
+        {
+          "id": "wildwest-wagon",
+          "brief": "covered wagon with a cream canopy",
+          "tri_budget": 220
+        },
+        {
+          "id": "wildwest-tumbleweed",
+          "brief": "sparse ico ball, wood colour",
+          "tri_budget": 80,
+          "runtime_recipe": "shrub",
+          "tags": [
+            "decor"
+          ]
+        }
+      ],
+      "terrain_piece": {
+        "id": "wildwest-butte",
+        "brief": "flat-topped butte 3 m across with layered accent bands and a saguaro",
+        "height_m": 2.4
+      },
+      "growth_hero": {
+        "id": "wildwest-boomtown-tower",
+        "brief": "the water tower grows into a boomtown clock tower with a windpump on top; storefronts multiply along the street",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "hitching post",
+          "25": "water tower",
+          "50": "tower with clock, four storefronts",
+          "75": "tall tower, windpump wheel, rail arrives",
+          "100": "grand tower, train parked, ten storefronts, lanterns"
+        }
+      },
+      "catastrophe": {
+        "kind": "tumbleweed_stampede",
+        "effect_family": "weather",
+        "brief": "dust cloud rolls in, a wave of tumbleweed sprites bounces through, the stage-2 false front tips forward with a comic poof",
+        "ruin": {
+          "id": "wildwest-ruin-flat-front",
+          "brief": "stage-2 false front lying flat on the ground, porch posts standing, barrels rolled away"
+        },
+        "recovery": "creatures heave the front upright (wobble), sign swings back, barrels roll home"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.15,
+        "bean": 0.3,
+        "bird": 0.15,
+        "biped": 0.25,
+        "sprite": 0.05,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "economics",
+        "game theory",
+        "american history",
+        "statistics",
+        "operations research",
+        "entrepreneurship"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-wind-gust"
+        ],
+        "one_shots": [
+          "ui-cancel"
+        ],
+        "brief": "dry wind, windpump squeak every 7 s (brief: ui-cancel pitched down, quiet), distant train whistle at stage completion"
+      }
+    },
+    {
+      "id": "cave",
+      "display_name": "Cave",
+      "status": "planned",
+      "mood": "Dusky purple rock, glowing crystals, a mine cart that squeaks past lanterns.",
+      "palette": {
+        "ground": "#7e6f8c",
+        "ground_alt": "#6a5c78",
+        "accent": "#8fd0e8",
+        "accent_2": "#c9a2e6",
+        "road_core": "#9a8ba8",
+        "road_edge": "#4a4058",
+        "water": "#4f8fb0",
+        "window": "#ffe9a8",
+        "ink": "#2a2233",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 3.652
+          },
+          {
+            "name": "peach",
+            "hex": "#f2a86f",
+            "contrast_vs_ground": 2.336
+          },
+          {
+            "name": "mint",
+            "hex": "#8fc9d8",
+            "contrast_vs_ground": 2.536
+          },
+          {
+            "name": "mustard",
+            "hex": "#f8d24a",
+            "contrast_vs_ground": 3.152
+          }
+        ],
+        "night": {
+          "sky": "#0c0a14",
+          "fog": "#1a1524",
+          "ground_lightness_offset": -0.08,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.0,
+          "moon": false,
+          "crystal_emissive": "#8fd0e8",
+          "lantern": "#ffc46a"
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "crystal grotto",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 10,
+            "s": 0.08,
+            "l": 0.03
+          },
+          "tint": "#8e6d9d",
+          "alt": "#8fd0e8",
+          "decor": [
+            {
+              "prop": "cave-crystal-cluster",
+              "density": 12
+            },
+            {
+              "prop": "cave-lantern",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "stalagmite hall",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.03
+          },
+          "tint": "#766883",
+          "alt": "#6a5c78",
+          "decor": [
+            {
+              "prop": "cave-stalagmite",
+              "density": 14
+            }
+          ]
+        },
+        {
+          "id": "underground lake",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.05
+          },
+          "tint": "#71647e",
+          "alt": "#4f8fb0",
+          "decor": [
+            {
+              "prop": "cave-crystal-cluster",
+              "density": 3
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "mine",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -10,
+            "s": -0.05,
+            "l": -0.02
+          },
+          "tint": "#767180",
+          "alt": "#9a7a55",
+          "decor": [
+            {
+              "prop": "cave-mine-cart",
+              "density": 3
+            },
+            {
+              "prop": "cave-rail-segment",
+              "density": 8
+            },
+            {
+              "prop": "cave-lantern",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "mushroom cavern",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -20,
+            "s": 0.02,
+            "l": 0.02
+          },
+          "tint": "#787293",
+          "alt": "#e88a8a",
+          "decor": [
+            {
+              "prop": "forest-mushroom",
+              "density": 10
+            },
+            {
+              "prop": "cave-lantern",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "chasm",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.15
+          },
+          "tint": "#584d61",
+          "alt": "#2a2233",
+          "decor": [
+            {
+              "prop": "cave-stalagmite",
+              "density": 4
+            }
+          ],
+          "fill": "none"
+        },
+        {
+          "id": "cliff wall",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.06
+          },
+          "tint": "#6f617b",
+          "alt": "#5a4c68",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 3
+            },
+            {
+              "prop": "cave-crystal-cluster",
+              "density": 4
+            }
+          ],
+          "role": "shore"
+        },
+        {
+          "id": "lantern path",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.02
+          },
+          "tint": "#837491",
+          "alt": "#9a8ba8",
+          "decor": [
+            {
+              "prop": "cave-lantern",
+              "density": 8
+            },
+            {
+              "prop": "cave-boulder",
+              "density": 3
+            }
+          ]
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#4a4058",
+          "#7e6f8c",
+          "#8fd0e8"
+        ],
+        "signature_props": [
+          "cave-crystal-cluster",
+          "cave-lantern",
+          "cave-mine-cart"
+        ],
+        "creature_archetype_preference": "blob",
+        "sign_text_style": "slate slab with chalk letters"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "crystal shard",
+          "brief": "one big tilted cyan crystal in a rock ring",
+          "height_m": 0.58,
+          "motif_carried": "crystal",
+          "file": "assets/landmarks/cave/cave-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "mine entrance",
+          "brief": "timber-framed tunnel mouth with a lantern and a crystal in the lintel",
+          "height_m": 1.0,
+          "motif_carried": "crystal",
+          "file": "assets/landmarks/cave/cave-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "crystal shrine",
+          "brief": "stone hut whose roof is a crystal cluster",
+          "height_m": 1.0,
+          "motif_carried": "crystal -> roof",
+          "file": "assets/landmarks/cave/cave-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "cart depot",
+          "brief": "shed with a mine cart on a rail stub and a lantern",
+          "height_m": 1.0,
+          "motif_carried": "crystal -> cart load",
+          "file": "assets/landmarks/cave/cave-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "great geode",
+          "brief": "half geode 1.8 m tall, interior lined with crystals, mine entrance arch at the base, lanterns on a path",
+          "height_m": 1.8,
+          "motif_carried": "crystal -> geode, entrance -> arch",
+          "file": "assets/landmarks/cave/cave-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "cave-crystal-cluster",
+          "brief": "three cyan/lilac hexagonal crystals",
+          "tri_budget": 180,
+          "runtime_recipe": "crystal"
+        },
+        {
+          "id": "cave-stalagmite",
+          "brief": "tapered faceted cone",
+          "tri_budget": 60,
+          "runtime_recipe": "rock"
+        },
+        {
+          "id": "cave-lantern",
+          "brief": "post lantern with a warm facet (window slot)",
+          "tri_budget": 80,
+          "runtime_recipe": "lamp"
+        },
+        {
+          "id": "cave-mine-cart",
+          "brief": "box cart with four wheels and a rock load",
+          "tri_budget": 200
+        },
+        {
+          "id": "cave-rail-segment",
+          "brief": "two rails on sleepers, 1 m",
+          "tri_budget": 40,
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "cave-boulder",
+          "brief": "dusky ico boulder",
+          "tri_budget": 160,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "cave-bat",
+          "brief": "flat bat silhouette on a thin post (hangs from ceiling in the runtime)",
+          "tri_budget": 24
+        }
+      ],
+      "terrain_piece": {
+        "id": "cave-crystal-pillar",
+        "brief": "rock pillar 2.8 m with crystal outcrops and a lantern ledge",
+        "height_m": 2.8
+      },
+      "growth_hero": {
+        "id": "cave-great-geode",
+        "brief": "the geode grows and its crystal lining brightens; lanterns line a spiral path; at 100 % the crystals pulse",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.4,
+          "50": 2.8,
+          "75": 4.2,
+          "100": 5.6
+        },
+        "extras_by_band": {
+          "0": "one shard",
+          "25": "cluster",
+          "50": "half geode",
+          "75": "geode, lantern spiral",
+          "100": "great geode, pulsing crystals, bats circle"
+        }
+      },
+      "catastrophe": {
+        "kind": "cave_in",
+        "effect_family": "geological",
+        "brief": "rumble, dust puffs from above, three boulders drop with comic bounces onto the stage-2 building",
+        "ruin": {
+          "id": "cave-ruin-boulder-pile",
+          "brief": "boulder pile on the stage-2 footprint, a lantern still glowing underneath, cart tipped"
+        },
+        "recovery": "creatures roll boulders off one per 0.5 s, building pops up, lantern swings"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.3,
+        "bean": 0.15,
+        "bird": 0.15,
+        "biped": 0.1,
+        "sprite": 0.25,
+        "flat": 0.05
+      },
+      "subject_affinity": [
+        "geology",
+        "mining",
+        "graph search",
+        "databases",
+        "number theory",
+        "cryptography"
+      ],
+      "sound_ambience": {
+        "loops": [],
+        "one_shots": [
+          "ui-tap"
+        ],
+        "brief": "drip every 2-5 s (brief: ui-tap pitched random, reverb), low cave rumble bed, cart squeak"
+      }
+    },
+    {
+      "id": "graveyard",
+      "display_name": "Graveyard",
+      "status": "planned",
+      "mood": "Misty sage lawns, friendly ghosts, lilac lanterns; spooky the way a Halloween cookie is.",
+      "palette": {
+        "ground": "#9fb0a0",
+        "ground_alt": "#7f907f",
+        "accent": "#c9a2e6",
+        "accent_2": "#f2a86f",
+        "road_core": "#b7a58f",
+        "road_edge": "#5a5a6a",
+        "water": "#6f8faa",
+        "window": "#c9ffb0",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 1.804
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 3.005
+          },
+          {
+            "name": "mustard",
+            "hex": "#f8d24a",
+            "contrast_vs_ground": 1.557
+          },
+          {
+            "name": "snow",
+            "hex": "#f4fafc",
+            "contrast_vs_ground": 2.168
+          }
+        ],
+        "night": {
+          "sky": "#12101e",
+          "fog": "#2a2838",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#c9a2e6",
+          "window": "#c9ffb0",
+          "star_density": 0.7,
+          "moon": true,
+          "fog_density_mul": 2.0,
+          "ghost_sprites": true,
+          "moon_big": true
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "lawn",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#a7b7a8",
+          "alt": "#7f907f",
+          "decor": [
+            {
+              "prop": "graveyard-headstone",
+              "density": 10
+            },
+            {
+              "prop": "graveyard-lantern",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "willow grove",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 6,
+            "s": 0.03,
+            "l": -0.03
+          },
+          "tint": "#94ac98",
+          "alt": "#6fa86a",
+          "decor": [
+            {
+              "prop": "graveyard-willow",
+              "density": 6
+            },
+            {
+              "prop": "graveyard-headstone",
+              "density": 3
+            }
+          ]
+        },
+        {
+          "id": "misty pond",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.0
+          },
+          "tint": "#9fb0a0",
+          "alt": "#6f8faa",
+          "decor": [
+            {
+              "prop": "graveyard-willow",
+              "density": 2
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "iron gates",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": -0.03,
+            "l": 0.05
+          },
+          "tint": "#afb9b0",
+          "alt": "#5a5a6a",
+          "decor": [
+            {
+              "prop": "graveyard-fence-segment",
+              "density": 12
+            },
+            {
+              "prop": "graveyard-gate",
+              "density": 1
+            },
+            {
+              "prop": "graveyard-lantern",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "pumpkin patch",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -10,
+            "s": 0.02,
+            "l": 0.02
+          },
+          "tint": "#a5b6a3",
+          "alt": "#f2a86f",
+          "decor": [
+            {
+              "prop": "graveyard-pumpkin",
+              "density": 12
+            }
+          ]
+        },
+        {
+          "id": "crypt hill",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": -0.02,
+            "l": -0.05
+          },
+          "tint": "#93a294",
+          "alt": "#b7a58f",
+          "decor": [
+            {
+              "prop": "graveyard-crypt",
+              "density": 3
+            },
+            {
+              "prop": "graveyard-headstone",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "dead wood",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 4,
+            "s": -0.03,
+            "l": -0.08
+          },
+          "tint": "#8c9a8e",
+          "alt": "#4a4058",
+          "decor": [
+            {
+              "prop": "sand-dead-tree",
+              "density": 10
+            },
+            {
+              "prop": "graveyard-lantern",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "ridge",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": -0.02,
+            "l": -0.06
+          },
+          "tint": "#90a091",
+          "alt": "#6a6a78",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 3
+            },
+            {
+              "prop": "sand-dead-tree",
+              "density": 3
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#5a5a6a",
+          "#9fb0a0",
+          "#c9a2e6"
+        ],
+        "signature_props": [
+          "graveyard-lantern",
+          "graveyard-headstone",
+          "graveyard-pumpkin"
+        ],
+        "creature_archetype_preference": "sprite",
+        "sign_text_style": "rounded headstone with a bow"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "lantern post",
+          "brief": "iron post with a lilac lantern and a tiny headstone",
+          "height_m": 0.58,
+          "motif_carried": "lantern",
+          "file": "assets/landmarks/graveyard/graveyard-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "gatehouse",
+          "brief": "iron gate between two stone posts with lanterns on top",
+          "height_m": 1.0,
+          "motif_carried": "lantern",
+          "file": "assets/landmarks/graveyard/graveyard-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "crypt",
+          "brief": "small stone crypt with a rounded door and a lantern niche",
+          "height_m": 1.0,
+          "motif_carried": "lantern",
+          "file": "assets/landmarks/graveyard/graveyard-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "willow bench",
+          "brief": "weeping willow over a bench and a lantern",
+          "height_m": 1.0,
+          "motif_carried": "lantern",
+          "file": "assets/landmarks/graveyard/graveyard-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "haunted manor",
+          "brief": "friendly manor with a round tower, gate arch at the base, green-lit windows, lanterns on every corner",
+          "height_m": 1.8,
+          "motif_carried": "gate -> arch, lantern -> corner lanterns",
+          "file": "assets/landmarks/graveyard/graveyard-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "graveyard-headstone",
+          "brief": "rounded stone slab with a bow",
+          "tri_budget": 40,
+          "runtime_recipe": "rock",
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "graveyard-fence-segment",
+          "brief": "iron railing 1 m with finials",
+          "tri_budget": 60,
+          "runtime_recipe": "pillar"
+        },
+        {
+          "id": "graveyard-gate",
+          "brief": "arched iron gate, two posts",
+          "tri_budget": 120,
+          "runtime_recipe": "pillar"
+        },
+        {
+          "id": "graveyard-lantern",
+          "brief": "iron post with a lilac lantern (window slot)",
+          "tri_budget": 80,
+          "runtime_recipe": "lamp"
+        },
+        {
+          "id": "graveyard-willow",
+          "brief": "drooping tree with three frond lobes",
+          "tri_budget": 200,
+          "runtime_recipe": "roundTree"
+        },
+        {
+          "id": "graveyard-pumpkin",
+          "brief": "ribbed peach pumpkin with a leaf",
+          "tri_budget": 120,
+          "runtime_recipe": "shrub",
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "graveyard-crypt",
+          "brief": "small stone crypt box with a door",
+          "tri_budget": 90,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "graveyard-ghost",
+          "brief": "flat teardrop ghost with dot eyes (floats in runtime)",
+          "tri_budget": 40
+        }
+      ],
+      "terrain_piece": {
+        "id": "graveyard-crypt-hill",
+        "brief": "misty mound 3 m across with a crypt door, a willow and a fence ring",
+        "height_m": 2.0
+      },
+      "growth_hero": {
+        "id": "graveyard-great-willow",
+        "brief": "a giant weeping willow with lanterns in its fronds grows; ghosts move in and light it from inside",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "sapling with a bow",
+          "25": "small willow",
+          "50": "willow, three lanterns",
+          "75": "big willow, gate, six lanterns",
+          "100": "great willow, twelve lanterns, ghosts circle, big moon"
+        }
+      },
+      "catastrophe": {
+        "kind": "haunting",
+        "effect_family": "spooky",
+        "brief": "fog thickens, three ghost sprites rush through with a comic 'boo' poof, the stage-2 building's door flies off and the lanterns go green",
+        "ruin": {
+          "id": "graveyard-ruin-door-off",
+          "brief": "stage-2 shell with the door lying flat, cobweb corners, one ghost peeking out"
+        },
+        "recovery": "ghosts apologise (bob), door floats back on, lanterns fade green -> lilac"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.25,
+        "bean": 0.1,
+        "bird": 0.15,
+        "biped": 0.1,
+        "sprite": 0.3,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "literature",
+        "mythology",
+        "psychology",
+        "forensics",
+        "anatomy",
+        "gothic studies"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-wind-gust"
+        ],
+        "one_shots": [
+          "creature-sleep"
+        ],
+        "brief": "low wind, owl (brief: two-note sine hoot) every 12 s, chain clink on gate open"
+      }
+    },
+    {
+      "id": "factory",
+      "display_name": "Factory",
+      "status": "planned",
+      "mood": "Warm concrete, safety-orange accents, pipes that puff on the beat; industry as a toy train set.",
+      "palette": {
+        "ground": "#b9b4b0",
+        "ground_alt": "#9f9a96",
+        "accent": "#e8a13a",
+        "accent_2": "#4f8fb0",
+        "road_core": "#d9d4cf",
+        "road_edge": "#6b5f7a",
+        "water": "#6f9fb8",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "cream",
+            "hex": "#f2e3c6",
+            "contrast_vs_ground": 1.622
+          },
+          {
+            "name": "navy",
+            "hex": "#3b5f7a",
+            "contrast_vs_ground": 3.292
+          },
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 3.34
+          },
+          {
+            "name": "snow",
+            "hex": "#f4fafc",
+            "contrast_vs_ground": 1.95
+          }
+        ],
+        "night": {
+          "sky": "#14121a",
+          "fog": "#2a2630",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffb347",
+          "window": "#ffe9a8",
+          "star_density": 0.3,
+          "moon": true,
+          "chimney_glow": "#e8a13a",
+          "warning_light_blink_hz": 0.5
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "assembly floor",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#c0bcb8",
+          "alt": "#9f9a96",
+          "decor": [
+            {
+              "prop": "factory-conveyor-segment",
+              "density": 8
+            },
+            {
+              "prop": "factory-crate",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "chimney row",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.04
+          },
+          "tint": "#afaaa5",
+          "alt": "#6b5f7a",
+          "decor": [
+            {
+              "prop": "factory-chimney-stack",
+              "density": 6
+            },
+            {
+              "prop": "factory-pipe-segment",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "crate yard",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 10,
+            "s": 0.03,
+            "l": 0.02
+          },
+          "tint": "#c0bbb3",
+          "alt": "#e8a13a",
+          "decor": [
+            {
+              "prop": "factory-crate",
+              "density": 16
+            },
+            {
+              "prop": "factory-forklift",
+              "density": 1
+            }
+          ]
+        },
+        {
+          "id": "cooling basin",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.02
+          },
+          "tint": "#b4afab",
+          "alt": "#6f9fb8",
+          "decor": [
+            {
+              "prop": "factory-pipe-segment",
+              "density": 4
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "pipe hill",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": -5,
+            "s": 0.0,
+            "l": -0.05
+          },
+          "tint": "#ada6a2",
+          "alt": "#8f8a86",
+          "decor": [
+            {
+              "prop": "factory-pipe-segment",
+              "density": 12
+            },
+            {
+              "prop": "factory-valve",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "slag heap",
+          "profile": "terrace",
+          "tint_hsl_offset": {
+            "h": -8,
+            "s": -0.02,
+            "l": -0.1
+          },
+          "tint": "#9f9997",
+          "alt": "#5a5560",
+          "decor": [
+            {
+              "prop": "forest-rock",
+              "density": 6
+            },
+            {
+              "prop": "factory-barrel",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "rail siding",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": -0.02,
+            "l": 0.0
+          },
+          "tint": "#b8b4b1",
+          "alt": "#6b5f7a",
+          "decor": [
+            {
+              "prop": "wildwest-rail-segment",
+              "density": 10
+            },
+            {
+              "prop": "factory-crate",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "gantry ridge",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.08
+          },
+          "tint": "#a69f9a",
+          "alt": "#7a7580",
+          "decor": [
+            {
+              "prop": "shared-peak",
+              "density": 2
+            },
+            {
+              "prop": "factory-chimney-stack",
+              "density": 3
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#6b5f7a",
+          "#b9b4b0",
+          "#e8a13a"
+        ],
+        "signature_props": [
+          "factory-crate",
+          "factory-chimney-stack",
+          "factory-valve"
+        ],
+        "creature_archetype_preference": "biped",
+        "sign_text_style": "stencilled metal plate, orange border"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "gear on a crate",
+          "brief": "orange crate with a chunky gear standing on it",
+          "height_m": 0.58,
+          "motif_carried": "gear",
+          "file": "assets/landmarks/factory/factory-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "workshop",
+          "brief": "brick workshop with a gear over the door and one chimney",
+          "height_m": 1.0,
+          "motif_carried": "gear",
+          "file": "assets/landmarks/factory/factory-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "conveyor shed",
+          "brief": "open shed with a conveyor belt running through and a gear wheel driving it",
+          "height_m": 1.0,
+          "motif_carried": "gear -> drive wheel",
+          "file": "assets/landmarks/factory/factory-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "boiler house",
+          "brief": "round boiler with pipes, pressure gauge as a gear face",
+          "height_m": 1.0,
+          "motif_carried": "gear -> gauge",
+          "file": "assets/landmarks/factory/factory-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "great works",
+          "brief": "three-chimney factory hall with a giant gear on the gable, conveyor into the door, water tank on the roof",
+          "height_m": 1.8,
+          "motif_carried": "gear -> gable gear, conveyor -> entry belt",
+          "file": "assets/landmarks/factory/factory-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "factory-crate",
+          "brief": "orange wooden crate with an ink stencil facet",
+          "tri_budget": 30,
+          "runtime_recipe": "rock"
+        },
+        {
+          "id": "factory-chimney-stack",
+          "brief": "brick chimney with a puff",
+          "tri_budget": 120,
+          "runtime_recipe": "chimney"
+        },
+        {
+          "id": "factory-pipe-segment",
+          "brief": "pipe with a bend and two flanges",
+          "tri_budget": 100,
+          "runtime_recipe": "pillar"
+        },
+        {
+          "id": "factory-conveyor-segment",
+          "brief": "belt segment on legs, 1 m",
+          "tri_budget": 80,
+          "tags": [
+            "decor"
+          ]
+        },
+        {
+          "id": "factory-valve",
+          "brief": "wheel valve on a stub pipe",
+          "tri_budget": 140
+        },
+        {
+          "id": "factory-barrel",
+          "brief": "steel drum, navy with an orange band",
+          "tri_budget": 60,
+          "runtime_recipe": "rock"
+        },
+        {
+          "id": "factory-forklift",
+          "brief": "box forklift with dot eyes",
+          "tri_budget": 240
+        },
+        {
+          "id": "factory-warning-light",
+          "brief": "post with an orange blinking cap (window slot)",
+          "tri_budget": 48,
+          "runtime_recipe": "lamp"
+        }
+      ],
+      "terrain_piece": {
+        "id": "factory-slag-mesa",
+        "brief": "stepped concrete mesa 3 m across with a cooling basin, two chimneys and a pipe run",
+        "height_m": 2.0
+      },
+      "growth_hero": {
+        "id": "factory-great-chimney",
+        "brief": "the central chimney grows and gains siblings; smoke puffs stack in rhythm; at 100 % a conveyor loop encircles it",
+        "height_m_by_band": {
+          "0": 0.6,
+          "25": 1.5,
+          "50": 3.0,
+          "75": 4.5,
+          "100": 6.0
+        },
+        "extras_by_band": {
+          "0": "stub pipe",
+          "25": "one chimney",
+          "50": "two chimneys, puffs",
+          "75": "three chimneys, gantry",
+          "100": "great chimney, conveyor loop, warning lights, forklift traffic"
+        }
+      },
+      "catastrophe": {
+        "kind": "short_circuit",
+        "effect_family": "mechanical",
+        "brief": "gauge needle spins, pipes rattle, comic steam poof blows the stage-2 roof up like a lid; it lands askew",
+        "ruin": {
+          "id": "factory-ruin-lid-off",
+          "brief": "stage-2 walls with the roof leaning against them, a bent pipe puffing, crates scattered"
+        },
+        "recovery": "forklift arrives, roof lifts back on, pipes straighten with a clank, puffs resume"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.1,
+        "bean": 0.15,
+        "bird": 0.05,
+        "biped": 0.35,
+        "sprite": 0.1,
+        "flat": 0.25
+      },
+      "subject_affinity": [
+        "mechanical engineering",
+        "manufacturing",
+        "systems",
+        "operating systems",
+        "supply chain",
+        "control theory"
+      ],
+      "sound_ambience": {
+        "loops": [],
+        "one_shots": [
+          "landmark-build-1"
+        ],
+        "brief": "rhythmic clank bed (brief: landmark-build-1 knocks at 90 bpm, quiet), steam hiss on puff, forklift beep"
+      }
+    },
+    {
+      "id": "park",
+      "display_name": "Park",
+      "status": "planned",
+      "mood": "Bright lawns, clipped hedges, a fountain and a red flag on a putting green.",
+      "palette": {
+        "ground": "#a9d98a",
+        "ground_alt": "#8fbf6a",
+        "accent": "#e88a8a",
+        "accent_2": "#fffaf3",
+        "road_core": "#e6dcc4",
+        "road_edge": "#b7a58f",
+        "water": "#6cb6d3",
+        "window": "#ffe9a8",
+        "ink": "#3a2f45",
+        "creature": [
+          {
+            "name": "plum",
+            "hex": "#7a4b6e",
+            "contrast_vs_ground": 4.243
+          },
+          {
+            "name": "navy",
+            "hex": "#3b5f7a",
+            "contrast_vs_ground": 4.182
+          },
+          {
+            "name": "cocoa",
+            "hex": "#8b5a3c",
+            "contrast_vs_ground": 3.58
+          },
+          {
+            "name": "brick",
+            "hex": "#d9765c",
+            "contrast_vs_ground": 1.938
+          }
+        ],
+        "night": {
+          "sky": "#18223a",
+          "fog": "#2a3a48",
+          "ground_lightness_offset": -0.22,
+          "lamp": "#ffe9a8",
+          "window": "#ffe9a8",
+          "star_density": 0.5,
+          "moon": true,
+          "string_lights": [
+            "#e88a8a",
+            "#c9a2e6",
+            "#8fc9d8"
+          ],
+          "fountain_emissive": "#8fd0e8"
+        }
+      },
+      "terrain_kinds": [
+        {
+          "id": "lawn",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.03
+          },
+          "tint": "#b1dd96",
+          "alt": "#8fbf6a",
+          "decor": [
+            {
+              "prop": "meadow-flower-clump-coral",
+              "density": 6
+            },
+            {
+              "prop": "park-bench",
+              "density": 3
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 2
+            }
+          ]
+        },
+        {
+          "id": "putting green",
+          "profile": "gentle",
+          "tint_hsl_offset": {
+            "h": 4,
+            "s": 0.1,
+            "l": -0.05
+          },
+          "tint": "#92dc6e",
+          "alt": "#6fb35b",
+          "decor": [
+            {
+              "prop": "park-golf-flag",
+              "density": 3
+            },
+            {
+              "prop": "park-hedge-block",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "hedge maze",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": -0.02
+          },
+          "tint": "#a3d682",
+          "alt": "#4f8a4a",
+          "decor": [
+            {
+              "prop": "park-hedge-block",
+              "density": 18
+            }
+          ]
+        },
+        {
+          "id": "pond",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 0,
+            "s": 0.0,
+            "l": 0.02
+          },
+          "tint": "#afdc92",
+          "alt": "#6cb6d3",
+          "decor": [
+            {
+              "prop": "shared-rowboat",
+              "density": 1
+            },
+            {
+              "prop": "park-duck",
+              "density": 3
+            }
+          ],
+          "role": "water",
+          "fill": "water"
+        },
+        {
+          "id": "fountain square",
+          "profile": "flat",
+          "tint_hsl_offset": {
+            "h": -10,
+            "s": -0.1,
+            "l": 0.12
+          },
+          "tint": "#d2e3bd",
+          "alt": "#e6dcc4",
+          "decor": [
+            {
+              "prop": "park-fountain",
+              "density": 1
+            },
+            {
+              "prop": "park-bench",
+              "density": 4
+            },
+            {
+              "prop": "city-lamp-post",
+              "density": 4
+            }
+          ]
+        },
+        {
+          "id": "bandstand hill",
+          "profile": "hills",
+          "tint_hsl_offset": {
+            "h": 2,
+            "s": 0.0,
+            "l": -0.02
+          },
+          "tint": "#a1d682",
+          "alt": "#8b7a70",
+          "decor": [
+            {
+              "prop": "park-bandstand",
+              "density": 1
+            },
+            {
+              "prop": "forest-round-tree-small",
+              "density": 6
+            }
+          ]
+        },
+        {
+          "id": "sand bunker",
+          "profile": "recessed_water",
+          "tint_hsl_offset": {
+            "h": 40,
+            "s": 0.1,
+            "l": 0.25
+          },
+          "tint": "#e9faed",
+          "alt": "#efd9a2",
+          "decor": [
+            {
+              "prop": "park-golf-flag",
+              "density": 1
+            }
+          ],
+          "fill": "none"
+        },
+        {
+          "id": "wooded edge",
+          "profile": "mountain",
+          "tint_hsl_offset": {
+            "h": 4,
+            "s": 0.0,
+            "l": -0.08
+          },
+          "tint": "#8ccf6b",
+          "alt": "#6fa86a",
+          "decor": [
+            {
+              "prop": "forest-round-tree-large",
+              "density": 5
+            },
+            {
+              "prop": "shared-peak",
+              "density": 1
+            }
+          ],
+          "role": "shore"
+        }
+      ],
+      "marker": {
+        "tier_colours": [
+          "#8fbf6a",
+          "#a9d98a",
+          "#fffaf3"
+        ],
+        "signature_props": [
+          "park-golf-flag",
+          "park-hedge-block",
+          "park-bench"
+        ],
+        "creature_archetype_preference": "bird",
+        "sign_text_style": "white picket sign with a flag"
+      },
+      "landmarks": {
+        "s1": {
+          "name": "golf flag on a green",
+          "brief": "red flag in a cup on a raised green disc",
+          "height_m": 0.58,
+          "motif_carried": "flag",
+          "file": "assets/landmarks/park/park-landmark-s1.glb"
+        },
+        "s2a": {
+          "name": "fountain",
+          "brief": "three-tier fountain with a flag on top",
+          "height_m": 1.0,
+          "motif_carried": "flag",
+          "file": "assets/landmarks/park/park-landmark-s2.glb"
+        },
+        "s2b": {
+          "name": "bandstand",
+          "brief": "octagonal bandstand with a coral roof and a flag finial",
+          "height_m": 1.0,
+          "motif_carried": "flag -> finial",
+          "file": "assets/landmarks/park/park-landmark-s2b.glb"
+        },
+        "s2c": {
+          "name": "clubhouse",
+          "brief": "white clubhouse with a porch, a flag over the door and a hedge",
+          "height_m": 1.0,
+          "motif_carried": "flag",
+          "file": "assets/landmarks/park/park-landmark-s2c.glb"
+        },
+        "s3": {
+          "name": "grand pavilion",
+          "brief": "glass pavilion with a fountain in front and a bandstand dome, a great flag on top, string lights",
+          "height_m": 1.8,
+          "motif_carried": "fountain + dome + flag",
+          "file": "assets/landmarks/park/park-landmark-s3.glb"
+        }
+      },
+      "props": [
+        {
+          "id": "park-hedge-block",
+          "brief": "clipped hedge cube with a paler top facet",
+          "tri_budget": 40,
+          "runtime_recipe": "shrub"
+        },
+        {
+          "id": "park-bench",
+          "brief": "white slat bench",
+          "tri_budget": 60
+        },
+        {
+          "id": "park-golf-flag",
+          "brief": "cup disc with a pole and a red flag",
+          "tri_budget": 40,
+          "runtime_recipe": "lamp"
+        },
+        {
+          "id": "park-fountain",
+          "brief": "two-tier basin with a water disc and a jet cone",
+          "tri_budget": 280
+        },
+        {
+          "id": "park-bandstand",
+          "brief": "octagonal roof on eight posts",
+          "tri_budget": 200,
+          "runtime_recipe": "house"
+        },
+        {
+          "id": "park-duck",
+          "brief": "yellow blob duck with a dot eye (floats on water)",
+          "tri_budget": 90
+        },
+        {
+          "id": "park-picnic-table",
+          "brief": "table with two benches",
+          "tri_budget": 80
+        },
+        {
+          "id": "park-topiary",
+          "brief": "sphere-on-cone topiary in a pot",
+          "tri_budget": 160,
+          "runtime_recipe": "roundTree"
+        }
+      ],
+      "terrain_piece": {
+        "id": "park-bandstand-hill",
+        "brief": "rounded lawn hill 3 m across with a bandstand, a path ring and three topiaries",
+        "height_m": 1.8
+      },
+      "growth_hero": {
+        "id": "park-grand-fountain",
+        "brief": "the fountain grows tiers; jets rise higher; string lights and flags multiply around the square",
+        "height_m_by_band": {
+          "0": 0.5,
+          "25": 1.4,
+          "50": 2.8,
+          "75": 4.2,
+          "100": 5.6
+        },
+        "extras_by_band": {
+          "0": "birdbath",
+          "25": "two-tier fountain",
+          "50": "three tiers, jets",
+          "75": "four tiers, string lights",
+          "100": "grand fountain, rainbow mist, flags on every hedge, ducks"
+        }
+      },
+      "catastrophe": {
+        "kind": "sprinkler_flood",
+        "effect_family": "weather",
+        "brief": "sprinklers pop up and go wild (arc sprites), the pond disc swells, the stage-2 building floats up and settles crooked with a splash poof",
+        "ruin": {
+          "id": "park-ruin-soggy",
+          "brief": "stage-2 building tilted 10 deg in a puddle disc, flag drooping, a duck on the roof"
+        },
+        "recovery": "puddle drains in three steps, building levels with a wobble, flag snaps upright"
+      },
+      "creature_archetype_weights": {
+        "blob": 0.2,
+        "bean": 0.2,
+        "bird": 0.3,
+        "biped": 0.15,
+        "sprite": 0.05,
+        "flat": 0.1
+      },
+      "subject_affinity": [
+        "statistics",
+        "probability",
+        "sports science",
+        "design",
+        "recreation",
+        "psychology",
+        "introductory courses"
+      ],
+      "sound_ambience": {
+        "loops": [
+          "ambient-bird-chirp"
+        ],
+        "one_shots": [
+          "ui-confirm"
+        ],
+        "brief": "birds, fountain splash bed (brief: quiet noise), golf 'plink' (ui-confirm short) when a flag appears"
+      }
+    }
+  ]
+}

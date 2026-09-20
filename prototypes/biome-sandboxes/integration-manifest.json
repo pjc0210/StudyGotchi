@@ -1,0 +1,200 @@
+{
+  "biomes": [
+    {
+      "id": "frontier-town",
+      "selectedDirection": "A - Ochre Railhead",
+      "latestMap": "docs/design/world/maps/frontier-town-plan-v4.svg",
+      "sandbox": "prototypes/biome-sandboxes/frontier-town",
+      "sourceRoot": "prototypes/biome-sandboxes/frontier-town/src",
+      "screenshotRoot": "prototypes/biome-sandboxes/frontier-town/screenshots",
+      "cameraContract": {
+        "orientation": "south/front looking north/back",
+        "pitchDegrees": [34, 40],
+        "yawDegrees": [-35, 35],
+        "fovDegrees": 26,
+        "dollyAcceptance": [1, 1.35],
+        "northBackSkylineOnly": true,
+        "circularEnclosure": false,
+        "foregroundRule": "Continuous sand and rail continue beneath the camera and disappear into crop/fog; no front cliff, canyon, coast, or world edge."
+      },
+      "technicalStatus": "Verified 2026-09-20: 19/19 Vitest tests pass; oxlint passes; app and node TypeScript checks pass; a Vite production build to /tmp passes. Vite reports a bundle-size warning above 500 kB.",
+      "visualStatus": "screenshotRoot contains 27 PNG files. The v4 core camera/art pass and six public/comparisons district captures were inspected, but the worker was stopped during replacement of the legacy screenshot suite. Some 27 files may still document the rejected eight-azimuth/circular model, so they are mixed evidence rather than a fully current acceptance matrix.",
+      "recommendedIntegrationStatus": "ready",
+      "reusableModules": [
+        "src/layout/biome-layout.ts",
+        "src/camera/stations.ts",
+        "src/state.ts",
+        "src/scene/FrontierScene.tsx",
+        "src/render/PixelComposer.tsx",
+        "src/render/materials.tsx"
+      ],
+      "knownIssues": [
+        "FrontierScene.tsx is a large combined scene module and should be wrapped first, then split only where the frontend adapter needs stable district interaction seams.",
+        "The screenshot refresh was interrupted and its exact completion boundary was not re-inspected.",
+        "Reuse public/comparisons/main-town.png, railway.png, ranch.png, mine.png, dig.png, and reserve.png; generate a new frontend yaw/dolly matrix.",
+        "The standalone bundle exceeds 500 kB; frontend integration must use one shared Canvas and lazy biome modules rather than embedding this Vite app."
+      ]
+    },
+    {
+      "id": "coastal-ruins",
+      "selectedDirection": "A - Salt-White Working Coast",
+      "latestMap": "docs/design/world/maps/coastal-ruins-plan-v3.svg",
+      "sandbox": "prototypes/biome-sandboxes/coastal-ruins",
+      "sourceRoot": "prototypes/biome-sandboxes/coastal-ruins/src",
+      "screenshotRoot": "prototypes/biome-sandboxes/coastal-ruins/screenshots",
+      "cameraContract": {
+        "orientation": "south/front looking north/back",
+        "pitchDegrees": [34, 40],
+        "yawDegrees": [-35, 35],
+        "fovDegrees": 27,
+        "dollyAcceptance": [1, 1.55],
+        "northBackSkylineOnly": true,
+        "circularEnclosure": false,
+        "foregroundRule": "Open sea continues beneath the camera and render crop; north escarpment and fogged east/west wings never wrap into a front rim."
+      },
+      "technicalStatus": "Verified 2026-09-20: 14/14 Vitest tests pass; oxlint passes; app and node TypeScript checks pass; a Vite production build to /tmp passes. Vite reports a bundle-size warning above 500 kB.",
+      "visualStatus": "screenshotRoot contains 26 files: 25 PNGs plus manifest.md. The prior verified suite covers overview, five districts, landmarks, six yaw/dolly views, seeds, catastrophe, ambient boat, globe marker, and comparison. Every PNG predates the latest interrupted terrain, skyline, and district-anchor edits, so it validates the pre-polish blockout/camera only.",
+      "recommendedIntegrationStatus": "blockout",
+      "reusableModules": [
+        "src/layout/biome-layout.ts",
+        "src/layout/terrain.ts",
+        "src/camera/stations.ts",
+        "src/camera/CameraRig.tsx",
+        "src/state.ts",
+        "src/scene/BiomeScene.tsx",
+        "src/scene/Terrain.tsx",
+        "src/scene/Structures.tsx",
+        "src/scene/Landmark.tsx",
+        "src/scene/Residents.tsx",
+        "src/scene/Props.tsx",
+        "src/scene/Ambient.tsx",
+        "src/scene/Catastrophe.tsx",
+        "src/render/PixelComposer.tsx",
+        "src/render/materials.tsx"
+      ],
+      "knownIssues": [
+        "README.md and the in-app reference board still cite plan v2, while the active layout, tests, directions, and latest map are v3.",
+        "The latest partial art edits had no worker checks or recapture; a post-stop re-audit now passes 14/14 tests, oxlint, TypeScript, and a temporary Vite build but does not visually approve those edits.",
+        "public/reference contains five source-reference JPGs and the older coastal-ruins-plan-v2.svg.",
+        "The standalone bundle exceeds 500 kB; do not copy App.tsx, Panel.tsx, app.css, or a second Canvas into the frontend."
+      ]
+    },
+    {
+      "id": "jungle-forest-village",
+      "selectedDirection": "A - River-Canopy Commons",
+      "latestMap": "docs/design/world/maps/jungle-forest-village-plan-v3.svg",
+      "sandbox": "prototypes/biome-sandboxes/jungle-forest-village",
+      "sourceRoot": "prototypes/biome-sandboxes/jungle-forest-village/src",
+      "screenshotRoot": "prototypes/biome-sandboxes/jungle-forest-village/screenshots",
+      "cameraContract": {
+        "orientation": "south/front looking north/back",
+        "pitchDegrees": [34, 40],
+        "yawDegrees": [-35, 35],
+        "fovDegrees": 26,
+        "dollyAcceptance": [1, 1.55],
+        "northBackSkylineOnly": true,
+        "circularEnclosure": false,
+        "foregroundRule": "Ground and lagoon continue beneath the camera; only the north canopy rows and tapered east/west wings close the background."
+      },
+      "technicalStatus": "Verified 2026-09-20: 45/45 Vitest tests pass. Oxlint exits successfully but warns that Ellipse in src/scene/JungleScene.tsx is unused. TypeScript fails with TS6133 on that unused function, so the production-build command does not reach Vite.",
+      "visualStatus": "screenshotRoot contains 23 files: 22 PNGs from the prior verified pass plus README.md. The suite covers overview, arrival, five districts, landmarks, six camera views, seeds, catastrophe, and an actual-reference board. The latest partial polish was not rebuilt, tested, or recaptured, so these images validate the prior pass only.",
+      "recommendedIntegrationStatus": "hold",
+      "reusableModules": [
+        "src/layout/jungle-layout.ts",
+        "src/layout/terrain.ts",
+        "src/camera/stations.ts",
+        "src/jungle-state.ts",
+        "src/scene/JungleScene.tsx",
+        "src/render/PixelComposer.tsx",
+        "src/render/materials.tsx"
+      ],
+      "knownIssues": [
+        "Production typecheck fails because src/scene/JungleScene.tsx declares an unused Ellipse function.",
+        "The sandbox contains a second copied Ice Town implementation in src/layout/biome-layout.ts, src/scene/BiomeScene.tsx, and related generic modules; those files are not the active Jungle implementation and must not be ported.",
+        "README.md still cites plan v2 while the latest direction/map contract is v3.",
+        "public/references contains five source images and public/comparisons contains canopy.png, falls.png, lagoon.png, ruins.png, and riverworks.png.",
+        "The 22 verified PNGs predate the interrupted terrain polish and are not evidence that the latest changes are complete."
+      ]
+    },
+    {
+      "id": "medieval-meadow-kingdom",
+      "selectedDirection": "A - Green Crown Commons",
+      "latestMap": "docs/design/world/maps/medieval-meadow-kingdom-plan-v3.svg",
+      "sandbox": "prototypes/biome-sandboxes/medieval-meadow-kingdom",
+      "sourceRoot": "prototypes/biome-sandboxes/medieval-meadow-kingdom/src",
+      "screenshotRoot": "prototypes/biome-sandboxes/medieval-meadow-kingdom/screenshots",
+      "cameraContract": {
+        "orientation": "south/front looking north/back",
+        "pitchDegrees": [34, 40],
+        "yawDegrees": [-35, 35],
+        "fovDegrees": 26,
+        "dollyAcceptance": [0.5, 2.2],
+        "northBackSkylineOnly": true,
+        "circularEnclosure": false,
+        "foregroundRule": "Meadow and river continue beneath the camera; the Green Crown exists only north/back with side wings fading by fog."
+      },
+      "technicalStatus": "Verified 2026-09-20: 16/16 Vitest tests pass; oxlint passes; app and node TypeScript checks pass; a Vite production build to /tmp passes. Vite reports a bundle-size warning above 500 kB.",
+      "visualStatus": "screenshotRoot contains 9 verified PNGs: six left/centre/right default/max-dolly camera frames and three growth frames at 0, 50, and 100 percent. No verified district, landmark-detail, catastrophe, reference-board, or completed art-pass captures exist.",
+      "recommendedIntegrationStatus": "blockout",
+      "reusableModules": [
+        "src/layout/biome-layout.ts",
+        "src/layout/terrain.ts",
+        "src/camera/stations.ts",
+        "src/camera/CameraRig.tsx",
+        "src/state.ts",
+        "src/scene/BiomeScene.tsx",
+        "src/scene/Terrain.tsx",
+        "src/scene/Structures.tsx",
+        "src/scene/Landmark.tsx",
+        "src/scene/Residents.tsx",
+        "src/scene/Props.tsx",
+        "src/scene/Ambient.tsx",
+        "src/scene/Catastrophe.tsx",
+        "src/render/PixelComposer.tsx",
+        "src/render/materials.tsx"
+      ],
+      "knownIssues": [
+        "The art-direction pass was intentionally aborted; the nine images are camera/growth evidence only.",
+        "The state still contains copied snow/whale naming in places; port the scene contract, not the standalone panel vocabulary.",
+        "The standalone bundle exceeds 500 kB; do not copy App.tsx, Panel.tsx, ReferenceBoard.tsx, app.css, or a second Canvas."
+      ]
+    },
+    {
+      "id": "nordic-volcanic-highlands",
+      "selectedDirection": "A - Fjord First / Ashen Homesteads",
+      "latestMap": "docs/design/world/maps/nordic-volcanic-highlands-plan-v4.svg",
+      "sandbox": "prototypes/biome-sandboxes/nordic-volcanic-highlands",
+      "sourceRoot": "prototypes/biome-sandboxes/nordic-volcanic-highlands/src",
+      "screenshotRoot": "prototypes/biome-sandboxes/nordic-volcanic-highlands/screenshots",
+      "cameraContract": {
+        "orientation": "south/front looking north/back",
+        "pitchDegrees": [34, 40],
+        "yawDegrees": [-35, 35],
+        "fovDegrees": 26,
+        "dollyAcceptance": [0.6, 1.6],
+        "northBackSkylineOnly": true,
+        "circularEnclosure": false,
+        "foregroundRule": "Fjord water and terrain continue beneath the south crop; the volcanic skyline is north/back only and side wings taper into fog."
+      },
+      "technicalStatus": "Verified 2026-09-20: 15/15 Vitest tests pass; oxlint passes; app and node TypeScript checks pass; a Vite production build to /tmp passes. Vite reports a bundle-size warning above 500 kB.",
+      "visualStatus": "screenshotRoot contains 40 files: 34 PNGs and 6 JPG source references. The set includes overview, six camera views, five districts, three landmark stages, seeds, catastrophe, comparison board, contact sheet, plan reference, and QA captures. This is valid evidence for the inherited blockout/camera state, not proof that every proposed major-art-pass item was completed.",
+      "recommendedIntegrationStatus": "blockout",
+      "reusableModules": [
+        "src/layout/biome-layout.ts",
+        "src/camera/stations.ts",
+        "src/camera/CameraRig.tsx",
+        "src/state.ts",
+        "src/scene/BiomeScene.tsx",
+        "src/render/PixelComposer.tsx",
+        "src/render/materials.tsx"
+      ],
+      "knownIssues": [
+        "README.md cites plan v2 while the latest direction/map is v4.",
+        "BiomeScene.tsx is a combined scene module with fewer reusable subscene seams than Coastal or Medieval.",
+        "The final continuation performed inspection only and made no file edits, ran no checks, and captured no new screenshots.",
+        "Use screenshot-suite-contact-sheet.png and actual-reference-comparison-board.png as blockout references, then recapture after frontend integration.",
+        "The standalone bundle exceeds 500 kB; use a lazy frontend adapter and the shared Canvas."
+      ]
+    }
+  ]
+}

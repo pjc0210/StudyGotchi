@@ -1,8 +1,8 @@
 """AI provider abstraction (spec: "Provider abstraction" boundary rule).
 
-Domain code, extractors, and pipelines depend on this Protocol, never on the
-`anthropic`/`voyageai` SDKs directly, so the model/embedding provider can be
-swapped without touching extraction logic.
+Domain code, extractors, and pipelines depend on this Protocol, never on a
+vendor SDK directly, so the model/embedding provider can be swapped without
+touching extraction logic.
 """
 
 from typing import Protocol, TypeVar

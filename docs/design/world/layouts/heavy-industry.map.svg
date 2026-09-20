@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" font-family="Helvetica, Arial, sans-serif">
+  <title>heavy-industry plan map v1: 1000 px = 200 m, x east, z south (down), skyline (gantry wall) at the top</title>
+  <desc>Top-down plan of the Industrialized / Heavy Machinery biome. World metres map to px as X = 500 + 5x, Y = 500 + 5z. Geometry is authored in metres inside the scaled group; labels are in px.</desc>
+
+  <!-- harbour water everywhere the land is not -->
+  <rect width="1000" height="1000" fill="#6f9fb8"/>
+
+  <!-- ===== geometry in metres ===== -->
+  <g transform="translate(500,500) scale(5)">
+
+    <!-- land: one landmass running north into the gantry wall; south third is the harbour basin -->
+    <path d="M-100,-100 L100,-100 L100,-6 L95,10 L92,30 L96,52 L60,54 L50,53 L40,53 L28,51 L0,53 L-30,51 L-64,53 L-92,52 L-88,30 L-90,0 L-88,-40 L-88,-66 L-100,-82 Z" fill="#b9b4b0"/>
+
+    <!-- 20 m grid over land -->
+    <g stroke="#9f9a96" stroke-width="0.16" opacity="0.5">
+      <path d="M-80,-100V53 M-60,-100V53 M-40,-100V53 M-20,-100V53 M0,-100V53 M20,-100V53 M40,-100V53 M60,-100V54 M80,-100V54"/>
+      <path d="M-88,-60H100 M-88,-40H100 M-90,-20H100 M-90,0H100 M-88,20H92 M-88,40H94"/>
+    </g>
+
+    <!-- quay wall: cliff face and steel piling band along every coast -->
+    <path d="M100,-6 L95,10 L92,30 L96,52 L60,54 L50,53 L40,53 L28,51 L0,53 L-30,51 L-64,53 L-92,52 L-88,30 L-90,0 L-88,-40 L-88,-66 L-100,-82" fill="none" stroke="#9f9a96" stroke-width="1.6"/>
+    <path d="M100,-6 L95,10 L92,30 L96,52 L60,54 L50,53 L40,53 L28,51 L0,53 L-30,51 L-64,53 L-92,52 L-88,30 L-90,0 L-88,-40 L-88,-66 L-100,-82" fill="none" stroke="#6b5f7a" stroke-width="0.5"/>
+
+    <!-- slag shore: four dark terraces tipped from the foundry chute -->
+    <path d="M-88,-66 L-78,-62 L-78,-6 L-88,-2 Z" fill="#5a5560"/>
+    <path d="M-85.5,-65 L-85.5,-3 M-83,-64 L-83,-4 M-80.5,-63 L-80.5,-5" fill="none" stroke="#9f9a96" stroke-width="0.3"/>
+
+    <!-- skyline element: gantry wall plinth (z < foot), fog band at the back -->
+    <path d="M-100,-100 L100,-100 L100,-70 L76,-64 L56,-71 L36,-66 L16,-72 L-4,-65 L-24,-70 L-44,-64 L-64,-71 L-84,-66 L-100,-72 Z" fill="#a9a4a0"/>
+    <path d="M-100,-72 L-84,-66 L-64,-71 L-44,-64 L-24,-70 L-4,-65 L16,-72 L36,-66 L56,-71 L76,-64 L100,-70" fill="none" stroke="#9f9a96" stroke-width="0.6"/>
+    <rect x="-100" y="-100" width="200" height="12" fill="#c9c6c8"/>
+
+    <!-- cooling towers, back row (appear at 50 %+; 4 at 100 %) -->
+    <g fill="#e6dfd3" stroke="#9f9a96" stroke-width="0.4" stroke-dasharray="1.2 0.8">
+      <circle cx="-54" cy="-94" r="5"/><circle cx="-18" cy="-94" r="5"/><circle cx="18" cy="-94" r="5"/><circle cx="54" cy="-94" r="5"/>
+    </g>
+    <g fill="#ffffff" opacity="0.9">
+      <circle cx="-54" cy="-94" r="2.2"/><circle cx="-18" cy="-94" r="2.2"/><circle cx="18" cy="-94" r="2.2"/><circle cx="54" cy="-94" r="2.2"/>
+    </g>
+
+    <!-- gantry cranes: 11 at 100 % on an 18 m pitch; the 3 base gantries (0 %) carry the orange cab -->
+    <g fill="#6b5f7a">
+      <g id="gantry">
+        <rect x="-6.5" y="-88.5" width="3" height="5"/><rect x="3.5" y="-88.5" width="3" height="5"/><rect x="-6" y="-87" width="12" height="2"/>
+      </g>
+      <use href="#gantry" x="-90"/><use href="#gantry" x="-72"/><use href="#gantry" x="-54"/><use href="#gantry" x="-36"/><use href="#gantry" x="-18"/>
+      <use href="#gantry" x="18"/><use href="#gantry" x="36"/><use href="#gantry" x="54"/><use href="#gantry" x="72"/><use href="#gantry" x="90"/>
+    </g>
+    <g fill="#e8a13a">
+      <rect x="-38" y="-87.2" width="2.4" height="2.4"/><rect x="1" y="-87.2" width="2.4" height="2.4"/><rect x="33" y="-87.2" width="2.4" height="2.4"/>
+    </g>
+    <!-- chimney stacks between gantries, 10 at 100 % -->
+    <g fill="#e6dfd3" stroke="#a8563a" stroke-width="0.5">
+      <circle cx="-81" cy="-76" r="2.2"/><circle cx="-63" cy="-76" r="2.2"/><circle cx="-45" cy="-76" r="2.2"/><circle cx="-27" cy="-76" r="2.2"/><circle cx="-9" cy="-76" r="2.2"/>
+      <circle cx="9" cy="-76" r="2.2"/><circle cx="27" cy="-76" r="2.2"/><circle cx="45" cy="-76" r="2.2"/><circle cx="63" cy="-76" r="2.2"/><circle cx="81" cy="-76" r="2.2"/>
+    </g>
+
+    <!-- canal with turning basin -->
+    <path d="M40,53 L50,53 L50,-16 L52,-22 L50,-32 L40,-34 L34,-28 L36,-18 L40,-14 Z" fill="#5f8ea6"/>
+    <path d="M40,53 L50,53 L50,-16 L52,-22 L50,-32 L40,-34 L34,-28 L36,-18 L40,-14 Z" fill="none" stroke="#9f9a96" stroke-width="0.8"/>
+
+    <!-- landmark slab with causeway -->
+    <rect x="-79" y="52" width="4" height="6" fill="#d9d4cf" stroke="#9f9a96" stroke-width="0.4"/>
+    <path d="M-90,58 L-66,58 L-64,78 L-90,80 Z" fill="#9f9a96" stroke="#6b5f7a" stroke-width="0.6"/>
+    <circle cx="-77" cy="64.5" r="2.8" fill="none" stroke="#6b5f7a" stroke-width="1.2" stroke-dasharray="1.1 0.8"/>
+    <circle cx="-77" cy="64.5" r="1" fill="#6b5f7a"/>
+
+    <!-- solitary pump island -->
+    <path d="M60,76 L68,69 L78,70 L85,78 L84,88 L76,95 L65,93 L59,85 Z" fill="#9f9a96" stroke="#6b5f7a" stroke-width="0.6"/>
+    <path d="M60,76 L68,69 L78,70 L85,78 L84,88 L76,95 L65,93 L59,85 Z" fill="#b9b4b0" transform="translate(72 82) scale(0.86) translate(-72 -82)"/>
+    <rect x="50" y="83" width="10" height="2" fill="#d9d4cf" stroke="#9f9a96" stroke-width="0.3"/>
+    <line x1="64" y1="86" x2="74" y2="80" stroke="#6b5f7a" stroke-width="1.2"/>
+    <rect x="68" y="81.8" width="2.4" height="2.4" fill="#6b5f7a"/>
+    <rect x="73.2" y="78.8" width="2.4" height="2.4" fill="#a8563a"/>
+    <circle cx="65" cy="90" r="2" fill="#3b5f7a"/>
+    <circle cx="81" cy="77" r="1.1" fill="#e8a13a"/>
+
+    <!-- ===== districts (solid polygon = 100 % footprint) ===== -->
+    <!-- dockyard -->
+    <path d="M-36,32 L-10,28 L30,30 L38,36 L38,58 L20,62 L-12,60 L-34,56 L-42,46 Z" fill="#d9d4cf" stroke="#6b5f7a" stroke-width="0.6"/>
+    <!-- foundry -->
+    <path d="M-76,-58 L-48,-60 L-42,-46 L-46,-26 L-60,-16 L-74,-24 L-78,-42 Z" fill="#a9a4a0" stroke="#9b6357" stroke-width="0.6"/>
+    <!-- works town (strip: centreline (-2,-50) (2,-22) (7,2), width 34) -->
+    <path d="M-18.8,-47.6 L-14.8,-19.1 L-9.6,5.5 L23.6,-1.5 L18.8,-24.9 L14.8,-52.4 Z" fill="#a9a4a0" stroke="#3b5f7a" stroke-width="0.6"/>
+    <!-- pipeworks -->
+    <path d="M56,-56 L84,-58 L90,-38 L88,-12 L74,2 L58,-4 L54,-30 Z" fill="#a9a4a0" stroke="#4f8fb0" stroke-width="0.6"/>
+
+    <!-- ===== lines: road, rail, pipes, conveyor ===== -->
+    <!-- quay road with lift bridge over the canal mouth -->
+    <path d="M-34,40 L38,40 L52,40 L70,40" fill="none" stroke="#6b5f7a" stroke-width="4.8"/>
+    <path d="M-34,40 L38,40 L52,40 L70,40" fill="none" stroke="#d9d4cf" stroke-width="3.8"/>
+    <rect x="39" y="37.6" width="12" height="4.8" fill="#6b5f7a"/>
+    <rect x="39.6" y="38.2" width="10.8" height="3.6" fill="#e8a13a"/>
+    <!-- rail spine, foundry siding, quay siding -->
+    <g fill="none" stroke="#6b5f7a" stroke-width="1.1" stroke-dasharray="1.6 0.9">
+      <path d="M4,-100 L2,-70 L-2,-50 L2,-22 L7,2 L6,28 L6,50"/>
+      <path d="M0,-36 L-24,-44 L-50,-50"/>
+      <path d="M6,44 L30,44"/>
+    </g>
+    <!-- freight train (event) on the spine -->
+    <g fill="#3b5f7a">
+      <rect x="0" y="-65" width="1.7" height="2"/><rect x="-0.4" y="-62.5" width="1.7" height="2"/><rect x="-0.8" y="-60" width="1.7" height="2"/><rect x="-1.2" y="-57.5" width="1.7" height="2"/>
+      <rect x="0.4" y="-67.8" width="1.7" height="2.4" fill="#a8563a"/>
+    </g>
+    <!-- pipe racks -->
+    <g fill="none" stroke="#4f8fb0" stroke-width="1.2" stroke-linejoin="round">
+      <path d="M72,-54 L72,-8 L58,6 L54,12 L54,46 L58,52"/>
+      <path d="M66,-58 L66,-72"/>
+    </g>
+    <!-- conveyor bridge from the wall to the foundry (75 %+) -->
+    <path d="M-28,-70 L-46,-58" fill="none" stroke="#a8563a" stroke-width="1.4" stroke-dasharray="2.4 1.2"/>
+
+    <!-- ===== anchors (visible at 0 %) and a few dashed 100 % building slots ===== -->
+    <!-- dockyard: quay crane on rails over the water + container stack -->
+    <path d="M-20,48 L34,48 M-20,58 L34,58" fill="none" stroke="#6b5f7a" stroke-width="0.4"/>
+    <rect x="2" y="52" width="16" height="2.4" fill="#6b5f7a"/>
+    <rect x="9" y="54" width="2" height="8" fill="#6b5f7a"/>
+    <rect x="2" y="50.6" width="2.4" height="5" fill="#6b5f7a"/><rect x="15.6" y="50.6" width="2.4" height="5" fill="#6b5f7a"/>
+    <rect x="5" y="50" width="2.2" height="2.2" fill="#e8a13a"/>
+    <rect x="20" y="33" width="6" height="2.4" fill="#3b5f7a"/><rect x="28" y="33" width="6" height="2.4" fill="#a8563a"/><rect x="24" y="35.6" width="6" height="2.4" fill="#e6dfd3"/>
+    <g fill="none" stroke="#6b5f7a" stroke-width="0.3" stroke-dasharray="1 0.8">
+      <rect x="-34" y="34" width="10" height="6"/><rect x="-20" y="34" width="10" height="6"/><rect x="-6" y="34" width="10" height="6"/>
+    </g>
+    <!-- foundry: blast furnace + tilted slag chute onto the terraces -->
+    <path d="M-68,-40 L-84,-38" fill="none" stroke="#a8563a" stroke-width="1.8"/>
+    <circle cx="-64" cy="-40" r="5" fill="#e6dfd3" stroke="#9b6357" stroke-width="0.6"/>
+    <circle cx="-64" cy="-40" r="2.4" fill="#6b5f7a"/>
+    <rect x="-59.6" y="-41" width="1.2" height="2" fill="#ff7a3a"/>
+    <g fill="none" stroke="#6b5f7a" stroke-width="0.3" stroke-dasharray="1 0.8">
+      <rect x="-50" y="-38" width="3" height="3"/><rect x="-50" y="-33" width="3" height="3"/><rect x="-50" y="-28" width="3" height="3"/>
+      <rect x="-72" y="-56" width="12" height="7"/>
+    </g>
+    <!-- works town: water tower + sawtooth hall; terraces west of the rail -->
+    <circle cx="-6" cy="-12" r="2.5" fill="#3b5f7a"/>
+    <g fill="#6b5f7a"><rect x="-8.6" y="-14.6" width="0.9" height="0.9"/><rect x="-4.3" y="-14.6" width="0.9" height="0.9"/><rect x="-8.6" y="-10.3" width="0.9" height="0.9"/><rect x="-4.3" y="-10.3" width="0.9" height="0.9"/></g>
+    <rect x="2" y="-18" width="16" height="10" fill="#e6dfd3" stroke="#3b5f7a" stroke-width="0.4"/>
+    <path d="M2,-8 L7.3,-18 M7.3,-8 L12.6,-18 M12.6,-8 L18,-18" fill="none" stroke="#3b5f7a" stroke-width="0.4"/>
+    <g fill="none" stroke="#6b5f7a" stroke-width="0.3" stroke-dasharray="1 0.8">
+      <rect x="-16" y="-42" width="8" height="4"/><rect x="-16" y="-36" width="8" height="4"/><rect x="-16" y="-30" width="8" height="4"/>
+    </g>
+    <!-- pipeworks: tank trio tied by one straight rack; pump house, cooling basin -->
+    <circle cx="70" cy="-46" r="4.5" fill="#e6dfd3" stroke="#4f8fb0" stroke-width="0.5"/>
+    <circle cx="77" cy="-38" r="4" fill="#3b5f7a"/>
+    <circle cx="68" cy="-30" r="5.5" fill="#e6dfd3" stroke="#a8563a" stroke-width="0.6"/>
+    <circle cx="83" cy="-20" r="5" fill="#5f8ea6"/>
+    <rect x="60" y="-14" width="8" height="6" fill="none" stroke="#6b5f7a" stroke-width="0.3" stroke-dasharray="1 0.8"/>
+    <rect x="63" y="-24.2" width="2" height="2" fill="#e8a13a"/>
+
+    <!-- barge on the canal (event) -->
+    <rect x="43.5" y="26" width="3" height="8" fill="#3b5f7a"/>
+    <!-- barge route: harbour -> canal -> turning basin -->
+    <path d="M45,100 L45,53 L45,-20" fill="none" stroke="#ffffff" stroke-width="0.3" stroke-dasharray="1.5 1.5" opacity="0.8"/>
+
+    <!-- overview frame radius 96 m -->
+    <circle cx="0" cy="0" r="96" fill="none" stroke="#ffffff" stroke-width="0.3" stroke-dasharray="2 2" opacity="0.6"/>
+  </g>
+
+  <!-- ===== labels in px (none smaller than 14 px) ===== -->
+  <g font-weight="bold" fill="#3a2f45" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">
+    <text x="500" y="98" font-size="20" text-anchor="middle">GANTRY WALL: skyline element, grows with course fraction (north, dissolves in fog)</text>
+    <text x="200" y="236" font-size="22" text-anchor="middle">Foundry</text>
+    <text x="512" y="276" font-size="22" text-anchor="middle">Works town</text>
+    <text x="856" y="236" font-size="22" text-anchor="middle">Pipeworks</text>
+    <text x="400" y="656" font-size="22" text-anchor="middle">Dockyard</text>
+    <text x="858" y="866" font-size="18" text-anchor="middle">Pump island</text>
+    <text x="115" y="856" font-size="16" text-anchor="middle">Landmark slab</text>
+  </g>
+  <g fill="#3a2f45" font-size="14" paint-order="stroke" stroke="#ffffff" stroke-width="3" stroke-linejoin="round">
+    <text x="16" y="22">fog, z = -100</text>
+    <text x="200" y="256" text-anchor="middle">anchor: blast furnace + slag chute</text>
+    <text x="512" y="490" text-anchor="middle">anchor: water tower + sawtooth hall</text>
+    <text x="862" y="420" text-anchor="middle">anchor: tank trio + pipe rack</text>
+    <text x="710" y="832" text-anchor="middle">anchor: quay crane on rails + container stack</text>
+    <text x="860" y="990" text-anchor="middle">anchor: walking-beam pump + light mast</text>
+    <text x="115" y="878" text-anchor="middle">s1 6 m / s2 12 m / s3 20 m</text>
+    <text x="85" y="330" text-anchor="middle" transform="rotate(-90 85 330)">slag shore, 4 terraces</text>
+    <text x="725" y="560" text-anchor="middle" transform="rotate(90 725 560)">canal 10 m, barges, lift bridge</text>
+    <text x="464" y="175" text-anchor="middle" transform="rotate(90 464 175)">rail spine, freight train</text>
+    <text x="792" y="650" text-anchor="middle" transform="rotate(90 792 650)">pipe rack to pipe jetty</text>
+    <text x="395" y="192">conveyor bridge, 75 %+</text>
+    <text x="600" y="180">wall foot z = -68, wanders 6 m</text>
+    <text x="600" y="960" text-anchor="middle">harbour basin</text>
+    <text x="975" y="300" text-anchor="middle" transform="rotate(90 975 300)">east coast</text>
+    <text x="690" y="905" text-anchor="middle">island 30 m off the quay</text>
+  </g>
+
+  <!-- ===== legend ===== -->
+  <g>
+    <rect x="210" y="816" width="340" height="180" fill="#e6dfd3" fill-opacity="0.96" stroke="#6b5f7a" stroke-width="1.5"/>
+    <text x="222" y="836" font-size="15" font-weight="bold" fill="#3a2f45">Legend: 1000 px = 200 m, north (skyline) up</text>
+    <g font-size="14" fill="#3a2f45">
+      <rect x="222" y="846" width="14" height="14" fill="#6f9fb8"/><text x="242" y="858">harbour</text>
+      <rect x="222" y="866" width="14" height="14" fill="#5f8ea6"/><text x="242" y="878">canal</text>
+      <rect x="222" y="886" width="14" height="14" fill="#b9b4b0"/><text x="242" y="898">ground</text>
+      <rect x="222" y="906" width="14" height="14" fill="#a9a4a0" stroke="#3b5f7a"/><text x="242" y="918">district slab</text>
+      <rect x="222" y="926" width="14" height="14" fill="#d9d4cf" stroke="#6b5f7a"/><text x="242" y="938">quay paving</text>
+      <rect x="222" y="946" width="14" height="14" fill="#5a5560"/><text x="242" y="958">slag shore</text>
+
+      <line x1="352" y1="853" x2="366" y2="853" stroke="#6b5f7a" stroke-width="4" stroke-dasharray="5 3"/><text x="372" y="858">rail</text>
+      <line x1="352" y1="873" x2="366" y2="873" stroke="#4f8fb0" stroke-width="4"/><text x="372" y="878">pipe rack</text>
+      <line x1="352" y1="893" x2="366" y2="893" stroke="#a8563a" stroke-width="4" stroke-dasharray="6 3"/><text x="372" y="898">conveyor, 75 %+</text>
+      <rect x="352" y="908" width="14" height="4" fill="#6b5f7a"/><rect x="352" y="912" width="3" height="6" fill="#6b5f7a"/><rect x="363" y="912" width="3" height="6" fill="#6b5f7a"/><text x="372" y="918">gantry, 11 at 100 %</text>
+      <rect x="352" y="926" width="14" height="14" fill="#9f9a96" stroke="#6b5f7a"/><text x="372" y="938">landmark / island slab</text>
+      <rect x="352" y="946" width="14" height="14" fill="#e8a13a"/><text x="372" y="958">warm accent (cab, light)</text>
+    </g>
+    <line x1="222" y1="982" x2="322" y2="982" stroke="#3a2f45" stroke-width="3"/>
+    <line x1="222" y1="976" x2="222" y2="988" stroke="#3a2f45" stroke-width="2"/><line x1="322" y1="976" x2="322" y2="988" stroke="#3a2f45" stroke-width="2"/>
+    <text x="330" y="987" font-size="14" fill="#3a2f45">20 m</text>
+    <text x="400" y="987" font-size="14" fill="#3a2f45">x east, z south</text>
+  </g>
+</svg>

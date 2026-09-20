@@ -14,8 +14,19 @@ import {
   settle,
   type PositionedNode,
 } from "@/lib/forceLayout";
-import type { GraphModel, GraphModelNode } from "@/lib/graphModel";
-import { CANVAS } from "@/lib/graphTheme";
+import { useSpaceAttribute } from "@/components/shell/useSpaceAttribute";
+import {
+  buildSpaceClusters,
+  clipSpaceLabel,
+  clusterLabelBudget,
+  FIT_CLUSTER_ZOOM,
+  hexRgb,
+  nodeLabelBudget,
+  spaceLabelLayer,
+  type SpaceLabelNode,
+} from "@/lib/constellationLabels";
+import type { GraphModel } from "@/lib/graphModel";
+import { spacePalette, type SpacePalette } from "@/lib/graphTheme";
 
 export interface CanvasHandle {
   fit: (duration?: number) => void;
@@ -65,6 +76,9 @@ export function KnowledgeCanvas({
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const theme = useSpaceAttribute();
+  const paletteRef = useRef(spacePalette(theme));
+  paletteRef.current = spacePalette(theme);
 
   const camRef = useRef<Camera>({ x: 0, y: 0, k: 1 });
   const hoveredRef = useRef<string | null>(null);
@@ -123,21 +137,15 @@ export function KnowledgeCanvas({
   // --- camera helpers -----------------------------------------------------
 
   const fitNodes = useCallback(
-    (subset: typeof layout.nodes, duration: number) => {
+    (subset: typeof layout.nodes, duration: number, zoomCap = MAX_ZOOM) => {
       const b = boundsOf(subset, 60);
       const { w, h } = sizeRef.current;
       if (!b || w === 0 || h === 0) return;
       const targetK = Math.max(
         MIN_ZOOM,
-        Math.min(
-          MAX_ZOOM,
-          Math.min(w / (b.maxX - b.minX), h / (b.maxY - b.minY)) * 0.92,
-        ),
+        Math.min(zoomCap, Math.min(w / (b.maxX - b.minX), h / (b.maxY - b.minY)) * 0.92),
       );
-      animateTo(
-        { x: (b.minX + b.maxX) / 2, y: (b.minY + b.maxY) / 2, k: targetK },
-        duration,
-      );
+      animateTo({ x: (b.minX + b.maxX) / 2, y: (b.minY + b.maxY) / 2, k: targetK }, duration);
     },
     // animateTo is stable; layout drives the identity of the node objects.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -145,7 +153,7 @@ export function KnowledgeCanvas({
   );
 
   const fit = useCallback(
-    (duration = 380) => fitNodes(layout.nodes, duration),
+    (duration = 380) => fitNodes(layout.nodes, duration, FIT_CLUSTER_ZOOM),
     [fitNodes, layout],
   );
 
@@ -161,34 +169,30 @@ export function KnowledgeCanvas({
 
   const animRef = useRef<{ raf: number | null }>({ raf: null });
 
-  const animateTo = useCallback(
-    (target: Camera, duration: number) => {
-      if (animRef.current.raf !== null)
-        cancelAnimationFrame(animRef.current.raf);
-      const from = { ...camRef.current };
-      if (duration <= 0) {
-        camRef.current = target;
-        markDirty();
-        return;
-      }
-      const start = performance.now();
-      const step = (now: number) => {
-        const t = Math.min(1, (now - start) / duration);
-        // easeOutCubic: fast commit, gentle landing.
-        const e = 1 - Math.pow(1 - t, 3);
-        camRef.current = {
-          x: from.x + (target.x - from.x) * e,
-          y: from.y + (target.y - from.y) * e,
-          k: from.k + (target.k - from.k) * e,
-        };
-        markDirty();
-        if (t < 1) animRef.current.raf = requestAnimationFrame(step);
-        else animRef.current.raf = null;
+  const animateTo = useCallback((target: Camera, duration: number) => {
+    if (animRef.current.raf !== null) cancelAnimationFrame(animRef.current.raf);
+    const from = { ...camRef.current };
+    if (duration <= 0) {
+      camRef.current = target;
+      markDirty();
+      return;
+    }
+    const start = performance.now();
+    const step = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      // easeOutCubic: fast commit, gentle landing.
+      const e = 1 - Math.pow(1 - t, 3);
+      camRef.current = {
+        x: from.x + (target.x - from.x) * e,
+        y: from.y + (target.y - from.y) * e,
+        k: from.k + (target.k - from.k) * e,
       };
-      animRef.current.raf = requestAnimationFrame(step);
-    },
-    [markDirty],
-  );
+      markDirty();
+      if (t < 1) animRef.current.raf = requestAnimationFrame(step);
+      else animRef.current.raf = null;
+    };
+    animRef.current.raf = requestAnimationFrame(step);
+  }, [markDirty]);
 
   useImperativeHandle(
     handleRef,
@@ -204,10 +208,7 @@ export function KnowledgeCanvas({
         onResizeRef.current = fn;
       },
       zoomBy: (factor) => {
-        const k = Math.max(
-          MIN_ZOOM,
-          Math.min(MAX_ZOOM, camRef.current.k * factor),
-        );
+        const k = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, camRef.current.k * factor));
         animateTo({ ...camRef.current, k }, 180);
       },
     }),
@@ -253,7 +254,7 @@ export function KnowledgeCanvas({
 
   useEffect(() => {
     markDirty();
-  }, [emphasis, routeIds, selectedId, markDirty]);
+  }, [emphasis, routeIds, selectedId, theme, markDirty]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -278,6 +279,7 @@ export function KnowledgeCanvas({
       const sy = (wy: number) => (wy - cam.y) * cam.k + h / 2;
 
       const hovered = hoveredRef.current;
+      const palette = paletteRef.current;
       // Hover wins over the lens: pointing at something is a direct request.
       const focusSet: Set<string> | null = hovered
         ? new Set<string>([hovered, ...(model.adjacency.get(hovered) ?? [])])
@@ -291,6 +293,35 @@ export function KnowledgeCanvas({
         return 0.14;
       };
 
+      const labelables: SpaceLabelNode[] = layout.nodes.map((pn) => ({
+        id: pn.id,
+        x: pn.x,
+        y: pn.y,
+        kind: pn.node.kind,
+        label: pn.node.label,
+        weight: pn.node.weight,
+        cluster: pn.node.kind === "concept" ? pn.node.concept.cluster : undefined,
+        clusterId: pn.node.kind === "concept" ? pn.node.concept.cluster_id : undefined,
+      }));
+      const clusters = buildSpaceClusters(labelables, model.adjacency);
+
+      // ---- nebula dust behind topic clusters ----
+      for (const cluster of clusters) {
+        const tint = palette.nebula[cluster.tintIndex % palette.nebula.length];
+        const { r, g, b } = hexRgb(tint);
+        const x = sx(cluster.x);
+        const y = sy(cluster.y);
+        const radius = 48 + Math.sqrt(cluster.count) * 26 * Math.min(1.15, Math.max(0.55, cam.k));
+        const dust = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        dust.addColorStop(0, `rgba(${r},${g},${b},${palette.halo === "#17152c" ? 0.16 : 0.1})`);
+        dust.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = dust;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
       // ---- edges ----
       ctx.lineCap = "round";
       for (const link of model.links) {
@@ -301,45 +332,21 @@ export function KnowledgeCanvas({
         const onRoute = routeEdgeSet.has(`${link.source}|${link.target}`);
         const lit =
           onRoute ||
-          (!focusSet
-            ? false
-            : focusSet.has(link.source) && focusSet.has(link.target));
-        const alpha = focusSet
-          ? lit
-            ? 1
-            : 0.08
-          : link.kind === "resource"
-            ? 0.5
-            : 0.75;
-
-        ctx.globalAlpha =
-          alpha *
-          (onRoute
-            ? 0.82
-            : lit
-              ? 0.72
-              : link.kind === "resource"
-                ? 0.32
-                : 0.45);
-        ctx.strokeStyle =
-          lit || onRoute
-            ? CANVAS.edgeStrong
-            : link.kind === "resource"
-              ? CANVAS.edgeResource
-              : CANVAS.edge;
-        ctx.lineWidth = onRoute ? 0.9 : lit ? 0.72 : 0.45;
+          (!focusSet ? false : focusSet.has(link.source) && focusSet.has(link.target));
+        ctx.globalAlpha = focusSet ? (lit ? 1 : 0.1) : 1;
+        ctx.strokeStyle = lit || onRoute ? palette.edgeStrong : link.kind === "resource" ? palette.edgeResource : palette.edge;
+        ctx.lineWidth = onRoute ? 1.4 : lit ? 1.1 : 0.9;
 
         const angle = Math.atan2(b.y - a.y, b.x - a.x);
-        const aProfile = starProfile(a.node, cam.k);
-        const bProfile = starProfile(b.node, cam.k);
+        const aProfile = starProfile(a.node.id, a.node.radius, a.node.kind, cam.k);
+        const bProfile = starProfile(b.node.id, b.node.radius, b.node.kind, cam.k);
         const ax = sx(a.x) + Math.cos(angle) * (aProfile.core + 1);
         const ay = sy(a.y) + Math.sin(angle) * (aProfile.core + 1);
         const bx = sx(b.x) - Math.cos(angle) * (bProfile.core + 1);
         const by = sy(b.y) - Math.sin(angle) * (bProfile.core + 1);
         const mx = (ax + bx) / 2;
         const my = (ay + by) / 2;
-        const curve =
-          ((hash(link.id, 7) % 1000) / 1000 - 0.5) * 32 * Math.min(1, cam.k);
+        const curve = ((((hash(link.id, 7) % 1000) / 1000) - 0.5) * 32) * Math.min(1, cam.k);
         const cx = mx - Math.sin(angle) * curve;
         const cy = my + Math.cos(angle) * curve;
         ctx.beginPath();
@@ -353,33 +360,77 @@ export function KnowledgeCanvas({
         const node = pn.node;
         const x = sx(pn.x);
         const y = sy(pn.y);
-        const profile = starProfile(node, cam.k);
+        const profile = starProfile(node.id, node.radius, node.kind, cam.k);
         if (x < -60 || y < -60 || x > w + 60 || y > h + 60) continue;
 
         const isSelected = selectedId === node.id;
         const onRoute = routeSet.has(node.id);
-        ctx.globalAlpha = alphaFor(node.id);
-
-        drawStar(
-          ctx,
-          x,
-          y,
-          profile,
-          alphaFor(node.id),
-          isSelected || onRoute,
-          node.id,
-        );
+        drawStar(ctx, x, y, profile, alphaFor(node.id), isSelected || onRoute, node.id, palette);
       }
 
       // ---- labels (drawn last, with collision avoidance) ----
-      // Force layout cannot prevent label overlap because its collision is a
-      // circle and labels are wide horizontal boxes. So place labels in
-      // priority order and drop any that would collide with one already
-      // placed - the standard cartographic approach.
-      ctx.textAlign = "left";
+      // Zoomed out: constellation names. Zoomed in: short node names.
+      // Full titles stay in the tooltip and inspector.
       ctx.textBaseline = "middle";
-      const labelThreshold =
-        cam.k > 1.25 ? -1 : cam.k > 0.85 ? 0.35 : cam.k > 0.55 ? 0.6 : 0.78;
+      const layer = spaceLabelLayer(cam.k);
+      const displayFace = spaceTypeface("display");
+      const uiFace = spaceTypeface("ui");
+      const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
+
+      const paintLabel = (
+        text: string,
+        labelX: number,
+        labelY: number,
+        size: number,
+        font: string,
+        fill: string,
+        align: CanvasTextAlign,
+        alpha: number,
+        forced: boolean,
+      ) => {
+        ctx.textAlign = align;
+        ctx.font = font;
+        const tw = ctx.measureText(text).width;
+        const left = align === "center" ? labelX - tw / 2 : labelX;
+        const box = {
+          x0: left - 3,
+          y0: labelY - size / 2 - 2,
+          x1: left + tw + 3,
+          y1: labelY + size / 2 + 2,
+        };
+        const collides = placed.some(
+          (p) => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0,
+        );
+        if (collides && !forced) return;
+        placed.push(box);
+        ctx.globalAlpha = alpha;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = palette.halo;
+        ctx.lineJoin = "round";
+        ctx.strokeText(text, labelX, labelY);
+        ctx.fillStyle = fill;
+        ctx.fillText(text, labelX, labelY);
+      };
+
+      if (layer === "clusters") {
+        for (const cluster of clusters) {
+          const x = sx(cluster.x);
+          const y = sy(cluster.y);
+          if (x < -80 || y < -40 || x > w + 80 || y > h + 40) continue;
+          const size = cam.k > 0.55 ? 13 : 12;
+          paintLabel(
+            clipSpaceLabel(cluster.label, clusterLabelBudget(cam.k)),
+            x,
+            y - 18,
+            size,
+            `700 ${size}px ${displayFace}`,
+            palette.labelStrong,
+            "center",
+            1,
+            false,
+          );
+        }
+      }
 
       interface Candidate {
         pn: (typeof layout.nodes)[number];
@@ -389,13 +440,17 @@ export function KnowledgeCanvas({
       }
 
       const candidates: Candidate[] = [];
+      const labelThreshold =
+        cam.k > 1.6 ? -1 : cam.k > 1.15 ? 0.35 : 0.62;
+
       for (const pn of layout.nodes) {
         const node = pn.node;
         const forced =
           selectedId === node.id ||
           hovered === node.id ||
-          routeSet.has(node.id) ||
-          (emphasis !== null && emphasis.has(node.id));
+          routeSet.has(node.id);
+        if (layer === "clusters" && !forced) continue;
+        if (!forced && node.kind === "resource" && cam.k < 1.25) continue;
         if (!forced && node.weight < labelThreshold) continue;
         if (!forced && focusSet && !focusSet.has(node.id)) continue;
 
@@ -406,58 +461,36 @@ export function KnowledgeCanvas({
         candidates.push({
           pn,
           forced,
-          text:
-            node.label.length > 30
-              ? `${node.label.slice(0, 29)}\u2026`
-              : node.label,
+          text: clipSpaceLabel(node.label, nodeLabelBudget(cam.k, forced)),
           size: node.kind === "concept" ? 11.5 : 10.5,
         });
       }
 
-      // Forced labels first, then the most important concepts.
       candidates.sort((a, b) => {
         if (a.forced !== b.forced) return a.forced ? -1 : 1;
         return b.pn.node.weight - a.pn.node.weight;
       });
 
-      const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
-
       for (const c of candidates) {
         const node = c.pn.node;
         const x = sx(c.pn.x);
         const y = sy(c.pn.y);
-        const profile = starProfile(node, cam.k);
-        const labelX = x + profile.glow * 0.56 + 5;
-        const labelY = y + 1;
-
-        ctx.font = `${c.forced ? 500 : 400} ${c.size}px Georgia, 'Times New Roman', serif`;
-        const tw = ctx.measureText(c.text).width;
-        const box = {
-          x0: labelX - 2,
-          y0: labelY - c.size / 2 - 2,
-          x1: labelX + tw + 2,
-          y1: labelY + c.size / 2 + 2,
-        };
-
-        const collides = placed.some(
-          (p) =>
-            box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0,
+        const profile = starProfile(node.id, node.radius, node.kind, cam.k);
+        paintLabel(
+          c.text,
+          x + profile.glow * 0.56 + 5,
+          y + 1,
+          c.size,
+          `${c.forced ? 600 : 500} ${c.size}px ${uiFace}`,
+          c.forced
+            ? palette.labelStrong
+            : node.kind === "concept"
+              ? palette.label
+              : palette.labelDim,
+          "left",
+          alphaFor(node.id),
+          c.forced,
         );
-        // A forced label always wins: it is what the user is pointing at.
-        if (collides && !c.forced) continue;
-        placed.push(box);
-
-        ctx.globalAlpha = alphaFor(node.id);
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = CANVAS.halo;
-        ctx.lineJoin = "round";
-        ctx.strokeText(c.text, labelX, labelY);
-        ctx.fillStyle = c.forced
-          ? CANVAS.labelStrong
-          : node.kind === "concept"
-            ? CANVAS.label
-            : CANVAS.labelDim;
-        ctx.fillText(c.text, labelX, labelY);
       }
 
       ctx.globalAlpha = 1;
@@ -468,16 +501,7 @@ export function KnowledgeCanvas({
     return () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [
-    layout,
-    model,
-    nodeIndex,
-    emphasis,
-    selectedId,
-    routeSet,
-    routeEdgeSet,
-    markDirty,
-  ]);
+  }, [layout, model, nodeIndex, emphasis, selectedId, routeSet, routeEdgeSet, markDirty]);
 
   // --- hit testing --------------------------------------------------------
 
@@ -496,7 +520,7 @@ export function KnowledgeCanvas({
       for (const pn of layout.nodes) {
         const x = (pn.x - cam.x) * cam.k + w / 2;
         const y = (pn.y - cam.y) * cam.k + h / 2;
-        const r = starProfile(pn.node, cam.k).glow * 0.55 + 8;
+        const r = starProfile(pn.node.id, pn.node.radius, pn.node.kind, cam.k).glow * 0.55 + 8;
         const d = (px - x) ** 2 + (py - y) ** 2;
         if (d <= r * r && d < bestDist) {
           best = pn;
@@ -521,10 +545,12 @@ export function KnowledgeCanvas({
         startY: e.clientY,
         moved: false,
       };
-      // Do not touch the simulation here. A plain click must never disturb
-      // the layout - only a real drag (confirmed in onPointerMove once the
-      // pointer actually moves) should pin the node and reheat the sim.
-      e.currentTarget.style.cursor = "grabbing";
+      if (hit) {
+        hit.fx = hit.x;
+        hit.fy = hit.y;
+        layout.simulation.alphaTarget(0.12).alpha(0.22).restart();
+      }
+      (e.currentTarget.style.cursor = hit ? "grabbing" : "grabbing");
     },
     [pick],
   );
@@ -550,44 +576,22 @@ export function KnowledgeCanvas({
 
       const dx = e.clientX - drag.startX;
       const dy = e.clientY - drag.startY;
-      // A generous threshold: trackpad/mouse clicks routinely produce a
-      // couple of pixels of incidental movement, and misreading that as a
-      // drag start is exactly what made every click reheat the simulation.
-      const justStartedDragging =
-        !drag.moved && (Math.abs(dx) > 6 || Math.abs(dy) > 6);
-      if (justStartedDragging) drag.moved = true;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) drag.moved = true;
 
       if (drag.mode === "pan") {
-        camRef.current = {
-          ...cam,
-          x: cam.x - dx / cam.k,
-          y: cam.y - dy / cam.k,
-        };
+        camRef.current = { ...cam, x: cam.x - dx / cam.k, y: cam.y - dy / cam.k };
         drag.startX = e.clientX;
         drag.startY = e.clientY;
         markDirty();
       } else if (drag.nodeId) {
         const pn = nodeIndex.get(drag.nodeId);
-        // The real bug lived here: this used to run on *every* pointermove
-        // while the button was down on a node, including the sub-threshold
-        // jitter of an ordinary click - pinning fx/fy and reheating the sim
-        // even though `justStartedDragging` never fired. Since `drag.moved`
-        // only ever becomes true once the threshold above is actually
-        // crossed, gating on it means real jitter-only clicks never touch
-        // the node's position or the simulation at all.
-        if (pn && drag.moved) {
-          if (justStartedDragging) {
-            // Only now is this really a drag, not a click - reheat the sim,
-            // gently: enough to let neighbours make room, not enough to
-            // read as the whole graph shaking.
-            layout.simulation.alphaTarget(0.05).alpha(0.12).restart();
-          }
+        if (pn) {
           // Pin the handled star, then let its neighbours make room around it.
           pn.fx = pn.x + dx / cam.k;
           pn.fy = pn.y + dy / cam.k;
           drag.startX = e.clientX;
           drag.startY = e.clientY;
-          layout.simulation.alphaTarget(0.05).restart();
+          layout.simulation.alphaTarget(0.12).restart();
           markDirty();
         }
       }
@@ -599,10 +603,10 @@ export function KnowledgeCanvas({
     (e: React.PointerEvent<HTMLCanvasElement>) => {
       const drag = dragRef.current;
       if (!drag.moved) {
-        // A click, not a drag - the simulation was never touched, so there
-        // is nothing to release. Just select.
+        // A click, not a drag.
         onSelect(drag.nodeId);
-      } else if (drag.nodeId) {
+      }
+      if (drag.nodeId) {
         const pn = nodeIndex.get(drag.nodeId);
         if (pn) {
           // Retain the deliberate position for this session while the rest of
@@ -610,7 +614,7 @@ export function KnowledgeCanvas({
           pn.fx = pn.x;
           pn.fy = pn.y;
         }
-        layout.simulation.alphaTarget(0).alpha(0.08).restart();
+        layout.simulation.alphaTarget(0).alpha(0.16).restart();
       }
       // The pointer has not moved, so re-pick to keep hover in step with the
       // new selection instead of leaving the previous neighbourhood lit.
@@ -624,13 +628,7 @@ export function KnowledgeCanvas({
             : null,
         );
       }
-      dragRef.current = {
-        mode: "none",
-        nodeId: null,
-        startX: 0,
-        startY: 0,
-        moved: false,
-      };
+      dragRef.current = { mode: "none", nodeId: null, startX: 0, startY: 0, moved: false };
       try {
         (e.target as HTMLCanvasElement).releasePointerCapture(e.pointerId);
       } catch {
@@ -667,38 +665,14 @@ export function KnowledgeCanvas({
     [markDirty],
   );
 
-  const onPointerLeave = useCallback(
-    (e: React.PointerEvent<HTMLCanvasElement>) => {
-      if (hoveredRef.current) {
-        hoveredRef.current = null;
-        markDirty();
-      }
-      // Safety net: if a drag is somehow interrupted without a matching
-      // pointerup (capture lost, browser quirk), never leave the simulation
-      // parked at a non-zero alphaTarget - that reads as the graph shaking
-      // forever with no user action in progress.
-      if (dragRef.current.mode === "node" && dragRef.current.moved) {
-        const pn = dragRef.current.nodeId
-          ? nodeIndex.get(dragRef.current.nodeId)
-          : undefined;
-        if (pn) {
-          pn.fx = pn.x;
-          pn.fy = pn.y;
-        }
-        layout.simulation.alphaTarget(0).alpha(0.08).restart();
-      }
-      dragRef.current = {
-        mode: "none",
-        nodeId: null,
-        startX: 0,
-        startY: 0,
-        moved: false,
-      };
-      e.currentTarget.style.cursor = "grab";
-      onHover(null);
-    },
-    [markDirty, onHover, nodeIndex, layout],
-  );
+  const onPointerLeave = useCallback((e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (hoveredRef.current) {
+      hoveredRef.current = null;
+      markDirty();
+    }
+    e.currentTarget.style.cursor = "grab";
+    onHover(null);
+  }, [markDirty, onHover]);
 
   return (
     <div ref={wrapRef} className="absolute inset-0">
@@ -726,48 +700,24 @@ function hash(id: string, salt = 0): number {
   return value >>> 0;
 }
 
-interface StarProfile {
-  core: number;
-  glow: number;
-  opacity: number;
-  rays: boolean;
-  keyConcept: boolean;
+interface StarProfile { core: number; glow: number; opacity: number; rays: boolean }
+
+function starProfile(id: string, radius: number, kind: "concept" | "resource", zoom: number): StarProfile {
+  const variation = 0.76 + (hash(id, 19) % 250) / 1000;
+  const familiarityCore = 1.55 + ((radius - 18) / 25) * 3.1;
+  const core = Math.max(1.15, (kind === "concept" ? familiarityCore : 1.45) * variation * Math.sqrt(Math.max(zoom, 0.32)));
+  return { core, glow: core * (kind === "concept" ? 6.2 : 4.4), opacity: kind === "concept" ? 0.78 + variation * 0.22 : 0.56 + variation * 0.18, rays: kind === "concept" && core > 3.8 };
 }
 
-function starProfile(node: GraphModelNode, zoom: number): StarProfile {
-  // Radius is importance-derived in graphModel (range ~14-66). The tiny
-  // stable variation only prevents mechanically identical stars; it never
-  // overrides that meaning.
-  const variation = 0.94 + (hash(node.id, 19) % 120) / 1000;
-  const importanceCore = 1.3 + ((node.radius - 14) / 52) * 3.7;
-  const core = Math.max(
-    1.15,
-    (node.kind === "concept" ? importanceCore : 1.45) *
-      variation *
-      Math.sqrt(Math.max(zoom, 0.32)),
-  );
-  if (node.kind !== "concept") {
-    return { core, glow: core * 4.4, opacity: 0.64, rays: false, keyConcept: false };
-  }
-
-  // Which concepts are "key" is decided once in graphModel (importance,
-  // ranked and capped so ties in the saturated top of the scale do not
-  // flood the graph with highlights) - the renderer just reads the flag.
-  const keyConcept = node.keyConcept;
-
-  // Understanding controls only white-light intensity. Null is a distinct,
-  // subdued unassessed state, not a synonym for zero understanding.
-  const unassessed = node.concept.understanding === null;
-  const level = node.concept.understanding ?? 0;
-  const glowFactor = unassessed ? 0.55 : 0.62 + level * 0.76;
-  const opacity = unassessed ? 0.45 : 0.52 + level * 0.46;
-  return {
-    core,
-    glow: core * 6.2 * glowFactor,
-    opacity,
-    rays: !unassessed && level >= 0.7 && core > 3.8,
-    keyConcept,
-  };
+function spaceTypeface(face: "display" | "ui"): string {
+  const fallback =
+    face === "display"
+      ? '"Zen Maru Gothic", "M PLUS Rounded 1c", sans-serif'
+      : '"Instrument Sans", system-ui, sans-serif';
+  if (typeof document === "undefined") return fallback;
+  const token = face === "display" ? "--font-display" : "--font-ui";
+  const loaded = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+  return loaded ? `${loaded}, ${fallback}` : fallback;
 }
 
 function drawStar(
@@ -778,22 +728,14 @@ function drawStar(
   alpha: number,
   active: boolean,
   id: string,
+  palette: SpacePalette,
 ) {
-  const glow = ctx.createRadialGradient(
-    x,
-    y,
-    0,
-    x,
-    y,
-    star.glow * (active ? 1.22 : 1),
-  );
-  glow.addColorStop(
-    0,
-    `rgba(255,255,255,${Math.min(1, star.opacity * alpha)})`,
-  );
-  glow.addColorStop(0.12, `rgba(255,255,255,${star.opacity * alpha * 0.72})`);
-  glow.addColorStop(0.42, `rgba(255,255,255,${star.opacity * alpha * 0.15})`);
-  glow.addColorStop(1, "rgba(255,255,255,0)");
+  const { r, g, b } = hexRgb(palette.star);
+  const glow = ctx.createRadialGradient(x, y, 0, x, y, star.glow * (active ? 1.22 : 1));
+  glow.addColorStop(0, `rgba(${r},${g},${b},${Math.min(1, star.opacity * alpha)})`);
+  glow.addColorStop(0.12, `rgba(${r},${g},${b},${star.opacity * alpha * 0.72})`);
+  glow.addColorStop(0.42, `rgba(${r},${g},${b},${star.opacity * alpha * 0.15})`);
+  glow.addColorStop(1, `rgba(${r},${g},${b},0)`);
   ctx.globalAlpha = 1;
   ctx.fillStyle = glow;
   ctx.beginPath();
@@ -802,7 +744,7 @@ function drawStar(
   if (star.rays) {
     const rayAngle = ((hash(id, 41) % 1000) / 1000) * Math.PI;
     ctx.globalAlpha = alpha * 0.22;
-    ctx.strokeStyle = "#ffffff";
+    ctx.strokeStyle = palette.star;
     ctx.lineWidth = 0.5;
     for (const angle of [rayAngle, rayAngle + Math.PI / 2]) {
       const length = star.glow * 0.85;
@@ -813,19 +755,8 @@ function drawStar(
     }
   }
   ctx.globalAlpha = alpha;
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = palette.star;
   ctx.beginPath();
   ctx.arc(x, y, star.core, 0, Math.PI * 2);
   ctx.fill();
-
-  if (star.keyConcept) {
-    // A distinct colour accent, not just size, so key concepts read clearly
-    // even at a glance or when zoomed out past where size differences show.
-    ctx.globalAlpha = alpha * (active ? 0.95 : 0.75);
-    ctx.strokeStyle = CANVAS.brand;
-    ctx.lineWidth = active ? 1.6 : 1.1;
-    ctx.beginPath();
-    ctx.arc(x, y, star.core + 3.5, 0, Math.PI * 2);
-    ctx.stroke();
-  }
 }

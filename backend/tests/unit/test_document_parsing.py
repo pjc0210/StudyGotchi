@@ -56,3 +56,14 @@ def test_assessment_header_and_page_numbers_survive():
     )
     assert "Exam instructions" in chunks[0].text
     assert chunks[-1].page_number == 2
+
+
+@pytest.mark.asyncio
+async def test_parse_resource_strips_nul_bytes():
+    from app.extractors.parser import parse_resource
+    from app.providers.llm.fake_provider import FakeLLMProvider
+
+    document = await parse_resource("notes.txt", b"Inner\x00 products\x00 explain orthogonality.", provider=FakeLLMProvider())
+    assert "\x00" not in document.raw_text
+    assert all("\x00" not in page.text for page in document.pages)
+    assert "Inner products explain orthogonality." in document.raw_text

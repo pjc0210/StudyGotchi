@@ -1,0 +1,23 @@
+# Futuristic Utopia reference ledger
+
+Biome working id `future-utopia`. Reference use is compositional only: nothing is copied, no silhouette is reproduced. Source provenance is copied from `../SOURCES.tsv`; all six images are Pinterest private visual references (Hack 2026 board).
+
+| file | take | leave | date |
+|---|---|---|---|
+| [`01-floating-future-city.jpg`](01-floating-future-city.jpg) | One glass garden dome over greenery as the hero object; terraces stepping around it; tree-lined loop roads; lawn between white low blocks; distant green hills and a lagoon behind; the dome sits on its own raised terraces (our Arboretum Isle and D3 hall). | The anime sky with planet and moon, the road-and-car realism, the closed ring-road composition, the hills as skyline (ours is a tower skyline), any figure or vehicle. | 2026-09-20 |
+| [`02-water-city-plan.jpg`](02-water-city-plan.jpg) | The whole plan language: white tile ground, rounded terraces stepping down to teal water, concentric ring pool, lawn pockets, one canal cut through the plan, buildings as simple white blocks, a single soft-form landmark on its own plinth. This is the image the overview should be mistaken for. | Brand text and logos, the exhibition-booth cylinders, the single-colour whiteness (we add cyan strips, lawn, warm windows), the chrome twin-blob tower. | 2026-09-20 |
+| [`03-blue-accent-building.jpg`](03-blue-accent-building.jpg) | Building grammar: white shell, one slate-blue panel band, cyan light strip along the base and eave, flat roofs with a lens or ring element; 2-3 colours plus one glowing accent per object. | The military/sci-fi detail level, orange hazard accents and tanks (Heavy Industry), grey ground, weapon-like antennas, any exact building. | 2026-09-20 |
+| [`04-cloud-city-skyline.jpg`](04-cloud-city-skyline.jpg) | The skyline: pale blue-white needle spires standing in water and among low blocks, a wide low glass lens hall (our civic hall), an airship over the lagoon, green lawn strips between blocks, elevated glass transit ribbons; saturated clear water. | The colossal statue, the number of towers (ours is 11 + 7 + 5 at 100 %), the blue-monochrome ground, gunship/aircraft shapes, the density at ground level everywhere (ours is dense only inside districts). | 2026-09-20 |
+| [`05-aerial-future-city.jpg`](05-aerial-future-city.jpg) | Ring plaza around a single white spire with blossom trees at its foot (our landmark plinth and the warm blossom accent); elevated transit loop with glass rails crossing water; pale lilac-white palette; cylindrical pods and terraces stepping to water. | The lilac ground tint (too close to Regular City mauve), the road grid, the UI overlay, the spire's exact fluted shape, any vehicle design. | 2026-09-20 |
+| [`06-interconnected-city-level.jpg`](06-interconnected-city-level.jpg) | Density and block scale for the 100 % band: 8-10 mid-rise blocks on one plateau, roof pads, a plaza between blocks, elevated walkways joining blocks; the plateau edge as a cut cross-section. | Everything grim: damage, rubble, tanks, grey palette, helipad H markings, brick and steel materials, the game-level annotations; Heavy Industry owns this mood. | 2026-09-20 |
+
+## Source provenance
+
+| file | source type | label | source page | direct image |
+|---|---|---|---|---|
+| `01-floating-future-city.jpg` | Pinterest Hack 2026 | Floating future city | [pin](https://www.pinterest.com/pin/927811960757240039/) | [image](https://i.pinimg.com/736x/b2/d0/1d/b2d01dd40221d5961823e8a623784181.jpg) |
+| `02-water-city-plan.jpg` | Pinterest Hack 2026 | Water city plan | [pin](https://www.pinterest.com/pin/927811960757240034/) | [image](https://i.pinimg.com/736x/56/43/59/5643598ce6ab754dbd6de9f408d67563.jpg) |
+| `03-blue-accent-building.jpg` | Pinterest Hack 2026 | Blue accent building | [pin](https://www.pinterest.com/pin/927811960757240025/) | [image](https://i.pinimg.com/736x/8a/9a/fe/8a9afe8f4c2d24ef0e2b20dbf5ca2ee4.jpg) |
+| `04-cloud-city-skyline.jpg` | Pinterest Hack 2026 | Cloud city skyline | [pin](https://www.pinterest.com/pin/927811960757240024/) | [image](https://i.pinimg.com/736x/af/e8/79/afe879196598a09e3e67035486300390.jpg) |
+| `05-aerial-future-city.jpg` | Pinterest Hack 2026 | Aerial future city | [pin](https://www.pinterest.com/pin/927811960757240018/) | [image](https://i.pinimg.com/736x/ad/8d/72/ad8d72f5974e0dfeae6b556aee895b00.jpg) |
+| `06-interconnected-city-level.jpg` | Pinterest Hack 2026 | Interconnected city level | [pin](https://www.pinterest.com/pin/927811960757239945/) | [image](https://i.pinimg.com/736x/61/34/42/613442412ab1290362b5445b4cf38cca.jpg) |

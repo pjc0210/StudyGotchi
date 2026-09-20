@@ -1,43 +1,52 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import JSONResponse
 from openai import APIError
 
-from app.config import get_settings
 from app.api.routes import (
-    concept_detail,
     concepts,
     courses,
     debug,
+    me,
     ontology,
     personal_graph,
     resources,
     study,
     understanding,
+    world,
 )
+from app.config import get_settings
+
+settings = get_settings()
 
 app = FastAPI(
     title="StudyGotchi Knowledge Engine",
     description="Canonical course ontology, personal knowledge graph, and understanding-scoring backend.",
 )
 
+# The site runs on a different origin (Vercel) and uploads straight to this API.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=get_settings().cors_origins,
+    allow_origins=settings.cors_origins_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["ETag"],
 )
+app.add_middleware(GZipMiddleware, minimum_size=1024)
 
+app.include_router(me.router)
 app.include_router(courses.router)
 app.include_router(concepts.router)
-app.include_router(debug.router)
 app.include_router(resources.router)
 app.include_router(ontology.router)
 app.include_router(personal_graph.router)
 app.include_router(understanding.router)
 app.include_router(study.router)
-app.include_router(concept_detail.router)
+app.include_router(world.router)
+if not settings.is_production:
+    app.include_router(debug.router)
 
 
 @app.get("/health")

@@ -75,6 +75,33 @@ async def get_personal_concepts(
     return {row.id: _to_domain(row) for row in result.scalars().all()}
 
 
+async def get_visible_concepts(
+    session: AsyncSession, course_id: UUID, student_id: UUID | None = None
+) -> dict[UUID, ConceptNode]:
+    """Every concept this student may see: the course's own plus their personal ones.
+
+    Another student's personal concepts never appear here. This is the one
+    visibility rule; callers must not union course and personal sets by hand.
+    """
+
+    result = await session.execute(
+        select(Concept).where(
+            Concept.course_id == course_id,
+            Concept.status == "active",
+            _visible_scope(student_id),
+        )
+    )
+    return {row.id: _to_domain(row) for row in result.scalars().all()}
+
+
+async def get_visible_embeddings(
+    session: AsyncSession, course_id: UUID, student_id: UUID | None = None
+) -> dict[UUID, list[float]]:
+    """Embeddings of the visible concepts, for matching and resolution."""
+
+    return await get_concept_embeddings(session, course_id, student_id)
+
+
 async def get_concept(session: AsyncSession, concept_id: UUID) -> ConceptNode | None:
     row = await session.get(Concept, concept_id)
     return _to_domain(row) if row is not None else None

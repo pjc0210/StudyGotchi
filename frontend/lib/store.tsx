@@ -1,43 +1,16 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react";
-import {
-  api,
-  ApiError,
-  COURSE_ID,
-  COURSE_NAME,
-  isStudentScoped,
-  REAL_DEMO_STUDENTS,
-  setMockCourseId,
-  setRealCourse,
-  USE_MOCK,
-} from "./api";
-import { MOCK_COURSE, MOCK_COURSES } from "./mock";
-import type {
-  ArtifactType,
-  CourseResource,
-  CourseSummary,
-  KnowledgeGraphResponse,
-  SourceOrigin,
-  StudyTarget,
-  UploadItem,
-} from "./types";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { api, ApiError, invalidateApiCache, isStudentScoped, seededKnowledgeGraph } from "./api";
+import { useIdentity } from "./identity";
+import { ACCEPT_COPY, artifactTypeFor, isAcceptedFile } from "./uploadIntake";
+import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
 
-export const ACCEPTED_EXTENSIONS = [".pdf", ".zip"] as const;
+export { ACCEPTED_EXTENSIONS, isAcceptedFile } from "./uploadIntake";
 
-export function isAcceptedFile(file: File): boolean {
-  const name = file.name.toLowerCase();
-  return ACCEPTED_EXTENSIONS.some((ext) => name.endsWith(ext));
-}
+// How often the queue asks the engine about a file it is still reading.
+const STATUS_POLL_MS = 1500;
+const STATUS_POLL_LIMIT = 120;
 
 interface Async<T> {
   data: T | null;
@@ -48,9 +21,6 @@ interface Async<T> {
 interface StoreValue {
   graph: Async<KnowledgeGraphResponse>;
   reloadGraph: () => void;
-  courses: CourseSummary[];
-  selectedCourse: CourseSummary;
-  selectCourse: (id: string) => void;
 
   /** Ingested files. Shared by the graph and the Files view. */
   resources: CourseResource[];
@@ -68,12 +38,11 @@ interface StoreValue {
   targets: StudyTarget[];
 
   uploads: UploadItem[];
+  /** Bumped after every ingest that changed the student's state, so views refetch. */
   ingestVersion: number;
-  addUploads: (
-    files: File[],
-    origin: SourceOrigin,
-    artifactType: ArtifactType,
-  ) => void;
+  /** Concepts the latest uploads touched, most recent first. The island highlights them. */
+  recentlyTouched: string[];
+  addUploads: (files: File[], origin: SourceOrigin, artifactType: ArtifactType) => void;
   clearFinishedUploads: () => void;
 }
 
@@ -82,10 +51,9 @@ const StoreContext = createContext<StoreValue | null>(null);
 let uploadSeq = 0;
 
 export function StudyGotchiProvider({ children }: { children: ReactNode }) {
-  const [graph, setGraph] = useState<Async<KnowledgeGraphResponse>>({
-    data: null,
-    loading: true,
-    error: null,
+  const [graph, setGraph] = useState<Async<KnowledgeGraphResponse>>(() => {
+    const data = seededKnowledgeGraph();
+    return { data, loading: data == null, error: null };
   });
   const [resources, setResources] = useState<CourseResource[]>([]);
   const [resourcesLoading, setResourcesLoading] = useState(true);
@@ -94,64 +62,43 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [target, setTarget] = useState<StudyTarget | null>(null);
   const [targets, setTargets] = useState<StudyTarget[]>([]);
   const [uploads, setUploads] = useState<UploadItem[]>([]);
-  const [selectedCourseId, setSelectedCourseId] = useState(MOCK_COURSE.id);
-  // Real mode: which finished courses actually have a seeded demo student,
-  // fetched once from the backend rather than hardcoded here. `COURSE_ID` in
-  // api.ts is a plain module variable so changing it does not itself cause a
-  // re-render - `realSelectedCourseId` is the piece of React state that does.
-  const [realCourses, setRealCourses] = useState<CourseSummary[]>([
-    { id: COURSE_ID, code: COURSE_NAME, name: COURSE_NAME },
-  ]);
-  const [realSelectedCourseId, setRealSelectedCourseId] = useState(COURSE_ID);
-  useEffect(() => {
-    if (USE_MOCK) return;
-    let cancelled = false;
-    api
-      .listCourses()
-      .then((list) => {
-        if (!cancelled && list.length > 0) setRealCourses(list);
-      })
-      .catch(() => {
-        /* keep the single course already configured via env vars */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-  const selectedCourse: CourseSummary = USE_MOCK
-    ? (MOCK_COURSES.find((course) => course.id === selectedCourseId) ??
-      MOCK_COURSE)
-    : (realCourses.find((c) => c.id === realSelectedCourseId) ?? {
-        id: COURSE_ID,
-        code: COURSE_NAME,
-        name: COURSE_NAME,
-      });
-  // Bumped after every successful real ingestion so dependent views refetch.
   const [ingestVersion, setIngestVersion] = useState(0);
+  const [recentlyTouched, setRecentlyTouched] = useState<string[]>([]);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
+  const { ready, courseId, studentId } = useIdentity();
+
   const reloadGraph = useCallback(() => {
-    setGraph((g) => ({ ...g, loading: true, error: null }));
+    if (!ready) return;
+    setGraph((g) => {
+      const data = g.data ?? seededKnowledgeGraph();
+      return { data, loading: data == null, error: null };
+    });
     api
       .getKnowledgeGraph()
       .then((data) => setGraph({ data, loading: false, error: null }))
       .catch((err: unknown) =>
-        setGraph({
-          data: null,
-          loading: false,
-          error:
-            err instanceof ApiError
-              ? err.message
-              : "Could not load your knowledge graph.",
+        setGraph((g) => {
+          const data = g.data ?? seededKnowledgeGraph();
+          if (data) return { data, loading: false, error: null };
+          return {
+            data: null,
+            loading: false,
+            error: err instanceof ApiError ? err.message : "Could not load your knowledge graph.",
+          };
         }),
       );
-  }, []);
+  }, [ready]);
 
   useEffect(() => {
+    invalidateApiCache();
+    const seed = seededKnowledgeGraph(courseId);
+    if (seed) setGraph({ data: seed, loading: false, error: null });
     reloadGraph();
-  }, [reloadGraph, selectedCourse.id]);
+  }, [reloadGraph, courseId, studentId]);
 
   const reloadResources = useCallback(() => {
+    if (!ready) return;
     setResourcesLoading(true);
     api
       .listResources()
@@ -160,13 +107,14 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       // graph simply renders concepts alone.
       .catch(() => setResources([]))
       .finally(() => setResourcesLoading(false));
-  }, []);
+  }, [ready]);
 
   useEffect(() => {
     reloadResources();
-  }, [reloadResources, ingestVersion, selectedCourse.id]);
+  }, [reloadResources, ingestVersion, courseId, studentId]);
 
   useEffect(() => {
+    if (!ready) return;
     let cancelled = false;
     api
       .listStudyTargets()
@@ -183,28 +131,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [selectedCourse.id]);
-
-  const selectCourse = useCallback(
-    (id: string) => {
-      if (USE_MOCK) {
-        if (id === selectedCourseId) return;
-        setMockCourseId(id);
-        setSelectedCourseId(id);
-      } else {
-        if (id === realSelectedCourseId) return;
-        const course = realCourses.find((c) => c.id === id);
-        const studentId = course ? REAL_DEMO_STUDENTS[course.code] : undefined;
-        if (!course || !studentId) return;
-        setRealCourse(course.id, studentId, course.name);
-        setRealSelectedCourseId(course.id);
-      }
-      setSelectedId(null);
-      setTarget(null);
-      setFocusNonce((n) => n + 1);
-    },
-    [selectedCourseId, realSelectedCourseId, realCourses],
-  );
+  }, [ready, courseId, studentId]);
 
   useEffect(
     () => () => {
@@ -214,14 +141,48 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   );
 
   const patchUpload = useCallback((id: string, patch: Partial<UploadItem>) => {
-    setUploads((prev) =>
-      prev.map((u) => (u.id === id ? { ...u, ...patch } : u)),
-    );
+    setUploads((prev) => prev.map((u) => (u.id === id ? { ...u, ...patch } : u)));
   }, []);
 
   const later = useCallback((fn: () => void, ms: number) => {
     timers.current.push(setTimeout(fn, ms));
   }, []);
+
+  const noteTouched = useCallback((ids: string[]) => {
+    if (ids.length === 0) return;
+    setRecentlyTouched((prev) => [...ids, ...prev.filter((id) => !ids.includes(id))].slice(0, 40));
+  }, []);
+
+  const stateChanged = useCallback(() => {
+    setIngestVersion((v) => v + 1);
+    reloadGraph();
+  }, [reloadGraph]);
+
+  /** Follow a student file through the engine's background analysis. */
+  const pollUntilDone = useCallback(
+    (uploadId: string, resourceId: string, attempt = 0) => {
+      if (attempt > STATUS_POLL_LIMIT) {
+        patchUpload(uploadId, { status: "failed", error: "The engine is taking too long. Try again later." });
+        return;
+      }
+      later(() => {
+        api
+          .getResourceStatus(resourceId)
+          .then((status) => {
+            if (status.status === "processed" || status.status === "empty" || status.status === "unchanged") {
+              patchUpload(uploadId, { status: "complete" });
+              stateChanged();
+            } else if (status.status === "failed") {
+              patchUpload(uploadId, { status: "failed", error: status.error ?? "The engine could not read this file." });
+            } else {
+              pollUntilDone(uploadId, resourceId, attempt + 1);
+            }
+          })
+          .catch(() => pollUntilDone(uploadId, resourceId, attempt + 1));
+      }, STATUS_POLL_MS);
+    },
+    [later, patchUpload, stateChanged],
+  );
 
   const addUploads = useCallback<StoreValue["addUploads"]>(
     (files, origin, artifactType) => {
@@ -234,9 +195,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           filename: file.name,
           size: file.size,
           origin,
-          artifact_type: file.name.toLowerCase().endsWith(".zip")
-            ? "course_bundle"
-            : artifactType,
+          artifact_type: artifactTypeFor(file, artifactType),
           status: "queued",
         })),
         ...rejected.map<UploadItem>((file) => ({
@@ -246,7 +205,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           origin,
           artifact_type: artifactType,
           status: "failed",
-          error: "Unsupported file type. Upload a PDF or ZIP.",
+          error: `Unsupported file type. Upload a ${ACCEPT_COPY}.`,
         })),
       ];
 
@@ -259,45 +218,16 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
         later(() => {
           patchUpload(item.id, { status: "uploading" });
 
-          // Real ingestion is synchronous and can take a while, so the row sits
-          // in "processing" for as long as the request is actually in flight.
-          // No fabricated percentage - the label is the real state.
-          if (!USE_MOCK) patchUpload(item.id, { status: "processing" });
-
           api
-            .ingest({
-              file,
-              origin,
-              artifactType: item.artifact_type,
-              studentScoped,
-            })
+            .ingest({ file, origin, artifactType: item.artifact_type, studentScoped })
             .then((res) => {
-              patchUpload(item.id, {
-                status: res.status ?? "processing",
-                child_count: res.child_count,
-              });
+              patchUpload(item.id, { status: res.status ?? "processing", child_count: res.child_count });
+              noteTouched(res.concepts_touched ?? []);
 
-              if (USE_MOCK) {
-                // Mock mode only: walk the remaining states so the demo reads
-                // end-to-end without a backend.
-                later(
-                  () => {
-                    patchUpload(item.id, {
-                      status: "complete",
-                      concepts_extracted: res.child_count
-                        ? res.child_count * 3
-                        : 7,
-                    });
-                    reloadGraph();
-                  },
-                  2200 + i * 400,
-                );
-              } else {
-                // The engine has already rebuilt this student's state, so pull
-                // the new graph rather than making the user reload the page.
-                setIngestVersion((v) => v + 1);
-                reloadGraph();
-              }
+              // The fast phase already moved this student's state; show it now,
+              // then follow the background read until the engine is done.
+              stateChanged();
+              if (res.analysis_pending) pollUntilDone(item.id, res.resource_id);
             })
             .catch((err: unknown) =>
               patchUpload(item.id, {
@@ -308,13 +238,11 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
         }, 250 * i);
       });
     },
-    [later, patchUpload, reloadGraph],
+    [later, patchUpload, stateChanged, noteTouched, pollUntilDone],
   );
 
   const clearFinishedUploads = useCallback(() => {
-    setUploads((prev) =>
-      prev.filter((u) => u.status !== "complete" && u.status !== "failed"),
-    );
+    setUploads((prev) => prev.filter((u) => u.status !== "complete" && u.status !== "failed"));
   }, []);
 
   const focusConcept = useCallback((id: string) => {
@@ -326,9 +254,6 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     () => ({
       graph,
       reloadGraph,
-      courses: USE_MOCK ? MOCK_COURSES : realCourses,
-      selectedCourse,
-      selectCourse,
       selectedId,
       select: setSelectedId,
       focusNonce,
@@ -340,15 +265,13 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       resourcesLoading,
       uploads,
       ingestVersion,
+      recentlyTouched,
       addUploads,
       clearFinishedUploads,
     }),
     [
       graph,
       reloadGraph,
-      realCourses,
-      selectedCourse,
-      selectCourse,
       selectedId,
       focusNonce,
       focusConcept,
@@ -358,14 +281,13 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       resourcesLoading,
       uploads,
       ingestVersion,
+      recentlyTouched,
       addUploads,
       clearFinishedUploads,
     ],
   );
 
-  return (
-    <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
-  );
+  return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
 }
 
 export function useStore(): StoreValue {

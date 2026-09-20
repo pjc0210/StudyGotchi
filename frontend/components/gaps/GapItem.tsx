@@ -61,26 +61,24 @@ export function GapItem({
 
         <dl className="mt-2.5 flex gap-4 pl-5">
           <div>
-            <dt className="text-[10px] uppercase tracking-wider text-ink-faint">
-              Understanding
-            </dt>
+            <dt className="text-[10px] uppercase tracking-wider text-ink-faint">Mastery</dt>
             <dd className="font-mono text-[13px] tabular-nums text-ink">
-              {formatScore(gap.understanding)}
+              {formatScore(gap.mastery)}
             </dd>
           </div>
           <div>
-            <dt className="text-[10px] uppercase tracking-wider text-ink-faint">
-              Priority
-            </dt>
-            <dd className="text-[13px] text-ink">
-              {priorityLabel(gap.priority)}
+            <dt className="text-[10px] uppercase tracking-wider text-ink-faint">Confidence</dt>
+            <dd className="font-mono text-[13px] tabular-nums text-ink">
+              {formatScore(gap.confidence)}
             </dd>
+          </div>
+          <div>
+            <dt className="text-[10px] uppercase tracking-wider text-ink-faint">Priority</dt>
+            <dd className="text-[13px] text-ink">{priorityLabel(gap.priority)}</dd>
           </div>
         </dl>
 
-        <p className="mt-2 pl-5 text-[12px] leading-relaxed text-ink-dim">
-          {gap.reason}
-        </p>
+        <p className="mt-2 pl-5 text-[12px] leading-relaxed text-ink-dim">{gap.reason}</p>
       </button>
     </li>
   );

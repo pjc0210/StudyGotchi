@@ -1,0 +1,74 @@
+/* Gallery shell only. Direction styles live in ./directions/<x>/<x>.css and must scope
+   every selector under .dir-a, .dir-b, or .dir-c. */
+
+.chrome-root {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.chrome-switch {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(20, 20, 28, 0.35);
+  border-radius: 6px;
+  background: rgba(20, 20, 28, 0.82);
+  color: #f2f2f6;
+  font-family: 'Departure Mono', ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.chrome-switch button,
+.chrome-switch-show {
+  min-height: 22px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chrome-switch button[aria-pressed='true'] {
+  background: #f2f2f6;
+  color: #14141c;
+}
+
+.chrome-switch select {
+  min-height: 22px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 4px;
+  background: rgba(242, 242, 246, 0.12);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chrome-switch-sep {
+  width: 1px;
+  height: 14px;
+  margin: 0 3px;
+  background: rgba(242, 242, 246, 0.3);
+}
+
+.chrome-switch-show {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 100;
+  width: 22px;
+  border: 1px solid rgba(20, 20, 28, 0.35);
+  background: rgba(20, 20, 28, 0.82);
+  color: #f2f2f6;
+  font-family: 'Departure Mono', ui-monospace, monospace;
+  font-size: 11px;
+}

@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://studygotchi.local/assets/biomes/catalog.schema.json",
+  "title": "StudyGotchi biome family catalogue",
+  "description": "One data catalogue consumed by the landmark factory, the creature factory and the runtime world (galaxy.ts). Every course is assigned one family; families are open-ended.",
+  "type": "object",
+  "required": ["version", "conventions", "archetypes", "shared_props", "families"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "minimum": 1 },
+    "generated_at": { "type": "string" },
+    "notes": { "type": "array", "items": { "type": "string" } },
+    "conventions": { "type": "object" },
+    "archetypes": {
+      "type": "array", "minItems": 6, "maxItems": 6, "uniqueItems": true,
+      "items": { "$ref": "#/$defs/archetype" }
+    },
+    "shared_props": { "type": "array", "items": { "$ref": "#/$defs/prop" } },
+    "families": {
+      "type": "array", "minItems": 1,
+      "items": { "$ref": "#/$defs/family" }
+    }
+  },
+  "$defs": {
+    "hex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$" },
+    "archetype": { "type": "string", "enum": ["blob", "bean", "bird", "biped", "sprite", "flat"] },
+    "profile": { "type": "string", "enum": ["flat", "gentle", "hills", "mountain", "recessed_water", "terrace"] },
+    "runtime_recipe": {
+      "description": "galaxy.ts Recipe name this prop stands in for during migration",
+      "type": ["string", "null"],
+      "enum": ["mountain", "crystal", "floe", "house", "tower", "dock", "lighthouse", "rock", "pine", "roundTree", "palm", "cactus",
+               "pillar", "chimney", "shrub", "flower", "iceberg", "hexColumn", "coral", "lamp", "boat", "crop", "geyser", null]
+    },
+    "prop": {
+      "type": "object",
+      "required": ["id", "brief", "tri_budget"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "brief": { "type": "string", "minLength": 8 },
+        "tri_budget": { "type": "integer", "minimum": 8, "maximum": 300 },
+        "runtime_recipe": { "$ref": "#/$defs/runtime_recipe" },
+        "tags": { "type": "array", "items": { "type": "string", "enum": ["decor", "terrain", "emissive", "animated"] } },
+        "file": { "type": "string", "pattern": "^assets/.+\\.glb$" }
+      }
+    },
+    "creature_colour": {
+      "type": "object",
+      "required": ["name", "hex", "contrast_vs_ground"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "hex": { "$ref": "#/$defs/hex" },
+        "contrast_vs_ground": { "type": "number", "minimum": 1.4, "description": "WCAG luminance ratio against palette.ground; recomputed by validate_catalog.py" }
+      }
+    },
+    "night": {
+      "type": "object",
+      "required": ["sky", "fog", "ground_lightness_offset", "lamp", "window", "star_density", "moon"],
+      "additionalProperties": true,
+      "properties": {
+        "sky": { "$ref": "#/$defs/hex" },
+        "fog": { "$ref": "#/$defs/hex" },
+        "ground_lightness_offset": { "type": "number", "minimum": -0.5, "maximum": 0.1 },
+        "lamp": { "$ref": "#/$defs/hex" },
+        "window": { "$ref": "#/$defs/hex" },
+        "star_density": { "type": "number", "minimum": 0, "maximum": 1 },
+        "moon": { "type": "boolean" }
+      }
+    },
+    "palette": {
+      "type": "object",
+      "required": ["ground", "ground_alt", "accent", "road_core", "road_edge", "water", "creature", "window", "ink", "night"],
+      "additionalProperties": false,
+      "properties": {
+        "ground": { "$ref": "#/$defs/hex" },
+        "ground_alt": { "$ref": "#/$defs/hex" },
+        "accent": { "$ref": "#/$defs/hex" },
+        "accent_2": { "$ref": "#/$defs/hex" },
+        "road_core": { "$ref": "#/$defs/hex" },
+        "road_edge": { "$ref": "#/$defs/hex" },
+        "water": { "$ref": "#/$defs/hex" },
+        "window": { "$ref": "#/$defs/hex" },
+        "ink": { "$ref": "#/$defs/hex" },
+        "creature": { "type": "array", "minItems": 3, "maxItems": 4, "items": { "$ref": "#/$defs/creature_colour" } },
+        "night": { "$ref": "#/$defs/night" }
+      }
+    },
+    "hsl_offset": {
+      "type": "object",
+      "required": ["h", "s", "l"],
+      "additionalProperties": false,
+      "properties": {
+        "h": { "type": "number", "minimum": -180, "maximum": 180 },
+        "s": { "type": "number", "minimum": -1, "maximum": 1 },
+        "l": { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    },
+    "decor_item": {
+      "type": "object",
+      "required": ["prop", "density"],
+      "additionalProperties": false,
+      "properties": {
+        "prop": { "$ref": "#/$defs/id", "description": "id of a prop in this family, another family, or shared_props" },
+        "density": { "type": "integer", "minimum": 1, "maximum": 40 }
+      }
+    },
+    "terrain_kind": {
+      "type": "object",
+      "required": ["id", "profile", "tint_hsl_offset", "tint", "alt", "decor"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "profile": { "$ref": "#/$defs/profile" },
+        "tint_hsl_offset": { "$ref": "#/$defs/hsl_offset" },
+        "tint": { "$ref": "#/$defs/hex", "description": "derived: ground shifted by tint_hsl_offset" },
+        "alt": { "$ref": "#/$defs/hex", "description": "secondary colour: water body, lava, rock cap" },
+        "decor": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "$ref": "#/$defs/decor_item" } },
+        "role": { "type": "string", "enum": ["water", "shore"] },
+        "fill": { "type": "string", "enum": ["water", "lava", "ice", "none"] }
+      },
+      "if": { "properties": { "profile": { "const": "recessed_water" } } },
+      "then": { "required": ["fill"] }
+    },
+    "marker": {
+      "type": "object",
+      "required": ["tier_colours", "signature_props", "creature_archetype_preference"],
+      "additionalProperties": true,
+      "properties": {
+        "tier_colours": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "$ref": "#/$defs/hex" }, "description": "pedestal base, mid, cap" },
+        "signature_props": { "type": "array", "minItems": 2, "maxItems": 4, "items": { "$ref": "#/$defs/id" } },
+        "creature_archetype_preference": { "$ref": "#/$defs/archetype" },
+        "sign_text_style": { "type": "string" }
+      }
+    },
+    "landmark_stage": {
+      "type": "object",
+      "required": ["name", "brief", "height_m", "motif_carried"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 3 },
+        "brief": { "type": "string", "minLength": 10 },
+        "height_m": { "type": "number", "minimum": 0.5, "maximum": 2.0 },
+        "motif_carried": { "type": "string", "description": "continuity rule: the motif of the previous stage that this stage contains" },
+        "file": { "type": "string", "pattern": "^assets/landmarks/.+\\.glb$" }
+      }
+    },
+    "landmarks": {
+      "type": "object",
+      "required": ["s1", "s2a", "s2b", "s2c", "s3"],
+      "additionalProperties": false,
+      "properties": {
+        "s1": { "allOf": [{ "$ref": "#/$defs/landmark_stage" }, { "properties": { "height_m": { "minimum": 0.55, "maximum": 0.62 } } }] },
+        "s2a": { "allOf": [{ "$ref": "#/$defs/landmark_stage" }, { "properties": { "height_m": { "minimum": 0.95, "maximum": 1.07 } } }] },
+        "s2b": { "allOf": [{ "$ref": "#/$defs/landmark_stage" }, { "properties": { "height_m": { "minimum": 0.95, "maximum": 1.07 } } }] },
+        "s2c": { "allOf": [{ "$ref": "#/$defs/landmark_stage" }, { "properties": { "height_m": { "minimum": 0.95, "maximum": 1.07 } } }] },
+        "s3": { "allOf": [{ "$ref": "#/$defs/landmark_stage" }, { "properties": { "height_m": { "minimum": 1.75, "maximum": 1.9 } } }] }
+      }
+    },
+    "terrain_piece": {
+      "type": "object",
+      "required": ["id", "brief", "height_m"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "brief": { "type": "string", "minLength": 10 },
+        "height_m": { "type": "number", "minimum": 1.0, "maximum": 3.0 },
+        "file": { "type": "string", "pattern": "^assets/landmarks/.+\\.glb$" }
+      }
+    },
+    "bands": {
+      "type": "object",
+      "required": ["0", "25", "50", "75", "100"],
+      "additionalProperties": false,
+      "properties": {
+        "0": { "type": "number", "minimum": 0.2, "maximum": 1.0 },
+        "25": { "type": "number", "minimum": 0.5, "maximum": 2.5 },
+        "50": { "type": "number", "minimum": 1.5, "maximum": 4.0 },
+        "75": { "type": "number", "minimum": 3.0, "maximum": 5.5 },
+        "100": { "type": "number", "minimum": 4.0, "maximum": 7.0 }
+      }
+    },
+    "growth_hero": {
+      "type": "object",
+      "required": ["id", "brief", "height_m_by_band", "extras_by_band"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "brief": { "type": "string", "minLength": 10 },
+        "height_m_by_band": { "$ref": "#/$defs/bands" },
+        "extras_by_band": {
+          "type": "object", "required": ["0", "25", "50", "75", "100"], "additionalProperties": false,
+          "properties": { "0": { "type": "string" }, "25": { "type": "string" }, "50": { "type": "string" }, "75": { "type": "string" }, "100": { "type": "string" } }
+        }
+      }
+    },
+    "catastrophe": {
+      "type": "object",
+      "required": ["kind", "effect_family", "brief", "ruin", "recovery"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string", "pattern": "^[a-z][a-z_]*$", "description": "e.g. storm, eruption, blizzard, meteor, short_circuit, sandstorm, monsoon, cave_in, haunting" },
+        "effect_family": { "type": "string", "enum": ["weather", "geological", "mechanical", "cosmic", "spooky"] },
+        "brief": { "type": "string", "minLength": 10 },
+        "ruin": {
+          "type": "object", "required": ["id", "brief"], "additionalProperties": false,
+          "properties": { "id": { "$ref": "#/$defs/id" }, "brief": { "type": "string", "minLength": 10 }, "file": { "type": "string" } }
+        },
+        "recovery": { "type": "string", "minLength": 10 }
+      }
+    },
+    "archetype_weights": {
+      "type": "object",
+      "required": ["blob", "bean", "bird", "biped", "sprite", "flat"],
+      "additionalProperties": false,
+      "properties": {
+        "blob": { "type": "number", "minimum": 0, "maximum": 1 },
+        "bean": { "type": "number", "minimum": 0, "maximum": 1 },
+        "bird": { "type": "number", "minimum": 0, "maximum": 1 },
+        "biped": { "type": "number", "minimum": 0, "maximum": 1 },
+        "sprite": { "type": "number", "minimum": 0, "maximum": 1 },
+        "flat": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "sound_ambience": {
+      "type": "object",
+      "required": ["loops", "one_shots", "brief"],
+      "additionalProperties": false,
+      "properties": {
+        "loops": { "type": "array", "items": { "type": "string" }, "description": "names from assets/audio/sfx/manifest.json" },
+        "one_shots": { "type": "array", "items": { "type": "string" } },
+        "brief": { "type": "string" }
+      }
+    },
+    "family": {
+      "type": "object",
+      "required": ["id", "display_name", "status", "mood", "palette", "terrain_kinds", "marker", "landmarks", "props", "terrain_piece",
+                   "growth_hero", "catastrophe", "creature_archetype_weights", "subject_affinity", "sound_ambience"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "display_name": { "type": "string", "minLength": 2 },
+        "status": { "type": "string", "enum": ["shipped", "planned"] },
+        "aliases": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "mood": { "type": "string", "minLength": 10, "maxLength": 140 },
+        "palette": { "$ref": "#/$defs/palette" },
+        "terrain_kinds": { "type": "array", "minItems": 6, "maxItems": 10, "items": { "$ref": "#/$defs/terrain_kind" } },
+        "marker": { "$ref": "#/$defs/marker" },
+        "landmarks": { "$ref": "#/$defs/landmarks" },
+        "props": { "type": "array", "minItems": 6, "maxItems": 8, "items": { "$ref": "#/$defs/prop" } },
+        "terrain_piece": { "$ref": "#/$defs/terrain_piece" },
+        "growth_hero": { "$ref": "#/$defs/growth_hero" },
+        "catastrophe": { "$ref": "#/$defs/catastrophe" },
+        "creature_archetype_weights": { "$ref": "#/$defs/archetype_weights" },
+        "subject_affinity": { "type": "array", "minItems": 3, "uniqueItems": true, "items": { "type": "string", "minLength": 2 } },
+        "sound_ambience": { "$ref": "#/$defs/sound_ambience" }
+      }
+    }
+  }
+}

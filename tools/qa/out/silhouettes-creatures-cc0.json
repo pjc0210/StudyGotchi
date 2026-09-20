@@ -1,0 +1,1452 @@
+{
+ "tool": "silhouette_test.py",
+ "version": 1,
+ "set": "creatures-cc0",
+ "generated_at": "2026-09-19T22:26:03-0400",
+ "blender": "5.2.0 LTS",
+ "thresholds": {
+  "fill": [
+   0.25,
+   0.75
+  ],
+  "components": 1,
+  "min_distinct": 0.05
+ },
+ "view": {
+  "projection": "orthographic",
+  "azimuth_deg": 34.0,
+  "elevation_deg": 22.0,
+  "sizes": [
+   96,
+   48
+  ]
+ },
+ "family_mode": "folder",
+ "grid": {
+  "png": "tools/qa/out/silhouettes-creatures-cc0.png",
+  "rows_cols": [
+   7,
+   8
+  ],
+  "cell": "96 px silhouette | 48 px silhouette x2 | label | f=fill c=components96/48 d=distinctness"
+ },
+ "files": [
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Bat.glb",
+   "rel": "assets/creatures/cc0/gobkit/Bat.glb",
+   "label": "Bat",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4597,
+   "frame_fill96": 0.1844,
+   "components96": 1,
+   "component_areas96": [
+    1699
+   ],
+   "fill48": 0.4747,
+   "frame_fill48": 0.1836,
+   "components48": 1,
+   "component_areas48": [
+    423
+   ],
+   "distinctness": 0.1362,
+   "nearest": "Blue",
+   "nearest_score": 0.0812
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Bee.glb",
+   "rel": "assets/creatures/cc0/gobkit/Bee.glb",
+   "label": "Bee",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4438,
+   "frame_fill96": 0.1408,
+   "components96": 1,
+   "component_areas96": [
+    1298
+   ],
+   "fill48": 0.4677,
+   "frame_fill48": 0.1385,
+   "components48": 1,
+   "component_areas48": [
+    319
+   ],
+   "distinctness": 0.1452,
+   "nearest": "Rat",
+   "nearest_score": 0.0803
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Blue.glb",
+   "rel": "assets/creatures/cc0/gobkit/Blue.glb",
+   "label": "Blue",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6186,
+   "frame_fill96": 0.2139,
+   "components96": 1,
+   "component_areas96": [
+    1971
+   ],
+   "fill48": 0.6499,
+   "frame_fill48": 0.2127,
+   "components48": 1,
+   "component_areas48": [
+    490
+   ],
+   "distinctness": 0.1013,
+   "nearest": "Rat",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Corgi.glb",
+   "rel": "assets/creatures/cc0/gobkit/Corgi.glb",
+   "label": "Corgi",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7419,
+   "frame_fill96": 0.2967,
+   "components96": 1,
+   "component_areas96": [
+    2734
+   ],
+   "fill48": 0.744,
+   "frame_fill48": 0.2964,
+   "components48": 1,
+   "component_areas48": [
+    683
+   ],
+   "distinctness": 0.1165,
+   "nearest": "Hippo",
+   "nearest_score": 0.0486
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Duck.glb",
+   "rel": "assets/creatures/cc0/gobkit/Duck.glb",
+   "label": "Duck",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6616,
+   "frame_fill96": 0.219,
+   "components96": 1,
+   "component_areas96": [
+    2018
+   ],
+   "fill48": 0.6733,
+   "frame_fill48": 0.2192,
+   "components48": 1,
+   "component_areas48": [
+    505
+   ],
+   "distinctness": 0.1061,
+   "nearest": "Blue",
+   "nearest_score": 0.0621
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Fugu.glb",
+   "rel": "assets/creatures/cc0/gobkit/Fugu.glb",
+   "label": "Fugu",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6384,
+   "frame_fill96": 0.2197,
+   "components96": 1,
+   "component_areas96": [
+    2025
+   ],
+   "fill48": 0.6773,
+   "frame_fill48": 0.2205,
+   "components48": 1,
+   "component_areas48": [
+    508
+   ],
+   "distinctness": 0.1145,
+   "nearest": "Rat",
+   "nearest_score": 0.0608
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Goat.glb",
+   "rel": "assets/creatures/cc0/gobkit/Goat.glb",
+   "label": "Goat",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6136,
+   "frame_fill96": 0.225,
+   "components96": 1,
+   "component_areas96": [
+    2074
+   ],
+   "fill48": 0.6014,
+   "frame_fill48": 0.224,
+   "components48": 1,
+   "component_areas48": [
+    516
+   ],
+   "distinctness": 0.1146,
+   "nearest": "Rat",
+   "nearest_score": 0.0564
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Hippo.glb",
+   "rel": "assets/creatures/cc0/gobkit/Hippo.glb",
+   "label": "Hippo",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7378,
+   "frame_fill96": 0.3218,
+   "components96": 1,
+   "component_areas96": [
+    2966
+   ],
+   "fill48": 0.7525,
+   "frame_fill48": 0.3234,
+   "components48": 1,
+   "component_areas48": [
+    745
+   ],
+   "distinctness": 0.1202,
+   "nearest": "Corgi",
+   "nearest_score": 0.0486
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Jellyfish.glb",
+   "rel": "assets/creatures/cc0/gobkit/Jellyfish.glb",
+   "label": "Jellyfish",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6982,
+   "frame_fill96": 0.3142,
+   "components96": 1,
+   "component_areas96": [
+    2896
+   ],
+   "fill48": 0.7186,
+   "frame_fill48": 0.3181,
+   "components48": 1,
+   "component_areas48": [
+    733
+   ],
+   "distinctness": 0.1178,
+   "nearest": "Marmot",
+   "nearest_score": 0.0482
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Marmot.glb",
+   "rel": "assets/creatures/cc0/gobkit/Marmot.glb",
+   "label": "Marmot",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7155,
+   "frame_fill96": 0.3261,
+   "components96": 1,
+   "component_areas96": [
+    3005
+   ],
+   "fill48": 0.7429,
+   "frame_fill48": 0.3273,
+   "components48": 1,
+   "component_areas48": [
+    754
+   ],
+   "distinctness": 0.1234,
+   "nearest": "Jellyfish",
+   "nearest_score": 0.0482
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Owl.glb",
+   "rel": "assets/creatures/cc0/gobkit/Owl.glb",
+   "label": "Owl",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.76 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.76,
+   "frame_fill96": 0.2918,
+   "components96": 1,
+   "component_areas96": [
+    2689
+   ],
+   "fill48": 0.7747,
+   "frame_fill48": 0.2925,
+   "components48": 1,
+   "component_areas48": [
+    674
+   ],
+   "distinctness": 0.1061,
+   "nearest": "Jellyfish",
+   "nearest_score": 0.0569
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Platypus.glb",
+   "rel": "assets/creatures/cc0/gobkit/Platypus.glb",
+   "label": "Platypus",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6507,
+   "frame_fill96": 0.2458,
+   "components96": 1,
+   "component_areas96": [
+    2265
+   ],
+   "fill48": 0.6718,
+   "frame_fill48": 0.2452,
+   "components48": 1,
+   "component_areas48": [
+    565
+   ],
+   "distinctness": 0.1069,
+   "nearest": "Red",
+   "nearest_score": 0.0508
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Rat.glb",
+   "rel": "assets/creatures/cc0/gobkit/Rat.glb",
+   "label": "Rat",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6902,
+   "frame_fill96": 0.2006,
+   "components96": 1,
+   "component_areas96": [
+    1849
+   ],
+   "fill48": 0.6875,
+   "frame_fill48": 0.2005,
+   "components48": 1,
+   "component_areas48": [
+    462
+   ],
+   "distinctness": 0.1074,
+   "nearest": "Blue",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Red.glb",
+   "rel": "assets/creatures/cc0/gobkit/Red.glb",
+   "label": "Red",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.679,
+   "frame_fill96": 0.2832,
+   "components96": 1,
+   "component_areas96": [
+    2610
+   ],
+   "fill48": 0.6925,
+   "frame_fill48": 0.2795,
+   "components48": 1,
+   "component_areas48": [
+    644
+   ],
+   "distinctness": 0.1239,
+   "nearest": "Platypus",
+   "nearest_score": 0.0508
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/Seal.glb",
+   "rel": "assets/creatures/cc0/gobkit/Seal.glb",
+   "label": "Seal",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6266,
+   "frame_fill96": 0.2298,
+   "components96": 1,
+   "component_areas96": [
+    2118
+   ],
+   "fill48": 0.6382,
+   "frame_fill48": 0.2305,
+   "components48": 1,
+   "component_areas48": [
+    531
+   ],
+   "distinctness": 0.1344,
+   "nearest": "Fugu",
+   "nearest_score": 0.0638
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-a01.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-a01.glb",
+   "label": "minion-a01",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "2 components at 96 px (floating parts of [330] px)",
+    "2 components at 48 px (parts of [81] px break off)"
+   ],
+   "warnings": [],
+   "fill96": 0.5413,
+   "frame_fill96": 0.2744,
+   "components96": 2,
+   "component_areas96": [
+    2199,
+    330
+   ],
+   "fill48": 0.5493,
+   "frame_fill48": 0.2734,
+   "components48": 2,
+   "component_areas48": [
+    549,
+    81
+   ],
+   "distinctness": 0.1205,
+   "nearest": "minion-a02",
+   "nearest_score": 0.0412
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-a02.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-a02.glb",
+   "label": "minion-a02",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "2 components at 96 px (floating parts of [332] px)",
+    "2 components at 48 px (parts of [83] px break off)"
+   ],
+   "warnings": [],
+   "fill96": 0.5527,
+   "frame_fill96": 0.267,
+   "components96": 2,
+   "component_areas96": [
+    2129,
+    332
+   ],
+   "fill48": 0.5397,
+   "frame_fill48": 0.2687,
+   "components48": 2,
+   "component_areas48": [
+    536,
+    83
+   ],
+   "distinctness": 0.1185,
+   "nearest": "minion-a01",
+   "nearest_score": 0.0412
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-b01.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-b01.glb",
+   "label": "minion-b01",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7379,
+   "frame_fill96": 0.3251,
+   "components96": 1,
+   "component_areas96": [
+    2996
+   ],
+   "fill48": 0.7429,
+   "frame_fill48": 0.3273,
+   "components48": 1,
+   "component_areas48": [
+    754
+   ],
+   "distinctness": 0.1143,
+   "nearest": "minion-b02",
+   "nearest_score": 0.0221
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-b02.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-b02.glb",
+   "label": "minion-b02",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7315,
+   "frame_fill96": 0.3278,
+   "components96": 1,
+   "component_areas96": [
+    3021
+   ],
+   "fill48": 0.7438,
+   "frame_fill48": 0.3277,
+   "components48": 1,
+   "component_areas48": [
+    755
+   ],
+   "distinctness": 0.1151,
+   "nearest": "minion-b01",
+   "nearest_score": 0.0221
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-c01.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-c01.glb",
+   "label": "minion-c01",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "2 components at 96 px (floating parts of [316] px)",
+    "2 components at 48 px (parts of [79] px break off)"
+   ],
+   "warnings": [],
+   "fill96": 0.4592,
+   "frame_fill96": 0.2335,
+   "components96": 2,
+   "component_areas96": [
+    1836,
+    316
+   ],
+   "fill48": 0.4667,
+   "frame_fill48": 0.2339,
+   "components48": 2,
+   "component_areas48": [
+    460,
+    79
+   ],
+   "distinctness": 0.1437,
+   "nearest": "minion-c02",
+   "nearest_score": 0.0638
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-c02.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-c02.glb",
+   "label": "minion-c02",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "2 components at 96 px (floating parts of [333] px)",
+    "2 components at 48 px (parts of [82] px break off)"
+   ],
+   "warnings": [],
+   "fill96": 0.4464,
+   "frame_fill96": 0.2051,
+   "components96": 2,
+   "component_areas96": [
+    1557,
+    333
+   ],
+   "fill48": 0.4521,
+   "frame_fill48": 0.2049,
+   "components48": 2,
+   "component_areas48": [
+    390,
+    82
+   ],
+   "distinctness": 0.142,
+   "nearest": "minion-d02",
+   "nearest_score": 0.0512
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-d01.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-d01.glb",
+   "label": "minion-d01",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "2 components at 96 px (floating parts of [376] px)",
+    "2 components at 48 px (parts of [92] px break off)"
+   ],
+   "warnings": [],
+   "fill96": 0.487,
+   "frame_fill96": 0.2432,
+   "components96": 2,
+   "component_areas96": [
+    1865,
+    376
+   ],
+   "fill48": 0.4803,
+   "frame_fill48": 0.2439,
+   "components48": 2,
+   "component_areas48": [
+    470,
+    92
+   ],
+   "distinctness": 0.1488,
+   "nearest": "minion-d02",
+   "nearest_score": 0.0495
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/gobkit/minion-d02.glb",
+   "rel": "assets/creatures/cc0/gobkit/minion-d02.glb",
+   "label": "minion-d02",
+   "family": "gobkit",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "2 components at 96 px (floating parts of [368] px)",
+    "2 components at 48 px (parts of [91] px break off)"
+   ],
+   "warnings": [],
+   "fill96": 0.462,
+   "frame_fill96": 0.2355,
+   "components96": 2,
+   "component_areas96": [
+    1802,
+    368
+   ],
+   "fill48": 0.4737,
+   "frame_fill48": 0.2344,
+   "components48": 2,
+   "component_areas48": [
+    449,
+    91
+   ],
+   "distinctness": 0.1369,
+   "nearest": "minion-d01",
+   "nearest_score": 0.0495
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-beaver.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-beaver.glb",
+   "label": "animal-beaver",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.75 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7512,
+   "frame_fill96": 0.4017,
+   "components96": 1,
+   "component_areas96": [
+    3702
+   ],
+   "fill48": 0.7582,
+   "frame_fill48": 0.4002,
+   "components48": 1,
+   "component_areas48": [
+    922
+   ],
+   "distinctness": 0.1158,
+   "nearest": "animal-lion",
+   "nearest_score": 0.0786
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-bee.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-bee.glb",
+   "label": "animal-bee",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.76 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7581,
+   "frame_fill96": 0.3337,
+   "components96": 1,
+   "component_areas96": [
+    3075
+   ],
+   "fill48": 0.7535,
+   "frame_fill48": 0.3316,
+   "components48": 1,
+   "component_areas48": [
+    764
+   ],
+   "distinctness": 0.1095,
+   "nearest": "animal-bunny",
+   "nearest_score": 0.0438
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-bunny.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-bunny.glb",
+   "label": "animal-bunny",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.75 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7505,
+   "frame_fill96": 0.3091,
+   "components96": 1,
+   "component_areas96": [
+    2849
+   ],
+   "fill48": 0.7618,
+   "frame_fill48": 0.3095,
+   "components48": 1,
+   "component_areas48": [
+    713
+   ],
+   "distinctness": 0.1075,
+   "nearest": "animal-bee",
+   "nearest_score": 0.0438
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-cat.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-cat.glb",
+   "label": "animal-cat",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7082,
+   "frame_fill96": 0.3278,
+   "components96": 1,
+   "component_areas96": [
+    3021
+   ],
+   "fill48": 0.7132,
+   "frame_fill48": 0.326,
+   "components48": 1,
+   "component_areas48": [
+    751
+   ],
+   "distinctness": 0.1179,
+   "nearest": "animal-tiger",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-caterpillar.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-caterpillar.glb",
+   "label": "animal-caterpillar",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.81 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.8132,
+   "frame_fill96": 0.3311,
+   "components96": 1,
+   "component_areas96": [
+    3051
+   ],
+   "fill48": 0.8171,
+   "frame_fill48": 0.3277,
+   "components48": 1,
+   "component_areas48": [
+    755
+   ],
+   "distinctness": 0.0843,
+   "nearest": "animal-giraffe",
+   "nearest_score": 0.0304
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-chick.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-chick.glb",
+   "label": "animal-chick",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6455,
+   "frame_fill96": 0.2715,
+   "components96": 1,
+   "component_areas96": [
+    2502
+   ],
+   "fill48": 0.651,
+   "frame_fill48": 0.2704,
+   "components48": 1,
+   "component_areas48": [
+    623
+   ],
+   "distinctness": 0.1051,
+   "nearest": "animal-penguin",
+   "nearest_score": 0.0074
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-cow.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-cow.glb",
+   "label": "animal-cow",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7407,
+   "frame_fill96": 0.3553,
+   "components96": 1,
+   "component_areas96": [
+    3274
+   ],
+   "fill48": 0.7193,
+   "frame_fill48": 0.3503,
+   "components48": 1,
+   "component_areas48": [
+    807
+   ],
+   "distinctness": 0.086,
+   "nearest": "animal-dog",
+   "nearest_score": 0.0365
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-crab.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-crab.glb",
+   "label": "animal-crab",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6603,
+   "frame_fill96": 0.2818,
+   "components96": 1,
+   "component_areas96": [
+    2597
+   ],
+   "fill48": 0.6613,
+   "frame_fill48": 0.283,
+   "components48": 1,
+   "component_areas48": [
+    652
+   ],
+   "distinctness": 0.112,
+   "nearest": "animal-chick",
+   "nearest_score": 0.0603
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-deer.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-deer.glb",
+   "label": "animal-deer",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6569,
+   "frame_fill96": 0.2783,
+   "components96": 1,
+   "component_areas96": [
+    2565
+   ],
+   "fill48": 0.6684,
+   "frame_fill48": 0.2843,
+   "components48": 1,
+   "component_areas48": [
+    655
+   ],
+   "distinctness": 0.1071,
+   "nearest": "animal-bunny",
+   "nearest_score": 0.059
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-dog.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-dog.glb",
+   "label": "animal-dog",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.80 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7961,
+   "frame_fill96": 0.3749,
+   "components96": 1,
+   "component_areas96": [
+    3455
+   ],
+   "fill48": 0.7733,
+   "frame_fill48": 0.3746,
+   "components48": 1,
+   "component_areas48": [
+    863
+   ],
+   "distinctness": 0.0937,
+   "nearest": "animal-pig",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-elephant.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-elephant.glb",
+   "label": "animal-elephant",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.77 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7653,
+   "frame_fill96": 0.3089,
+   "components96": 1,
+   "component_areas96": [
+    2847
+   ],
+   "fill48": 0.7742,
+   "frame_fill48": 0.3125,
+   "components48": 1,
+   "component_areas48": [
+    720
+   ],
+   "distinctness": 0.1033,
+   "nearest": "animal-koala",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-fish.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-fish.glb",
+   "label": "animal-fish",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7009,
+   "frame_fill96": 0.346,
+   "components96": 1,
+   "component_areas96": [
+    3189
+   ],
+   "fill48": 0.6935,
+   "frame_fill48": 0.3477,
+   "components48": 1,
+   "component_areas48": [
+    801
+   ],
+   "distinctness": 0.0993,
+   "nearest": "animal-caterpillar",
+   "nearest_score": 0.0582
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-fox.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-fox.glb",
+   "label": "animal-fox",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.75 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7507,
+   "frame_fill96": 0.3124,
+   "components96": 1,
+   "component_areas96": [
+    2879
+   ],
+   "fill48": 0.7683,
+   "frame_fill48": 0.3095,
+   "components48": 1,
+   "component_areas48": [
+    713
+   ],
+   "distinctness": 0.1047,
+   "nearest": "animal-tiger",
+   "nearest_score": 0.049
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-giraffe.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-giraffe.glb",
+   "label": "animal-giraffe",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7241,
+   "frame_fill96": 0.3366,
+   "components96": 1,
+   "component_areas96": [
+    3102
+   ],
+   "fill48": 0.7031,
+   "frame_fill48": 0.332,
+   "components48": 1,
+   "component_areas48": [
+    765
+   ],
+   "distinctness": 0.0844,
+   "nearest": "animal-caterpillar",
+   "nearest_score": 0.0304
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-hog.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-hog.glb",
+   "label": "animal-hog",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7422,
+   "frame_fill96": 0.3993,
+   "components96": 1,
+   "component_areas96": [
+    3680
+   ],
+   "fill48": 0.7453,
+   "frame_fill48": 0.395,
+   "components48": 1,
+   "component_areas48": [
+    910
+   ],
+   "distinctness": 0.1067,
+   "nearest": "animal-polar",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-koala.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-koala.glb",
+   "label": "animal-koala",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7315,
+   "frame_fill96": 0.3405,
+   "components96": 1,
+   "component_areas96": [
+    3138
+   ],
+   "fill48": 0.7443,
+   "frame_fill48": 0.3411,
+   "components48": 1,
+   "component_areas48": [
+    786
+   ],
+   "distinctness": 0.1004,
+   "nearest": "animal-elephant",
+   "nearest_score": 0.0521
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-lion.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-lion.glb",
+   "label": "animal-lion",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7382,
+   "frame_fill96": 0.3484,
+   "components96": 1,
+   "component_areas96": [
+    3211
+   ],
+   "fill48": 0.7287,
+   "frame_fill48": 0.3485,
+   "components48": 1,
+   "component_areas48": [
+    803
+   ],
+   "distinctness": 0.1212,
+   "nearest": "animal-tiger",
+   "nearest_score": 0.0473
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-monkey.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-monkey.glb",
+   "label": "animal-monkey",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6553,
+   "frame_fill96": 0.2853,
+   "components96": 1,
+   "component_areas96": [
+    2629
+   ],
+   "fill48": 0.6663,
+   "frame_fill48": 0.2852,
+   "components48": 1,
+   "component_areas48": [
+    657
+   ],
+   "distinctness": 0.1092,
+   "nearest": "animal-tiger",
+   "nearest_score": 0.0612
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-panda.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-panda.glb",
+   "label": "animal-panda",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.78 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7828,
+   "frame_fill96": 0.4448,
+   "components96": 1,
+   "component_areas96": [
+    4099
+   ],
+   "fill48": 0.7715,
+   "frame_fill48": 0.444,
+   "components48": 1,
+   "component_areas48": [
+    1023
+   ],
+   "distinctness": 0.1406,
+   "nearest": "animal-polar",
+   "nearest_score": 0.0425
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-parrot.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-parrot.glb",
+   "label": "animal-parrot",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6195,
+   "frame_fill96": 0.238,
+   "components96": 1,
+   "component_areas96": [
+    2193
+   ],
+   "fill48": 0.623,
+   "frame_fill48": 0.2352,
+   "components48": 1,
+   "component_areas48": [
+    542
+   ],
+   "distinctness": 0.1245,
+   "nearest": "animal-chick",
+   "nearest_score": 0.0621
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-penguin.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-penguin.glb",
+   "label": "animal-penguin",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6388,
+   "frame_fill96": 0.2766,
+   "components96": 1,
+   "component_areas96": [
+    2549
+   ],
+   "fill48": 0.6286,
+   "frame_fill48": 0.2769,
+   "components48": 1,
+   "component_areas48": [
+    638
+   ],
+   "distinctness": 0.107,
+   "nearest": "animal-chick",
+   "nearest_score": 0.0074
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-pig.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-pig.glb",
+   "label": "animal-pig",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.80 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.7994,
+   "frame_fill96": 0.3818,
+   "components96": 1,
+   "component_areas96": [
+    3519
+   ],
+   "fill48": 0.8065,
+   "frame_fill48": 0.3798,
+   "components48": 1,
+   "component_areas48": [
+    875
+   ],
+   "distinctness": 0.0951,
+   "nearest": "animal-dog",
+   "nearest_score": 0.0061
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-polar.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-polar.glb",
+   "label": "animal-polar",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "FAIL",
+   "reasons": [
+    "fill 0.82 outside 0.25-0.75"
+   ],
+   "warnings": [],
+   "fill96": 0.8162,
+   "frame_fill96": 0.4008,
+   "components96": 1,
+   "component_areas96": [
+    3694
+   ],
+   "fill48": 0.8186,
+   "frame_fill48": 0.4093,
+   "components48": 1,
+   "component_areas48": [
+    943
+   ],
+   "distinctness": 0.113,
+   "nearest": "animal-hog",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/kenney-cube-pets/animal-tiger.glb",
+   "rel": "assets/creatures/cc0/kenney-cube-pets/animal-tiger.glb",
+   "label": "animal-tiger",
+   "family": "kenney-cube-pets",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.7131,
+   "frame_fill96": 0.3217,
+   "components96": 1,
+   "component_areas96": [
+    2965
+   ],
+   "fill48": 0.6974,
+   "frame_fill48": 0.322,
+   "components48": 1,
+   "component_areas48": [
+    742
+   ],
+   "distinctness": 0.1049,
+   "nearest": "animal-cat",
+   "nearest_score": 0.0256
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/polypizza/Bunny.glb",
+   "rel": "assets/creatures/cc0/polypizza/Bunny.glb",
+   "label": "Bunny",
+   "family": "polypizza",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.2846,
+   "frame_fill96": 0.1308,
+   "components96": 1,
+   "component_areas96": [
+    1205
+   ],
+   "fill48": 0.2864,
+   "frame_fill48": 0.1298,
+   "components48": 1,
+   "component_areas48": [
+    299
+   ],
+   "distinctness": 0.1663,
+   "nearest": "Frog",
+   "nearest_score": 0.1246
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/polypizza/Chick.glb",
+   "rel": "assets/creatures/cc0/polypizza/Chick.glb",
+   "label": "Chick",
+   "family": "polypizza",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.6577,
+   "frame_fill96": 0.2535,
+   "components96": 1,
+   "component_areas96": [
+    2336
+   ],
+   "fill48": 0.6554,
+   "frame_fill48": 0.2526,
+   "components48": 1,
+   "component_areas48": [
+    582
+   ],
+   "distinctness": 0.1682,
+   "nearest": "ShibaInu",
+   "nearest_score": 0.1471
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/polypizza/Frog.glb",
+   "rel": "assets/creatures/cc0/polypizza/Frog.glb",
+   "label": "Frog",
+   "family": "polypizza",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.3842,
+   "frame_fill96": 0.1109,
+   "components96": 1,
+   "component_areas96": [
+    1022
+   ],
+   "fill48": 0.4032,
+   "frame_fill48": 0.1102,
+   "components48": 1,
+   "component_areas48": [
+    254
+   ],
+   "distinctness": 0.1684,
+   "nearest": "Bunny",
+   "nearest_score": 0.1246
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/polypizza/Hedgehog.glb",
+   "rel": "assets/creatures/cc0/polypizza/Hedgehog.glb",
+   "label": "Hedgehog",
+   "family": "polypizza",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.5788,
+   "frame_fill96": 0.2854,
+   "components96": 1,
+   "component_areas96": [
+    2630
+   ],
+   "fill48": 0.5893,
+   "frame_fill48": 0.2865,
+   "components48": 1,
+   "component_areas48": [
+    660
+   ],
+   "distinctness": 0.189,
+   "nearest": "Chick",
+   "nearest_score": 0.1667
+  },
+  {
+   "file": "/Users/philote/projects-local/StudyGotchi/assets/creatures/cc0/polypizza/ShibaInu.glb",
+   "rel": "assets/creatures/cc0/polypizza/ShibaInu.glb",
+   "label": "ShibaInu",
+   "family": "polypizza",
+   "tags": [],
+   "decor": false,
+   "status": "PASS",
+   "reasons": [],
+   "warnings": [],
+   "fill96": 0.4896,
+   "frame_fill96": 0.2094,
+   "components96": 1,
+   "component_areas96": [
+    1930
+   ],
+   "fill48": 0.5096,
+   "frame_fill48": 0.207,
+   "components48": 1,
+   "component_areas48": [
+    477
+   ],
+   "distinctness": 0.16,
+   "nearest": "Chick",
+   "nearest_score": 0.1471
+  }
+ ],
+ "manifest": null,
+ "summary": {
+  "count": 52,
+  "pass": 35,
+  "fail": 17,
+  "samey": 0,
+  "decor": 0,
+  "fill_range": [
+   0.2846,
+   0.8162
+  ],
+  "seconds": 5.8
+ }
+}

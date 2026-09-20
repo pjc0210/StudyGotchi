@@ -1,0 +1,108 @@
+/* Palette lab. Overrides each direction's declared tokens so the same chrome can be seen on
+   another ground. Every value is a world colour or a mix of world colours; ink ramps follow
+   automatically because the directions derive them from their ink token with color-mix.
+   ?palette=cream (default) | sand | snow | lilac | mint | dusk
+   ?accent=coral (default) | mint | light | olive | ice */
+
+/* sand: the beige ask. Cream pulled 35 percent toward the sand biome ground #efd9a2. */
+.chrome-root[data-palette='sand'] .dir-a { --a-paper: color-mix(in srgb, #fff6df 65%, #efd9a2); }
+.chrome-root[data-palette='sand'] .dir-b { --sheet: color-mix(in srgb, #fff6df 65%, #efd9a2); --page: color-mix(in srgb, #e8e2f2 70%, #efd9a2); }
+.chrome-root[data-palette='sand'] .dir-c { --paper: color-mix(in srgb, #fff6df 65%, #efd9a2); }
+
+/* snow: the world's own snow #edf7f7 as paper, field pulled toward ice #a9cfe8. */
+.chrome-root[data-palette='snow'] .dir-a { --a-paper: #edf7f7; --a-window: color-mix(in srgb, #e8e2f2 60%, #a9cfe8); }
+.chrome-root[data-palette='snow'] .dir-b { --sheet: #edf7f7; --page: color-mix(in srgb, #e8e2f2 60%, #a9cfe8); }
+.chrome-root[data-palette='snow'] .dir-c { --paper: #edf7f7; --sky: color-mix(in srgb, #e8e2f2 60%, #a9cfe8); }
+
+/* lilac: the swap. Sky as page, cream as the field or sheet. B already lives here. */
+.chrome-root[data-palette='lilac'] .dir-a { --a-paper: #e8e2f2; --a-window: #fff6df; }
+.chrome-root[data-palette='lilac'] .dir-c { --paper: #e8e2f2; --sky: #fff6df; }
+
+/* mint: cream pulled 18 percent toward mint #8fc9d8, the accent family's cool member. */
+.chrome-root[data-palette='mint'] .dir-a { --a-paper: color-mix(in srgb, #fff6df 82%, #8fc9d8); }
+.chrome-root[data-palette='mint'] .dir-b { --sheet: color-mix(in srgb, #fff6df 82%, #8fc9d8); }
+.chrome-root[data-palette='mint'] .dir-c { --paper: color-mix(in srgb, #fff6df 82%, #8fc9d8); }
+
+/* dusk: night. Ink becomes the paper, cream becomes the ink; the world keeps its own sky so
+   the window reads as a lit room. Every hairline and state flips through the ramps. */
+.chrome-root[data-palette='dusk'] { color-scheme: dark; }
+.chrome-root[data-palette='dusk'] .dir-a {
+  --a-paper: color-mix(in srgb, #342d45 88%, #e8e2f2);
+  --a-ink: #fff6df;
+  --a-window: color-mix(in srgb, #342d45 70%, #e8e2f2);
+}
+.chrome-root[data-palette='dusk'] .dir-b {
+  --page: color-mix(in srgb, #342d45 70%, #e8e2f2);
+  --sheet: color-mix(in srgb, #342d45 88%, #e8e2f2);
+  --ink: #fff6df;
+}
+.chrome-root[data-palette='dusk'] .dir-c {
+  --paper: color-mix(in srgb, #342d45 88%, #e8e2f2);
+  --ink: #fff6df;
+  --sky: color-mix(in srgb, #342d45 70%, #e8e2f2);
+}
+
+/* stone: grey daytime. Cream and snow meet, then take 16 percent stone #71697d, so the paper is
+   an overcast neutral (about #e2e0d7) rather than a warmed or cooled cream. Ink and the accents
+   stay; the world sky is pulled 20 percent toward stone so the window goes overcast with it. */
+.chrome-root[data-palette='stone'] .dir-a {
+  --a-paper: color-mix(in srgb, color-mix(in srgb, #fff6df 60%, #edf7f7) 84%, #71697d);
+  --a-window: color-mix(in srgb, #e8e2f2 80%, #71697d);
+}
+.chrome-root[data-palette='stone'] .dir-b {
+  --sheet: color-mix(in srgb, color-mix(in srgb, #fff6df 60%, #edf7f7) 84%, #71697d);
+  --page: color-mix(in srgb, #e8e2f2 80%, #71697d);
+}
+.chrome-root[data-palette='stone'] .dir-c {
+  --paper: color-mix(in srgb, color-mix(in srgb, #fff6df 60%, #edf7f7) 84%, #71697d);
+  --sky: color-mix(in srgb, #e8e2f2 80%, #71697d);
+}
+
+/* night: dusk in spirit, measured. Page is ink with 12 percent sky; text is cream; coral and
+   the lamp are pulled 15 percent toward the page so they sit in the dark instead of on it; the
+   window is the sky at 35 percent over ink so it reads as dusk, not as a lit room. */
+.chrome-root[data-palette='night'] { color-scheme: dark; }
+.chrome-root[data-palette='night'] .dir-a {
+  --a-paper: color-mix(in srgb, #342d45 88%, #e8e2f2);
+  --a-ink: #fff6df;
+  --a-window: color-mix(in srgb, #e8e2f2 35%, #342d45);
+  --a-live: color-mix(in srgb, #e88a8a 85%, color-mix(in srgb, #342d45 88%, #e8e2f2));
+  --a-lamp: color-mix(in srgb, #ffe7a3 85%, color-mix(in srgb, #342d45 88%, #e8e2f2));
+}
+.chrome-root[data-palette='night'] .dir-b {
+  --page: color-mix(in srgb, #e8e2f2 35%, #342d45);
+  --sheet: color-mix(in srgb, #342d45 88%, #e8e2f2);
+  --ink: #fff6df;
+}
+.chrome-root[data-palette='night'] .dir-c {
+  --paper: color-mix(in srgb, #342d45 88%, #e8e2f2);
+  --ink: #fff6df;
+  --sky: color-mix(in srgb, #e8e2f2 35%, #342d45);
+  --coral: color-mix(in srgb, #e88a8a 85%, color-mix(in srgb, #342d45 88%, #e8e2f2));
+}
+
+/* world sky: the renderer's clear colour follows this so the window's weather matches the paper. */
+.chrome-root[data-palette='snow'] { --world-sky: color-mix(in srgb, #e8e2f2 60%, #a9cfe8); }
+.chrome-root[data-palette='lilac'] { --world-sky: #fff6df; }
+.chrome-root[data-palette='dusk'] { --world-sky: color-mix(in srgb, #342d45 70%, #e8e2f2); }
+.chrome-root[data-palette='stone'] { --world-sky: color-mix(in srgb, #e8e2f2 80%, #71697d); }
+.chrome-root[data-palette='night'] { --world-sky: color-mix(in srgb, #e8e2f2 35%, #342d45); }
+
+/* accent: the single live colour each direction spends. */
+.chrome-root[data-accent='mint'] .dir-a { --a-live: #8fc9d8; }
+.chrome-root[data-accent='mint'] .dir-b { --signal: #8fc9d8; }
+.chrome-root[data-accent='mint'] .dir-c { --coral: #8fc9d8; }
+
+.chrome-root[data-accent='light'] .dir-a { --a-live: #ffe7a3; }
+.chrome-root[data-accent='light'] .dir-b { --signal: #ffe7a3; }
+.chrome-root[data-accent='light'] .dir-c { --coral: #ffe7a3; }
+
+.chrome-root[data-accent='olive'] .dir-a { --a-live: #b9c96f; }
+.chrome-root[data-accent='olive'] .dir-b { --signal: #b9c96f; }
+.chrome-root[data-accent='olive'] .dir-c { --coral: #b9c96f; }
+
+.chrome-root[data-accent='ice'] .dir-a { --a-live: #6fa4c3; }
+.chrome-root[data-accent='ice'] .dir-b { --signal: #6fa4c3; }
+.chrome-root[data-accent='ice'] .dir-c { --coral: #6fa4c3; }
+
+.chrome-root[data-accent='coral'] .dir-b { --signal: #e88a8a; }

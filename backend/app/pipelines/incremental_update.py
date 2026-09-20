@@ -17,12 +17,15 @@ from app.domain.mastery.scorer import score_understanding_by_concept
 from app.domain.ontology.edges import ConceptEdgeType
 from app.domain.personal_graph.discovery import classify_discovery_state
 from app.domain.personal_graph.frontier import compute_frontier_neighbors
+from app.domain.world.events import WorldEventKind
 from app.repositories.concepts import get_personal_concepts
 from app.repositories.edges import get_course_edges
 from app.repositories.student_states import (
     get_evidence_events,
+    get_student_concept_states,
     upsert_student_concept_state,
 )
+from app.repositories.world import add_world_event
 
 
 async def recompute_student_state(
@@ -35,6 +38,9 @@ async def recompute_student_state(
     if not touched_concept_ids:
         return
 
+    previous = await get_student_concept_states(
+        session, course_id=course_id, student_id=student_id
+    )
     settings = get_settings()
     course_edges = await get_course_edges(session, course_id)
     prereq_graph = build_digraph(
@@ -89,6 +95,48 @@ async def recompute_student_state(
         practiced_events = [e for e in events if e.outcome is not None]
         last_practiced_at = max((e.occurred_at for e in practiced_events), default=None)
 
+        old = previous.get(concept_id)
+        event_args = {
+            "student_id": student_id,
+            "course_id": course_id,
+            "concept_id": concept_id,
+            "resource_id": events[-1].resource_id if events else None,
+        }
+        if old is None or (old.discovery_state in ("unseen", "frontier") and events):
+            await add_world_event(
+                session,
+                **event_args,
+                event=WorldEventKind.CONCEPT_DISCOVERED if events else WorldEventKind.FRONTIER_EXPANDED,
+                explanation="Source evidence introduced this concept."
+                if events
+                else "Adjacent prerequisite structure exposed this frontier.",
+            )
+        old_understanding = (
+            float(old.understanding)
+            if old is not None and old.understanding is not None
+            else 0.5
+        )
+        delta = result.understanding - old_understanding
+        if abs(delta) > 0.001 and any(e.outcome is not None for e in events):
+            await add_world_event(
+                session,
+                **event_args,
+                event=WorldEventKind.UNDERSTANDING_GAIN if delta > 0 else WorldEventKind.UNDERSTANDING_DROP,
+                delta=delta,
+                explanation=(
+                    f"Recomputed from {len(practiced_events)} scored evidence events; "
+                    f"understanding {old_understanding:.3f} → {result.understanding:.3f}."
+                ),
+            )
+        if result.understanding >= 0.88 and (
+            old is None or old.understanding is None or float(old.understanding) < 0.88
+        ):
+            await add_world_event(
+                session,
+                **event_args,
+                event=WorldEventKind.CONCEPT_MASTERED,
+                explanation="Understanding crossed the mastered threshold.",
+            )
         await upsert_student_concept_state(
             session,
             student_id=student_id,

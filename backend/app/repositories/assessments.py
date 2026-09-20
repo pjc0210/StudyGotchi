@@ -1,9 +1,9 @@
 from uuid import UUID
 
 from sqlalchemy import select
-from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.db.base import upsert_insert
 from app.db.models import Assessment, AssessmentItem, AssessmentItemConcept
 
 
@@ -64,7 +64,7 @@ async def link_item_to_concept(
     relevance_weight: float,
 ) -> None:
     stmt = (
-        sqlite_insert(AssessmentItemConcept)
+        upsert_insert(session, AssessmentItemConcept)
         .values(
             assessment_item_id=assessment_item_id,
             concept_id=concept_id,

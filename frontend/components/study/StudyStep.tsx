@@ -33,16 +33,12 @@ export function StudyStepCard({
             Step {step.order}
           </span>
           <span className="font-mono text-[12px] tabular-nums text-ink-dim">
-            Understanding {formatScore(step.understanding)}
+            Mastery {formatScore(step.mastery)}
           </span>
         </div>
 
-        <p className="mt-1 text-[13px] font-medium text-ink">
-          {step.concept_name}
-        </p>
-        <p className="mt-1.5 text-[12px] leading-relaxed text-ink-dim">
-          {step.reason}
-        </p>
+        <p className="mt-1 text-[13px] font-medium text-ink">{step.concept_name}</p>
+        <p className="mt-1.5 text-[12px] leading-relaxed text-ink-dim">{step.reason}</p>
 
         {step.resources.length > 0 ? (
           <div className="mt-2.5 border-t border-line pt-2.5">
@@ -52,9 +48,7 @@ export function StudyStepCard({
             <ul className="space-y-1">
               {step.resources.map((r) => (
                 <li key={r.id} className="flex items-center gap-2">
-                  <span className="flex-1 truncate text-[12px] text-ink">
-                    {r.title}
-                  </span>
+                  <span className="flex-1 truncate text-[12px] text-ink">{r.title}</span>
                   <OriginChip origin={r.origin} />
                 </li>
               ))}

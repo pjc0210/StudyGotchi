@@ -17,6 +17,7 @@ from sqlalchemy import DateTime, Numeric, Uuid, func, select, text, update
 
 from app.api.routes.ontology import get_ontology_endpoint
 from app.api.routes.personal_graph import get_knowledge_graph_endpoint
+from app.api.routes.world import get_world
 from app.db import models  # noqa: F401 - register application tables
 from app.db.base import Base
 from app.db.session import async_session_factory, engine
@@ -69,10 +70,13 @@ def read_snapshot(directory):
     snapshot = json.loads((directory / "database.json").read_text())
     if snapshot.get("schema_version") != SCHEMA_VERSION:
         raise ValueError("Unsupported snapshot schema version")
-    if set(snapshot["tables"]) != set(Base.metadata.tables):
-        raise ValueError("Snapshot tables do not match this backend revision")
+    # Tables added after the export (students, world_shares) simply restore empty;
+    # a table the backend no longer has means the snapshot is from another schema.
+    unknown = set(snapshot["tables"]) - set(Base.metadata.tables)
+    if unknown:
+        raise ValueError(f"Snapshot tables do not match this backend revision: {sorted(unknown)}")
     decoded = {
-        table.name: [decode_row(table, row) for row in snapshot["tables"][table.name]]
+        table.name: [decode_row(table, row) for row in snapshot["tables"].get(table.name, [])]
         for table in Base.metadata.sorted_tables
     }
     return snapshot, decoded
@@ -145,14 +149,22 @@ async def export_snapshot(
                 graph = await get_knowledge_graph_endpoint(
                     course_id=cid, student_id=student, session=session
                 )
+                world = await get_world(
+                    course_id=cid, student_id=student, session=session
+                )
                 write_json(
                     directory / student_dir / "knowledge-graph.json",
                     graph.model_dump(mode="json"),
+                )
+                write_json(
+                    directory / student_dir / "world.json",
+                    world.model_dump(mode="json"),
                 )
                 entry["students"].append(
                     {
                         "student_id": student,
                         "knowledge_graph": str(student_dir / "knowledge-graph.json"),
+                        "world": str(student_dir / "world.json"),
                     }
                 )
             manifest["courses"].append(entry)
@@ -172,6 +184,12 @@ async def export_snapshot(
     return manifest
 
 
+def _revision_index(revision: str) -> int:
+    """Migrations are numbered `NNNN_name`, so the prefix orders them."""
+
+    return int(revision.split("_", 1)[0])
+
+
 async def restore_snapshot(directory):
     snapshot, tables = read_snapshot(directory)
     async with async_session_factory() as session:
@@ -187,9 +205,11 @@ async def restore_snapshot(directory):
                     )
                 ).scalars()
             )
-            if revisions != snapshot["alembic_revisions"]:
+            # A newer database may carry additive migrations the snapshot never saw;
+            # only an older database (or none) refuses the restore.
+            if not revisions or _revision_index(revisions[0]) < _revision_index(snapshot["alembic_revisions"][0]):
                 raise ValueError(
-                    "Database migration version differs from snapshot; run alembic upgrade head with matching code"
+                    "Database migration version is older than the snapshot; run alembic upgrade head with matching code"
                 )
             for table in Base.metadata.sorted_tables:
                 if await session.scalar(select(func.count()).select_from(table)):

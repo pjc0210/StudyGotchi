@@ -1,0 +1,692 @@
+{
+  "version": 2,
+  "biome": "academy-town",
+  "name": "Academy Town",
+  "notes": [
+    "Coordinates in metres: x east, z south (toward the default camera), y up; settled ground at y = 0 and it never changes.",
+    "Field names follow docs/design/world/layouts/layout.schema.json (version 2), which mirrors prototypes/biome-lab/src/layout/biome-layout.ts where the concept matches.",
+    "population is keyed by band percentage; it maps 1:1 onto the lab's PopulationTable [0, 25, 50, 75, 100].",
+    "Structure borrowed from the MIT campus references (court to river, one long corridor, a square with a transit entrance, a chapel, one sculptural building, a dorm street along the river); every form is an original toybox low-poly design. No real names or logos exist in the world.",
+    "Frame: 200 x 200 m, x and z in [-100, 100]. The back (z < -80) is the hall skyline that dissolves into fog; the front (z > bank) is the river.",
+    "Normalised to version 2 on 2026-09-20. Three geometric edits were needed to satisfy the 15 m landmark clearance rule with the plinth kept at (0, -28) r 12: Great Court north edge moved from z = -14 to z = -1 (the 13 m of axis between them is now an open approach to the plinth steps, outside the district); Long Corridor centreline moved from z = -57 to z = -67 (width 24 unchanged); skyline foot moved from z = -76 to z = -80 (range.footDepth 10 -> 6). Revert those three numbers to restore the v1 drawing exactly."
+  ],
+  "palette": {
+    "lawn": "#9fcf7a",
+    "paving": "#d8d0bf",
+    "riverWall": "#a85a4a",
+    "coping": "#d9d2c4",
+    "riverWater": "#4f7fa6",
+    "riverWaterNight": "#243a5a",
+    "road": "#8d8a92",
+    "roadEdge": "#c9c2b4",
+    "limestone": "#ebe4d3",
+    "brick": "#a85a4a",
+    "brickDark": "#7a3f36",
+    "glass": "#7fa9c4",
+    "verdigris": "#6fa89a",
+    "tree": "#4f8a4a",
+    "window": "#ffe9a8",
+    "accent": "#f2b233",
+    "poster": "#e88a8a",
+    "ink": "#3a2f45",
+    "fog": "#e9e5df",
+    "sky": "#dfe6ee",
+    "skyNight": "#22284a"
+  },
+  "scale": {
+    "creatureHeight": 1.8,
+    "creatureScale": 1.7,
+    "houseHeight": [4.5, 6],
+    "hallHeight": [8, 9],
+    "minDistrictGap": 20,
+    "dormHeight": 9,
+    "domeHallHeight": 16,
+    "bellTowerHeight": [10, 26]
+  },
+  "world": {
+    "extent": 100,
+    "frameRadius": 92,
+    "seaLevel": -0.4,
+    "groundHeight": 1.4,
+    "relief": 0.25
+  },
+  "land": {
+    "outline": {
+      "kind": "polygon",
+      "vertices": [[-100, -100], [100, -100], [100, 40], [66, 47], [40, 52], [12, 55], [-16, 54], [-44, 52], [-72, 49], [-100, 46]],
+      "openEdges": ["back", "west", "east"],
+      "description": "one landmass filling the frame north of the river bank; the back third (z < -80) rises into the hall skyline and dissolves in fog; no back coastline is ever visible"
+    },
+    "skyline": {
+      "kind": "hall-skyline",
+      "description": "a continuous row of flat-roofed limestone lecture halls at the skyline foot, with a bell tower, tower blocks and small pale domes growing behind them by course fraction; the back row sits in fog",
+      "arc": [[-100, -81], [-80, -82.8], [-60, -84.2], [-40, -85.2], [-20, -85.8], [0, -86], [20, -85.8], [40, -85.2], [60, -84.2], [80, -82.8], [100, -81]],
+      "range": {
+        "arcZ": -86,
+        "arcCurve": 0.0005,
+        "footDepth": 6,
+        "footRise": 0
+      },
+      "footZ": -80,
+      "fogStartZ": -88,
+      "fogOpaqueZ": -100,
+      "rows": [-80, -88],
+      "growth": {
+        "0": {
+          "count": 4,
+          "height": 10,
+          "rows": 1,
+          "halls": 4,
+          "hallHeight": 8,
+          "towers": 0,
+          "towerHeight": 0,
+          "domes": 0,
+          "bellTowerHeight": 10
+        },
+        "25": {
+          "count": 6,
+          "height": 14,
+          "rows": 1,
+          "halls": 6,
+          "hallHeight": 9,
+          "towers": 1,
+          "towerHeight": 14,
+          "domes": 0,
+          "bellTowerHeight": 14
+        },
+        "50": {
+          "count": 8,
+          "height": 18,
+          "rows": 1,
+          "halls": 8,
+          "hallHeight": 10,
+          "towers": 2,
+          "towerHeight": 18,
+          "domes": 1,
+          "bellTowerHeight": 18
+        },
+        "75": {
+          "count": 10,
+          "height": 22,
+          "rows": 2,
+          "halls": 10,
+          "hallHeight": 11,
+          "towers": 3,
+          "towerHeight": 22,
+          "domes": 2,
+          "bellTowerHeight": 22
+        },
+        "100": {
+          "count": 12,
+          "height": 26,
+          "rows": 2,
+          "halls": 12,
+          "hallHeight": 12,
+          "towers": 4,
+          "towerHeight": 26,
+          "domes": 3,
+          "bellTowerHeight": 26,
+          "clockLit": true
+        }
+      },
+      "extras": {
+        "bellTower": {
+          "position": [-32, -80],
+          "footprint": [4, 4],
+          "material": "brick",
+          "cupola": "limestone",
+          "cap": "verdigris",
+          "pennant": "accent"
+        },
+        "hallFootprint": [12, 10],
+        "hallSpacing": 16,
+        "domeDiameter": 5,
+        "materials": {
+          "halls": "limestone",
+          "towers": "brick",
+          "domes": "limestone",
+          "domeCaps": "verdigris"
+        }
+      }
+    },
+    "coastCliff": {
+      "height": 1.8,
+      "color": "#a85a4a",
+      "material": "brick",
+      "band": {
+        "at": "lip",
+        "height": 0.4,
+        "color": "#d9d2c4"
+      },
+      "description": "Brick river embankment wall with a limestone coping course; the only cliff in the biome. The far bank does not exist: open basin fading into the front fog beyond z = 92."
+    },
+    "extras": {
+      "river": {
+        "bank": [[-100, 46], [-72, 49], [-44, 52], [-16, 54], [12, 55], [40, 52], [66, 47], [100, 40]],
+        "width": 48,
+        "farBank": "none; open basin fading into front fog beyond z = 92"
+      },
+      "riverWalk": {
+        "offsetFromBank": -2,
+        "lampSpacing": 8,
+        "note": "Also listed as transit line river-walk."
+      }
+    }
+  },
+  "water": [
+    {
+      "id": "river",
+      "kind": "river",
+      "geometry": {
+        "kind": "polygon",
+        "vertices": [[-100, 46], [-72, 49], [-44, 52], [-16, 54], [12, 55], [40, 52], [66, 47], [100, 40], [100, 100], [-100, 100]]
+      },
+      "color": "#4f7fa6",
+      "nightColor": "#243a5a",
+      "material": "riverWater",
+      "flow": "east",
+      "flowSpeed": 0.3,
+      "description": "The river, 48 m from the brick bank to the front fog; the camera arrives over it from the south."
+    }
+  ],
+  "soloIsland": {
+    "id": "river-island",
+    "district": "river-island",
+    "center": [64, 82],
+    "radius": 13,
+    "polygon": [[52, 74], [60, 68], [70, 69], [77, 76], [76, 88], [68, 95], [57, 93], [50, 84]],
+    "feature": "river observatory: 12-facet brick drum r 5 m, h 6 m, white faceted dome to 10 m, one slit; boathouse shed 8 x 5 x 4 m; 10 m dock north-west toward the bank with 3 moored sailboats; flagpole with pennant",
+    "population": {
+      "0": 0,
+      "25": 1,
+      "50": 2,
+      "75": 3,
+      "100": 3
+    },
+    "material": "brick",
+    "offshoreGap": 21,
+    "access": "sailboat route from the Dorm Row dock; no bridge"
+  },
+  "transit": [
+    {
+      "id": "river-road",
+      "kind": "road",
+      "polyline": [[-100, 42], [-72, 45], [-44, 48], [-16, 50], [12, 51], [40, 48], [66, 43], [100, 36]],
+      "width": 5,
+      "elevation": 0,
+      "color": "#8d8a92",
+      "edgeColor": "#c9c2b4",
+      "material": "road",
+      "description": "River road along the whole bank; straight segments, jitter <= 0.05; a tree row of 6 pollarded sycamores between road and dorms in Dorm Row."
+    },
+    {
+      "id": "river-walk",
+      "kind": "path",
+      "polyline": [[-100, 44], [-72, 47], [-44, 50], [-16, 52], [12, 53], [40, 50], [66, 45], [100, 38]],
+      "width": 2.5,
+      "elevation": 0,
+      "color": "#d8d0bf",
+      "material": "paving",
+      "description": "River walk 2 m inland of the bank with lamps every 8 m (derived from land.extras.riverWalk.offsetFromBank).",
+      "extras": {
+        "lampSpacing": 8
+      }
+    },
+    {
+      "id": "court-axis",
+      "kind": "path",
+      "polyline": [[0, -16], [0, 48]],
+      "width": 4,
+      "elevation": 0,
+      "color": "#d8d0bf",
+      "material": "paving",
+      "description": "The 4 m paving axis from the river road up the Great Court to the landmark plinth steps at z = -16."
+    },
+    {
+      "id": "corridor-link",
+      "kind": "path",
+      "polyline": [[0, -55], [0, -40]],
+      "width": 4,
+      "elevation": 0,
+      "color": "#d8d0bf",
+      "material": "paving",
+      "description": "The 15 m paving link from the Long Corridor lane south to the landmark court's north steps."
+    }
+  ],
+  "districts": [
+    {
+      "id": "dorm-row",
+      "name": "Dorm Row",
+      "band": 1,
+      "shape": {
+        "kind": "strip",
+        "centreline": [[-98, 36], [-80, 37.5], [-62, 39], [-48, 40.3]],
+        "width": 28
+      },
+      "fittedTo": "the river bank and river road on the west half of the shore",
+      "material": "brick",
+      "anchor": {
+        "id": "boathouse-dock",
+        "description": "boathouse dock spur into the river + the river-walk lamp line + the chapel spire",
+        "position": [-77, 54],
+        "footprint": [10, 20],
+        "silhouette48": "a comb tooth sticking into the water with a dotted line along the bank"
+      },
+      "features": [
+        "2 wave dorms 18 x 7 x 9 m, brick, flat roof with a pergola, plan bends once",
+        "2 grid dorms 12 x 7 x 9 m, brick, dense square-window grid, one big cut-out",
+        "2 block dorms 8 x 7 x 9 m, brick",
+        "chapel: 12-facet brick drum r 4 m, h 7 m, on a 0.6 m moat ring, 3-rod verdigris spire to 14 m with one bell",
+        "boathouse 10 x 6 x 5 m, limestone with brick base, marigold doors, 14 m dock into the river, 3 sailboats moored",
+        "river road (5 m) with a tree row of 6 pollarded sycamores between road and dorms",
+        "river walk with lamps every 8 m, 4 bench pairs, 3 bike racks"
+      ],
+      "building": "dorm-block",
+      "buildingHeight": [9, 9],
+      "population": {
+        "0": 0,
+        "25": 2,
+        "50": 4,
+        "75": 6,
+        "100": 8
+      },
+      "populationNotes": {
+        "0": "dock + lamp line + chapel moat ring (empty)",
+        "25": "boathouse + 1 wave dorm; marigold doors and first sail",
+        "50": "+ 1 grid dorm + 1 block dorm; tree row; benches",
+        "75": "+ chapel + 1 wave dorm; bike racks, lit windows, 3 sailboats",
+        "100": "+ 1 grid dorm + 1 block dorm; roof pergolas, rowing shell, second dock finger"
+      },
+      "extras100": ["roof pergolas", "rowing shell", "second dock finger"],
+      "accent": {
+        "object": "boathouse doors and the first sailboat sail",
+        "hex": "#f2b233"
+      },
+      "camera": {
+        "pitchDeg": 30,
+        "azimuthDeg": 84,
+        "fitWidth": 0.8
+      },
+      "laneYaw": 1.5,
+      "stationAzimuth": 84
+    },
+    {
+      "id": "great-court",
+      "name": "Great Court",
+      "band": 2,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[-24, -1], [0, -1], [24, -1], [24, 20], [24, 40], [0, 40], [-24, 40], [-24, 20]]
+      },
+      "fittedTo": "the flat lawn between the river road and the open approach to the landmark plinth, framed by two hall arms",
+      "material": "limestone",
+      "anchor": {
+        "id": "court-axis",
+        "description": "the pale axis stripe up the middle of a green rectangle, tree rows both sides, plinth steps at its head",
+        "position": [0, 20],
+        "footprint": [28, 41],
+        "silhouette48": "green rectangle with a pale stripe and two dotted tree lines"
+      },
+      "features": [
+        "west arm: 3 lecture halls 12 x 14 x 9 m, limestone, colonnade of 6 columns facing the lawn, flat roof",
+        "east arm: 3 lecture halls, same kit, mirrored",
+        "lawn 28 x 41 m with a 4 m paving axis from the river road to the plinth steps (the last 13 m of axis run through open lawn outside the district)",
+        "2 tree rows of 8 pollarded trees (round canopies 4 m)",
+        "8 bench pairs facing the axis, 2 lamp rows",
+        "6 geese grazing (ambient), students crossing the lawn diagonally"
+      ],
+      "building": "lecture-hall",
+      "buildingHeight": [9, 9],
+      "population": {
+        "0": 0,
+        "25": 2,
+        "50": 4,
+        "75": 6,
+        "100": 6
+      },
+      "populationNotes": {
+        "0": "lawn, axis path, plinth steps",
+        "25": "first hall each arm; marigold banner between the columns",
+        "50": "+ 1 hall each arm; tree rows; benches",
+        "75": "all 6 halls; lamps; lit windows; geese",
+        "100": "column-top pennants, 4 statues on plinths, a second axis of lamps, chalk drawings on the paving"
+      },
+      "extras100": ["column-top pennants", "4 statues on plinths", "a second axis of lamps", "chalk drawings on the paving"],
+      "accent": {
+        "object": "banner hung between the first hall's columns",
+        "hex": "#f2b233"
+      },
+      "camera": {
+        "pitchDeg": 30,
+        "azimuthDeg": 0,
+        "fitWidth": 0.8
+      },
+      "laneYaw": 0,
+      "stationAzimuth": 0
+    },
+    {
+      "id": "long-corridor",
+      "name": "Long Corridor",
+      "band": 3,
+      "shape": {
+        "kind": "strip",
+        "centreline": [[-74, -67], [-40, -67], [0, -67], [26, -67]],
+        "width": 24
+      },
+      "fittedTo": "the flat band just in front of the skyline foot (z = -80 at centre), running east-west across the back of the land",
+      "material": "limestone",
+      "anchor": {
+        "id": "arcade-lane",
+        "description": "the straight 100 m lane with its column comb and poster boards",
+        "position": [-24, -67],
+        "footprint": [100, 4],
+        "silhouette48": "a long pale line with a row of dots along one side"
+      },
+      "features": [
+        "one 4 m paving lane, 100 m end to end, walkable without a break",
+        "open arcade on the south side: 25 limestone columns every 4 m carrying a flat 3 m canopy",
+        "12 attached halls 10 x 12 x 8 m: 6 on the north side (limestone) and 6 on the south side beyond the arcade (brick and limestone alternating)",
+        "8 poster boards 2.4 x 2 m on the arcade piers: cream boards with marigold and coral rectangles",
+        "4 clock posts, 12 lamps, 2 bike-rack banks",
+        "15 m paving link south from the lane to the landmark court's north steps",
+        "streams of students walking the lane in both directions (ambient)"
+      ],
+      "building": "corridor-hall",
+      "buildingHeight": [8, 8],
+      "population": {
+        "0": 0,
+        "25": 3,
+        "50": 6,
+        "75": 10,
+        "100": 12
+      },
+      "populationNotes": {
+        "0": "lane + arcade columns",
+        "25": "3 halls; first poster board and a coral banner across the lane",
+        "50": "6 halls; 4 poster boards; clocks",
+        "75": "10 halls; all boards; lamps lit; student stream",
+        "100": "12 halls; pennants on the arcade; a food cart; second lamp row"
+      },
+      "extras100": ["pennants on the arcade", "a food cart", "second lamp row"],
+      "accent": {
+        "object": "first poster board's marigold poster and the coral banner across the lane",
+        "hex": "#f2b233"
+      },
+      "camera": {
+        "pitchDeg": 28,
+        "azimuthDeg": 84,
+        "fitWidth": 0.8
+      },
+      "laneYaw": 1.55,
+      "stationAzimuth": 84
+    },
+    {
+      "id": "station-square",
+      "name": "Station Square",
+      "band": 4,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[50, -38], [78, -44], [96, -30], [96, 22], [72, 30], [50, 24], [46, -6]]
+      },
+      "fittedTo": "the east shoulder of the land between the corridor's east end and the river road",
+      "material": "brick",
+      "anchor": {
+        "id": "transit-square",
+        "description": "the transit canopy + fountain dot + the ring of stall canopies on the paved square",
+        "position": [69, 1],
+        "footprint": [30, 26],
+        "silhouette48": "a pale square with a dot in it and a small comb of canopies"
+      },
+      "features": [
+        "transit portal 6 x 4 x 4.5 m: steel frame, glass sides, marigold sign band (no text), stair down, 4 bollards, 2 planters",
+        "paved square 30 x 26 m with a 12-facet fountain basin r 3 m",
+        "cafe 8 x 8 x 6 m, brick, marigold awning, 8 marigold chairs and 4 tables outside",
+        "museum 14 x 10 x 8 m, brick with one glass gable end",
+        "3 townhouses 6 x 8 x 5.5 m, brick, flat roofs, shop fronts",
+        "market: 8 stall canopies 3 x 3 m (marigold, coral, cream rotation)",
+        "studio: three leaning brick-and-limestone blocks 8 x 8 x 12 m with tilted flat roofs, the one sculptural building",
+        "4 lamps, a clock post, 2 bike-rack banks, a newspaper kiosk"
+      ],
+      "building": "townhouse",
+      "buildingHeight": [5.5, 5.5],
+      "population": {
+        "0": 0,
+        "25": 2,
+        "50": 4,
+        "75": 6,
+        "100": 7
+      },
+      "populationNotes": {
+        "0": "paved square, fountain, portal frame",
+        "25": "portal glazed + cafe; marigold sign band and awning; 2 stalls",
+        "50": "+ museum + 1 townhouse; 4 stalls; chairs",
+        "75": "+ 2 townhouses; 6 stalls; lamps; lit portal",
+        "100": "+ studio; 8 stalls; kiosk; pennant on the studio"
+      },
+      "props": {
+        "stalls": {
+          "0": 0,
+          "25": 2,
+          "50": 4,
+          "75": 6,
+          "100": 8
+        },
+        "chairs": {
+          "0": 0,
+          "25": 4,
+          "50": 8,
+          "75": 8,
+          "100": 12
+        }
+      },
+      "extras100": ["8 stalls", "newspaper kiosk", "pennant on the studio"],
+      "accent": {
+        "object": "transit portal sign band and the cafe awning",
+        "hex": "#f2b233"
+      },
+      "camera": {
+        "pitchDeg": 32,
+        "azimuthDeg": -30,
+        "fitWidth": 0.8
+      },
+      "laneYaw": 0.3,
+      "stationAzimuth": -30
+    },
+    {
+      "id": "river-island",
+      "name": "Observatory Island",
+      "band": 5,
+      "solitary": true,
+      "shape": {
+        "kind": "polygon",
+        "vertices": [[52, 74], [60, 68], [70, 69], [77, 76], [76, 88], [68, 95], [57, 93], [50, 84]]
+      },
+      "fittedTo": "the river island 21 m off the east bank",
+      "material": "brick",
+      "anchor": {
+        "id": "observatory-dome",
+        "description": "the dome + the dock spur",
+        "position": [67, 83],
+        "footprint": [10, 10],
+        "silhouette48": "a green blob in the water with a white dot and a stick"
+      },
+      "features": [
+        "river observatory: 12-facet brick drum r 5 m, h 6 m, white faceted dome to 10 m with a slit, verdigris cap",
+        "boathouse shed 8 x 5 x 4 m, limestone, marigold doors",
+        "10 m dock toward the bank with 3 sailboats moored, a sail rack",
+        "flagpole 8 m with a marigold pennant, 2 round trees, a bench"
+      ],
+      "building": "observatory",
+      "buildingHeight": [10, 10],
+      "population": {
+        "0": 0,
+        "25": 1,
+        "50": 2,
+        "75": 3,
+        "100": 3
+      },
+      "populationNotes": {
+        "0": "island + dock",
+        "25": "boathouse; pennant",
+        "50": "+ observatory drum (no dome)",
+        "75": "+ dome; sailboats; lit slit at night",
+        "100": "telescope tracks at night, second dock finger, sail rack full"
+      },
+      "extras100": ["telescope tracks at night", "second dock finger", "sail rack full"],
+      "accent": {
+        "object": "flagpole pennant",
+        "hex": "#f2b233"
+      },
+      "camera": {
+        "pitchDeg": 34,
+        "azimuthDeg": -20,
+        "fitWidth": 0.7
+      },
+      "laneYaw": -0.6,
+      "stationAzimuth": -20
+    }
+  ],
+  "landmark": {
+    "id": "dome-hall",
+    "name": "Dome Hall",
+    "position": [0, -28],
+    "plinth": {
+      "kind": "12-facet limestone plinth",
+      "radius": 12,
+      "facets": 12,
+      "height": 0.6,
+      "material": "limestone",
+      "color": "#ebe4d3",
+      "steps": "south, 4 steps 0.15 m onto the Great Court axis; north, 15 m link to the Long Corridor lane",
+      "description": "At the head of the Great Court: 15 m of open lawn and axis paving to the court's north edge (z = -1), 15 m of link paving to the Long Corridor (z = -55)."
+    },
+    "stages": {
+      "s1": {
+        "name": "Lectern",
+        "height": 4,
+        "footprint": [6, 4],
+        "description": "limestone plinth with a lectern and a bell on a post (4 m), two benches, marigold pennant on the post",
+        "persists": ["plinth", "bell post"],
+        "grows": [],
+        "lights": ["one lamp on the bell post"]
+      },
+      "s2": {
+        "name": "Reading Hall",
+        "height": 9,
+        "footprint": [14, 10],
+        "description": "colonnaded limestone hall, 4 fat columns, low pediment; the bell post becomes a roof cupola",
+        "persists": ["plinth becomes the steps", "bell in the cupola"],
+        "grows": ["width 6 to 14 m", "height 4 to 9 m"],
+        "lights": ["6 windows", "cupola lamp"]
+      },
+      "s3": {
+        "name": "Dome Hall",
+        "height": 16,
+        "footprint": [20, 14],
+        "description": "the hall widens to 6 columns and gains a squat 12-facet drum with a low faceted dome, verdigris lantern cap and marigold pennant; oculus glows at night; bell rings on the hour",
+        "persists": ["steps", "columns", "cupola becomes the lantern"],
+        "grows": ["width 14 to 20 m", "height 9 to 16 m"],
+        "lights": ["windows", "oculus", "pennant spotlight"]
+      }
+    },
+    "ipNote": "six columns not ten, squat faceted drum, low dome with lantern and pennant, no inscription band, brick river wall below; this is not a copy of the reference dome"
+  },
+  "marker": {
+    "side": "#a85a4a",
+    "top": "#9fcf7a",
+    "lip": "#d9d2c4",
+    "rim": "stone coping course over brick, 12 engaged buttresses one per facet",
+    "props": [
+      {
+        "slot": "P1",
+        "id": "bell-tower",
+        "height": 8,
+        "color": "#a85a4a",
+        "colours": ["#a85a4a", "#ebe4d3", "#6fa89a"],
+        "accent": "#f2b233",
+        "direction": [-0.7, -0.7],
+        "description": "skyline bell tower: brick shaft, limestone cupola, verdigris cap, marigold pennant"
+      },
+      {
+        "slot": "P2",
+        "id": "dome-hall",
+        "height": 6,
+        "color": "#ebe4d3",
+        "colours": ["#ebe4d3", "#d8d0bf", "#6fa89a"],
+        "accent": null,
+        "direction": [1, -0.2],
+        "description": "dome hall (landmark s3): limestone, 6 columns, squat faceted dome, verdigris lantern"
+      },
+      {
+        "slot": "P3",
+        "id": "wave-dorm",
+        "height": 4.8,
+        "color": "#a85a4a",
+        "colours": ["#a85a4a", "#7a3f36", "#ffe9a8"],
+        "accent": null,
+        "direction": [-0.7, 0.7],
+        "description": "wave dorm block: brick, one bend, 6 windows, flat roof"
+      },
+      {
+        "slot": "P4",
+        "id": "transit-portal",
+        "height": 4,
+        "color": "#8d8a92",
+        "colours": ["#8d8a92", "#7fa9c4", "#4f8a4a"],
+        "accent": null,
+        "direction": [0.6, -0.8],
+        "description": "transit portal: steel frame, glass sides, marigold band, with one round court tree beside it"
+      }
+    ],
+    "accent": {
+      "object": "pennant on P1",
+      "hex": "#f2b233"
+    },
+    "signpost": false,
+    "silhouette48": "a brick disc with a green top; one thin tower with a white cap and a low pale dome beside it",
+    "night": "dorm windows, portal glass, dome oculus and cupola lamp emissive #ffe9a8 x 1.6; pedestal never emits"
+  },
+  "ambient": {
+    "students": {
+      "corridorStream": 8,
+      "lawnCrossers": 4,
+      "squareSitters": 4,
+      "speed": 0.9
+    },
+    "sailboats": 4,
+    "rowingShell": 1,
+    "geese": 6,
+    "bells": {
+      "chapel": "one strike every 90 s",
+      "landmark": "3-note peal on the hour from s2"
+    },
+    "night": {
+      "windows": "#ffe9a8",
+      "lampSpacing": 8,
+      "order": "dorms first, then corridor, then square, then court"
+    },
+    "sailboatLoop": {
+      "center": [-20, 78],
+      "rx": 60,
+      "ry": 14,
+      "boats": 4,
+      "sail": "accent",
+      "hull": "limestone",
+      "speed": 1.2
+    },
+    "rowingShellRoute": {
+      "line": [[-96, 70], [96, 66]],
+      "period": 90
+    }
+  },
+  "catastrophe": {
+    "weather": "paper storm: torn posters and exam sheets swirl in from the skyline, sky to #c9c4bd",
+    "fallApart": "students flop onto the lawn, backpacks spill, sailboats turtle, geese scatter",
+    "ruin": "exam-week blackout: every window dark except one flickering lamp per district, poster boards bare, market stalls collapsed, pennants drooping, papers carpeting the lawn",
+    "recovery": "lights return dorm by dorm, papers sweep into bins, stalls re-pitch, pennants re-hoist, the bell rings"
+  },
+  "creatureRoster": {
+    "accents": ["#e88a8a", "#c9a2e6", "#f2a86f"],
+    "avoid": ["#8fc9d8 (close to glass)", "#b9c96f (close to lawn)"]
+  }
+}

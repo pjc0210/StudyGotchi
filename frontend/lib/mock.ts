@@ -1,675 +1,665 @@
 import type {
   ConceptDetail,
-  ConceptEdge,
   ConceptNode,
   CourseResource,
-  Gap,
+  Evidence,
   GapsResponse,
   KnowledgeGraphResponse,
   Resource,
   StudyPlan,
-  StudyTarget,
+  WhyExplanation,
 } from "./types";
 
-/** File-derived HackMIT course fixtures. Only DEMO_STATES are simulated. */
-export const MOCK_STUDENT_ID = "student_demo";
-export interface MockCourse {
-  id: string;
-  code: string;
-  name: string;
-  archive: string;
-  sourceFiles: string[];
-}
-type ResourceSeed = [
-  string,
-  string,
-  string,
-  CourseResource["artifact_type"],
-  CourseResource["origin"]?,
-];
-type ConceptSeed = [string, string, string, string[]];
-type CourseSeed = {
-  course: MockCourse;
-  resources: ResourceSeed[];
-  concepts: ConceptSeed[];
-  edges: [string, string, string?][];
+export const MOCK_COURSE = {
+  id: "6.7900",
+  name: "Intermediate Machine Learning",
 };
-const c = (
-  id: string,
-  name: string,
-  cluster: string,
-  resources: string[],
-): ConceptSeed => [id, name, cluster, resources];
-const r = (
-  id: string,
-  title: string,
-  path: string,
-  type: ResourceSeed[3],
-  origin?: ResourceSeed[4],
-): ResourceSeed => [id, title, path, type, origin];
 
-// The values deliberately vary, but are deterministic demo student state—not extracted evidence.
-const DEMO_STATES: Omit<ConceptNode, "id" | "name" | "cluster">[] = [
+export const MOCK_STUDENT_ID = "student_demo";
+
+// ---------------------------------------------------------------------------
+// Resources (provenance is never hidden)
+// ---------------------------------------------------------------------------
+
+export const RESOURCES: Record<string, Resource> = {
+  lec5: { id: "lec5", title: "Professor Lecture 5", origin: "instructor", artifact_type: "lecture" },
+  lec6: { id: "lec6", title: "Professor Lecture 6", origin: "instructor", artifact_type: "lecture" },
+  lec7: { id: "lec7", title: "Professor Lecture 7", origin: "instructor", artifact_type: "lecture" },
+  hw2: { id: "hw2", title: "Homework 2", origin: "instructor", artifact_type: "homework" },
+  hw3: { id: "hw3", title: "Homework 3", origin: "instructor", artifact_type: "homework" },
+  midterm: { id: "midterm", title: "Midterm", origin: "instructor", artifact_type: "exam" },
+  notes4: { id: "notes4", title: "My Week 4 Notes", origin: "student_self", artifact_type: "student_notes" },
+  notes5: { id: "notes5", title: "My Week 5 Notes", origin: "student_self", artifact_type: "student_notes" },
+  sarah: { id: "sarah", title: "Sarah's Notes", origin: "classmate", artifact_type: "classmate_notes" },
+  recitation: { id: "recitation", title: "TA Recitation 4", origin: "ta", artifact_type: "study_guide" },
+  bishop: { id: "bishop", title: "Bishop Ch. 6 - Kernel Methods", origin: "instructor", artifact_type: "reading" },
+  blog: { id: "blog", title: "Random Features blog post", origin: "external", artifact_type: "other" },
+};
+
+// ---------------------------------------------------------------------------
+// The student's personal knowledge graph
+// ---------------------------------------------------------------------------
+
+type NodeSeed = Omit<ConceptNode, "scope" | "cluster"> &
+  Partial<Pick<ConceptNode, "scope" | "cluster">>;
+
+const NODE_SEEDS: NodeSeed[] = [
   {
-    scope: "course",
+    id: "linear-algebra",
+    name: "Linear Algebra",
+    cluster: "Foundations",
     discovery_state: "active",
-    importance: 0.92,
-    personal_relevance: 0.82,
-    understanding: 0.88,
+    importance: 0.9,
+    personal_relevance: 0.86,
+    mastery: 0.92,
+    familiarity: 0.95,
+    confidence: 0.85,
+    readiness: 0.94,
+    fragility: 0.06,
     state: "mastered",
   },
   {
-    scope: "course",
-    discovery_state: "encountered",
-    importance: 0.86,
-    personal_relevance: 0.78,
-    understanding: 0.66,
+    id: "eigendecomposition",
+    name: "Eigendecomposition",
+    cluster: "Foundations",
+    discovery_state: "active",
+    importance: 0.74,
+    personal_relevance: 0.71,
+    mastery: 0.81,
+    familiarity: 0.88,
+    confidence: 0.77,
+    readiness: 0.83,
+    fragility: 0.12,
     state: "strong",
   },
   {
-    scope: "course",
+    id: "inner-products",
+    name: "Inner Products",
+    cluster: "Foundations",
     discovery_state: "active",
-    importance: 0.9,
-    personal_relevance: 0.88,
-    understanding: 0.48,
+    importance: 0.82,
+    personal_relevance: 0.8,
+    mastery: 0.84,
+    familiarity: 0.9,
+    confidence: 0.79,
+    readiness: 0.86,
+    fragility: 0.1,
+    state: "strong",
+  },
+  {
+    id: "gram-matrix",
+    name: "Gram Matrices",
+    cluster: "Kernels",
+    discovery_state: "encountered",
+    importance: 0.63,
+    personal_relevance: 0.68,
+    mastery: 0.52,
+    familiarity: 0.71,
+    confidence: 0.44,
+    readiness: 0.58,
+    fragility: 0.31,
     state: "uncertain",
   },
   {
-    scope: "course",
-    discovery_state: "frontier",
-    importance: 0.82,
-    personal_relevance: 0.74,
-    understanding: null,
-    state: "frontier",
-  },
-  {
-    scope: "course",
-    discovery_state: "encountered",
-    importance: 0.8,
-    personal_relevance: 0.7,
-    understanding: 0.37,
+    id: "psd-matrices",
+    name: "Positive Semidefinite Matrices",
+    cluster: "Kernels",
+    discovery_state: "active",
+    importance: 0.88,
+    personal_relevance: 0.93,
+    mastery: 0.31,
+    familiarity: 0.74,
+    confidence: 0.78,
+    readiness: 0.34,
+    fragility: 0.22,
     state: "struggling",
   },
   {
-    scope: "course",
+    id: "mercer",
+    name: "Mercer's Theorem",
+    cluster: "Kernels",
     discovery_state: "active",
-    importance: 0.84,
-    personal_relevance: 0.8,
-    understanding: 0.72,
+    importance: 0.85,
+    personal_relevance: 0.89,
+    mastery: 0.39,
+    familiarity: 0.68,
+    confidence: 0.65,
+    readiness: 0.41,
+    fragility: 0.27,
+    state: "struggling",
+  },
+  {
+    id: "rkhs",
+    name: "Reproducing Kernel Hilbert Spaces",
+    cluster: "Kernels",
+    discovery_state: "frontier",
+    importance: 0.57,
+    personal_relevance: 0.48,
+    mastery: null,
+    familiarity: 0.12,
+    confidence: 0.0,
+    readiness: 0.29,
+    fragility: 0.0,
+    state: "frontier",
+  },
+  {
+    id: "kernel-functions",
+    name: "Kernel Functions",
+    cluster: "Kernels",
+    discovery_state: "active",
+    importance: 0.91,
+    personal_relevance: 0.9,
+    mastery: 0.68,
+    familiarity: 0.83,
+    confidence: 0.52,
+    readiness: 0.66,
+    fragility: 0.34,
+    state: "uncertain",
+  },
+  {
+    id: "kernel-trick",
+    name: "The Kernel Trick",
+    cluster: "Kernels",
+    discovery_state: "active",
+    importance: 0.86,
+    personal_relevance: 0.84,
+    mastery: 0.73,
+    familiarity: 0.85,
+    confidence: 0.69,
+    readiness: 0.72,
+    fragility: 0.21,
     state: "developing",
   },
-];
-
-const COURSE_SEEDS: CourseSeed[] = [
   {
-    course: {
-      id: "6.1210",
-      code: "6.1210",
-      name: "Introduction to Algorithms",
-      archive: "course-materials/6.1210.zip",
-      sourceFiles: [
-        "handouts/course_information.pdf",
-        "lectures/L01-karatsuba.pdf",
-        "lectures/L07-BSTs.pdf",
-        "lectures/L10-graph-search.pdf",
-        "lectures/L14-Dijkstra.pdf",
-        "lectures/L19-DP.pdf",
-        "lectures/L22-DP-Subset-Sum.pdf",
-        "lectures/L23-Complexity.pdf",
-      ],
-    },
-    resources: [
-      r(
-        "a1",
-        "course_information.pdf",
-        "6.1210/handouts/course_information.pdf",
-        "syllabus",
-      ),
-      r(
-        "a2",
-        "L01-karatsuba.pdf",
-        "6.1210/lectures/L01-karatsuba.pdf",
-        "lecture",
-      ),
-      r("a3", "L07-BSTs.pdf", "6.1210/lectures/L07-BSTs.pdf", "lecture"),
-      r(
-        "a4",
-        "L10-graph-search.pdf",
-        "6.1210/lectures/L10-graph-search.pdf",
-        "lecture",
-      ),
-      r(
-        "a5",
-        "L14-Dijkstra.pdf",
-        "6.1210/lectures/L14-Dijkstra.pdf",
-        "lecture",
-      ),
-      r("a6", "L19-DP.pdf", "6.1210/lectures/L19-DP.pdf", "lecture"),
-      r(
-        "a7",
-        "L22-DP-Subset-Sum.pdf",
-        "6.1210/lectures/L22-DP-Subset-Sum.pdf",
-        "lecture",
-      ),
-      r(
-        "a8",
-        "L23-Complexity.pdf",
-        "6.1210/lectures/L23-Complexity.pdf",
-        "lecture",
-      ),
-    ],
-    concepts: [
-      c("a-asym", "Asymptotic Analysis", "Foundations", ["a1", "a2"]),
-      c("a-divide", "Divide and Conquer", "Foundations", ["a2"]),
-      c("a-karatsuba", "Karatsuba Multiplication", "Foundations", ["a2"]),
-      c("a-bst", "Binary Search Trees", "Data Structures", ["a3"]),
-      c("a-avl", "AVL Trees", "Data Structures", ["a3"]),
-      c("a-graph", "Graph Search", "Graphs", ["a4"]),
-      c("a-bfs", "Breadth-First and Depth-First Search", "Graphs", ["a4"]),
-      c("a-scc", "Strongly Connected Components", "Graphs", ["a4"]),
-      c("a-pq", "Priority Queues", "Graphs", ["a5"]),
-      c("a-dijkstra", "Dijkstra's Algorithm", "Graphs", ["a5"]),
-      c("a-bellman", "Bellman-Ford Algorithm", "Graphs", ["a5"]),
-      c("a-greedy", "Greedy Algorithms", "Optimization", ["a5"]),
-      c("a-dp", "Dynamic Programming", "Optimization", ["a6"]),
-      c("a-subset", "Subset Sum", "Optimization", ["a7", "a8"]),
-      c("a-complexity", "Complexity Theory", "Theory", ["a8"]),
-    ],
-    edges: [
-      ["a-asym", "a-divide"],
-      ["a-divide", "a-karatsuba"],
-      ["a-bst", "a-avl"],
-      ["a-graph", "a-bfs"],
-      ["a-bfs", "a-scc"],
-      ["a-pq", "a-dijkstra"],
-      ["a-graph", "a-dijkstra"],
-      ["a-graph", "a-bellman"],
-      ["a-dijkstra", "a-bellman", "RELATED_TO"],
-      ["a-greedy", "a-dp", "CONTRASTS_WITH"],
-      ["a-dp", "a-subset"],
-      ["a-subset", "a-complexity"],
-    ],
+    id: "svm",
+    name: "Support Vector Machines",
+    cluster: "Models",
+    discovery_state: "encountered",
+    importance: 0.7,
+    personal_relevance: 0.55,
+    mastery: 0.41,
+    familiarity: 0.49,
+    confidence: 0.38,
+    readiness: 0.52,
+    fragility: 0.29,
+    state: "exposed",
   },
   {
-    course: {
-      id: "6.1400",
-      code: "6.1400",
-      name: "Computability and Complexity Theory",
-      archive: "course-materials/6.1400.zip",
-      sourceFiles: [
-        "lectures/Lecture 1.pdf",
-        "lectures/Lecture 3.pdf",
-        "lectures/Lecture 5.pdf",
-        "lectures/Lecture 7.pdf",
-        "lectures/Lecture 10.pdf",
-        "lectures/Lecture 14.pdf",
-        "lectures/Lecture 17.pdf",
-        "lectures/Lecture 21.pdf",
-      ],
-    },
-    resources: [
-      r(
-        "t1",
-        "Lecture 1.pdf",
-        "6.1400/spring-2026/lectures/Lecture 1.pdf",
-        "lecture",
-      ),
-      r(
-        "t2",
-        "Lecture 3.pdf",
-        "6.1400/spring-2026/lectures/Lecture 3.pdf",
-        "lecture",
-      ),
-      r(
-        "t3",
-        "Lecture 5.pdf",
-        "6.1400/spring-2026/lectures/Lecture 5.pdf",
-        "lecture",
-      ),
-      r(
-        "t4",
-        "Lecture 7.pdf",
-        "6.1400/spring-2026/lectures/Lecture 7.pdf",
-        "lecture",
-      ),
-      r(
-        "t5",
-        "Lecture 10.pdf",
-        "6.1400/spring-2026/lectures/Lecture 10.pdf",
-        "lecture",
-      ),
-      r(
-        "t6",
-        "Lecture 14.pdf",
-        "6.1400/spring-2026/lectures/Lecture 14.pdf",
-        "lecture",
-      ),
-      r(
-        "t7",
-        "Lecture 17.pdf",
-        "6.1400/spring-2026/lectures/Lecture 17.pdf",
-        "lecture",
-      ),
-      r(
-        "t8",
-        "Lecture 21.pdf",
-        "6.1400/spring-2026/lectures/Lecture 21.pdf",
-        "lecture",
-      ),
-    ],
-    concepts: [
-      c("t-lang", "Formal Languages", "Automata", ["t1"]),
-      c("t-dfa", "Deterministic Finite Automata", "Automata", ["t1"]),
-      c("t-nfa", "Nondeterministic Finite Automata", "Automata", ["t1", "t2"]),
-      c("t-regular", "Regular Languages", "Automata", ["t1", "t2"]),
-      c("t-regex", "Regular Expressions", "Automata", ["t2"]),
-      c("t-cfl", "Context-Free Languages", "Grammars", ["t3"]),
-      c("t-cfg", "Context-Free Grammars", "Grammars", ["t3"]),
-      c("t-pda", "Pushdown Automata", "Grammars", ["t4"]),
-      c("t-tm", "Turing Machines", "Computability", ["t5"]),
-      c("t-church", "Church-Turing Thesis", "Computability", ["t5"]),
-      c("t-decidable", "Decidable Languages", "Computability", ["t5", "t6"]),
-      c("t-reductions", "Mapping Reductions", "Computability", ["t6"]),
-      c("t-rice", "Rice's Theorem", "Computability", ["t6"]),
-      c("t-p", "Class P", "Complexity", ["t7"]),
-      c("t-np", "Class NP and NP-Completeness", "Complexity", ["t7", "t8"]),
-    ],
-    edges: [
-      ["t-lang", "t-dfa"],
-      ["t-dfa", "t-nfa", "RELATED_TO"],
-      ["t-dfa", "t-regular"],
-      ["t-regex", "t-regular", "RELATED_TO"],
-      ["t-cfg", "t-cfl"],
-      ["t-cfl", "t-pda"],
-      ["t-tm", "t-church", "RELATED_TO"],
-      ["t-tm", "t-decidable"],
-      ["t-decidable", "t-reductions"],
-      ["t-reductions", "t-rice"],
-      ["t-tm", "t-p"],
-      ["t-p", "t-np"],
-    ],
+    id: "regularization",
+    name: "Regularization",
+    cluster: "Models",
+    discovery_state: "active",
+    importance: 0.76,
+    personal_relevance: 0.72,
+    mastery: 0.66,
+    familiarity: 0.79,
+    confidence: 0.7,
+    readiness: 0.74,
+    fragility: 0.18,
+    state: "developing",
   },
   {
-    course: {
-      id: "18.06",
-      code: "18.06",
-      name: "Linear Algebra",
-      archive: "course-materials/18.06.zip",
-      sourceFiles: [
-        "course-info/syllabus.pdf",
-        "exercises/pset1.pdf",
-        "exercises/pset3.pdf",
-        "exercises/pset5.pdf",
-        "exercises/pset7.pdf",
-        "exercises/pset9.pdf",
-        "local-coursework/Comp 1.2 LA.py",
-      ],
-    },
-    resources: [
-      r(
-        "l1",
-        "syllabus.pdf",
-        "18.06/spring-2026/course-info/syllabus.pdf",
-        "syllabus",
-      ),
-      r("l2", "pset1.pdf", "18.06/spring-2026/exercises/pset1.pdf", "homework"),
-      r("l3", "pset3.pdf", "18.06/spring-2026/exercises/pset3.pdf", "homework"),
-      r("l4", "pset5.pdf", "18.06/spring-2026/exercises/pset5.pdf", "homework"),
-      r("l5", "pset7.pdf", "18.06/spring-2026/exercises/pset7.pdf", "homework"),
-      r("l6", "pset9.pdf", "18.06/spring-2026/exercises/pset9.pdf", "homework"),
-      r(
-        "l7",
-        "Comp 1.2 LA.py",
-        "18.06/local-coursework/Comp 1.2 LA.py",
-        "worked_solution",
-        "student_self",
-      ),
-    ],
-    concepts: [
-      c("l-vectors", "Vectors", "Foundations", ["l1", "l2"]),
-      c("l-comb", "Linear Combinations", "Foundations", ["l2"]),
-      c("l-span", "Span", "Foundations", ["l2"]),
-      c("l-matrix", "Matrix Operations", "Matrices", ["l2", "l7"]),
-      c("l-systems", "Linear Systems", "Matrices", ["l3"]),
-      c("l-elim", "Gaussian Elimination", "Matrices", ["l3"]),
-      c("l-invert", "Invertible Matrices", "Matrices", ["l3"]),
-      c("l-subspaces", "Subspaces", "Vector Spaces", ["l3"]),
-      c("l-fundamental", "Four Fundamental Subspaces", "Vector Spaces", ["l4"]),
-      c("l-transform", "Linear Transformations", "Vector Spaces", ["l4"]),
-      c("l-determinant", "Determinants", "Eigenvalues", ["l4"]),
-      c("l-eigen", "Eigenvalues and Eigenvectors", "Eigenvalues", ["l5"]),
-      c("l-orthogonal", "Orthogonality", "Orthogonality", ["l4"]),
-      c(
-        "l-projection",
-        "Projection Matrices and Least Squares",
-        "Orthogonality",
-        ["l4"],
-      ),
-      c("l-svd", "Singular Value Decomposition", "Applications", ["l6"]),
-    ],
-    edges: [
-      ["l-vectors", "l-comb"],
-      ["l-comb", "l-span"],
-      ["l-matrix", "l-systems"],
-      ["l-systems", "l-elim"],
-      ["l-elim", "l-invert"],
-      ["l-span", "l-subspaces"],
-      ["l-subspaces", "l-fundamental"],
-      ["l-matrix", "l-transform"],
-      ["l-determinant", "l-eigen"],
-      ["l-orthogonal", "l-projection"],
-      ["l-projection", "l-svd"],
-      ["l-eigen", "l-svd"],
-    ],
+    id: "kernel-regression",
+    name: "Kernel Regression",
+    cluster: "Models",
+    discovery_state: "active",
+    importance: 0.93,
+    personal_relevance: 0.95,
+    mastery: 0.74,
+    familiarity: 0.81,
+    confidence: 0.71,
+    readiness: 0.48,
+    fragility: 0.72,
+    state: "fragile",
   },
   {
-    course: {
-      id: "8.223",
-      code: "8.223",
-      name: "Classical Mechanics II",
-      archive: "course-materials/8.223.zip",
-      sourceFiles: [
-        "Lecture Notes/L1-notes.pdf",
-        "Lecture Notes/L2-notes.pdf",
-        "Lecture Notes/L4-notes.pdf",
-        "Lecture Notes/L6-notes.pdf",
-        "Lecture Notes/L8-notes.pdf",
-        "Lecture Notes/L10-notes.pdf",
-        "Lecture Notes/L11-notes.pdf",
-        "local-coursework/Legendre Transforms for Dummies.pdf",
-      ],
-    },
-    resources: [
-      r("m1", "L1-notes.pdf", "8.223/Lecture Notes/L1-notes.pdf", "lecture"),
-      r("m2", "L2-notes.pdf", "8.223/Lecture Notes/L2-notes.pdf", "lecture"),
-      r("m3", "L4-notes.pdf", "8.223/Lecture Notes/L4-notes.pdf", "lecture"),
-      r("m4", "L6-notes.pdf", "8.223/Lecture Notes/L6-notes.pdf", "lecture"),
-      r("m5", "L8-notes.pdf", "8.223/Lecture Notes/L8-notes.pdf", "lecture"),
-      r("m6", "L10-notes.pdf", "8.223/Lecture Notes/L10-notes.pdf", "lecture"),
-      r("m7", "L11-notes.pdf", "8.223/Lecture Notes/L11-notes.pdf", "lecture"),
-      r(
-        "m8",
-        "Legendre Transforms for Dummies.pdf",
-        "8.223/local-coursework/Legendre Transforms for Dummies.pdf",
-        "reading",
-        "external",
-      ),
-    ],
-    concepts: [
-      c("m-action", "Principle of Stationary Action", "Lagrangian Mechanics", [
-        "m1",
-      ]),
-      c("m-lagrange", "Lagrangian", "Lagrangian Mechanics", ["m1", "m2"]),
-      c("m-coords", "Generalized Coordinates", "Lagrangian Mechanics", ["m2"]),
-      c("m-euler", "Euler-Lagrange Equations", "Lagrangian Mechanics", ["m2"]),
-      c("m-noninertial", "Non-Inertial Frames", "Lagrangian Mechanics", ["m3"]),
-      c("m-symmetry", "Symmetry and Conservation Laws", "Conservation", ["m2"]),
-      c("m-energy", "Energy Conservation", "Conservation", ["m2"]),
-      c("m-angular", "Angular Momentum", "Central Forces", ["m4"]),
-      c("m-central", "Central Potentials", "Central Forces", ["m4", "m5"]),
-      c("m-orbits", "Two-Body Orbits", "Central Forces", ["m4"]),
-      c("m-effective", "Effective Potential", "Central Forces", ["m5"]),
-      c("m-precession", "Orbital Precession", "Central Forces", ["m5"]),
-      c("m-legendre", "Legendre Transformation", "Hamiltonian Mechanics", [
-        "m6",
-        "m8",
-      ]),
-      c("m-canonical", "Canonical Momentum", "Hamiltonian Mechanics", ["m6"]),
-      c(
-        "m-hamilton",
-        "Hamiltonian Mechanics and Canonical Transformations",
-        "Hamiltonian Mechanics",
-        ["m6", "m7"],
-      ),
-    ],
-    edges: [
-      ["m-action", "m-lagrange"],
-      ["m-coords", "m-euler"],
-      ["m-lagrange", "m-euler"],
-      ["m-euler", "m-noninertial", "APPLICATION_OF"],
-      ["m-symmetry", "m-energy"],
-      ["m-symmetry", "m-angular"],
-      ["m-angular", "m-central"],
-      ["m-central", "m-orbits"],
-      ["m-central", "m-effective"],
-      ["m-effective", "m-precession"],
-      ["m-lagrange", "m-legendre"],
-      ["m-legendre", "m-hamilton"],
-      ["m-canonical", "m-hamilton"],
-    ],
+    id: "cross-validation",
+    name: "Cross Validation",
+    cluster: "Models",
+    discovery_state: "encountered",
+    importance: 0.64,
+    personal_relevance: 0.6,
+    mastery: 0.58,
+    familiarity: 0.66,
+    confidence: 0.49,
+    readiness: 0.61,
+    fragility: 0.33,
+    state: "stale",
   },
   {
-    course: {
-      id: "16.C20",
-      code: "16.C20",
-      name: "Computational Science and Engineering",
-      archive: "course-materials/16.C20.zip",
-      sourceFiles: [
-        "README.md",
-        "IVPlib_rev0/coffee_model_rev0.py",
-        "resource-2/startercode/mylinsolver.py",
-        "resource-2/startercode/mynonlinsolver.py",
-        "resource-2/startercode/solve_robertson.py",
-        "Lec15Code/gd1.py",
-        "Lec15Code/can_opt.py",
-        "resource-4/startercode/cellopt.py",
-        "resource-6/startercode/neuron_model.py",
-      ],
-    },
-    resources: [
-      r("s1", "README.md", "16.C20/README.md", "study_guide"),
-      r(
-        "s2",
-        "coffee_model_rev0.py",
-        "16.C20/IVPlib_rev0/coffee_model_rev0.py",
-        "worked_solution",
-      ),
-      r(
-        "s3",
-        "mylinsolver.py",
-        "16.C20/resource-2/startercode/mylinsolver.py",
-        "homework",
-      ),
-      r(
-        "s4",
-        "mynonlinsolver.py",
-        "16.C20/resource-2/startercode/mynonlinsolver.py",
-        "homework",
-      ),
-      r(
-        "s5",
-        "solve_robertson.py",
-        "16.C20/resource-2/startercode/solve_robertson.py",
-        "homework",
-      ),
-      r("s6", "gd1.py", "16.C20/Lec15Code/gd1.py", "lecture"),
-      r("s7", "can_opt.py", "16.C20/Lec15Code/can_opt.py", "lecture"),
-      r(
-        "s8",
-        "cellopt.py",
-        "16.C20/resource-4/startercode/cellopt.py",
-        "homework",
-      ),
-      r(
-        "s9",
-        "neuron_model.py",
-        "16.C20/resource-6/startercode/neuron_model.py",
-        "homework",
-      ),
-    ],
-    concepts: [
-      c("s-arrays", "NumPy Arrays", "Programming", ["s1"]),
-      c("s-ivp", "Initial Value Problems", "Differential Equations", ["s2"]),
-      c("s-rhs", "ODE Right-Hand Sides", "Differential Equations", [
-        "s2",
-        "s5",
-      ]),
-      c("s-timestep", "Time Stepping", "Differential Equations", ["s2"]),
-      c("s-linear", "Linear Systems", "Numerical Linear Algebra", ["s3"]),
-      c("s-gaussian", "Gaussian Elimination", "Numerical Linear Algebra", [
-        "s3",
-      ]),
-      c("s-nonlinear", "Nonlinear Systems", "Numerical Methods", ["s4"]),
-      c("s-newton", "Newton's Method", "Numerical Methods", ["s4"]),
-      c("s-jacobian", "Jacobians", "Numerical Methods", ["s4", "s5"]),
-      c("s-reaction", "Robertson Reaction Model", "Differential Equations", [
-        "s5",
-      ]),
-      c("s-objective", "Objective Functions", "Optimization", ["s7", "s8"]),
-      c("s-gradient", "Gradient Descent", "Optimization", ["s6", "s8"]),
-      c("s-constrained", "Constrained Optimization", "Optimization", ["s7"]),
-      c("s-pnorm", "p-Norm Approximation", "Optimization", ["s8"]),
-      c("s-neuron", "Neuron Simulation", "Applications", ["s9"]),
-    ],
-    edges: [
-      ["s-arrays", "s-linear"],
-      ["s-linear", "s-gaussian"],
-      ["s-ivp", "s-rhs"],
-      ["s-rhs", "s-timestep"],
-      ["s-jacobian", "s-newton"],
-      ["s-nonlinear", "s-newton"],
-      ["s-newton", "s-reaction", "APPLICATION_OF"],
-      ["s-rhs", "s-reaction", "APPLICATION_OF"],
-      ["s-objective", "s-gradient"],
-      ["s-gradient", "s-constrained"],
-      ["s-objective", "s-pnorm"],
-      ["s-ivp", "s-neuron", "APPLICATION_OF"],
-    ],
+    id: "bandwidth-selection",
+    name: "Bandwidth Selection",
+    cluster: "Models",
+    discovery_state: "frontier",
+    importance: 0.69,
+    personal_relevance: 0.77,
+    mastery: null,
+    familiarity: 0.08,
+    confidence: 0.0,
+    readiness: 0.44,
+    fragility: 0.0,
+    state: "frontier",
+  },
+  {
+    id: "random-fourier-features",
+    name: "Random Fourier Features",
+    scope: "personal",
+    cluster: "Personal",
+    discovery_state: "encountered",
+    importance: 0.35,
+    personal_relevance: 0.81,
+    mastery: 0.45,
+    familiarity: 0.62,
+    confidence: 0.4,
+    readiness: 0.47,
+    fragility: 0.38,
+    state: "uncertain",
   },
 ];
 
-export const MOCK_COURSES = COURSE_SEEDS.map(({ course }) => course);
-export const MOCK_COURSE = MOCK_COURSES[0];
-function build(seed: CourseSeed) {
-  const nodes: ConceptNode[] = seed.concepts.map(([id, name, cluster], i) => ({
-    ...DEMO_STATES[i % DEMO_STATES.length],
-    id,
-    name,
-    cluster,
-  }));
-  const resources: CourseResource[] = seed.resources.map(
-    ([id, title, _path, artifact_type, origin = "instructor"]) => {
-      const concept_ids = seed.concepts
-        .filter(([, , , ids]) => ids.includes(id))
-        .map(([conceptId]) => conceptId);
-      return {
-        id,
-        title,
-        origin,
-        artifact_type,
-        concept_ids,
-        concept_count: concept_ids.length,
-        status: "complete",
-        uploaded_at: "2026-02-01T00:00:00Z",
-      };
-    },
-  );
-  const edges: ConceptEdge[] = seed.edges.map(([source, target, type]) => ({
-    source,
-    target,
-    type: type ?? "PREREQUISITE_FOR",
-    origin: "course",
-    confidence: 1,
-  }));
-  return {
-    course: seed.course,
-    concepts: seed.concepts,
-    resources,
-    graph: {
-      course_id: seed.course.id,
-      student_id: MOCK_STUDENT_ID,
-      graph_version: 1,
-      nodes,
-      edges,
-      hidden_concept_count: 0,
-    } satisfies KnowledgeGraphResponse,
-  };
+export const MOCK_NODES: ConceptNode[] = NODE_SEEDS.map((n) => ({
+  scope: "course",
+  ...n,
+})) as ConceptNode[];
+
+export const MOCK_EDGES: KnowledgeGraphResponse["edges"] = [
+  { source: "linear-algebra", target: "eigendecomposition", type: "prerequisite", origin: "course", confidence: 0.95 },
+  { source: "linear-algebra", target: "inner-products", type: "prerequisite", origin: "course", confidence: 0.94 },
+  { source: "inner-products", target: "gram-matrix", type: "prerequisite", origin: "course", confidence: 0.88 },
+  { source: "eigendecomposition", target: "psd-matrices", type: "prerequisite", origin: "course", confidence: 0.91 },
+  { source: "gram-matrix", target: "psd-matrices", type: "prerequisite", origin: "course", confidence: 0.86 },
+  { source: "psd-matrices", target: "mercer", type: "prerequisite", origin: "course", confidence: 0.93 },
+  { source: "mercer", target: "kernel-functions", type: "prerequisite", origin: "course", confidence: 0.9 },
+  { source: "mercer", target: "rkhs", type: "extends", origin: "course", confidence: 0.72 },
+  { source: "kernel-functions", target: "kernel-trick", type: "prerequisite", origin: "course", confidence: 0.89 },
+  { source: "kernel-trick", target: "svm", type: "applies_to", origin: "course", confidence: 0.8 },
+  { source: "kernel-trick", target: "kernel-regression", type: "prerequisite", origin: "course", confidence: 0.92 },
+  { source: "regularization", target: "kernel-regression", type: "prerequisite", origin: "course", confidence: 0.78 },
+  { source: "kernel-regression", target: "bandwidth-selection", type: "prerequisite", origin: "course", confidence: 0.87 },
+  { source: "cross-validation", target: "bandwidth-selection", type: "prerequisite", origin: "course", confidence: 0.83 },
+  { source: "kernel-functions", target: "random-fourier-features", type: "approximates", origin: "personal", confidence: 0.64 },
+];
+
+export const MOCK_GRAPH: KnowledgeGraphResponse = {
+  student_id: MOCK_STUDENT_ID,
+  course_id: MOCK_COURSE.id,
+  graph_version: "7",
+  nodes: MOCK_NODES,
+  edges: MOCK_EDGES,
+  hidden_concept_count: 41,
+};
+
+// ---------------------------------------------------------------------------
+// Evidence + resources per concept
+// ---------------------------------------------------------------------------
+
+function ev(
+  id: string,
+  label: string,
+  detail: string,
+  kind: Evidence["kind"],
+  polarity: Evidence["polarity"],
+  source: Resource,
+): Evidence {
+  return { id, label, detail, kind, polarity, source };
 }
-const DATA = new Map(COURSE_SEEDS.map((seed) => [seed.course.id, build(seed)]));
-export type MockCourseData = ReturnType<typeof build>;
-export function getMockCourseData(courseId: string): MockCourseData {
-  return DATA.get(courseId) ?? DATA.get(MOCK_COURSE.id)!;
+
+const DETAILS: Record<string, ConceptDetail> = {
+  "psd-matrices": {
+    concept_id: "psd-matrices",
+    evidence: [
+      ev("e1", "Midterm Q4", "2 / 8", "mastery", "negative", RESOURCES.midterm),
+      ev("e2", "Homework 2 Q5", "3 / 6", "mastery", "negative", RESOURCES.hw2),
+      ev("e3", "My Week 4 Notes", "Covered concept", "familiarity", "neutral", RESOURCES.notes4),
+      ev("e4", "Lecture 6", "Concept introduced", "familiarity", "positive", RESOURCES.lec6),
+    ],
+    resources: [
+      { ...RESOURCES.lec6, role: "Primary explanation" },
+      { ...RESOURCES.sarah, role: "Alternate intuition" },
+      { ...RESOURCES.recitation, role: "Worked practice" },
+    ],
+  },
+  mercer: {
+    concept_id: "mercer",
+    evidence: [
+      ev("e1", "Midterm Q4", "2 / 8", "mastery", "negative", RESOURCES.midterm),
+      ev("e2", "Homework 3 Q2", "4 / 5", "mastery", "positive", RESOURCES.hw3),
+      ev("e3", "My Week 4 Notes", "Covered concept", "familiarity", "neutral", RESOURCES.notes4),
+      ev("e4", "Sarah's Notes", "Cross-referenced", "familiarity", "positive", RESOURCES.sarah),
+    ],
+    resources: [
+      { ...RESOURCES.lec6, role: "Primary explanation" },
+      { ...RESOURCES.sarah, role: "Alternate intuition" },
+      { ...RESOURCES.hw3, role: "Worked example" },
+      { ...RESOURCES.bishop, role: "Formal treatment" },
+    ],
+  },
+  "kernel-functions": {
+    concept_id: "kernel-functions",
+    evidence: [
+      ev("e1", "Homework 3 Q1", "7 / 10", "mastery", "positive", RESOURCES.hw3),
+      ev("e2", "Self-report", "Low stated certainty", "confidence", "negative", RESOURCES.notes5),
+      ev("e3", "Lecture 7", "Concept introduced", "familiarity", "positive", RESOURCES.lec7),
+    ],
+    resources: [
+      { ...RESOURCES.lec7, role: "Primary explanation" },
+      { ...RESOURCES.bishop, role: "Formal treatment" },
+    ],
+  },
+  "kernel-regression": {
+    concept_id: "kernel-regression",
+    evidence: [
+      ev("e1", "Homework 3 Q4", "8 / 10", "mastery", "positive", RESOURCES.hw3),
+      ev("e2", "Prerequisite check", "Foundations are weak", "mastery", "negative", RESOURCES.midterm),
+      ev("e3", "Lecture 7", "Concept introduced", "familiarity", "positive", RESOURCES.lec7),
+    ],
+    resources: [
+      { ...RESOURCES.lec7, role: "Primary explanation" },
+      { ...RESOURCES.hw3, role: "Worked example" },
+    ],
+  },
+  "random-fourier-features": {
+    concept_id: "random-fourier-features",
+    evidence: [
+      ev("e1", "Random Features blog post", "Read and annotated", "familiarity", "positive", RESOURCES.blog),
+      ev("e2", "Self-report", "Unsure of the proof", "confidence", "negative", RESOURCES.notes5),
+    ],
+    resources: [{ ...RESOURCES.blog, role: "Only source so far" }],
+  },
+};
+
+const GENERIC_DETAIL = (id: string): ConceptDetail => ({
+  concept_id: id,
+  evidence: [
+    ev("e1", "Lecture coverage", "Concept introduced", "familiarity", "positive", RESOURCES.lec5),
+  ],
+  resources: [{ ...RESOURCES.lec5, role: "Primary explanation" }],
+});
+
+export function mockConceptDetail(conceptId: string): ConceptDetail {
+  return DETAILS[conceptId] ?? GENERIC_DETAIL(conceptId);
 }
-export const MOCK_GRAPH = getMockCourseData(MOCK_COURSE.id).graph;
-export const MOCK_RESOURCES = getMockCourseData(MOCK_COURSE.id).resources;
-export const MOCK_TARGETS = MOCK_GRAPH.nodes.slice(0, 8).map((n) => n.name);
+
+const WHY: Record<string, WhyExplanation> = {
+  "psd-matrices": {
+    concept_id: "psd-matrices",
+    summary:
+      "Your mastery is low because graded work consistently misses the definiteness condition, even though you report high confidence. That gap between confidence and mastery is why this ranks first.",
+    strongest_evidence: "Lecture 6 notes show you followed the derivation",
+    weakest_evidence: "Midterm Q4: 2/8",
+    prerequisite_reason:
+      "Lecture 6 introduces PSD matrices before Mercer's theorem, and three HW3 concepts depend on it.",
+  },
+  mercer: {
+    concept_id: "mercer",
+    summary:
+      "You can apply the theorem on homework but not under exam conditions. Mastery is held down by the midterm result and by weak PSD foundations underneath it.",
+    strongest_evidence: "Homework 3 Q2: 4/5",
+    weakest_evidence: "Midterm Q4: 2/8",
+    prerequisite_reason:
+      "Mercer's theorem requires the kernel matrix to be positive semidefinite, so PSD matrices come first.",
+  },
+  "kernel-regression": {
+    concept_id: "kernel-regression",
+    summary:
+      "Your scores here are good, but this concept is marked fragile: it rests on PSD matrices and Mercer's theorem, both of which are weak. Performance is likely pattern-matching rather than understanding.",
+    strongest_evidence: "Homework 3 Q4: 8/10",
+    weakest_evidence: "Prerequisite mastery averages 0.35",
+  },
+  "kernel-functions": {
+    concept_id: "kernel-functions",
+    summary:
+      "Mastery is moderate but confidence is much lower, so the engine is unsure this score is real. A short diagnostic would resolve it.",
+    strongest_evidence: "Homework 3 Q1: 7/10",
+    weakest_evidence: "Self-reported low certainty",
+  },
+};
+
+export function mockWhy(conceptId: string): WhyExplanation | null {
+  return WHY[conceptId] ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// Gaps + study plan
+// ---------------------------------------------------------------------------
+
+export const MOCK_TARGET = "Prepare for HW3";
+
+export const MOCK_TARGETS = ["Prepare for HW3", "Prepare for the Final", "Shore up weak foundations"];
+
+/** Mock targets are identified the same way real ones are, so the components
+ *  cannot tell the two modes apart. */
+export const MOCK_TARGET_OBJ = { id: "mock_target_0", label: MOCK_TARGET };
+
 export const MOCK_GAPS: GapsResponse = {
-  target: { id: MOCK_GRAPH.nodes[0].id, label: MOCK_GRAPH.nodes[0].name },
-  gaps: [],
+  target: MOCK_TARGET_OBJ,
+  gaps: [
+    {
+      concept_id: "psd-matrices",
+      concept_name: "Positive Semidefinite Matrices",
+      mastery: 0.31,
+      confidence: 0.78,
+      priority: 0.93,
+      action: "STUDY",
+      reason: "Foundational prerequisite for 3 concepts required by HW3.",
+    },
+    {
+      concept_id: "mercer",
+      concept_name: "Mercer's Theorem",
+      mastery: 0.39,
+      confidence: 0.65,
+      priority: 0.84,
+      action: "STUDY",
+      reason: "Directly assessed on HW3 Q2 and currently unstable under exam conditions.",
+    },
+    {
+      concept_id: "kernel-functions",
+      concept_name: "Kernel Functions",
+      mastery: 0.68,
+      confidence: 0.52,
+      priority: 0.55,
+      action: "DIAGNOSE",
+      reason: "Mastery looks adequate but confidence is low - the score may not be trustworthy.",
+    },
+    {
+      concept_id: "cross-validation",
+      concept_name: "Cross Validation",
+      mastery: 0.58,
+      confidence: 0.49,
+      priority: 0.34,
+      action: "REVIEW",
+      reason: "Not touched in four weeks and needed downstream for bandwidth selection.",
+    },
+  ],
 };
+
 export const MOCK_STUDY_PLAN: StudyPlan = {
-  target: MOCK_GAPS.target,
-  steps: [],
+  target: MOCK_TARGET_OBJ,
+  steps: [
+    {
+      order: 1,
+      concept_id: "psd-matrices",
+      concept_name: "Positive Semidefinite Matrices",
+      reason: "It is a prerequisite for three concepts needed for HW3.",
+      mastery: 0.31,
+      resources: [
+        { ...RESOURCES.lec6, role: "Start here" },
+        { ...RESOURCES.sarah, role: "If the lecture does not land" },
+      ],
+    },
+    {
+      order: 2,
+      concept_id: "mercer",
+      concept_name: "Mercer's Theorem",
+      reason: "Builds directly on PSD matrices and is assessed on HW3 Q2.",
+      mastery: 0.39,
+      resources: [
+        { ...RESOURCES.lec6, role: "Start here" },
+        { ...RESOURCES.bishop, role: "Formal treatment" },
+      ],
+    },
+    {
+      order: 3,
+      concept_id: "kernel-functions",
+      concept_name: "Kernel Functions",
+      reason: "Confidence is low here - a short diagnostic will confirm whether 68% is real.",
+      mastery: 0.68,
+      resources: [{ ...RESOURCES.hw3, role: "Self-check with Q1" }],
+    },
+    {
+      order: 4,
+      concept_id: "kernel-regression",
+      concept_name: "Kernel Regression",
+      reason: "Marked fragile - re-derive it once the foundations underneath are solid.",
+      mastery: 0.74,
+      resources: [{ ...RESOURCES.lec7, role: "Re-derive from here" }],
+    },
+  ],
 };
-function detail(courseId: string, id: string): ConceptDetail {
-  const data = getMockCourseData(courseId);
-  const concept = data.concepts.find(([key]) => key === id);
-  const resources = (concept?.[3] ?? [])
-    .map((resourceId) => data.resources.find((x) => x.id === resourceId))
-    .filter((x): x is CourseResource => Boolean(x))
-    .map(({ id, title, origin, artifact_type }) => ({
-      id,
-      title,
-      origin,
-      artifact_type,
-      role: "Course material",
-    }));
-  return { concept_id: id, definition: "", evidence: [], resources };
-}
-export function mockConceptDetail(courseId: string, conceptId?: string) {
-  return detail(conceptId ? courseId : MOCK_COURSE.id, conceptId ?? courseId);
-}
-export function mockTargets(courseId: string): StudyTarget[] {
-  return getMockCourseData(courseId)
-    .graph.nodes.slice(0, 8)
-    .map((n) => ({ id: n.id, label: n.name }));
-}
-export function mockGaps(courseId: string, target: StudyTarget): GapsResponse {
-  const gaps: Gap[] = getMockCourseData(courseId)
-    .graph.nodes.filter(
-      (n) =>
-        n.id !== target.id &&
-        (n.understanding === null || n.understanding < 0.55),
-    )
-    .slice(0, 4)
-    .map((n, i) => ({
-      concept_id: n.id,
-      concept_name: n.name,
-      understanding: n.understanding ?? 0,
-      priority: 1 - i * 0.12,
-      action: n.understanding === null ? "STUDY" : "REVIEW",
-      reason:
-        "Deterministic demo state marks this file-supported concept for review.",
-    }));
-  return { target, gaps };
-}
-export function mockStudyPlan(
-  courseId: string,
-  target: StudyTarget,
-): StudyPlan {
-  const data = getMockCourseData(courseId);
-  const ids = [
-    ...data.graph.edges
-      .filter((e) => e.target === target.id)
-      .map((e) => e.source)
-      .slice(0, 2),
-    target.id,
-  ];
-  return {
-    target,
-    steps: ids.map((id, i) => {
-      const n = data.graph.nodes.find((x) => x.id === id)!;
-      return {
-        order: i + 1,
-        concept_id: id,
-        concept_name: n.name,
-        reason:
-          id === target.id
-            ? "Selected course target."
-            : "Prerequisite relationship in this course graph.",
-        understanding: n.understanding,
-        resources: detail(courseId, id).resources,
-      };
-    }),
-  };
-}
+
+// ---------------------------------------------------------------------------
+// Files view
+// ---------------------------------------------------------------------------
+
+export const MOCK_RESOURCES: CourseResource[] = [
+  {
+    id: "lec5",
+    title: "Lecture 05 - Vector Spaces",
+    origin: "instructor",
+    artifact_type: "lecture",
+    concept_count: 3,
+    concept_ids: ["linear-algebra", "inner-products", "eigendecomposition"],
+    status: "complete",
+    uploaded_at: "2026-09-11",
+  },
+  {
+    id: "lec6",
+    title: "Lecture 06 - PSD Matrices",
+    origin: "instructor",
+    artifact_type: "lecture",
+    concept_count: 4,
+    concept_ids: ["gram-matrix", "psd-matrices", "mercer", "eigendecomposition"],
+    status: "complete",
+    uploaded_at: "2026-09-14",
+  },
+  {
+    id: "lec7",
+    title: "Lecture 07 - Kernels",
+    origin: "instructor",
+    artifact_type: "lecture",
+    concept_count: 4,
+    concept_ids: ["kernel-functions", "kernel-trick", "kernel-regression", "rkhs"],
+    status: "complete",
+    uploaded_at: "2026-09-16",
+  },
+  {
+    id: "bishop",
+    title: "Bishop Ch. 6 - Kernel Methods",
+    origin: "instructor",
+    artifact_type: "reading",
+    concept_count: 3,
+    concept_ids: ["mercer", "kernel-functions", "rkhs"],
+    status: "complete",
+    uploaded_at: "2026-09-10",
+  },
+  {
+    id: "hw2",
+    title: "Homework 2",
+    origin: "instructor",
+    artifact_type: "homework",
+    concept_count: 3,
+    concept_ids: ["linear-algebra", "inner-products", "psd-matrices"],
+    status: "complete",
+    uploaded_at: "2026-09-09",
+  },
+  {
+    id: "hw3",
+    title: "Homework 3",
+    origin: "instructor",
+    artifact_type: "homework",
+    concept_count: 4,
+    concept_ids: ["psd-matrices", "mercer", "kernel-functions", "kernel-regression"],
+    status: "complete",
+    uploaded_at: "2026-09-17",
+  },
+  {
+    id: "midterm",
+    title: "Midterm",
+    origin: "instructor",
+    artifact_type: "exam",
+    concept_count: 4,
+    concept_ids: ["psd-matrices", "mercer", "eigendecomposition", "kernel-trick"],
+    status: "complete",
+    uploaded_at: "2026-09-12",
+  },
+  {
+    id: "recitation",
+    title: "TA Recitation 4",
+    origin: "ta",
+    artifact_type: "study_guide",
+    concept_count: 2,
+    concept_ids: ["psd-matrices", "gram-matrix"],
+    status: "complete",
+    uploaded_at: "2026-09-18",
+  },
+  {
+    id: "notes4",
+    title: "My Week 4 Notes",
+    origin: "student_self",
+    artifact_type: "student_notes",
+    concept_count: 3,
+    concept_ids: ["psd-matrices", "mercer", "gram-matrix"],
+    status: "complete",
+    uploaded_at: "2026-09-15",
+  },
+  {
+    id: "notes5",
+    title: "My Week 5 Notes",
+    origin: "student_self",
+    artifact_type: "student_notes",
+    concept_count: 3,
+    concept_ids: ["kernel-functions", "kernel-trick", "random-fourier-features"],
+    status: "complete",
+    uploaded_at: "2026-09-18",
+  },
+  {
+    id: "sarah",
+    title: "Sarah's Notes",
+    origin: "classmate",
+    artifact_type: "classmate_notes",
+    concept_count: 3,
+    concept_ids: ["mercer", "psd-matrices", "kernel-functions"],
+    status: "complete",
+    uploaded_at: "2026-09-17",
+  },
+  {
+    id: "solution3",
+    title: "HW3 Worked Solution",
+    origin: "student_self",
+    artifact_type: "worked_solution",
+    concept_count: 2,
+    concept_ids: ["kernel-regression", "regularization"],
+    status: "complete",
+    uploaded_at: "2026-09-19",
+  },
+  {
+    id: "blog",
+    title: "Random Features blog post",
+    origin: "external",
+    artifact_type: "other",
+    concept_count: 2,
+    concept_ids: ["random-fourier-features", "kernel-functions"],
+    status: "complete",
+    uploaded_at: "2026-09-19",
+  },
+  {
+    id: "cvguide",
+    title: "Cross Validation Study Guide",
+    origin: "ta",
+    artifact_type: "study_guide",
+    concept_count: 2,
+    concept_ids: ["cross-validation", "regularization"],
+    status: "processing",
+    uploaded_at: "2026-09-19",
+  },
+];
