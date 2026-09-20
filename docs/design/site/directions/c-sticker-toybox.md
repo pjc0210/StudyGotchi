@@ -82,8 +82,8 @@ bowls that hold at 56 px next to the crunchy world, and a variable axis, so 600 
 exactly: 700 tips into balloon letters, 500 loses the chunk. It is common on children's products,
 so the defences are structural: one weight, never under 28 px, never capitals, a deadpan sentence
 in it every time, and Instrument Sans 500 as the straight face under it (Nunito 500 for body was
-rejected: two soft faces on one sheet is the kids' app read in a glance). Pixel mono never sets a
-UI row (13 is not a multiple of 11): 11 and 22 only.
+rejected: two soft faces on one sheet is the kids' app read). Pixel mono never sets a UI row (13
+is not a multiple of 11): 11 and 22 only.
 
 ### Radius, shadow, spacing
 
@@ -270,16 +270,15 @@ the person we most want to add a course.
 |   | since problem set 5.             |                                             |
 |   | (Touched) (Demonstrated) (Mastered)                          +----------------+ |
 |   +----------------------------------+                           | WINDOWS    5/5 | |
-|                                                                  | CRYSTALS   5/5 | |
 |   ice   forest   city   ocean                                    | RESIDENTS    5 | |
 +----------------------------------------------------------------------------------+
 ```
 
 Read-only means no drop zone, no rename field, no `Share`. Landmarks and residents still open a
-provenance sheet with the concept, its state and its source line, but without `Open the page`
-unless the owner has shared sources (a product decision, flagged for the producer). At 390 the
-banner becomes a stamped strip with the sentence alone, the world and lower screen follow the
-world view layout, and `Add a course` sits full width at the very end, after the residents.
+provenance sheet with the concept, state and source line, but without `Open the page` unless the
+owner has shared sources (a product decision, flagged for the producer). At 390 the banner is a
+stamped strip with the sentence alone, the rest follows the world view layout, and `Add a course`
+sits full width at the very end, after the residents.
 
 ## 4. Signature: the stamp
 
@@ -302,14 +301,13 @@ is that everything traces back to one of those stamps. So the chrome speaks the 
 stamp is the label, the breadcrumb and the citation at once. What makes it the organising device:
 
 - The stamp is the navigation. There is no separate breadcrumb or nav bar. Each segment is a
-  link one level up (`6.1210` in `6.1210 · SORTING & RECURRENCES` opens the world). The `<`
+  link one level up (`6.1210` in `6.1210 · SORTING & RECURRENCES` opens the world), and the `<`
   before a page stamp is the only back control.
 - The stamp is the only place pixel type meets the paper (plus the 22 px counters, which are
   stamps that got big). The crunchy world and the crisp chrome shake hands in one place.
 - The title never repeats the stamp. The stamp says where; the title says what happened there.
-- Any screenshot is self-locating: a card pasted into a group chat still says which course and
-  topic it came from. Screen readers hear it as a real label ("6.1210, Sorting and recurrences"),
-  because it is the first line of the heading group, not an aria afterthought.
+- Any screenshot is self-locating: a card pasted into a group chat still says its course and
+  topic. Screen readers hear it as a real label, the first line of the heading group.
 
 ## 5. Motion
 
