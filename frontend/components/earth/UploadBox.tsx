@@ -3,15 +3,7 @@
 import { useRef, useState } from "react";
 import { useStore } from "@/lib/store";
 import type { ArtifactType, UploadStatus } from "@/lib/types";
-
-const KINDS: { id: ArtifactType; label: string }[] = [
-  { id: "homework", label: "Problem set" },
-  { id: "quiz", label: "Quiz" },
-  { id: "exam", label: "Exam" },
-  { id: "student_notes", label: "My notes" },
-  { id: "handwritten_work", label: "Handwritten work (photo)" },
-  { id: "worked_solution", label: "Worked solution" },
-];
+import { ACCEPT_ATTRIBUTE, STUDENT_WORK_KINDS } from "@/lib/uploadIntake";
 
 const STATUS_LABEL: Record<UploadStatus, string> = {
   queued: "Queued",
@@ -44,7 +36,7 @@ export function UploadBox() {
           onChange={(e) => setKind(e.target.value as ArtifactType)}
           aria-label="What kind of file"
         >
-          {KINDS.map((k) => (
+          {STUDENT_WORK_KINDS.map((k) => (
             <option key={k.id} value={k.id}>
               {k.label}
             </option>
@@ -71,7 +63,7 @@ export function UploadBox() {
             ref={input}
             type="file"
             multiple
-            accept=".pdf,.png,.jpg,.jpeg,.webp,.md,.txt,.docx,.zip"
+            accept={ACCEPT_ATTRIBUTE}
             className="sr-only"
             onChange={(e) => {
               take(e.target.files);

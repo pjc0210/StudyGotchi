@@ -1,5 +1,7 @@
 import { hashString, makeRng } from "../seed";
-import type { BiomeId, CanvasPlace, CanvasSpot } from "./types";
+import type { BiomeId, CanvasSpot, Vec2 } from "./types";
+
+export type { Vec2 } from "./types";
 
 export const ISLAND_RADIUS = 8;
 
@@ -14,15 +16,10 @@ export const BIOMES: Record<
   sand: { id: "sand", ground: "#efd9a2", accent: "#d2a95e", creature: "#b9c96f" },
 };
 
-export interface Vec2 {
-  x: number;
-  z: number;
-}
-
 /** Place centres sit on a ring. Index keeps them evenly spaced; the id only jitters. */
-export function placeCenter(place: CanvasPlace, index: number, count: number): Vec2 {
+export function placeCenter(placeId: string, index: number, count: number): Vec2 {
   const angle = (index / Math.max(count, 1)) * Math.PI * 2 - Math.PI / 2;
-  const rng = makeRng(hashString(place.id));
+  const rng = makeRng(hashString(placeId));
   const radius = 0.42 + rng() * 0.1;
   return { x: Math.cos(angle) * radius, z: Math.sin(angle) * radius };
 }
@@ -68,15 +65,13 @@ export function nearestPlace(
   return best;
 }
 
-export function landmarkHeight(spots: CanvasSpot[], x: number, z: number, centers: Map<string, Vec2>): number {
+/** Terrain rise at a normalised point: every landmark lifts the ground around it. */
+export function landmarkHeight(spots: CanvasSpot[], x: number, z: number): number {
   let bump = 0;
   for (const spot of spots) {
     if (spot.state !== 2) continue;
-    const center = centers.get(spot.place_id);
-    if (!center) continue;
-    const pos = worldPosition(center, spotOffset(spot.concept_id));
-    const nx = pos.x / ISLAND_RADIUS;
-    const nz = pos.z / ISLAND_RADIUS;
+    const nx = spot.position.x / ISLAND_RADIUS;
+    const nz = spot.position.z / ISLAND_RADIUS;
     const d2 = (x - nx) ** 2 + (z - nz) ** 2;
     bump += spot.height * 0.7 * Math.exp(-d2 / 0.025);
   }

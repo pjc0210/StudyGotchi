@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { UploadCloud, X } from "lucide-react";
 import { useStore } from "@/lib/store";
+import { ACCEPT_ATTRIBUTE, ACCEPT_COPY } from "@/lib/uploadIntake";
 import type { ArtifactType, SourceOrigin } from "@/lib/types";
 import { SourceClassifier, defaultArtifactFor } from "./SourceClassifier";
 import { UploadQueue } from "./UploadQueue";
@@ -82,7 +83,7 @@ export function UploadDialog({
               Drop your course materials here
             </span>
             <span className="text-[12px] text-ink-dim">
-              or click to browse — PDF and ZIP
+              or click to browse — {ACCEPT_COPY}
             </span>
           </button>
 
@@ -90,7 +91,7 @@ export function UploadDialog({
             ref={inputRef}
             type="file"
             multiple
-            accept=".pdf,.zip,application/pdf,application/zip"
+            accept={ACCEPT_ATTRIBUTE}
             className="sr-only"
             onChange={(e) => {
               accept(e.target.files);

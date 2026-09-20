@@ -6,16 +6,7 @@ import { CameraControls, ContactShadows, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { toonGradient, toonMaterial } from "@/lib/toon";
 import { hashString, makeRng } from "@/lib/seed";
-import {
-  BIOMES,
-  ISLAND_RADIUS,
-  characterOffset,
-  landmarkHeight,
-  placeCenter,
-  spotOffset,
-  worldPosition,
-  type Vec2,
-} from "@/lib/world/layout";
+import { BIOMES, ISLAND_RADIUS, landmarkHeight } from "@/lib/world/layout";
 import { RESIDENT_LABEL, statePresentation } from "@/lib/state";
 import type { CanvasPlace, CanvasSpot, HoverInfo, WorldCanvasProps } from "@/lib/world/types";
 import { Character } from "./Character";
@@ -24,29 +15,7 @@ const CLIFF = 3;
 const PAPER = "#f6efe4";
 const OCEAN = "#b9d4e8";
 
-function usePlaceLayout(places: CanvasPlace[]) {
-  return useMemo(() => {
-    const centers = new Map<string, Vec2>();
-    const list = places.map((place, index) => {
-      const center = placeCenter(place, index, places.length);
-      centers.set(place.id, center);
-      return { place, center };
-    });
-    return { list, centers };
-  }, [places]);
-}
-
-function IslandTerrain({
-  seed,
-  places,
-  spots,
-  centers,
-}: {
-  seed: string;
-  places: CanvasPlace[];
-  spots: CanvasSpot[];
-  centers: Map<string, Vec2>;
-}) {
+function IslandTerrain({ seed, places, spots }: { seed: string; places: CanvasPlace[]; spots: CanvasSpot[] }) {
   const geometry = useMemo(() => {
     const rings = 64;
     const cliffRings = 10;
@@ -60,11 +29,7 @@ function IslandTerrain({
       return ISLAND_RADIUS * (1 + wobble);
     };
 
-    const placeList = places.map((place, index) => ({
-      id: place.id,
-      center: centers.get(place.id) ?? placeCenter(place, index, places.length),
-      biome: BIOMES[place.biome],
-    }));
+    const placeList = places.map((place) => ({ id: place.id, center: place.center, biome: BIOMES[place.biome] }));
 
     const positions: number[] = [];
     const colors: number[] = [];
@@ -83,7 +48,7 @@ function IslandTerrain({
           r = (i / rings) * edge;
           const nx = (Math.cos(ang) * r) / ISLAND_RADIUS;
           const nz = (Math.sin(ang) * r) / ISLAND_RADIUS;
-          y = landmarkHeight(spots, nx, nz, centers);
+          y = landmarkHeight(spots, nx, nz);
           let nearest = placeList[0];
           let best = Infinity;
           for (const p of placeList) {
@@ -123,7 +88,7 @@ function IslandTerrain({
     g.setIndex(indices);
     g.computeVertexNormals();
     return g;
-  }, [seed, places, spots, centers]);
+  }, [seed, places, spots]);
 
   const material = useMemo(
     () => new THREE.MeshToonMaterial({ vertexColors: true, gradientMap: toonGradient(), side: THREE.DoubleSide }),
@@ -156,7 +121,6 @@ function usePulse(active: boolean) {
 
 function SpotMarker({
   spot,
-  center,
   biomeAccent,
   selected,
   hovered,
@@ -166,7 +130,6 @@ function SpotMarker({
   heightAt,
 }: {
   spot: CanvasSpot;
-  center: Vec2;
   biomeAccent: string;
   selected: boolean;
   hovered: boolean;
@@ -175,7 +138,7 @@ function SpotMarker({
   onHover: (id: string | null) => void;
   heightAt: (x: number, z: number) => number;
 }) {
-  const pos = worldPosition(center, spotOffset(spot.concept_id));
+  const pos = spot.position;
   const y = heightAt(pos.x, pos.z);
   const pulse = usePulse(changed);
 
@@ -225,17 +188,9 @@ function SpotMarker({
   );
 }
 
-function PlaceSign({
-  place,
-  center,
-  heightAt,
-}: {
-  place: CanvasPlace;
-  center: Vec2;
-  heightAt: (x: number, z: number) => number;
-}) {
-  const x = center.x * ISLAND_RADIUS;
-  const z = center.z * ISLAND_RADIUS;
+function PlaceSign({ place, heightAt }: { place: CanvasPlace; heightAt: (x: number, z: number) => number }) {
+  const x = place.center.x * ISLAND_RADIUS;
+  const z = place.center.z * ISLAND_RADIUS;
   const y = heightAt(x, z);
   const biome = BIOMES[place.biome];
   return (
@@ -286,14 +241,14 @@ function HoverMarker({ info, position }: { info: HoverInfo; position: [number, n
 }
 
 export function Island({ world, selectedId, onSelect, hoveredId, onHover, changedIds }: WorldCanvasProps) {
-  const { list, centers } = usePlaceLayout(world.places);
   const controls = useRef<CameraControls>(null);
   const hover = hoveredId;
   const setHover = onHover;
 
   const heightAt = useMemo(() => {
-    return (x: number, z: number) => landmarkHeight(world.spots, x / ISLAND_RADIUS, z / ISLAND_RADIUS, centers);
-  }, [world.spots, centers]);
+    return (x: number, z: number) => landmarkHeight(world.spots, x / ISLAND_RADIUS, z / ISLAND_RADIUS);
+  }, [world.spots]);
+  const placeById = useMemo(() => new Map(world.places.map((p) => [p.id, p])), [world.places]);
 
   const spotById = useMemo(() => new Map(world.spots.map((s) => [s.concept_id, s])), [world.spots]);
   const residentById = useMemo(
@@ -310,22 +265,20 @@ export function Island({ world, selectedId, onSelect, hoveredId, onHover, change
     const c = controls.current;
     if (!c) return;
     const spot = selectedId ? spotById.get(selectedId) : undefined;
-    const center = spot ? centers.get(spot.place_id) : undefined;
-    if (spot && center) {
-      const pos = worldPosition(center, spotOffset(spot.concept_id));
+    if (spot) {
+      const pos = spot.position;
       const y = heightAt(pos.x, pos.z);
       void c.setLookAt(pos.x + 5, y + 8, pos.z + 12, pos.x, y, pos.z, true);
     } else {
       void c.setLookAt(0, 19, 27, 0, -0.5, 0, true);
     }
-  }, [selectedId, spotById, centers, heightAt]);
+  }, [selectedId, spotById, heightAt]);
 
   const hoverInfo = useMemo<{ info: HoverInfo; position: [number, number, number] } | null>(() => {
     if (!hover) return null;
     const spot = spotById.get(hover);
-    const center = spot ? centers.get(spot.place_id) : undefined;
-    if (!spot || !center) return null;
-    const pos = worldPosition(center, spotOffset(spot.concept_id));
+    if (!spot) return null;
+    const pos = spot.position;
     const y = heightAt(pos.x, pos.z);
     return {
       info: {
@@ -338,7 +291,7 @@ export function Island({ world, selectedId, onSelect, hoveredId, onHover, change
       },
       position: [pos.x, y + 0.9, pos.z],
     };
-  }, [hover, spotById, centers, heightAt, residentById]);
+  }, [hover, spotById, heightAt, residentById]);
 
   return (
     <>
@@ -350,19 +303,18 @@ export function Island({ world, selectedId, onSelect, hoveredId, onHover, change
         <circleGeometry args={[48, 48]} />
       </mesh>
       <group onPointerMissed={() => onSelect(null)}>
-        <IslandTerrain seed={world.seed} places={world.places} spots={world.spots} centers={centers} />
-        {list.map(({ place, center }) => (
-          <PlaceSign key={place.id} place={place} center={center} heightAt={heightAt} />
+        <IslandTerrain seed={world.seed} places={world.places} spots={world.spots} />
+        {world.places.map((place) => (
+          <PlaceSign key={place.id} place={place} heightAt={heightAt} />
         ))}
         {world.spots.map((spot) => {
-          const entry = list.find((item) => item.place.id === spot.place_id);
-          if (!entry) return null;
+          const place = placeById.get(spot.place_id);
+          if (!place) return null;
           return (
             <SpotMarker
               key={spot.concept_id}
               spot={spot}
-              center={entry.center}
-              biomeAccent={BIOMES[entry.place.biome].accent}
+              biomeAccent={BIOMES[place.biome].accent}
               selected={selectedId === spot.concept_id}
               hovered={hover === spot.concept_id}
               changed={changedIds?.has(spot.concept_id) ?? false}
@@ -373,16 +325,14 @@ export function Island({ world, selectedId, onSelect, hoveredId, onHover, change
           );
         })}
         {world.characters.map((character) => {
-          const entry = list.find((item) => item.place.id === character.place_id);
-          if (!entry) return null;
-          const home = worldPosition(entry.center, spotOffset(character.concept_id));
-          const drift = characterOffset(character.id);
+          const place = placeById.get(character.place_id);
+          if (!place) return null;
           return (
             <Character
               key={character.id}
               character={character}
-              place={entry.place}
-              home={{ x: home.x + drift.x * ISLAND_RADIUS * 0.5, z: home.z + drift.z * ISLAND_RADIUS * 0.5 }}
+              place={place}
+              home={character.home}
               heightAt={heightAt}
               selected={selectedId === character.concept_id}
               onSelect={onSelect}

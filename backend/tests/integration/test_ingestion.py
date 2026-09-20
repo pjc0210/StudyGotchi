@@ -21,37 +21,46 @@ from app.pipelines.student_ingestion import ingest_student_resource
 from app.providers.llm.fake_provider import FakeLLMProvider
 from app.repositories.concepts import get_alias_index
 from app.repositories.courses import create_course
-from app.schemas.extraction import ResourceExtractionResult
 
 URL = os.getenv("STUDYGOTCHI_TEST_DATABASE_URL")
 MIGRATE_URL = URL is None
 
 
-class FixtureProvider(FakeLLMProvider):
-    async def structured_generate(self, *, system, prompt, schema):
-        name = "Personal Analogy" if "PRIVATE" in prompt else "Inner Product"
-        result = {
-            "document_type": "notes",
-            "concept_candidates": [
-                {
-                    "name": name,
-                    "definition": "A scalar-valued operation on two vectors.",
-                    "concept_kind": "definition",
-                    "granularity": "core",
-                    "importance_in_resource": 0.8,
-                }
-            ],
-        }
-        if "GRADED" in prompt:
-            result["assessment_items"] = [
-                {
-                    "label": "Q1",
-                    "max_score": 10,
-                    "score_achieved": 0,
-                    "concept_links": [{"concept_name": name, "relevance_weight": 1.0}],
-                }
-            ]
-        return ResourceExtractionResult.model_validate(result)
+def _extraction(name: str, *, graded: bool) -> dict:
+    result = {
+        "document_type": "notes",
+        "concept_candidates": [
+            {
+                "name": name,
+                "definition": "A scalar-valued operation on two vectors.",
+                "concept_kind": "definition",
+                "granularity": "core",
+                "importance_in_resource": 0.8,
+            }
+        ],
+    }
+    if graded:
+        result["assessment_items"] = [
+            {
+                "label": "Q1",
+                "max_score": 10,
+                "score_achieved": 0,
+                "concept_links": [{"concept_name": name, "relevance_weight": 1.0}],
+            }
+        ]
+    return result
+
+
+def fixture_provider() -> FakeLLMProvider:
+    # The first marker found in the prompt wins, so the graded exam is listed first.
+    return FakeLLMProvider(
+        structured=[
+            ("GRADED", _extraction("Inner Product", graded=True)),
+            ("PRIVATE", _extraction("Personal Analogy", graded=False)),
+            ("Inner products", _extraction("Inner Product", graded=False)),
+        ],
+        strict=True,
+    )
 
 
 @pytest.mark.asyncio
@@ -72,7 +81,7 @@ async def test_ingestion_is_idempotent_isolated_and_world_is_explainable(tmp_pat
             course = await create_course(
                 session, name="Integration fixture", code=None, term=None
             )
-            provider = FixtureProvider()
+            provider = fixture_provider()
             student, other = uuid4(), uuid4()
             base = {
                 "course_id": course.id,

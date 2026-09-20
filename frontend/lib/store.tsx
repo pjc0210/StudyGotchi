@@ -3,14 +3,10 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { api, ApiError, invalidateApiCache, isStudentScoped } from "./api";
 import { useIdentity } from "./identity";
+import { ACCEPT_COPY, artifactTypeFor, isAcceptedFile } from "./uploadIntake";
 import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
 
-export const ACCEPTED_EXTENSIONS = [".pdf", ".zip", ".png", ".jpg", ".jpeg", ".webp", ".md", ".txt", ".docx"] as const;
-
-export function isAcceptedFile(file: File): boolean {
-  const name = file.name.toLowerCase();
-  return ACCEPTED_EXTENSIONS.some((ext) => name.endsWith(ext));
-}
+export { ACCEPTED_EXTENSIONS, isAcceptedFile } from "./uploadIntake";
 
 // How often the queue asks the engine about a file it is still reading.
 const STATUS_POLL_MS = 1500;
@@ -191,7 +187,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           filename: file.name,
           size: file.size,
           origin,
-          artifact_type: file.name.toLowerCase().endsWith(".zip") ? "course_bundle" : artifactType,
+          artifact_type: artifactTypeFor(file, artifactType),
           status: "queued",
         })),
         ...rejected.map<UploadItem>((file) => ({
@@ -201,7 +197,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
           origin,
           artifact_type: artifactType,
           status: "failed",
-          error: "Unsupported file type. Upload a PDF, image, or ZIP.",
+          error: `Unsupported file type. Upload a ${ACCEPT_COPY}.`,
         })),
       ];
 

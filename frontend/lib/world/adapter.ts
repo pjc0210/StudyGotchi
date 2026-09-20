@@ -1,4 +1,5 @@
 import { spotStateOf } from "@/lib/state";
+import { ISLAND_RADIUS, characterOffset, placeCenter, spotOffset, worldPosition } from "./layout";
 import type {
   BiomeId,
   CanvasCharacter,
@@ -11,6 +12,8 @@ import type {
 } from "./types";
 
 const BIOME_ORDER: BiomeId[] = ["forest", "meadow", "ice", "sand", "city"];
+
+type WorldRegionLike = { concept_id: string; cluster_id?: string | null };
 
 const CHARACTER_STATE: Record<CreatureState, CharacterState> = {
   unhatched: "idle",
@@ -43,14 +46,20 @@ export function toCanvasWorld(world: WorldResponse): CanvasWorld {
     groups.set(key, group);
   }
 
-  const places: CanvasPlace[] = [...groups.entries()]
-    .sort(([a], [b]) => (a === "loose" ? 1 : b === "loose" ? -1 : a.localeCompare(b)))
-    .map(([id, group], index) => ({
-      id,
-      label: group.label,
-      biome: BIOME_ORDER[index % BIOME_ORDER.length],
-      concept_ids: group.concept_ids,
-    }));
+  const ordered = [...groups.entries()].sort(([a], [b]) =>
+    a === "loose" ? 1 : b === "loose" ? -1 : a.localeCompare(b),
+  );
+  // Positions are decided here, once, from ids: new regions append, old ones stay put.
+  const places: CanvasPlace[] = ordered.map(([id, group], index) => ({
+    id,
+    label: group.label,
+    biome: BIOME_ORDER[index % BIOME_ORDER.length],
+    concept_ids: group.concept_ids,
+    center: placeCenter(id, index, ordered.length),
+  }));
+  const centers = new Map(places.map((p) => [p.id, p.center]));
+  const positionOf = (region: WorldRegionLike) =>
+    worldPosition(centers.get(region.cluster_id ?? "loose") ?? { x: 0, z: 0 }, spotOffset(region.concept_id));
 
   const spots: CanvasSpot[] = world.regions.map((region) => ({
     concept_id: region.concept_id,
@@ -62,18 +71,24 @@ export function toCanvasWorld(world: WorldResponse): CanvasWorld {
     cracked: region.semantic_state === "struggling",
     semantic_state: region.semantic_state,
     cluster: region.cluster ?? null,
+    position: positionOf(region),
   }));
 
   const characters: CanvasCharacter[] = world.regions
     .filter((region) => region.creature_state !== "unhatched")
-    .map((region) => ({
-      id: `res:${region.concept_id}`,
-      place_id: region.cluster_id ?? "loose",
-      concept_id: region.concept_id,
-      label: region.name,
-      state: CHARACTER_STATE[region.creature_state],
-      creature_state: region.creature_state,
-    }));
+    .map((region) => {
+      const spot = positionOf(region);
+      const drift = characterOffset(`res:${region.concept_id}`);
+      return {
+        id: `res:${region.concept_id}`,
+        place_id: region.cluster_id ?? "loose",
+        concept_id: region.concept_id,
+        label: region.name,
+        state: CHARACTER_STATE[region.creature_state],
+        creature_state: region.creature_state,
+        home: { x: spot.x + drift.x * ISLAND_RADIUS * 0.5, z: spot.z + drift.z * ISLAND_RADIUS * 0.5 },
+      };
+    });
 
   return {
     course_id: world.course_id,

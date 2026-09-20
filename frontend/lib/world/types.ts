@@ -13,11 +13,18 @@ export type SpotState = 0 | 1 | 2;
 
 export type CharacterState = "idle" | "evolved" | "exploded" | "recovered" | "faded";
 
+export interface Vec2 {
+  x: number;
+  z: number;
+}
+
 export interface CanvasPlace {
   id: string;
   label: string;
   biome: BiomeId;
   concept_ids: string[];
+  /** Centre on the island disc, in normalised units (-0.5..0.5). */
+  center: Vec2;
 }
 
 export interface CanvasSpot {
@@ -31,6 +38,8 @@ export interface CanvasSpot {
   cracked: boolean;
   semantic_state: SemanticState;
   cluster: string | null;
+  /** World-space position on the island (y comes from the terrain). */
+  position: Vec2;
 }
 
 export interface CanvasCharacter {
@@ -40,6 +49,8 @@ export interface CanvasCharacter {
   label: string;
   state: CharacterState;
   creature_state: CreatureState;
+  /** Where the resident stands and returns to, in world space. */
+  home: Vec2;
 }
 
 export interface CanvasWorld {
