@@ -851,10 +851,8 @@ const RECIPES: Record<string, Recipe[]> = {
     { kind: 'crate', count: 4, minBand: 3, inset: 2, knockable: true },
     { kind: 'barrel', count: 4, minBand: 3, inset: 2, knockable: true },
     { kind: 'bench', count: 2, minBand: 3, inset: 3, knockable: true },
-    { kind: 'boat', count: 1, minBand: 2, inset: -6 },
-    { kind: 'boat', count: 2, minBand: 3, inset: -6 },
+    // No scattered cargo boats: the only ship in the harbour is the moored icebreaker fixture.
     { kind: 'string-lights', count: 2, minBand: 3, inset: 3 },
-    { kind: 'boat', count: 2, minBand: 4, inset: -6 },
     { kind: 'flag', count: 1, minBand: 4, inset: 3 },
   ],
   town: [
