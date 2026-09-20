@@ -27,12 +27,16 @@ export function EarthGlobe() {
     <div
       className="earth-globe"
       aria-hidden="true"
-      style={{
-        width: size,
-        height: size,
-        right: -shift,
-        bottom: -shift,
-      }}
+      style={
+        size
+          ? {
+              width: size,
+              height: size,
+              right: -shift,
+              bottom: -shift,
+            }
+          : undefined
+      }
     >
       <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
         <circle cx="500" cy="500" r="500" fill="#b9d4e8" />

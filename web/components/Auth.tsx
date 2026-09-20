@@ -19,7 +19,7 @@ export function LoginPage() {
     else if (user) router.replace('/earth')
   }, [ready, pendingTwoFactor, user, router])
 
-  if (!ready || pendingTwoFactor || user) return null
+  if (ready && (pendingTwoFactor || user)) return null
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -68,7 +68,7 @@ export function RegisterPage() {
     if (ready && user) router.replace('/earth')
   }, [ready, user, router])
 
-  if (!ready || user) return null
+  if (ready && user) return null
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -151,7 +151,7 @@ export function TwoFactorPage() {
     else if (!pendingTwoFactor) router.replace('/login')
   }, [ready, user, pendingTwoFactor, router])
 
-  if (!ready || user || !pendingTwoFactor) return null
+  if (ready && (user || !pendingTwoFactor)) return null
 
   return (
     <div className="auth">

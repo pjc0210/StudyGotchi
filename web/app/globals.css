@@ -92,6 +92,10 @@ h1, h2 {
 
 .earth-globe {
   position: absolute;
+  width: calc(100vw * 5 / 7);
+  height: calc(100vw * 5 / 7);
+  right: calc(100vw * -5 / 28);
+  bottom: calc(100vw * -5 / 28);
   z-index: 0;
   pointer-events: none;
 }

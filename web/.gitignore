@@ -8,6 +8,8 @@ node_modules
 out
 dist
 *.local
+AGENTS.md
+CLAUDE.md
 
 .vscode/*
 !.vscode/extensions.json
