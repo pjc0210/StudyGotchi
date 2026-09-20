@@ -1,0 +1,16 @@
+import * as THREE from 'three'
+
+let cached: THREE.DataTexture | null = null
+
+/** Three-step ramp for MeshToonMaterial: shadow, mid, light. */
+export function toonGradient(): THREE.DataTexture {
+  if (cached) return cached
+  const data = new Uint8Array([120, 200, 255])
+  const tex = new THREE.DataTexture(data, 3, 1, THREE.RedFormat)
+  tex.minFilter = THREE.NearestFilter
+  tex.magFilter = THREE.NearestFilter
+  tex.generateMipmaps = false
+  tex.needsUpdate = true
+  cached = tex
+  return tex
+}

@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { api, ApiError, isIdentityReady, isStudentScoped, onIdentityChange, USE_MOCK } from "./api";
+import { api, ApiError, invalidateApiCache, isStudentScoped } from "./api";
+import { useIdentity } from "./identity";
 import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
 
 export const ACCEPTED_EXTENSIONS = [".pdf", ".zip", ".png", ".jpg", ".jpeg", ".webp", ".md", ".txt", ".docx"] as const;
@@ -68,12 +69,9 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   const [uploads, setUploads] = useState<UploadItem[]>([]);
   const [ingestVersion, setIngestVersion] = useState(0);
   const [recentlyTouched, setRecentlyTouched] = useState<string[]>([]);
-  const [identityTick, setIdentityTick] = useState(0);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
-  useEffect(() => onIdentityChange(() => setIdentityTick((n) => n + 1)), []);
-
-  const ready = USE_MOCK || isIdentityReady();
+  const { ready, courseId, studentId } = useIdentity();
 
   const reloadGraph = useCallback(() => {
     if (!ready) return;
@@ -91,8 +89,9 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
   }, [ready]);
 
   useEffect(() => {
+    invalidateApiCache();
     reloadGraph();
-  }, [reloadGraph, identityTick]);
+  }, [reloadGraph, courseId, studentId]);
 
   const reloadResources = useCallback(() => {
     if (!ready) return;
@@ -108,7 +107,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     reloadResources();
-  }, [reloadResources, ingestVersion, identityTick]);
+  }, [reloadResources, ingestVersion, courseId, studentId]);
 
   useEffect(() => {
     if (!ready) return;
@@ -128,7 +127,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [ready, identityTick]);
+  }, [ready, courseId, studentId]);
 
   useEffect(
     () => () => {
@@ -221,20 +220,8 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
               patchUpload(item.id, { status: res.status ?? "processing", child_count: res.child_count });
               noteTouched(res.concepts_touched ?? []);
 
-              if (USE_MOCK) {
-                // Mock mode only: walk the remaining states so the demo reads
-                // end-to-end without a backend.
-                later(() => {
-                  patchUpload(item.id, {
-                    status: "complete",
-                    concepts_extracted: res.child_count ? res.child_count * 3 : 7,
-                  });
-                  reloadGraph();
-                }, 2200 + i * 400);
-                return;
-              }
-
-              // The fast phase already moved this student's state; show it now.
+              // The fast phase already moved this student's state; show it now,
+              // then follow the background read until the engine is done.
               stateChanged();
               if (res.analysis_pending) pollUntilDone(item.id, res.resource_id);
             })
@@ -247,7 +234,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
         }, 250 * i);
       });
     },
-    [later, patchUpload, reloadGraph, stateChanged, noteTouched, pollUntilDone],
+    [later, patchUpload, stateChanged, noteTouched, pollUntilDone],
   );
 
   const clearFinishedUploads = useCallback(() => {

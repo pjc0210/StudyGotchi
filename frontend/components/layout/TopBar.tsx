@@ -4,7 +4,7 @@ import { Search, Upload } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { searchGraph } from "@/lib/graph";
 import { useStore } from "@/lib/store";
-import { USE_MOCK } from "@/lib/api";
+import { USE_MOCK } from "@/lib/config";
 import { ARTIFACT_LABEL, STATE_COLOR } from "@/lib/graphTheme";
 import { FileText } from "lucide-react";
 import { AuthControls } from "@/components/auth/AuthControls";

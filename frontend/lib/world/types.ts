@@ -67,8 +67,9 @@ export interface WorldCanvasProps {
   readOnly?: boolean;
   selectedId: string | null;
   onSelect: (conceptId: string | null) => void;
-  hoveredId?: string | null;
-  onHover?: (conceptId: string | null) => void;
+  /** Hover is controlled: the owner passes the id back in after `onHover`. */
+  hoveredId: string | null;
+  onHover: (conceptId: string | null) => void;
   /** Concepts to pulse because they just changed. */
   changedIds?: ReadonlySet<string>;
 }

@@ -1,3 +1,4 @@
+import { stateTable } from "./state";
 import type { ConceptState } from "./types";
 
 
@@ -14,17 +15,12 @@ export interface StateStyle {
   dashed?: boolean;
 }
 
-export const STATE_STYLES: Record<ConceptState, StateStyle> = {
-  mastered: { label: "Mastered", token: "--state-mastered", icon: "check" },
-  strong: { label: "Strong", token: "--state-strong", icon: "check" },
-  developing: { label: "Developing", token: "--state-developing", icon: "trend" },
-  uncertain: { label: "Uncertain", token: "--state-uncertain", icon: "question" },
-  exposed: { label: "Exposed", token: "--state-exposed", icon: "dot" },
-  struggling: { label: "Struggling", token: "--state-struggling", icon: "alert" },
-  fragile: { label: "Fragile", token: "--state-fragile", icon: "alert" },
-  stale: { label: "Stale", token: "--state-stale", icon: "clock" },
-  frontier: { label: "Frontier", token: "--state-frontier", icon: "sprout", dashed: true },
-};
+export const STATE_STYLES: Record<ConceptState, StateStyle> = stateTable((p) => ({
+  label: p.label,
+  token: p.token,
+  icon: p.icon,
+  dashed: p.dashed || undefined,
+}));
 
 export function stateStyle(state: ConceptState): StateStyle {
   return STATE_STYLES[state] ?? STATE_STYLES.exposed;

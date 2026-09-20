@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { getIdentity, getWorldEvents, onIdentityChange, selectCourse, USE_MOCK, type WorldEvent } from "@/lib/api";
+import { api, type WorldEvent, type WorldEventKind } from "@/lib/api";
+import { selectCourse, useIdentity } from "@/lib/identity";
 import { useStore } from "@/lib/store";
 import type { WorldRegion, WorldResponse } from "@/lib/world/types";
 import { EarthGlobe } from "@/components/site/EarthGlobe";
@@ -10,7 +11,7 @@ import { WorldPage } from "@/components/world/WorldPage";
 import { ConceptCard } from "./ConceptCard";
 import { UploadBox } from "./UploadBox";
 
-const EVENT_LABEL: Record<string, string> = {
+const EVENT_LABEL: Record<WorldEventKind, string> = {
   RESOURCE_ADDED: "New file",
   RESOURCE_ANALYZED: "Read closely",
   UNDERSTANDING_GAIN: "Grew",
@@ -27,13 +28,11 @@ const EVENT_LABEL: Record<string, string> = {
  */
 export function EarthShell() {
   const { selectedId, select, ingestVersion } = useStore();
-  const [identity, setIdentity] = useState(getIdentity);
+  const identity = useIdentity();
   const [entered, setEntered] = useState(false);
   const [world, setWorld] = useState<WorldResponse | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [events, setEvents] = useState<WorldEvent[]>([]);
-
-  useEffect(() => onIdentityChange(() => setIdentity(getIdentity())), []);
 
   const courses = identity.courses;
   const current = courses.find((c) => c.id === identity.courseId) ?? null;
@@ -59,9 +58,10 @@ export function EarthShell() {
 
   // What changed since the page opened, newest first. Polled after every ingest.
   useEffect(() => {
-    if (!entered || USE_MOCK || !identity.studentId) return;
+    if (!entered || !identity.ready) return;
     let cancelled = false;
-    getWorldEvents(undefined, 12)
+    api
+      .getWorldEvents(undefined, 12)
       .then((list) => {
         if (!cancelled) setEvents(list);
       })
@@ -103,7 +103,7 @@ export function EarthShell() {
             <p className="lede">Each course is an island. Pick one to land.</p>
             {courses.length === 0 ? (
               <p className="text-[14px] text-paper-soft">
-                {USE_MOCK ? "Mock mode has one course." : "No courses yet. Sign in, and the engine will list what it knows."}
+                No courses yet. Sign in, and the engine will list what it knows.
               </p>
             ) : (
               <ul className="course-list">

@@ -1,36 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { api, ApiError } from "@/lib/api";
-import type { ConceptDetail } from "@/lib/types";
 import type { WorldRegion } from "@/lib/world/types";
-import { RESIDENT_LABEL, STATE_COLOR, STATE_LABEL } from "@/lib/world/adapter";
+import { useConceptDetail } from "@/lib/useConceptDetail";
+import { RESIDENT_LABEL, statePresentation } from "@/lib/state";
 
 /** The left-panel card for one concept: engine state, evidence, and where it was taught. */
 export function ConceptCard({ region, onClose }: { region: WorldRegion; onClose: () => void }) {
-  const [detail, setDetail] = useState<ConceptDetail | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    setError(null);
-    api
-      .getConceptDetail(region.concept_id)
-      .then((d) => {
-        if (!cancelled) setDetail(d);
-      })
-      .catch((err: unknown) => {
-        if (!cancelled) setError(err instanceof ApiError ? err.message : "Could not load this concept.");
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [region.concept_id]);
+  const { detail, loading, error } = useConceptDetail(region.concept_id);
 
   return (
     <section aria-label="Concept" className="sg-enter">
@@ -41,8 +17,8 @@ export function ConceptCard({ region, onClose }: { region: WorldRegion; onClose:
         </button>
       </div>
       <div className="mb-4 flex flex-wrap items-center gap-2">
-        <span className="state-chip" style={{ ["--chip" as string]: STATE_COLOR[region.semantic_state] }}>
-          {STATE_LABEL[region.semantic_state]}
+        <span className="state-chip" style={{ ["--chip" as string]: statePresentation(region.semantic_state, "paper").color }}>
+          {statePresentation(region.semantic_state, "paper").label}
         </span>
         <span className="state-chip" style={{ ["--chip" as string]: "#4a433c" }}>
           {Math.round(region.terrain_height * 100)}% understanding

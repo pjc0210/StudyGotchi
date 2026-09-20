@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { CameraControls, ContactShadows, Html } from "@react-three/drei";
 import * as THREE from "three";
@@ -16,7 +16,7 @@ import {
   worldPosition,
   type Vec2,
 } from "@/lib/world/layout";
-import { RESIDENT_LABEL, STATE_COLOR, STATE_LABEL } from "@/lib/world/adapter";
+import { RESIDENT_LABEL, statePresentation } from "@/lib/state";
 import type { CanvasPlace, CanvasSpot, HoverInfo, WorldCanvasProps } from "@/lib/world/types";
 import { Character } from "./Character";
 
@@ -181,7 +181,7 @@ function SpotMarker({
 
   if (spot.state === 0) return null;
 
-  const stateColor = STATE_COLOR[spot.semantic_state];
+  const stateColor = statePresentation(spot.semantic_state, "paper").color;
 
   return (
     <group
@@ -270,7 +270,9 @@ function HoverMarker({ info, position }: { info: HoverInfo; position: [number, n
         <div className="card">
           <strong>{info.name}</strong>
           <div className="meta">
-            <span style={{ color: STATE_COLOR[info.semantic_state] }}>{STATE_LABEL[info.semantic_state]}</span>
+            <span style={{ color: statePresentation(info.semantic_state, "paper").color }}>
+              {statePresentation(info.semantic_state, "paper").label}
+            </span>
             <span>{Math.round(info.height * 100)}%</span>
           </div>
           {info.resident ? <div className="meta">{RESIDENT_LABEL[info.resident]}</div> : null}
@@ -286,12 +288,8 @@ function HoverMarker({ info, position }: { info: HoverInfo; position: [number, n
 export function Island({ world, selectedId, onSelect, hoveredId, onHover, changedIds }: WorldCanvasProps) {
   const { list, centers } = usePlaceLayout(world.places);
   const controls = useRef<CameraControls>(null);
-  const [localHover, setLocalHover] = useState<string | null>(null);
-  const hover = hoveredId ?? localHover;
-  const setHover = (id: string | null) => {
-    setLocalHover(id);
-    onHover?.(id);
-  };
+  const hover = hoveredId;
+  const setHover = onHover;
 
   const heightAt = useMemo(() => {
     return (x: number, z: number) => landmarkHeight(world.spots, x / ISLAND_RADIUS, z / ISLAND_RADIUS, centers);

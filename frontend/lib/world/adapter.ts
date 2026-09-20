@@ -1,3 +1,4 @@
+import { spotStateOf } from "@/lib/state";
 import type {
   BiomeId,
   CanvasCharacter,
@@ -6,22 +7,10 @@ import type {
   CanvasWorld,
   CharacterState,
   CreatureState,
-  SemanticState,
-  SpotState,
   WorldResponse,
 } from "./types";
 
 const BIOME_ORDER: BiomeId[] = ["forest", "meadow", "ice", "sand", "city"];
-
-const SPOT_STATE: Record<SemanticState, SpotState> = {
-  frontier: 0,
-  exposed: 1,
-  struggling: 1,
-  developing: 1,
-  strong: 2,
-  mastered: 2,
-  stale: 2,
-};
 
 const CHARACTER_STATE: Record<CreatureState, CharacterState> = {
   unhatched: "idle",
@@ -30,35 +19,6 @@ const CHARACTER_STATE: Record<CreatureState, CharacterState> = {
   evolved: "evolved",
   ascended: "evolved",
   sleepy: "faded",
-};
-
-export const STATE_LABEL: Record<SemanticState, string> = {
-  frontier: "Not yet reached",
-  exposed: "Seen",
-  struggling: "Struggling",
-  developing: "Developing",
-  strong: "Strong",
-  mastered: "Mastered",
-  stale: "Fading",
-};
-
-export const STATE_COLOR: Record<SemanticState, string> = {
-  frontier: "#a9a29a",
-  exposed: "#b9a7c9",
-  struggling: "#d98b7e",
-  developing: "#8fb8d8",
-  strong: "#8fbf6a",
-  mastered: "#4f8a4a",
-  stale: "#c9b58a",
-};
-
-export const RESIDENT_LABEL: Record<CreatureState, string> = {
-  unhatched: "No resident yet",
-  weak: "Knocked over",
-  normal: "Resident",
-  evolved: "Evolved resident",
-  ascended: "Ascended resident",
-  sleepy: "Sleepy resident",
 };
 
 /** Check a payload has the shape the canvas needs before trusting it. */
@@ -96,7 +56,7 @@ export function toCanvasWorld(world: WorldResponse): CanvasWorld {
     concept_id: region.concept_id,
     place_id: region.cluster_id ?? "loose",
     name: region.name,
-    state: SPOT_STATE[region.semantic_state],
+    state: spotStateOf(region.semantic_state),
     height: region.terrain_height,
     fog: region.fog,
     cracked: region.semantic_state === "struggling",

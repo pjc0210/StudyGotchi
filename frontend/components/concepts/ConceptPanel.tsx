@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Sparkles, X } from "lucide-react";
-import { api, ApiError } from "@/lib/api";
 import { formatScore } from "@/lib/graph";
 import { useStore } from "@/lib/store";
-import type { ConceptDetail, ConceptNode, WhyExplanation } from "@/lib/types";
+import type { ConceptNode } from "@/lib/types";
+import { useConceptDetail } from "@/lib/useConceptDetail";
 import { StateBadge } from "@/components/common/StatusBadge";
 import { MasteryBreakdown } from "./MasteryBreakdown";
 import { EvidenceList } from "./EvidenceList";
@@ -24,47 +23,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export function ConceptPanel() {
   const { graph, selectedId, select } = useStore();
-  const [detail, setDetail] = useState<ConceptDetail | null>(null);
-  const [why, setWhy] = useState<WhyExplanation | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { detail, why, loading, error } = useConceptDetail(selectedId);
 
-  const concept: ConceptNode | undefined = graph.data?.nodes.find(
-    (n) => n.id === selectedId,
-  );
-
-  useEffect(() => {
-    if (!selectedId) {
-      setDetail(null);
-      setWhy(null);
-      setError(null);
-      return;
-    }
-    let cancelled = false;
-    setLoading(true);
-    setError(null);
-
-    Promise.all([
-      api.getConceptDetail(selectedId),
-      api.getWhy(selectedId).catch(() => null),
-    ])
-      .then(([d, w]) => {
-        if (cancelled) return;
-        setDetail(d);
-        setWhy(w);
-      })
-      .catch((err: unknown) => {
-        if (cancelled) return;
-        setError(err instanceof ApiError ? err.message : "Could not load this concept.");
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [selectedId]);
+  const concept: ConceptNode | undefined = graph.data?.nodes.find((n) => n.id === selectedId);
 
   // The inspector appears only on selection, so the graph keeps the full canvas.
   if (!concept) return null;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { AuthApiBridge } from "@/components/AuthApiBridge";
+import { IdentityProvider } from "@/components/IdentityProvider";
 import { StudyGotchiProvider } from "@/lib/store";
 import "./globals.css";
 
@@ -18,9 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${outfit.variable} ${fraunces.variable} h-full`}>
       <body className="min-h-full">
         <ClerkProvider>
-          <AuthApiBridge>
+          <IdentityProvider>
             <StudyGotchiProvider>{children}</StudyGotchiProvider>
-          </AuthApiBridge>
+          </IdentityProvider>
         </ClerkProvider>
       </body>
     </html>

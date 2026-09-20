@@ -3,6 +3,7 @@
  * CSS custom properties per-draw cheaply, so the values live here once.
  */
 
+import { stateTable } from "./state";
 import type { ArtifactType, ConceptState, SourceOrigin } from "./types";
 
 export const CANVAS = {
@@ -21,46 +22,11 @@ export const CANVAS = {
   resourceStroke: "#687583",
 } as const;
 
-/** One hue per backend state. Never computed here - the engine assigns it. */
-export const STATE_COLOR: Record<ConceptState, string> = {
-  mastered: "#34d399",
-  strong: "#6ec89a",
-  developing: "#60a5fa",
-  uncertain: "#a3b1c2",
-  exposed: "#8b949e",
-  struggling: "#f5a524",
-  fragile: "#f87171",
-  stale: "#94a3b8",
-  frontier: "#5f6a74",
-};
-
-/**
- * How solidly a concept reads. Consolidated knowledge looks filled in;
- * unreached knowledge is an outline. This is a second, non-colour channel.
- */
-export const STATE_FILL_ALPHA: Record<ConceptState, number> = {
-  mastered: 0.95,
-  strong: 0.75,
-  developing: 0.5,
-  uncertain: 0.3,
-  exposed: 0.22,
-  struggling: 0.35,
-  fragile: 0.35,
-  stale: 0.22,
-  frontier: 0.0,
-};
-
-export const STATE_LABEL: Record<ConceptState, string> = {
-  mastered: "Mastered",
-  strong: "Strong",
-  developing: "Developing",
-  uncertain: "Uncertain",
-  exposed: "Exposed",
-  struggling: "Struggling",
-  fragile: "Fragile",
-  stale: "Stale",
-  frontier: "Frontier",
-};
+// State colour, fill and label come from lib/state so the graph, the island
+// and the badges can never disagree about a state.
+export const STATE_COLOR: Record<ConceptState, string> = stateTable((p) => p.color);
+export const STATE_FILL_ALPHA: Record<ConceptState, number> = stateTable((p) => p.fill);
+export const STATE_LABEL: Record<ConceptState, string> = stateTable((p) => p.label);
 
 export const ORIGIN_LABEL: Record<SourceOrigin, string> = {
   instructor: "Instructor",

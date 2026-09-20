@@ -1,9 +1,11 @@
+import fixture from "@/lib/world/fixture.json";
+import type { components } from "@/lib/api/schema";
+import { API_URL } from "./config";
+import { credentialHeaders, getIdentity, type CourseSummary } from "./identity";
 import {
-  MOCK_COURSE,
   MOCK_GAPS,
   MOCK_GRAPH,
   MOCK_RESOURCES,
-  MOCK_STUDENT_ID,
   MOCK_STUDY_PLAN,
   MOCK_TARGETS,
   mockConceptDetail,
@@ -27,17 +29,12 @@ import type {
   WhyExplanation,
 } from "./types";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-export const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
+export { USE_MOCK, API_URL, DEV_STUDENT_ID } from "./config";
 
-// Local sandbox: an API running with AUTH_MODE=dev trusts this header instead of Clerk.
-export const DEV_STUDENT_ID = process.env.NEXT_PUBLIC_DEV_STUDENT_ID ?? "";
-
-// Demo identifiers live here only. Live mode learns the student from
-// `GET /api/me` and picks a course from the list it returns.
-export const COURSE_ID = process.env.NEXT_PUBLIC_DEMO_COURSE_ID ?? (USE_MOCK ? MOCK_COURSE.id : "");
-export const COURSE_NAME = process.env.NEXT_PUBLIC_DEMO_COURSE_NAME ?? MOCK_COURSE.name;
-export const STUDENT_ID = process.env.NEXT_PUBLIC_DEMO_STUDENT_ID ?? (USE_MOCK ? MOCK_STUDENT_ID : "");
+export type WorldResponse = components["schemas"]["WorldResponse"];
+export type WorldEvent = components["schemas"]["WorldEventOut"];
+export type WorldEventKind = components["schemas"]["WorldEventKind"];
+export type MeResponse = { student_id: string; courses: CourseSummary[] };
 
 export class ApiError extends Error {
   constructor(
@@ -47,93 +44,6 @@ export class ApiError extends Error {
     super(message);
     this.name = "ApiError";
   }
-}
-
-// ---------------------------------------------------------------------------
-// Identity: who is calling, and which course they are looking at
-// ---------------------------------------------------------------------------
-
-export interface CourseSummary {
-  id: string;
-  name: string;
-  code: string | null;
-  term: string | null;
-}
-
-export interface Identity {
-  studentId: string;
-  courseId: string;
-  courseName: string;
-  courses: CourseSummary[];
-}
-
-export interface MeResponse {
-  student_id: string;
-  courses: CourseSummary[];
-}
-
-type TokenGetter = () => Promise<string | null>;
-
-let tokenGetter: TokenGetter | null = null;
-let identity: Identity = {
-  studentId: STUDENT_ID,
-  courseId: COURSE_ID,
-  courseName: COURSE_NAME,
-  courses: USE_MOCK ? [{ id: MOCK_COURSE.id, name: MOCK_COURSE.name, code: null, term: null }] : [],
-};
-let identityReady = USE_MOCK || Boolean(STUDENT_ID && COURSE_ID);
-const identityListeners = new Set<() => void>();
-
-export function setApiTokenGetter(getter: TokenGetter | null) {
-  tokenGetter = getter;
-}
-
-export function getIdentity(): Identity {
-  return identity;
-}
-
-export function isIdentityReady(): boolean {
-  return identityReady;
-}
-
-export function setIdentity(next: Partial<Identity>) {
-  identity = { ...identity, ...next };
-  identityReady = Boolean(identity.studentId);
-  identityListeners.forEach((fn) => fn());
-}
-
-export function onIdentityChange(fn: () => void): () => void {
-  identityListeners.add(fn);
-  return () => {
-    identityListeners.delete(fn);
-  };
-}
-
-export function selectCourse(courseId: string) {
-  const course = identity.courses.find((c) => c.id === courseId);
-  if (!course) return;
-  responseCache.clear();
-  setIdentity({ courseId: course.id, courseName: course.name });
-}
-
-export async function getMe(): Promise<MeResponse> {
-  return request<MeResponse>("/api/me");
-}
-
-export async function resolveLiveIdentity(): Promise<Identity> {
-  const me = await getMe();
-  const preferred = process.env.NEXT_PUBLIC_DEMO_COURSE_ID;
-  const course =
-    me.courses.find((c) => c.id === preferred) ??
-    me.courses.find((c) => c.id === identity.courseId) ??
-    me.courses[0];
-  setIdentity({
-    studentId: me.student_id,
-    courseId: course?.id ?? "",
-    courseName: course?.name ?? COURSE_NAME,
-    courses: me.courses,
-  });
-  return identity;
 }
 
 export interface IngestInput {
@@ -154,6 +64,10 @@ export interface KnowledgeApi {
   listResources(): Promise<CourseResource[]>;
   ingest(input: IngestInput): Promise<IngestResponse>;
   getResourceStatus(resourceId: string): Promise<ResourceStatus>;
+  getMe(): Promise<MeResponse>;
+  getWorld(): Promise<WorldResponse>;
+  getSharedWorld(token: string): Promise<WorldResponse>;
+  getWorldEvents(since?: string, limit?: number): Promise<WorldEvent[]>;
 }
 
 /** Per-file status the upload queue polls after a 202. */
@@ -164,16 +78,6 @@ export interface ResourceStatus {
   error: string | null;
   phase_a_ms: number | null;
   phase_b_ms: number | null;
-}
-
-export interface WorldEvent {
-  id: string;
-  event: string;
-  concept_id: string | null;
-  resource_id: string | null;
-  delta: number | null;
-  explanation: string;
-  created_at: string;
 }
 
 /**
@@ -245,8 +149,8 @@ export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
     .filter((e) => e.source && e.target && ids.has(e.source) && ids.has(e.target));
 
   return {
-    student_id: str(obj.student_id, identity.studentId),
-    course_id: str(obj.course_id, identity.courseId),
+    student_id: str(obj.student_id, getIdentity().studentId),
+    course_id: str(obj.course_id, getIdentity().courseId),
     graph_version: str(obj.graph_version, String(num(obj.graph_version, 0))),
     nodes,
     edges,
@@ -264,12 +168,7 @@ const responseCache = new Map<string, { etag: string; body: unknown }>();
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const headers = new Headers(init?.headers);
   headers.set("Accept", "application/json");
-  if (DEV_STUDENT_ID) {
-    headers.set("X-Student-Id", DEV_STUDENT_ID);
-  } else if (tokenGetter) {
-    const token = await tokenGetter();
-    if (token) headers.set("Authorization", `Bearer ${token}`);
-  }
+  for (const [key, value] of Object.entries(await credentialHeaders())) headers.set(key, value);
   const method = (init?.method ?? "GET").toUpperCase();
   const cached = method === "GET" ? responseCache.get(path) : undefined;
   if (cached) headers.set("If-None-Match", cached.etag);
@@ -306,31 +205,17 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 function requireIdentity() {
-  if (!identity.courseId || !identity.studentId) {
+  if (!getIdentity().ready) {
     throw new ApiError("Sign in and pick a course first.");
   }
 }
 
-const base = () => `/api/courses/${identity.courseId}`;
-const studentBase = () => `${base()}/students/${identity.studentId}`;
+const base = () => `/api/courses/${getIdentity().courseId}`;
+const studentBase = () => `${base()}/students/${getIdentity().studentId}`;
 
-// --- world --------------------------------------------------------------------
-
-export async function getWorld(): Promise<unknown> {
-  requireIdentity();
-  return request<unknown>(`${studentBase()}/world`);
-}
-
-export async function getSharedWorld(token: string): Promise<unknown> {
-  return request<unknown>(`/api/w/${encodeURIComponent(token)}`);
-}
-
-export async function getWorldEvents(since?: string, limit = 100): Promise<WorldEvent[]> {
-  requireIdentity();
-  const params = new URLSearchParams({ limit: String(limit) });
-  if (since) params.set("since", since);
-  const raw = await request<{ events: WorldEvent[] }>(`${studentBase()}/world-events?${params}`);
-  return raw.events ?? [];
+/** Forget cached GET bodies, e.g. when the course changes or a file lands. */
+export function invalidateApiCache() {
+  responseCache.clear();
 }
 
 // --- adapters -------------------------------------------------------------
@@ -558,7 +443,7 @@ const httpApi: KnowledgeApi = {
       child_failures?: string[];
     }>(path, { method: "POST", body: form });
 
-    responseCache.clear();
+    invalidateApiCache();
     // Course files finish on the request. Student files answer after the fast
     // phase; the queue keeps polling while the analysis runs in the background.
     const analysisPending = studentScoped && raw.analysis === "queued";
@@ -574,6 +459,27 @@ const httpApi: KnowledgeApi = {
   async getResourceStatus(resourceId) {
     requireIdentity();
     return request<ResourceStatus>(`${studentBase()}/resources/${resourceId}`);
+  },
+
+  async getMe() {
+    return request<MeResponse>("/api/me");
+  },
+
+  async getWorld() {
+    requireIdentity();
+    return request<WorldResponse>(`${studentBase()}/world`);
+  },
+
+  async getSharedWorld(token) {
+    return request<WorldResponse>(`/api/w/${encodeURIComponent(token)}`);
+  },
+
+  async getWorldEvents(since, limit = 100) {
+    requireIdentity();
+    const params = new URLSearchParams({ limit: String(limit) });
+    if (since) params.set("since", since);
+    const raw = await request<{ events: WorldEvent[] }>(`${studentBase()}/world-events?${params}`);
+    return raw.events ?? [];
   },
 };
 
@@ -614,18 +520,60 @@ const mockApi: KnowledgeApi = {
   },
   async ingest({ file }) {
     await delay(400);
+    const id = `mock_${file.name}_${Date.now()}`;
+    mockPolls.set(id, 0);
+    const world = fixture as WorldResponse;
     return {
-      resource_id: `mock_${file.name}`,
+      resource_id: id,
       status: "processing",
       child_count: file.name.toLowerCase().endsWith(".zip") ? 8 : undefined,
-      concepts_touched: [],
-      analysis_pending: false,
+      concepts_touched: world.regions.slice(0, 3).map((r) => r.concept_id),
+      analysis_pending: true,
     };
   },
   async getResourceStatus(resourceId) {
     await delay(100);
-    return { resource_id: resourceId, title: resourceId, status: "processed", error: null, phase_a_ms: 0, phase_b_ms: 0 };
+    // Phase B "finishes" on the second poll, so the queue and the island behave as in live mode.
+    const polls = (mockPolls.get(resourceId) ?? 0) + 1;
+    mockPolls.set(resourceId, polls);
+    return {
+      resource_id: resourceId,
+      title: resourceId,
+      status: polls >= 2 ? "processed" : "analyzing",
+      error: null,
+      phase_a_ms: 400,
+      phase_b_ms: polls >= 2 ? 3000 : null,
+    };
+  },
+  async getMe() {
+    await delay(60);
+    const id = getIdentity();
+    return { student_id: id.studentId, courses: id.courses };
+  },
+  async getWorld() {
+    await delay(200);
+    return fixture as WorldResponse;
+  },
+  async getSharedWorld() {
+    await delay(200);
+    return fixture as WorldResponse;
+  },
+  async getWorldEvents() {
+    await delay(120);
+    const world = fixture as WorldResponse;
+    const now = new Date().toISOString();
+    return world.regions.slice(0, 4).map((r, i) => ({
+      id: `mock_event_${i}`,
+      event: (i % 2 === 0 ? "UNDERSTANDING_GAIN" : "CONCEPT_DISCOVERED") as WorldEventKind,
+      concept_id: r.concept_id,
+      resource_id: null,
+      delta: i % 2 === 0 ? 0.04 : null,
+      explanation: i % 2 === 0 ? `${r.name} grew after your last problem set.` : `You reached ${r.name} for the first time.`,
+      created_at: now,
+    }));
   },
 };
 
-export const api: KnowledgeApi = USE_MOCK ? mockApi : httpApi;
+const mockPolls = new Map<string, number>();
+
+export const api: KnowledgeApi = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false" ? mockApi : httpApi;

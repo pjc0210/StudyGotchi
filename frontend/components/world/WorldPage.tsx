@@ -3,16 +3,14 @@
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "@/lib/store";
-import { ApiError, getSharedWorld, getWorld, isIdentityReady, onIdentityChange, USE_MOCK } from "@/lib/api";
-import fixture from "@/lib/world/fixture.json";
+import { api, ApiError } from "@/lib/api";
+import { useIdentity } from "@/lib/identity";
 import { asWorldResponse, changedRegions, toCanvasWorld } from "@/lib/world/adapter";
 import type { WorldResponse } from "@/lib/world/types";
 
 const WorldCanvas = dynamic(() => import("./WorldCanvas"), { ssr: false });
 
 export type WorldSource = { kind: "own" } | { kind: "visit"; token: string };
-
-const FIXTURE = fixture as WorldResponse;
 
 export function WorldPage({
   source = { kind: "own" },
@@ -29,28 +27,34 @@ export function WorldPage({
   onHover?: (conceptId: string | null) => void;
 }) {
   const { selectedId, select, ingestVersion } = useStore();
-  const [world, setWorld] = useState<WorldResponse | null>(USE_MOCK ? FIXTURE : null);
+  const { ready, courseId, studentId } = useIdentity();
+  // Hover lives with whoever owns the page; standalone, the page owns it.
+  const [ownHover, setOwnHover] = useState<string | null>(null);
+  const hovered = onHover ? (hoveredId ?? null) : ownHover;
+  const setHovered = onHover ?? setOwnHover;
+  const [world, setWorld] = useState<WorldResponse | null>(null);
   const [changed, setChanged] = useState<Set<string>>(new Set());
   const [error, setError] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
-  const [identityTick, setIdentityTick] = useState(0);
   const previous = useRef<WorldResponse | null>(null);
-
-  useEffect(() => onIdentityChange(() => setIdentityTick((n) => n + 1)), []);
 
   useEffect(() => {
     onWorld?.(world);
   }, [world, onWorld]);
 
+  // A different course is a different island: drop the old one before loading.
   useEffect(() => {
-    if (USE_MOCK) {
-      setWorld(FIXTURE);
-      return;
-    }
-    if (source.kind === "own" && !isIdentityReady()) return;
+    if (source.kind !== "own") return;
+    previous.current = null;
+    setWorld(null);
+    setChanged(new Set());
+  }, [source.kind, courseId, studentId]);
+
+  useEffect(() => {
+    if (source.kind === "own" && !ready) return;
 
     let cancelled = false;
-    const load = source.kind === "visit" ? getSharedWorld(source.token) : getWorld();
+    const load = source.kind === "visit" ? api.getSharedWorld(source.token) : api.getWorld();
     load
       .then((raw) => {
         if (cancelled) return;
@@ -72,7 +76,7 @@ export function WorldPage({
     return () => {
       cancelled = true;
     };
-  }, [source, retry, identityTick, ingestVersion]);
+  }, [source, retry, ready, courseId, studentId, ingestVersion]);
 
   // Pulses fade on their own after a few seconds.
   useEffect(() => {
@@ -105,8 +109,8 @@ export function WorldPage({
         readOnly={readOnly}
         selectedId={selectedId}
         onSelect={select}
-        hoveredId={hoveredId}
-        onHover={onHover}
+        hoveredId={hovered}
+        onHover={setHovered}
         changedIds={changed}
       />
       {readOnly ? (
