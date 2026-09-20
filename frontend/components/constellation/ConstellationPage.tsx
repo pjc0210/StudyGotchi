@@ -16,7 +16,7 @@ type Dock = "files" | "weak";
 
 const DOCK_TITLE: Record<Dock, { title: string; lede: string }> = {
   files: { title: "Files", lede: "Everything the engine has read. Pick one to find it in the sky." },
-  weak: { title: "Weak Areas", lede: "The three weakest clusters. Click one to fly there." },
+  weak: { title: "Weak Areas", lede: "Short chains of concepts that need work. Click one to fly there." },
 };
 
 /**

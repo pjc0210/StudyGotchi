@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { PartyPopper } from "lucide-react";
 import { formatScore } from "@/lib/graph";
+import { buildGraphModel } from "@/lib/graphModel";
 import { useStore } from "@/lib/store";
-import { weakAreaTracks, type WeakTrack } from "@/lib/world/pipeline-understanding";
+import { pickWeakSequences, type WeakSequence } from "@/lib/weak-sequences";
 import { EmptyState } from "@/components/common/EmptyState";
 import { SkeletonRows } from "@/components/common/LoadingState";
 
@@ -16,51 +17,59 @@ export function GapPanel({
   onFocusTrack?: (conceptIds: string[]) => void;
 }) {
   const { graph, selectedId, focusConcept } = useStore();
-  const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
+  const [selectedSequence, setSelectedSequence] = useState<string | null>(null);
 
-  const tracks = useMemo(() => weakAreaTracks(graph.data?.nodes ?? []), [graph.data]);
-  const trackKeys = useMemo(() => tracks.map((track) => track.id), [tracks]);
+  const sequences = useMemo(() => {
+    const model = buildGraphModel(graph.data, []);
+    return pickWeakSequences(graph.data?.nodes ?? [], model.links);
+  }, [graph.data]);
+  const sequenceKeys = useMemo(
+    () => sequences.flatMap((sequence) => sequence.nodeIds),
+    [sequences],
+  );
 
   useEffect(() => {
-    onGapsLoaded?.(trackKeys);
-  }, [trackKeys, onGapsLoaded]);
+    onGapsLoaded?.(sequenceKeys);
+  }, [sequenceKeys, onGapsLoaded]);
 
   if (!graph.data) return <SkeletonRows rows={3} />;
-  if (tracks.length === 0) {
+  if (sequences.length === 0) {
     return (
       <EmptyState
         icon={<PartyPopper size={22} strokeWidth={1.5} />}
-        title="No weak tracks right now"
-        body="Nothing is clustering as a gap. Keep a target in mind and the engine will rank the next ones."
+        title="No gaps right now"
+        body="Nothing specific needs work. Keep a target in mind and the engine will rank the next connections."
       />
     );
   }
 
-  const openTrack = (track: WeakTrack) => {
-    setSelectedTrack(track.id);
-    onFocusTrack?.(track.conceptIds);
-    if (track.conceptIds[0]) focusConcept(track.conceptIds[0]);
+  const openSequence = (sequence: WeakSequence) => {
+    setSelectedSequence(sequence.id);
+    onFocusTrack?.(sequence.nodeIds);
+    if (sequence.nodeIds[0]) focusConcept(sequence.nodeIds[0]);
   };
 
   return (
     <div className="sg-weak-tracks">
-      <p className="sg-weak-lede">The three weakest clusters. A short red trace marks each, then fades.</p>
+      <p className="sg-weak-lede">
+        {sequences.length} specific connections that need work. Red traces mark each chain while you stay on Weak Areas.
+      </p>
       <ul>
-        {tracks.map((track) => (
-          <li key={track.id}>
+        {sequences.map((sequence) => (
+          <li key={sequence.id}>
             <button
               type="button"
-              className={`sg-weak-row${selectedTrack === track.id ? " is-on" : ""}`}
-              aria-pressed={selectedTrack === track.id || track.conceptIds.includes(selectedId ?? "")}
-              onClick={() => openTrack(track)}
+              className={`sg-weak-row${selectedSequence === sequence.id ? " is-on" : ""}`}
+              aria-pressed={selectedSequence === sequence.id || sequence.nodeIds.includes(selectedId ?? "")}
+              onClick={() => openSequence(sequence)}
             >
               <div className="sg-weak-head">
-                <strong>{track.label}</strong>
-                <span>{track.count}</span>
+                <strong>{sequence.labels.join(" → ")}</strong>
+                <span>{sequence.nodeIds.length}</span>
               </div>
               <div className="sg-weak-meta">
-                <span>Mastery {formatScore(track.mastery)}</span>
-                <span>Track</span>
+                <span>Mastery {formatScore(sequence.mastery)}</span>
+                <span>Needs work</span>
               </div>
             </button>
           </li>

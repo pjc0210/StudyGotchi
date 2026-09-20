@@ -29,7 +29,7 @@ import {
 } from "@/lib/constellationLabels";
 import type { GraphModel } from "@/lib/graphModel";
 import { spacePalette, type SpacePalette } from "@/lib/graphTheme";
-import { edgeBackboneScore, edgeDrawBudget, keepBackboneEdge, weakTraceCurve } from "@/lib/space-field";
+import { edgeBackboneScore, edgeDrawBudget, keepBackboneEdge } from "@/lib/space-field";
 
 export interface CanvasHandle {
   fit: (duration?: number) => void;
@@ -62,7 +62,7 @@ interface Props {
   selectedId: string | null;
   arrivingIds?: string[];
   weakFlash?: boolean;
-  /** Short local gap traces — one id per top weak cluster, not a red web. */
+  /** Specific weak-area sequences — only mounted while the Weak Areas lens is on. */
   weakTraceIds?: string[];
   onSelect: (id: string | null) => void;
   onHover: (info: HoverInfo | null) => void;
@@ -336,6 +336,7 @@ export function KnowledgeCanvas({
     const draw = () => {
       rafRef.current = requestAnimationFrame(draw);
       const now = performance.now();
+      const showingWeak = weakTraceSetRef.current.size > 0;
       const weakPulse = weakPulseAtRef.current
         ? Math.max(0, 1 - (now - weakPulseAtRef.current) / 1600)
         : 0;
@@ -343,7 +344,7 @@ export function KnowledgeCanvas({
       for (const started of arrivingAtRef.current.values()) {
         if (now - started < 640) popping = true;
       }
-      if (!dirtyRef.current && weakPulse <= 0 && !popping) return;
+      if (!dirtyRef.current && !showingWeak && !popping) return;
       dirtyRef.current = false;
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -428,7 +429,7 @@ export function KnowledgeCanvas({
           targetWeight: b.node.weight,
         });
         const keep = onRoute || lit || keepBackboneEdge(score, cam.k);
-        if (!keep && !(markedWeak && weakPulse > 0)) continue;
+        if (!keep && !(markedWeak && showingWeak)) continue;
 
         const angle = Math.atan2(b.y - a.y, b.x - a.x);
         const aProfile = starProfile(a.node.id, a.node.radius, a.node.kind, cam.k);
@@ -442,7 +443,7 @@ export function KnowledgeCanvas({
         const curve = ((((hash(link.id, 7) % 1000) / 1000) - 0.5) * 32) * Math.min(1, cam.k);
         const cx = mx - Math.sin(angle) * curve;
         const cy = my + Math.cos(angle) * curve;
-        if (markedWeak && weakPulse > 0) weakDraw.push({ ax, ay, cx, cy, bx, by });
+        if (markedWeak && showingWeak) weakDraw.push({ ax, ay, cx, cy, bx, by });
         if (!keep) continue;
 
         const dim = !onRoute && !lit;
@@ -456,20 +457,19 @@ export function KnowledgeCanvas({
         ctx.stroke();
       }
 
-      if (weakPulse > 0 && weakDraw.length > 0) {
+      if (showingWeak && weakDraw.length > 0) {
         ctx.save();
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
         ctx.setLineDash([5, 9]);
         ctx.lineDashOffset = -(now / 86);
         ctx.strokeStyle = palette.live;
-        ctx.globalAlpha = Math.max(0.18, weakPulse);
-        ctx.lineWidth = 2.2;
+        ctx.globalAlpha = Math.max(0.78, 0.62 + weakPulse * 0.38);
+        ctx.lineWidth = 2.4;
         for (const trace of weakDraw) {
-          const seg = weakTraceCurve(trace.ax, trace.ay, trace.cx, trace.cy, trace.bx, trace.by);
           ctx.beginPath();
-          ctx.moveTo(seg.x0, seg.y0);
-          ctx.quadraticCurveTo(seg.xc, seg.yc, seg.x1, seg.y1);
+          ctx.moveTo(trace.ax, trace.ay);
+          ctx.quadraticCurveTo(trace.cx, trace.cy, trace.bx, trace.by);
           ctx.stroke();
         }
         ctx.restore();

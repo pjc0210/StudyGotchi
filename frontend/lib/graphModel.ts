@@ -185,7 +185,7 @@ export type Lens = "all" | "mine" | "weak";
 export const LENSES: { id: Lens; label: string; hint: string }[] = [
   { id: "all", label: "All", hint: "Concepts and connected material" },
   { id: "mine", label: "Knowledge", hint: "What you have actually worked with" },
-  { id: "weak", label: "Weak Areas", hint: "The three weakest clusters" },
+  { id: "weak", label: "Weak Areas", hint: "Specific connections that need work" },
 ];
 
 /** Backend states the engine considers unstable or under-evidenced. */

@@ -8,7 +8,7 @@ import {
   type Lens,
 } from "@/lib/graphModel";
 import { useStore } from "@/lib/store";
-import { weakAreaTracks, weakGapTraces } from "@/lib/world/pipeline-understanding";
+import { pickWeakSequences, weakTraceIdsForLens } from "@/lib/weak-sequences";
 import { EmptyState } from "@/components/common/EmptyState";
 import { ErrorState } from "@/components/common/LoadingState";
 import { ConceptPanel } from "@/components/concepts/ConceptPanel";
@@ -68,8 +68,14 @@ export function KnowledgeWorkspace({
     [graph.data, resources],
   );
 
-  const weakTracks = useMemo(() => weakAreaTracks(graph.data?.nodes ?? []), [graph.data]);
-  const weakTraceIds = useMemo(() => weakGapTraces(weakTracks, model.links), [weakTracks, model]);
+  const weakSequences = useMemo(
+    () => pickWeakSequences(graph.data?.nodes ?? [], model.links),
+    [graph.data, model],
+  );
+  const weakTraceIds = useMemo(
+    () => weakTraceIdsForLens(lens, weakSequences),
+    [lens, weakSequences],
+  );
   const lensSet = useMemo(() => (lens === "weak" ? null : lensEmphasis(model, lens)), [model, lens]);
 
   // An explicit gap focus outranks the lens - the user asked for it directly.
