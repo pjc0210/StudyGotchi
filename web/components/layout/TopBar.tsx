@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Upload } from "lucide-react";
+import { GraduationCap, NotebookPen, Search, Upload } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { searchGraph } from "@/lib/kg/graph";
 import { useStore } from "@/lib/kg/store";
@@ -16,6 +16,7 @@ export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
     courses,
     selectedCourse,
     selectCourse,
+    simulateIngest,
   } = useStore();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
@@ -177,6 +178,38 @@ export function TopBar({ onUploadClick }: { onUploadClick: () => void }) {
             )}
           </div>
         ) : null}
+      </div>
+
+      {/* Demo-only: fabricates a file and its effect on the graph, no
+          backend call. For running the demo when there is no time to wire
+          up a live upload. */}
+      <div
+        className="pointer-events-auto flex h-[34px] items-center gap-0.5 rounded-full border border-dashed border-amber-400/30 bg-amber-400/[0.06] pl-2.5 pr-1"
+        aria-label="Demo controls"
+      >
+        <span className="hidden text-[10px] font-medium uppercase tracking-wide text-amber-300/70 xl:inline">
+          Demo
+        </span>
+        <button
+          type="button"
+          onClick={() => simulateIngest("notes")}
+          disabled={!graph.data}
+          title="Simulate uploading a notes file"
+          className="flex h-[26px] items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium text-amber-100 transition-colors hover:bg-amber-400/15 disabled:pointer-events-none disabled:opacity-40"
+        >
+          <NotebookPen size={12} strokeWidth={2.25} aria-hidden />
+          <span className="sr-only xl:not-sr-only">Add Monday&rsquo;s Notes</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => simulateIngest("exam")}
+          disabled={!graph.data}
+          title="Simulate uploading a graded exam"
+          className="flex h-[26px] items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium text-amber-100 transition-colors hover:bg-amber-400/15 disabled:pointer-events-none disabled:opacity-40"
+        >
+          <GraduationCap size={12} strokeWidth={2.25} aria-hidden />
+          <span className="sr-only xl:not-sr-only">Add Graded Exam</span>
+        </button>
       </div>
 
       <button

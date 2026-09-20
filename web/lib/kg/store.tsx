@@ -22,6 +22,7 @@ import {
   USE_MOCK,
 } from "./api";
 import { MOCK_COURSE, MOCK_COURSES } from "./mock";
+import { simulateDemoIngest, type DemoIngestKind } from "./demoIngest";
 import type {
   ArtifactType,
   CourseResource,
@@ -75,6 +76,11 @@ interface StoreValue {
     artifactType: ArtifactType,
   ) => void;
   clearFinishedUploads: () => void;
+
+  /** Frontend-only stand-in for a real upload, for demos with no time to
+   * wire up ingest live. Fabricates a resource and nudges a few real
+   * concepts, then selects the new file. No backend call. */
+  simulateIngest: (kind: DemoIngestKind) => void;
 }
 
 const StoreContext = createContext<StoreValue | null>(null);
@@ -322,6 +328,20 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
     setFocusNonce((n) => n + 1);
   }, []);
 
+  const simulateIngest = useCallback(
+    (kind: DemoIngestKind) => {
+      const current = graph.data;
+      if (!current) return;
+      const { nodes, resource } = simulateDemoIngest(current.nodes, kind);
+      setGraph((g) => (g.data ? { ...g, data: { ...g.data, nodes } } : g));
+      setResources((prev) => [resource, ...prev]);
+      // Selecting it opens the resource panel and pans the camera there,
+      // the same as clicking a freshly-hatched node from a real upload.
+      focusConcept(resource.id);
+    },
+    [graph.data, focusConcept],
+  );
+
   const value = useMemo<StoreValue>(
     () => ({
       graph,
@@ -342,6 +362,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       ingestVersion,
       addUploads,
       clearFinishedUploads,
+      simulateIngest,
     }),
     [
       graph,
@@ -360,6 +381,7 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
       ingestVersion,
       addUploads,
       clearFinishedUploads,
+      simulateIngest,
     ],
   );
 
