@@ -17,7 +17,7 @@ import type { CourseGlobeCourse, UnitDirection } from "./globe-types";
 
 const UP = new THREE.Vector3(0, 1, 0);
 const WALKERS_PER_TOWN = 6;
-const WALKER_SCALE = 0.42;
+const WALKER_SCALE = 0.78;
 
 interface GlobeWalkerProps {
   id: string;
@@ -36,7 +36,7 @@ function GlobeWalker({ id, biome, index, reducedMotion }: GlobeWalkerProps) {
     (() => {
       const rng = makeRng(hashString(`globe:${id}:${index}`));
       const angle = rng() * Math.PI * 2;
-      const radius = 0.34 + rng() * 0.18;
+      const radius = 0.55 + rng() * 0.42;
       return {
         x: Math.cos(angle) * radius,
         z: Math.sin(angle) * radius,
@@ -68,9 +68,9 @@ function GlobeWalker({ id, biome, index, reducedMotion }: GlobeWalkerProps) {
     motion.current.moving = state.moving;
     if (state.moving) {
       const reach = state.x * state.x + state.z * state.z;
-      if (reach > 0.28) state.heading = Math.atan2(-state.x, -state.z);
-      state.x += Math.sin(state.heading) * dt * 0.12;
-      state.z += Math.cos(state.heading) * dt * 0.12;
+      if (reach > 0.85) state.heading = Math.atan2(-state.x, -state.z);
+      state.x += Math.sin(state.heading) * dt * 0.22;
+      state.z += Math.cos(state.heading) * dt * 0.22;
     }
     node.position.set(state.x, 0.02, state.z);
     node.rotation.y = state.heading;

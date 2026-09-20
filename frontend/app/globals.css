@@ -62,9 +62,10 @@
   --mint: #dcead0;
   --sky: #d5e4ef;
   --line: #e4d8c8;
-  --space-bg: #f2efe9;
+  --space-bg: #cfd6e4;
   --space-star: #17151d;
   --space-star-soft: rgba(23, 21, 29, 0.42);
+  --space-nebula: rgba(168, 142, 196, 0.22);
 
   --state-mastered: #34d399;
   --state-strong: #7dd3a0;
@@ -84,23 +85,26 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-space-theme]) {
     --space-bg: #080716;
     --space-star: #fff6df;
     --space-star-soft: rgba(185, 216, 234, 0.68);
+    --space-nebula: rgba(88, 64, 140, 0.38);
   }
 }
 
 :root[data-space-theme="light"] {
-  --space-bg: #f2efe9;
+  --space-bg: #cfd6e4;
   --space-star: #17151d;
   --space-star-soft: rgba(23, 21, 29, 0.42);
+  --space-nebula: rgba(168, 142, 196, 0.22);
 }
 
 :root[data-space-theme="dark"] {
   --space-bg: #080716;
   --space-star: #fff6df;
   --space-star-soft: rgba(185, 216, 234, 0.68);
+  --space-nebula: rgba(88, 64, 140, 0.38);
 }
 
 html,
@@ -552,10 +556,10 @@ h2 {
   z-index: 0;
 }
 
-/* On wide screens the world gets the space right of the panel, so the island is centred there. */
+/* The planet / land is the full-bleed background. Chrome sits on top as pop-ups. */
 @media (min-width: 901px) {
   .earth-stage.beside-panel {
-    left: calc(min(24rem, 100vw - 4.5rem) + 2.25rem);
+    left: 0;
   }
 }
 

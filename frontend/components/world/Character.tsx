@@ -6,19 +6,11 @@ import * as THREE from "three";
 import { GlbCreature, type ClipName, type CreatureRequests } from "./GlbCreature";
 import type { BlobMotion } from "./Blob";
 import { BIOMES, type Vec2 } from "@/lib/world/layout";
-import { creatureMeta, pickCreature } from "@/lib/world/roster";
+import { CREATURE_SCENE_SCALE, creatureMeta, pickCreature } from "@/lib/world/roster";
 import { hashString, makeRng } from "@/lib/seed";
 import type { CanvasCharacter, CanvasPlace } from "@/lib/world/types";
 import { MOOD_FOR_STATE, voiceFor } from "@/lib/audio/catalog";
 import { emit } from "@/lib/audio/events";
-
-const STATE_SCALE: Record<CanvasCharacter["state"], number> = {
-  idle: 1.2,
-  evolved: 1.45,
-  exploded: 1,
-  recovered: 1.28,
-  faded: 0.85,
-};
 
 export function Character({
   character,
@@ -110,7 +102,7 @@ export function Character({
         requests={requests}
         sad={still}
         selected={selected}
-        scale={STATE_SCALE[character.state]}
+        scale={CREATURE_SCENE_SCALE}
         color={biome.creature}
         accent={biome.accent}
         onClick={select}

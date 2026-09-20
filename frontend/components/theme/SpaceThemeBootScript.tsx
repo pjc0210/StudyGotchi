@@ -15,6 +15,7 @@ const SPACE_THEME_BOOT_SCRIPT = `
           : "light";
 
     document.documentElement.dataset.spaceTheme = theme;
+    document.documentElement.style.colorScheme = theme;
   })();
 `;
 

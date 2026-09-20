@@ -1,6 +1,7 @@
 "use client";
 
 import { Maximize2, Minus, Plus } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function GraphControls({
   onFit,
@@ -11,6 +12,10 @@ export function GraphControls({
   onZoomIn: () => void;
   onZoomOut: () => void;
 }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
   return (
     <div className="sg-seg" role="group" aria-label="Camera">
       <button type="button" onClick={onZoomOut} aria-label="Zoom out" className="sg-seg-item" style={{ padding: "0 10px" }}>

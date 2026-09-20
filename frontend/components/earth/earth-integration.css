@@ -5,6 +5,46 @@
   background: var(--space-bg);
 }
 
+.earth-page .earth-stage,
+.earth-page .earth-stage.beside-panel {
+  inset: 0;
+  left: 0;
+}
+
+.biome-land-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform-origin: 72% 56%;
+}
+
+.biome-land-stage[data-arriving="true"] {
+  animation: biome-land-arrive 720ms cubic-bezier(0.83, 0, 0.17, 1) both;
+}
+
+@keyframes biome-land-arrive {
+  from {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.earth-page .earth-panel {
+  position: absolute;
+  top: calc(var(--sg-header-h) + 12px);
+  left: var(--sg-gutter);
+  z-index: 24;
+  width: min(340px, calc(100vw - 2 * var(--sg-gutter)));
+  height: auto;
+  max-height: calc(100dvh - var(--sg-header-h) - 36px);
+  margin: 0;
+}
+
 .course-navigator {
   position: absolute;
   top: calc(var(--sg-header-h) + 12px);
@@ -278,6 +318,7 @@
 }
 
 @media (max-width: 899px) {
+  .earth-page .earth-panel,
   .course-navigator {
     position: fixed;
     top: auto;
@@ -308,6 +349,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .biome-land-stage[data-arriving="true"],
   .course-navigator,
   .provenance-bubble {
     animation: sg-fade var(--a-t-quick) linear both;

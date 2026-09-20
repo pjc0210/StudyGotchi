@@ -135,7 +135,7 @@ export function KnowledgeWorkspace({
 
   const selectedNode = selectedId ? model.byId.get(selectedId) : undefined;
 
-  if (graph.loading) return <GraphLoading />;
+  if (graph.loading && (!graph.data || graph.data.nodes.length === 0)) return <GraphLoading />;
   if (graph.error) {
     return (
       <div className="sg-status">

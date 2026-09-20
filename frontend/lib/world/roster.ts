@@ -11,6 +11,9 @@ import { hashString, makeRng } from "@/lib/seed";
 import { GUEST_BY_ID, guestsFor, isGuestId } from "./guest-pack";
 import type { BiomeId } from "./types";
 
+/** Shared island / ice body size so guests and locals read as one crowd. */
+export const CREATURE_SCENE_SCALE = 1.22;
+
 export type Archetype = "blob" | "bean" | "bird" | "biped" | "sprite";
 export type Personality = "sleepy" | "bold" | "curious" | "grumpy" | "shy";
 

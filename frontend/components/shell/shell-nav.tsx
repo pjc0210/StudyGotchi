@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
 /** How long a page gets to play its exit before the route changes under it. */
-const LEAVE_MS = 250;
+const LEAVE_MS = 720;
 const LEAVE_REDUCED_MS = 100;
 
 interface ShellNav {

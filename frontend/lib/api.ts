@@ -2,6 +2,8 @@ import fixture from "@/lib/world/fixture.json";
 import type { components } from "@/lib/api/schema";
 import { API_URL } from "./config";
 import { credentialHeaders, getIdentity, type CourseSummary } from "./identity";
+import { studentIdForCourse } from "./world/demo-courses";
+import { pipelineGraphForCourse, pipelineWorldForCourse } from "./world/pipeline-assets";
 import {
   MOCK_GAPS,
   MOCK_GRAPH,
@@ -66,6 +68,7 @@ export interface KnowledgeApi {
   ingest(input: IngestInput): Promise<IngestResponse>;
   getResourceStatus(resourceId: string): Promise<ResourceStatus>;
   getMe(): Promise<MeResponse>;
+  listCourses(): Promise<CourseSummary[]>;
   getWorld(): Promise<WorldResponse>;
   getWorldForCourse(courseId: string): Promise<WorldResponse>;
   getSharedWorld(token: string): Promise<WorldResponse>;
@@ -135,6 +138,33 @@ function normalizeEdge(raw: Record<string, unknown>): ConceptEdge {
     origin: str(raw.origin, "course") === "personal" ? "personal" : "course",
     confidence: num(raw.confidence, 1),
   };
+}
+
+/**
+ * Railway 403s ("Not your world") when Clerk's caller is not the pipeline
+ * student. The locked demo still has a sky — use it instead of an empty page.
+ */
+export function liveOrPipeline<T>(fallback: T | null, error: unknown): T {
+  if (fallback) return fallback;
+  throw error;
+}
+
+/** An empty live payload is the same as a failed one: keep the demo sky up. */
+export function populatedOrPipelineGraph(
+  courseId: string,
+  live: KnowledgeGraphResponse,
+): KnowledgeGraphResponse {
+  if (live.nodes.length > 0) return live;
+  const pipeline = pipelineGraphForCourse(courseId);
+  return pipeline ? normalizeGraph(pipeline) : live;
+}
+
+/** Immediate sky, same idea as seeding 8.223 + 6.1400 on /earth. */
+export function seededKnowledgeGraph(
+  courseId: string = getIdentity().courseId,
+): KnowledgeGraphResponse | null {
+  const pipeline = pipelineGraphForCourse(courseId);
+  return pipeline ? normalizeGraph(pipeline) : null;
 }
 
 export function normalizeGraph(raw: unknown): KnowledgeGraphResponse {
@@ -213,7 +243,10 @@ function requireIdentity() {
 }
 
 const base = () => `/api/courses/${getIdentity().courseId}`;
-const studentBase = () => `${base()}/students/${getIdentity().studentId}`;
+const studentBase = () => {
+  const { courseId, studentId } = getIdentity();
+  return `${base()}/students/${studentIdForCourse(courseId, studentId)}`;
+};
 const courseBase = (courseId: string) => `/api/courses/${encodeURIComponent(courseId)}`;
 
 export function courseResourcesPath(courseId: string): string {
@@ -338,7 +371,17 @@ export function normalizeCourseResources(raw: BackendResource[]): CourseResource
 const httpApi: KnowledgeApi = {
   async getKnowledgeGraph() {
     requireIdentity();
-    return normalizeGraph(await request<unknown>(`${studentBase()}/knowledge-graph`));
+    const courseId = getIdentity().courseId;
+    try {
+      const live = normalizeGraph(
+        await request<unknown>(`${studentBase()}/knowledge-graph`, {
+          signal: AbortSignal.timeout(2500),
+        }),
+      );
+      return populatedOrPipelineGraph(courseId, live);
+    } catch (error) {
+      return normalizeGraph(liveOrPipeline(pipelineGraphForCourse(courseId), error));
+    }
   },
 
   async getConceptDetail(conceptId) {
@@ -489,16 +532,29 @@ const httpApi: KnowledgeApi = {
     return request<MeResponse>("/api/me");
   },
 
+  async listCourses() {
+    return request<CourseSummary[]>("/api/courses");
+  },
+
   async getWorld() {
     requireIdentity();
-    return request<WorldResponse>(`${studentBase()}/world`);
+    try {
+      return await request<WorldResponse>(`${studentBase()}/world`);
+    } catch (error) {
+      return liveOrPipeline(pipelineWorldForCourse(getIdentity().courseId), error);
+    }
   },
 
   async getWorldForCourse(courseId) {
     requireIdentity();
-    return request<WorldResponse>(
-      studentCourseWorldPath(getIdentity().studentId, courseId),
-    );
+    const { studentId } = getIdentity();
+    try {
+      return await request<WorldResponse>(
+        studentCourseWorldPath(studentIdForCourse(courseId, studentId), courseId),
+      );
+    } catch (error) {
+      return liveOrPipeline(pipelineWorldForCourse(courseId), error);
+    }
   },
 
   async getSharedWorld(token) {
@@ -521,6 +577,8 @@ const httpApi: KnowledgeApi = {
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export function mockWorldForCourse(courseId: string): WorldResponse {
+  const pipeline = pipelineWorldForCourse(courseId);
+  if (pipeline) return pipeline;
   const world = fixture as WorldResponse;
   return {
     ...world,
@@ -540,7 +598,8 @@ export function cloneMockResources(): CourseResource[] {
 const mockApi: KnowledgeApi = {
   async getKnowledgeGraph() {
     await delay(320);
-    return normalizeGraph(MOCK_GRAPH);
+    const pipeline = pipelineGraphForCourse(getIdentity().courseId);
+    return normalizeGraph(pipeline ?? MOCK_GRAPH);
   },
   async getConceptDetail(conceptId) {
     await delay(160);
@@ -602,9 +661,13 @@ const mockApi: KnowledgeApi = {
     const id = getIdentity();
     return { student_id: id.studentId, courses: id.courses };
   },
+  async listCourses() {
+    await delay(40);
+    return getIdentity().courses;
+  },
   async getWorld() {
     await delay(200);
-    return fixture as WorldResponse;
+    return mockWorldForCourse(getIdentity().courseId);
   },
   async getWorldForCourse(courseId) {
     await delay(200);

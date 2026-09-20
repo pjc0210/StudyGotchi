@@ -21,6 +21,7 @@ export function parseSpaceThemePreference(value: unknown): SpaceThemePreference 
 
 function applySpaceTheme(theme: ResolvedSpaceTheme) {
   document.documentElement.dataset.spaceTheme = theme;
+  document.documentElement.style.colorScheme = theme;
 }
 
 export function useSpaceTheme(): {

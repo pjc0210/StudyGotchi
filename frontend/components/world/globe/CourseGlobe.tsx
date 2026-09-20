@@ -14,6 +14,9 @@ export interface CourseGlobeProps {
   onSelect?: (courseId: string) => void;
   onActiveCourseChange?: (courseId: string) => void;
   onCourseTownOpen?: (courseId: string, anchor: ScreenPoint) => void;
+  arriving?: boolean;
+  diving?: boolean;
+  diveAnchor?: ScreenPoint | null;
   decorative?: boolean;
   playMusic?: boolean;
   className?: string;
@@ -39,6 +42,9 @@ export function CourseGlobe({
   onSelect,
   onActiveCourseChange,
   onCourseTownOpen,
+  arriving = true,
+  diving = false,
+  diveAnchor = null,
   decorative = false,
   playMusic = false,
   className,
@@ -64,7 +70,9 @@ export function CourseGlobe({
       courses={courses}
       activeCourseId={focusedId}
       theme={theme}
-      arriving={false}
+      arriving={arriving && !diving}
+      diving={diving}
+      diveAnchor={diveAnchor}
       reducedMotion={reducedMotion}
       onActiveCourseChange={(courseId) => {
         setFocusedId(courseId);

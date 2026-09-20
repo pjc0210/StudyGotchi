@@ -3,12 +3,14 @@
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useStore } from "@/lib/store";
-import { api, ApiError } from "@/lib/api";
+import { api, ApiError, mockWorldForCourse } from "@/lib/api";
+import { DEV_STUDENT_ID, USE_MOCK } from "@/lib/config";
 import { emit, type AudioEvent } from "@/lib/audio/events";
 import { dominantBiome } from "@/lib/audio/director";
 import { useIdentity } from "@/lib/identity";
 import { WORLD_CHANGE_PRIORITY, asWorldResponse, changedRegions, describeChanges, toCanvasWorld, type WorldChange } from "@/lib/world/adapter";
 import type { WorldResponse } from "@/lib/world/types";
+import type { LocalBiomeId } from "./biomes/types";
 
 /** at most this many one-shots per payload, 120 ms apart, loudest news first, three of a kind */
 const SOUND_BUDGET = 6;
@@ -57,17 +59,27 @@ function playChanges(changes: WorldChange[]) {
 }
 
 const WorldCanvas = dynamic(() => import("./WorldCanvas"), { ssr: false });
+const IceCanvas = dynamic(() => import("./golden/WorldCanvas"), { ssr: false });
+const DevelopedBiomeCanvas = dynamic(
+  () => import("./biomes/DevelopedBiomeCanvas").then((mod) => mod.DevelopedBiomeCanvas),
+  { ssr: false },
+);
 
 export type WorldSource = { kind: "own" } | { kind: "visit"; token: string };
 
 export function WorldPage({
   source = { kind: "own" },
+  courseId: courseIdOverride,
+  visual = "island",
   readOnly = false,
   onWorld,
   hoveredId,
   onHover,
 }: {
   source?: WorldSource;
+  /** Load this course's land even when identity still points at another course. */
+  courseId?: string | null;
+  visual?: LocalBiomeId;
   readOnly?: boolean;
   /** Called with every payload the canvas draws, so a panel can read the same world. */
   onWorld?: (world: WorldResponse | null) => void;
@@ -75,7 +87,8 @@ export function WorldPage({
   onHover?: (conceptId: string | null) => void;
 }) {
   const { selectedId, select, ingestVersion } = useStore();
-  const { ready, courseId, studentId } = useIdentity();
+  const { ready, courseId: identityCourseId, studentId } = useIdentity();
+  const courseId = courseIdOverride ?? identityCourseId;
   // Hover lives with whoever owns the page; standalone, the page owns it.
   const [ownHover, setOwnHover] = useState<string | null>(null);
   const hovered = onHover ? (hoveredId ?? null) : ownHover;
@@ -99,11 +112,22 @@ export function WorldPage({
   }, [source.kind, courseId, studentId]);
 
   useEffect(() => {
-    if (source.kind === "own" && !ready) return;
+    if (source.kind === "own" && !ready && !courseIdOverride) return;
 
     let cancelled = false;
-    const load = source.kind === "visit" ? api.getSharedWorld(source.token) : api.getWorld();
-    load
+    const load = async () => {
+      try {
+        if (source.kind === "visit") return api.getSharedWorld(source.token);
+        if (courseIdOverride) return api.getWorldForCourse(courseIdOverride);
+        return api.getWorld();
+      } catch (err) {
+        if (source.kind === "own" && courseId && (USE_MOCK || DEV_STUDENT_ID)) {
+          return mockWorldForCourse(courseId);
+        }
+        throw err;
+      }
+    };
+    load()
       .then((raw) => {
         if (cancelled) return;
         const parsed = asWorldResponse(raw);
@@ -118,6 +142,13 @@ export function WorldPage({
       })
       .catch((err: unknown) => {
         if (cancelled) return;
+        if (source.kind === "own" && courseId && (USE_MOCK || DEV_STUDENT_ID)) {
+          const fallback = mockWorldForCourse(courseId);
+          previous.current = fallback;
+          setWorld(fallback);
+          setError(null);
+          return;
+        }
         emit({ type: "error" });
         setError(err instanceof Error ? err.message : "Could not load this world.");
         if (err instanceof ApiError && err.status === 404 && source.kind === "own") setWorld(null);
@@ -126,7 +157,7 @@ export function WorldPage({
     return () => {
       cancelled = true;
     };
-  }, [source, retry, ready, courseId, studentId, ingestVersion]);
+  }, [courseId, courseIdOverride, ingestVersion, ready, retry, source, studentId]);
 
   // Pulses fade on their own after a few seconds.
   useEffect(() => {
@@ -141,6 +172,48 @@ export function WorldPage({
   useEffect(() => {
     if (canvasWorld) emit({ type: "island-biome", biome: dominantBiome(canvasWorld.places) });
   }, [canvasWorld]);
+
+  const reached = world ? world.regions.filter((region) => region.semantic_state !== "frontier").length : 0;
+  const total = world ? world.regions.length + world.hidden_concept_count : 0;
+  const progress = total > 0 ? reached / total : 0.68;
+
+  if (visual === "ice-golden") {
+    return (
+      <div className="relative h-full min-h-0 w-full">
+        <IceCanvas
+          progress={progress}
+          view="overview"
+          onResidentFocus={() => {
+            if (hovered) select(hovered);
+          }}
+        />
+        {error ? (
+          <p className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-paper-card px-3 py-1 text-[12px] text-paper-soft">
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
+
+  if (
+    visual === "frontier-town" ||
+    visual === "coastal-ruins" ||
+    visual === "jungle-forest-village" ||
+    visual === "medieval-meadow-kingdom" ||
+    visual === "nordic-volcanic-highlands"
+  ) {
+    return (
+      <div className="relative h-full min-h-0 w-full">
+        <DevelopedBiomeCanvas visual={visual} progress={progress} />
+        {error ? (
+          <p className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-paper-card px-3 py-1 text-[12px] text-paper-soft">
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
 
   if (error && !world) {
     return (

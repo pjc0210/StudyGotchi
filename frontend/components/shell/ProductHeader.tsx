@@ -7,8 +7,8 @@ import { AccountMenu } from "./AccountMenu";
 import { useShellNav } from "./shell-nav";
 
 const ITEMS: { href: string; label: string; match: RegExp }[] = [
-  { href: "/earth", label: "World", match: /^\/(earth|world|w)(\/|$)/ },
-  { href: "/knowledge", label: "Space", match: /^\/knowledge(\/|$)/ },
+  { href: "/earth", label: "Planet", match: /^\/(earth|world|w)(\/|$)/ },
+  { href: "/knowledge", label: "Galaxy", match: /^\/knowledge(\/|$)/ },
 ];
 
 /**

@@ -33,10 +33,13 @@ import type {
   UnitDirection,
 } from "./globe-types";
 import { PixelComposer } from "./PixelComposer";
+import { DIVE_MS, diveCameraPosition, easeInOutCubic } from "./globe-dive";
+import { seatedCameraPosition } from "./globe-seat";
 
 const LAYOUT_SEED = "studygotchi:production-course-globe";
-const FOCUS_DIRECTION = new THREE.Vector3(0, 0.08, 1).normalize();
+const FOCUS_DIRECTION = new THREE.Vector3(-0.55, 0.48, 1).normalize();
 const SNAP_DAMPING = 7.5;
+const DRAG_THRESHOLD_PX = 8;
 
 interface R3FPointerCaptureTarget extends EventTarget {
   hasPointerCapture(pointerId: number): boolean;
@@ -59,6 +62,7 @@ export interface CourseGlobeSceneProps {
   courses: CourseGlobeCourse[];
   activeCourseId: string | null;
   theme: SpaceTheme;
+  diving: boolean;
   reducedMotion: boolean;
   onActiveCourseChange(courseId: string): void;
   onCourseTownOpen(event: GlobeTownOpenEvent): void;
@@ -105,13 +109,12 @@ export function nearestFacingCourseId(
 }
 
 function SceneTheme({ theme }: { theme: SpaceTheme }) {
-  const background = theme === "light" ? "#f4f0e5" : "#17152c";
-  return (
-    <>
-      <color attach="background" args={[background]} />
-      <fog attach="fog" args={[background, 42, 76]} />
-    </>
-  );
+  const gl = useThree((state) => state.gl);
+  const fog = theme === "light" ? "#cfd6e4" : "#080716";
+  useLayoutEffect(() => {
+    gl.setClearColor(0x000000, 0);
+  }, [gl, theme]);
+  return <fog attach="fog" args={[fog, 36, 72]} />;
 }
 
 function Lights({ theme }: { theme: SpaceTheme }) {
@@ -134,23 +137,68 @@ function Lights({ theme }: { theme: SpaceTheme }) {
   );
 }
 
-function AutoFitCamera() {
-  const size = useThree((state) => state.size);
+function AutoFitCamera({ locked }: { locked: boolean }) {
+  const width = useThree((state) => state.size.width);
+  const height = useThree((state) => state.size.height);
   const camera = useThree((state) => state.camera) as THREE.PerspectiveCamera;
-  const aspect = Math.max(0.35, size.width / Math.max(1, size.height));
-  const verticalFov = THREE.MathUtils.degToRad(camera.fov);
-  const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * aspect);
-  const limitingFov = Math.min(verticalFov, horizontalFov);
-  const distance = 5.65 / Math.sin(Math.max(0.12, limitingFov / 2));
 
   useLayoutEffect(() => {
-    camera.position.set(0, distance * 0.07 - 0.7, distance);
-    camera.lookAt(0, -0.7, 0);
-    camera.near = Math.max(0.1, distance - 8);
-    camera.far = distance + 80;
+    if (locked) return;
+    const seat = seatedCameraPosition(
+      { width, height },
+      camera.fov,
+      GLOBE_RADIUS,
+    );
+    camera.position.set(...seat.position);
+    camera.lookAt(...seat.lookAt);
+    camera.near = 0.1;
+    camera.far = Math.max(80, seat.position[2] + 80);
     camera.updateProjectionMatrix();
     camera.updateMatrixWorld();
-  }, [camera, distance]);
+  }, [camera, height, locked, width]);
+
+  return null;
+}
+
+function DiveCamera({
+  diving,
+  reducedMotion,
+}: {
+  diving: boolean;
+  reducedMotion: boolean;
+}) {
+  const camera = useThree((state) => state.camera) as THREE.PerspectiveCamera;
+  const start = useRef(new THREE.Vector3());
+  const dest = useRef(new THREE.Vector3());
+  const progress = useRef(0);
+  const active = useRef(false);
+
+  useLayoutEffect(() => {
+    if (!diving) {
+      active.current = false;
+      progress.current = 0;
+      return;
+    }
+    start.current.copy(camera.position);
+    dest.current.set(
+      ...diveCameraPosition([
+        camera.position.x,
+        camera.position.y,
+        camera.position.z,
+      ]),
+    );
+    progress.current = 0;
+    active.current = true;
+  }, [camera, diving]);
+
+  useFrame((_, delta) => {
+    if (!active.current || reducedMotion) return;
+    progress.current = Math.min(1, progress.current + delta / (DIVE_MS / 1000));
+    const t = easeInOutCubic(progress.current);
+    camera.position.lerpVectors(start.current, dest.current, t);
+    camera.lookAt(0, -0.7, 0);
+    camera.updateMatrixWorld();
+  });
 
   return null;
 }
@@ -233,6 +281,8 @@ function OrbitingGlobe({
   const interacting = useRef(false);
   const dragging = useRef(false);
   const lastPointer = useRef({ x: 0, y: 0 });
+  const dragOrigin = useRef({ x: 0, y: 0 });
+  const dragMoved = useRef(false);
   const camera = useThree((state) => state.camera);
   const cameraRight = useRef(new THREE.Vector3());
   const yawRotation = useRef(new THREE.Quaternion());
@@ -312,15 +362,14 @@ function OrbitingGlobe({
 
   const pointerDown = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
-    onPointerInteractionChange(true);
     dragging.current = true;
-    interacting.current = true;
+    dragMoved.current = false;
     lastPointer.current = {
       x: event.nativeEvent.clientX,
       y: event.nativeEvent.clientY,
     };
+    dragOrigin.current = lastPointer.current;
     pointerCaptureTarget(event)?.setPointerCapture(event.pointerId);
-    document.body.style.cursor = "grabbing";
   };
 
   const pointerMove = (event: ThreeEvent<PointerEvent>) => {
@@ -328,6 +377,14 @@ function OrbitingGlobe({
     event.stopPropagation();
     const x = event.nativeEvent.clientX;
     const y = event.nativeEvent.clientY;
+    if (!dragMoved.current) {
+      const travel = Math.hypot(x - dragOrigin.current.x, y - dragOrigin.current.y);
+      if (travel < DRAG_THRESHOLD_PX) return;
+      dragMoved.current = true;
+      interacting.current = true;
+      onPointerInteractionChange(true);
+      document.body.style.cursor = "grabbing";
+    }
     const dx = x - lastPointer.current.x;
     const dy = y - lastPointer.current.y;
     lastPointer.current = { x, y };
@@ -337,13 +394,16 @@ function OrbitingGlobe({
   const finishPointerDrag = (event: ThreeEvent<PointerEvent>) => {
     if (!dragging.current) return;
     event.stopPropagation();
+    const moved = dragMoved.current;
     dragging.current = false;
+    dragMoved.current = false;
     const captureTarget = pointerCaptureTarget(event);
     if (captureTarget?.hasPointerCapture(event.pointerId)) {
       captureTarget.releasePointerCapture(event.pointerId);
     }
     document.body.style.cursor = "grab";
-    settle();
+    if (moved) settle();
+    interacting.current = false;
     onPointerInteractionChange(false);
   };
 
@@ -373,6 +433,7 @@ function OrbitingGlobe({
         courses={courses}
         directions={directions}
         activeCourseId={activeCourseId}
+        night={theme === "dark"}
         onActiveCourseChange={onActiveCourseChange}
         onCourseTownOpen={onCourseTownOpen}
       />
@@ -394,7 +455,7 @@ function OrbitingGlobe({
           if (!dragging.current) document.body.style.cursor = "auto";
         }}
       >
-        <sphereGeometry args={[GLOBE_RADIUS + 0.8, 48, 32]} />
+        <sphereGeometry args={[GLOBE_RADIUS + 0.08, 48, 32]} />
         <meshBasicMaterial transparent opacity={0} depthWrite={false} />
       </mesh>
     </group>
@@ -405,6 +466,7 @@ export function CourseGlobeScene({
   courses,
   activeCourseId,
   theme,
+  diving,
   reducedMotion,
   onActiveCourseChange,
   onCourseTownOpen,
@@ -434,7 +496,8 @@ export function CourseGlobeScene({
     <>
       <SceneTheme theme={theme} />
       <Lights theme={theme} />
-      <AutoFitCamera />
+      <AutoFitCamera locked={diving} />
+      <DiveCamera diving={diving} reducedMotion={reducedMotion} />
       <StarField theme={theme} />
       <OrbitingGlobe
         courses={courses}

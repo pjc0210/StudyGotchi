@@ -11,6 +11,7 @@ import { MARKERS } from "./bouquet/markers";
 import { propCountFromProgress } from "./bouquet/bouquet-state";
 import { courseMarkerState, sampleTerrain } from "./globe-spec";
 import { GLOBE_RADIUS } from "./globe-materials";
+import { LANDMARK_REF_FIT, LANDMARK_REF_SCALE, PLANET_SEAT } from "./globe-seat";
 import type {
   CourseGlobeCourse,
   ScreenPoint,
@@ -18,7 +19,10 @@ import type {
 } from "./globe-types";
 
 const UP = new THREE.Vector3(0, 1, 0);
-export const GLOBE_BOUQUET_SCALE = 0.026;
+export const GLOBE_BOUQUET_SCALE =
+  LANDMARK_REF_SCALE * (LANDMARK_REF_FIT / PLANET_SEAT.radiusFit);
+const ACTIVE_POP = 1.48;
+const ACTIVE_LIFT = 2.8;
 
 export interface GlobeTownOpenEvent {
   courseId: string;
@@ -31,6 +35,7 @@ interface GlobeTownProps {
   courses: CourseGlobeCourse[];
   directions: Map<string, UnitDirection>;
   active: boolean;
+  night: boolean;
   onActivate(courseId: string): void;
   onOpen(event: GlobeTownOpenEvent): void;
 }
@@ -41,6 +46,7 @@ export function GlobeTown({
   courses,
   directions,
   active,
+  night,
   onActivate,
   onOpen,
 }: GlobeTownProps) {
@@ -84,7 +90,7 @@ export function GlobeTown({
       ref={group}
       position={position}
       quaternion={quaternion}
-      scale={active ? scale * 1.08 : scale}
+      scale={active ? scale * ACTIVE_POP : scale}
       onClick={openTown}
       onPointerDown={(event) => event.stopPropagation()}
       onPointerOver={(event) => {
@@ -95,23 +101,25 @@ export function GlobeTown({
         document.body.style.cursor = "auto";
       }}
     >
-      <BouquetBase marker={marker} />
-      <WorldProps
-        marker={marker}
-        propCount={propCountFromProgress(course.progress)}
-        night={false}
-      />
-      {markerState.pawnCount > 1 ? <Creature /> : null}
-      {active ? (
-        <mesh position={[0, 0.08, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[17.2, 18.6, 24]} />
-          <meshBasicMaterial color="#fff0ae" toneMapped={false} />
+      <group position={active ? [0, ACTIVE_LIFT, 0] : [0, 0, 0]}>
+        <BouquetBase marker={marker} />
+        <WorldProps
+          marker={marker}
+          propCount={propCountFromProgress(course.progress)}
+          night={night}
+        />
+        {markerState.pawnCount > 1 ? <Creature /> : null}
+        {active ? (
+          <mesh position={[0, 0.12, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <ringGeometry args={[16.4, 19.8, 28]} />
+            <meshBasicMaterial color="#fff0ae" toneMapped={false} />
+          </mesh>
+        ) : null}
+        <mesh position={[0, 20, 0]}>
+          <sphereGeometry args={[32, 12, 10]} />
+          <meshBasicMaterial transparent opacity={0} depthWrite={false} />
         </mesh>
-      ) : null}
-      <mesh position={[0, 16, 0]}>
-        <sphereGeometry args={[18, 10, 8]} />
-        <meshBasicMaterial transparent opacity={0} depthWrite={false} />
-      </mesh>
+      </group>
     </group>
   );
 }
@@ -120,6 +128,7 @@ interface GlobeTownsProps {
   courses: CourseGlobeCourse[];
   directions: Map<string, UnitDirection>;
   activeCourseId: string | null;
+  night?: boolean;
   onActiveCourseChange(courseId: string): void;
   onCourseTownOpen(event: GlobeTownOpenEvent): void;
 }
@@ -128,6 +137,7 @@ export function GlobeTowns({
   courses,
   directions,
   activeCourseId,
+  night = false,
   onActiveCourseChange,
   onCourseTownOpen,
 }: GlobeTownsProps) {
@@ -143,6 +153,7 @@ export function GlobeTowns({
             courses={courses}
             directions={directions}
             active={course.id === activeCourseId}
+            night={night}
             onActivate={onActiveCourseChange}
             onOpen={onCourseTownOpen}
           />

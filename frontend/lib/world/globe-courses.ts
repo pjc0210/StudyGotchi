@@ -6,6 +6,8 @@ import type {
   GlobeMarkerId,
 } from "@/components/world/globe/globe-types";
 import type { BiomeId } from "@/lib/world/types";
+import { DEMO_COURSES, DEMO_HERO_CODE, DEMO_SECOND_CODE } from "./demo-courses";
+import { isCourseUuid } from "./sandbox-courses";
 
 const BIOME_MARKERS: Record<GlobeBiome, GlobeMarkerId> = {
   ice: "ice-town",
@@ -13,7 +15,7 @@ const BIOME_MARKERS: Record<GlobeBiome, GlobeMarkerId> = {
   meadow: "academy-town",
   forest: "forest",
   volcanic: "volcanic",
-  sand: "egyptian-desert",
+  sand: "wildwest",
   coast: "harbor-town",
 };
 
@@ -48,19 +50,32 @@ export function rosterBiome(biome: GlobeBiome): BiomeId {
   return biome;
 }
 
+export function biomeForGlobeCourse(
+  courseId: string,
+  courseCode?: string | null,
+  _ignored?: string | null,
+): GlobeBiome {
+  if (courseCode === DEMO_HERO_CODE || courseId === DEMO_COURSES[0].id) return "sand";
+  if (courseCode === DEMO_SECOND_CODE || courseId === DEMO_COURSES[1].id) return "forest";
+  const pinned = GLOBE_SHOWCASE.find(
+    (course) => course.id === courseId || (courseCode && course.id === courseCode),
+  );
+  return pinned?.biome ?? biomeForCourse(courseId);
+}
+
 export function toGlobeCourses(courses: CourseSummary[]): CourseGlobeCourse[] {
-  const real = courses.map((course) => ({
-    id: course.id,
-    code: course.code,
-    name: course.name,
-    biome: biomeForCourse(course.id),
-    markerId: BIOME_MARKERS[biomeForCourse(course.id)],
-    progress: 0.58,
-    stats: null,
-  }));
-  const taken = new Set(real.map((course) => course.id));
-  const extras = GLOBE_SHOWCASE.filter((course) => !taken.has(course.id));
-  return [...real, ...extras].slice(0, 17);
+  return courses.filter((course) => isCourseUuid(course.id)).map((course) => {
+    const biome = biomeForGlobeCourse(course.id, course.code);
+    return {
+      id: course.id,
+      code: course.code,
+      name: course.name,
+      biome,
+      markerId: BIOME_MARKERS[biome],
+      progress: 0.58,
+      stats: null,
+    };
+  });
 }
 
 export function isOwnedCourse(courseId: string, courses: CourseSummary[]): boolean {

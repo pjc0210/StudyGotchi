@@ -7,12 +7,12 @@ import { selectCourse, useIdentity } from "@/lib/identity";
 import { useStore } from "@/lib/store";
 import type { WorldRegion, WorldResponse } from "@/lib/world/types";
 import { CourseGlobe } from "@/components/world/globe/CourseGlobe";
+import { diveDurationMs } from "@/components/world/globe/globe-dive";
 import type { ScreenPoint } from "@/components/world/globe/globe-types";
-import { WorldPage } from "@/components/world/WorldPage";
-import { isOwnedCourse, toGlobeCourses } from "@/lib/world/globe-courses";
+import { biomeForGlobeCourse, isOwnedCourse, rosterBiome, toGlobeCourses } from "@/lib/world/globe-courses";
+import { BiomeLand } from "./BiomeLand";
 import { ConceptCard } from "./ConceptCard";
 import { CourseNavigator } from "./CourseNavigator";
-import { ProvenanceBubble } from "./ProvenanceBubble";
 import { UploadBox } from "./UploadBox";
 import { useCourseOverviewCache } from "./useCourseOverviewCache";
 import "./earth-integration.css";
@@ -35,7 +35,9 @@ const EVENT_LABEL: Record<WorldEventKind, string> = {
 export function EarthShell() {
   const { selectedId, select, ingestVersion } = useStore();
   const identity = useIdentity();
-  const [activeCourseId, setActiveCourseId] = useState<string | null>(null);
+  const [activeCourseId, setActiveCourseId] = useState<string | null>(
+    () => identity.courseId || identity.courses[0]?.id || null,
+  );
   const [enteredCourseId, setEnteredCourseId] = useState<string | null>(null);
   const [expandedCourseIds, setExpandedCourseIds] = useState<Set<string>>(
     () => new Set(),
@@ -43,36 +45,40 @@ export function EarthShell() {
   const [expandedTopicIds, setExpandedTopicIds] = useState<Set<string>>(
     () => new Set(),
   );
-  const [popup, setPopup] = useState<{
+  const [diving, setDiving] = useState<{
     courseId: string;
     anchor: ScreenPoint | null;
   } | null>(null);
+  const enterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [world, setWorld] = useState<WorldResponse | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [events, setEvents] = useState<WorldEvent[]>([]);
 
   const courses = identity.courses;
   const entered = enteredCourseId !== null;
-  const current = courses.find((c) => c.id === enteredCourseId) ?? null;
   const overviewCache = useCourseOverviewCache(identity.studentId, courses);
   const globeCourses = useMemo(
     () =>
-      toGlobeCourses(courses)
-        .filter((course) => isOwnedCourse(course.id, courses))
-        .map((course) => {
-          const record = overviewCache.records.get(course.id);
-          const stats = record?.status === "ready" ? record.data.stats : null;
-          return {
-            ...course,
-            stats,
-            progress: stats && stats.total > 0 ? stats.reached / stats.total : null,
-          };
-        }),
+      toGlobeCourses(courses).map((course) => {
+        const record = overviewCache.records.get(course.id);
+        const stats = record?.status === "ready" ? record.data.stats : null;
+        return {
+          ...course,
+          stats,
+          progress:
+            stats && stats.total > 0
+              ? stats.reached / stats.total
+              : course.progress,
+        };
+      }),
     [courses, overviewCache.records],
   );
-  const popupCourse = popup
-    ? courses.find((course) => course.id === popup.courseId) ?? null
-    : null;
+  const enteredCourse =
+    globeCourses.find((course) => course.id === enteredCourseId) ?? null;
+  const current =
+    enteredCourse ??
+    courses.find((course) => course.id === enteredCourseId) ??
+    null;
 
   // The globe is the world's front door: the director knows we are here, and music starts the
   // moment a gesture unlocks the context.
@@ -105,9 +111,6 @@ export function EarthShell() {
     (courseId: string) => {
       if (!isOwnedCourse(courseId, courses)) return;
       setActiveCourseId(courseId);
-      setPopup((currentPopup) =>
-        currentPopup?.courseId === courseId ? currentPopup : null,
-      );
       setExpandedCourseIds((expanded) => {
         if (expanded.has(courseId)) return expanded;
         const next = new Set(expanded);
@@ -144,23 +147,59 @@ export function EarthShell() {
     });
   }, []);
 
+  const enterCourse = useCallback(
+    (courseId: string, anchor: ScreenPoint | null = null) => {
+      const onGlobe = globeCourses.some((course) => course.id === courseId);
+      if (!onGlobe || diving || enteredCourseId) return;
+      if (isOwnedCourse(courseId, courses)) {
+        focusCourse(courseId);
+        selectCourse(courseId);
+      } else {
+        setActiveCourseId(courseId);
+      }
+      setDiving({ courseId, anchor });
+      select(null);
+      const biome = globeCourses.find((course) => course.id === courseId)?.biome ?? null;
+      emit({
+        type: "enter-island",
+        biome: biome ? rosterBiome(biome) : null,
+        arrival: "dive",
+      });
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (enterTimer.current) clearTimeout(enterTimer.current);
+      enterTimer.current = setTimeout(() => {
+        setEnteredCourseId(courseId);
+        setDiving(null);
+        enterTimer.current = null;
+      }, diveDurationMs(reduced));
+    },
+    [courses, diving, enteredCourseId, focusCourse, globeCourses, select],
+  );
+
   const land = useCallback(() => {
-    if (!activeCourseId || !isOwnedCourse(activeCourseId, courses)) return;
-    selectCourse(activeCourseId);
-    select(null);
-    setPopup(null);
-    setEnteredCourseId(activeCourseId);
-    // Inside the click, so this is the gesture that unlocks audio.
-    emit({ type: "enter-island", biome: null });
-  }, [activeCourseId, courses, select]);
+    if (!activeCourseId) return;
+    enterCourse(activeCourseId);
+  }, [activeCourseId, enterCourse]);
 
   const leave = useCallback(() => {
+    if (enterTimer.current) {
+      clearTimeout(enterTimer.current);
+      enterTimer.current = null;
+    }
     select(null);
+    setDiving(null);
     setEnteredCourseId(null);
     setWorld(null);
     setHovered(null);
     emit({ type: "leave-island" });
   }, [select]);
+
+  useEffect(
+    () => () => {
+      if (enterTimer.current) clearTimeout(enterTimer.current);
+    },
+    [],
+  );
 
   // What changed since the page opened, newest first. Polled after every ingest.
   useEffect(() => {
@@ -208,21 +247,32 @@ export function EarthShell() {
 
   return (
     <div className="earth-page is-earth">
-      <div className={`earth-stage${entered ? " beside-panel" : ""}`}>
-        {entered ? (
-          <div className="absolute inset-0" style={{ paddingTop: 0 }}>
-            <WorldPage onWorld={setWorld} hoveredId={hovered} onHover={setHovered} />
-          </div>
+      <div className="earth-stage">
+        {entered && enteredCourseId ? (
+          <BiomeLand
+            key={enteredCourseId}
+            courseId={enteredCourseId}
+            biome={
+              enteredCourse?.biome ??
+              biomeForGlobeCourse(enteredCourseId, current?.code)
+            }
+            arriving
+            onWorld={setWorld}
+            hoveredId={hovered}
+            onHover={setHovered}
+          />
         ) : (
           <ViewTransition name="studygotchi-earth" share="earth-morph" default="none">
             <div className="course-globe-overview">
               <CourseGlobe
                 courses={globeCourses}
                 activeCourseId={activeCourseId}
+                arriving
+                diving={diving !== null}
+                diveAnchor={diving?.anchor ?? null}
                 onActiveCourseChange={focusCourse}
                 onCourseTownOpen={(courseId, anchor) => {
-                  focusCourse(courseId);
-                  setPopup({ courseId, anchor });
+                  enterCourse(courseId, anchor);
                 }}
               />
             </div>
@@ -298,15 +348,6 @@ export function EarthShell() {
         </aside>
       )}
 
-      {!entered && popup && popupCourse ? (
-        <ProvenanceBubble
-          key={popup.courseId}
-          course={popupCourse}
-          record={overviewCache.records.get(popup.courseId)}
-          anchor={popup.anchor}
-          onDismiss={() => setPopup(null)}
-        />
-      ) : null}
     </div>
   );
 }

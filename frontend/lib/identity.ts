@@ -8,8 +8,15 @@
  */
 
 import { useSyncExternalStore } from "react";
-import { DEMO_COURSE_ID, DEV_STUDENT_ID, USE_MOCK } from "./config";
-import { MOCK_COURSE, MOCK_STUDENT_ID } from "./mock";
+import { DEMO_COURSE_ID, DEV_STUDENT_ID } from "./config";
+import { MOCK_STUDENT_ID } from "./mock";
+import {
+  DEMO_COURSES,
+  DEMO_STUDENT_ID,
+  demoHeroCourseId,
+  withDemoCourses,
+} from "./world/demo-courses";
+import { isCourseUuid } from "./world/sandbox-courses";
 
 export interface CourseSummary {
   id: string;
@@ -47,17 +54,25 @@ export function bearerAdapter(getToken: () => Promise<string | null>): Credentia
   };
 }
 
-const EMPTY: Identity = { studentId: "", courseId: "", courseName: "", courses: [], ready: false };
+function demoIdentity(studentId: string = DEMO_STUDENT_ID || MOCK_STUDENT_ID): Identity {
+  const courses = withDemoCourses([], DEMO_COURSES);
+  const course = courses[0];
+  return {
+    studentId,
+    courseId: course?.id ?? "",
+    courseName: course?.name ?? "",
+    courses,
+    ready: Boolean(studentId && course),
+  };
+}
 
-const MOCK_IDENTITY: Identity = {
-  studentId: MOCK_STUDENT_ID,
-  courseId: MOCK_COURSE.id,
-  courseName: MOCK_COURSE.name,
-  courses: [{ id: MOCK_COURSE.id, name: MOCK_COURSE.name, code: null, term: null }],
-  ready: true,
-};
+const MOCK_IDENTITY: Identity = demoIdentity();
 
-let current: Identity = USE_MOCK ? MOCK_IDENTITY : EMPTY;
+/**
+ * The locked live demo is these two pipeline courses. Seed them immediately so
+ * /earth is never an empty navigator while Clerk or /api/me is still settling.
+ */
+let current: Identity = MOCK_IDENTITY;
 let credentials: CredentialAdapter = DEV_STUDENT_ID ? devHeaderAdapter : { headers: async () => ({}) };
 const listeners = new Set<() => void>();
 
@@ -89,17 +104,26 @@ export function credentialHeaders(): Promise<Record<string, string>> {
 }
 
 /** Called by the provider with what /api/me returned. Picks a course. */
-export function receiveMe(me: { student_id: string; courses: CourseSummary[] }) {
+export function receiveMe(
+  me: { student_id: string; courses: CourseSummary[] },
+  catalog: CourseSummary[] = [],
+) {
+  const courses = withDemoCourses(me.courses, catalog).filter((course) =>
+    isCourseUuid(course.id),
+  );
+  const heroId = demoHeroCourseId(courses);
   const course =
-    me.courses.find((c) => c.id === DEMO_COURSE_ID) ??
-    me.courses.find((c) => c.id === current.courseId) ??
-    me.courses[0];
+    courses.find((c) => c.id === DEMO_COURSE_ID) ??
+    courses.find((c) => c.id === heroId) ??
+    courses.find((c) => c.id === current.courseId) ??
+    courses[0];
+  const studentId = me.student_id || DEMO_STUDENT_ID;
   current = {
-    studentId: me.student_id,
+    studentId,
     courseId: course?.id ?? "",
     courseName: course?.name ?? "",
-    courses: me.courses,
-    ready: Boolean(me.student_id && course),
+    courses,
+    ready: Boolean(studentId && course),
   };
   emit();
 }
@@ -112,6 +136,6 @@ export function selectCourse(courseId: string) {
 }
 
 export function clearIdentity() {
-  current = USE_MOCK ? MOCK_IDENTITY : EMPTY;
+  current = demoIdentity();
   emit();
 }

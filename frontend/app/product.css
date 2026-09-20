@@ -286,12 +286,24 @@ h3 {
 }
 
 .sg-wordmark {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
   font-family: var(--a-mono);
   font-size: 22px;
-  line-height: 24px;
+  line-height: 22px;
   letter-spacing: 0;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  text-rendering: geometricPrecision;
   text-transform: uppercase;
   color: var(--a-ink);
+  background: var(--a-sheet);
+  box-shadow: var(--a-shadow-hairline);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -807,20 +819,22 @@ h3 {
   gap: 2px;
   padding: 2px;
   border-radius: 999px;
+  background: var(--a-sheet);
+  box-shadow: var(--a-shadow-hairline);
 }
 
 .sg-nav-item {
   display: inline-flex;
   align-items: center;
-  height: 32px;
+  height: 28px;
   padding: 0 14px;
   border: 0;
   border-radius: 999px;
-  font: inherit;
-  font-size: 14px;
+  font-family: var(--a-ui);
+  font-size: 13px;
   line-height: 20px;
   font-weight: 500;
-  color: var(--a-ink-75);
+  color: var(--a-ink);
   background: transparent;
   text-decoration: none;
   cursor: pointer;
@@ -1155,6 +1169,8 @@ h3 {
 }
 
 .sg-page .earth-stage {
+  inset: 0;
+  left: 0;
   animation: sg-from-right var(--a-t-aperture) var(--a-ease-aperture) both;
 }
 
@@ -1163,8 +1179,13 @@ h3 {
 }
 
 .sg-page .earth-panel {
+  position: absolute;
+  top: calc(var(--sg-header-h) + 12px);
+  left: var(--sg-gutter);
   height: auto;
-  max-height: calc(100dvh - var(--sg-header-h) - 3rem);
+  max-height: calc(100dvh - var(--sg-header-h) - 36px);
+  width: min(340px, calc(100vw - 2 * var(--sg-gutter)));
+  margin: 0;
   background: var(--a-sheet);
   color: var(--a-ink);
   border-radius: var(--a-r-16);
@@ -1281,13 +1302,36 @@ h3 {
   background: var(--a-ink);
 }
 
-/* Leaving World for Space: the planet eases off to the right, the panel to the left. */
-.sg-page[data-leaving] .earth-stage {
-  animation: sg-to-right var(--a-t-view) var(--a-ease-standard) both;
+@keyframes sg-planet-to-galaxy {
+  to {
+    opacity: 0.12;
+    transform: translate3d(22%, 8%, 0) scale(0.38);
+  }
 }
 
-.sg-page[data-leaving] .earth-panel {
-  animation: sg-to-left var(--a-t-view) var(--a-ease-standard) both;
+@keyframes sg-galaxy-arrive {
+  from {
+    opacity: 0;
+    transform: translate3d(-8%, -4%, 0) scale(1.16);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Leaving Planet for Galaxy: zoom out and slide right while the sky holds. */
+.sg-page[data-leaving] .earth-stage,
+.sg-page[data-leaving] .course-globe-overview,
+.sg-page[data-leaving] .course-globe-stage {
+  transform-origin: 78% 58%;
+  animation: sg-planet-to-galaxy var(--a-t-aperture) var(--a-ease-aperture) both;
+}
+
+.sg-page[data-leaving] .earth-panel,
+.sg-page[data-leaving] .course-navigator {
+  animation: sg-to-left var(--a-t-aperture) var(--a-ease-aperture) both;
 }
 
 /* ---------- Space: the constellation dashboard ---------------------------- */
@@ -1296,7 +1340,14 @@ h3 {
   position: absolute;
   inset: 0;
   color: var(--a-ink);
-  animation: sg-fade var(--a-t-view) var(--a-ease-out-quad) both;
+  animation: sg-galaxy-arrive var(--a-t-aperture) var(--a-ease-aperture) both;
+}
+
+/* Earth leftovers (view-transition snapshots or a stuck navigator) must not sit on the sky. */
+.sg-page:has(.sg-constellation) .course-navigator,
+.sg-page:has(.sg-constellation) .earth-stage,
+.sg-page:has(.sg-constellation) .earth-panel {
+  display: none;
 }
 
 .sg-page[data-leaving] .sg-constellation {
@@ -1704,14 +1755,19 @@ h3 {
   .sg-window,
   .sg-page .earth-stage,
   .sg-page .earth-panel,
+  .sg-page .course-navigator,
   .sg-page[data-leaving] .earth-stage,
+  .sg-page[data-leaving] .course-globe-overview,
+  .sg-page[data-leaving] .course-globe-stage,
   .sg-page[data-leaving] .earth-panel,
+  .sg-page[data-leaving] .course-navigator,
   .sg-constellation {
     animation: sg-fade var(--a-t-quick) linear both;
   }
 
   .sg-page[data-leaving] .earth-stage,
   .sg-page[data-leaving] .earth-panel,
+  .sg-page[data-leaving] .course-navigator,
   .sg-page[data-leaving] .sg-constellation {
     animation: sg-out var(--a-t-quick) linear both;
   }

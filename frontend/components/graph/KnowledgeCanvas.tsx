@@ -14,8 +14,19 @@ import {
   settle,
   type PositionedNode,
 } from "@/lib/forceLayout";
+import { useSpaceAttribute } from "@/components/shell/useSpaceAttribute";
+import {
+  buildSpaceClusters,
+  clipSpaceLabel,
+  clusterLabelBudget,
+  FIT_CLUSTER_ZOOM,
+  hexRgb,
+  nodeLabelBudget,
+  spaceLabelLayer,
+  type SpaceLabelNode,
+} from "@/lib/constellationLabels";
 import type { GraphModel } from "@/lib/graphModel";
-import { CANVAS } from "@/lib/graphTheme";
+import { spacePalette, type SpacePalette } from "@/lib/graphTheme";
 
 export interface CanvasHandle {
   fit: (duration?: number) => void;
@@ -65,6 +76,9 @@ export function KnowledgeCanvas({
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const theme = useSpaceAttribute();
+  const paletteRef = useRef(spacePalette(theme));
+  paletteRef.current = spacePalette(theme);
 
   const camRef = useRef<Camera>({ x: 0, y: 0, k: 1 });
   const hoveredRef = useRef<string | null>(null);
@@ -123,13 +137,13 @@ export function KnowledgeCanvas({
   // --- camera helpers -----------------------------------------------------
 
   const fitNodes = useCallback(
-    (subset: typeof layout.nodes, duration: number) => {
+    (subset: typeof layout.nodes, duration: number, zoomCap = MAX_ZOOM) => {
       const b = boundsOf(subset, 60);
       const { w, h } = sizeRef.current;
       if (!b || w === 0 || h === 0) return;
       const targetK = Math.max(
         MIN_ZOOM,
-        Math.min(MAX_ZOOM, Math.min(w / (b.maxX - b.minX), h / (b.maxY - b.minY)) * 0.92),
+        Math.min(zoomCap, Math.min(w / (b.maxX - b.minX), h / (b.maxY - b.minY)) * 0.92),
       );
       animateTo({ x: (b.minX + b.maxX) / 2, y: (b.minY + b.maxY) / 2, k: targetK }, duration);
     },
@@ -139,7 +153,7 @@ export function KnowledgeCanvas({
   );
 
   const fit = useCallback(
-    (duration = 380) => fitNodes(layout.nodes, duration),
+    (duration = 380) => fitNodes(layout.nodes, duration, FIT_CLUSTER_ZOOM),
     [fitNodes, layout],
   );
 
@@ -240,7 +254,7 @@ export function KnowledgeCanvas({
 
   useEffect(() => {
     markDirty();
-  }, [emphasis, routeIds, selectedId, markDirty]);
+  }, [emphasis, routeIds, selectedId, theme, markDirty]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -265,6 +279,7 @@ export function KnowledgeCanvas({
       const sy = (wy: number) => (wy - cam.y) * cam.k + h / 2;
 
       const hovered = hoveredRef.current;
+      const palette = paletteRef.current;
       // Hover wins over the lens: pointing at something is a direct request.
       const focusSet: Set<string> | null = hovered
         ? new Set<string>([hovered, ...(model.adjacency.get(hovered) ?? [])])
@@ -278,6 +293,35 @@ export function KnowledgeCanvas({
         return 0.14;
       };
 
+      const labelables: SpaceLabelNode[] = layout.nodes.map((pn) => ({
+        id: pn.id,
+        x: pn.x,
+        y: pn.y,
+        kind: pn.node.kind,
+        label: pn.node.label,
+        weight: pn.node.weight,
+        cluster: pn.node.kind === "concept" ? pn.node.concept.cluster : undefined,
+        clusterId: pn.node.kind === "concept" ? pn.node.concept.cluster_id : undefined,
+      }));
+      const clusters = buildSpaceClusters(labelables, model.adjacency);
+
+      // ---- nebula dust behind topic clusters ----
+      for (const cluster of clusters) {
+        const tint = palette.nebula[cluster.tintIndex % palette.nebula.length];
+        const { r, g, b } = hexRgb(tint);
+        const x = sx(cluster.x);
+        const y = sy(cluster.y);
+        const radius = 48 + Math.sqrt(cluster.count) * 26 * Math.min(1.15, Math.max(0.55, cam.k));
+        const dust = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        dust.addColorStop(0, `rgba(${r},${g},${b},${palette.halo === "#17152c" ? 0.16 : 0.1})`);
+        dust.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = dust;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
       // ---- edges ----
       ctx.lineCap = "round";
       for (const link of model.links) {
@@ -289,17 +333,9 @@ export function KnowledgeCanvas({
         const lit =
           onRoute ||
           (!focusSet ? false : focusSet.has(link.source) && focusSet.has(link.target));
-        const alpha = focusSet
-          ? lit
-            ? 1
-            : 0.08
-          : link.kind === "resource"
-            ? 0.5
-            : 0.75;
-
-        ctx.globalAlpha = alpha * (onRoute ? 0.82 : lit ? 0.72 : link.kind === "resource" ? 0.32 : 0.45);
-        ctx.strokeStyle = lit || onRoute ? CANVAS.edgeStrong : link.kind === "resource" ? CANVAS.edgeResource : CANVAS.edge;
-        ctx.lineWidth = onRoute ? 0.9 : lit ? 0.72 : 0.45;
+        ctx.globalAlpha = focusSet ? (lit ? 1 : 0.1) : 1;
+        ctx.strokeStyle = lit || onRoute ? palette.edgeStrong : link.kind === "resource" ? palette.edgeResource : palette.edge;
+        ctx.lineWidth = onRoute ? 1.4 : lit ? 1.1 : 0.9;
 
         const angle = Math.atan2(b.y - a.y, b.x - a.x);
         const aProfile = starProfile(a.node.id, a.node.radius, a.node.kind, cam.k);
@@ -329,20 +365,72 @@ export function KnowledgeCanvas({
 
         const isSelected = selectedId === node.id;
         const onRoute = routeSet.has(node.id);
-        ctx.globalAlpha = alphaFor(node.id);
-
-        drawStar(ctx, x, y, profile, alphaFor(node.id), isSelected || onRoute, node.id);
+        drawStar(ctx, x, y, profile, alphaFor(node.id), isSelected || onRoute, node.id, palette);
       }
 
       // ---- labels (drawn last, with collision avoidance) ----
-      // Force layout cannot prevent label overlap because its collision is a
-      // circle and labels are wide horizontal boxes. So place labels in
-      // priority order and drop any that would collide with one already
-      // placed - the standard cartographic approach.
-      ctx.textAlign = "left";
+      // Zoomed out: constellation names. Zoomed in: short node names.
+      // Full titles stay in the tooltip and inspector.
       ctx.textBaseline = "middle";
-      const labelThreshold =
-        cam.k > 1.25 ? -1 : cam.k > 0.85 ? 0.35 : cam.k > 0.55 ? 0.6 : 0.78;
+      const layer = spaceLabelLayer(cam.k);
+      const displayFace = spaceTypeface("display");
+      const uiFace = spaceTypeface("ui");
+      const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
+
+      const paintLabel = (
+        text: string,
+        labelX: number,
+        labelY: number,
+        size: number,
+        font: string,
+        fill: string,
+        align: CanvasTextAlign,
+        alpha: number,
+        forced: boolean,
+      ) => {
+        ctx.textAlign = align;
+        ctx.font = font;
+        const tw = ctx.measureText(text).width;
+        const left = align === "center" ? labelX - tw / 2 : labelX;
+        const box = {
+          x0: left - 3,
+          y0: labelY - size / 2 - 2,
+          x1: left + tw + 3,
+          y1: labelY + size / 2 + 2,
+        };
+        const collides = placed.some(
+          (p) => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0,
+        );
+        if (collides && !forced) return;
+        placed.push(box);
+        ctx.globalAlpha = alpha;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = palette.halo;
+        ctx.lineJoin = "round";
+        ctx.strokeText(text, labelX, labelY);
+        ctx.fillStyle = fill;
+        ctx.fillText(text, labelX, labelY);
+      };
+
+      if (layer === "clusters") {
+        for (const cluster of clusters) {
+          const x = sx(cluster.x);
+          const y = sy(cluster.y);
+          if (x < -80 || y < -40 || x > w + 80 || y > h + 40) continue;
+          const size = cam.k > 0.55 ? 13 : 12;
+          paintLabel(
+            clipSpaceLabel(cluster.label, clusterLabelBudget(cam.k)),
+            x,
+            y - 18,
+            size,
+            `700 ${size}px ${displayFace}`,
+            palette.labelStrong,
+            "center",
+            1,
+            false,
+          );
+        }
+      }
 
       interface Candidate {
         pn: (typeof layout.nodes)[number];
@@ -352,13 +440,17 @@ export function KnowledgeCanvas({
       }
 
       const candidates: Candidate[] = [];
+      const labelThreshold =
+        cam.k > 1.6 ? -1 : cam.k > 1.15 ? 0.35 : 0.62;
+
       for (const pn of layout.nodes) {
         const node = pn.node;
         const forced =
           selectedId === node.id ||
           hovered === node.id ||
-          routeSet.has(node.id) ||
-          (emphasis !== null && emphasis.has(node.id));
+          routeSet.has(node.id);
+        if (layer === "clusters" && !forced) continue;
+        if (!forced && node.kind === "resource" && cam.k < 1.25) continue;
         if (!forced && node.weight < labelThreshold) continue;
         if (!forced && focusSet && !focusSet.has(node.id)) continue;
 
@@ -369,54 +461,36 @@ export function KnowledgeCanvas({
         candidates.push({
           pn,
           forced,
-          text: node.label.length > 30 ? `${node.label.slice(0, 29)}\u2026` : node.label,
+          text: clipSpaceLabel(node.label, nodeLabelBudget(cam.k, forced)),
           size: node.kind === "concept" ? 11.5 : 10.5,
         });
       }
 
-      // Forced labels first, then the most important concepts.
       candidates.sort((a, b) => {
         if (a.forced !== b.forced) return a.forced ? -1 : 1;
         return b.pn.node.weight - a.pn.node.weight;
       });
-
-      const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
 
       for (const c of candidates) {
         const node = c.pn.node;
         const x = sx(c.pn.x);
         const y = sy(c.pn.y);
         const profile = starProfile(node.id, node.radius, node.kind, cam.k);
-        const labelX = x + profile.glow * 0.56 + 5;
-        const labelY = y + 1;
-
-        ctx.font = `${c.forced ? 500 : 400} ${c.size}px Georgia, 'Times New Roman', serif`;
-        const tw = ctx.measureText(c.text).width;
-        const box = {
-          x0: labelX - 2,
-          y0: labelY - c.size / 2 - 2,
-          x1: labelX + tw + 2,
-          y1: labelY + c.size / 2 + 2,
-        };
-
-        const collides = placed.some(
-          (p) => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0,
+        paintLabel(
+          c.text,
+          x + profile.glow * 0.56 + 5,
+          y + 1,
+          c.size,
+          `${c.forced ? 600 : 500} ${c.size}px ${uiFace}`,
+          c.forced
+            ? palette.labelStrong
+            : node.kind === "concept"
+              ? palette.label
+              : palette.labelDim,
+          "left",
+          alphaFor(node.id),
+          c.forced,
         );
-        // A forced label always wins: it is what the user is pointing at.
-        if (collides && !c.forced) continue;
-        placed.push(box);
-
-        ctx.globalAlpha = alphaFor(node.id);
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = CANVAS.halo;
-        ctx.lineJoin = "round";
-        ctx.strokeText(c.text, labelX, labelY);
-        ctx.fillStyle = c.forced
-          ? CANVAS.labelStrong
-          : node.kind === "concept"
-            ? CANVAS.label
-            : CANVAS.labelDim;
-        ctx.fillText(c.text, labelX, labelY);
       }
 
       ctx.globalAlpha = 1;
@@ -635,12 +709,33 @@ function starProfile(id: string, radius: number, kind: "concept" | "resource", z
   return { core, glow: core * (kind === "concept" ? 6.2 : 4.4), opacity: kind === "concept" ? 0.78 + variation * 0.22 : 0.56 + variation * 0.18, rays: kind === "concept" && core > 3.8 };
 }
 
-function drawStar(ctx: CanvasRenderingContext2D, x: number, y: number, star: StarProfile, alpha: number, active: boolean, id: string) {
+function spaceTypeface(face: "display" | "ui"): string {
+  const fallback =
+    face === "display"
+      ? '"Zen Maru Gothic", "M PLUS Rounded 1c", sans-serif'
+      : '"Instrument Sans", system-ui, sans-serif';
+  if (typeof document === "undefined") return fallback;
+  const token = face === "display" ? "--font-display" : "--font-ui";
+  const loaded = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+  return loaded ? `${loaded}, ${fallback}` : fallback;
+}
+
+function drawStar(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  star: StarProfile,
+  alpha: number,
+  active: boolean,
+  id: string,
+  palette: SpacePalette,
+) {
+  const { r, g, b } = hexRgb(palette.star);
   const glow = ctx.createRadialGradient(x, y, 0, x, y, star.glow * (active ? 1.22 : 1));
-  glow.addColorStop(0, `rgba(255,255,255,${Math.min(1, star.opacity * alpha)})`);
-  glow.addColorStop(0.12, `rgba(255,255,255,${star.opacity * alpha * 0.72})`);
-  glow.addColorStop(0.42, `rgba(255,255,255,${star.opacity * alpha * 0.15})`);
-  glow.addColorStop(1, "rgba(255,255,255,0)");
+  glow.addColorStop(0, `rgba(${r},${g},${b},${Math.min(1, star.opacity * alpha)})`);
+  glow.addColorStop(0.12, `rgba(${r},${g},${b},${star.opacity * alpha * 0.72})`);
+  glow.addColorStop(0.42, `rgba(${r},${g},${b},${star.opacity * alpha * 0.15})`);
+  glow.addColorStop(1, `rgba(${r},${g},${b},0)`);
   ctx.globalAlpha = 1;
   ctx.fillStyle = glow;
   ctx.beginPath();
@@ -649,7 +744,7 @@ function drawStar(ctx: CanvasRenderingContext2D, x: number, y: number, star: Sta
   if (star.rays) {
     const rayAngle = ((hash(id, 41) % 1000) / 1000) * Math.PI;
     ctx.globalAlpha = alpha * 0.22;
-    ctx.strokeStyle = "#ffffff";
+    ctx.strokeStyle = palette.star;
     ctx.lineWidth = 0.5;
     for (const angle of [rayAngle, rayAngle + Math.PI / 2]) {
       const length = star.glow * 0.85;
@@ -660,7 +755,7 @@ function drawStar(ctx: CanvasRenderingContext2D, x: number, y: number, star: Sta
     }
   }
   ctx.globalAlpha = alpha;
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = palette.star;
   ctx.beginPath();
   ctx.arc(x, y, star.core, 0, Math.PI * 2);
   ctx.fill();

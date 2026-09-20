@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { api, ApiError, invalidateApiCache, isStudentScoped } from "./api";
+import { api, ApiError, invalidateApiCache, isStudentScoped, seededKnowledgeGraph } from "./api";
 import { useIdentity } from "./identity";
 import { ACCEPT_COPY, artifactTypeFor, isAcceptedFile } from "./uploadIntake";
 import type { ArtifactType, CourseResource, KnowledgeGraphResponse, SourceOrigin, StudyTarget, UploadItem } from "./types";
@@ -51,10 +51,9 @@ const StoreContext = createContext<StoreValue | null>(null);
 let uploadSeq = 0;
 
 export function StudyGotchiProvider({ children }: { children: ReactNode }) {
-  const [graph, setGraph] = useState<Async<KnowledgeGraphResponse>>({
-    data: null,
-    loading: true,
-    error: null,
+  const [graph, setGraph] = useState<Async<KnowledgeGraphResponse>>(() => {
+    const data = seededKnowledgeGraph();
+    return { data, loading: data == null, error: null };
   });
   const [resources, setResources] = useState<CourseResource[]>([]);
   const [resourcesLoading, setResourcesLoading] = useState(true);
@@ -71,21 +70,30 @@ export function StudyGotchiProvider({ children }: { children: ReactNode }) {
 
   const reloadGraph = useCallback(() => {
     if (!ready) return;
-    setGraph((g) => ({ ...g, loading: true, error: null }));
+    setGraph((g) => {
+      const data = g.data ?? seededKnowledgeGraph();
+      return { data, loading: data == null, error: null };
+    });
     api
       .getKnowledgeGraph()
       .then((data) => setGraph({ data, loading: false, error: null }))
       .catch((err: unknown) =>
-        setGraph({
-          data: null,
-          loading: false,
-          error: err instanceof ApiError ? err.message : "Could not load your knowledge graph.",
+        setGraph((g) => {
+          const data = g.data ?? seededKnowledgeGraph();
+          if (data) return { data, loading: false, error: null };
+          return {
+            data: null,
+            loading: false,
+            error: err instanceof ApiError ? err.message : "Could not load your knowledge graph.",
+          };
         }),
       );
   }, [ready]);
 
   useEffect(() => {
     invalidateApiCache();
+    const seed = seededKnowledgeGraph(courseId);
+    if (seed) setGraph({ data: seed, loading: false, error: null });
     reloadGraph();
   }, [reloadGraph, courseId, studentId]);
 

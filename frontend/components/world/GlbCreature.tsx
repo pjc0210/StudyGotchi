@@ -6,7 +6,8 @@ import { useAnimations, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { clone as cloneSkeleton } from "three/examples/jsm/utils/SkeletonUtils.js";
 import { paintedToonMaterial, toonMaterial } from "@/lib/toon";
-import { GUEST_BY_ID, isGuestId } from "@/lib/world/guest-pack";
+import { isGuestId } from "@/lib/world/guest-pack";
+import { creatureMeshScale } from "@/lib/world/creature-scale";
 import { ISLAND_ROSTER, creatureMeta, creatureUrl } from "@/lib/world/roster";
 import type { BiomeId } from "@/lib/world/types";
 import { Blob, type BlobMotion } from "./Blob";
@@ -89,6 +90,13 @@ function GlbCreatureModel({
     return s;
   }, [gltf.scene, id]);
 
+  const bounds = useMemo(() => {
+    const box = new THREE.Box3().setFromObject(scene);
+    return {
+      height: Math.max(1e-4, box.max.y - box.min.y),
+      ground: -box.min.y,
+    };
+  }, [scene]);
   const { actions, mixer } = useAnimations(gltf.animations, root);
   const state = useRef<{ current: ClipName | null; idleFor: number; happy: boolean }>({ current: null, idleFor: 0, happy: false });
   const sleepy = creatureMeta(id)?.personality === "sleepy";
@@ -124,12 +132,16 @@ function GlbCreatureModel({
     pop.current = Math.min(1, pop.current + dt * 2.5);
     const k = pop.current;
     const popScale = k < 1 ? 1 + 2.7 * Math.pow(k - 1, 3) + 1.7 * Math.pow(k - 1, 2) : 1;
-    const guestScale = GUEST_BY_ID[id]?.scale ?? 1;
+    const meshScale = creatureMeshScale(bounds.height, popScale);
     if (root.current) {
-      root.current.scale.setScalar(Math.max(0.001, popScale) * guestScale);
-      if ((gltf.animations?.length ?? 0) === 0) {
-        root.current.position.y = m.moving ? Math.abs(Math.sin(m.t * 12)) * 0.08 : Math.sin(m.t * 2) * 0.02;
-      }
+      root.current.scale.setScalar(meshScale);
+      const bounce =
+        (gltf.animations?.length ?? 0) === 0
+          ? m.moving
+            ? Math.abs(Math.sin(m.t * 12)) * 0.08
+            : Math.sin(m.t * 2) * 0.02
+          : 0;
+      root.current.position.y = bounds.ground * meshScale + bounce;
     }
 
     if (requests.current?.happy) {
@@ -162,7 +174,7 @@ function GlbCreatureModel({
   });
 
   return (
-    <group ref={root} scale={0.001}>
+    <group ref={root} scale={creatureMeshScale(bounds.height)}>
       <primitive object={scene} />
     </group>
   );

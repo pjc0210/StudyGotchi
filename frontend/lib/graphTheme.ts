@@ -32,7 +32,7 @@ export interface SpacePalette {
 export function spacePalette(theme: "light" | "dark"): SpacePalette {
   if (theme === "dark") {
     return {
-      halo: "#17152c",
+      halo: "#080716",
       star: "#fff6df",
       starDim: "rgba(255, 246, 223, 0.42)",
       lamp: "#ffe7a3",
@@ -47,7 +47,7 @@ export function spacePalette(theme: "light" | "dark"): SpacePalette {
     };
   }
   return {
-    halo: "#f4f0e5",
+    halo: "#cfd6e4",
     star: "#17151d",
     starDim: "rgba(23, 21, 29, 0.42)",
     lamp: "#d9a92e",

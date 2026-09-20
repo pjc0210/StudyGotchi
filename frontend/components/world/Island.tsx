@@ -11,7 +11,7 @@ import { RESIDENT_LABEL, statePresentation } from "@/lib/state";
 import type { CanvasPlace, CanvasSpot, HoverInfo, Vec2, WorldCanvasProps } from "@/lib/world/types";
 import { Character } from "./Character";
 import { GlbCreature, preloadRoster, type CreatureRequests } from "./GlbCreature";
-import { pickCreature, ISLAND_ROSTER } from "@/lib/world/roster";
+import { CREATURE_SCENE_SCALE, pickCreature, ISLAND_ROSTER } from "@/lib/world/roster";
 import type { BlobMotion } from "./Blob";
 import { emit } from "@/lib/audio/events";
 import { voiceFor } from "@/lib/audio/catalog";
@@ -298,7 +298,7 @@ function ShowcaseWanderer({
         variant={hashString(id) % 4}
         motion={motion}
         requests={requests}
-        scale={1.25}
+        scale={CREATURE_SCENE_SCALE}
         color={biome.creature}
         accent={biome.accent}
         onClick={() => {

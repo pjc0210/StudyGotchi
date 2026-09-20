@@ -11,6 +11,7 @@ import {
   keyboardNavigationStep,
   normalizeWheelSpin,
 } from "./globe-input";
+import { diveOriginFromAnchor } from "./globe-dive";
 import type { CourseGlobeCanvasProps } from "./globe-types";
 import "./globe.css";
 
@@ -21,6 +22,8 @@ export default function CourseGlobeCanvas({
   activeCourseId,
   theme,
   arriving,
+  diving,
+  diveAnchor,
   reducedMotion,
   onActiveCourseChange,
   onCourseTownOpen,
@@ -31,7 +34,7 @@ export default function CourseGlobeCanvas({
   const settleSchedulerRef = useRef<ReturnType<
     typeof createSettleScheduler
   > | null>(null);
-  const [dpr, setDpr] = useState<[number, number]>([1, 1.5]);
+  const [dpr, setDpr] = useState<[number, number]>([1, 2]);
   const [frameloop, setFrameloop] = useState<"always" | "demand">(
     "always",
   );
@@ -116,13 +119,27 @@ export default function CourseGlobeCanvas({
     };
   }, [activeCourseId, courseIds, onActiveCourseChange]);
 
+  const origin = diveOriginFromAnchor(diveAnchor, {
+    width: typeof window === "undefined" ? 1 : window.innerWidth,
+    height: typeof window === "undefined" ? 1 : window.innerHeight,
+  });
+
   return (
     <div
       ref={hostRef}
       className="course-globe-stage"
       data-arriving={arriving}
+      data-diving={diving}
       data-reduced-motion={reducedMotion}
       data-theme={theme}
+      style={
+        diving
+          ? {
+              ["--dive-origin-x" as string]: origin.x,
+              ["--dive-origin-y" as string]: origin.y,
+            }
+          : undefined
+      }
     >
       <Canvas
         className="course-globe-canvas"
@@ -131,7 +148,7 @@ export default function CourseGlobeCanvas({
         camera={{ position: [0, 4, 30], fov: 26, near: 0.1, far: 80 }}
         gl={{
           antialias: false,
-          alpha: false,
+          alpha: true,
           powerPreference: "high-performance",
         }}
         fallback={
@@ -147,6 +164,7 @@ export default function CourseGlobeCanvas({
           courses={courses}
           activeCourseId={activeCourseId}
           theme={theme}
+          diving={diving}
           reducedMotion={reducedMotion}
           onActiveCourseChange={onActiveCourseChange}
           onCourseTownOpen={({ courseId, anchor }) =>

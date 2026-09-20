@@ -37,7 +37,7 @@ function courseDirections() {
 
 describe("production course globe", () => {
   it("uses the approved finer production fidelity", () => {
-    expect(PRODUCTION_PIXEL_GRAIN).toBe(1.5);
+    expect(PRODUCTION_PIXEL_GRAIN).toBe(2);
     expect(PIXEL_ATLAS_SIZE).toBeGreaterThanOrEqual(320);
     expect(WATER_PATTERN_SIZE).toBeGreaterThanOrEqual(48);
   });

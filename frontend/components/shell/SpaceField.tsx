@@ -19,9 +19,8 @@ function mulberry32(seed: number) {
 }
 
 /**
- * The sky both product pages share. Deterministic pixel stars on the space
- * colour, drawn once per size or theme change, so the planet can leave and the
- * constellation can arrive over a field that never moves.
+ * The sky both product pages share. Deterministic nebula dust plus pixel stars
+ * on the space colour, redrawn when size or theme changes.
  */
 export function SpaceField() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -45,27 +44,45 @@ export function SpaceField() {
       canvas.style.height = `${h}px`;
 
       const star = resolveCssColor(parent, "--space-star", theme === "dark" ? "#fff6df" : "#17151d");
-      const soft = resolveCssColor(parent, "--space-star-soft", theme === "dark" ? "rgba(185,216,234,0.68)" : "rgba(23,21,29,0.42)");
+      const soft = resolveCssColor(
+        parent,
+        "--space-star-soft",
+        theme === "dark" ? "rgba(185,216,234,0.68)" : "rgba(23,21,29,0.42)",
+      );
+      const nebula = resolveCssColor(
+        parent,
+        "--space-nebula",
+        theme === "dark" ? "rgba(88,64,140,0.38)" : "rgba(168,142,196,0.22)",
+      );
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
       ctx.imageSmoothingEnabled = false;
 
-      // Density scales with area so a wide monitor is not emptier than a laptop.
       const rng = mulberry32(SEED);
-      const count = Math.round((w * h) / 7200);
+      for (let i = 0; i < 7; i++) {
+        const x = rng() * w;
+        const y = rng() * h;
+        const radius = 80 + rng() * 220;
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+        gradient.addColorStop(0, nebula);
+        gradient.addColorStop(1, "transparent");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+      }
+
+      const count = Math.round((w * h) / 5200);
       for (let i = 0; i < count; i++) {
         const x = Math.floor((rng() * w) / GRID) * GRID;
         const y = Math.floor((rng() * h) / GRID) * GRID;
         const band = rng();
-        if (band < 0.62) {
+        if (band < 0.58) {
           ctx.fillStyle = soft;
           ctx.fillRect(x, y, GRID, GRID);
-        } else if (band < 0.93) {
+        } else if (band < 0.9) {
           ctx.fillStyle = star;
           ctx.fillRect(x, y, GRID, GRID);
         } else {
-          // A four-armed sparkle, one world pixel per arm.
           ctx.fillStyle = star;
           ctx.fillRect(x, y, GRID, GRID);
           ctx.fillStyle = soft;

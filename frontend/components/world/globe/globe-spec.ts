@@ -3,13 +3,13 @@ import type { CourseGlobeCourse, GlobeBiome, UnitDirection } from "./globe-types
 
 export type { UnitDirection } from "./globe-types";
 
-export const PRODUCTION_PIXEL_GRAIN = 1.5;
+export const PRODUCTION_PIXEL_GRAIN = 2;
 export const PIXEL_ATLAS_SIZE = 320;
 export const WATER_PATTERN_SIZE = 48;
 export const WATER_FRAME_COUNT = 48;
 export const WATER_FRAME_MS = 150;
 
-const COURSE_CLUSTER_STRENGTH = 0.56;
+const COURSE_CLUSTER_STRENGTH = 0.18;
 
 const BIOMES: GlobeBiome[] = ["ice", "city", "meadow", "forest", "volcanic", "sand", "coast"];
 
@@ -142,7 +142,8 @@ function seededCourseDirectionsForCount(
 
 export function seededCourseDirections(ids: string[], seed: string): UnitDirection[] {
   const sortedIds = [...ids].sort();
-  const sortedDirections = seededCourseDirectionsForCount(sortedIds.length, seed);
+  const cluster = sortedIds.length <= 6 ? 0 : COURSE_CLUSTER_STRENGTH;
+  const sortedDirections = seededCourseDirectionsForCount(sortedIds.length, seed, cluster);
   const directionById = new Map(sortedIds.map((id, index) => [id, sortedDirections[index]]));
   return ids.map((id) => directionById.get(id)!);
 }

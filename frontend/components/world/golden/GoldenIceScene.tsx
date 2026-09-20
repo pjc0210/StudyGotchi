@@ -301,6 +301,17 @@ function CameraDirector({ view }: { view: GoldenView }) {
         frame = window.requestAnimationFrame(apply)
         return
       }
+      if (!initialized.current) {
+        void controls.current.setLookAt(
+          pose.position[0] * 1.45,
+          pose.position[1] * 2.4,
+          pose.position[2] * 1.45,
+          pose.target[0],
+          pose.target[1],
+          pose.target[2],
+          false,
+        )
+      }
       void controls.current.setLookAt(
         pose.position[0],
         pose.position[1],
@@ -308,7 +319,7 @@ function CameraDirector({ view }: { view: GoldenView }) {
         pose.target[0],
         pose.target[1],
         pose.target[2],
-        initialized.current,
+        true,
       )
       initialized.current = true
     }
@@ -606,23 +617,28 @@ function ResidentMotion({
   onClick,
   id,
   groundY = 0,
+  scale = 1,
 }: {
   phase: number
   children: ReactNode
   onClick?: () => void
   id?: string
   groundY?: number
+  scale?: number
 }) {
   const group = useRef<THREE.Group>(null)
   useFrame(({ clock }) => {
     if (!group.current) return
     const time = clock.elapsedTime + phase
-    group.current.position.y = 0.04 + Math.sin(time * 2.1) * 0.035
-    group.current.rotation.z = Math.sin(time * 1.15) * 0.025
+    group.current.position.x = Math.sin(time * 0.35) * 0.55
+    group.current.position.z = Math.sin(time * 0.7 + 0.4) * 0.4
+    group.current.position.y = 0.04 + Math.abs(Math.sin(time * 4.2)) * 0.04
+    group.current.rotation.y = Math.atan2(Math.cos(time * 0.35) * 0.55, Math.cos(time * 0.7 + 0.4) * 0.8)
   })
   return (
     <group
       ref={group}
+      scale={scale}
       onClick={(event) => {
         event.stopPropagation()
         onClick?.()
@@ -655,7 +671,7 @@ interface ResidentProps {
 
 function IceBird({ variant, onClick, id, groundY }: ResidentProps) {
   return (
-    <ResidentMotion phase={0.2} onClick={onClick} id={id} groundY={groundY}>
+    <ResidentMotion phase={0.2} onClick={onClick} id={id} groundY={groundY} scale={0.96}>
       <mesh position={[0, 0.43, 0]} scale={[0.9, 1.02, 0.78]} castShadow>
         <dodecahedronGeometry args={[0.52, 1]} />
         <SurfaceMaterial variant={variant} color="#dceef2" />
@@ -686,7 +702,7 @@ function IceBird({ variant, onClick, id, groundY }: ResidentProps) {
 
 function SnowBlob({ variant, onClick, id, groundY }: ResidentProps) {
   return (
-    <ResidentMotion phase={1.4} onClick={onClick} id={id} groundY={groundY}>
+    <ResidentMotion phase={1.4} onClick={onClick} id={id} groundY={groundY} scale={0.85}>
       <mesh position={[0, 0.43, 0]} scale={[1.08, 0.88, 0.98]} castShadow>
         <dodecahedronGeometry args={[0.54, 1]} />
         <SurfaceMaterial variant={variant} color={GOLDEN_PALETTE.cream} />
@@ -711,7 +727,7 @@ function SnowBlob({ variant, onClick, id, groundY }: ResidentProps) {
 
 function BookBeetle({ variant, onClick, id, groundY }: ResidentProps) {
   return (
-    <ResidentMotion phase={2.6} onClick={onClick} id={id} groundY={groundY}>
+    <ResidentMotion phase={2.6} onClick={onClick} id={id} groundY={groundY} scale={1.21}>
       <mesh position={[0, 0.38, 0]} scale={[0.76, 0.92, 0.68]} castShadow>
         <icosahedronGeometry args={[0.5, 2]} />
         <SurfaceMaterial variant={variant} color="#8f789f" />
