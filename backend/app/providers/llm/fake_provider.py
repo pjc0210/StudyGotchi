@@ -40,7 +40,7 @@ class FakeLLMProvider:
         raise NotImplementedError(
             "FakeLLMProvider cannot synthesize structured extraction output. "
             "Use tests/fixtures or scripts/seed_demo_course.py for a deterministic path, "
-            "or configure LLM_PROVIDER=anthropic with a real API key."
+            "or configure LLM_PROVIDER=openai (or anthropic) with a real API key."
         )
 
     async def embed(self, texts: list[str]) -> list[list[float]]:
@@ -50,5 +50,5 @@ class FakeLLMProvider:
         self, image_bytes: bytes, prompt: str, *, media_type: str = "image/png"
     ) -> str:
         raise NotImplementedError(
-            "FakeLLMProvider cannot analyze images. Configure LLM_PROVIDER=anthropic with a real API key."
+            "FakeLLMProvider cannot analyze images. Configure LLM_PROVIDER=openai (or anthropic) with a real API key."
         )

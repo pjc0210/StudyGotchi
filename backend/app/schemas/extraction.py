@@ -5,10 +5,22 @@ models, validated before anything touches the database. Free-form LLM text
 is never persisted directly.
 """
 
-from pydantic import BaseModel, Field
+from typing import Annotated
 
-from app.domain.ontology.concepts import ConceptKind, Granularity
-from app.domain.ontology.edges import ConceptEdgeType
+from pydantic import BaseModel, BeforeValidator, Field
+
+from app.schemas.coercion import (
+    ConceptEdgeTypeField,
+    ConceptKindField,
+    GranularityField,
+    OptionalUnitInterval,
+    ResourceLinkTypeField,
+    UnitInterval,
+    none_to,
+    none_to_empty_list,
+)
+
+StringList = Annotated[list[str], BeforeValidator(none_to_empty_list)]
 
 
 class EvidenceSnippetOut(BaseModel):
@@ -19,11 +31,13 @@ class EvidenceSnippetOut(BaseModel):
 class ConceptCandidateOut(BaseModel):
     name: str = Field(..., description="Canonical-style concept name, e.g. 'Positive Semidefinite Matrix'.")
     definition: str = Field(..., description="Concise, course-context definition.")
-    concept_kind: ConceptKind
-    granularity: Granularity
-    importance_in_resource: float = Field(..., ge=0.0, le=1.0)
-    aliases: list[str] = Field(default_factory=list)
-    evidence: list[EvidenceSnippetOut] = Field(default_factory=list)
+    concept_kind: ConceptKindField
+    granularity: GranularityField
+    importance_in_resource: UnitInterval
+    aliases: StringList = Field(default_factory=list)
+    evidence: Annotated[list[EvidenceSnippetOut], BeforeValidator(none_to_empty_list)] = Field(
+        default_factory=list
+    )
 
 
 class ConceptRelationshipOut(BaseModel):
@@ -34,7 +48,7 @@ class ConceptRelationshipOut(BaseModel):
 
     source_concept_name: str
     target_concept_name: str
-    edge_type: ConceptEdgeType
+    edge_type: ConceptEdgeTypeField
     # Only populated for PREREQUISITE_FOR: which of the spec's evidence
     # levels this relationship was inferred at, in the model's own words
     # (e.g. "explicit", "instructor_dependency", "assessment_dependency",
@@ -47,15 +61,17 @@ class ConceptRelationshipOut(BaseModel):
 
 class AssessmentItemConceptLinkOut(BaseModel):
     concept_name: str
-    relevance_weight: float = Field(..., ge=0.0, le=1.0)
+    relevance_weight: UnitInterval
 
 
 class AssessmentItemOut(BaseModel):
     label: str = Field(..., description="e.g. 'Q2', 'Question 4b'.")
     prompt: str | None = None
     max_score: float | None = None
-    difficulty: float | None = Field(default=None, ge=0.0, le=1.0)
-    concept_links: list[AssessmentItemConceptLinkOut] = Field(default_factory=list)
+    difficulty: OptionalUnitInterval = None
+    concept_links: Annotated[
+        list[AssessmentItemConceptLinkOut], BeforeValidator(none_to_empty_list)
+    ] = Field(default_factory=list)
     # Populated only when this document is a student's own graded
     # submission and an actual score/grade mark is visible for this item
     # (e.g. "4/5", a circled grade). Left null for an official assignment
@@ -65,9 +81,9 @@ class AssessmentItemOut(BaseModel):
 
 class ResourceConceptLinkOut(BaseModel):
     concept_name: str
-    link_type: str = Field(..., description="EXPLAINED_IN | APPEARS_IN | WORKED_EXAMPLE_IN")
-    depth_score: float = Field(..., ge=0.0, le=1.0)
-    confidence: float = Field(default=0.7, ge=0.0, le=1.0)
+    link_type: ResourceLinkTypeField = Field(..., description="EXPLAINED_IN | APPEARS_IN | WORKED_EXAMPLE_IN")
+    depth_score: UnitInterval
+    confidence: Annotated[UnitInterval, BeforeValidator(none_to(0.7))] = 0.7
     snippet: str | None = None
 
 
@@ -75,10 +91,18 @@ class ResourceExtractionResult(BaseModel):
     """Top-level structured output for one resource/document."""
 
     document_type: str
-    concept_candidates: list[ConceptCandidateOut] = Field(default_factory=list)
-    concept_relationships: list[ConceptRelationshipOut] = Field(default_factory=list)
-    assessment_items: list[AssessmentItemOut] = Field(default_factory=list)
-    resource_concept_links: list[ResourceConceptLinkOut] = Field(default_factory=list)
+    concept_candidates: Annotated[
+        list[ConceptCandidateOut], BeforeValidator(none_to_empty_list)
+    ] = Field(default_factory=list)
+    concept_relationships: Annotated[
+        list[ConceptRelationshipOut], BeforeValidator(none_to_empty_list)
+    ] = Field(default_factory=list)
+    assessment_items: Annotated[list[AssessmentItemOut], BeforeValidator(none_to_empty_list)] = (
+        Field(default_factory=list)
+    )
+    resource_concept_links: Annotated[
+        list[ResourceConceptLinkOut], BeforeValidator(none_to_empty_list)
+    ] = Field(default_factory=list)
 
 
 class ConceptAdjudicationOut(BaseModel):
@@ -100,10 +124,10 @@ class StudentWorkExtractionOut(BaseModel):
     """
 
     problem_identity: str | None = None
-    concepts_used: list[str] = Field(default_factory=list)
+    concepts_used: StringList = Field(default_factory=list)
     attempted_steps_summary: str | None = None
     final_answer: str | None = None
-    correctness: float | None = Field(
-        default=None, ge=0.0, le=1.0, description="null if correctness can't be established from the image."
+    correctness: OptionalUnitInterval = Field(
+        default=None, description="null if correctness can't be established from the image."
     )
     uncertainty_notes: str | None = None
