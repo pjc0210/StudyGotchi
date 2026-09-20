@@ -1,0 +1,10 @@
+{
+  "name": "StudyGotchi Knowledge Engine",
+  "install": "bash .cursor/install.sh",
+  "start": "bash .cursor/start.sh",
+  "terminals": [
+    { "name": "backend-api", "command": "bash .cursor/run-backend.sh" },
+    { "name": "frontend-dev", "command": "cd frontend && npm run dev" }
+  ],
+  "ports": [3000, 8000]
+}
