@@ -30,6 +30,9 @@ import type {
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 export const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK_DATA !== "false";
 
+// Local sandbox: an API running with AUTH_MODE=dev trusts this header instead of Clerk.
+export const DEV_STUDENT_ID = process.env.NEXT_PUBLIC_DEV_STUDENT_ID ?? "";
+
 // Demo identifiers live here only. Live mode learns the student from
 // `GET /api/me` and picks a course from the list it returns.
 export const COURSE_ID = process.env.NEXT_PUBLIC_DEMO_COURSE_ID ?? (USE_MOCK ? MOCK_COURSE.id : "");
@@ -261,7 +264,9 @@ const responseCache = new Map<string, { etag: string; body: unknown }>();
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const headers = new Headers(init?.headers);
   headers.set("Accept", "application/json");
-  if (tokenGetter) {
+  if (DEV_STUDENT_ID) {
+    headers.set("X-Student-Id", DEV_STUDENT_ID);
+  } else if (tokenGetter) {
     const token = await tokenGetter();
     if (token) headers.set("Authorization", `Bearer ${token}`);
   }

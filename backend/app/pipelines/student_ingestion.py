@@ -32,7 +32,7 @@ from app.domain.ontology.source_types import ArtifactType, SourceOrigin
 from app.domain.resources.matching import exposure_events_for_matches, match_chunks_to_concepts
 from app.extractors.assessments import normalize_concept_links
 from app.extractors.chunker import chunk_document
-from app.extractors.concepts import extract_resource_structured
+from app.extractors.concepts import extract_resource_structured, grounded
 from app.extractors.parser import parse_resource
 from app.extractors.student_work import extract_handwritten_work, extract_student_text_work
 from app.pipelines.batching import gather_bounded
@@ -299,8 +299,14 @@ async def analyze_student_resource(
         return outcome
 
     settings = get_settings()
+    # Student files create personal concepts, so a candidate the passage never
+    # mentions (a model's guess from a title or score line) must not get in.
+    async def read_chunk(text: str) -> ResourceExtractionResult:
+        extraction = await extract_resource_structured(provider, document_type=artifact_type.value, chunk_text=text)
+        return grounded(extraction, text)
+
     extractions: list[ResourceExtractionResult] = await gather_bounded(
-        (extract_resource_structured(provider, document_type=artifact_type.value, chunk_text=row.text) for row in chunk_rows),
+        (read_chunk(row.text) for row in chunk_rows),
         limit=settings.ingest_concurrency,
     )
 

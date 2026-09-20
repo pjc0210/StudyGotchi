@@ -16,6 +16,8 @@ const EVENT_LABEL: Record<string, string> = {
   UNDERSTANDING_GAIN: "Grew",
   UNDERSTANDING_DROP: "Slipped",
   CONCEPT_MASTERED: "Mastered",
+  CONCEPT_DISCOVERED: "New idea",
+  FRONTIER_EXPANDED: "Frontier grew",
 };
 
 /**
